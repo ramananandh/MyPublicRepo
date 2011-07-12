@@ -46,7 +46,9 @@ public class ServiceCodeGenArgsValidator {
 			throw new MissingInputOptionException("Service name is missing.");
 		} 
 		else if (inputOptions.getInputType() == null) {
-			throw new MissingInputOptionException("Input type is missing.");
+			throw new MissingInputOptionException("Input type is missing.\n" +
+					"Pls check whether the service_intf_project.properties file exists in the\n project " +
+					"root and make sure the file contains the property interface_source_type");
 		} 
 		else if (CodeGenUtil.isEmptyString(inputOptions.getInputFile())) {
 			throw new MissingInputOptionException("Input file is missing.");

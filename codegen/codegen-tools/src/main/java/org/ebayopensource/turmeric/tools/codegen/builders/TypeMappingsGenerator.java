@@ -17,18 +17,28 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.wsdl.Definition;
 import javax.xml.namespace.QName;
 
+import org.ebayopensource.turmeric.common.config.JavaTypeListConfig;
+import org.ebayopensource.turmeric.common.config.MessageHeaderConfig;
+import org.ebayopensource.turmeric.common.config.MessageTypeConfig;
+import org.ebayopensource.turmeric.common.config.OperationConfig;
+import org.ebayopensource.turmeric.common.config.OperationListConfig;
+import org.ebayopensource.turmeric.common.config.PackageConfig;
+import org.ebayopensource.turmeric.common.config.PackageMapConfig;
+import org.ebayopensource.turmeric.common.config.ServiceTypeMappingConfig;
+import org.ebayopensource.turmeric.common.v1.types.ErrorMessage;
+import org.ebayopensource.turmeric.runtime.codegen.common.OpNameCemcMappingType;
+import org.ebayopensource.turmeric.runtime.codegen.common.OpNameToCemcMappingList;
 import org.ebayopensource.turmeric.runtime.common.impl.utils.LogManager;
 import org.ebayopensource.turmeric.runtime.common.types.SOACommonConstants;
-import org.ebayopensource.turmeric.common.v1.types.ErrorMessage;
 import org.ebayopensource.turmeric.tools.codegen.CodeGenContext;
 import org.ebayopensource.turmeric.tools.codegen.InputOptions;
 import org.ebayopensource.turmeric.tools.codegen.JTypeTable;
@@ -43,23 +53,13 @@ import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.WSDLParser
 import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.ComplexType;
 import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.ElementType;
 import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.Parser;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.SchemaType;
 import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.SimpleType;
 import org.ebayopensource.turmeric.tools.codegen.util.CodeGenConstants;
 import org.ebayopensource.turmeric.tools.codegen.util.CodeGenUtil;
 import org.ebayopensource.turmeric.tools.codegen.util.ContextClassLoaderUtil;
 import org.ebayopensource.turmeric.tools.codegen.util.IntrospectUtil;
 import org.ebayopensource.turmeric.tools.codegen.util.J2STypeMappingUtil;
-
-import org.ebayopensource.turmeric.common.config.JavaTypeListConfig;
-import org.ebayopensource.turmeric.common.config.MessageHeaderConfig;
-import org.ebayopensource.turmeric.common.config.MessageTypeConfig;
-import org.ebayopensource.turmeric.common.config.OperationConfig;
-import org.ebayopensource.turmeric.common.config.OperationListConfig;
-import org.ebayopensource.turmeric.common.config.PackageConfig;
-import org.ebayopensource.turmeric.common.config.PackageMapConfig;
-import org.ebayopensource.turmeric.common.config.ServiceTypeMappingConfig;
-import org.ebayopensource.turmeric.runtime.codegen.common.OpNameCemcMappingType;
-import org.ebayopensource.turmeric.runtime.codegen.common.OpNameToCemcMappingList;
 
 
 /**
@@ -203,8 +203,7 @@ public class TypeMappingsGenerator extends BaseCodeGenerator implements
 	private JavaTypeListConfig getJavaTypeListConfig(CodeGenContext codeGenCtx, Set<String> packageSet, Map<String, String> headerPkgNsMap) {
 
 		JavaTypeListConfig javaTypeListConfig = new JavaTypeListConfig();
-		List<Object> listOfSchemaTypes = new ArrayList<Object>();
-		
+		List<SchemaType> listOfSchemaTypes = new ArrayList<SchemaType>();
 
 		Definition wsdlDefinition = codeGenCtx.getWsdlDefinition();
 		if (wsdlDefinition == null) {
@@ -214,11 +213,12 @@ public class TypeMappingsGenerator extends BaseCodeGenerator implements
 		}
 
 		try {
-			Parser.getAllSchemaTypes(wsdlDefinition, listOfSchemaTypes, null);
-		} catch (WSDLParserException e) {
+			//use the centralized method.
+			WSDLUtil.persistAndPopulateAllSchemaTypes(codeGenCtx, listOfSchemaTypes, null);
+		} catch (Exception e) {
 			getLogger().log(Level.WARNING,
 							"WSDL definition parsing failed in the method getAllTypesQName in TypeMappingsGenerator. So the types list won't be created  \n"
-									+ "Exception is :" + e.getMessage());
+									+ "Exception is :" + e.getMessage(), e);
 			return javaTypeListConfig;
 		}
 

@@ -8,10 +8,18 @@
  *******************************************************************************/
 package org.ebayopensource.turmeric.runtime.sif.service;
 
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.xml.namespace.QName;
+
+import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorDataFactory;
+import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceCreationException;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceRuntimeException;
+import org.ebayopensource.turmeric.runtime.errorlibrary.ErrorConstants;
 import org.ebayopensource.turmeric.runtime.sif.impl.internal.pipeline.ClientMessageProcessor;
 import org.ebayopensource.turmeric.runtime.sif.impl.internal.service.ClientServiceDesc;
 import org.ebayopensource.turmeric.runtime.sif.impl.internal.service.ClientServiceDescFactory;
@@ -26,6 +34,7 @@ import org.ebayopensource.turmeric.runtime.sif.impl.internal.service.ClientServi
  * @author smalladi
  */
 public final class ServiceFactory {
+	
 	private ServiceFactory() {
 		// no instances
 	}
@@ -45,7 +54,7 @@ public final class ServiceFactory {
 	 */
 	public static Service create(String serviceAdminName)
 			throws ServiceException {
-		return create(serviceAdminName, null, null, null, null, null, false);
+		return create(serviceAdminName, false);
 	}
 
 	/**
@@ -64,7 +73,7 @@ public final class ServiceFactory {
 	 */
 	public static Service create(String serviceAdminName, boolean rawMode)
 			throws ServiceException {
-		return create(serviceAdminName, null, null, null, null, null, rawMode);
+		return create(serviceAdminName, null, rawMode);
 	}
 
 	/**
@@ -83,8 +92,7 @@ public final class ServiceFactory {
 	 */
 	public static Service create(String serviceAdminName, String clientName)
 			throws ServiceException {
-		return create(serviceAdminName, clientName, null, null, null, null,
-				false);
+		return create(serviceAdminName, clientName, false);
 	}
 
 	/**
@@ -105,8 +113,7 @@ public final class ServiceFactory {
 	 */
 	public static Service create(String serviceAdminName, String clientName,
 			boolean rawMode) throws ServiceException {
-		return create(serviceAdminName, clientName, null, null, null, null,
-				rawMode);
+		return create(serviceAdminName, clientName, null, rawMode);
 	}
 
 	/**
@@ -127,8 +134,7 @@ public final class ServiceFactory {
 	 */
 	public static Service create(String serviceAdminName, String clientName,
 			URL serviceLocation) throws ServiceException {
-		return create(serviceAdminName, clientName, serviceLocation, null,
-				null, null, false);
+		return create(serviceAdminName, clientName, serviceLocation,  false);
 	}
 
 	/**
@@ -151,8 +157,7 @@ public final class ServiceFactory {
 	 */
 	public static Service create(String serviceAdminName, String clientName,
 			URL serviceLocation, boolean rawMode) throws ServiceException {
-		return create(serviceAdminName, clientName, serviceLocation, null,
-				null, null, rawMode);
+		return create(serviceAdminName, clientName, serviceLocation, null, rawMode);
 	}
 
 	/**
@@ -174,8 +179,7 @@ public final class ServiceFactory {
 	 */
 	public static Service create(String serviceAdminName, String clientName,
 			URL serviceLocation, String serviceVersion) throws ServiceException {
-		return create(serviceAdminName, clientName, serviceLocation,
-				serviceVersion, null, null, false);
+		return create(serviceAdminName, clientName, serviceLocation,  serviceVersion, false);
 	}
 
 	/**
@@ -224,8 +228,7 @@ public final class ServiceFactory {
 	public static Service create(String serviceAdminName,
 			String environmentName, String clientName, URL serviceLocation)
 			throws ServiceException {
-		return create(serviceAdminName, clientName, serviceLocation, null,
-				null, environmentName, false);
+		return create(serviceAdminName, environmentName, clientName, serviceLocation, false);
 
 	}
 
@@ -260,14 +263,74 @@ public final class ServiceFactory {
 	private static Service create(String serviceAdminName, String clientName,
 			URL serviceLocation, String serviceVersion, URL wsdlLocation,
 			String environmentName, boolean rawMode) throws ServiceException {
+		return create(serviceAdminName, clientName, serviceLocation, null, null, environmentName, rawMode, false);
+	}
+
+	private static Service create(String serviceAdminName, String clientName,
+			URL serviceLocation, String serviceVersion, URL wsdlLocation,
+			String environmentName, boolean rawMode, boolean useDefaultClientConfig) 
+			throws ServiceException {
+		
+		List<URL> serviceLocationList;
+		if(serviceLocation == null)
+			serviceLocationList = null;
+		else{
+			serviceLocationList = new ArrayList<URL>();
+			serviceLocationList.add(serviceLocation);
+		}
+		
 		initialize();
 
 		ClientServiceDesc serviceDesc = ClientServiceDescFactory.getInstance()
-				.getServiceDesc(serviceAdminName, clientName, environmentName,
-						rawMode);
+				.getServiceDesc(serviceAdminName, clientName, environmentName, rawMode, useDefaultClientConfig);
 
-		return new Service(serviceDesc, serviceLocation, serviceVersion,
-				wsdlLocation);
+		return new Service(serviceDesc, serviceLocationList, 
+				serviceVersion, wsdlLocation);
+	}
+
+	public static Service createFromBase(String baseAdminName,
+			String baseClientName, String baseEnvironmentName, String targetServiceAdminName, 
+			URL targetServiceLocation, boolean rawMode) throws ServiceException {
+		
+		return createFromBase(baseAdminName, baseClientName, baseEnvironmentName, 
+				targetServiceAdminName,null, null,  targetServiceLocation, rawMode);
+	}
+
+	
+	public static Service createFromBase(String baseAdminName,
+			String baseClientName, String baseEnvironmentName,  String targetServiceAdminName, 
+			String targetServiceName, String targetServiceNamespace,
+			URL targetServiceLocation, boolean rawMode) throws ServiceException {
+		
+		initialize();
+
+		QName srvQName = null;
+		URL targetWSDL = null;
+		if (targetServiceLocation != null )
+			targetWSDL = getWsdlUrl(targetServiceLocation); 
+		if(targetServiceNamespace != null && targetServiceNamespace != null){
+			srvQName = new QName(targetServiceNamespace,targetServiceName);
+		}
+		ClientServiceDesc serviceDesc = ClientServiceDescFactory.getInstance()
+				.getServiceDesc(baseAdminName, baseClientName,
+						baseEnvironmentName, rawMode, targetServiceAdminName, srvQName, targetWSDL);
+
+		return new Service(serviceDesc, targetServiceLocation, null, targetWSDL);
+	}
+	
+	private static URL getWsdlUrl( URL serviceLocation)
+			throws ServiceException {
+		URL targetWSDL = null;
+		try {
+			StringBuilder sb = new StringBuilder(serviceLocation.toString());
+			sb.append("?wsdl");
+			targetWSDL = new URL(sb.toString());
+		} catch (MalformedURLException e) {
+			throw new ServiceCreationException(
+					ErrorDataFactory.createErrorData(ErrorConstants.SVC_CLIENT_INVALID_URL_PATH,
+							ErrorConstants.ERRORDOMAIN, new Object[] {serviceLocation.toString()}));
+		}
+		return targetWSDL;
 	}
 
 	/**

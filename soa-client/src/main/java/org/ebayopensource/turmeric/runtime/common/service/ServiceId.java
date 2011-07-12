@@ -36,6 +36,7 @@ public abstract class ServiceId {
 	private final String version;
 	private final String namespace;
 	private final boolean isClientSide;	
+	private boolean useDefaultConfig;
 	private int hashCode;
 	
 	/**
@@ -176,4 +177,13 @@ public abstract class ServiceId {
 	public String getCanonicalServiceName() {
 		return "(" + namespace + COMMA+ serviceName + COMMA + version + ")";
 	}
+
+	public boolean useDefaultConfig() {
+	    return useDefaultConfig;
+    }
+	
+	public void setUseDefaultConfig(boolean useDefaultConfig) {
+    	this.useDefaultConfig = useDefaultConfig;
+    }
+
 }

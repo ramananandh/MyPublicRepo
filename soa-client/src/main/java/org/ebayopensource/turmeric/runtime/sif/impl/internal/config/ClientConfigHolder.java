@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -52,6 +53,7 @@ public class ClientConfigHolder extends CommonConfigHolder {
 	private String m_responseDataBinding;
 	private String m_preferredTransport;
 	private String m_serviceLocation;
+	private List<String> m_serviceLocations; 
 	private Map<String, String> m_serviceLocationMap = CollectionUtils.EMPTY_STRING_MAP;
 	private String m_wsdlLocation;
 	private String m_requestPayloadLog;
@@ -117,6 +119,8 @@ public class ClientConfigHolder extends CommonConfigHolder {
 		m_responseDataBinding = configToCopy.m_responseDataBinding;
 		m_preferredTransport = configToCopy.m_preferredTransport;
 		m_serviceLocation = configToCopy.m_serviceLocation;
+		if(m_serviceLocations!=null)
+			m_serviceLocations = new ArrayList<String>(configToCopy.m_serviceLocations);
 		m_serviceLocationMap = new HashMap<String, String>(configToCopy.m_serviceLocationMap);
 		m_wsdlLocation = configToCopy.m_wsdlLocation;
 		m_requestPayloadLog = configToCopy.m_requestPayloadLog;
@@ -176,6 +180,8 @@ public class ClientConfigHolder extends CommonConfigHolder {
 		newCH.m_responseDataBinding = m_responseDataBinding;
 		newCH.m_preferredTransport = m_preferredTransport;
 		newCH.m_serviceLocation = m_serviceLocation;
+		if(m_serviceLocations!=null)
+			newCH.m_serviceLocations = new ArrayList<String>(m_serviceLocations);
 		newCH.m_serviceLocationMap = new HashMap<String, String>(m_serviceLocationMap);
 		newCH.m_wsdlLocation = m_wsdlLocation;
 		newCH.m_requestPayloadLog = m_requestPayloadLog;
@@ -647,8 +653,28 @@ public class ClientConfigHolder extends CommonConfigHolder {
 	 */
 	public void setServiceLocation(String location) {
 		checkReadOnly();
-		m_serviceLocation = location;
+		// can be sent in as a comma delimited string
+		m_serviceLocations = getLocations(location);
+		if(m_serviceLocations!=null)
+			m_serviceLocation = m_serviceLocations.get(0);
+		else
+			m_serviceLocation = null;
 	}
+
+	public List<String> getServiceLocations(){
+		return m_serviceLocations;
+	}
+
+	
+	public void setServiceLocations(List<String> locations) {
+		checkReadOnly();
+		m_serviceLocations = locations;
+		if(locations!=null && !locations.isEmpty())
+			m_serviceLocation = locations.get(0);
+		else
+			m_serviceLocation = null;
+	}
+
 	
 	/**
 	 * Returns the m_serviceLocationMap
@@ -749,6 +775,11 @@ public class ClientConfigHolder extends CommonConfigHolder {
 		}
 		if (m_serviceLocation != null) {
 			sb.append("serviceLocation="+m_serviceLocation+NL);
+		}
+		if (m_serviceLocations != null && !m_serviceLocations.isEmpty()) {
+			sb.append("serviceLocations=");
+			ConfigUtils.dumpList(sb, m_serviceLocations);
+			sb.append(NL);
 		}
 		if (m_serviceLocationMap != null && !m_serviceLocationMap.isEmpty()) {
 			sb.append("serviceLocationMapEntries=");
@@ -898,7 +929,17 @@ public class ClientConfigHolder extends CommonConfigHolder {
 		}
 		return outList;
 	}
-
+	
+	public List<String> getLocations(String loc){
+		if(loc == null)
+			return null;
+		StringTokenizer tokenizer = new StringTokenizer(loc, ",");
+		List<String> outList = new ArrayList<String>();
+		while (tokenizer.hasMoreTokens()) {
+			outList.add(tokenizer.nextToken());
+		}
+		return outList;
+	}
 
 	public boolean isIgnoreServiceVersion() {
 		return m_ignoreServiceVersion;

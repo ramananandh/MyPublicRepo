@@ -36,14 +36,14 @@ import org.ebayopensource.turmeric.runtime.sif.service.ServiceInvokerOptions;
 
 public class TypedDataServiceDispatch extends BaseServiceDispatchImpl<Object> {
 
-	public TypedDataServiceDispatch(String opName, URL serviceLocation,
+	public TypedDataServiceDispatch(String opName, List<URL> locations,
 			ClientServiceDesc serviceDesc, URL wsdlLocation,
 			ServiceInvokerOptions invokerOptions, String serviceVersion,
 			Map<String, Cookie> cookies, Map<String, String> transportHeaders,
 			Collection<ObjectNode> messageHeaders, G11nOptions g11Options,
 			RequestContext requestContext, Executor executor,
 			IAsyncResponsePoller servicePoller) throws ServiceException {
-		super(opName, serviceLocation, serviceDesc, wsdlLocation,
+		super(opName, locations, serviceDesc, wsdlLocation,
 				invokerOptions, serviceVersion, cookies, transportHeaders,
 				messageHeaders, g11Options, requestContext, executor,
 				servicePoller);

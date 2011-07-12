@@ -8,26 +8,27 @@
  *******************************************************************************/
 package org.ebayopensource.turmeric.runtime.common.impl.internal.pipeline;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.net.URLDecoder;
 import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import org.ebayopensource.turmeric.common.v1.types.ErrorCategory;
-import org.ebayopensource.turmeric.common.v1.types.CommonErrorData;
-import org.ebayopensource.turmeric.common.v1.types.ErrorMessage;
-import org.ebayopensource.turmeric.common.v1.types.ErrorParameter;
-import org.ebayopensource.turmeric.common.v1.types.ErrorSeverity;
 import org.ebayopensource.turmeric.runtime.binding.impl.parser.objectnode.ObjectNodeBuilder;
 import org.ebayopensource.turmeric.runtime.binding.impl.parser.objectnode.ObjectNodeStreamReader;
 import org.ebayopensource.turmeric.runtime.binding.impl.parser.objectnode.SOAPObjectNodeStreamReader;
@@ -36,12 +37,15 @@ import org.ebayopensource.turmeric.runtime.binding.objectnode.impl.ObjectNodeImp
 import org.ebayopensource.turmeric.runtime.common.binding.DataBindingDesc;
 import org.ebayopensource.turmeric.runtime.common.binding.Deserializer;
 import org.ebayopensource.turmeric.runtime.common.binding.DeserializerFactory;
+import org.ebayopensource.turmeric.runtime.common.binding.IProtobufDeserializer;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorDataFactory;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
 import org.ebayopensource.turmeric.runtime.common.impl.attachment.BaseMessageAttachments;
 import org.ebayopensource.turmeric.runtime.common.impl.attachment.InboundMessageAttachments;
+import org.ebayopensource.turmeric.runtime.common.impl.binding.protobuf.ProtobufDeserializerFactory;
 import org.ebayopensource.turmeric.runtime.common.impl.internal.monitoring.SystemMetricDefs;
 import org.ebayopensource.turmeric.runtime.common.impl.internal.utils.PrereadingRawDataRecorder;
+import org.ebayopensource.turmeric.runtime.common.impl.utils.LogManager;
 import org.ebayopensource.turmeric.runtime.common.pipeline.InboundMessage;
 import org.ebayopensource.turmeric.runtime.common.pipeline.ProtocolProcessor;
 import org.ebayopensource.turmeric.runtime.common.service.ServiceOperationDesc;
@@ -71,6 +75,14 @@ public final class InboundMessageImpl extends BaseMessageImpl implements Inbound
 	private ObjectNode m_root;
 	private PrereadingRawDataRecorder m_recordingStream;
 	private Collection<Object> m_javaObjectMsgHeaders;
+	private static Logger m_logger = null;
+
+	private static Logger getLogger() {
+		if (null == m_logger) {
+			m_logger = LogManager.getInstance(InboundMessageImpl.class);
+		}
+		return m_logger;
+	}
 
 	/**
 	 * Internal constructor. Client or service writers should never construct messages directly.
@@ -91,10 +103,21 @@ public final class InboundMessageImpl extends BaseMessageImpl implements Inbound
 		ServiceOperationDesc operationDesc)
 		throws ServiceException
 	{
-		super(isRequestMessage, transportProtocol, dataBindingDesc,
-			g11nOptions, transportHeaders, cookies, messageHeaders, attachments, operationDesc);
-	}
+		this(isRequestMessage, transportProtocol, dataBindingDesc,
+				g11nOptions, transportHeaders, cookies, messageHeaders, attachments, operationDesc, false);
+		}
 
+		public InboundMessageImpl(boolean isRequestMessage, String transportProtocol,
+				DataBindingDesc dataBindingDesc, G11nOptions g11nOptions,
+				Map<String,String> transportHeaders, Cookie[] cookies,
+				Collection<ObjectNode> messageHeaders,
+				BaseMessageAttachments attachments,
+				ServiceOperationDesc operationDesc, boolean bufferingMode)
+				throws ServiceException
+		{
+				super(isRequestMessage, transportProtocol, dataBindingDesc,
+					g11nOptions, transportHeaders, cookies, messageHeaders, attachments, operationDesc, bufferingMode);
+		}
 
 	public Collection<Object> getMessageHeadersAsJavaObject() throws ServiceException {
 
@@ -280,15 +303,22 @@ public final class InboundMessageImpl extends BaseMessageImpl implements Inbound
 
 			if (hasErrorTransportHeader()) {
 				Class javaType = getErrorParamType();
-				if (hasExpectedErrorElement()) {
-					// found expected error element. Continue deserialization
-					m_errorResponse = deser.deserialize(this, javaType);
 
-				} else {
-					// found unknown error element. Consume the element and
-					// return the root element inside message body as an object node
-					m_errorResponse = consumeMessageBodyRootElement(deser, javaType);
+				if (deserFactory instanceof ProtobufDeserializerFactory) {
+                    IProtobufDeserializer ideser = (IProtobufDeserializer) deser;
+                    m_errorResponse = ideser.deserialize(null, javaType, m_inputStream);
+                }
+				else {
+					if (hasExpectedErrorElement()) {
+						// found expected error element. Continue de-serialization
+						m_errorResponse = deser.deserialize(this, javaType);
+					} else {
+						// found unknown error element. Consume the element and
+						// return the root element inside message body as an object node
+						m_errorResponse = consumeMessageBodyRootElement(deser, javaType);
+					}
 				}
+
 				if (m_errorResponse == null ) {
 					// unable to deserialize the error response
 					throw new ServiceException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_DATA_NULL_ERROR_DESERIALIZE,
@@ -299,12 +329,22 @@ public final class InboundMessageImpl extends BaseMessageImpl implements Inbound
 				List<Class> paramTypes = getParamTypes();
 
 				if (!paramTypes.isEmpty()) {
+
+					if (deserFactory instanceof ProtobufDeserializerFactory) {
+						IProtobufDeserializer ideser = (IProtobufDeserializer) deser;
+	                        m_params = new Object[paramTypes.size()];
+	                        for (int i = 0; i < paramTypes.size(); i++) {
+	                            m_params[i] = ideser.deserialize(null, paramTypes.get(i), m_inputStream);
+	                        }
+	                        return;
+	                }
+
 					m_params = new Object[paramTypes.size()];
-					for (int i=0; i<paramTypes.size(); i++) {
-						Class paramType = paramTypes.get(i);
-						Object value = deser.deserialize(this, paramType);
-						m_params[i] = value;
-						processQueryParameters(ctx.getQueryParams(), paramType, value);	
+					for (int i = 0; i < paramTypes.size(); i++) {
+					    Class paramType = paramTypes.get(i);
+					    Object value = deser.deserialize(this, paramType);
+					    m_params[i] = value;
+						processQueryParameters(ctx.getRawQueryParams(), ctx.getCharset(), paramType, value);
 					}
 				}
 
@@ -383,6 +423,13 @@ public final class InboundMessageImpl extends BaseMessageImpl implements Inbound
 	 * @see org.ebayopensource.turmeric.runtime.common.pipeline.InboundMessage#setInputStream(java.io.InputStream)
 	 */
 	public void setInputStream(InputStream is) throws ServiceException {
+		setInputStream(is, InboundMessageAttachments.IN_MEMORY_ATTACHMENT_LIMIT);
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.ebay.soaframework.common.pipeline.InboundMessage#setInputStream(java.io.InputStream)
+	 */
+	public void setInputStream(InputStream is, Integer inMemoryAttachmentLimit) throws ServiceException {
 		if (is == null) {
 			throw new NullPointerException();
 		}
@@ -427,13 +474,33 @@ public final class InboundMessageImpl extends BaseMessageImpl implements Inbound
 			throw new IllegalStateException("InboundMessageImpl is in no-stream mode");
 		}
 
-		InboundMessageAttachments attachments = InboundMessageAttachments.createInboundAttachments(is, this);
+		InboundMessageAttachments attachments = 
+			InboundMessageAttachments.createInboundAttachments(is, this, inMemoryAttachmentLimit);
 		if (null != attachments) {
 			m_attachments = attachments;
 			InputStream rootInputStream = m_attachments.getInputStreamForMasterMessage();
 			is = rootInputStream;
 		}
-		m_inputStream = is;
+		
+		if(isBufferingMode()) {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			byte[] temp = new byte[4096];
+			int n;
+			try {
+				while ((n = is.read(temp)) != -1) {
+					baos.write(temp, 0, n);
+				}
+				m_inputStream = new ByteArrayInputStream(baos.toByteArray());
+			} catch (IOException e) {
+				ServiceException se = new ServiceException(
+						ErrorDataFactory.createErrorData(ErrorConstants.SVC_RT_CANNOT_READ_FROM_STREAM,
+						ErrorConstants.ERRORDOMAIN, new Object[] {e.toString()}), e);
+				getContext().addError(se);
+			}
+		}
+		else {
+			m_inputStream = is;
+		}
 
 		startRecording();
 
@@ -677,19 +744,24 @@ public final class InboundMessageImpl extends BaseMessageImpl implements Inbound
 		processInboundHeaders();
 	}
 
-	public Class getInputStreamClass() {
+	public Class<?> getInputStreamClass() {
 	    return m_inputStream == null ? null : m_inputStream.getClass();
 	}
 
-	private Object processQueryParameters(Map<String, String> queryParams, Class<?> paramType, Object toReturn) {
-		if(queryParams == null || queryParams.isEmpty()) { 
-			return toReturn;					
+	private Object processQueryParameters(Map<String, String> queryParams, Charset charset, Class<?> paramType, Object toReturn) {
+		if(queryParams == null || queryParams.isEmpty()) {
+			return toReturn;
 		}
 		Set<Map.Entry<String, String>> entries = queryParams.entrySet();
-		
+
+		String encoding = charset.name();
 		for(Map.Entry<String, String> e: entries) {
-			setValue(e.getKey(), e.getValue(), toReturn, paramType);
-		}		
+			try {
+				setValue(URLDecoder.decode(e.getKey(), encoding), URLDecoder.decode(e.getValue(), encoding), toReturn, paramType);
+			} catch (UnsupportedEncodingException e1) {
+				getLogger().log(Level.WARNING, "Specified encoding '" + encoding + "' is not valid");
+			}
+		}	
 
 		return toReturn;
 	}
@@ -720,10 +792,10 @@ public final class InboundMessageImpl extends BaseMessageImpl implements Inbound
 			// Collections are not supported in SOA 2.8
 		}
 	}
-	
-	private void setFieldValue(Object o, Field f, String v) 
+
+	private void setFieldValue(Object o, Field f, String v)
 	throws IllegalArgumentException, IllegalAccessException {
-		Object val  = adaptType(v, f.getType(), f.getName(), o);		
+		Object val  = adaptType(v, f.getType(), f.getName(), o);
 		if(val != null) {
 			f.set(o, val);
 		}

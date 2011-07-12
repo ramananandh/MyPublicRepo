@@ -61,6 +61,7 @@ public abstract class BaseMessageImpl implements Message {
 	private Object m_transportData;
 	protected Collection<ObjectNode> m_messageHeaders;
 	protected ByteBuffer m_byteBuffer;
+	private boolean m_bufferingMode;
 
 	// On server side, we will change the g11n options in request pipeline
 	// g11n handler.
@@ -85,7 +86,7 @@ public abstract class BaseMessageImpl implements Message {
 		DataBindingDesc dataBindingDesc, G11nOptions g11nOptions,
 		Map<String,String> transportHeaders, Cookie[] cookies,
 		Collection<ObjectNode> messageHeaders,
-		BaseMessageAttachments attachments, ServiceOperationDesc operationDesc)
+		BaseMessageAttachments attachments, ServiceOperationDesc operationDesc, boolean bufferingMode)
 		throws ServiceException
 	{
 		if (transportProtocol == null || dataBindingDesc == null ||
@@ -113,6 +114,7 @@ public abstract class BaseMessageImpl implements Message {
 
 		m_attachments = attachments;
 		m_operationDesc = operationDesc;
+		m_bufferingMode = bufferingMode;
 	}
 
 	/*
@@ -597,5 +599,9 @@ public abstract class BaseMessageImpl implements Message {
 	public void resetContext()
 	{
 		m_context = null;
+	}
+	
+	public boolean isBufferingMode() {
+		return m_bufferingMode;
 	}
 }

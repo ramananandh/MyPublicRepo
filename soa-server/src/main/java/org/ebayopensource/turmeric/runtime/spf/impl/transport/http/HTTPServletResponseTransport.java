@@ -30,6 +30,8 @@ import org.ebayopensource.turmeric.runtime.common.pipeline.TransportOptions;
 import org.ebayopensource.turmeric.runtime.common.types.Cookie;
 import org.ebayopensource.turmeric.runtime.common.types.SOAConstants;
 import org.ebayopensource.turmeric.runtime.errorlibrary.ErrorConstants;
+import org.ebayopensource.turmeric.runtime.spf.pipeline.HttpError;
+
 import com.ebay.kernel.gzip.ConfigurableGzipOutputStream;
 
 public class HTTPServletResponseTransport implements Transport {
@@ -39,7 +41,7 @@ public class HTTPServletResponseTransport implements Transport {
 	public HTTPServletResponseTransport(HttpServletResponse response) {
 		m_response = response;
 
-		m_enable_gzip = false;;
+		m_enable_gzip = false;
 	}
 	
 	public HTTPServletResponseTransport(HttpServletRequest req, HttpServletResponse response) {
@@ -79,10 +81,15 @@ public class HTTPServletResponseTransport implements Transport {
 		OutboundMessage serverResponse = (OutboundMessage) msg;
 
 		if (serverResponse.isUnserializable()) {
+			int errorCode = HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
 			String reason = serverResponse.getUnserializableReason();
+			Object errorResponse = serverResponse.getErrorResponse();
+			if(errorResponse instanceof HttpError){
+				reason = ((HttpError)errorResponse).getMessage();
+				errorCode = ((HttpError)errorResponse).getCode();
+			} 
 			try {
-				m_response.sendError(
-						HttpServletResponse.SC_INTERNAL_SERVER_ERROR, reason);
+				m_response.sendError(errorCode, reason);
 			} catch (IOException e) {
 				throw new ServiceException(
 						ErrorDataFactory.createErrorData(ErrorConstants.SVC_TRANSPORT_OUTBOUND_IO_EXCEPTION,
@@ -134,8 +141,8 @@ public class HTTPServletResponseTransport implements Transport {
 		}
 	}
 
-	private void sendData(OutboundMessage msg, boolean enable_gzip) throws IOException,
-			ServiceException {
+	private void sendData(OutboundMessage msg, boolean enable_gzip) 
+			throws IOException, ServiceException {
 		try {
 			OutputStream os = m_response.getOutputStream();
             if (enable_gzip) {
@@ -163,7 +170,8 @@ public class HTTPServletResponseTransport implements Transport {
 				"Async Operation is not supported on HTTPServletResponseTransport");
 	}
 
-	public void retrieve(MessageContext context, Future<?> futureResp) throws ServiceException {
+	public void retrieve(MessageContext context, Future<?> futureResp) 
+			throws ServiceException {
 		throw new UnsupportedOperationException(
 		"Async Operation is not support on HTTPServletResponseTransport");
 	}

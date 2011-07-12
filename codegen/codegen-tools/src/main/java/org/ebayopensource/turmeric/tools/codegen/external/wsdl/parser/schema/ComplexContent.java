@@ -19,7 +19,7 @@ import org.w3c.dom.NodeList;
  * 
  * @author Owen Burroughs <owenb@apache.org>
  */
-public class ComplexContent implements Serializable {
+public class ComplexContent extends Annotation implements Serializable {
 	
 	static final long serialVersionUID = 1L;
 		
@@ -31,6 +31,8 @@ public class ComplexContent implements Serializable {
 	 * @param el The dom element for this complexContent
 	 */	
 	ComplexContent(Element el, String tns) {
+		super(el, tns);
+
 		NodeList children = el.getChildNodes();
 		for (int i=0; i<children.getLength(); i++) {
 			Node child = children.item(i);

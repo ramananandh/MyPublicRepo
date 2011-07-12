@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
@@ -110,8 +111,11 @@ public class ToolsXJCWrappper {
 				
 		  	   if(inStream == null){
 		  		    getLogger().log(Level.SEVERE, "Resolver could not locate the XSD file :  " + importedXSDFilePath );
-		  		    
+		  		  
+		  		    String[] pathsLookedup = new String[]{ TypeLibraryConstants.TYPES_FOLDER + "/" + libraryName +  "/"   + importedXsdFileName, importedXSDFilePath };
 		  		    String errMsg = "The Type " + s_currProcessedType + "  refers to the file " + importedXsdFileName + ". But the referred file could not be found.";
+		  		    errMsg = errMsg + " The paths looked up are " + Arrays.toString( pathsLookedup );
+
 		  		    FileNotFoundException fileNotFoundException = new FileNotFoundException(errMsg);
 		  		    CodeGenTypeLibraryGenerator.addExceptionsToXSDErrorList(s_refToxsdsWithError, fileNotFoundException, s_currProcessedType);
 		  		    

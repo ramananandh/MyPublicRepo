@@ -56,7 +56,7 @@ public final class ClientServiceDesc extends ServiceDesc {
 	private final String m_serviceVersion;
 	private final String m_useCase;
 	private final String m_consumerId;
-	private final URL m_defServiceLocationURL;
+//	private final URL m_defServiceLocationURL;
 	private final ApplicationRetryHandler m_retryHandler;
 	private final ErrorResponseAdapter m_customErrorResponseAdapter;
 	private final CacheProvider m_cacheProviderClass;
@@ -65,6 +65,7 @@ public final class ClientServiceDesc extends ServiceDesc {
 	private final AutoMarkdownStateFactory m_autoMarkdownStateFactory;
 	private final String m_urlPathInfo;
 	private Class m_proxyClass;
+	private List<URL> m_allServiceLocations;
 	
 //	public ClientServiceDesc(ClientServiceDesc desc, ClientServiceId id, QName serviceQName, ServiceTypeMappings typeMappings){
 //		
@@ -135,8 +136,8 @@ public final class ClientServiceDesc extends ServiceDesc {
 				: g11nOptions;
 		serviceVersion = serviceVersion == null ? descToCopy.m_serviceVersion
 				: serviceVersion;
-		defServiceLocationURL = defServiceLocationURL == null ? descToCopy.m_defServiceLocationURL
-				: defServiceLocationURL;
+		m_allServiceLocations=(m_allServiceLocations==null||m_allServiceLocations.isEmpty())? 
+				descToCopy.m_allServiceLocations:m_allServiceLocations;
 		retryHandler = retryHandler == null ? descToCopy.m_retryHandler
 				: retryHandler;
 		customErrorResponseAdapter = customErrorResponseAdapter == null ? descToCopy.m_customErrorResponseAdapter
@@ -174,7 +175,7 @@ public final class ClientServiceDesc extends ServiceDesc {
 		m_serviceVersion = serviceVersion;								// null OK
 		m_useCase = config.getInvocationUseCase();						// null OK
 		m_consumerId = config.getConsumerId();                          // null OK
-		m_defServiceLocationURL = defServiceLocationURL;				// null OK
+//		m_defServiceLocationURL = defServiceLocationURL;				// null OK
 		m_retryHandler = retryHandler;
 		m_customErrorResponseAdapter = customErrorResponseAdapter;		// null OK
 		m_autoMarkdownStateFactory = autoMarkdownStateFactory;			// null OK
@@ -206,7 +207,7 @@ public final class ClientServiceDesc extends ServiceDesc {
 		DataBindingDesc defResponseDataBinding,
 		String defTransportName,
 		Transport defTransport,
-		URL defServiceLocationURL,
+		List<URL> locations,
 		String serviceVersion,
 		ApplicationRetryHandler retryHandler,
 		ErrorResponseAdapter customErrorResponseAdapter,
@@ -256,7 +257,7 @@ public final class ClientServiceDesc extends ServiceDesc {
 		m_serviceVersion = serviceVersion;								// null OK
 		m_useCase = config.getInvocationUseCase();						// null OK
 		m_consumerId = config.getConsumerId();                          // null OK
-		m_defServiceLocationURL = defServiceLocationURL;				// null OK
+		m_allServiceLocations = locations;
 		m_retryHandler = retryHandler;
 		m_customErrorResponseAdapter = customErrorResponseAdapter;		// null OK
 		m_autoMarkdownStateFactory = autoMarkdownStateFactory;			// null OK
@@ -330,7 +331,19 @@ public final class ClientServiceDesc extends ServiceDesc {
 	 * @return
 	 */
 	public URL getDefServiceLocationURL() {
-		return m_defServiceLocationURL;
+		if(m_allServiceLocations==null || m_allServiceLocations.isEmpty())
+			return null;
+		return m_allServiceLocations.get(0);
+	}
+	
+	public List<URL> getServiceLocations(){
+		return m_allServiceLocations;
+	}
+	
+	public List<URL> getAlternateServiceLocationURLs(){
+		if(m_allServiceLocations==null || m_allServiceLocations.isEmpty() || m_allServiceLocations.size()<2)
+			return null;
+		return m_allServiceLocations.subList(1, m_allServiceLocations.size());
 	}
 
 	/**

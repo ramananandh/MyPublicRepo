@@ -10,6 +10,7 @@ package org.ebayopensource.turmeric.runtime.sif.impl.internal.service;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -19,7 +20,9 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
+import org.ebayopensource.turmeric.common.v1.types.CommonErrorData;
+import org.ebayopensource.turmeric.common.v1.types.ErrorCategory;
+import org.ebayopensource.turmeric.common.v1.types.ErrorMessage;
 import org.ebayopensource.turmeric.runtime.common.errors.ErrorDataProvider;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorDataFactory;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
@@ -33,15 +36,13 @@ import org.ebayopensource.turmeric.runtime.common.impl.utils.LogManager;
 import org.ebayopensource.turmeric.runtime.common.pipeline.MessageContext;
 import org.ebayopensource.turmeric.runtime.common.types.Cookie;
 import org.ebayopensource.turmeric.runtime.errorlibrary.ErrorConstants;
+import org.ebayopensource.turmeric.runtime.sif.impl.internal.markdown.SOAClientMarkdownState;
+import org.ebayopensource.turmeric.runtime.sif.impl.internal.markdown.SOAClientMarkdownStateId;
 import org.ebayopensource.turmeric.runtime.sif.impl.internal.markdown.SOAClientMarkdownStateManager;
 import org.ebayopensource.turmeric.runtime.sif.impl.internal.pipeline.ClientMessageContextImpl;
+import org.ebayopensource.turmeric.runtime.sif.pipeline.AutoMarkdownStateFactory;
 import org.ebayopensource.turmeric.runtime.sif.pipeline.ErrorResponseAdapter;
 import org.ebayopensource.turmeric.runtime.sif.service.Service;
-
-import org.ebayopensource.turmeric.common.v1.types.CommonErrorData;
-import org.ebayopensource.turmeric.common.v1.types.ErrorCategory;
-import org.ebayopensource.turmeric.common.v1.types.ErrorData;
-import org.ebayopensource.turmeric.common.v1.types.ErrorMessage;
 
 
 
@@ -235,13 +236,29 @@ public final class ServiceCallHelper {
 	}
 
 	public static void checkMarkdownError(ClientMessageContextImpl context, Throwable e) {
+		checkMarkdownError(context, e, null);
+	}
+	
+	public static void checkState(ClientMessageContextImpl ctx, ClientServiceDesc clientSvcDesc, URL location){
+		AutoMarkdownStateFactory factory = clientSvcDesc.getAutoMarkdownStateFactory();
+		if(factory!=null){
+			SOAClientMarkdownStateManager mgr = SOAClientMarkdownStateManager.getInstance();
+			SOAClientMarkdownStateId id = mgr.createSoaStateId(ctx.getAdminName(), null, null, location.toString());
+			SOAClientMarkdownState state = mgr.getState(id);
+			// this will create the state if it wasnt there already
+			// now set the automarkdown factory for this
+			if(!state.isAutoStateSet())
+				mgr.setAutoMarkdownState(factory, id, state);
+		}	
+	}
+	
+	public static void checkMarkdownError(ClientMessageContextImpl context, Throwable e, URL location) {
 		if (context == null) {
 			return;
 		}
 
 		try {
-			SOAClientMarkdownStateManager.getInstance().countError(
-					context, e);
+			SOAClientMarkdownStateManager.getInstance().countError(context, e, location);
 		} catch (Throwable e2) {
 			getLogger().log(
 					Level.SEVERE,

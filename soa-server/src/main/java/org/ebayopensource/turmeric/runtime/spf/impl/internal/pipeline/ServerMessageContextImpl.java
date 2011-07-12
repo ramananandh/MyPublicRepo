@@ -89,7 +89,8 @@ public final class ServerMessageContextImpl
 		String requestVersion,
 		String serviceVersion,
 		Charset effectiveCharset,
-		String requestUri, String targetServerName, int targetServerPort, Map<String, String> queryParams)
+		String requestUri, String targetServerName, int targetServerPort, Map<String, String> queryParams,
+		final Map<String, String> rawQueryParams)
 		throws ServiceException
 	{
 		super(serviceDesc, operation, protocolProcessor, transport,
@@ -104,7 +105,40 @@ public final class ServerMessageContextImpl
 			queryParams = new HashMap<String,String>();
 		}
 		m_queryParams = Collections.unmodifiableMap(queryParams);
+		m_rawQueryParams = rawQueryParams;
 	}
+
+	public ServerMessageContextImpl(
+		ServerServiceDesc serviceDesc,
+		ServiceOperationDesc operation,
+		ProtocolProcessorDesc protocolProcessor,
+		Transport transport,
+		BaseMessageImpl requestMessage,
+		BaseMessageImpl responseMessage,
+		ServiceAddress serviceAddress,
+		Map<String,Object> systemProperties,
+		ServiceAddress clientAddress,
+		String requestVersion,
+		String serviceVersion,
+		Charset effectiveCharset,
+		String requestUri, String targetServerName, int targetServerPort, Map<String, String> queryParams) throws ServiceException {
+	
+		this( serviceDesc,
+		 operation,
+		 protocolProcessor,
+		 transport,
+		 requestMessage,
+		 responseMessage,
+		 serviceAddress,
+		 systemProperties,
+		 clientAddress,
+		 requestVersion,
+		 serviceVersion,
+		 effectiveCharset,
+		 requestUri, targetServerName, targetServerPort, queryParams, queryParams);	
+			
+		}
+
 
 	/* (non-Javadoc)
 	 * @see org.ebayopensource.turmeric.runtime.common.pipeline.MessageContext#getServiceId()

@@ -22,6 +22,7 @@ public class MetadataPropertyConfigHolder extends BaseConfigHolder {
 	public static final String ADMIN_NAME = "admin_name";
 	public static final String SERVICE_NAMESPACE = "service_namespace";
 	public static final String SMP_VERSION = "smp_version";
+	public static final String SERVICE_INTERFACE_CLASS_NAME = "service_interface_class_name";
 	
 	public MetadataPropertyConfigHolder copy() {
 		MetadataPropertyConfigHolder newCH = new MetadataPropertyConfigHolder();
@@ -52,6 +53,10 @@ public class MetadataPropertyConfigHolder extends BaseConfigHolder {
 	
 	public String getAdminName() {
 		return m_properties.get(ADMIN_NAME);
+	}
+	
+	public String getServiceInterfaceClassName() {
+		return m_properties.get(SERVICE_INTERFACE_CLASS_NAME);
 	}
 	
 	public String getProperty(String key) {

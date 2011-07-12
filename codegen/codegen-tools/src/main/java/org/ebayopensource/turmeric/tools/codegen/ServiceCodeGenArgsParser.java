@@ -266,6 +266,19 @@ public class ServiceCodeGenArgsParser {
 			if("true".equalsIgnoreCase(isFactoryModeString)){
 				inputoption.setUseExternalServiceFactory(true);
 			}
+
+			String implFactoryClassName = svcImplProps.getProperty("serviceImplFactoryClassName");
+			if( !(CodeGenUtil.isEmptyString(implFactoryClassName) ) ){
+				implFactoryClassName = implFactoryClassName.trim();
+			}
+			
+			s_logger.log(Level.INFO,
+					"impl factory class name string is identified ="+ implFactoryClassName);
+			
+			if( !(CodeGenUtil.isEmptyString(implFactoryClassName) ) ){
+				inputoption.setSvcImplFactoryClassName(implFactoryClassName);
+			}
+
 		} catch (FileNotFoundException e) {
 			s_logger.log(Level.WARNING, "populateExternalServiceFactoryInfo " + e.getMessage());
 		} catch (IOException e) {
@@ -669,6 +682,9 @@ public class ServiceCodeGenArgsParser {
 			float svcIntfFileVersion = Float.valueOf(svcIntfProjPropsVersion).floatValue();
 			if(svcIntfFileVersion >=1.1 )
 				inputOptions.setIsConsumerAnInterfaceProjectArtifact(true);
+			if(svcIntfFileVersion >=1.2 )
+				inputOptions.setShouldUsePublicMethodsConsumer(true);		
+
 		} catch (NumberFormatException e) {
 			String errMsg =  "The properties files service_interface_project.properties file has the property " +CodeGenConstants.SVC_INTF_PROJECT_PROPERTIES_FILE_VERSION + " in non-numeric format.The format should be m.n Eg: 1.1, 1.2 " ;
 			getLogger().log(Level.WARNING,errMsg , e);
@@ -709,6 +725,9 @@ public class ServiceCodeGenArgsParser {
     	    // Only set if a value exists.
     	    inputOptions.setShortPathForSharedConsumer(sharedConsumerPackage);  
     	}
+    	if(CodeGenUtil.isEmptyString(inputOptions.getSupportedFastSerFormats()))
+			inputOptions.setSupportedFastSerFormats(CodeGenInfoFinder.getPropertyFromSvcIntfProjProp(CodeGenConstants.NON_XSD_FORMATS,inputOptions.getServiceAdminName()));
+
 	}
 
 	private void defaultInputType(InputOptions inputOptions)
@@ -1030,6 +1049,14 @@ public class ServiceCodeGenArgsParser {
 				options.setObjectFactoryDeletionOptionPassed(true);
 				options.setObjectFactoryTobeDeleted(booleanValue);
 			} 
+			else if ( InputOptions.NON_XSD_FORMATS.toLowerCase().equals(optName) ) {
+				i = getNextOptionIndex(i, args);
+				options.setSupportedFastSerFormats(args[i]);
+			}
+			else if ( InputOptions.OPT_XSD_PATHS_FOR_VALIDATION.toLowerCase().equals(optName) ) {
+				i = getNextOptionIndex(i, args);
+				options.setXsdPathsForNonXSDFormatsValidation( args[i] );
+			}
 			else {
 				String errMsg = "Unknown option specified, option name : " + optName;
 				throw new BadInputOptionException(errMsg);

@@ -13,6 +13,8 @@ import java.io.Serializable;
 import javax.xml.namespace.QName;
 
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 /**
  * A class to represent a &lt;simpleType&gt; element in a schema
@@ -25,26 +27,54 @@ public class SimpleType extends SchemaType implements Serializable {
 	
 	private String name = "";
 	private QName typeName = null;
-	private SimpleContent simpleContent = null;
+	private SimpleTypeRestriction restriction = null;
+	private SimpleTypeList list = null;
+
 
 	/**
 	 * Constructor
 	 * @param el The dom element for this simpleType
 	 */	
     SimpleType(Element el, String tns) {
+    	super(el, tns);
         typeName = getAttributeQName(el, "name", tns);
-        
+        processOtherElements(el, tns);
         // If the element has no name, we cannot map it. Don't do any more processing
         // of this type
         if (typeName == null) return;        
         
         name = typeName.getLocalPart();
-        
-      	simpleContent = new SimpleContent(el,tns);
-        	
-        
     }
     
+    SimpleType(Element el, String tns, QName typeName) {
+    	super(el, tns);
+        this.typeName = typeName;
+        processOtherElements(el, tns);
+
+        // If the element has no name, we cannot map it. Don't do any more processing
+        // of this type
+        if (typeName == null) return;        
+        
+        name = typeName.getLocalPart();    
+    }
+    
+    public void processOtherElements(Element el, String tns){
+		 NodeList children = el.getChildNodes();
+	        for (int i = 0; i < children.getLength(); i++) {
+	            Node child = children.item(i);
+	            if (child.getNodeType() == Node.ELEMENT_NODE) {
+	                Element subEl = (Element) child;
+	                String elType = subEl.getLocalName();
+	                if (elType.equals("list")  ) {
+	                	list = new SimpleTypeList(subEl, tns);
+	                }else if(elType.equals("restriction")  ) {
+	                	restriction = new SimpleTypeRestriction(subEl, tns);
+	                }
+	            }
+	        }
+
+    }
+
     
     public String getName() {
     	return name;
@@ -72,12 +102,12 @@ public class SimpleType extends SchemaType implements Serializable {
         return true;
     }
     
-    /**
-     * 
-     * @return
-     * @author arajmony
-     */
-    public SimpleContent getSimpleContent(){
-    	return simpleContent;
+    public SimpleTypeList getList(){
+    	return list;
     }
+    
+    public SimpleTypeRestriction getRestriction(){
+    	return restriction;
+    }
+
 }

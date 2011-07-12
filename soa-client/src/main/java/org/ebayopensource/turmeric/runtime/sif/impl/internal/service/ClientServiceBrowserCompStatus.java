@@ -103,6 +103,11 @@ final class ClientServiceBrowserCompStatus extends BaseServiceBrowserCompStatus 
 			writeG11Options(g11nOptions, xmlWriter, "g11n-options");
 		}
 
+		String configFileName = desc2.getConfig().getMessageProcessorConfig().getConfigFilename();
+		if (configFileName != null) {
+			XmlStreamUtil.writeChildText(xmlWriter, "config-file-name", configFileName);
+		}
+
 		// TODO: add these
 		//ApplicationRetryHandler retryHandler = desc2.getRetryHandler();
 		//ErrorResponseAdapter customErrorResponseAdapter = desc2.getCustomErrorResponseAdapter();

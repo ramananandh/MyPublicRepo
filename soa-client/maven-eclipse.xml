@@ -1,0 +1,8 @@
+<project default="copy-resources">
+  <target name="init"/>
+  <target name="copy-resources" depends="init">
+    <copy todir="target/classes/META-INF/soa/schema" filtering="true">
+      <fileset dir="src/main/schemas" includes="**/*.xsd" excludes="**/*.java"/>
+    </copy>
+  </target>
+</project>

@@ -9,6 +9,7 @@
 package org.ebayopensource.turmeric.tools.codegen.builders;
 
 import java.lang.reflect.Method;
+import java.net.URL;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -175,18 +176,22 @@ public class ServiceSkeletonGenerator extends BaseCodeGenerator implements Sourc
 			s_logger.log(Level.INFO, "It is factory mode. So dont generate the impl skeleton class");
 			shouldGenSkeleton = false;
 		} else if (CodeGenUtil.isEmptyString(serviceImplClassName)) {
-			shouldGenSkeleton = true;	
+			shouldGenSkeleton = true;		
+			s_logger.log(Level.INFO, "serviceImplClassName is empty");
 		} else {
-			Class<?> svcImplClass = ContextClassLoaderUtil.loadOptionalClass(serviceImplClassName);;
-			
+			String impleClassNameAsPath = CodeGenUtil.convertToFilePath(serviceImplClassName, ".class");
+			URL svcImplClass = this.getClass().getClassLoader().getResource(impleClassNameAsPath);
+
 			if (svcImplClass == null) {
+				s_logger.log(Level.INFO, "svcImplClass is empty");
 				// Check whether Service Impl source file exists?
 				shouldGenSkeleton = !isServiceImplSourceExists(codeGenCtx.getInputOptions());
 			} else {
+				s_logger.log(Level.INFO, "svcImplClass is not empty");
 				shouldGenSkeleton = codeGenCtx.getInputOptions().isGenSkeleton();
 			}			
 		}		
-		
+		s_logger.log(Level.INFO, "value of shouldGenSkeleton "+ shouldGenSkeleton);
 		return shouldGenSkeleton;
 	}
 	

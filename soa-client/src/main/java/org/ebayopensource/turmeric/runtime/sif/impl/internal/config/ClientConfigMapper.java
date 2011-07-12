@@ -11,6 +11,7 @@ package org.ebayopensource.turmeric.runtime.sif.impl.internal.config;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -96,10 +97,17 @@ public class ClientConfigMapper {
 		}
 		QName serviceQname = ServiceNameUtils.normalizeQName(QName.valueOf(serviceName));		
 		dst.setServiceQName(serviceQname);		
-		String serviceLocation = DomParseUtils.getElementText(filename, clientConfig, "service-location");
-		if (serviceLocation != null) {
-			dst.setServiceLocation(serviceLocation);
-		}		
+
+		List<String> locations = new ArrayList<String>();
+		NodeList locs = DomParseUtils.getImmediateChildrenByTagName(clientConfig, "service-location");
+		if (locs != null && locs.getLength()>0) {
+			for(int i=0; i<locs.getLength(); ++i){
+				Element e = (Element)locs.item(i);
+				locations.add(e.getTextContent());
+			}
+			dst.setServiceLocations(locations);
+		}
+		
 		Element locationMappings = DomParseUtils.getSingleElement(filename, clientConfig, "service-location-mappings");
 		if (locationMappings != null) {
 			mapLocationMappings(filename, locationMappings, dst);

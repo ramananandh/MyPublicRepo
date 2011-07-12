@@ -8,8 +8,10 @@
  *******************************************************************************/
 package org.ebayopensource.turmeric.runtime.sif.impl.internal.markdown;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.ebayopensource.turmeric.runtime.common.impl.internal.markdown.SOABaseMarkdownStateManager;
 import org.ebayopensource.turmeric.runtime.common.impl.internal.service.ServiceDesc;
@@ -77,7 +79,19 @@ public final class SOAClientMarkdownStateManager
 		ClientServiceDesc clientSvcDesc = (ClientServiceDesc)svcDesc;
 		AutoMarkdownStateFactory factory = clientSvcDesc.getAutoMarkdownStateFactory();
 		if (factory != null) {
-			boolean isSvcLevelAutoMarkdown = factory.isSvcLevelAutoMarkdown();
+
+			// we now have a location factor in place as well.
+			// so, duplictae the list of ids for each location defined in the cc.xml as well
+			if(clientSvcDesc.getServiceLocations()!=null && !clientSvcDesc.getServiceLocations().isEmpty()){ 
+				List<SOAClientMarkdownStateId> locIds = new ArrayList<SOAClientMarkdownStateId>();
+				
+				for (SOAClientMarkdownStateId id: ids) {
+					for(URL location:clientSvcDesc.getServiceLocations()){
+						locIds.add(createSoaStateId(id.getAdminName(), id.getOperationName(), id.getSubname(), location.toString()));
+					}
+				}
+				ids.addAll(locIds);
+			}
 
 			for (SOAClientMarkdownStateId id: ids) {
 
@@ -89,18 +103,25 @@ public final class SOAClientMarkdownStateManager
 					continue;
 				}
 
-				AutoMarkdownState autoState = null;
-				if (!isSvcLevelAutoMarkdown ||
-					(id.getOperationName() == null && id.getClientName() == null))
-				{
-					autoState = factory.createAutoMarkdownState(
-						id.getAdminName(), id.getOperationName(), id.getClientName());
-				}
-
-				state.setAutoMarkdownState(autoState, isSvcLevelAutoMarkdown);
+				setAutoMarkdownState(factory, id, state);
 			}
 		}
 	}
+
+	public AutoMarkdownState setAutoMarkdownState(
+			AutoMarkdownStateFactory factory,
+			SOAClientMarkdownStateId id, SOAClientMarkdownState state) {
+		AutoMarkdownState autoState = null;
+		if (!factory.isSvcLevelAutoMarkdown() || (id.getOperationName() == null && id.getClientName() == null))
+		{
+			autoState = factory.createAutoMarkdownState(
+				id.getAdminName(), id.getOperationName(), id.getClientName());
+		}
+
+		state.setAutoMarkdownState(autoState, factory.isSvcLevelAutoMarkdown());
+		return autoState;
+	}
+
 
 	@Override
 	protected Collection<SOAClientMarkdownStateId> getParentIds(SOAClientMarkdownState primaryState) {
@@ -113,7 +134,7 @@ public final class SOAClientMarkdownStateManager
 			}
 
 			Collection<SOAClientMarkdownStateId> result = new ArrayList<SOAClientMarkdownStateId>();
-			result.add(createSoaStateId(id.getAdminName(), null, null));
+			result.add(createSoaStateId(id.getAdminName(), null, null, primaryState.getId().getLocation()));
 			return result;
 		}
 
@@ -164,23 +185,35 @@ public final class SOAClientMarkdownStateManager
 		return SOAClientMarkdownStateId.parseId(idStr);
 	}
 
+
 	@Override
-	protected SOAClientMarkdownStateId createSoaStateId(String adminName, String opName, String subname) {
-		return new SOAClientMarkdownStateId(adminName, opName, subname);
+	public SOAClientMarkdownStateId createSoaStateId(String adminName, String opName, String subname, String location) {
+		return new SOAClientMarkdownStateId(adminName, opName, subname, location);
 	}
 
-	private SOAClientMarkdownStateId createId(ClientMessageContext ctx) {
-		return new SOAClientMarkdownStateId(ctx.getAdminName(),
-			ctx.getOperationName(), ctx.getServiceId().getServiceSubname());
+	
+	private SOAClientMarkdownStateId createId(ClientMessageContext ctx, URL location) {
+		if(location!=null)
+			return new SOAClientMarkdownStateId(ctx.getAdminName(), ctx.getOperationName(), ctx.getServiceId().getServiceSubname(), location.toString());
+		return new SOAClientMarkdownStateId(ctx.getAdminName(), ctx.getOperationName(), ctx.getServiceId().getServiceSubname());
 	}
 
 	public void countError(ClientMessageContext ctx, Throwable e) {
-		SOAClientMarkdownStateId id = createId(ctx);
+		countError(ctx, e, null);
+	}
+	
+	public void countError(ClientMessageContext ctx, Throwable e, URL location) {
+		SOAClientMarkdownStateId id = createId(ctx, location);
 		countError(id, ctx, e);
 	}
 
 	public void countSuccess(ClientMessageContext ctx) {
-		SOAClientMarkdownStateId id = createId(ctx);
+		countSuccess(ctx, null);
+	}
+	
+	public void countSuccess(ClientMessageContext ctx, URL location) {
+		SOAClientMarkdownStateId id = createId(ctx, location);
 		countSuccess(id, ctx);
 	}
+
 }

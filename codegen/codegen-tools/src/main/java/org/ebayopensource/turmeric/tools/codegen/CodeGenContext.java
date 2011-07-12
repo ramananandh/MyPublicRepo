@@ -21,6 +21,7 @@ import javax.xml.namespace.QName;
 import org.ebayopensource.turmeric.runtime.common.types.SOAConstants;
 import org.ebayopensource.turmeric.tools.codegen.InputOptions.CodeGenType;
 import org.ebayopensource.turmeric.tools.codegen.InputOptions.InputType;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.SchemaType;
 import org.ebayopensource.turmeric.tools.codegen.handler.ConsoleResponseHandler;
 import org.ebayopensource.turmeric.tools.codegen.handler.UserResponseHandler;
 import org.ebayopensource.turmeric.tools.codegen.util.CodeGenUtil;
@@ -66,6 +67,8 @@ public class CodeGenContext {
 	private Definition m_wsdlDefinition;
 	
 	private String m_schemaTypesJavaFileLocation;
+	private List<SchemaType> m_schemaTypes = null;
+
 
 
 
@@ -389,6 +392,17 @@ public class CodeGenContext {
 	public void setSchemaTypesJavaFileLocation(String typesJavaFileLocation) {
 		m_schemaTypesJavaFileLocation = typesJavaFileLocation;
 	}
+
+
+	public List<SchemaType> getSchemaTypes() {
+		return m_schemaTypes;
+	}
+
+
+	public void setSchemaTypes(List<SchemaType> schemaTypes) {
+		this.m_schemaTypes = schemaTypes;
+	}
+
 
 	
 }

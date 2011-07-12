@@ -8,15 +8,18 @@
  *******************************************************************************/
 package org.ebayopensource.turmeric.runtime.common.impl.internal.markdown;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 
 import org.ebayopensource.turmeric.runtime.common.impl.internal.service.ServiceDesc;
 import org.ebayopensource.turmeric.runtime.common.impl.utils.LogManager;
 import org.ebayopensource.turmeric.runtime.common.service.ServiceOperationDesc;
+import org.ebayopensource.turmeric.runtime.sif.impl.internal.service.ClientServiceDesc;
 
 import com.ebay.kernel.markdown.simple.SimpleMarkdownStateManager;
 
@@ -44,23 +47,37 @@ public abstract class SOABaseMarkdownStateManager<I extends SOABaseMarkdownState
 	}
 
 	private void createServiceStateIds(ServiceDesc svcDesc, Collection<I> ids) {
-		createServiceStateIds(svcDesc, null, ids);
+		List<URL> locations = null;
+		if(svcDesc instanceof ClientServiceDesc){
+			locations = ((ClientServiceDesc)svcDesc).getServiceLocations();
+		}
+		
+		createServiceStateIds(svcDesc, null, ids, locations);
 
 		Collection<ServiceOperationDesc> ops = svcDesc.getAllOperations();
 		for (ServiceOperationDesc op: ops) {
 			String opName = op.getName();
-			createServiceStateIds(svcDesc, opName, ids);
+			createServiceStateIds(svcDesc, opName, ids, locations);
 		}
 	}
 
-	private void createServiceStateIds(ServiceDesc svcDesc, String opName, Collection<I> ids)
+	private void createServiceStateIds(ServiceDesc svcDesc, String opName, Collection<I> ids, List<URL> locations)
 	{
 		String adminName = svcDesc.getAdminName();
 		String subname = svcDesc.getServiceId().getServiceSubname();
-
-		ids.add(createSoaStateId(adminName, opName, null));
-		if (subname != null) {
-			ids.add(createSoaStateId(adminName, opName, subname));
+		if(locations!=null &&!locations.isEmpty())
+		{
+			for(URL location:locations){
+				ids.add(createSoaStateId(adminName, opName, null, location.toString()));
+				if (subname != null) {
+					ids.add(createSoaStateId(adminName, opName, subname, location.toString()));
+				}	
+			}
+		}else{
+			ids.add(createSoaStateId(adminName, opName, null, null));
+			if (subname != null) {
+				ids.add(createSoaStateId(adminName, opName, subname, null));
+			}
 		}
 	}
 
@@ -94,6 +111,7 @@ public abstract class SOABaseMarkdownStateManager<I extends SOABaseMarkdownState
 
 		String opName = primaryId.getOperationName();
 		String subname = primaryId.getSubname();
+		String location = primaryId.getLocation();
 		if (opName == null && subname == null) {
 			return null;
 		}
@@ -101,15 +119,16 @@ public abstract class SOABaseMarkdownStateManager<I extends SOABaseMarkdownState
 		Collection<I> result = new ArrayList<I>();
 
 		// add top level
-		result.add(createSoaStateId(primaryId.getAdminName(), null, null));
+		result.add(createSoaStateId(primaryId.getAdminName(), null, null, location));
 
 		if (opName != null && subname != null) {
-			result.add(createSoaStateId(primaryId.getAdminName(), opName, null));
-			result.add(createSoaStateId(primaryId.getAdminName(), null, subname));
+			result.add(createSoaStateId(primaryId.getAdminName(), opName, null, location));
+			result.add(createSoaStateId(primaryId.getAdminName(), null, subname, location));
 		}
 
 		return result;
 	}
 
-	protected abstract I createSoaStateId(String adminName, String opName, String subname);
+	protected abstract I createSoaStateId(String adminName, String opName, String subname, String location);
 }
+

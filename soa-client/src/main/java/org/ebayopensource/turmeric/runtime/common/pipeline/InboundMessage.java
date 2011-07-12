@@ -34,6 +34,15 @@ public interface InboundMessage extends Message {
 	public void setInputStream(InputStream is) throws ServiceException;
 
 	/**
+	 * Set the input stream from which the message will be received and deserialized.  This is typically
+	 * called by transports.
+	 * @param is the input stream
+	 * @param inMemoryAttachmentLimit the in-memory attachment limit.
+	 * @throws ServiceException
+	 */
+	public void setInputStream(InputStream is, Integer inMemoryAttachmentLimit) throws ServiceException;
+
+	/**
 	 * Copies values directly into current inbound message.
 	 * 
 	 * Should be used with LocalTransport in skip-serialization mode only.

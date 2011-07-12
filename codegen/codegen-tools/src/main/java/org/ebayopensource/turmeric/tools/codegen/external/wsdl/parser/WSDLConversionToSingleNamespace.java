@@ -109,10 +109,10 @@ public class WSDLConversionToSingleNamespace {
 			if(!isValid)
 			{
 				s_logger.log(Level.SEVERE,"INVALID INPUT:    WSDL does not have single Namespace");
-				throw new CodeGenFailedException();
+				throw new CodeGenFailedException("WSDL does not have single Namespace. When enable namespace folding is true, WSDL should not have multiple namespace");
 			}
 		}catch (Exception e) {
-			throw new CodeGenFailedException(e.getMessage());
+			throw new CodeGenFailedException(e.getMessage(), e);
 		}
 
 

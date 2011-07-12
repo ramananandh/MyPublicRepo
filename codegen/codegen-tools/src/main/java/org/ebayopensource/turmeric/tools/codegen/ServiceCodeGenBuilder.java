@@ -8,7 +8,8 @@
  *******************************************************************************/
 package org.ebayopensource.turmeric.tools.codegen;
 
-import static org.ebayopensource.turmeric.tools.codegen.util.CodeGenConstants.*;
+import static org.ebayopensource.turmeric.tools.codegen.util.CodeGenConstants.GEN_META_SRC_FOLDER;
+import static org.ebayopensource.turmeric.tools.codegen.util.CodeGenConstants.GEN_SRC_FOLDER;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -56,6 +57,7 @@ import org.ebayopensource.turmeric.tools.codegen.exception.BadInputValueExceptio
 import org.ebayopensource.turmeric.tools.codegen.exception.CodeGenFailedException;
 import org.ebayopensource.turmeric.tools.codegen.exception.MissingInputOptionException;
 import org.ebayopensource.turmeric.tools.codegen.exception.PreProcessFailedException;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.FastSerFormatCodegenBuilder;
 import org.ebayopensource.turmeric.tools.codegen.handler.ConsoleResponseHandler;
 import org.ebayopensource.turmeric.tools.codegen.handler.DontPromptResponseHandler;
 import org.ebayopensource.turmeric.tools.codegen.handler.UserResponseHandler;
@@ -172,6 +174,10 @@ public class ServiceCodeGenBuilder {
 				}
 			
 				CodeGenContext codeGenCtx = createContext(inputOptions, userResponseHandler);
+
+				if( isValidationRequiredForFastSerFormat( codeGenCtx ) ){
+					FastSerFormatCodegenBuilder.getInstance().validateServiceIfApplicable(codeGenCtx);
+				}
 				if(inputOptions.isEnabledNamespaceFoldingSet()&& isMMNWsdlGenerationRequired(codeGenCtx.getInputOptions()))
 				{
 					EnableNamespaceFoldingUtil.enableNamespaceFolding(codeGenCtx);
@@ -193,6 +199,29 @@ public class ServiceCodeGenBuilder {
 		
 		getLogger().log(Level.INFO, "END: Service code generation, took : " + (endTime - startTime) + " ms");
 	} 
+
+	
+	private boolean isValidationRequiredForFastSerFormat( CodeGenContext codeGenCtx ){
+		InputOptions inputOptions = codeGenCtx.getInputOptions();
+		CodeGenType codeGenType = inputOptions.getCodeGenType();
+
+		boolean validGenType =  !((codeGenType == CodeGenType.GlobalClientConfig)
+				|| (codeGenType == CodeGenType.GlobalServerConfig)
+				|| (codeGenType == CodeGenType.SecurityPolicyConfig)
+				|| (codeGenType == CodeGenType.ServiceMetadataProps)
+				|| (codeGenType == CodeGenType.ServiceIntfProjectProps)
+				|| (codeGenType == CodeGenType.WebXml)
+				
+				|| (codeGenType == CodeGenType.ServerConfig)
+				|| (codeGenType == CodeGenType.ClientConfig)
+				|| (codeGenType == CodeGenType.WSDLWithSingleSchema)
+				|| (codeGenType == CodeGenType.WsdlConversionToMns) 
+				|| (codeGenType == CodeGenType.WsdlWithPublicServiceName)
+				|| (codeGenType == CodeGenType.ValidateXSDsForNonXSDFormats)
+				);
+		
+		return validGenType && (inputOptions.getInputType().equals(InputType.WSDL));
+	}
 	
 	private int preProcess(CodeGenContext codeGenCtx) 
 			throws PreProcessFailedException, CodeGenFailedException {
@@ -299,7 +328,9 @@ public class ServiceCodeGenBuilder {
 				 (codeGenType == CodeGenType.ClientConfig) ||
 				 (codeGenType == CodeGenType.WSDLWithSingleSchema) ||
 				 (codeGenType == CodeGenType.WsdlConversionToMns)||
-				 (codeGenType==CodeGenType.WsdlWithPublicServiceName));
+				 (codeGenType==CodeGenType.WsdlWithPublicServiceName) ||
+				 (codeGenType == CodeGenType.ValidateXSDsForNonXSDFormats)
+		);
 	}
 	
 	private boolean isMMNWsdlGenerationRequired(InputOptions inputOptions) {
@@ -313,8 +344,10 @@ public class ServiceCodeGenBuilder {
 				|| (codeGenType == CodeGenType.ServerConfig)
 				|| (codeGenType == CodeGenType.ClientConfig)
 				|| (codeGenType == CodeGenType.WSDLWithSingleSchema)
-				|| (codeGenType == CodeGenType.WsdlConversionToMns) || (codeGenType == CodeGenType.WsdlWithPublicServiceName)||
-				(inputOptions.getInputType().equals(InputType.INTERFACE)));
+				|| (codeGenType == CodeGenType.WsdlConversionToMns) 
+				|| (codeGenType == CodeGenType.WsdlWithPublicServiceName)
+				|| (codeGenType == CodeGenType.ValidateXSDsForNonXSDFormats)
+				|| (inputOptions.getInputType().equals(InputType.INTERFACE)));
 		
 	}
 	
@@ -348,6 +381,7 @@ public class ServiceCodeGenBuilder {
 				codeGenerators.add(WSDLGenerator.getInstance());
 			}
 			codeGenerators.add(TypeDefsBuilderGenerator.getInstance());
+			codeGenerators.add(FastSerFormatCodegenBuilder.getInstance());
 		}
 		else if (codeGenType == CodeGenType.Server) {
 			codeGenerators.add(ServiceSkeletonGenerator.getInstance());
@@ -387,6 +421,7 @@ public class ServiceCodeGenBuilder {
 			if (inputOptions.isGenTests() && inputOptions.isBaseConsumerGenertionReq()) {
 				codeGenerators.add(ServiceConsumerGenerator.getInstance());
 			}
+			codeGenerators.add(FastSerFormatCodegenBuilder.getInstance());
 		}
 		else if (codeGenType == CodeGenType.ServerNoConfig) {
 			codeGenerators.add(ServiceSkeletonGenerator.getInstance());
@@ -420,6 +455,7 @@ public class ServiceCodeGenBuilder {
  			if(inputOptions.isGenerateSharedConsumer() || inputOptions.isConsumerAnInterfaceProjectArtifact()) {
  				codeGenerators.add(ServiceConsumerGenerator.getInstance());
  			}
+			codeGenerators.add(FastSerFormatCodegenBuilder.getInstance());
 			
 		}
 		else if (codeGenType == CodeGenType.Proxy) {
@@ -516,7 +552,8 @@ public class ServiceCodeGenBuilder {
  				codeGenerators.add(ServiceConsumerGenerator.getInstance());
  			
 			if (inputOptions.isGenTests() && inputOptions.isBaseConsumerGenertionReq()) 
-				codeGenerators.add(ServiceConsumerGenerator.getInstance());    
+				codeGenerators.add(ServiceConsumerGenerator.getInstance());     
+			codeGenerators.add(FastSerFormatCodegenBuilder.getInstance());
 		}
 		else if (codeGenType == CodeGenType.ServiceFromWSDLImpl){
 			codeGenerators.add(ServiceSkeletonGenerator.getInstance());
@@ -541,8 +578,9 @@ public class ServiceCodeGenBuilder {
 			codeGenerators.add(ServiceConsumerGenerator.getInstance());
 			inputOptions.setIsConsumerAnInterfaceProjectArtifact(true);
 		}
-
-		
+		else if(codeGenType ==  CodeGenType.ValidateXSDsForNonXSDFormats ){
+			codeGenerators.add(FastSerFormatCodegenBuilder.getInstance());
+		}
 		
 		return codeGenerators;		
 	}

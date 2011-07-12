@@ -92,7 +92,7 @@ public final class Service {
 
 	private final String m_serviceVersion;
 
-	private URL m_serviceLocation;
+	private List<URL> m_serviceLocations;
 
 	private Map<String, String> m_sessionTransportHeaders = new HashMap<String, String>();
 
@@ -116,6 +116,38 @@ public final class Service {
 
 	private IAsyncResponsePoller m_poller = new ServicePoller();
 
+
+	/**
+	 * Internal constructor - client application code must use
+	 * ServiceFactory.create() to construct a service object.
+	 * 
+	 * @param serviceDesc
+	 * @param serviceLocation
+	 * @param serviceVersion
+	 * @param wsdlLocation
+	 * @throws ServiceException
+	 */
+	Service(ClientServiceDesc serviceDesc, List<URL> serviceLocations,
+			String serviceVersion, URL wsdlLocation) throws ServiceException {
+		if (serviceDesc == null) {
+			throw new NullPointerException();
+		}
+		m_serviceDesc = serviceDesc;
+		if (serviceLocations != null) {
+			m_serviceLocations = serviceLocations;
+		} else {
+			m_serviceLocations = serviceDesc.getServiceLocations();
+		}
+		
+		m_serviceVersion = serviceVersion; // null OK
+		m_wsdlLocation = wsdlLocation; // null OK
+
+		m_invokerOptions = new ServiceInvokerOptions();
+
+		m_executor = getDefaultExecutor();
+
+	}
+
 	/**
 	 * Internal constructor - client application code must use
 	 * ServiceFactory.create() to construct a service object.
@@ -132,11 +164,15 @@ public final class Service {
 			throw new NullPointerException();
 		}
 		m_serviceDesc = serviceDesc;
+		URL loc = null;
 		if (serviceLocation != null) {
-			m_serviceLocation = serviceLocation;
+			loc = serviceLocation;
 		} else {
-			m_serviceLocation = serviceDesc.getDefServiceLocationURL();
+			loc = serviceDesc.getDefServiceLocationURL();
 		}
+		
+		m_serviceLocations = new ArrayList<URL>();
+		m_serviceLocations.add(loc);
 		m_serviceVersion = serviceVersion; // null OK
 		m_wsdlLocation = wsdlLocation; // null OK
 
@@ -317,7 +353,10 @@ public final class Service {
 	 * @return the service location.
 	 */
 	public URL getServiceLocation() {
-		return m_serviceLocation;
+		if(m_serviceLocations==null || m_serviceLocations.isEmpty())
+			return null;
+			
+		return m_serviceLocations.get(0);
 	}
 
 	/*
@@ -334,8 +373,14 @@ public final class Service {
 	 * 
 	 */
 	public void setServiceLocation(URL sl) {
-		m_serviceLocation = sl;
+		m_serviceLocations = new ArrayList<URL>();
+		m_serviceLocations.add(sl);
 	}
+
+	public void setServiceLocations(List<URL> sl) {
+		m_serviceLocations = sl;
+	}
+
 
 	/**
 	 * Returns the service WSDL URL. This feature is not currently
@@ -679,7 +724,7 @@ public final class Service {
 		try {
 			try {
 				dispatch = new RawDataServiceDispatch(opName,
-						m_serviceLocation, m_serviceDesc, m_wsdlLocation,
+						m_serviceLocations, m_serviceDesc, m_wsdlLocation,
 						m_invokerOptions, m_serviceVersion, m_cookies,
 						m_sessionTransportHeaders, m_sessionMessageHeaders,
 						m_g11nOptions, getRequestContext(), null, null);
@@ -716,7 +761,8 @@ public final class Service {
 					if (cacheSupported) {
 						try {
 							cacheProvider
-									.init(m_serviceDesc, m_serviceLocation);
+							.init(m_serviceDesc, (m_serviceLocations==null||m_serviceLocations.isEmpty())?
+									null:m_serviceLocations.get(0));
 						} catch (ServiceException e) {
 							if (m_serviceDesc.isSkipCacheOnError() != null
 									&& !m_serviceDesc.isSkipCacheOnError()
@@ -778,7 +824,7 @@ public final class Service {
 	 */
 	public ServiceDispatch createDispatch(String opName) {
 		try {
-			return new TypedDataServiceDispatch(opName, m_serviceLocation,
+			return new TypedDataServiceDispatch(opName, m_serviceLocations,
 					m_serviceDesc, m_wsdlLocation, m_invokerOptions,
 					m_serviceVersion, m_cookies, m_sessionTransportHeaders,
 					m_sessionMessageHeaders, m_g11nOptions,
@@ -809,11 +855,11 @@ public final class Service {
 	public ServiceDispatch createDispatch(String opName, boolean isRaw) {
 		try {
 			return isRaw ? new RawDataServiceDispatch(opName,
-					m_serviceLocation, m_serviceDesc, m_wsdlLocation,
+					m_serviceLocations, m_serviceDesc, m_wsdlLocation,
 					m_invokerOptions, m_serviceVersion, m_cookies,
 					m_sessionTransportHeaders, m_sessionMessageHeaders,
 					m_g11nOptions, getRequestContext(), m_executor, m_poller)
-					: new TypedDataServiceDispatch(opName, m_serviceLocation,
+					: new TypedDataServiceDispatch(opName, m_serviceLocations,
 							m_serviceDesc, m_wsdlLocation, m_invokerOptions,
 							m_serviceVersion, m_cookies,
 							m_sessionTransportHeaders, m_sessionMessageHeaders,

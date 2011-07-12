@@ -33,6 +33,7 @@ import org.ebayopensource.turmeric.runtime.spf.impl.internal.config.OperationMap
 import org.ebayopensource.turmeric.runtime.spf.impl.internal.config.ServiceConfigHolder;
 import org.ebayopensource.turmeric.runtime.spf.impl.service.GlobalIdDesc;
 import org.ebayopensource.turmeric.runtime.spf.pipeline.ErrorMapper;
+import org.ebayopensource.turmeric.runtime.spf.pipeline.HttpErrorMapper;
 import org.ebayopensource.turmeric.runtime.spf.pipeline.VersionCheckHandler;
 import org.ebayopensource.turmeric.runtime.spf.service.ServerServiceId;
 
@@ -59,6 +60,46 @@ public final class ServerServiceDesc extends ServiceDesc {
 	private final CachePolicyDesc m_cachePolicyDesc;
 	private OperationMappings m_operationMappings;
 	private final RequestParamsDescriptor requestParamDesc;
+	private final HttpErrorMapper m_httpErrorMapper;
+	
+	public ServerServiceDesc(ServerServiceId id, QName serviceQName,
+			ServiceConfigHolder config, Pipeline requestPipeline,
+			Pipeline responsePipeline, Dispatcher requestDispatcher,
+			Dispatcher responseDispatcher,
+			Map<String, ServiceOperationDesc> operations,
+			Map<String, ProtocolProcessorDesc> protocols,
+			Map<String, DataBindingDesc> bindings,
+			ServiceTypeMappings typeMappings, ClassLoader classLoader,
+			List<LoggingHandler> loggingHandlers, Class serviceInterfaceClass,
+			RequestPatternMatcher<ServiceOperationDesc> operationMatcher,
+			RequestPatternMatcher<ProtocolProcessorDesc> protocolMatcher,
+			RequestPatternMatcher<DataBindingDesc> bindingMatcherRequest,
+			RequestPatternMatcher<DataBindingDesc> bindingMatcherResponse,
+			String serviceImplClassName, ErrorMapper errorMapper,
+			ErrorDataProvider errorDataProviderClass,
+			Map<String, GlobalIdDesc> globalIdMap,
+			VersionCheckHandler versionCheckHandler, Charset serviceCharset,
+			UrlMappingsDesc urlMappings, OperationMappings operationMappings,
+			HeaderMappingsDesc requestHeaderMappings,
+			HeaderMappingsDesc responseHeaderMappings,
+			Map<String, Map<String, String>> authenticationOperations,
+			DataBindingDesc defaultRequestBinding,
+			DataBindingDesc defaultResponseBinding, List<String> serviceLayers,
+			CachePolicyDesc cachePolicyDesc,
+			RequestParamsDescriptor requestParamDesc, String serviceImplfactory) {
+		this(id, serviceQName, config, requestPipeline, responsePipeline,
+				requestDispatcher, responseDispatcher, operations, protocols,
+				bindings, typeMappings, classLoader, loggingHandlers,
+				serviceInterfaceClass, operationMatcher, protocolMatcher,
+				bindingMatcherRequest, bindingMatcherResponse,
+				serviceImplClassName, errorMapper, errorDataProviderClass,
+				globalIdMap, versionCheckHandler, serviceCharset, urlMappings,
+				operationMappings, requestHeaderMappings,
+				responseHeaderMappings, authenticationOperations,
+				defaultRequestBinding, defaultResponseBinding, serviceLayers,
+				cachePolicyDesc, requestParamDesc, serviceImplfactory, null);
+	}
+
 
 	public ServerServiceDesc(ServerServiceId id,
 		QName serviceQName,
@@ -94,7 +135,8 @@ public final class ServerServiceDesc extends ServiceDesc {
 		List<String> serviceLayers,
 		CachePolicyDesc cachePolicyDesc,
 		RequestParamsDescriptor requestParamDesc,
-		String serviceImplfactory
+		String serviceImplfactory, 
+		HttpErrorMapper httpErrorMapper
 		)
 	{
 		super(id, serviceQName, config, requestPipeline, responsePipeline,
@@ -142,6 +184,7 @@ public final class ServerServiceDesc extends ServiceDesc {
 		m_defaultResponseBinding = defaultResponseBinding;
 		m_cachePolicyDesc = cachePolicyDesc;
 		this.requestParamDesc = requestParamDesc;
+		m_httpErrorMapper = httpErrorMapper;
 
 	}
 	
@@ -265,6 +308,10 @@ public final class ServerServiceDesc extends ServiceDesc {
 	
 	public String getServiceImplFactoryClassName() {	
 		return m_serviceImplfactory;
+	}
+	
+	public HttpErrorMapper getHttpErrorMapper() {
+		return m_httpErrorMapper;
 	}
 
 }

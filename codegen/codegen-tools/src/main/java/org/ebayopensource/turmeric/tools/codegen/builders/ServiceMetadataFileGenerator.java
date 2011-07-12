@@ -96,6 +96,8 @@ public class ServiceMetadataFileGenerator implements SourceGenerator {
 		String wsdlUri = sipProperty.getProperty(CodeGenConstants.ORIGINAL_WSDL_URI);
 		String namespacePart = sipProperty.getProperty(CodeGenConstants.SERVICE_NS_PART);
 		String domainName = sipProperty.getProperty(CodeGenConstants.SVC_DOMAIN_NAME);
+		String nonXSDFormats = sipProperty.getProperty(CodeGenConstants.NON_XSD_FORMATS);
+		String supportZeroConfig = sipProperty.getProperty(CodeGenConstants.SUPPORT_ZERO_CONFIG);
 		
 		String wsdlLoc = inputOptions.getOriginalInputType() == InputType.WSDL ? inputOptions.getInputFile() : null;
 		String serviceNameFromWsdl = serviceName;
@@ -115,6 +117,19 @@ public class ServiceMetadataFileGenerator implements SourceGenerator {
 		}
 		
 		svcMetadataProps.put(CodeGenConstants.SERVICE_NAME,serviceNameFromWsdl);
+
+		String serviceLocation = codeGenCtx.getInputOptions().getServiceLocation();	
+		if(CodeGenUtil.isEmptyString(serviceLocation)){
+			Definition wsdlDefinition = codeGenCtx.getWsdlDefinition();
+			if(wsdlDefinition != null){
+				String[] serviceLocationsAvailable = CodeGenUtil.getServiceLocations(wsdlDefinition);
+				if(serviceLocationsAvailable != null && serviceLocationsAvailable.length > 0)
+					serviceLocation = serviceLocationsAvailable[0];				
+			}
+		}	
+		if(!CodeGenUtil.isEmptyString(serviceLocation))
+			svcMetadataProps.put(CodeGenConstants.SERVICE_LOCATION,serviceLocation);
+		
 		if(! CodeGenUtil.isEmptyString(namespacePart))
 			svcMetadataProps.put(CodeGenConstants.SERVICE_NS_PART, namespacePart);
 
@@ -199,7 +214,12 @@ public class ServiceMetadataFileGenerator implements SourceGenerator {
 			svcMetadataProps.put(CodeGenConstants.ORIGINAL_WSDL_URI, wsdlUri);	
 		}
 		
+		if(! CodeGenUtil.isEmptyString(nonXSDFormats))
+			svcMetadataProps.put(CodeGenConstants.NON_XSD_FORMATS, nonXSDFormats );
 		
+		if(! CodeGenUtil.isEmptyString(supportZeroConfig))
+			svcMetadataProps.put(CodeGenConstants.SUPPORT_ZERO_CONFIG, supportZeroConfig );
+
 		generateSvcMetadataPropFile(svcMetadataProps, codeGenCtx);
 	}
 

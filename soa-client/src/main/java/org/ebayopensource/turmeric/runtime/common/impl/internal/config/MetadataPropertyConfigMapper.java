@@ -16,6 +16,7 @@ import java.util.Properties;
 
 import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorDataFactory;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceCreationException;
+import org.ebayopensource.turmeric.runtime.common.impl.utils.ParseUtils;
 import org.ebayopensource.turmeric.runtime.errorlibrary.ErrorConstants;
 
 public class MetadataPropertyConfigMapper {
@@ -29,8 +30,9 @@ public class MetadataPropertyConfigMapper {
 	public static void map(String metaDataConfigFileName, boolean isOptional, MetadataPropertyConfigHolder holder, List<String> serviceLayers)
 		throws ServiceCreationException
 	{
-		ClassLoader cl = Thread.currentThread().getContextClassLoader();
-		InputStream is = cl.getResourceAsStream(metaDataConfigFileName);
+//		ClassLoader cl = Thread.currentThread().getContextClassLoader();
+//		InputStream is = cl.getResourceAsStream(metaDataConfigFileName);
+		InputStream is = ParseUtils.getFileStream(metaDataConfigFileName);
 		if (is == null) {
 			if (isOptional) {
 				return;

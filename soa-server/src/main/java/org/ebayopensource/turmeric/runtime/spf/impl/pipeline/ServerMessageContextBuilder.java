@@ -83,6 +83,7 @@ public final class ServerMessageContextBuilder {
 	private final String m_targetServerName;
 	private final int m_targetServerPort;
 	private final Map<String, String> m_queryParams;
+	private final Map<String, String> m_rawQueryParams;
 	private ServerServiceDesc m_serviceDesc;
 	private ServiceOperationDesc m_operationDesc;
 	private ProtocolProcessorDesc m_protocolProcessor;
@@ -100,10 +101,24 @@ public final class ServerMessageContextBuilder {
 	private boolean m_hasInput;
 
 	public ServerMessageContextBuilder(ServiceResolver resolver,
+			String requestUri, String requestTransport,
+			Transport responseTransport, Map<String, String> transportHeaders,
+			Cookie[] cookies, ServiceAddress clientAddress,
+			ServiceAddress serviceAddress, Collection<Throwable> errors,
+			String targetServerName, int targetServerPort,
+			Map<String, String> queryParams) throws ServiceException {
+		this(resolver, requestUri, requestTransport, responseTransport,
+				transportHeaders, cookies, clientAddress, serviceAddress,
+				errors, targetServerName, targetServerPort, queryParams,
+				queryParams);
+	}
+	
+	public ServerMessageContextBuilder(ServiceResolver resolver,
 		String requestUri, String requestTransport, Transport responseTransport,
 		Map<String,String> transportHeaders, Cookie[] cookies,
 		ServiceAddress clientAddress, ServiceAddress serviceAddress,
-		Collection<Throwable> errors, String targetServerName, int targetServerPort, Map<String, String> queryParams)
+		Collection<Throwable> errors, String targetServerName, int targetServerPort, Map<String, String> queryParams,
+		Map<String, String> rawQueryParams)
 		throws ServiceException
 	{
 		m_requestUri = requestUri;
@@ -116,6 +131,7 @@ public final class ServerMessageContextBuilder {
 		m_targetServerName = targetServerName;
 		m_targetServerPort = targetServerPort;
 		m_queryParams = queryParams;		// can be null; can be modified at this level
+		m_rawQueryParams = rawQueryParams;
 
 		m_serviceDesc = resolver.lookupServiceDesc();
 
@@ -639,11 +655,13 @@ public final class ServerMessageContextBuilder {
 			return;
 		}
 
+		boolean bufferingMode = m_transportHeaders.containsKey(SOAHeaders.NON_STREAMING_MODE);
+		
 		// NOTE: no message header will be available at this stage, thus NULL is being passed into the outbound message impl
 		InboundMessageImpl requestMsg = new InboundMessageImpl(true,
 			m_requestTransport, getRequestDataBinding(),
 			getG11nOptions(), m_transportHeaders,
-			m_cookies, null, m_requestAttachments, getOperationDesc());
+			m_cookies, null, m_requestAttachments, getOperationDesc(), bufferingMode);
 
 		if (is != null) requestMsg.setInputStream(is);
 
@@ -657,7 +675,7 @@ public final class ServerMessageContextBuilder {
 
 		OutboundMessageImpl responseMsg = new OutboundMessageImpl(false,
 			m_requestTransport, getResponseDataBinding(),
-			getG11nOptions(), null, null, null, m_responseAttachments, getOperationDesc(), false, 0);
+			getG11nOptions(), null, null, null, m_responseAttachments, getOperationDesc(), false, 0, bufferingMode);
 
 		ServerMessageContextImpl ctx = new ServerMessageContextImpl(
 			m_serviceDesc, getOperationDesc(),
@@ -669,7 +687,7 @@ public final class ServerMessageContextBuilder {
 			m_requestUri,
 			m_targetServerName,
 			m_targetServerPort,
-			m_queryParams);
+			m_queryParams, m_rawQueryParams);
 
 		lookupProtocolProcessor(requestMsg);
 

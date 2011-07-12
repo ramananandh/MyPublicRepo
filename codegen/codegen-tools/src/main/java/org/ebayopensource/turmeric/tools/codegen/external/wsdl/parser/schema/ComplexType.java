@@ -10,6 +10,7 @@ package org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.namespace.QName;
 
@@ -28,11 +29,18 @@ public class ComplexType extends SchemaType implements Serializable {
 	static final long serialVersionUID = 1L;
 
     private boolean isAnArray = false;
-    private String name = "";
     private QName typeName = null;
-    private QName arrayType = null;
     private int arrayDim = 0;
     private ComplexContent complexContent = null;
+    Sequence sequence = null; 
+    Choice choice = null;
+    Group group = null;
+    private SchemaAll all = null;
+    List<AttributeGroup> attributeGroups = new ArrayList<AttributeGroup>();
+    List<Attribute> attributes = new ArrayList<Attribute>();
+    SimpleContent simpleContent = null;
+    boolean typeAbstract = false;
+
     private static final QName soapEncArray =
         new QName(WSDLParserConstants.NS_URI_SOAP_ENC, "Array");
     private static final QName soapEncArrayType =
@@ -46,64 +54,19 @@ public class ComplexType extends SchemaType implements Serializable {
 	 * @param el The dom element for this complexType
 	 */
     ComplexType(Element el, String tns) {
+    	super(el, tns);
         typeName = getAttributeQName(el, "name", tns);
-        if (typeName != null) {
-        	name = typeName.getLocalPart();
-        }
-        
         process(el, tns);
-        
-        if (name.startsWith("ArrayOf")) {
-            if (complexContent != null) {
-                Restriction res = complexContent.getRestriction();
-                if (res != null) {
-                    QName base = res.getBase();
-                    if (soapEncArray.equals(base)) {
-                        Attribute[] atts = res.getAttributes();
-                        if (atts != null && atts.length > 0) {
-                            for (int i = 0; i < atts.length; i++) {
-                                Attribute a = atts[i];
-                                if (a != null) {
-                                    QName ref = a.getXMLAttribute("ref");
-                                    if (soapEncArrayType.equals(ref)) {
-                                        QName tempType =
-                                            a.getXMLAttribute(wsdlArrayType);
-                                        if (tempType != null) {
-                                            String ns =
-                                                tempType.getNamespaceURI();
-                                            String lp = tempType.getLocalPart();
-                                            // Work out array dimension
-                                            int index = lp.lastIndexOf("[]");
-                                            while(index != -1) {
-                                            	lp = lp.substring(0, index);
-                                            	arrayDim++;
-                                            	index = lp.lastIndexOf("[]");
-                                            }                                           
-                                            arrayType = new QName(ns, lp);
-                                        }
-                                        break;
-                                    }
-                                }
-                            }
-                        } else {
-                            SequenceElement[] sels = res.getSequenceElements();
-                            if (sels != null && sels.length == 1) {
-								SequenceElement sel = sels[0];
-								QName tempType = sel.getXMLAttribute("type");
-								if (tempType != null) {
-									String ns = tempType.getNamespaceURI();
-                                    String lp = tempType.getLocalPart();
-                                    arrayType = new QName(ns, lp);
-								}
-                            }
-                        }
-                    }
-                }
-                isAnArray = true;
-            }
-        } else {
-        }
+       
     }
+
+    ComplexType(Element el, String tns, QName typeName) {
+    	super(el, tns);
+        this.typeName = typeName;        
+        process(el, tns);
+
+    }
+
 
 	/**
 	 * @see SchemaType#isComplex()
@@ -120,13 +83,6 @@ public class ComplexType extends SchemaType implements Serializable {
     }
 
 	/**
-	 * @see SchemaType#getArrayType()
-	 */ 
-    public QName getArrayType() {
-        return arrayType;
-    }
-
-	/**
 	 * @see SchemaType#getArrayDimension()
 	 */ 
     public int getArrayDimension() {
@@ -140,46 +96,38 @@ public class ComplexType extends SchemaType implements Serializable {
         return typeName;
     }
 
-	/**
-	 * Get all the &lt;element&gt; elements within a sequence nested in this complexType
-	 * @return The &lt;element&gt; elements within the sequnce
-	 */
-    @SuppressWarnings("unchecked")
-	public SequenceElement[] getSequenceElements() {
-        return (SequenceElement[]) sequenceElements.toArray(
-            new SequenceElement[sequenceElements.size()]);
-    }
-
     private void process(Element el, String tns) {
+    	QName abstractAttribute = getAttributeQName(el, "abstract", tns);
+    	if( abstractAttribute != null ){
+    		typeAbstract = Boolean.parseBoolean( abstractAttribute.getLocalPart() );
+    	}
         NodeList children = el.getChildNodes();
         for (int i = 0; i < children.getLength(); i++) {
             Node child = children.item(i);
             if (child.getNodeType() == Node.ELEMENT_NODE) {
                 Element subEl = (Element) child;
                 String elType = subEl.getLocalName();
-                if (elType.equals("complexContent")) {
+                if (elType.equals("attribute")) {
+                    attributes.add(new Attribute(subEl, tns));
+                }else if (elType.equals("complexContent")) {
                     complexContent = new ComplexContent(subEl, tns);
                 } else if (elType.equals("sequence")) {
-                    parseSequenceElements(subEl, tns);
+                	sequence = new Sequence(subEl, tns);
+                } else if(elType.equals("choice")) {
+                	choice = new Choice(subEl, tns);
+                } else if(elType.equals("group")) {
+                	group = new Group(subEl, tns);
+                } else if(elType.equals("attributeGroup")){
+                	attributeGroups.add(new AttributeGroup(subEl, tns));
+                } else if(elType.equals("simpleContent")){
+                	simpleContent = new SimpleContent(subEl, tns);
+                }else if(elType.equals("all")){
+                	all = new SchemaAll(subEl, tns);
                 }
             }
         }
     }
-    
-    @SuppressWarnings("unchecked")
-	private void parseSequenceElements(Element el, String tns) {
-        NodeList children = el.getChildNodes();
-        for (int i = 0; i < children.getLength(); i++) {
-            Node child = children.item(i);
-            if (child.getNodeType() == Node.ELEMENT_NODE) {
-                Element subEl = (Element) child;
-                String elType = subEl.getLocalName();
-                if (elType.equals("element")) {
-                    sequenceElements.add(new SequenceElement(subEl, tns));
-                }
-            }
-        }
-    }    
+      
     
     /**
      * @author arajmony
@@ -187,4 +135,55 @@ public class ComplexType extends SchemaType implements Serializable {
     public ComplexContent getComplexContent(){
     	return complexContent;
     }
+    public boolean hasComplexContent(){
+    	return complexContent != null;
+    }
+    public List<Attribute> getAttributes(){
+    	return attributes;
+    }
+    
+    public List<AttributeGroup> getAttributeGroup(){
+    	return attributeGroups;
+    }
+
+    public boolean hasChoice(){
+    	return choice != null;
+    }
+    public Choice getChoice(){
+    	return choice;
+    }
+
+    public boolean hasGroup(){
+    	return group != null;
+    }
+    public Group getGroup(){
+    	return group;
+    }
+    
+    public boolean hasSequence(){
+    	return sequence != null;
+    }
+    public Sequence getSequence(){
+    	return sequence;
+    }
+    
+    public boolean hasSimpleContent(){
+    	return simpleContent != null;
+    }
+    public SimpleContent getSimpleContent(){
+    	return simpleContent;
+    }
+    
+    public boolean isAbstract(){
+    	return typeAbstract;
+    }
+    
+	public boolean hasAll(){
+		return all != null;
+	}
+
+	public SchemaAll getAll(){
+		return all;
+	}
+
 }

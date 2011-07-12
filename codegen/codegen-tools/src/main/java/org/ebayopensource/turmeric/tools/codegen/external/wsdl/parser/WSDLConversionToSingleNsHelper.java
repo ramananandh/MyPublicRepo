@@ -72,6 +72,7 @@ public class WSDLConversionToSingleNsHelper
 				String targetNamespace = ((Element)node).getAttributes().getNamedItem(XML_TARGETNAMESPACE).getNodeValue();
 				if(!(targetNamespace.equals(m_WsdlNamespace)))
 				{
+					s_logger.log(Level.SEVERE, targetNamespace+"==="+m_WsdlNamespace);
 					s_logger.log(Level.SEVERE, "Input not valid");
 					return false;
 				}

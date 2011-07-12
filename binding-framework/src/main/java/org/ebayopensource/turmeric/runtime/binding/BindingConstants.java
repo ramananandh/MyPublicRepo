@@ -119,6 +119,11 @@ public final class BindingConstants {
 	 * Refers to the payload type (data binding name) for ASN.1 Fast Infoset (binary XML).
 	 */
 	public static final String PAYLOAD_FAST_INFOSET = "FAST_INFOSET";
+	
+	/**
+	 * Refers to the payload type (data binding name) for Google's Protocol Buffers.
+	 */
+	public static final String PAYLOAD_PROTOBUF = "PROTOBUF";
 
 	/**
 	 * Refers to the payload validation level. Can take the following values

@@ -9,8 +9,6 @@
 package org.ebayopensource.turmeric.runtime.spf.pipeline;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.charset.Charset;
 
 import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorDataFactory;
@@ -39,35 +37,21 @@ public class QueryWsdl implements PseudoOperation {
 	 */
 	@Override
 	public void invoke(ServerServiceDesc serviceDesc, RequestMetaContext reqMetaCtx, ResponseMetaContext respMetaCtx) throws ServiceException {
-		String serviceAdminName = serviceDesc.getAdminName();
-		streamWsdl(serviceDesc.getClassLoader(), serviceAdminName, respMetaCtx.getOutputStream());
-	}
+		String adminName = serviceDesc.getAdminName();
+		String wsdlFileName = "META-INF/soa/services/wsdl/" + adminName + "/" + adminName + "_public.wsdl";
 
-	private static void streamWsdl(ClassLoader cl, String serviceName, OutputStream output) throws ServiceException {
-		String resName = "META-INF/soa/services/wsdl/" + serviceName + "/" + serviceName + "_public.wsdl";
-		InputStream wsdlData = cl.getResourceAsStream(resName);
-		if (wsdlData == null) {
-			resName = "META-INF/soa/services/wsdl/" + serviceName + "/" + serviceName + ".wsdl";
-			wsdlData = cl.getResourceAsStream(resName);
-			if (wsdlData == null) {
-				throw new ServiceException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_RT_NO_WSDL, 
-						ErrorConstants.ERRORDOMAIN, new Object[] {serviceName}));
-			}     
-		}
 		try {
-			copy(wsdlData, output);
+			if (!PseudoOperationUtil.streamResource(wsdlFileName, respMetaCtx.getOutputStream(), serviceDesc.getClassLoader())) {
+				wsdlFileName = "META-INF/soa/services/wsdl/" + adminName + "/" + adminName + ".wsdl";
+				if(!PseudoOperationUtil.streamResource(wsdlFileName, respMetaCtx.getOutputStream(), serviceDesc.getClassLoader())) {
+					throw new ServiceException(ErrorDataFactory.createErrorData(
+							ErrorConstants.SVC_RT_NO_WSDL, ErrorConstants.ERRORDOMAIN, new Object[] { adminName }));
+				}
+			}
 		} catch (IOException e) {
 			throw new ServiceException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_TRANSPORT_OUTBOUND_IO_EXCEPTION,
-					ErrorConstants.ERRORDOMAIN, new Object[] {serviceName, e.toString()}), e);
+					ErrorConstants.ERRORDOMAIN, new Object[] { adminName, e.toString() }), e);
 		}
-	}
 
-	private static void copy(InputStream input, OutputStream output)
-	throws IOException {
-		byte[] buf = new byte[8192];
-		int numRead = 0;
-		while ((numRead = input.read(buf)) != -1) {
-			output.write(buf, 0, numRead);
-		}
 	}
 }

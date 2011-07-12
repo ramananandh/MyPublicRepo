@@ -26,6 +26,7 @@ import org.ebayopensource.turmeric.runtime.binding.DataBindingOptions;
 import org.ebayopensource.turmeric.runtime.binding.objectnode.ObjectNode;
 import org.ebayopensource.turmeric.runtime.binding.objectnode.impl.JavaObjectNodeImpl;
 import org.ebayopensource.turmeric.runtime.common.binding.DataBindingDesc;
+import org.ebayopensource.turmeric.runtime.common.binding.IProtobufSerializer;
 import org.ebayopensource.turmeric.runtime.common.binding.Serializer;
 import org.ebayopensource.turmeric.runtime.common.binding.SerializerFactory;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorDataFactory;
@@ -36,10 +37,10 @@ import org.ebayopensource.turmeric.runtime.common.impl.attachment.BaseMessageAtt
 import org.ebayopensource.turmeric.runtime.common.impl.attachment.OutboundMessageAttachments;
 import org.ebayopensource.turmeric.runtime.common.impl.attachment.SOAMimeUtils;
 import org.ebayopensource.turmeric.runtime.common.impl.binding.jaxb.JAXBBasedSerializer;
+import org.ebayopensource.turmeric.runtime.common.impl.binding.protobuf.ProtobufSerializerFactory;
 import org.ebayopensource.turmeric.runtime.common.impl.internal.monitoring.SystemMetricDefs;
 import org.ebayopensource.turmeric.runtime.common.impl.internal.utils.OutboundRawDataRecorder;
 import org.ebayopensource.turmeric.runtime.common.impl.utils.LogManager;
-import org.ebayopensource.turmeric.runtime.common.pipeline.MessageContext;
 import org.ebayopensource.turmeric.runtime.common.pipeline.MessageProcessingStage;
 import org.ebayopensource.turmeric.runtime.common.pipeline.OutboundMessage;
 import org.ebayopensource.turmeric.runtime.common.pipeline.ProtocolProcessor;
@@ -48,7 +49,6 @@ import org.ebayopensource.turmeric.runtime.common.types.Cookie;
 import org.ebayopensource.turmeric.runtime.common.types.G11nOptions;
 import org.ebayopensource.turmeric.runtime.common.types.SOAHeaders;
 import org.ebayopensource.turmeric.runtime.errorlibrary.ErrorConstants;
-import org.ebayopensource.turmeric.runtime.sif.pipeline.ClientMessageContext;
 
 public final class OutboundMessageImpl extends BaseMessageImpl implements OutboundMessage {
 	private int m_maxBytesToRecord;
@@ -58,7 +58,22 @@ public final class OutboundMessageImpl extends BaseMessageImpl implements Outbou
 	private String m_unserializableReason;
 	private int m_maxURLLengthForREST;
 
+	public OutboundMessageImpl(boolean isRequestMessage,String transportProtocol,
+			DataBindingDesc dataBindingDesc, G11nOptions g11nOptions,
+			Map<String,String> transportHeaders, Cookie[] cookies,
+			Collection<ObjectNode> messageHeaders,
+			BaseMessageAttachments attachment, ServiceOperationDesc operationDesc,
+			boolean isREST, int maxURLLengthForREST, boolean bufferingMode)
+			throws ServiceException
+		{
+		super(isRequestMessage, transportProtocol, dataBindingDesc,
+				g11nOptions, transportHeaders, cookies, messageHeaders, attachment, operationDesc, bufferingMode);
+			m_isRest = isREST;
+			m_maxURLLengthForREST = maxURLLengthForREST;
+		}
+	
 	public OutboundMessageImpl(boolean isRequestMessage,
+
 		String transportProtocol,
 		DataBindingDesc dataBindingDesc, G11nOptions g11nOptions,
 		Map<String,String> transportHeaders, Cookie[] cookies,
@@ -66,12 +81,11 @@ public final class OutboundMessageImpl extends BaseMessageImpl implements Outbou
 		BaseMessageAttachments attachment, ServiceOperationDesc operationDesc,
 		boolean isREST, int maxURLLengthForREST)
 		throws ServiceException
-	{
-		super(isRequestMessage, transportProtocol, dataBindingDesc,
-			g11nOptions, transportHeaders, cookies, messageHeaders, attachment, operationDesc);
-		m_isRest = isREST;
-		m_maxURLLengthForREST = maxURLLengthForREST;
-	}
+		{
+		this(isRequestMessage, transportProtocol, dataBindingDesc,
+				g11nOptions, transportHeaders, cookies, messageHeaders, attachment, operationDesc, isREST, maxURLLengthForREST, false);
+		}
+
 
 	@Override
 	protected void loadParamsImpl() throws ServiceException {
@@ -140,7 +154,13 @@ public final class OutboundMessageImpl extends BaseMessageImpl implements Outbou
 			try {
 				if (hasAttachment()) {
 					serializeMessageWithAttachment(out);
-				} else {
+				} 
+				else if(isBufferingMode()) {
+					ByteArrayOutputStream  baoutputStream = new ByteArrayOutputStream();
+					serializeMessage(baoutputStream);
+					out.write(baoutputStream.toByteArray());		
+				} 
+				else {
 					serializeMessage(out);
 				}
 			} catch (Exception e) {
@@ -191,54 +211,87 @@ public final class OutboundMessageImpl extends BaseMessageImpl implements Outbou
 			paramTypes = getParamTypes();
 		}
 
-		XMLStreamWriter xmlStream = serFactory.getXMLStreamWriter(this, paramTypes, out);
+		long startTime = System.nanoTime();	
 
-		ProtocolProcessor protocolProcessor = ctx.getProtocolProcessor();
-
-		long startTime = System.nanoTime();
 		try {
-			if (m_errorResponse != null) {
-				// note that we use errorMessage's class here
-				// in case when ErrorMapper fails, this could be our default ErrorMessage
-				// and not the one produced by ErrorMapper implementation
-				
-				
-				protocolProcessor.preSerialize(this, xmlStream);
-				QName xmlName = getMessageXMLName(getParamDesc(), m_errorResponse.getClass());
-				// If service version is not provided as http header by client request, 
-				// we assume the request is using common types ErrorMessage to pass error back.
-/*	03/06/2009			Comment this code out because the migration is over.
- * 				if (shouldReturnCommonTypeErrorMessage()) {
-					convertToCommonTypeErrorMessage();
-					xmlName = new QName(BindingConstants.SOA_COMMON_TYPES_NAMESPACE, xmlName.getLocalPart(),
-							BindingConstants.SOA_COMMON_TYPES_PREFIX);
-				}
-*/				ser.serialize(this, m_errorResponse, xmlName, m_errorResponse.getClass(), xmlStream);
-				protocolProcessor.postSerialize(this, xmlStream);
-			} else {
-				protocolProcessor.preSerialize(this, xmlStream);
-				if (m_params != null) {
-					for (int i=0; i<m_params.length; i++) {
-						Object value = m_params[i];
-						Class<?> clazz = paramTypes.get(i);
-						QName xmlName = getMessageXMLName(getParamDesc(), clazz);
-						ser.serialize(this, value, xmlName, clazz, xmlStream);
+			if (serFactory instanceof ProtobufSerializerFactory) {
+				try {
+					IProtobufSerializer serializer = (IProtobufSerializer) ser;
+					if (m_params != null) {
+						for (int i = 0; i < m_params.length; ++i) {
+							serializer.serialize(ctx, m_params[i], paramTypes.get(i), out);
+						}
+					}
+				} finally {
+					try {
+						out.flush();
+					} catch (Exception e) {
+						throw new ServiceException(ErrorDataFactory.createErrorData(
+								ErrorConstants.SVC_DATA_WRITE_ERROR,
+								ErrorConstants.ERRORDOMAIN,
+								new String[] { e.toString() }), e);
 					}
 				}
-				protocolProcessor.postSerialize(this, xmlStream);
+			}
+			else {
+				XMLStreamWriter xmlStream = serFactory.getXMLStreamWriter(this,
+						paramTypes, out);
+				ProtocolProcessor protocolProcessor = ctx
+						.getProtocolProcessor();
+				if (m_errorResponse != null) {
+					// note that we use errorMessage's class here
+					// in case when ErrorMapper fails, this could be our default
+					// ErrorMessage
+					// and not the one produced by ErrorMapper implementation
+
+					protocolProcessor.preSerialize(this, xmlStream);
+					QName xmlName = getMessageXMLName(getParamDesc(),
+							m_errorResponse.getClass());
+					// If service version is not provided as http header by
+					// client request,
+					// we assume the request is using common types ErrorMessage
+					// to pass error back.
+					/*
+					 * 03/06/2009 Comment this code out because the migration is
+					 * over. if (shouldReturnCommonTypeErrorMessage()) {
+					 * convertToCommonTypeErrorMessage(); xmlName = new
+					 * QName(BindingConstants.SOA_COMMON_TYPES_NAMESPACE,
+					 * xmlName.getLocalPart(),
+					 * BindingConstants.SOA_COMMON_TYPES_PREFIX); }
+					 */
+					ser.serialize(this, m_errorResponse, xmlName,
+							m_errorResponse.getClass(), xmlStream);
+					protocolProcessor.postSerialize(this, xmlStream);
+				} else {
+					protocolProcessor.preSerialize(this, xmlStream);
+					if (m_params != null) {
+						for (int i = 0; i < m_params.length; i++) {
+							Object value = m_params[i];
+							Class<?> clazz = paramTypes.get(i);
+							QName xmlName = getMessageXMLName(getParamDesc(),
+									clazz);
+							ser.serialize(this, value, xmlName, clazz,
+									xmlStream);
+						}
+					}
+					protocolProcessor.postSerialize(this, xmlStream);
+				}
+				try {
+					xmlStream.flush();
+					out.flush();
+				} catch (Exception e) {
+					throw new ServiceException(ErrorDataFactory.createErrorData(
+							ErrorConstants.SVC_DATA_WRITE_ERROR,
+							ErrorConstants.ERRORDOMAIN,
+							new String[] { e.toString() }), e);	
+				}
 			}
 		} finally {
-			long duration = System.nanoTime() - startTime;
-			ctx.updateSvcAndOpMetric(SystemMetricDefs.OP_TIME_SERIALIZATION, startTime, duration);
-		}
-
-		try {
-			xmlStream.flush();
-			out.flush();
-		} catch (Exception e) {
-			throw new ServiceException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_DATA_WRITE_ERROR, 
-					ErrorConstants.ERRORDOMAIN, new String[] {e.toString()}), e);
-		}
+			long duration = System.nanoTime() - startTime;			
+			ctx.updateSvcAndOpMetric(SystemMetricDefs.OP_TIME_SERIALIZATION,
+					startTime, duration);
+			
+		}	
 	}
 	
 	public void serializeBody(OutputStream out) throws ServiceException {
@@ -355,17 +408,6 @@ public final class OutboundMessageImpl extends BaseMessageImpl implements Outbou
 		}
 		return code;
 	}
-
-	
-	private boolean shouldReturnCommonTypeErrorMessage() {
-		MessageContext context = getContext();
-		if (context instanceof ClientMessageContext) {
-			return false;
-		}
-		String invokerVersion = context.getInvokerVersion();
-		return invokerVersion == null;
-	}
-
 
 	public void filterException(Exception e) throws ServiceException {
 		SerializerFactory serFactory = getDataBindingDesc().getSerializerFactory();

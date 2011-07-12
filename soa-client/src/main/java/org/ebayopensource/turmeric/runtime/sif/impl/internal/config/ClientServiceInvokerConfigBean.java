@@ -8,6 +8,10 @@
  *******************************************************************************/
 package org.ebayopensource.turmeric.runtime.sif.impl.internal.config;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
 
 import com.ebay.kernel.bean.configuration.BeanPropertyInfo;
@@ -176,6 +180,15 @@ public class ClientServiceInvokerConfigBean extends ClientServiceConfigBean {
 		if (value != null) {
 			m_serviceUrl = value;
 		}
+		
+		List<String> values = config.getServiceLocations();
+		if(values!=null && !values.isEmpty()){
+			StringBuilder sb = new StringBuilder();
+			for(String s:values){
+				sb.append(s+",");
+			}
+			m_serviceUrl = sb.substring(0, sb.length()-1);
+		}
 
 		value = config.getInvocationUseCase();
 		if (value != null) {
@@ -214,10 +227,21 @@ public class ClientServiceInvokerConfigBean extends ClientServiceConfigBean {
 		if (m_preferredTransport != null) {
 			config.setPreferredTransport(m_preferredTransport);
 		}
-
+		
+		// this could be a comma delimited string. just set all locations
+		
 		if (m_serviceUrl != null) {
-			config.setServiceLocation(m_serviceUrl);
+			List<String> l = new ArrayList<String>();
+			if(m_serviceUrl.indexOf(",") == -1){
+				l.add(m_serviceUrl);
+			}else{
+				StringTokenizer t = new StringTokenizer(m_serviceUrl, ",");
+				while(t.hasMoreElements())
+					l.add(t.nextToken());
+			}
+			config.setServiceLocations(l);
 		}
+
 
 		if (m_useCase != null) {
 			config.setInvocationUseCase(m_useCase);

@@ -148,6 +148,12 @@ public final class SOAHeaders {
 	 * from.
 	 */
 	public static final String CALLING_POOL  = SYS_PREFIX + "CALLING-POOL";
+	
+	/**
+	 * Indicates whether to buffer the payload before the serilization/deserialization
+	 * is started.
+	 */
+	public static final String NON_STREAMING_MODE =  SYS_PREFIX + "NON-STREAMING-SERIALIZATION";
 
 	private static Set<String> s_caseSensitiveHeaders = new HashSet<String>();
 

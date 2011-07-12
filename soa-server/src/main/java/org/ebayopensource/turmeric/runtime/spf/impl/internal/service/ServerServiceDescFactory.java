@@ -77,6 +77,7 @@ import org.ebayopensource.turmeric.runtime.spf.impl.pipeline.SimpleServerRespons
 import org.ebayopensource.turmeric.runtime.spf.impl.pipeline.SimpleVersionCheckHandler;
 import org.ebayopensource.turmeric.runtime.spf.impl.service.GlobalIdDesc;
 import org.ebayopensource.turmeric.runtime.spf.pipeline.ErrorMapper;
+import org.ebayopensource.turmeric.runtime.spf.pipeline.HttpErrorMapper;
 import org.ebayopensource.turmeric.runtime.spf.pipeline.VersionCheckHandler;
 import org.ebayopensource.turmeric.runtime.spf.service.ServerServiceId;
 
@@ -86,9 +87,11 @@ import com.ebay.kernel.logger.Logger;
 /**
  * @author ichernyshev
  */
-public final class ServerServiceDescFactory extends BaseServiceDescFactory<ServerServiceDesc> {
+public final class ServerServiceDescFactory extends 
+				BaseServiceDescFactory<ServerServiceDesc> {
 
-	private static Logger LOGGER = Logger.getInstance( ServerServiceDescFactory.class );
+	private static Logger LOGGER = Logger
+				.getInstance( ServerServiceDescFactory.class );
 	private boolean m_isCompStatusInitialized;
 
 	private static ServerServiceDescFactory s_instance = new ServerServiceDescFactory();
@@ -104,14 +107,16 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 	/**
 	 * Returns a ServiceDesc, attempting to load if necessary
 	 */
-	public final ServerServiceDesc getServiceDesc(String adminName) throws ServiceException {
+	public final ServerServiceDesc getServiceDesc(String adminName) 
+				throws ServiceException {
 		return getServiceDesc(ServerServiceId.newInstance(adminName));
 	}
 
 	/**
 	 * Reloads ServiceDesc to reflect configuration change
 	 */
-	public final void reloadServiceDesc(String adminName) throws ServiceException {
+	public final void reloadServiceDesc(String adminName) 
+				throws ServiceException {
 		reloadServiceDesc(ServerServiceId.newInstance(adminName));
 	}
 
@@ -121,37 +126,45 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 	}
 
 	@Override
-	protected ServerServiceDesc createServiceDesc(ServiceId id, boolean rawMode) throws ServiceException {
+	protected ServerServiceDesc createServiceDesc(ServiceId id, boolean rawMode) 
+				throws ServiceException {
 		return createServiceDesc(id);
 	}
 
 	@Override
-	protected ServerServiceDesc createServiceDesc(ServiceId id) throws ServiceException {
+	protected ServerServiceDesc createServiceDesc(ServiceId id) 
+				throws ServiceException {
 		ServerServiceId serverSvcId = (ServerServiceId)id;
 		String adminName = id.getAdminName();
-		ServiceConfigHolder config = ServiceConfigManager.getInstance().getConfig(adminName);
+		ServiceConfigHolder config = ServiceConfigManager.getInstance()
+					.getConfig(adminName);
 		QName serviceQName = config.getServiceQName();
 
 		ClassLoader cl = Thread.currentThread().getContextClassLoader();
 
-		MessageProcessorConfigHolder processorConfig = config.getMessageProcessorConfig();
+		MessageProcessorConfigHolder processorConfig = config
+		.getMessageProcessorConfig();
 		TypeMappingConfigHolder typeMappingsCfg = config.getTypeMappings();
 
-		Pipeline requestPipeline = createPipeline(id, PipelineMode.REQUEST, processorConfig, cl);
-		Pipeline responsePipeline = createPipeline(id, PipelineMode.RESPONSE, processorConfig, cl);
+		Pipeline requestPipeline = createPipeline(id, PipelineMode.REQUEST, 
+				processorConfig, cl);
+		Pipeline responsePipeline = createPipeline(id, PipelineMode.RESPONSE, 
+				processorConfig, cl);
 
 		Class serviceInterfaceClass = loadServiceInterfaceClass(config, true, cl);
 
-		ServiceTypeMappings typeMappings = createTypeMappings(id, typeMappingsCfg, serviceInterfaceClass, cl);
+		ServiceTypeMappings typeMappings = createTypeMappings(id, 
+					typeMappingsCfg, serviceInterfaceClass, cl);
 
 		Collection<String> unsupportedOperations = config.getUnsupportedOperation();
 		Map<String,ServiceOperationDesc> operations = createOperations(id,
-			typeMappingsCfg, unsupportedOperations, typeMappings, serviceQName, cl, config.getOperationProperties());
+				typeMappingsCfg, unsupportedOperations, typeMappings, 
+				serviceQName, cl, config.getOperationProperties());
 		RequestPatternMatcher<ServiceOperationDesc> operationMatcher =
 			createOperationsMatcher(operations.values());
 
-		Map<String,ProtocolProcessorDesc> protocols = createProtocolProcessors(serverSvcId,
-			processorConfig.getProtocolProcessors(), cl);
+		Map<String,ProtocolProcessorDesc> protocols = createProtocolProcessors(
+				serverSvcId, processorConfig.getProtocolProcessors(), cl);
 		RequestPatternMatcher<ProtocolProcessorDesc> protocolMatcher = createProtocolProcessorsMatcher(
 			processorConfig.getProtocolProcessors(), protocols);
 
@@ -167,11 +180,13 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 				rootClasses.add( clazz );
 			}
 		}
-		Map<String,DataBindingDesc> bindings = createDataBindings(serverSvcId, processorConfig,
-			supportedDataBindings,  rootClasses, true, cl, true);
+		Map<String,DataBindingDesc> bindings = createDataBindings(serverSvcId, 
+				processorConfig, supportedDataBindings,  rootClasses, true, cl, true);
 
-		DataBindingDesc defaultRequestBinding = getDefaultRequestDataBinding(config, supportedDataBindings, bindings, adminName);
-		DataBindingDesc defaultResponseBinding = getDefaultResponseDataBinding(config, supportedDataBindings, bindings, adminName);
+		DataBindingDesc defaultRequestBinding = getDefaultRequestDataBinding(
+				config, supportedDataBindings, bindings, adminName);
+		DataBindingDesc defaultResponseBinding = getDefaultResponseDataBinding(
+				config, supportedDataBindings, bindings, adminName);
 
 		RequestPatternMatcher<DataBindingDesc> bindingMatcherForRequest =
 			new RequestPatternMatcher<DataBindingDesc>(true);
@@ -180,9 +195,12 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 		createDataBindingsMatchers(bindings.values(),
 			bindingMatcherForRequest, bindingMatcherForResponse);			
 	
-		ErrorMapper errorMapper = createErrorMapper(processorConfig, serverSvcId, cl);
-		ErrorDataProvider errorDataProviderClass = getErrorDataProviderClass(processorConfig, cl);
-		List<LoggingHandler> loggingHandlers = createLoggingHandlers(id, processorConfig, cl);
+		ErrorMapper errorMapper = createErrorMapper(processorConfig, 
+					serverSvcId, cl);
+		ErrorDataProvider errorDataProviderClass = 
+				getErrorDataProviderClass(processorConfig, cl);
+		List<LoggingHandler> loggingHandlers = createLoggingHandlers(id, 
+					processorConfig, cl);
 
 		String serviceDispatcherClassName = getDispatcherClassName(config);
 
@@ -195,21 +213,33 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 					serviceDispatcherClassName, BaseServiceRequestDispatcher.class, cl);
 		}
 		catch (ServiceException se) {
-			throw new ServiceCreationException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_FACTORY_MISSING_DISPATCHER_IMPL,
+			String mode = "Service Impl";
+			if (implFactory != null) {
+				mode += " factory";
+			}
+			throw new ServiceCreationException(ErrorDataFactory.createErrorData(
+					ErrorConstants.SVC_FACTORY_MISSING_DISPATCHER_IMPL,
 					ErrorConstants.ERRORDOMAIN, new Object[]{serviceDispatcherClassName}), se.getCause());
 		}
 
 
-		VersionCheckHandler versionCheckHandler = createVersionCheckHandler(serverSvcId, config, cl);
+		VersionCheckHandler versionCheckHandler = createVersionCheckHandler(
+					serverSvcId, config, cl);
 
-		serviceDispatcher.init(serverSvcId, serviceInterfaceClass,
-			serviceImplClassName, cl, operations.values(), versionCheckHandler,implFactory, 
-			config.isImplCached());
+		serviceDispatcher.init(serverSvcId, 
+				serviceInterfaceClass,
+				serviceImplClassName, 
+				cl, 
+				operations.values(), 
+				versionCheckHandler,
+				implFactory, 
+				config.isImplCached());
 
 		Dispatcher requestDispatcher = new SimpleInvokerDispatcher(serviceDispatcher);
 		Dispatcher responseDispatcher = new SimpleServerResponseDispatcher(true);
 
-		Collection<GlobalIdEntry> registryEntries = GlobalRegistryConfigManager.getInstance().getAllEntries();
+		Collection<GlobalIdEntry> registryEntries = GlobalRegistryConfigManager.
+					getInstance().getAllEntries();
 		Map<String, GlobalIdDesc> globalIdMap = createGlobalIdMap(registryEntries, config);
 
 		Charset serviceCharset = null;	// default is to use request charset
@@ -228,8 +258,10 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 		if( operationMappings == null ) {
 			operationMappings = new OperationMappings();
 		}
-		HeaderMappingsDesc requestHeaderMappings = loadHeaderMappings(adminName, config.getRequestHeaderMappingOptions(), true);
-		HeaderMappingsDesc responseHeaderMappings = loadHeaderMappings(adminName, config.getResponseHeaderMappingOptions(), false);
+		HeaderMappingsDesc requestHeaderMappings = loadHeaderMappings(
+				adminName, config.getRequestHeaderMappingOptions(), true);
+		HeaderMappingsDesc responseHeaderMappings = loadHeaderMappings(
+				adminName, config.getResponseHeaderMappingOptions(), false);
 
 		SecurityPolicyConfigHolder securityPolicy = config.getSecurityPolicy();
 		Map<String, Map<String, String>> authentOperationsMap = new HashMap<String, Map<String, String>>();
@@ -237,11 +269,20 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 
 		CachePolicyDesc cachePolicyDesc = null;
 		if (config.getCachePolicy() != null) {
-				cachePolicyDesc = CachePolicyDesc.create(config.getCachePolicy(), createOpRequestTypeDesc(operations));
+				cachePolicyDesc = CachePolicyDesc.create(config.getCachePolicy(),
+						createOpRequestTypeDesc(operations));
 		}
 
 
-		List<String> serviceLayers = ServiceConfigManager.getInstance().getGlobalConfig().getServiceLayerNames();
+		List<String> serviceLayers = ServiceConfigManager.getInstance()
+				.getGlobalConfig().getServiceLayerNames();
+		
+		String httpErrorMapperClassName = config.getHttpErrorMapper();
+		HttpErrorMapper httpErrorMapper = null;
+		if(httpErrorMapperClassName != null){
+			httpErrorMapper = ReflectionUtils.createInstance(
+					httpErrorMapperClassName, HttpErrorMapper.class, cl);
+		}
 
 		ServerServiceDesc result = new ServerServiceDesc(
 			serverSvcId, serviceQName, config,
@@ -269,7 +310,11 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 			authentOperationsMap,
 			defaultRequestBinding,
 			defaultResponseBinding,
-			serviceLayers, cachePolicyDesc,config.getRequestParamsDescriptor(), implFactory);
+			serviceLayers, 
+			cachePolicyDesc,
+			config.getRequestParamsDescriptor(), 
+			implFactory,
+			httpErrorMapper);
 
 		return result;
 	}
@@ -288,10 +333,9 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 			if (implFactory == null) {
 				// Same error message for backward compatibility
 				throw new ServiceCreationException(
-						ErrorDataFactory
-								.createErrorData(
-										ErrorConstants.SVC_FACTORY_UNDEFINED_IMPL_CLASS_NAME,
-										ErrorConstants.ERRORDOMAIN));
+						ErrorDataFactory.createErrorData(
+						ErrorConstants.SVC_FACTORY_UNDEFINED_IMPL_CLASS_NAME,
+						ErrorConstants.ERRORDOMAIN));
 			}
 			String interfaceName = config.getServiceInterfaceClassName();
 			dispatcher = ServiceNameUtils.getServiceDispatcherClassName(
@@ -300,8 +344,11 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 		return dispatcher;
 	}
 
-	private DataBindingDesc getDefaultRequestDataBinding(ServiceConfigHolder config, Collection<String> supportedDataBindings,
-			Map<String,DataBindingDesc> bindings, String adminName) throws ServiceCreationException
+	private DataBindingDesc getDefaultRequestDataBinding(
+			ServiceConfigHolder config, 
+			Collection<String> supportedDataBindings,
+			Map<String,DataBindingDesc> bindings, String adminName) 
+			throws ServiceCreationException
 	{
 		String defaultBinding = config.getDefaultRequestDataBinding();
 		if (defaultBinding == null) {
@@ -319,9 +366,11 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 		return bindings.get(defaultBinding);
 	}
 
-	private DataBindingDesc getDefaultResponseDataBinding(ServiceConfigHolder config, Collection<String> supportedDataBindings,
-			Map<String,DataBindingDesc> bindings, String adminName) throws ServiceCreationException
-	{
+	private DataBindingDesc getDefaultResponseDataBinding(
+			ServiceConfigHolder config, 
+			Collection<String> supportedDataBindings,
+			Map<String,DataBindingDesc> bindings, String adminName) 
+			throws ServiceCreationException {
 		String defaultBinding = config.getDefaultResponseDataBinding();
 		if (defaultBinding == null) {
 			return null;
@@ -329,24 +378,29 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 
 		if (supportedDataBindings != null && !supportedDataBindings.isEmpty()) {
 			if (! supportedDataBindings.contains(defaultBinding)) {
-				throw new ServiceCreationException(
-						ErrorDataFactory.createErrorData(ErrorConstants.SVC_FACTORY_INVALID_DEFAULT_DATA_BINDING,
-							ErrorConstants.ERRORDOMAIN, new Object[] { adminName, defaultBinding, supportedDataBindings.toString()}));
+				throw new ServiceCreationException(ErrorDataFactory.createErrorData(
+					ErrorConstants.SVC_FACTORY_INVALID_DEFAULT_DATA_BINDING,
+					ErrorConstants.ERRORDOMAIN, new Object[] { adminName,
+						defaultBinding, supportedDataBindings.toString()}));
 			}
 		}
 
 		return bindings.get(defaultBinding);
 	}
 
-	private void loadSecurityPolicy(String adminName, SecurityPolicyConfigHolder securityPolicy,
+	private void loadSecurityPolicy(String adminName, 
+			SecurityPolicyConfigHolder securityPolicy,
 			Map<String, ServiceOperationDesc> operations,
-			Map<String, Map<String, String>> authentOperationsMap) throws ServiceCreationException {
+			Map<String, Map<String, String>> authentOperationsMap) 
+			throws ServiceCreationException {
 		if (securityPolicy != null) {
-			Map<String, OperationSecurityConfig> authentOperationsConfig = securityPolicy.getAuthenticationOperations();
+			Map<String, OperationSecurityConfig> authentOperationsConfig = 
+					securityPolicy.getAuthenticationOperations();
 			for (Map.Entry<String, OperationSecurityConfig> entry : authentOperationsConfig.entrySet()) {
 				String opName = entry.getKey();
 				if (!opName.equals("*") && !operations.containsKey(opName)) {
-					throw new ServiceCreationException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_FACTORY_INVALID_OPERATION,
+					throw new ServiceCreationException(ErrorDataFactory.createErrorData(
+							ErrorConstants.SVC_FACTORY_INVALID_OPERATION,
 							ErrorConstants.ERRORDOMAIN, new Object[] {adminName, opName}));
 				}
 				Map<String, String> opConfigMap = new HashMap<String, String>();
@@ -362,7 +416,8 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 		}
 	}
 
-	private UrlMappingsDesc loadUrlMappings(String adminName, ServiceConfigHolder config) throws ServiceCreationException {
+	private UrlMappingsDesc loadUrlMappings(String adminName, ServiceConfigHolder config) 
+				throws ServiceCreationException {
 		OptionList options = config.getHeaderMappingOptions();
 		if (options == null) {
 			return UrlMappingsDesc.EMPTY_MAPPINGS;
@@ -378,12 +433,14 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 			String rawname = nv.getName();
 			String name = SOAHeaders.normalizeName(rawname, true);
 			if (!SOAHeaders.isSOAHeader(name)) {
-				throw new ServiceCreationException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_FACTORY_INVALID_HEADER_NAME,
+				throw new ServiceCreationException(ErrorDataFactory.createErrorData(
+						ErrorConstants.SVC_FACTORY_INVALID_HEADER_NAME,
 						ErrorConstants.ERRORDOMAIN, new Object[] {adminName, name}));
 			}
 
 			if(nameSet.contains(name)) {
-				throw new ServiceCreationException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_FACTORY_DUPLICATE_HEADER_KEY,
+				throw new ServiceCreationException(ErrorDataFactory.createErrorData(
+						ErrorConstants.SVC_FACTORY_DUPLICATE_HEADER_KEY,
 						ErrorConstants.ERRORDOMAIN, new Object[] {adminName, name}));
 			}
 			nameSet.add(name);
@@ -391,7 +448,8 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 			String value = nv.getValue();
 			if (value.startsWith("query[")) {
 				if (!value.endsWith("]")) {
-					throw new ServiceCreationException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_FACTORY_INVALID_MAPPING_VALUE,
+					throw new ServiceCreationException(ErrorDataFactory.createErrorData(
+							ErrorConstants.SVC_FACTORY_INVALID_MAPPING_VALUE,
 							ErrorConstants.ERRORDOMAIN, new Object[] {adminName, value}));
 				}
 				String indexval = value.substring(6, value.length()-1);
@@ -400,7 +458,8 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 				queryOpMapping = name;
 			} else if (value.startsWith("path[")) {
 				if (!value.endsWith("]")) {
-					throw new ServiceCreationException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_FACTORY_INVALID_MAPPING_VALUE,
+					throw new ServiceCreationException(ErrorDataFactory.createErrorData(
+							ErrorConstants.SVC_FACTORY_INVALID_MAPPING_VALUE,
 							ErrorConstants.ERRORDOMAIN, new Object[] {adminName, value}));
 				}
 				String indexval = value.substring(5, value.length()-1);
@@ -411,14 +470,16 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 					}
 					indexnum = Integer.valueOf(indexval);
 				} catch (NumberFormatException e) {
-					throw new ServiceCreationException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_FACTORY_INVALID_MAPPING_VALUE,
+					throw new ServiceCreationException(ErrorDataFactory.createErrorData(
+							ErrorConstants.SVC_FACTORY_INVALID_MAPPING_VALUE,
 							ErrorConstants.ERRORDOMAIN, new Object[] {adminName, value}), e);
 				}
 				pathMap.put(indexnum, name);
 			} else if( value.trim().equalsIgnoreCase("reject") ) {
 				rejectSet.add(name);
 			} else {
-				throw new ServiceCreationException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_FACTORY_INVALID_MAPPING_VALUE,
+				throw new ServiceCreationException(ErrorDataFactory.createErrorData(
+						ErrorConstants.SVC_FACTORY_INVALID_MAPPING_VALUE,
 						ErrorConstants.ERRORDOMAIN, new Object[] {adminName, value}));
 			}
 
@@ -427,13 +488,17 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 		return result;
 	}
 
-	public ServerServiceDesc createFallbackServiceDesc(QName serviceQName) throws ServiceException {
-		ServerServiceId serverSvcId = ServerServiceId.createFallbackServiceId(serviceQName.getLocalPart());
+	public ServerServiceDesc createFallbackServiceDesc(QName serviceQName) 
+				throws ServiceException {
+		ServerServiceId serverSvcId = ServerServiceId.
+				createFallbackServiceId(serviceQName.getLocalPart());
 		ClassLoader cl = ServiceDesc.class.getClassLoader();
 
 		// create empty pipelines
-		Pipeline requestPipeline = createFallbackPipeline(serverSvcId, PipelineMode.REQUEST);
-		Pipeline responsePipeline = createFallbackPipeline(serverSvcId, PipelineMode.RESPONSE);
+		Pipeline requestPipeline = createFallbackPipeline(serverSvcId, 
+				PipelineMode.REQUEST);
+		Pipeline responsePipeline = createFallbackPipeline(serverSvcId, 
+				PipelineMode.RESPONSE);
 
 		// create empty operation lists
 		Map<String,ServiceOperationDesc> operations = new HashMap<String,ServiceOperationDesc>();
@@ -481,10 +546,12 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 		versionCheckHandler.init(versionInitCtx);
 		versionInitCtx.kill();
 
-		Collection<GlobalIdEntry> registryEntries = GlobalRegistryConfigManager.getInstance().getAllEntries();
+		Collection<GlobalIdEntry> registryEntries = GlobalRegistryConfigManager
+					.getInstance().getAllEntries();
 		Map<String, GlobalIdDesc> globalIdMap = createGlobalIdMap(registryEntries, null);
 
-		List<String> serviceLayers = ServiceConfigManager.getInstance().getGlobalConfig().getServiceLayerNames();
+		List<String> serviceLayers = ServiceConfigManager.getInstance()
+				.getGlobalConfig().getServiceLayerNames();
 
 		ServerServiceDesc result = new ServerServiceDesc(
 			serverSvcId,
@@ -514,14 +581,14 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 			Collections.unmodifiableMap(new HashMap<String, Map<String, String>>()),
 			bindings.get(BindingConstants.PAYLOAD_XML),
 			bindings.get(BindingConstants.PAYLOAD_XML),
-			serviceLayers, null, null, null);
+			serviceLayers, null, null, null, null);
 
 		return result;
 	}
 
 	public ServiceOperationDesc createFallbackOperationDesc(ServerServiceDesc svcDesc, String opName)
-		throws ServiceException
-	{
+				throws ServiceException {
+		
 		ServiceId svcId = svcDesc.getServiceId();
 		QName svcQName = svcDesc.getServiceQName();
 		ServiceTypeMappings typeMappings = svcDesc.getTypeMappings();
@@ -541,8 +608,7 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 	}
 
 	private Pipeline createFallbackPipeline(ServiceId svcId, PipelineMode pipelineMode)
-		throws ServiceException
-	{
+		throws ServiceException {
 		ClassLoader cl = Pipeline.class.getClassLoader();
 		Pipeline result = new PipelineImpl();
 
@@ -631,8 +697,7 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 	}
 
 	private ErrorMapper createErrorMapper(MessageProcessorConfigHolder config,
-		ServerServiceId svcId, ClassLoader cl)
-		throws ServiceException
+		ServerServiceId svcId, ClassLoader cl) throws ServiceException
 	{
 		ErrorMapper result;
 		String className = config.getErrorMappingClass();
@@ -650,7 +715,8 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 		return result;
 	}
 
-	private ErrorDataProvider getErrorDataProviderClass(MessageProcessorConfigHolder config, ClassLoader cl) throws ServiceException
+	private ErrorDataProvider getErrorDataProviderClass(MessageProcessorConfigHolder config, 
+				ClassLoader cl) throws ServiceException
 	{
 		ErrorDataProvider result =  null;
 		String className = config.getErrorDataProviderClass();
@@ -676,7 +742,8 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 	{
 		String currentVersion = config.getMetaData().getVersion();
 		if (currentVersion == null || currentVersion.length() == 0) {
-			throw new ServiceCreationException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_FACTORY_MISSING_SERVICE_VERSION,
+			throw new ServiceCreationException(ErrorDataFactory.createErrorData(
+					ErrorConstants.SVC_FACTORY_MISSING_SERVICE_VERSION,
 					ErrorConstants.ERRORDOMAIN, new Object[] {serverSvcId.getAdminName()}));
 		}
 
@@ -719,7 +786,10 @@ public final class ServerServiceDescFactory extends BaseServiceDescFactory<Serve
 		return result;
 	}
 
-	private Map<String, GlobalIdDesc> createGlobalIdMap(Collection<GlobalIdEntry> registryEntries, ServiceConfigHolder config) {
+	private Map<String, GlobalIdDesc> createGlobalIdMap(
+			Collection<GlobalIdEntry> registryEntries, 
+			ServiceConfigHolder config) {
+		
 		Map<String, GlobalIdDesc> result = new HashMap<String, GlobalIdDesc>();
 		Set<String> supportedGlobalId = null;
 		Set<String> supportedLocales = null;

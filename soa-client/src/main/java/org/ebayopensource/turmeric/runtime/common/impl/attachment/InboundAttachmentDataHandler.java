@@ -135,6 +135,7 @@ public class InboundAttachmentDataHandler extends DataHandler implements java.aw
 		getUnderlyingDataHandler().writeTo(arg0);
 	}
 	
+	@Override
 	protected void finalize () throws Throwable {
 		DataSource ds = m_delegate.getDataSource();
 		if (!(ds instanceof CachedFileDataSource)) {

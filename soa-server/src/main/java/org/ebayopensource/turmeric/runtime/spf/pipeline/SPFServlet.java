@@ -72,6 +72,28 @@ public class SPFServlet extends HttpServlet {
 		doPost(req, resp);
 	}
 
+	/** 
+	 * Called by the server (via the service method) to allow a servlet to handle a DELETE request. 
+	 * 
+	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)	 
+	 */
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		doPost(req, resp);
+	}
+
+	/** 
+	 * Called by the server (via the service method) to allow a servlet to handle a PUT request. 
+	 * 
+	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)	 
+	 */
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		doPost(req, resp);
+	}
+
 	/*
 	 * Called by the server (via the service method) to allow a servlet to handle a POST request.
 	 *  

@@ -10,6 +10,8 @@ package org.ebayopensource.turmeric.runtime.spf.impl.internal.pipeline;
 
 import java.util.List;
 
+import org.ebayopensource.turmeric.common.v1.types.CommonErrorData;
+import org.ebayopensource.turmeric.common.v1.types.ErrorMessage;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorDataFactory;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceCreationException;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
@@ -27,11 +29,9 @@ import org.ebayopensource.turmeric.runtime.spf.impl.internal.monitoring.ServerSe
 import org.ebayopensource.turmeric.runtime.spf.impl.internal.service.ServerServiceDesc;
 import org.ebayopensource.turmeric.runtime.spf.impl.internal.service.ServerServiceDescFactory;
 import org.ebayopensource.turmeric.runtime.spf.pipeline.ErrorMapper;
+import org.ebayopensource.turmeric.runtime.spf.pipeline.HttpError;
 import org.ebayopensource.turmeric.runtime.spf.pipeline.ServerMessageContext;
 import org.ebayopensource.turmeric.runtime.spf.pipeline.VersionCheckHandler;
-
-import org.ebayopensource.turmeric.common.v1.types.CommonErrorData;
-import org.ebayopensource.turmeric.common.v1.types.ErrorMessage;
 
 
 
@@ -105,6 +105,9 @@ public class ServerMessageProcessor extends BaseMessageProcessorImpl {
 						ErrorDataFactory.createErrorData(ErrorConstants.SVC_RT_ERROR_MAPPER_RETURNED_NULL,
 								ErrorConstants.ERRORDOMAIN, 
 						new Object[] {errorMapper.getClass().getName()}));
+			}
+			if (errorMsg instanceof HttpError) {
+				response.setUnserializable(errorMsg.toString());
 			}
 			response.setErrorResponse(errorMsg);
 		} catch (Throwable e) {

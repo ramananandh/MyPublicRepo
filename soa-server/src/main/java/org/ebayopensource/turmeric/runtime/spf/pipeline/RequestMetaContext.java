@@ -19,6 +19,7 @@ import java.util.Map;
  */
 public class RequestMetaContext {
 	private final boolean m_isGetMethod;
+	private final boolean m_isDeleteMethod;
 	private final String m_requestUri;
 	private final Map<String, String> m_transportHeaders;
 	private final Map<String, String> m_pseudoOpParams;
@@ -26,6 +27,7 @@ public class RequestMetaContext {
 	private Map<String, String> m_queryParams;
 	private String m_urlMatchExpression;
 
+	private Map<String, String> m_rawQueryParams;
 	/**
 	 * Constructor.
 	 * @param isGetMethod true if this is an HTTP GET query
@@ -33,9 +35,10 @@ public class RequestMetaContext {
 	 * @param requiredAdminName specifies the service name that is pre-configured with the servlet, if any.  When this is used, only this
 	 * service is considered valid for the servlet, and no service name needs to be supplied.
 	 */
-	public RequestMetaContext(boolean isGetMethod, String requestUri, String requiredAdminName)
+	public RequestMetaContext(boolean isGetMethod, boolean isDeleteMethod, String requestUri, String requiredAdminName)
 	{
 		m_isGetMethod = isGetMethod;
+		m_isDeleteMethod = isDeleteMethod;
 		m_requestUri = requestUri;
 		m_transportHeaders = new HashMap<String,String>();
 		m_pseudoOpParams = new HashMap<String,String>();
@@ -49,6 +52,15 @@ public class RequestMetaContext {
 	public boolean isGetMethod() {
 		return m_isGetMethod;
 	}
+	
+	/**
+	 * Returns whether this is an HTTP DELETE req
+	 * @return true if this is an HTTP DELETE req
+	 */
+	public boolean isDeleteMethod() {
+		return m_isDeleteMethod;
+	}
+
 	
 	/**
 	 * Returns the raw string of the request URI.
@@ -121,4 +133,13 @@ public class RequestMetaContext {
 	public void setUrlMatchExpression(String urlMatchExpression) {
 		m_urlMatchExpression = urlMatchExpression;
 	}
+
+	public void setRawQueryParams(Map<String, String> rawQueryParams) {
+		m_rawQueryParams = rawQueryParams;
+	}
+	
+	public Map<String, String> getRawQueryParams() {	
+		return m_rawQueryParams;
+	}
+
 }

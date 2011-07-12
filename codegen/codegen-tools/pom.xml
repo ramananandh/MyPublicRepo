@@ -56,6 +56,7 @@
                 <schema>${schemas-dir}/library/TypeInformation.xsd</schema>
                 <schema>${schemas-dir}/errorLibrary/OrganizationErrorBlocks.xsd</schema>
                 <schema>${schemas-dir}/errorLibrary/ErrorBundle.xsd</schema>
+                <schema>${schemas-dir}/fastserformat/FastSerFormat.xsd</schema>
               </schemas>
             </configuration>
           </execution>

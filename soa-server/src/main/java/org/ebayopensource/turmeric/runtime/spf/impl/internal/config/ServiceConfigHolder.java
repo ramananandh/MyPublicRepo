@@ -49,6 +49,7 @@ public class ServiceConfigHolder extends CommonConfigHolder {
 	private String m_ResponsePayloadCalLog;
 	private OperationMappings m_operationMappings;
 	private RequestParamsDescriptor reqParamsDesc;
+	private String m_httpErrorMapperClassName;
 	private static final char NL = '\n';
 
 	public ServiceConfigHolder(String adminName) {
@@ -532,6 +533,18 @@ public class ServiceConfigHolder extends CommonConfigHolder {
 		if (m_cachePolicy != null) {
 			m_cachePolicy.dump(sb);
 		}
+		if (m_httpErrorMapperClassName != null) {
+			sb.append("httpErrorMapperClassName="+m_httpErrorMapperClassName+NL);
+		}
+		
+	}
+
+	public void setHttpErrorMapper(String httpErrorMapperClassName) {
+		m_httpErrorMapperClassName = httpErrorMapperClassName;
+	}
+
+	public String getHttpErrorMapper() {
+		return m_httpErrorMapperClassName;
 	}
 
 }

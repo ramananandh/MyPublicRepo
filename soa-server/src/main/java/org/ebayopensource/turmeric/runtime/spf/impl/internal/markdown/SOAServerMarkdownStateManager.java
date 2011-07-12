@@ -106,7 +106,8 @@ public final class SOAServerMarkdownStateManager
 	}
 
 	@Override
-	protected SOAServerMarkdownStateId createSoaStateId(String adminName, String opName, String subname) {
+	protected SOAServerMarkdownStateId createSoaStateId(String adminName, String opName, String subname, String location) {
+		// we ignore location here, since this is server side
 		return new SOAServerMarkdownStateId(adminName, opName, subname);
 	}
 }

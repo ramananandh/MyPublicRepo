@@ -38,6 +38,7 @@ import org.ebayopensource.turmeric.runtime.common.binding.DataBindingDesc;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorDataFactory;
 import org.ebayopensource.turmeric.runtime.common.exceptions.HTTPTransportException;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
+import org.ebayopensource.turmeric.runtime.common.impl.attachment.InboundMessageAttachments;
 import org.ebayopensource.turmeric.runtime.common.impl.internal.pipeline.BaseMessageContextImpl;
 import org.ebayopensource.turmeric.runtime.common.impl.internal.utils.AsyncCallBack;
 import org.ebayopensource.turmeric.runtime.common.impl.internal.utils.IAsyncResponsePoller;
@@ -56,8 +57,6 @@ import org.ebayopensource.turmeric.runtime.common.types.SOAConstants;
 import org.ebayopensource.turmeric.runtime.common.types.SOAHeaders;
 import org.ebayopensource.turmeric.runtime.common.types.ServiceAddress;
 import org.ebayopensource.turmeric.runtime.common.utils.BufferUtil;
-
-
 import org.ebayopensource.turmeric.runtime.errorlibrary.ErrorConstants;
 import org.ebayopensource.turmeric.runtime.sif.pipeline.ClientMessageContext;
 import org.ebayopensource.turmeric.runtime.sif.service.ClientServiceId;
@@ -91,6 +90,9 @@ public class HTTPSyncAsyncClientTransport implements Transport {
 	private static Map<String, NioAsyncHttpClient> m_asyncHttpClients = new ConcurrentHashMap<String, NioAsyncHttpClient>();
 
 	private String m_httpVersion;
+	
+	private Integer m_inMemoryAttachmentLimit;
+
 	private boolean m_accept_gzip = false;
 
 	private HTTPClientTransportConfig m_config;
@@ -130,6 +132,29 @@ public class HTTPSyncAsyncClientTransport implements Transport {
 				SOAConstants.GZIP_ENCODING);
 		if (useZipping != null && Boolean.parseBoolean(useZipping))
 			m_accept_gzip = true;
+
+		m_inMemoryAttachmentLimit = readAttachmentConfiguration(ctx.getOptions().getProperties());
+	}
+
+	private Integer readAttachmentConfiguration(Map<String, String> properties) {
+		boolean attachmentFileCache = true;
+		String attachmentFileCacheStr = properties.get(SOAConstants.ATTACHMENT_FILE_CACHE);
+		if (attachmentFileCacheStr != null) {
+			attachmentFileCache = Boolean.valueOf(attachmentFileCacheStr).booleanValue();
+		}
+		if (attachmentFileCache) {
+			String inMemoryAttachmentLimitStr = properties.get(SOAConstants.IN_MEMORY_ATTACHMENT_LIMIT);
+			if (inMemoryAttachmentLimitStr != null) {
+				try {
+					return Integer.valueOf(inMemoryAttachmentLimitStr);
+				} catch (NumberFormatException e) {
+					LOGGER.log(Level.WARNING, "Unable to parse property " + SOAConstants.IN_MEMORY_ATTACHMENT_LIMIT, e);
+				}
+			} 
+			return InboundMessageAttachments.IN_MEMORY_ATTACHMENT_LIMIT;
+		}
+		
+		return null;
 	}
 
 	private String getConfigName(ServiceId svcId, String name) {
@@ -342,11 +367,11 @@ public class HTTPSyncAsyncClientTransport implements Transport {
 		if (httpGet) {
 			request = createHTTPGetRequest(adminName, serviceLocationString,
 					clientRequestMsg, transportHeaders, httpGetBufferSize);
+			request.setHttpVersion(m_httpVersion);
 		} else {
 			request = createHTTPPostRequest(adminName, serviceLocation,
 					serviceLocationString, clientRequestMsg, transportHeaders);
 		}
-		request.setHttpVersion(m_httpVersion);
 
 		Cookie[] cookies = clientRequestMsg.getCookies();
 		if (cookies != null && cookies.length != 0) {
@@ -449,16 +474,13 @@ public class HTTPSyncAsyncClientTransport implements Transport {
 			OutboundMessage clientRequestMsg,
 			Map<String, String> transportHeaders) throws ServiceException {
 		Request request = new Request(serviceLocation);
+		request.setHttpVersion(m_httpVersion);
 		request.setMethod(Request.POST);
 
 		addTransportHeaders(transportHeaders, request);
 
-		// TODO - if 1.1, then set streaming, otherwise not
-		boolean streaming = false;
-		if (streaming) {
-			RequestBodyWriter outWriter = new StreamingMessageBodyWriter(
-					clientRequestMsg);
-			request.setBodyWriter(outWriter);
+		if (isClientStreaming() && Request.HTTP_11.equals(m_httpVersion)) {
+			request.setChunkedEncoding();
 		} else {
 			byte[] httpPayloadData = serializeRequest(clientRequestMsg);
 			request.setRawData(httpPayloadData);
@@ -504,7 +526,7 @@ public class HTTPSyncAsyncClientTransport implements Transport {
 			String serviceLocationString, Request request,
 			BaseMessageContextImpl clientCtx) throws ServiceException {
 
-		Future<Response> futureResponse = null;
+		NioAsyncResponseFuture futureResponse = null;
 		try {
 			IAsyncResponsePoller poller = clientCtx.getServicePoller();
 			ITransportPoller transpPoller = null;
@@ -517,12 +539,22 @@ public class HTTPSyncAsyncClientTransport implements Transport {
 					.send(request,
 							(HTTPSyncAsyncClientTransportPoller) transpPoller)
 					: m_client.send(request);
+					if (isClientStreaming() && Request.HTTP_11.equals(m_httpVersion)) {
+						((OutboundMessage) clientCtx.getCurrentMessage()).serialize(futureResponse.getRequestOutputStream());
+						futureResponse.getRequestOutputStream().close();
+					}
 		} catch (BaseClientSideException e) {
 			throw new HTTPTransportException(ErrorDataFactory.createErrorData(
 					ErrorConstants.SVC_TRANSPORT_COMM_FAILURE,
 					ErrorConstants.ERRORDOMAIN, new Object[] {
 							serviceLocationString, e.toString() }), -1, e);
+		}catch (IOException e) {
+			throw new HTTPTransportException(ErrorDataFactory.createErrorData(
+					ErrorConstants.SVC_TRANSPORT_COMM_FAILURE,
+					ErrorConstants.ERRORDOMAIN, new Object[] {
+							serviceLocationString, e.toString() }), -1, e);
 		}
+
 
 		return futureResponse;
 	}
@@ -533,13 +565,23 @@ public class HTTPSyncAsyncClientTransport implements Transport {
 			throws ServiceException {
 
 		try {
-			m_client.send(request, callback);
+			NioAsyncResponseFuture future = m_client.send(request, callback, true);
+			if (isClientStreaming() && Request.HTTP_11.equals(m_httpVersion)) {
+				((OutboundMessage) clientCtx.getRequestMessage()).serialize(future.getRequestOutputStream());
+				future.getRequestOutputStream().close();
+			}
 		} catch (BaseClientSideException e) {
 			throw new HTTPTransportException(ErrorDataFactory.createErrorData(
 					ErrorConstants.SVC_TRANSPORT_COMM_FAILURE,
 					ErrorConstants.ERRORDOMAIN, new Object[] {
 							serviceLocationString, e.toString() }), -1, e);
+		} catch (IOException e) {
+			throw new HTTPTransportException(ErrorDataFactory.createErrorData(
+					ErrorConstants.SVC_TRANSPORT_COMM_FAILURE,
+					ErrorConstants.ERRORDOMAIN, new Object[] {
+							serviceLocationString, e.toString() }), -1, e);
 		}
+
 		return new CallBackRequestFuture(callback);
 	}
 
@@ -553,6 +595,9 @@ public class HTTPSyncAsyncClientTransport implements Transport {
 			future = m_client.send(request);
 			if (isClientStreaming()) {
 				NioAsyncResponseFuture nioAsyncResponseFuture = (NioAsyncResponseFuture) future;
+				((OutboundMessage) clientCtx.getRequestMessage()).serialize(
+						nioAsyncResponseFuture.getRequestOutputStream());
+				nioAsyncResponseFuture.getRequestOutputStream().close();
 				response = new FutureResponseWrapper(nioAsyncResponseFuture);
 			} else {
 				response = new ResponseWrapper(future.get(
@@ -581,7 +626,14 @@ public class HTTPSyncAsyncClientTransport implements Transport {
 					ErrorConstants.ERRORDOMAIN, new Object[] {
 							m_svcId.getAdminName(), e.toString(),
 							serviceLocationString }), -1, e);
+		} catch (IOException e) {
+			throw new HTTPTransportException(ErrorDataFactory.createErrorData(
+					ErrorConstants.SVC_TRANSPORT_OUTBOUND_IO_EXCEPTION,
+					ErrorConstants.ERRORDOMAIN, new Object[] {
+							m_svcId.getAdminName(), e.toString(),
+							serviceLocationString }), -1, e);
 		}
+
 
 		return doCommonResponseProcessing(serviceLocationString, clientCtx,
 				response);
@@ -798,9 +850,9 @@ public class HTTPSyncAsyncClientTransport implements Transport {
 			} else {
 				InputStream bis = httpClientResponse.getContentStream();
 				clientResponse
-						.setInputStream(httpClientResponse.isGzipped() ? new GZIPInputStream(
-								bis)
-								: bis);
+				.setInputStream(
+						httpClientResponse.isGzipped() ? new GZIPInputStream(bis) : bis, 
+						m_inMemoryAttachmentLimit);
 			}
 		} catch (IOException e) {
 			throw new HTTPTransportException(ErrorDataFactory.createErrorData(

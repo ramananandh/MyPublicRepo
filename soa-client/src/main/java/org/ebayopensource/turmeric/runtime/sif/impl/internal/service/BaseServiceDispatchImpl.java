@@ -17,6 +17,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Future;
 import java.util.logging.Level;
@@ -50,8 +51,6 @@ import org.ebayopensource.turmeric.runtime.common.types.G11nOptions;
 import org.ebayopensource.turmeric.runtime.common.types.SOAConstants;
 import org.ebayopensource.turmeric.runtime.common.types.SOAHeaders;
 import org.ebayopensource.turmeric.runtime.common.types.ServiceAddress;
-
-
 import org.ebayopensource.turmeric.runtime.errorlibrary.ErrorConstants;
 import org.ebayopensource.turmeric.runtime.sif.impl.internal.config.ClientConfigHolder;
 import org.ebayopensource.turmeric.runtime.sif.impl.internal.markdown.SOAClientMarkdownStateId;
@@ -67,13 +66,64 @@ import org.ebayopensource.turmeric.runtime.sif.service.ServiceInvokerOptions;
 import com.ebay.kernel.markdown.MarkdownStateSnapshot;
 
 public abstract class BaseServiceDispatchImpl<T> extends ServiceDispatch<T> {
+
+	private class LocationPicker {
+		private List<URL> locations=null;
+		private int counter=0;
+		/*public void setLocation(URL location) {
+			locations = new ArrayList<URL>();
+			locations.add(location);
+		}*/
+		private boolean firstTime = true;
+
+		public void setLocations(List<URL> locations) {
+			this.locations = locations;
+		}
+
+		public List<URL> getLocations() {
+			return locations;
+		}
+		
+		public URL getNextLocation() {
+			if(locations == null || locations.isEmpty())
+				return null;
+			if(locations.size()==1)
+				return locations.get(0);
+			
+			if(firstTime){
+				synchronized(this){
+					if(firstTime){ //check again. may not be first time now
+						//randomly get a location
+						int size = locations.size();
+						if(size==1)
+							return locations.get(0);
+						Random r = new Random();
+						counter = r.nextInt(size);
+						firstTime = false;
+						return locations.get(counter);	
+					}
+				}
+			}
+			
+			counter++;
+			if(counter>=locations.size())
+				counter=0;
+			
+			return locations.get(counter);
+			
+		}
+
+	}
+
+	private final LocationPicker locPick = new LocationPicker();
+
 	static final int MAX_URL_LENGTH_FOR_REST = 2048;
 
 	static final G11nOptions s_emptyG11nOptions = new G11nOptions();
 
 	private final ClientMessageProcessor m_messageProcessor;
 
-	private final URL m_serviceLocation;
+	private URL m_currentServiceLocation;
 
 	private final ClientServiceDesc m_serviceDesc;
 
@@ -103,7 +153,7 @@ public abstract class BaseServiceDispatchImpl<T> extends ServiceDispatch<T> {
 
 	private final Executor m_executor;
 
-	BaseServiceDispatchImpl(String opName, URL serviceLocation,
+	BaseServiceDispatchImpl(String opName, List<URL> locations,
 			ClientServiceDesc serviceDesc, URL wsdlLocation,
 			ServiceInvokerOptions invokerOptions, String serviceVersion,
 			Map<String, Cookie> cookies, Map<String, String> transportHeaders,
@@ -114,8 +164,8 @@ public abstract class BaseServiceDispatchImpl<T> extends ServiceDispatch<T> {
 		super(opName);
 
 		m_messageProcessor = ClientMessageProcessor.getInstance();
+		locPick.setLocations(locations);
 
-		m_serviceLocation = serviceLocation;
 		m_serviceDesc = serviceDesc;
 		m_invokerOptions = invokerOptions;
 		m_serviceVersion = serviceVersion;
@@ -220,8 +270,9 @@ public abstract class BaseServiceDispatchImpl<T> extends ServiceDispatch<T> {
 	private void handleRetryForRuntimeException(RuntimeException e) {
 		// Unexpected exception - check if it's on the retry list,
 		// otherwise re-throw it.
-		postInvokeErrorAndMarkDown(e);
+		postErrorMarkDown(e);
 		if (!isRetryable(e) || m_numTries >= getApplicationTryCount()) {
+			postInvokeError();
 			throw e;
 		}
 		m_numTries++;
@@ -242,8 +293,10 @@ public abstract class BaseServiceDispatchImpl<T> extends ServiceDispatch<T> {
 		// indicate a system error from either client
 		// or server side. Check if it's on the retry list, otherwise
 		// re-throw it.
-		postInvokeErrorAndMarkDown(e);
+		
+		postErrorMarkDown(e);
 		if (!isRetryable(e) || m_numTries >= getApplicationTryCount()) {
+			postInvokeError();
 			throw e;
 		}
 
@@ -397,16 +450,21 @@ public abstract class BaseServiceDispatchImpl<T> extends ServiceDispatch<T> {
 				protocolProcessor.getName())
 				: null;
 
+		boolean bufferingMode = false;
+				if(transportHeaders != null) {
+				    bufferingMode = transportHeaders.containsKey(SOAHeaders.NON_STREAMING_MODE);
+				}
+
 		// Get out bound Message
 		OutboundMessageImpl requestMsg = new OutboundMessageImpl(true,
 				transportName, requestDataBinding, g11nOptions,
 				transportHeaders, cookies, messageHeaders, outAttachments,
-				operation, isRest, maxUrlLengthForREST);
+				operation, isRest, maxUrlLengthForREST, bufferingMode);
 
 		// Get in bound Message
 		InboundMessageImpl responseMsg = new InboundMessageImpl(false,
 				transportName, responseDataBinding, g11nOptions, null, null,
-				null, null, operation);
+				null, null, operation, bufferingMode);
 
 		// Get response Transport Name
 		String responseTransportName = m_invokerOptions
@@ -433,10 +491,9 @@ public abstract class BaseServiceDispatchImpl<T> extends ServiceDispatch<T> {
 				: m_invokerOptions.getUrlPathInfo();
 
 		// get host name
-		String hostName = (m_serviceLocation != null ? m_serviceLocation
-				.getHost() : null);
-		ServiceAddress serviceAddress = getServiceAddress(m_serviceLocation,
-				m_urlPathInfo, hostName);
+				 m_currentServiceLocation = locPick.getNextLocation();
+					String hostName = ( m_currentServiceLocation != null ? m_currentServiceLocation.getHost() : null);
+					ServiceAddress serviceAddress = getServiceAddress(m_currentServiceLocation, m_urlPathInfo, hostName);
 
 		URL serviceUrl = serviceAddress.getServiceUrl();
 		String serviceUrlStr = (serviceUrl != null ? serviceUrl.toString()
@@ -959,8 +1016,16 @@ public abstract class BaseServiceDispatchImpl<T> extends ServiceDispatch<T> {
 
 	private void postInvokeErrorAndMarkDown(Throwable exception) {
 		postInvokeError();
-		ServiceCallHelper.checkMarkdownError(getCurrentContext(), exception);
+		postErrorMarkDown(exception);
 	}
+	
+	private void postErrorMarkDown(Throwable e){
+		// here, we need to be able to create a state if it doeesnt exist, with location specified
+		// since location can be specified at runtime.
+		ServiceCallHelper.checkState(getCurrentContext(), m_serviceDesc, m_currentServiceLocation);
+		ServiceCallHelper.checkMarkdownError(getCurrentContext(), e, m_currentServiceLocation);
+	}
+
 
 	protected void handlingOfSericeException(String opName, ServiceException e) {
 		ServiceInvocationException e2 = getServiceInvocationExceptionForServiceException(

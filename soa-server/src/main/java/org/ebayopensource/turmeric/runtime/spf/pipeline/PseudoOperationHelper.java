@@ -11,6 +11,7 @@ package org.ebayopensource.turmeric.runtime.spf.pipeline;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
 import org.ebayopensource.turmeric.runtime.common.types.SOAConstants;
 
 
@@ -28,6 +29,7 @@ public final class PseudoOperationHelper {
 
 	static {
 		s_pseudoOps.put(SOAConstants.PSEUDO_OP_WSDL, new QueryWsdl());
+		s_pseudoOps.put(SOAConstants.PSEUDO_OP_PROTO, new QueryProto());
 	}
 
 	private PseudoOperationHelper() {
@@ -48,7 +50,8 @@ public final class PseudoOperationHelper {
 	 * @param reqMetaCtx the request meta-information such as transport headers
 	 * @return the pseudo-operation for this request, or null if the request does not correspond to a pseudo-operation
 	 */
-	public static PseudoOperation getPseudoOp(RequestMetaContext reqMetaCtx) {
+	public static PseudoOperation getPseudoOp(RequestMetaContext reqMetaCtx) 
+			throws ServiceException {
 		Map<String,String> pseudoOpParams = reqMetaCtx.getPseudoOperationParameters();
 		for (Map.Entry<String, PseudoOperation> entry : s_pseudoOps.entrySet()) {
 			String opName = entry.getKey();

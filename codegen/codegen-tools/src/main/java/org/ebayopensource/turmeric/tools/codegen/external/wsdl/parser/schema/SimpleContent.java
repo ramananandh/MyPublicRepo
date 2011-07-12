@@ -19,18 +19,20 @@ import org.w3c.dom.NodeList;
  * 
  * @author arajmony
  */
-public class SimpleContent implements Serializable {
+public class SimpleContent extends Annotation implements Serializable {
 	
 	static final long serialVersionUID = 1L;
-		
-	private Restriction restriction = null;
-	private Extension extention = null;	
+	
+	private SimpleTypeRestriction restriction = null;
+	private SimpleContentExtension extention = null;	
+
 
 	/**
 	 * Constructor
 	 * @param el The dom element for this simpleContent
 	 */	
 	SimpleContent(Element el, String tns) {
+		super(el, tns);
 		NodeList children = el.getChildNodes();
 		for (int i=0; i<children.getLength(); i++) {
 			Node child = children.item(i);
@@ -38,10 +40,10 @@ public class SimpleContent implements Serializable {
 				Element subEl = (Element) child;
 				String elType = subEl.getLocalName();
 				if (elType.equals("restriction")) {
-					restriction = new Restriction(subEl, tns);
+					restriction = new SimpleTypeRestriction(subEl, tns);
 					break;
 				} else if (elType.equals("extension")) {
-					extention = new Extension(subEl,tns);
+					extention = new SimpleContentExtension(subEl,tns);
 					break;
 				}
 			}			
@@ -52,7 +54,7 @@ public class SimpleContent implements Serializable {
 	 * Get the restriction element for this simpleContent
 	 * @return A Restriction object representing the restriction
 	 */
-	public Restriction getRestriction() {
+	public SimpleTypeRestriction getRestriction() {
 		return restriction;
 	}
 
@@ -60,7 +62,7 @@ public class SimpleContent implements Serializable {
 	 * Get the extension element for this simpleContent
 	 * @return An Extension object representing the restriction
 	 */	
-	public Extension getExtension() {
+	public SimpleContentExtension getExtension() {
 		return extention;
 	}	
 }

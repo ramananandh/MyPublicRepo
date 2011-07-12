@@ -323,6 +323,15 @@ public class ExceptionMatcher {
 		}
 
 		TransportException transportException = (TransportException)exception;
+
+		/* If we have a ErrorSubcategory.TRANSPORT_SEND problem, it means that we didnt even get to send a message/invoke at the address/connect to 
+		 * the url. In that case, we simply want to retry again. The markdown/retry logic will take care of the rest.
+		 * If we do special checks for this, we will need every ClientConfig.xml to have the statuscode=0 listed in the retry options and make it mandatory
+		 * which is too clumsy to be a valid solution. Hence, check here and shortcut the process. As long as we send a string back, the exception is considered 
+		 * retry-able. */
+		if(transportException.getSubcategory().getName().equals(ErrorSubcategory.TRANSPORT_SEND.getName()))
+			return "Transport0";
+		
 		String code = transportException.getStatusCode();
 		if (code != null) {
 			code = code.toUpperCase();

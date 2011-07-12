@@ -24,27 +24,45 @@ import org.ebayopensource.turmeric.runtime.common.types.SOAConstants;
  * @author wdeng
  */
 public class InboundMessageAttachments extends BaseMessageAttachments {
-	public static String IN_MEMORY_ATTACHMENT_LIMIT = "2048";
-	public static String ATTACHMENT_CACHE_DIR_NAME = "attachmentCache";
-	public static String PROP_DEFAULT_LOG_DIR = "com.ebay.log.dir";
+	public final static Integer IN_MEMORY_ATTACHMENT_LIMIT = Integer.valueOf(2048);
+	public final static String ATTACHMENT_CACHE_DIR_NAME = "attachmentCache";
+	public final static String PROP_DEFAULT_LOG_DIR = "com.ebay.log.dir";
 	private String m_contentType;
 	private InputStream m_is;
+	private final Integer m_inMemoryAttachmentLimit;
+	private final boolean m_fileCacheEnabled;
+
 
 	public InboundMessageAttachments() {
-		// empty
+		m_inMemoryAttachmentLimit = IN_MEMORY_ATTACHMENT_LIMIT;
+		m_fileCacheEnabled = true;
 	}
 
-	public static InboundMessageAttachments createInboundAttachments(InputStream is, InboundMessage msg) throws ServiceException {
+	public static InboundMessageAttachments createInboundAttachments(InputStream is, InboundMessage msg) 
+			throws ServiceException {
+		return createInboundAttachments(is, msg, IN_MEMORY_ATTACHMENT_LIMIT);
+	}
+	
+	public static InboundMessageAttachments createInboundAttachments(InputStream is, InboundMessage msg, 
+			Integer inMemoryAttachmentLimit) 
+	throws ServiceException {
+
 		String contentType = msg.getTransportHeader(SOAConstants.HTTP_HEADER_CONTENT_TYPE);
 		if (contentType == null || contentType.indexOf("multipart/related") == -1) {
 			return null;
 		}
-		return new InboundMessageAttachments(is, contentType);
+		return new InboundMessageAttachments(is, contentType, inMemoryAttachmentLimit);
 	}
 
 	public InboundMessageAttachments(InputStream is, String contentType) {
+		this(is, contentType, IN_MEMORY_ATTACHMENT_LIMIT);
+	}
+
+	public InboundMessageAttachments(InputStream is, String contentType, Integer inMemoryAttachmentLimit) {
 		m_is = is;
 		m_contentType = contentType;
+		m_fileCacheEnabled = (inMemoryAttachmentLimit != null);
+		m_inMemoryAttachmentLimit = inMemoryAttachmentLimit;
 	}
 
 	@Override
@@ -56,9 +74,15 @@ public class InboundMessageAttachments extends BaseMessageAttachments {
 			cachePath += File.separator + "..";
 		}
 		cachePath += File.separator + ATTACHMENT_CACHE_DIR_NAME;
-		Attachments attach =  new Attachments(m_is, getContentType(), true, cachePath, IN_MEMORY_ATTACHMENT_LIMIT);
+		Attachments attach =  new Attachments(m_is, getContentType(), isFileCacheEnabled(), cachePath, 
+				m_inMemoryAttachmentLimit == null ? null : m_inMemoryAttachmentLimit.toString());
 		return attach;
 	}
+	
+	public boolean isFileCacheEnabled() {
+		return m_fileCacheEnabled;
+	}
+
 
 	@Override
     public void transportHeaderAdded(String name, String contentType) {

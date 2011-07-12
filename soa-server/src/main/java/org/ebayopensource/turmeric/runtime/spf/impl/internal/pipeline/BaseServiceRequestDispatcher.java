@@ -21,6 +21,7 @@ import java.util.logging.Level;
 import org.ebayopensource.turmeric.common.v1.types.CommonErrorData;
 import org.ebayopensource.turmeric.common.v1.types.ErrorCategory;
 import org.ebayopensource.turmeric.common.v1.types.ErrorMessage;
+import org.ebayopensource.turmeric.runtime.binding.BindingConstants;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorDataFactory;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceCreationException;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
@@ -116,12 +117,14 @@ public abstract class BaseServiceRequestDispatcher<T> implements Dispatcher {
 	 * @param versionCheckHandler the version check handler used by this service.
 	 * @throws ServiceException
 	 */
-	public final void init(ServerServiceId svcId, Class serviceInterface,
-		String serviceImplClassName, ClassLoader cl,
-		Collection<ServiceOperationDesc> ops,
-		VersionCheckHandler versionCheckHandler, String factoryClassName, 
-		   boolean cacheable)
-		throws ServiceException
+	public final void init(ServerServiceId svcId, 
+							Class serviceInterface,
+							String serviceImplClassName, 
+							ClassLoader cl,
+							Collection<ServiceOperationDesc> ops,
+							VersionCheckHandler versionCheckHandler, 
+							String factoryClassName, 
+							boolean cacheable) throws ServiceException
 	{
 		Preconditions.checkNotNull(svcId);
 		Preconditions.checkNotNull(serviceInterface);
@@ -221,8 +224,14 @@ public abstract class BaseServiceRequestDispatcher<T> implements Dispatcher {
 	public final void dispatchSynchronously(MessageContext ctx) throws ServiceException {
 		// trigger deserialization before logging/monitoring starts
 		ServerMessageContextImpl ctxImpl = (ServerMessageContextImpl)ctx;
-		ctxImpl.checkOperationName();
-
+		
+		/* Operation name can not be verified as the protobuf payload 
+		 * does not have any operation related information
+		 */
+		if(!ctx.getPayloadType().equals(BindingConstants.PAYLOAD_PROTOBUF)) {
+			ctxImpl.checkOperationName();
+		}
+		
 		ctx.getRequestMessage().getParamCount();
 
 		T service = getServiceInstance(ctx);
@@ -366,11 +375,29 @@ public abstract class BaseServiceRequestDispatcher<T> implements Dispatcher {
 
 	private T createServiceInstance() throws ServiceException {
 		if (mServiceId == null) {
-			throw new IllegalStateException(this.getClass().getName() + " has not been initialized");
+			throw new IllegalStateException(this.getClass().getName()
+					+ " has not been initialized");
 		}
-
-		T result = ReflectionUtils.createInstance(mServiceImplClassName,
-			mGenServiceInterface, mClassLoader);
+		T result = null;
+		try {
+			result = ReflectionUtils.createInstance(mServiceImplClassName,
+					mGenServiceInterface, mClassLoader);
+		} catch (ServiceException e) {
+			ErrorMessage error = e.getErrorMessage();
+			List<CommonErrorData> elist = error.getError();
+			if (elist != null) {
+				for (CommonErrorData edata : elist) {
+					if (edata != null && edata.getErrorId() == 1007) {
+						String message = edata.getMessage();						
+						message += " \nPlease check the ServiceConfig.xml. " +
+								"The class provided for the element 'service-impl-class-name' does not exist in the CLASSPATH.";
+						edata.setMessage(message);
+						throw e;
+					}
+				}
+			}
+			throw e;
+		}
 
 		mServiceImplCount++;
 		if ((mServiceImplCount % 500) == 0) {
@@ -389,7 +416,26 @@ public abstract class BaseServiceRequestDispatcher<T> implements Dispatcher {
 		}
 		T result = null;
 		ServiceImplFactory<T> factory = null;
-		factory = ReflectionUtils.createInstance(mServiceImplFactory, ServiceImplFactory.class, mClassLoader);		
+		try {
+			factory = ReflectionUtils.createInstance(mServiceImplFactory,
+					ServiceImplFactory.class, mClassLoader);
+		} catch (ServiceException e) {
+			ErrorMessage error = e.getErrorMessage();
+			List<CommonErrorData> elist = error.getError();
+			if (elist != null) {
+				for (CommonErrorData edata : elist) {
+					if (edata != null && edata.getErrorId() == 1007) {
+						String message = edata.getMessage();
+						String service = context.getAdminName();
+						message += " \nPlease check the ServiceConfig.xml for the service '" + service + "'. " +
+								"The class provided for the element 'service-impl-factory-class-name' does not exist in the CLASSPATH.";
+						edata.setMessage(message);
+						throw e;
+					}
+				}
+			}
+			throw e;
+		}
 
 		result = factory.createServiceImpl(context);
 		if ((mServiceImplCount % 500) == 0) {

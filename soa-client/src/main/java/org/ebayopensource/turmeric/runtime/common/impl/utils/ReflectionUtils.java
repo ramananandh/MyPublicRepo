@@ -13,11 +13,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 import javax.xml.bind.annotation.XmlElement;
 
 import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorDataFactory;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
+import org.ebayopensource.turmeric.runtime.common.registration.ClassLoaderRegistry;
 import org.ebayopensource.turmeric.runtime.errorlibrary.ErrorConstants;
 
 /**
@@ -36,6 +38,13 @@ public final class ReflectionUtils {
 		return loadClass(className, targetType, false, cl);
 	}
 
+	static Pattern PROJECT_PATTERNS[] = 
+	{
+		Pattern.compile("com\\.ebay\\.marketplace\\.services(\\.\\w+\\.)[\\.\\w]+"),  
+		Pattern.compile("com\\.ebay\\.marketplace(\\.\\w+\\.v1\\.)services\\.[\\.\\w]+")
+	};
+
+
 	public static <T> Class<T> loadClass(String className, Class<T> targetType,
 		boolean ignoreMissingClass, ClassLoader cl)
 		throws ServiceException
@@ -47,17 +56,47 @@ public final class ReflectionUtils {
 			targetTypeName = "(unspecified assignment type)";
 		}
 
-		Class clazz;
+		StringBuffer infoLoad = new StringBuffer("CLASS: " + className);
+		Class clazz = null;
+		Throwable exception = null;
+		Throwable exception2 = null;
+
 		try {
-			clazz = Class.forName(className, true, cl);
+			ClassLoader classLoader = ClassLoaderRegistry.instanceOf()
+			.getClassLoaderForClass(ClassLoaderRegistry.getPackageName(className));
+			if (classLoader != null) {
+				infoLoad.append(" - exact name");
+				clazz = Class.forName(className, true, classLoader);
+				if (clazz != null) {
+					infoLoad.append(". Found!\n");
+				}
+			} else {
+				try {
+					clazz = Class.forName(className, true, ReflectionUtils.class.getClassLoader());
+					infoLoad.append(" - in this bundle. Found!\n");
+				} catch (NoClassDefFoundError err) {
+					exception = err;
+				} catch (ClassNotFoundException e) {
+					exception = e;
+				}
+				if (clazz == null) {
+					clazz = Class.forName(className, true, cl);
+					infoLoad.append(" - use default (\"thread\") bundle). Found!\n");
+				}
+			}
+			ClassLoaderRegistry.instanceOf().writeToOut(infoLoad.toString());
+
 		} catch (NoClassDefFoundError err) {
+			ClassLoaderRegistry.instanceOf().writeToOut(
+					infoLoad.append(". Error: " + err.getMessage() + ". No found...\n").toString());
 			throw new ServiceException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_FACTORY_INST_NOT_FOUND,
 					ErrorConstants.ERRORDOMAIN, new Object[] {targetTypeName, className}), err);
 		} catch (ClassNotFoundException e) {
+			ClassLoaderRegistry.instanceOf().writeToOut(
+					infoLoad.append(". Error: "+e.getMessage()+". No found...\n").toString());
 			if (ignoreMissingClass) {
 				return null;
 			}
-
 			throw new ServiceException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_FACTORY_INST_NOT_FOUND,
 					ErrorConstants.ERRORDOMAIN, new Object[] {targetTypeName, className}), e);
 		}

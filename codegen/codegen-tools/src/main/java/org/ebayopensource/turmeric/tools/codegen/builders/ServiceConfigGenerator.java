@@ -55,6 +55,10 @@ public class ServiceConfigGenerator  implements SourceGenerator {
 	private static final String SERVICE_INT_NAME_NODE = "<service-interface-class-name>@@ServiceInterfaceClassName@@</service-interface-class-name>";
 	private static final String SERVICE_IMPL_NAME = "@@ServiceImplClassName@@";
 	private static final String SERVICE_IMPL_NAME_NODE = "<service-impl-class-name>@@ServiceImplClassName@@</service-impl-class-name>";
+	private static final String SERVICE_IMPL_FACTORY_NAME = "@@ServiceImplFactoryClassName@@";
+	private static final String SERVICE_IMPL_FACTORY_NAME_NODE = "<service-impl-factory-class-name>@@ServiceImplFactoryClassName@@</service-impl-factory-class-name>";
+	private static final String EMPTY_SERVICE_IMPL_NAME_NODE = "<service-impl-class-name></service-impl-class-name>";
+	private static final String EMPTY_SERVICE_IMPL_FACTORY_NAME_NODE = "<service-impl-factory-class-name></service-impl-factory-class-name>";
 
 	private static Logger s_logger = LogManager.getInstance(ServiceConfigGenerator.class);
 
@@ -148,7 +152,20 @@ public class ServiceConfigGenerator  implements SourceGenerator {
 
 			contents = CodeGenConfigUtil.replaceTemplate(contents, SERVICE_GROUP_NAME, serviceConfig.getGroup(), SERVICE_GROUP_NAME_ATTR);
 			contents = CodeGenConfigUtil.replaceTemplate(contents, SERVICE_INT_NAME, serviceConfig.getServiceInterfaceClassName(), SERVICE_INT_NAME_NODE);
-			contents = CodeGenConfigUtil.replaceTemplate(contents, SERVICE_IMPL_NAME, serviceConfig.getServiceImplClassName(), SERVICE_IMPL_NAME_NODE);
+
+			String implClassName = null;
+			String implFactoryClassName = null;
+			if( codeGenCtx.getInputOptions().isUseExternalServiceFactory() ){
+				contents = CodeGenConfigUtil.replaceTemplate(contents, EMPTY_SERVICE_IMPL_FACTORY_NAME_NODE, null, EMPTY_SERVICE_IMPL_FACTORY_NAME_NODE);
+				implFactoryClassName = serviceConfig.getServiceImplFactoryClassName();
+			}else{
+				contents = CodeGenConfigUtil.replaceTemplate(contents, EMPTY_SERVICE_IMPL_NAME_NODE, null, EMPTY_SERVICE_IMPL_NAME_NODE);
+				implClassName = serviceConfig.getServiceImplClassName();
+			}
+
+			contents = CodeGenConfigUtil.replaceTemplate(contents, SERVICE_IMPL_NAME, implClassName, SERVICE_IMPL_NAME_NODE);
+			contents = CodeGenConfigUtil.replaceTemplate(contents, SERVICE_IMPL_FACTORY_NAME, implFactoryClassName, SERVICE_IMPL_FACTORY_NAME_NODE);
+
 
 			return contents;
 		} catch (Throwable e) {
@@ -159,6 +176,8 @@ public class ServiceConfigGenerator  implements SourceGenerator {
 	private ServiceConfig createServiceConfig(CodeGenContext codeGenCtx)
 			throws CodeGenFailedException {
 
+		boolean factoryMode = codeGenCtx.getInputOptions().isUseExternalServiceFactory();
+
 		ServiceConfig serviceConfig = new ServiceConfig();
 
 		serviceConfig.setGroup(codeGenCtx.getInputOptions().getServerCfgGroupName());
@@ -168,7 +187,12 @@ public class ServiceConfigGenerator  implements SourceGenerator {
 		String svcInterfaceName =
 			CodeGenUtil.toQualifiedClassName(codeGenCtx.getServiceInterfaceClassName());
 		serviceConfig.setServiceInterfaceClassName(svcInterfaceName);
-		serviceConfig.setServiceImplClassName(codeGenCtx.getServiceImplClassName());
+		if(factoryMode){
+			serviceConfig.setServiceImplFactoryClassName(codeGenCtx.getInputOptions().getSvcImplFactoryClassName() );
+
+		}else{
+			serviceConfig.setServiceImplClassName(codeGenCtx.getServiceImplClassName());
+		}
 
 		ServiceGroupConfig serviceInstanceConfig = new ServiceGroupConfig();
 

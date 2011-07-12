@@ -116,6 +116,11 @@ public final class SOAConstants {
 	public static final String MIME_FAST_INFOSET = "application/fastinfoset"; // http://www.iana.org/assignments/media-types/application/fastinfoset
 
 	/**
+	 * MIME type sent in Content-Type representations for Google Protobuf.
+	 */
+	public static final String MIME_PROTOBUF = "application/octet-stream";	// http://www.iana.org/assignments/media-types/application/fastinfoset
+
+	/**
 	 * SOA name for built-in HTTP 1.0 transport. Refers to both the transport
 	 * name, and the TransportOptions property "HTTP_VERSION".
 	 */
@@ -288,6 +293,31 @@ public final class SOAConstants {
 	public static final String PSEUDO_OP_WSDL = "WSDL";
 
 	/**
+	 * Name of the query parameter used by the client to obtain a service's Proto Schema ("?proto" pseudo-operation).
+	 */
+	public static final String PSEUDO_OP_PROTO = "PROTO"; 
+	
+	/**
+	 * Name of the query parameter used by the client to access the samples page ("?samples" pseudo-operation).
+	 */
+	public static final String PSEUDO_OP_SAMPLES = "SAMPLES"; 
+	
+	/**
+	 * Name of the query parameter used by the client to access the samples page ("?samples" pseudo-operation).
+	 */
+	public static final String PSEUDO_OP_SAMPLE = "SAMPLE"; 
+	
+	/**
+	 * Name of the query parameter used by the client to access the samples page ("?samples" pseudo-operation).
+	 */
+	public static final String PSEUDO_OP_DOC = "DOC"; 
+	
+	/**
+	 * Name of the query parameter used by the client to access the samples page ("?samples" pseudo-operation).
+	 */
+	public static final String PSEUDO_OP_GENERATE = "GENERATE";
+	
+	/**
 	 * Name of the query parameter used by the client to obtain a service's
 	 * runtime status ("?status" pseudo-operation).
 	 */
@@ -359,6 +389,10 @@ public final class SOAConstants {
 	 * XML node name for has attachment field in TypeMapping.xml.
 	 */
 	public static final String XML_NODE_HAS_ATTACHMENT = "has-attachment";
+
+	public static final String IN_MEMORY_ATTACHMENT_LIMIT = "IN_MEMORY_ATTACHMENT_LIMIT";
+
+	public static final String ATTACHMENT_FILE_CACHE = "ATTACHMENT_FILE_CACHE";
 
 	private SOAConstants() {
 		// no instances

@@ -16,8 +16,7 @@ public class WSDLMessageType {
 	private String m_schemaTypeName;
 	private String m_elementName;
 	private QName  m_elementQname;
-	
-	
+	private QName  m_schemaTypeQName;
 	
 	public QName getElementQname() {
 		return m_elementQname;
@@ -46,9 +45,25 @@ public class WSDLMessageType {
 	public String getElementName() {
 		return m_elementName;
 	}
+	
 	public void setElementName(String elementName) {
 		m_elementName = elementName;
 	}
+
+	/**
+	 * @return the schemaTypeQName
+	 */
+	public QName getSchemaTypeQName() {
+		return m_schemaTypeQName;
+	}
+
+	/**
+	 * @param schemaTypeQName the schemaTypeQName to set
+	 */
+	public void setSchemaTypeQName(QName schemaTypeQName) {
+		this.m_schemaTypeQName = schemaTypeQName;
+	}
+
 	
 	
 }

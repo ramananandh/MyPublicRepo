@@ -9,9 +9,6 @@
 package org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema;
 
 import java.io.Serializable;
-import java.util.Hashtable;
-
-import javax.xml.namespace.QName;
 
 import org.w3c.dom.Element;
 
@@ -24,33 +21,11 @@ public class SequenceElement extends ElementType implements Serializable {
 	
 	static final long serialVersionUID = 1L;
 		
-	Hashtable attributes = new Hashtable();
-
     /**
      * Constructor
      * @param el The dom element for this element within a sequence
      */
     SequenceElement(Element el, String tns) {
         super(el, tns);
-        getAllAttributes(el, null, attributes);
-    }
-
-    /**
-     * Get the value of a specified attribute on this element
-     * @param The name of the attribute
-     * @return The value of the attribute or null if the attribute does not exist
-     */
-    public QName getXMLAttribute(String name) {
-        return (QName) attributes.get(new QName(name));
-    }
-
-    /**
-     * Get the value of a specified attribute on this element when the attribute name is
-     * a QName
-     * @param The name of the attribute
-     * @return The value of the attribute or null if the attribute does not exist
-     */
-    QName getXMLAttribute(QName name) {
-        return (QName) attributes.get(name);
     }
 }

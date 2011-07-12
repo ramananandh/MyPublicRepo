@@ -10,6 +10,7 @@ package org.ebayopensource.turmeric.runtime.sif.impl.internal.service;
 
 import java.net.URL;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Future;
@@ -33,14 +34,14 @@ import org.ebayopensource.turmeric.runtime.sif.service.ServiceInvokerOptions;
 public class RawDataServiceDispatch extends
 		BaseServiceDispatchImpl<InvokerExchange> {
 
-	public RawDataServiceDispatch(String opName, URL serviceLocation,
+	public RawDataServiceDispatch(String opName, List<URL> locations,
 			ClientServiceDesc serviceDesc, URL wsdlLocation,
 			ServiceInvokerOptions invokerOptions, String serviceVersion,
 			Map<String, Cookie> cookies, Map<String, String> transportHeaders,
 			Collection<ObjectNode> messageHeaders, G11nOptions g11nOptions,
 			RequestContext requestContext, Executor executor,
 			IAsyncResponsePoller servicePoller) throws ServiceException {
-		super(opName, serviceLocation, serviceDesc, wsdlLocation,
+		super(opName, locations, serviceDesc, wsdlLocation,
 				invokerOptions, serviceVersion, cookies, transportHeaders,
 				messageHeaders, g11nOptions, requestContext, executor,
 				servicePoller);

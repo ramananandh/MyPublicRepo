@@ -10,6 +10,7 @@ package org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.namespace.QName;
 
@@ -22,20 +23,26 @@ import org.w3c.dom.NodeList;
  * 
  * @author Owen Burroughs <owenb@apache.org>
  */
-public class Restriction implements Serializable {
+public class Restriction extends Annotation implements Serializable {
 	
 	static final long serialVersionUID = 1L;
 		
     QName base = null;
-    ArrayList attributes = new ArrayList();
-    ArrayList sequenceElements = new ArrayList();
+    List<Attribute> attributes = new ArrayList<Attribute>();
+    List<AttributeGroup> attributeGroups = new ArrayList<AttributeGroup>();
+    Sequence sequence = null; 
+    Choice choice = null;
+    Group group = null;
+	private SchemaAll all = null;
+
 
 	/**
 	 * Constructor
 	 * @param el The dom element for this restriction
 	 */
-    @SuppressWarnings("unchecked")
-	Restriction(Element el, String tns) {
+    Restriction(Element el, String tns) {
+    	super(el, tns);
+
         base = SchemaType.getAttributeQName(el, "base");
         NodeList children = el.getChildNodes();
         for (int i = 0; i < children.getLength(); i++) {
@@ -46,7 +53,15 @@ public class Restriction implements Serializable {
                 if (elType.equals("attribute")) {
                     attributes.add(new Attribute(subEl, tns));
                 } else if (elType.equals("sequence")) {
-                    parseSequenceElements(subEl, tns);
+                	sequence = new Sequence(subEl, tns);
+                } else if(elType.equals("choice")) {
+                	choice = new Choice(subEl, tns);
+                } else if(elType.equals("group")) {
+                	group = new Group(subEl, tns);
+                } else if(elType.equals("attributeGroup")){
+                	attributeGroups.add(new AttributeGroup(subEl, tns));
+                }else if(elType.equals("all")){
+                	all = new SchemaAll(subEl, tns);
                 }
             }
         }
@@ -64,34 +79,48 @@ public class Restriction implements Serializable {
 	 * Get all the &lt;attribute&gt; elements within this restriction
 	 * @return The &lt;attribute&gt; elements
 	 */
-    @SuppressWarnings("unchecked")
 	public Attribute[] getAttributes() {
         return (Attribute[]) attributes.toArray(
             new Attribute[attributes.size()]);
     }
 
-	/**
-	 * Get all the &lt;element&gt; elements within a sequence within this restriction
-	 * @return The &lt;element&gt; elements within the sequnce
-	 */
-    @SuppressWarnings("unchecked")
-	public SequenceElement[] getSequenceElements() {
-        return (SequenceElement[]) sequenceElements.toArray(
-            new SequenceElement[sequenceElements.size()]);
+
+
+    
+    public List<Attribute> getAttributeList(){
+    	return attributes;
+    }
+    
+    public List<AttributeGroup> getAttributeGroup(){
+    	return attributeGroups;
     }
 
-    @SuppressWarnings("unchecked")
-	private void parseSequenceElements(Element el, String tns) {
-        NodeList children = el.getChildNodes();
-        for (int i = 0; i < children.getLength(); i++) {
-            Node child = children.item(i);
-            if (child.getNodeType() == Node.ELEMENT_NODE) {
-                Element subEl = (Element) child;
-                String elType = subEl.getLocalName();
-                if (elType.equals("element")) {
-                    sequenceElements.add(new SequenceElement(subEl, tns));
-                }
-            }
-        }
+    public boolean hasChoice(){
+    	return choice != null;
     }
+    public Choice getChoice(){
+    	return choice;
+    }
+
+    public boolean hasGroup(){
+    	return group != null;
+    }
+    public Group getGroup(){
+    	return group;
+    }
+    
+    public boolean hasSequence(){
+    	return sequence != null;
+    }
+    public Sequence getSequence(){
+    	return sequence;
+    }
+	public boolean hasAll(){
+		return all != null;
+	}
+
+	public SchemaAll getAll(){
+		return all;
+	}
+
 }

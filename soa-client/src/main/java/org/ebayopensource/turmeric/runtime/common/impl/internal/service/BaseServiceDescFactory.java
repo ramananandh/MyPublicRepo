@@ -28,6 +28,7 @@ import javax.xml.namespace.QName;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
+import org.ebayopensource.turmeric.common.v1.types.ErrorMessage;
 import org.ebayopensource.turmeric.runtime.binding.BindingConstants;
 import org.ebayopensource.turmeric.runtime.binding.impl.parser.json.JSONStreamWriter;
 import org.ebayopensource.turmeric.runtime.binding.schema.DataElementSchema;
@@ -52,6 +53,8 @@ import org.ebayopensource.turmeric.runtime.common.impl.binding.jaxb.validation.S
 import org.ebayopensource.turmeric.runtime.common.impl.binding.jaxb.validation.SchemaExtractor;
 import org.ebayopensource.turmeric.runtime.common.impl.binding.jaxb.xml.JAXBXMLDeserializerFactory;
 import org.ebayopensource.turmeric.runtime.common.impl.binding.jaxb.xml.JAXBXMLSerializerFactory;
+import org.ebayopensource.turmeric.runtime.common.impl.binding.protobuf.ProtobufDeserializerFactory;
+import org.ebayopensource.turmeric.runtime.common.impl.binding.protobuf.ProtobufSerializerFactory;
 import org.ebayopensource.turmeric.runtime.common.impl.internal.config.CommonConfigHolder;
 import org.ebayopensource.turmeric.runtime.common.impl.internal.config.CustomSerializerConfig;
 import org.ebayopensource.turmeric.runtime.common.impl.internal.config.FrameworkHandlerConfig;
@@ -90,10 +93,7 @@ import org.ebayopensource.turmeric.runtime.common.service.ServiceOperationParamD
 import org.ebayopensource.turmeric.runtime.common.service.ServiceTypeMappings;
 import org.ebayopensource.turmeric.runtime.common.types.SOAConstants;
 import org.ebayopensource.turmeric.runtime.common.types.SOAHeaders;
-
-
 import org.ebayopensource.turmeric.runtime.errorlibrary.ErrorConstants;
-import org.ebayopensource.turmeric.common.v1.types.ErrorMessage;
 
 import com.ebay.kernel.component.Registration;
 
@@ -180,6 +180,11 @@ public abstract class BaseServiceDescFactory<T extends ServiceDesc> {
 
 	protected final T getServiceDesc(ServiceId id, boolean rawMode) throws ServiceException {
 		return getServiceDesc(id, true, true, rawMode);
+	}
+	
+	protected final T getServiceDesc(ServiceId id, boolean rawMode, int useDefaultClientConfig) throws ServiceException {
+		boolean isZeroCC = useDefaultClientConfig == 1? true: false;
+		return getServiceDesc(id, true, true, rawMode, isZeroCC);
 	}
 
 	protected final T getServiceDesc(T serviceDesc, ServiceId id,
@@ -317,6 +322,12 @@ public abstract class BaseServiceDescFactory<T extends ServiceDesc> {
 	private final T getServiceDesc(ServiceId id, boolean loadAllFirst, boolean logErrors, boolean rawMode)
 		throws ServiceException
 	{
+		return getServiceDesc(id,  loadAllFirst,  logErrors,  rawMode, false);
+	}
+	
+	private final T getServiceDesc(ServiceId id, boolean loadAllFirst, boolean logErrors, boolean rawMode, boolean useDefaultConfig)
+	throws ServiceException
+	{
 		if (rawMode && !isInRawMode(id.getAdminName())) m_rawModes.put(id.getAdminName(), Boolean.TRUE);
 
 		boolean wasInitSuccessful;
@@ -360,6 +371,7 @@ public abstract class BaseServiceDescFactory<T extends ServiceDesc> {
 
 		try {
 			validateServiceName(id.getAdminName());
+			id.setUseDefaultConfig(useDefaultConfig);
 			result = createServiceDesc(id, rawMode);
 
 			if (oldQName != null && !oldQName.equals(result.getServiceQName())) {
@@ -449,6 +461,8 @@ public abstract class BaseServiceDescFactory<T extends ServiceDesc> {
 			m_failedNames.clear();
 			m_descs.clear();
 			m_initExceptions.clear();
+			m_adminToQName.clear();
+			m_qNameToAdmin.clear();
 		}
 	}
 
@@ -1291,6 +1305,21 @@ public abstract class BaseServiceDescFactory<T extends ServiceDesc> {
 				payloadTypes.add(BindingConstants.PAYLOAD_FAST_INFOSET);
 			}
 		}
+		
+		if (!hasDefaultDataBinding(bindings, payloadTypes, BindingConstants.PAYLOAD_PROTOBUF)) {
+			DataBindingDesc bindingDesc = new DataBindingDesc(BindingConstants.PAYLOAD_PROTOBUF,
+				SOAConstants.MIME_PROTOBUF,
+				new ProtobufSerializerFactory(),
+				new ProtobufDeserializerFactory(),
+				null, null, null, null);
+
+			bindings.put(BindingConstants.PAYLOAD_PROTOBUF, bindingDesc);
+
+			if (payloadTypes != null) {
+				payloadTypes.add(BindingConstants.PAYLOAD_PROTOBUF);
+			}
+		}
+
 	}
 
 	private void buildCustomSerializers(String name,

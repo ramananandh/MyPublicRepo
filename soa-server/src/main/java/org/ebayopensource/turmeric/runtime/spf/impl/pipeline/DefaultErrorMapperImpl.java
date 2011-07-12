@@ -10,6 +10,8 @@ package org.ebayopensource.turmeric.runtime.spf.impl.pipeline;
 
 import java.util.List;
 
+import org.ebayopensource.turmeric.common.v1.types.CommonErrorData;
+import org.ebayopensource.turmeric.common.v1.types.ErrorMessage;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorDataFactory;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceExceptionInterface;
@@ -19,11 +21,12 @@ import org.ebayopensource.turmeric.runtime.common.types.G11nOptions;
 import org.ebayopensource.turmeric.runtime.common.types.SOAConstants;
 import org.ebayopensource.turmeric.runtime.errorlibrary.ErrorConstants;
 import org.ebayopensource.turmeric.runtime.spf.exceptions.AppErrorWrapperException;
+import org.ebayopensource.turmeric.runtime.spf.exceptions.ServiceHttpException;
+import org.ebayopensource.turmeric.runtime.spf.impl.internal.pipeline.ServerMessageContextImpl;
 import org.ebayopensource.turmeric.runtime.spf.pipeline.ErrorMapper;
+import org.ebayopensource.turmeric.runtime.spf.pipeline.HttpError;
+import org.ebayopensource.turmeric.runtime.spf.pipeline.HttpErrorMapper;
 import org.ebayopensource.turmeric.runtime.spf.pipeline.ServerMessageContext;
-
-import org.ebayopensource.turmeric.common.v1.types.CommonErrorData;
-import org.ebayopensource.turmeric.common.v1.types.ErrorMessage;
 
 
 
@@ -56,14 +59,29 @@ public class DefaultErrorMapperImpl implements ErrorMapper {
 				error = ((AppErrorWrapperException)error).getCause();
 				isAppWrapper = true;
 			}
+			
+			if ((error instanceof ServiceHttpException || !(error instanceof ServiceExceptionInterface))
+					&& !(SOAConstants.MSG_PROTOCOL_SOAP_11
+							.equals(((ServerMessageContextImpl) ctx)
+									.getMessageProtocol()) || SOAConstants.MSG_PROTOCOL_SOAP_12
+							.equals(((ServerMessageContextImpl) ctx)
+									.getMessageProtocol()))) {
+				HttpErrorMapper httpErrorMapper = ((ServerMessageContextImpl) ctx)
+						.getServiceDesc().getHttpErrorMapper();
+				HttpError httpError = null;
+				if (httpErrorMapper != null
+						&& (httpError = httpErrorMapper.getHttpError(error)) != null) {
+					return httpError;
+				}
+			}
 
 			ServiceExceptionInterface exception;
 			if (error instanceof ServiceExceptionInterface) {
 				exception = (ServiceExceptionInterface)error;
 			} else {
 				if (isAppWrapper) {
-					exception = new ServiceException(
-							ErrorDataFactory.createErrorData(ErrorConstants.SVC_RT_APPLICATION_INTERNAL_ERROR,
+					exception = new ServiceException(ErrorDataFactory.createErrorData(
+							ErrorConstants.SVC_RT_APPLICATION_INTERNAL_ERROR,
 							ErrorConstants.ERRORDOMAIN, new Object[] {error.toString()}), error);
 				} else {
 					exception = new ServiceException(
@@ -80,11 +98,13 @@ public class DefaultErrorMapperImpl implements ErrorMapper {
 				for (int i=0; i<errorDataList.size(); i++) {
 					CommonErrorData errorData = errorDataList.get(i);
 
-					boolean islocalTransport = ctx.getResponseMessage().getTransportProtocol().equals(SOAConstants.TRANSPORT_LOCAL);
+					boolean islocalTransport = ctx.getResponseMessage().getTransportProtocol()
+									.equals(SOAConstants.TRANSPORT_LOCAL);
 
 					Boolean isInternalClient = (Boolean)ctx.getProperty(IS_INTERNAL_CLIENT);
 
-					boolean isInternalClientOrLocalTransport = (isInternalClient != null?  isInternalClient.booleanValue() || islocalTransport : islocalTransport);
+					boolean isInternalClientOrLocalTransport = (isInternalClient != null?  
+							isInternalClient.booleanValue() || islocalTransport : islocalTransport);
 
 					if (isInternalClientOrLocalTransport) {
 						errorData.setExceptionId(error.getClass().getName());

@@ -18,6 +18,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -27,6 +28,12 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
+import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorDataFactory;
+import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorUtils;
+import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceCreationException;
+import org.ebayopensource.turmeric.runtime.common.impl.internal.config.SchemaValidationLevel;
+import org.ebayopensource.turmeric.runtime.common.registration.ClassLoaderRegistry;
+import org.ebayopensource.turmeric.runtime.errorlibrary.ErrorConstants;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -34,10 +41,6 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorDataFactory;
-import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceCreationException;
-import org.ebayopensource.turmeric.runtime.common.impl.internal.config.SchemaValidationLevel;
-import org.ebayopensource.turmeric.runtime.errorlibrary.ErrorConstants;
 import com.ebay.kernel.resource.ResourceUtil;
 
 /**
@@ -84,8 +87,21 @@ public class ParseUtils {
 		return Thread.currentThread().getContextClassLoader();
 	}
 	
+	static Pattern GLOBAL = Pattern.compile(".+/Global.+");  
+	//static Pattern PROJECT1 = Pattern.compile(".+/WebUtilityService_Test.+");  
+	//static Pattern PROJECT2 = Pattern.compile(".+/WebUtilityService.+");  
+	static Pattern PROJECT_PATTERNS[] = 
+		{Pattern.compile("META-INF/soa/services/config/(\\w+)/ServiceConfig.xml"),  
+		 Pattern.compile("META-INF/soa/client/config/(\\w+)/ClientConfig.xml"),
+		 Pattern.compile("META-INF/soa/common/config/(\\w+)/TypeMappings.xml"),
+		 Pattern.compile("META-INF/soa/services/config/(\\w+)/SecurityPolicy.xml"),
+		 Pattern.compile("META-INF/soa/services/config/(\\w+)/CachePolicy.xml"),
+		 Pattern.compile("META-INF/soa/common/config/(\\w+)/service_metadata.properties"),
+		 Pattern.compile("META-INF/soa/services/config/(\\w+)/service_metadata.properties")
+		};
+
+	
 	public static InputStream getFileStream(String fileName) throws ServiceCreationException {
-		ClassLoader classLoader = getClassLoader();
 		InputStream inStream = null;
 		if (fileName.startsWith("$config/")) {
 			String relPath = fileName.substring(8);
@@ -100,30 +116,106 @@ public class ParseUtils {
 						ErrorConstants.ERRORDOMAIN, new Object[] {fileName}), ioExc);
 			}
 		} else {
-			URL resource = classLoader.getResource(fileName);
 			
-			String logout = System.getProperty("test.log.out");
-			if(logout!=null && logout.equals("true")){
-				if(resource != null)
-					LOG.log(Level.SEVERE, "resource loaded: "+resource.getFile()+" :: "+resource.toString());
-				else
-					LOG.log(Level.SEVERE, "resource: "+resource);
-			}
-			
-			if(resource != null) {
-				try {
-					inStream = resource.openStream();
-				} catch (IOException e) {
-					LOG.log(Level.WARNING, "Unable to open stream from url: " + resource, e);
-					inStream = null;
-				}
-			} else {
-				LOG.log(Level.WARNING, "Unable to find resource: " + fileName);
-				inStream = null;
-			}
+			inStream = getFileStreamInternal(fileName);
 		}
 		return inStream;
 	}
+
+	/**
+	 * Internal method, which will try to use 3 ClassLoaders to get the file.
+	 * 1) If a ClassLoader for the provided file is registered in ClassLoaderRegistry,
+	 *    then it should be used
+	 * 2) Otherwise we should try to load the file by using a ClassLoader of the current bundle.
+	 * 3) And if that attempt fails as well, then we will try
+	 *    Thread.currentThread().getContextClassLoader()  
+	 * 
+	 * @param fileName
+	 * @return
+	 */
+	private static InputStream getFileStreamInternal(String fileName) 
+	{
+		StringBuffer infoLoad = new StringBuffer("FILE: " + fileName);
+		InputStream inStream = null;
+		try {
+			ClassLoader classLoader = ClassLoaderRegistry.instanceOf().getClassLoaderForFile(fileName);
+			if (classLoader != null) {
+				infoLoad.append(" - exact name");
+				inStream = classLoader.getResourceAsStream(fileName);
+			} else {
+				infoLoad.append(" - trying to use this bundle (SOA Runtime) ClassLoader");
+				classLoader = ParseUtils.class.getClassLoader();
+				inStream = classLoader.getResourceAsStream(fileName);
+	
+				if (inStream == null) {
+					infoLoad.append(" - trying to use default(\"thread\") ClassLoader");
+					classLoader = getClassLoader();
+					inStream = classLoader.getResourceAsStream(fileName);
+				}
+			}
+	
+			if (inStream != null) {
+				infoLoad.append(". Found!\n");
+			} else {
+				infoLoad.append(". Not found...\n");
+			}
+		} catch (RuntimeException e) {
+			infoLoad.append(". Error: " + e.getMessage() + "\n");
+			throw e;
+		} finally {
+			ClassLoaderRegistry.instanceOf().writeToOut(infoLoad.toString());
+		}
+		return inStream;
+	}
+
+	/**
+	 * Loads the specified resource either as a file using {@link ResourceUtil#getResource(String, String) 
+	 * ResourceUtil.getResource("config", filePath)}, if it starts with "$config"), or 
+	 * as a resource using {@link #getClassLoader() getClassLoader()}.{@link ClassLoader#getResourceAsStream(String)
+	 * getResourceAsStream(filePath)}. If none succeeds, it'll also attempt {@link #getClassLoader() getClassLoader()}.{@link ClassLoader#getResourceAsStream(String)
+	 * getResourceAsStream(resourcePath)}. 
+	 * @param filePath the file to load as a file.
+	 * @param resourcePath the resource to load as a resource - ignored if filePath could be loaded. 
+	 * @param lenient <code>true</code> to attempt to load the resource if file was not found, <code>false</code>
+	 * to throw if {@link ResourceUtil#getResource(&lt;configFolder&gt;, filePath)} failed.
+	 * @return the contents of the file as an {@link InputStream}.
+	 * 
+	 * @throws ServiceCreationException if non-lenient and 
+	 * {@link ResourceUtil#getResource(&lt;configFolder&gt;, filePath)} failed. 
+	 */
+	public static InputStream getFileOrResourceStream(String filePath, String resourcePath, boolean lenient) 
+	throws ServiceCreationException {
+		InputStream inStream = null;
+		if (filePath.startsWith("$config/")) {
+			String relPath = filePath.substring(8);
+			URL url = null;
+			try {
+				url = ResourceUtil.getResource("config", relPath);
+				if (url != null) {
+					inStream = url.openStream();
+				}
+			} catch (IOException ioExc) {
+				ServiceCreationException e = new ServiceCreationException(
+						ErrorDataFactory.createErrorData(ErrorConstants.CFG_CANNOT_LOAD_FILE,
+						ErrorConstants.ERRORDOMAIN, new Object[] {filePath}), ioExc);
+				if (!lenient) {
+					throw e;
+				}
+				LOG.log(Level.WARNING, "Could not load resource " + filePath
+							+ " due to error: " + ioExc.toString() + "("  
+							+ (ioExc.getMessage() == null ? "" : ioExc.getMessage()) + ")", 
+							ioExc);
+			}
+		} else {
+			inStream = getFileStreamInternal(filePath);
+		}
+		if (inStream == null) {
+			inStream = getFileStreamInternal(resourcePath);
+		}
+		
+		return inStream;
+	}
+
 
 	public static synchronized Document parseConfig(String fileName, String schemaName, boolean isOptional, String topLevelName, SchemaValidationLevel checkLevel) throws ServiceCreationException {
 		InputStream	inStream = getFileStream(fileName);

@@ -24,6 +24,10 @@ public final class SOAClientMarkdownStateId extends SOABaseMarkdownStateId {
 		super(adminName, operationName, clientName);
 	}
 
+	public SOAClientMarkdownStateId(String adminName, String operationName, String clientName, String location) {
+		super(adminName, operationName, clientName, location);
+	}
+
 	public String getClientName() {
 		return getSubname();
 	}

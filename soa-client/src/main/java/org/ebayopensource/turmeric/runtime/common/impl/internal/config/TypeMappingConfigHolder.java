@@ -131,6 +131,12 @@ public class TypeMappingConfigHolder extends BaseConfigHolder {
 				newCH.setXmlNamespaceFromJavaPackage(javaName, xmlNs);
 			}
 		}
+		newCH.m_javaTypes = new HashSet<String>();
+		if(m_javaTypes != null && !m_javaTypes.isEmpty()) {
+			for(String type: m_javaTypes) {
+				newCH.m_javaTypes.add(type);
+			}
+		}
 
 		return newCH;
 	}

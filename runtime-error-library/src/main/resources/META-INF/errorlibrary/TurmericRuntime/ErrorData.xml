@@ -306,6 +306,9 @@
 		<error category="SYSTEM" id="2044"
 			name="svc_rt_non_matching_operation_name" severity="ERROR"
 			subdomain="System" />
+		<error category="SYSTEM" id="2045"
+			name="svc_rt_no_proto" severity="ERROR"
+			subdomain="System" />
 		<error category="REQUEST" id="3000"
 			name="svc_client_unknown_operation" severity="ERROR"
 			subdomain="Inbound_Meta_Data" />

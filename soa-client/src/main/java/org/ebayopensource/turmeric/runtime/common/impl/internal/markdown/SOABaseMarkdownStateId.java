@@ -20,6 +20,7 @@ public abstract class SOABaseMarkdownStateId implements IMarkdownStateId {
 	protected final String m_adminName;
 	protected final String m_operationName;
 	protected final String m_subname;
+	protected final String m_location;
 	private int m_hashCode;
 
 	public SOABaseMarkdownStateId(String adminName, String operationName, String subname)
@@ -31,7 +32,21 @@ public abstract class SOABaseMarkdownStateId implements IMarkdownStateId {
 		m_adminName = adminName;
 		m_operationName = operationName;
 		m_subname = subname;
+		m_location = null;
 	}
+	
+	public SOABaseMarkdownStateId(String adminName, String operationName, String subname, String location)
+	{
+		if (adminName == null) {
+			throw new NullPointerException();
+		}
+
+		m_adminName = adminName;
+		m_operationName = operationName;
+		m_subname = subname;
+		m_location = location;
+	}
+
 
 	public final String getAdminName() {
 		return m_adminName;
@@ -49,8 +64,14 @@ public abstract class SOABaseMarkdownStateId implements IMarkdownStateId {
 		return (m_subname == null && m_operationName == null);
 	}
 
+	public final String getLocation(){
+		return m_location;
+	}
+
 	protected final void buildBaseStringId(StringBuilder sb, String subnameIdName) {
 		sb.append(m_adminName);
+		if(m_location!=null)
+			sb.append(";loc:").append(m_location);
 		if (m_operationName != null) {
 			sb.append(";op:");
 			sb.append(m_operationName);
@@ -81,13 +102,17 @@ public abstract class SOABaseMarkdownStateId implements IMarkdownStateId {
 		SOABaseMarkdownStateId other2 = (SOABaseMarkdownStateId)other;
 		return m_adminName.equals(other2.m_adminName) &&
 			BindingUtils.sameObject(m_operationName, other2.m_operationName) &&
-			BindingUtils.sameObject(m_subname, other2.m_subname);
+			BindingUtils.sameObject(m_subname, other2.m_subname) &&
+			BindingUtils.sameObject(m_location, other2.m_location);
 	}
 
 	@Override
 	public int hashCode() {
 		if (m_hashCode == 0) {
 			int hashCode = m_adminName.hashCode();
+			if(m_location!=null){
+				hashCode ^= m_location.hashCode();
+			}
 			if (m_operationName != null) {
 				hashCode ^= m_operationName.hashCode();
 			}

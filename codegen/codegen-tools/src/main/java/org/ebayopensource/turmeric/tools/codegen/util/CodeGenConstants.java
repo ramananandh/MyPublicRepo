@@ -66,6 +66,8 @@ public interface CodeGenConstants {
 	public static final String NS_2_PKG = "ns2pkg";
 	public static final String ENABLE_NAMESPACE_FOLDING = "enabledNamespaceFolding";
 	public static final String PUBLIC_SERVICE_NAME = "publicServiceName";
+	public static final String NON_XSD_FORMATS = "nonXSDFormats";
+	public static final String SUPPORT_ZERO_CONFIG = "support_zero_config";
 	String CTNS = "ctns";
 	String SVC_INTF_PROJECT_PROPERTIES_FILE_VERSION = "sipp_version";
 	String SVC_CONSUMER_VERSION = "smp_version";

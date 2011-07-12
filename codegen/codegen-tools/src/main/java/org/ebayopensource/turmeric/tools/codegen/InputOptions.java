@@ -155,7 +155,12 @@ public class InputOptions {
     public static final String OPT_GEN_SHARED_CONSUMER = "-gen-sharedconsumer";
     // Option to specify generation of shared consumer package in an interface project
     public static final String OPT_PACKAGE_SHARED_CONSUMER = "-package-sharedconsumer";
-	
+    // Option to specify different data formats other than xsd
+    public static final String NON_XSD_FORMATS = "-nonXSDFormats";
+    // Option to specify xsd location for validation
+    public static final String OPT_XSD_PATHS_FOR_VALIDATION = "-xsdPathsForValidation";
+
+
 
 	private String m_namespace;	
 	private String m_inputFile;	
@@ -217,6 +222,7 @@ public class InputOptions {
 	private String m_ConsumerId;
 	private boolean m_isConsumerAnInterfaceProjectArtifact = false;
 	private boolean m_IsBaseConsumerGenertionReq = true;
+	private boolean m_ShouldUsePublicMethodsConsumer = false;
 	private String m_JavaHome;
 	private String m_JdkHome;
 	private boolean m_isServiceNameRequired = true;
@@ -243,6 +249,10 @@ public class InputOptions {
 	
 	//This variable does not have any corresponding inputOption. This is a transient/derived variable
 	private String m_caller;
+	private String m_supportedFastSerFormats;
+	private String m_svcImplFactoryClassName;
+	private String m_xsdPathsForNonXSDFormatsValidation;
+
 	
 	public static  enum InputType {
 		INTERFACE("-interface", ""), 
@@ -287,7 +297,8 @@ public class InputOptions {
 		Interface(16), Consumer(17), TypeDefs(18), ClientNoConfig(19),
 		ServerNoConfig(20), ServiceOpProps(21), SecurityPolicyConfig(22),
 		ServiceMetadataProps(23),ServiceIntfProjectProps(24),DispatcherForBuild(25),ServiceFromWSDLIntf(26),ServiceFromWSDLImpl(27),
-		DispatcherForMaven(28),WSDLWithSingleSchema(29),WsdlConversionToMns(30),WsdlWithPublicServiceName(31),SharedConsumer(32)  ;
+		DispatcherForMaven(28),WSDLWithSingleSchema(29),WsdlConversionToMns(30),WsdlWithPublicServiceName(31),SharedConsumer(32),
+		ValidateXSDsForNonXSDFormats(33) ;
 		
 		private final int TYPE_VALUE;
 		
@@ -1141,6 +1152,14 @@ public class InputOptions {
 		m_IsBaseConsumerGenertionReq = isBaseConsumerGenertionReq;
 	}
 	
+	public boolean shouldUsePublicMethodsConsumer() {
+		return m_ShouldUsePublicMethodsConsumer;
+	}
+
+	public void setShouldUsePublicMethodsConsumer(boolean shouldUsePublicMethodsConsumer) {
+		m_ShouldUsePublicMethodsConsumer = shouldUsePublicMethodsConsumer;
+	}
+	
 	public String getJavaHome() {
 		return m_JavaHome;
 	}
@@ -1207,6 +1226,35 @@ public class InputOptions {
 	public void setUseExternalServiceFactory(boolean useExternalServiceFactory) {
 		this.useExternalServiceFactory = useExternalServiceFactory;
 	}
+
+	public String getSupportedFastSerFormats() {
+		return m_supportedFastSerFormats;
+	}
+
+	public void setSupportedFastSerFormats(String suuportedFastSerFormats) {
+		this.m_supportedFastSerFormats = suuportedFastSerFormats;
+	}
+
+	public String getSvcImplFactoryClassName() {
+		return m_svcImplFactoryClassName;
+	}
+
+
+	public void setSvcImplFactoryClassName(String svcImplFactoryClassName) {
+		this.m_svcImplFactoryClassName = svcImplFactoryClassName;
+	}
+
+
+	public String getXsdPathsForNonXSDFormatsValidation() {
+		return m_xsdPathsForNonXSDFormatsValidation;
+	}
+
+
+	public void setXsdPathsForNonXSDFormatsValidation(
+			String xsdPathsForNonXSDFormatsValidation) {
+		this.m_xsdPathsForNonXSDFormatsValidation = xsdPathsForNonXSDFormatsValidation;
+	}
+
 
 	public String toString() {
 		

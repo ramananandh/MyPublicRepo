@@ -37,7 +37,7 @@ public final class SOAClientMarkdownState extends SOABaseMarkdownState<SOAClient
 		super(mgr, id);
 	}
 
-	void setAutoMarkdownState(AutoMarkdownState autoState, boolean isSvcLevelAutoMarkdown) {
+	public void setAutoMarkdownState(AutoMarkdownState autoState, boolean isSvcLevelAutoMarkdown) {
 		synchronized (getLockObject()) {
 			if (autoState != null && m_autoState != null) {
 				autoState.copyStateFrom(m_autoState);
@@ -46,6 +46,10 @@ public final class SOAClientMarkdownState extends SOABaseMarkdownState<SOAClient
 			m_autoState = autoState;
 			m_isSvcLevelAutoMarkdown = isSvcLevelAutoMarkdown;
 		}
+	}
+
+	public boolean isAutoStateSet(){
+		return m_autoState==null?false:true;
 	}
 
 	boolean isSvcLevelAutoMarkdown() {

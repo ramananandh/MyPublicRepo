@@ -30,15 +30,24 @@ public class ElementType extends SchemaType implements Serializable {
     private String name = "";
     private QName typeName = null;
     private QName elementType = null;
-    private List childTypes = new ArrayList();
+    private List<SchemaType> childTypes = new ArrayList<SchemaType>();
     private boolean nillable = false;
+    
+    private ElementFormChoice formAttribute = null;
+    private int minOccurs = -1;
+    private int maxOccurs = -1;
+    private QName ref = null;
+
+    private SimpleType anonymousSimpleType = null;
+    private ComplexType anonymousComplexType = null;
+
     
     /**
      * Constructor
      * @param el The dom element for this element
      */
-    @SuppressWarnings("unchecked")
 	ElementType(Element el, String tns) {
+		super(el, tns);
         // jgreif Webalo, Inc. -- incorrect to use tns as default namespace
         // for type or ref attribute value !
         //elementType = getAttributeQName(el, "type", tns);
@@ -46,7 +55,7 @@ public class ElementType extends SchemaType implements Serializable {
         typeName = getAttributeQName(el, "name", tns);
         // jgreif Webalo, Inc. -- ref attr may appear rather than name attr
         if (typeName == null) {
-            typeName = getAttributeQName(el, "ref");
+        	ref = getAttributeQName(el, "ref");
         }
         
         QName nillableAttr = getAttributeQName(el, "nillable", null);
@@ -55,11 +64,13 @@ public class ElementType extends SchemaType implements Serializable {
             nillable = true;
         }
         
-        // If the element has no name, we cannot map it. Don't do any more processing
-        // of this type
-        if (typeName == null) return;
-        
-        name = typeName.getLocalPart();
+
+        parseOtherAttributes(el, tns);
+
+        if (typeName != null){
+            name = typeName.getLocalPart();
+        }
+
         NodeList children = el.getChildNodes();
         for (int i=0; i<children.getLength(); i++) {
             Node child = children.item(i);
@@ -67,9 +78,11 @@ public class ElementType extends SchemaType implements Serializable {
                 Element subEl = (Element) child;
                 String elType = subEl.getLocalName();
                 if (elType.equals("complexType")) {
-                    childTypes.add(new ComplexType(subEl, tns));
+                	anonymousComplexType = new ComplexType(subEl, tns, typeName);
+                    childTypes.add( anonymousComplexType );
                 } else if (elType.equals("simpleType")) {
-                    childTypes.add(new SimpleType(subEl, tns));
+                	anonymousSimpleType = new SimpleType(subEl, tns, typeName); 
+                    childTypes.add( anonymousSimpleType );
                 } else if (elType.equals("element")) {
                     childTypes.add(new ElementType(subEl, tns));
                 } else {
@@ -77,6 +90,34 @@ public class ElementType extends SchemaType implements Serializable {
                 }
             }
         }
+    }
+
+    private void parseOtherAttributes(Element el, String tns){
+        
+        QName formAttribute = getAttributeQName(el, "form");
+        if(formAttribute == null){
+        	this.formAttribute = ElementFormChoice.QUALIFIED;
+        }else{
+        	this.formAttribute = ElementFormChoice.fromValue( formAttribute.getLocalPart() );
+        }
+        
+        QName minOccurs = getAttributeQName(el, "minOccurs");
+        if(minOccurs == null){
+        	this.minOccurs = 1;
+        }else{
+        	this.minOccurs = Integer.parseInt( minOccurs.getLocalPart() );
+        }
+
+        QName maxOccurs = getAttributeQName(el, "maxOccurs");
+        if(maxOccurs == null){
+        	this.maxOccurs = 1;
+        }else{
+        	if("unbounded".equals( maxOccurs.getLocalPart() ) ){
+        		this.maxOccurs = 999999999;
+        	}else{
+        		this.maxOccurs = Integer.parseInt( maxOccurs.getLocalPart() );
+        	}
+        }        
     }
     
     public String getName() {
@@ -108,7 +149,73 @@ public class ElementType extends SchemaType implements Serializable {
     /**
      * @see SchemaType#getChildren()
      */
-    public List getChildren() {
+
+    @SuppressWarnings("unchecked")
+	public List getChildren() {
         return childTypes;
     }
+    
+	/**
+	 * Returns the form choice of the element.
+	 * @return
+	 */
+    public ElementFormChoice getForm(){
+    	return formAttribute;
+    }
+
+
+    public int getMinOccurs(){
+    	return minOccurs;
+    }
+    public int getMaxOccurs(){
+    	return maxOccurs;
+    }
+
+    public QName getRef(){
+    	return ref;
+    }
+
+    public boolean hasSimpleType(){
+    	return anonymousSimpleType != null;
+    }
+   
+    public SimpleType getSimpleType(){
+    	return anonymousSimpleType;
+    }
+
+    public boolean hasComplexType(){
+    	return anonymousComplexType != null;
+    }
+
+    public ComplexType getComplexType(){
+    	return anonymousComplexType;
+    }
+	/**
+	 * The enum type which represents the element Form options.
+	 * @author rkulandaivel
+	 *
+	 */
+	public static enum ElementFormChoice{
+		QUALIFIED("qualified"),
+		UNQUALIFIED("unqualified");
+		
+		private String value = null;
+		ElementFormChoice(String value){
+			this.value = value;
+		}
+		
+	    public String value() {
+	        return value;
+	    }
+
+		public static ElementFormChoice fromValue(String value){
+			for(ElementFormChoice use : values()){
+				if(use.value.equals(value)){
+					return use;
+				}
+			}
+			throw new IllegalArgumentException(value);
+		}
+	}
+
 }

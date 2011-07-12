@@ -27,24 +27,31 @@ import java.lang.reflect.Type;
 import java.lang.reflect.WildcardType;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.jar.JarFile;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 
+import javax.wsdl.Definition;
+import javax.wsdl.Port;
+import javax.wsdl.Service;
+import javax.wsdl.extensions.http.HTTPAddress;
+import javax.wsdl.extensions.soap.SOAPAddress;
+import javax.wsdl.extensions.soap12.SOAP12Address;
 import javax.wsdl.xml.WSDLLocator;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
+import org.ebayopensource.turmeric.runtime.codegen.common.PkgNSMappingType;
+import org.ebayopensource.turmeric.runtime.codegen.common.PkgToNSMappingList;
 import org.ebayopensource.turmeric.runtime.common.impl.utils.CallTrackingLogger;
 import org.ebayopensource.turmeric.runtime.common.impl.utils.LogManager;
 import org.ebayopensource.turmeric.tools.codegen.InputOptions;
 import org.xml.sax.InputSource;
-
-import org.ebayopensource.turmeric.runtime.codegen.common.PkgNSMappingType;
-import org.ebayopensource.turmeric.runtime.codegen.common.PkgToNSMappingList;
 
 
 /**
@@ -749,6 +756,48 @@ public static File getFileFromInputStream (InputStream inputStream , String file
 	
 	return file;
 }
+
+
+
+public static String[] getServiceLocations(Definition wsdlDefinition)
+{
+    List<String> locations = new ArrayList<String>();
+    Service wsdlService = (Service)wsdlDefinition.getServices().values().iterator().next();
+    Map<?,?> wsdlPorts = wsdlService.getPorts();
+    for(Iterator<?> it = wsdlPorts.values().iterator(); it.hasNext();)
+    {
+        Port wsdlPort = (Port)it.next();
+        Iterator<?> itElements = wsdlPort.getExtensibilityElements().iterator();
+        while(itElements.hasNext()) 
+        {
+            Object obj = itElements.next();
+            String wsdlURI = null;
+            if(obj instanceof SOAPAddress)
+            {
+                SOAPAddress address = (SOAPAddress)obj;
+                wsdlURI = address.getLocationURI();
+            } 
+            else if(obj instanceof SOAP12Address)
+            {
+            	SOAP12Address address = (SOAP12Address)obj;
+                wsdlURI = address.getLocationURI();
+            } 
+            else if(obj instanceof HTTPAddress)
+            {
+            	HTTPAddress address = (HTTPAddress)obj;
+                wsdlURI = address.getLocationURI();
+            }
+            if(!isEmptyString(wsdlURI))
+            	locations.add(wsdlURI);
+        }
+    }
+
+    String arr[] = new String[locations.size()];
+    locations.toArray(arr);
+    return arr;
+}
+
+
 
 }
 

@@ -162,6 +162,8 @@ public abstract class BaseMessageContextImpl<D extends ServiceDesc, C extends Se
     private ByteBufferWrapper m_outWrapper;
     
     protected Map<String, String> m_queryParams;
+	
+	protected Map<String, String> m_rawQueryParams;
 
     /**
      * Internal constructor to be called by the derived classes.
@@ -1145,6 +1147,10 @@ public abstract class BaseMessageContextImpl<D extends ServiceDesc, C extends Se
     
 	public Map<String,String> getQueryParams() {
 		return m_queryParams;
+    }
+    
+	public Map<String,String> getRawQueryParams() {
+		return m_rawQueryParams;
     }
 
     private String parseGuid(String id) {

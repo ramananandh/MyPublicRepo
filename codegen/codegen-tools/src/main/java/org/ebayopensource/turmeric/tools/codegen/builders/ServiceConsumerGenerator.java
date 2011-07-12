@@ -12,6 +12,7 @@ package org.ebayopensource.turmeric.tools.codegen.builders;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,6 +39,7 @@ import com.sun.codemodel.JClass;
 import com.sun.codemodel.JCodeModel;
 import com.sun.codemodel.JConditional;
 import com.sun.codemodel.JDefinedClass;
+import com.sun.codemodel.JDocComment;
 import com.sun.codemodel.JExpr;
 import com.sun.codemodel.JExpression;
 import com.sun.codemodel.JFieldRef;
@@ -46,6 +48,8 @@ import com.sun.codemodel.JForLoop;
 import com.sun.codemodel.JInvocation;
 import com.sun.codemodel.JMethod;
 import com.sun.codemodel.JMod;
+import com.sun.codemodel.JOp;
+import com.sun.codemodel.JPrimitiveType;
 import com.sun.codemodel.JTryBlock;
 import com.sun.codemodel.JType;
 import com.sun.codemodel.JVar;
@@ -61,9 +65,12 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 
 	private static final String GET_PROXY_METHOD_NAME = "getProxy";
 	private static final String SET_SVC_LOC_METHOD_NAME = "setServiceLocation";
+	private static final String GET_SVC_LOC_METHOD_NAME = "getServiceLocation";
 	private static final String SET_USER_PROV_SEC_METHOD_NAME = "setUserProvidedSecurityCredentials";
 	private static final String SET_SEC_CRE_SEC_METHOD_NAME = "setAuthToken";
+	private static final String GET_SEC_CRE_SEC_METHOD_NAME = "getAuthToken";
 	private static final String SET_COOKIES_METHOD_NAME = "setCookies";
+	private static final String GET_COOKIES_METHOD_NAME = "getCookies";
 	private static final String GET_SVC_INVOKER_OPTIONS_METHOD_NAME ="getServiceInvokerOptions";
 	private static final String GET_INVOKER_OPTIONS_METHOD_NAME = "getInvokerOptions";
 	private static final String GET_SERVICE_METHOD_NAME = "getService";
@@ -78,13 +85,33 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 	private static final String ENV_MAPPER = "s_envMapper";
 	private static final String CLIENT_FIELD_NAME = "m_clientName";
 	private static final String ENV_FIELD_NAME = "m_environment";
+	private static final String USE_DEFAULT_CONFIG = "m_useDefaultClientConfig";
+
+	// Added for setHostName() method
+	private static final String HOST_NAME_FIELD_NAME = "m_hostName";
+	private static final String URL_PATH_FIELD_NAME = "m_urlPath";
+	private static final String PORT_FIELD_NAME = "m_port";
+	private static final String PROTOCOL_SCHEME_FIELD_NAME = "m_protocolScheme";
+	
+	private static final String HTTP_NON_SECURE = "HTTP_NON_SECURE";
+	private static final String SET_HOST_NAME = "setHostName";
+	private static final String GET_HOST_NAME = "getHostName";
+	private static final String SET_TARGET_LOCATION_COMPONENTS_NAME = "setTargetLocationComponents";	
+	private static final String GET_LOCATION_FROM_COMPONENTS_NAME = "getLocationFromComponents";	
+	private static final String IS_EMPTY_STRING_NAME = "isEmptyString";
+	
 	private static final String DEFAULT = "production";
-	private static final String EXCEPTION_ENV_MSG = "environment can not be null";
 	private static final String EXCEPTION_CLIENT_MSG = "clientName can not be null";
 	private static final String ENV_MAPPER_GET_DEPLOYED_ENV = "getDeploymentEnvironment";
+	private static final String oldConsJavadoc = "This constructor should be used, when a ClientConfig.xml is located in the "
+		+ "\n\"client\" bundle, so that a ClassLoader of this Shared Consumer can be used.\n";
+	private static final String newConsJavadoc = "This constructor should be used, when a ClientConfig.xml is located "
+		+ "\nin some application bundle. Shared Consumer then will call ClassLoaderRegistry "
+		+ "\nto register a ClassLoader of an application bundle.\n";
+
 
 	private static Logger s_logger = LogManager.getInstance(ServiceConsumerGenerator.class);
-
+	private boolean m_shouldUsePublicMethodsConsumer = false;
 
 	private static ServiceConsumerGenerator s_serviceConsumerGenerator  = new ServiceConsumerGenerator();
 
@@ -112,6 +139,8 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 		
 		String qualifiedInterfaceName = "";
 		Class<?> interfaceClass = null;
+		m_shouldUsePublicMethodsConsumer = codeGenCtx.getInputOptions()
+			.shouldUsePublicMethodsConsumer();
 		if(codeGenCtx.isAsyncInterfaceRequired()){
 			try {
 				qualifiedInterfaceName  = getAsyncInterfaceClassName(codeGenCtx.getServiceInterfaceClassName());
@@ -142,17 +171,26 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 		if(! codeGenCtx.getInputOptions().isConsumerAnInterfaceProjectArtifact())
 			addConstructor(jCodeModel, testClientClass);
 		addConstructorwithClientName(jCodeModel, testClientClass,codeGenCtx);
-		addConstructorWithParams(jCodeModel, testClientClass,codeGenCtx);
+		addConstructorWithTwoParams(jCodeModel, testClientClass,codeGenCtx);
+		addConstructorWithThreeParams(jCodeModel, testClientClass,codeGenCtx);
+		addConstructorWithFourParams(jCodeModel, testClientClass, codeGenCtx);
 		//init() method added
 		addInitMethod(testClientClass,jCodeModel);
-		addSetSvcLocationMethod(testClientClass, jCodeModel);
+		addSetSvcLocationMethod(testClientClass, jCodeModel, codeGenCtx);
 		addSetUserProvidedSecurityCredentialsMethod(testClientClass, jCodeModel);
-		addSetSecurtiyCredentials(testClientClass, jCodeModel);
-		addSetCookiesMethod(testClientClass, jCodeModel);
+		addSetSecurtiyCredentials(testClientClass, jCodeModel, codeGenCtx);
+		addSetCookiesMethod(testClientClass, jCodeModel, codeGenCtx);
 		addGetServiceInvokerOptionsMethod(testClientClass,jCodeModel,codeGenCtx);
 		addGetProxyMethod(testClientClass, interfaceClass, jCodeModel, codeGenCtx);
 		addGetServiceMethod(testClientClass,jCodeModel,codeGenCtx);
-		
+
+		if(m_shouldUsePublicMethodsConsumer){
+			addsetTargetLocationComponentsMethod(testClientClass, jCodeModel, codeGenCtx);
+			addisEmptyStringMethod(testClientClass, jCodeModel, codeGenCtx);
+			addGetSetHostNameMethod(testClientClass, jCodeModel, codeGenCtx);
+			addgetLocationFromComponentsMethod(testClientClass, jCodeModel, codeGenCtx);
+		}
+
 
 		addServiceMethods(interfaceClass, testClientClass, jCodeModel);
 		addJavaDocs(testClientClass);
@@ -224,7 +262,13 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 		svcFactoryInvoker.arg(JExpr.ref(SVC_STATIC_NAME));
 		svcFactoryInvoker.arg(JExpr.ref(ENV_FIELD_NAME));
 		svcFactoryInvoker.arg(JExpr.ref(CLIENT_FIELD_NAME));
-		svcFactoryInvoker.arg(JExpr.ref(SVC_LOCATION_FIELD_NAME));
+		if(m_shouldUsePublicMethodsConsumer)
+			svcFactoryInvoker.arg(JExpr._null());
+		else
+			svcFactoryInvoker.arg(JExpr.ref(SVC_LOCATION_FIELD_NAME));
+		svcFactoryInvoker.arg(JExpr.lit(false));
+		svcFactoryInvoker.arg(JExpr.ref(USE_DEFAULT_CONFIG));
+		
 
 		JFieldRef svcInstanceRef = JExpr.ref(SVC_INSTANCE_NAME);
 		JConditional ifServiceCondition = getServiceMethodBody._if(svcInstanceRef.eq(JExpr._null()));
@@ -345,28 +389,33 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 	private void addFields(
 				JCodeModel jCodeModel,
 				Class<?> interfaceClass,
-				JDefinedClass testClientClass,CodeGenContext codegenCtx) throws CodeGenFailedException {
+				JDefinedClass sharedConsumerClass,CodeGenContext codegenCtx) throws CodeGenFailedException {
 		//--------------------------------------------------
 		// adds private URL m_serviceLocation = null;
 		//--------------------------------------------------
-		JClass urlJClass = getJClass("java.net.URL", jCodeModel);
-		JFieldVar servicLocField =
-				testClientClass.field(JMod.PRIVATE, urlJClass, SVC_LOCATION_FIELD_NAME);
-		servicLocField.init(JExpr._null());
+//		do not generate m_serviceLocation if SIPP version >= 1.2
+		if(!m_shouldUsePublicMethodsConsumer){
+			JClass urlJClass = getJClass("java.net.URL", jCodeModel);
+			JFieldVar servicLocField =
+					sharedConsumerClass.field(JMod.PRIVATE, urlJClass, SVC_LOCATION_FIELD_NAME);
+			servicLocField.init(JExpr._null());
+		}
+		
+		sharedConsumerClass.field(JMod.PRIVATE, JPrimitiveType.parse(jCodeModel, "boolean"), USE_DEFAULT_CONFIG);
 		
 		//--------------------------------------------------
 		//adds private static final String SVC_ADMIN_NAME = <serviceName>;
 		//--------------------------------------------------
 		 int FIELD_MODS = (JMod.PRIVATE | JMod.STATIC | JMod.FINAL);
 		JClass stringJClass = getJClass(String.class, jCodeModel);
-		JFieldVar serviceAdminName = testClientClass.field(FIELD_MODS,stringJClass, SVC_STATIC_NAME);
+		JFieldVar serviceAdminName = sharedConsumerClass.field(FIELD_MODS,stringJClass, SVC_STATIC_NAME);
 		JExpression svcNameExpr = JExpr.lit(codegenCtx.getServiceAdminName());
 		serviceAdminName.init(svcNameExpr);
 		
 		//--------------------------------------------------
 		//adds private String m_clientName = <client name"; from -cn option for BaseConsumer, in the case of SharedConsumer it should always be null
 		//--------------------------------------------------
-	    JFieldVar clientName = testClientClass.field(JMod.PRIVATE, stringJClass, CLIENT_FIELD_NAME);
+		JFieldVar clientName = sharedConsumerClass.field(JMod.PRIVATE, stringJClass, CLIENT_FIELD_NAME);
 		if(codegenCtx.getInputOptions().isConsumerAnInterfaceProjectArtifact())
 			clientName.init(null);
 		else{
@@ -381,7 +430,7 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 	    //-------------------------------------------------
 	    //adds private String m_environment ="default"
 	    //-------------------------------------------------
-	    JFieldVar environmentName = testClientClass.field(JMod.PRIVATE, stringJClass, ENV_FIELD_NAME);
+		JFieldVar environmentName = sharedConsumerClass.field(JMod.PRIVATE, stringJClass, ENV_FIELD_NAME);
 	    JExpression environmentExp = JExpr.lit(DEFAULT);
 	    if(codegenCtx.getInputOptions().isServiceNameRequired() && ! codegenCtx.getInputOptions().isConsumerAnInterfaceProjectArtifact())
 	    	environmentName.init(null);
@@ -397,18 +446,15 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 		//--------------------------------------------------
 		JClass interfaceJClass = getJClass(interfaceClass, jCodeModel);
 		JFieldVar proxyField =
-				testClientClass.field(JMod.PRIVATE, interfaceJClass, SVC_PROXY_FIELD_NAME);
+			sharedConsumerClass.field(JMod.PRIVATE, interfaceJClass, SVC_PROXY_FIELD_NAME);
 		proxyField.init(JExpr._null());
-
-
-		JClass StringJClass = getJClass("java.lang.String", jCodeModel);
 
 
 		//--------------------------------------------------
 		// adds private String m_authToken = null;
 		//--------------------------------------------------
 		JFieldVar authTokenField =
-				testClientClass.field(JMod.PRIVATE, StringJClass, AUTH_TOKEN_FIELD_NAME);
+				sharedConsumerClass.field(JMod.PRIVATE, stringJClass, AUTH_TOKEN_FIELD_NAME);
 		authTokenField.init(JExpr._null());
 
 
@@ -416,14 +462,14 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 		// adds private Cookie[] m_cookies;
 		//--------------------------------------------------
         JClass cookieClass = getJClass("org.ebayopensource.turmeric.runtime.common.types.Cookie",jCodeModel).array();
-        testClientClass.field(JMod.PRIVATE,cookieClass,AUTH_COOKIE_FIELD_NAME);
+        sharedConsumerClass.field(JMod.PRIVATE,cookieClass,AUTH_COOKIE_FIELD_NAME);
 
         
         //--------------------------------------------------
 		// adds private Service m_service = null;
 		//--------------------------------------------------
 		JFieldVar serviceInstanceField =
-				testClientClass.field(JMod.PRIVATE, Service.class, SVC_INSTANCE_NAME);
+				sharedConsumerClass.field(JMod.PRIVATE, Service.class, SVC_INSTANCE_NAME);
 		serviceInstanceField.init(JExpr._null());
 		
 		if (!CodeGenUtil.isEmptyString(codegenCtx.getInputOptions()
@@ -434,7 +480,7 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 			int FIELD_MODE = (JMod.PRIVATE | JMod.STATIC | JMod.FINAL);
 			JClass envMapperClass = getJClass(EnvironmentMapper.class,
 					jCodeModel);
-			JFieldVar envmappername = testClientClass.field(FIELD_MODE,
+			JFieldVar envmappername = sharedConsumerClass.field(FIELD_MODE,
 					envMapperClass, ENV_MAPPER);
 			JClass envmapperClass = getJClass(
 					codegenCtx.getInputOptions()
@@ -443,9 +489,30 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 			JInvocation envmapperObjCreater = JExpr._new(envmapperClass);
 			envmappername.init(envmapperObjCreater);
 		}
+		//added for setHostName()
+		//--------------------------------------------------
+	    //		private final static String HTTP_NON_SECURE = "http";		
+		//--------------------------------------------------
+		if(m_shouldUsePublicMethodsConsumer){
+			JFieldVar httpConstant = sharedConsumerClass.field(FIELD_MODS,stringJClass, HTTP_NON_SECURE);
+			httpConstant.init(JExpr.lit("http"));
+			sharedConsumerClass.field(JMod.PRIVATE,stringJClass,HOST_NAME_FIELD_NAME);
+			sharedConsumerClass.field(JMod.PRIVATE,stringJClass,URL_PATH_FIELD_NAME);
+			sharedConsumerClass.field(JMod.PRIVATE,int.class,PORT_FIELD_NAME);
+			sharedConsumerClass.field(JMod.PRIVATE,stringJClass,PROTOCOL_SCHEME_FIELD_NAME);
+		}
 	}
 
+	private void addConstructorJavaDoc(JMethod constructorWithArgs, String javaDocComment){
 
+		JDocComment javaDocs = constructorWithArgs.javadoc();
+		javaDocs.add(javaDocComment);
+		JVar[] params = constructorWithArgs.listParams();
+		for (JVar var : params) {
+			javaDocs.add("\n@param " + var.name());
+		}
+		javaDocs.add("\n@throws ServiceException");
+	}
 
 	private void addConstructor(JCodeModel jCodeModel, JDefinedClass testClientClass)
 		throws CodeGenFailedException {
@@ -469,9 +536,7 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 		// public BaseCalculatorServiceConsumer(String clientName)
 		// throws ServiceException
 		// {
-		// if (clientName == null) {
-		// throw new ServiceException("clientName can not be null");
-		// }
+		// 		this(clientName, s_envMapper.getDeploymentEnvironment());
 		// }
 		// ---------------------------------------------------------------
 		JMethod constructorWithArgs = testClientClass.constructor(JMod.PUBLIC);
@@ -480,29 +545,29 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 		constructorWithArgs.param(stringJClass, paramClientName);
 		constructorWithArgs._throws(ServiceException.class);
 		JBlock constructorWithArgsBody = constructorWithArgs.body();
-		JVar[] allLocalVariables = constructorWithArgs.listParams();
-		JConditional ifResultCondition = constructorWithArgsBody
-				._if(allLocalVariables[0].eq(JExpr._null()));
-		JClass ExceptionClass = getJClass(ServiceException.class, jCodeModel);
-		JInvocation invokeNewException1 = JExpr._new(ExceptionClass);
-		invokeNewException1.arg(EXCEPTION_CLIENT_MSG);
-		ifResultCondition._then()._throw(invokeNewException1);
-		constructorWithArgsBody.assign(JExpr.ref(CLIENT_FIELD_NAME), JExpr.ref(paramClientName));
+		
+		JInvocation thisInvoker = constructorWithArgsBody.invoke("this");		
+		thisInvoker.arg(JExpr.ref(paramClientName));
+		
+		JInvocation envMapperInvocation = null;
 
 		if (!CodeGenUtil.isEmptyString(ctx.getInputOptions()
 				.getEnvironmentMapper())) {
-			JInvocation invocation = JExpr.ref(ENV_MAPPER).invoke(
+			envMapperInvocation = JExpr.ref(ENV_MAPPER).invoke(
 					ENV_MAPPER_GET_DEPLOYED_ENV);
-			constructorWithArgsBody.assign(JExpr.ref(ENV_FIELD_NAME),
-					invocation);
 		}
+		if(envMapperInvocation != null)
+			thisInvoker.arg(envMapperInvocation);
+		else
+			thisInvoker.arg(JExpr._null());
+		addConstructorJavaDoc(constructorWithArgs, oldConsJavadoc);
 		
 	}
 
 
 
 
-	private void addConstructorWithParams(JCodeModel jCodeModel,
+	private void addConstructorWithTwoParams(JCodeModel jCodeModel,
 			JDefinedClass testClientClass,CodeGenContext codegenCtx) {
 		//---------------------------------------------------------------
 		//generates:
@@ -522,28 +587,90 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 		constructorWithArgs._throws(ServiceException.class);
 		
 		JBlock constructorWithArgsBody = constructorWithArgs.body();
-		JVar[] allLocalVariables = constructorWithArgs.listParams();
-		JConditional ifResultCondition = constructorWithArgsBody._if(allLocalVariables[1].eq(JExpr._null()));
-		JClass ExceptionClass = getJClass(ServiceException.class, jCodeModel);
+		JInvocation thisInvoker = constructorWithArgsBody.invoke("this");		
+		thisInvoker.arg(JExpr.ref(paramClientName));
+		thisInvoker.arg(JExpr.ref(paramEnvironment));
+		thisInvoker.arg(JExpr._null());
+		thisInvoker.arg(JExpr.lit(false));
+		addConstructorJavaDoc(constructorWithArgs, oldConsJavadoc);
 		
+		
+	
+	}
+
+	private void addConstructorWithThreeParams(JCodeModel jCodeModel,
+			JDefinedClass testClientClass,CodeGenContext codegenCtx) {
+		//---------------------------------------------------------------
+		//generates:
+		//public <Class Name>(String clientName, String environment)throws ServiceException{
+		//if(environment ==null)
+		//throw new ServiceException("environment can not be null");
+		//m_clientName = clientName;
+		//m_environment = environment;
+		//}
+		//---------------------------------------------------------------
+		JMethod constructorWithArgs = testClientClass.constructor(JMod.PUBLIC);
+		JClass stringJClass = getJClass(String.class,jCodeModel);
+		String paramClientName = "clientName";
+		constructorWithArgs.param(stringJClass, paramClientName);
+		String paramCaller = "caller";
+		constructorWithArgs.param(Class.class, paramCaller);
+		String paramUseDefaultClientConfig = "useDefaultClientConfig";
+		constructorWithArgs.param(JPrimitiveType.parse(jCodeModel, "boolean"), paramUseDefaultClientConfig);
+		constructorWithArgs._throws(ServiceException.class);
+		
+		JBlock constructorWithArgsBody = constructorWithArgs.body();
+		JInvocation thisInvoker = constructorWithArgsBody.invoke("this");		
+		thisInvoker.arg(JExpr.ref(paramClientName));
+
+		JInvocation envMapperInvocation = null;
 		if (!CodeGenUtil.isEmptyString(codegenCtx.getInputOptions()
 				.getEnvironmentMapper())) {
-			JInvocation invocation = JExpr.ref(ENV_MAPPER).invoke(ENV_MAPPER_GET_DEPLOYED_ENV);
-			JBlock block =ifResultCondition._then(); 
-			block.assign(
-				JExpr.ref(ENV_FIELD_NAME),
-				invocation
-				
-				);
-			JBlock elseBlock = ifResultCondition._else();
-			elseBlock.assign(JExpr.ref(ENV_FIELD_NAME), allLocalVariables[1]);
+			envMapperInvocation = JExpr.ref(ENV_MAPPER).invoke(
+					ENV_MAPPER_GET_DEPLOYED_ENV);
 		}
+		if(envMapperInvocation != null)
+			thisInvoker.arg(envMapperInvocation);
 		else
-		{
-		JInvocation invokeNewException1 = JExpr._new(ExceptionClass);
-		invokeNewException1.arg(EXCEPTION_ENV_MSG);
-		ifResultCondition._then()._throw(invokeNewException1);
-		}
+			thisInvoker.arg(JExpr._null());
+		
+		thisInvoker.arg(JExpr.ref(paramCaller));
+		thisInvoker.arg(JExpr.ref(paramUseDefaultClientConfig));
+		addConstructorJavaDoc(constructorWithArgs, newConsJavadoc);
+		
+		
+	
+	}
+
+
+	private void addConstructorWithFourParams(JCodeModel jCodeModel,
+			JDefinedClass testClientClass,CodeGenContext codegenCtx) {
+		//---------------------------------------------------------------
+		//generates:
+		//public <Class Name>(String clientName, String environment)throws ServiceException{
+		//if(environment ==null)
+		//throw new ServiceException("environment can not be null");
+		//m_clientName = clientName;
+		//m_environment = environment;
+		//}
+		//---------------------------------------------------------------
+		JMethod constructorWithArgs = testClientClass.constructor(JMod.PUBLIC);
+		JClass stringJClass = getJClass(String.class,jCodeModel);
+		String paramClientName = "clientName";
+		constructorWithArgs.param(stringJClass, paramClientName);
+		String paramEnvironment = "environment";
+		constructorWithArgs.param(stringJClass, paramEnvironment);
+		String paramCaller = "caller";
+		constructorWithArgs.param(Class.class, paramCaller);
+		String paramUseDefaultClientConfig = "useDefaultClientConfig";
+		constructorWithArgs.param(JPrimitiveType.parse(jCodeModel, "boolean"), paramUseDefaultClientConfig);
+		constructorWithArgs._throws(ServiceException.class);
+		
+		JBlock constructorWithArgsBody = constructorWithArgs.body();
+		JVar[] allLocalVariables = constructorWithArgs.listParams();
+		JExpression isEmptyExpr = allLocalVariables[1].invoke("isEmpty");
+		JClass ExceptionClass = getJClass(ServiceException.class, jCodeModel);
+		
 		
 		JConditional ifResultCondition2 = constructorWithArgs.body()._if(allLocalVariables[0].eq(JExpr._null()));
 		JInvocation invokeNewException2 = JExpr._new(ExceptionClass);
@@ -554,17 +681,46 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 				JExpr.ref(CLIENT_FIELD_NAME),
 				JExpr.ref(paramClientName)
 				);
+
+		if (!CodeGenUtil.isEmptyString(codegenCtx.getInputOptions()
+				.getEnvironmentMapper())) {
+
+			JConditional ifResultCondition = constructorWithArgsBody._if(allLocalVariables[1].eq(JExpr._null()).cor(isEmptyExpr));
+			JInvocation invocation = JExpr.ref(ENV_MAPPER).invoke(ENV_MAPPER_GET_DEPLOYED_ENV);
+			JBlock block =ifResultCondition._then(); 
+			block.assign(allLocalVariables[1],
+				invocation);
+			constructorWithArgsBody.assign(JExpr.ref(ENV_FIELD_NAME), allLocalVariables[1]);
+		} else{
+			JConditional ifResultCondition = constructorWithArgsBody._if(allLocalVariables[1].ne(JExpr._null()));
+			ifResultCondition._then().assign(JExpr.ref(ENV_FIELD_NAME), allLocalVariables[1]);			
+		}
 		
-		if (CodeGenUtil.isEmptyString(codegenCtx.getInputOptions()
-				.getEnvironmentMapper())) 
-		constructorWithArgsBody.assign(
-				JExpr.ref(ENV_FIELD_NAME),
-				JExpr.ref(paramEnvironment)
-				);
+		constructorWithArgsBody.assign(JExpr.ref(USE_DEFAULT_CONFIG), allLocalVariables[3]);
 		
+		JClass classLoaderReg = getJClass(ClassLoaderRegistry.class, jCodeModel);
 		
-	
+		JInvocation classloaderRegExpr = classLoaderReg.staticInvoke("instanceOf").invoke("registerServiceClient");
+		
+		classloaderRegExpr.arg(JExpr.ref(CLIENT_FIELD_NAME));
+		classloaderRegExpr.arg(JExpr.ref(ENV_FIELD_NAME));
+		classloaderRegExpr.arg(JExpr.ref(SVC_STATIC_NAME));
+		classloaderRegExpr.arg(JExpr.direct(testClientClass.name() + ".class"));
+		classloaderRegExpr.arg(allLocalVariables[2]);
+		classloaderRegExpr.arg(JExpr.ref(USE_DEFAULT_CONFIG));
+		constructorWithArgsBody.add(classloaderRegExpr);
+		addConstructorJavaDoc(constructorWithArgs, newConsJavadoc);
+		
+		if(m_shouldUsePublicMethodsConsumer){
+			String targetLocation = "targetLocation";
+			JInvocation serviceLocationInvocation = JExpr.invoke(GET_SERVICE_METHOD_NAME).invoke(GET_SVC_LOC_METHOD_NAME);
+			
+			JVar targetLocField =
+				constructorWithArgsBody.decl(getJClass(URL.class, jCodeModel), targetLocation, serviceLocationInvocation);
+			constructorWithArgsBody.invoke(SET_TARGET_LOCATION_COMPONENTS_NAME).arg(targetLocField);
+		}
 	}
+
 
 
 
@@ -639,7 +795,7 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 
 	private void addSetSecurtiyCredentials(
 			JDefinedClass testClientClass,
-			JCodeModel jCodeModel
+			JCodeModel jCodeModel, CodeGenContext codeGenContext
 			) throws CodeGenFailedException {
 
 		//---------------------------------------------------------------
@@ -650,12 +806,19 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 		// }
 		//---------------------------------------------------------------
 
-		JMethod  setSecurtiyCredentialsMethod =
-				addMethod(testClientClass,
+		JMethod  setSecurtiyCredentialsMethod = null;
+		int modifier;
+		if(m_shouldUsePublicMethodsConsumer)
+			modifier = JMod.PUBLIC;
+		else
+			modifier = JMod.PROTECTED;
+		
+		setSecurtiyCredentialsMethod = addMethod(testClientClass,
 						  SET_SEC_CRE_SEC_METHOD_NAME,
-						  JMod.PROTECTED,
+						  modifier,
 						  jCodeModel.VOID
 						);
+
 
 		setSecurtiyCredentialsMethod.javadoc().add("Use this method to set User Credentials (Token) ");
 		JBlock addSetSecurtiyCredentialsMethodBody = setSecurtiyCredentialsMethod.body();
@@ -675,11 +838,24 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 				JExpr.ref(paramAuthToken)
 				);
 
+		/**
+		 * Adds getter method for Token field. This would be triggered only if the sipp_version >= 1.2
+		 */
+		if (m_shouldUsePublicMethodsConsumer) {
+			JMethod getSecurtiyCredentialsMethod = addMethod(testClientClass,
+					GET_SEC_CRE_SEC_METHOD_NAME, JMod.PUBLIC, stringJClass);
+			getSecurtiyCredentialsMethod.javadoc().add(
+					"Use this method to get User Credentials (Token) ");
+
+			JBlock getCookiesMethodBody = getSecurtiyCredentialsMethod.body();
+			getCookiesMethodBody._return(JExpr.ref(AUTH_TOKEN_FIELD_NAME));
+		}
+
 	}
 
 	private void addSetSvcLocationMethod(
 			JDefinedClass testClientClass,
-			JCodeModel jCodeModel) throws CodeGenFailedException {
+			JCodeModel jCodeModel, CodeGenContext codegenCtx) throws CodeGenFailedException {
 
 		//---------------------------------------------------------------
 		// generates:
@@ -689,11 +865,19 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 		//  ...
 		// }
 		//---------------------------------------------------------------
-		JMethod setSvcLocMethod =
-				addMethod(testClientClass,
+		JMethod setSvcLocMethod = null;
+		int modifier;
+		if(m_shouldUsePublicMethodsConsumer)
+			modifier = JMod.PUBLIC;
+		else
+			modifier = JMod.PROTECTED;
+		String serviceLocation = "location";
+		String serviceLocationUrl = "serviceLocationUrl";
+		setSvcLocMethod = addMethod(testClientClass,
 						SET_SVC_LOC_METHOD_NAME,
-						JMod.PROTECTED,
+						modifier,
 						jCodeModel.VOID);
+
 		setSvcLocMethod._throws(MalformedURLException.class);
 		JClass stringJClass = getJClass("java.lang.String", jCodeModel);
 		JVar serviceLocParam = setSvcLocMethod.param(stringJClass, "serviceLocation");
@@ -707,9 +891,20 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 		// m_serviceLocation = new URL(serviceLocation);
 		//---------------------------------------------------------------
 		JBlock setSvcLocMethodBody = setSvcLocMethod.body();
-		JFieldRef serviceLocFieldRef = JExpr.ref(SVC_LOCATION_FIELD_NAME);
-		setSvcLocMethodBody.assign(serviceLocFieldRef, urlClassObjCreater);
-		
+		JFieldRef serviceLocFieldRef = null;
+		if(m_shouldUsePublicMethodsConsumer){
+			serviceLocFieldRef = JExpr.ref(serviceLocationUrl);
+			setSvcLocMethodBody.decl(urlJClass, serviceLocationUrl, urlClassObjCreater);
+			
+			JInvocation setTargetLocationComponentsInvoker = JExpr.invoke(SET_TARGET_LOCATION_COMPONENTS_NAME);
+			setTargetLocationComponentsInvoker.arg(serviceLocFieldRef);
+			setSvcLocMethodBody.add(setTargetLocationComponentsInvoker);
+			
+		} else {
+			serviceLocFieldRef = JExpr.ref(SVC_LOCATION_FIELD_NAME);
+			setSvcLocMethodBody.assign(serviceLocFieldRef, urlClassObjCreater);
+		}
+
 		
 		//---------------------------------------------------------------
 		//generates:
@@ -723,9 +918,31 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 		setServiceLocationInvok.arg(serviceLocFieldRef);
 		ifServiceLocCondition._then().add(setServiceLocationInvok);
 		
-		
-		
-		
+
+
+		/**
+		 * Adds getter method for svcLocation field. This would be triggered only if the sipp_version >= 1.2
+		 */
+		if (m_shouldUsePublicMethodsConsumer) {
+			JMethod getSvcLocMethod = addMethod(testClientClass,
+					GET_SVC_LOC_METHOD_NAME, JMod.PUBLIC, urlJClass);
+			
+			getSvcLocMethod._throws(MalformedURLException.class);
+			JBlock getSvcLocMethodBody = getSvcLocMethod.body();
+			getSvcLocMethodBody.decl(stringJClass, serviceLocation, JExpr.invoke(GET_LOCATION_FROM_COMPONENTS_NAME));
+			JInvocation getUrlClassObjCreater = JExpr._new(urlJClass).arg(JExpr.ref(serviceLocation));
+			//---------------------------------------------------------------
+			// generates:
+			// m_serviceLocation = new URL(serviceLocation);
+			//---------------------------------------------------------------
+
+			JFieldRef getServiceLocFieldRef = JExpr.ref(serviceLocationUrl);
+			getSvcLocMethodBody.decl(urlJClass, serviceLocationUrl, getUrlClassObjCreater);
+			
+
+			getSvcLocMethodBody._return(getServiceLocFieldRef);
+		}
+
 		
 	}
 
@@ -777,7 +994,7 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 
 	private void addSetCookiesMethod(
 			JDefinedClass testClientClass,
-			JCodeModel jCodeModel) throws CodeGenFailedException {
+			JCodeModel jCodeModel, CodeGenContext codegenCtx) throws CodeGenFailedException {
 
 		//---------------------------------------------------------------
 		// generates:
@@ -786,11 +1003,18 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 		//  ...
 		// }
 		//---------------------------------------------------------------
-		JMethod setCookiesMethod =
-			  	addMethod(testClientClass,
+		JMethod setCookiesMethod = null;
+		int modifier;
+		if(m_shouldUsePublicMethodsConsumer)
+			modifier = JMod.PUBLIC;
+		else
+			modifier = JMod.PROTECTED;
+		
+		setCookiesMethod = addMethod(testClientClass,
 			  			SET_COOKIES_METHOD_NAME,
-			  			JMod.PROTECTED,
+			  			modifier,
 			  			jCodeModel.VOID);
+
 		setCookiesMethod.javadoc().add("Use this method to set User Credentials (Cookie)");
 
 		JClass cookieArrayJClass = getJClass("org.ebayopensource.turmeric.runtime.common.types.Cookie", jCodeModel).array();
@@ -803,9 +1027,212 @@ public class ServiceConsumerGenerator extends BaseCodeGenerator implements Sourc
 		JBlock setCookiesMethodBody = setCookiesMethod.body();
 		JFieldRef cookieArrayFieldRef = JExpr.ref(AUTH_COOKIE_FIELD_NAME);
 		setCookiesMethodBody.assign(cookieArrayFieldRef, cookieArrayParam);
+		/**
+		 * Adds getter method for cookies field. This would be triggered only if the sipp_version >= 1.2
+		 */
+		if (m_shouldUsePublicMethodsConsumer) {
+			JMethod getCookiesMethod = addMethod(testClientClass,
+					GET_COOKIES_METHOD_NAME, JMod.PUBLIC, cookieArrayJClass);
+			getCookiesMethod.javadoc().add(
+					"Use this method to get User Credentials (Cookie)");
 
+			JBlock getCookiesMethodBody = getCookiesMethod.body();
+			getCookiesMethodBody._return(cookieArrayFieldRef);
+		}
+		
 	}
 
+
+	private void addGetSetHostNameMethod(
+			JDefinedClass testClientClass,
+			JCodeModel jCodeModel, CodeGenContext codegenCtx) throws CodeGenFailedException {
+
+		//---------------------------------------------------------------
+		// generates:
+		// protected void setHostName(String hostName, String protocolScheme)
+		//		throws MalformedURLException{
+		//  ...
+		//  ...
+		// }
+		//---------------------------------------------------------------
+		String hostNameJavadoc = "@param hostName	Actual hostname of the end point location, " +
+		"\n\t\t\tCan contain :<port> as well";
+		String protocolSchemeJavadoc = "\n@param protocolScheme	specifies the transport protocol scheme";
+
+		String hostNameConstant = "hostName";
+		
+		JFieldRef hostNameFieldRef = JExpr.ref(hostNameConstant);		
+		JClass stringJClass = getJClass(String.class, jCodeModel);
+		
+		JMethod setHostNameThreeParameterMethod = addMethod(testClientClass,
+	  			SET_HOST_NAME, JMod.PUBLIC, jCodeModel.VOID);
+		
+		setHostNameThreeParameterMethod._throws(MalformedURLException.class);
+		setHostNameThreeParameterMethod.javadoc().add(hostNameJavadoc);
+		setHostNameThreeParameterMethod.javadoc().add(protocolSchemeJavadoc);
+		JFieldRef mhostNameFieldRef = JExpr.ref(HOST_NAME_FIELD_NAME);
+		setHostNameThreeParameterMethod.param(stringJClass, hostNameConstant);
+		
+		JBlock setHostNameMethodThreeParameterBody = setHostNameThreeParameterMethod.body();
+		JExpression ternCondition = JOp.cond(hostNameFieldRef.ne(JExpr._null()), hostNameFieldRef, mhostNameFieldRef);
+		setHostNameMethodThreeParameterBody.assign(mhostNameFieldRef, ternCondition);
+		JVar newURLVar = setHostNameMethodThreeParameterBody.decl(getJClass(String.class, jCodeModel), 
+				"newURL", JExpr.invoke(GET_LOCATION_FROM_COMPONENTS_NAME));
+		JInvocation setServiceLocationInvoker = JExpr.invoke(SET_SVC_LOC_METHOD_NAME).arg(newURLVar);
+		setHostNameMethodThreeParameterBody.add(setServiceLocationInvoker);
+		
+		
+		/**
+		 * Adds getter method for host field.
+		 */
+		JMethod getHostNameMethod = addMethod(testClientClass, GET_HOST_NAME,
+				JMod.PUBLIC, stringJClass);
+		getHostNameMethod.javadoc().add(
+				"Returns the host name of the active end-point(from the servicelocation)");
+		getHostNameMethod._throws(MalformedURLException.class);
+		JInvocation getServiceLocationInvoker = JExpr.invoke(GET_SVC_LOC_METHOD_NAME);
+
+		JBlock getHostNameMethodBody = getHostNameMethod.body();
+		JVar resultVar = getHostNameMethodBody.decl(getJClass(URL.class, jCodeModel), 
+				"targetLocation", getServiceLocationInvoker);
+		
+		JExpression getTernCondition = JOp.cond(resultVar.eq(JExpr._null()), JExpr._null(), resultVar.invoke("getHost"));
+		getHostNameMethodBody._return(getTernCondition);
+		
+	}
+
+
+	private void addsetTargetLocationComponentsMethod(
+			JDefinedClass sharedConsumerClass,
+			JCodeModel jCodeModel, CodeGenContext codegenCtx) throws CodeGenFailedException {
+
+//		---------------------------------------------------------------
+//		 generates:
+//		 private void setTargetLocationComponents(URL targetLocation) {
+//      
+//       	if (targetLocation != null) {
+//          	 m_protocolScheme = targetLocation.getProtocol();            
+//            	 m_hostName = targetLocation.getHost();          
+//            	 m_urlPath = targetLocation.getPath();           
+//            	 m_port = targetLocation.getPort();
+//        	} 
+//
+//      	if(isEmptyString(m_protocolScheme))
+//          	 m_protocolScheme = HTTP_NON_SECURE;
+//      	if(isEmptyString(m_hostName))
+//          	 m_hostName = "localhost";
+//     		if(isEmptyString(m_urlPath))
+//       	     m_urlPath = "/";
+//      	if(m_port < 0)
+//       	     m_port = 0;
+//
+//    		}
+//		 }
+//		---------------------------------------------------------------
+		JMethod setTargetLocationComponentsMethod = addMethod(sharedConsumerClass,
+			  			SET_TARGET_LOCATION_COMPONENTS_NAME,
+			  			JMod.PRIVATE,
+			  			jCodeModel.VOID);
+
+		String targetLocationConstant = "targetLocation";
+		
+		JFieldRef targetLocationFieldRef = JExpr.ref(targetLocationConstant);
+		
+		JClass urlClass = getJClass(URL.class, jCodeModel);
+		setTargetLocationComponentsMethod.param(urlClass, targetLocationConstant);
+
+		JBlock setTargetLocationComponentsMethodBody = setTargetLocationComponentsMethod.body();
+		
+		JFieldRef protocolRef = JExpr.ref(PROTOCOL_SCHEME_FIELD_NAME);
+		JFieldRef hostNameRef = JExpr.ref(HOST_NAME_FIELD_NAME);
+		JFieldRef urlPathRef = JExpr.ref(URL_PATH_FIELD_NAME);
+		JFieldRef portRef = JExpr.ref(PORT_FIELD_NAME);
+		
+		JConditional targetLocationCheck = setTargetLocationComponentsMethodBody._if(targetLocationFieldRef.ne(JExpr._null()));
+		JBlock ifThenBlock =  targetLocationCheck._then();
+		ifThenBlock.assign(protocolRef, JExpr.ref(targetLocationConstant).invoke("getProtocol"));
+		ifThenBlock.assign(hostNameRef, JExpr.ref(targetLocationConstant).invoke("getHost"));
+		ifThenBlock.assign(urlPathRef, JExpr.ref(targetLocationConstant).invoke("getPath"));
+		ifThenBlock.assign(portRef, JExpr.ref(targetLocationConstant).invoke("getPort"));
+		
+		
+		JConditional protocolCheck = setTargetLocationComponentsMethodBody._if(JExpr.invoke(IS_EMPTY_STRING_NAME).arg(protocolRef));
+		JBlock protocolCheckBlock =  protocolCheck._then();
+		protocolCheckBlock.assign(protocolRef, JExpr.ref(HTTP_NON_SECURE));
+		
+		JConditional hostNameCheck = setTargetLocationComponentsMethodBody._if(JExpr.invoke(IS_EMPTY_STRING_NAME).arg(hostNameRef));
+		JBlock hostNameCheckBlock =  hostNameCheck._then();
+		hostNameCheckBlock.assign(hostNameRef, JExpr.lit("localhost"));
+		
+		JConditional urlPathCheck = setTargetLocationComponentsMethodBody._if(JExpr.invoke(IS_EMPTY_STRING_NAME).arg(urlPathRef));
+		JBlock urlPathCheckBlock =  urlPathCheck._then();
+		urlPathCheckBlock.assign(urlPathRef, JExpr.lit(""));
+		
+		JConditional portCheck = setTargetLocationComponentsMethodBody._if(portRef.lt(JExpr.lit(0)));
+		JBlock portCheckBlock =  portCheck._then();
+		portCheckBlock.assign(portRef, JExpr.lit(0));
+		
+	}
+	
+
+	private void addisEmptyStringMethod(
+			JDefinedClass sharedConsumerClass,
+			JCodeModel jCodeModel, CodeGenContext codegenCtx) throws CodeGenFailedException {
+
+//		---------------------------------------------------------------
+//		 generates:
+//    		private boolean isEmptyString(String givenString) {
+//          	  return (givenString == null || givenString.trim().length() == 0);
+//    		}
+//		---------------------------------------------------------------
+		JMethod isEmptyStringMethod = addMethod(sharedConsumerClass,
+			  			IS_EMPTY_STRING_NAME,
+			  			JMod.PRIVATE | JMod.STATIC ,
+			  			jCodeModel.BOOLEAN);
+
+		String givenStringConstant = "givenString";		
+		JFieldRef givenStringFieldRef = JExpr.ref(givenStringConstant);
+		
+		JClass stringClass = getJClass(String.class, jCodeModel);
+		isEmptyStringMethod.param(stringClass, givenStringConstant);
+
+		JBlock isEmptyStringMethodBody = isEmptyStringMethod.body();
+		
+		JExpression exp1 = givenStringFieldRef.eq(JExpr._null());
+		JExpression exp2 = givenStringFieldRef.invoke("trim").invoke("length").eq(JExpr.lit(0));
+		isEmptyStringMethodBody._return(exp1.cor(exp2));
+		
+	}
+
+	private void addgetLocationFromComponentsMethod(
+			JDefinedClass sharedConsumerClass,
+			JCodeModel jCodeModel, CodeGenContext codegenCtx) throws CodeGenFailedException {
+
+//		---------------------------------------------------------------
+//		 generates:
+//    		private boolean isEmptyString(String givenString) {
+//          	  return (givenString == null || givenString.trim().length() == 0);
+//    		}
+//		---------------------------------------------------------------
+		JClass stringClass = getJClass(String.class, jCodeModel);
+		JMethod isEmptyStringMethod = addMethod(sharedConsumerClass,
+			  			GET_LOCATION_FROM_COMPONENTS_NAME,
+			  			JMod.PRIVATE ,
+			  			stringClass);
+
+		String locationConstant = "location";		
+		JFieldRef locationFieldRef = JExpr.ref(locationConstant);
+		
+		JBlock isEmptyStringMethodBody = isEmptyStringMethod.body();
+		
+		String derivedLocation = PROTOCOL_SCHEME_FIELD_NAME + " + \"://\" + " + HOST_NAME_FIELD_NAME + 
+				" + ((" + PORT_FIELD_NAME + "> 0)? (\":\" + " + PORT_FIELD_NAME + ") : \"\" ) + " 
+				+ URL_PATH_FIELD_NAME;
+		
+		isEmptyStringMethodBody.decl(stringClass, locationConstant, JExpr.direct(derivedLocation));
+		isEmptyStringMethodBody._return(locationFieldRef);
+		
+	}
 
 	private void addServiceMethods(
 			Class<?> interfaceClass,

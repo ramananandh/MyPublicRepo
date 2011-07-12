@@ -191,8 +191,21 @@ public class ClientServiceDescFactory extends
 	public final ClientServiceDesc getServiceDesc(String adminName,
 			String clientName, String envName, boolean rawMode)
 			throws ServiceException {
-			return getServiceDesc(createClientServiceId(adminName, clientName, envName), rawMode);
-	}
+			return getServiceDesc(adminName, clientName, envName, rawMode, false);
+	}	
+	
+	/**
+	 * *
+	 *
+	 * @return ClientServicedesc for clientconfig having envName if envName is
+	 *         set.
+	 * @throws ServiceException
+	 */
+	public final ClientServiceDesc getServiceDesc(String adminName,
+			String clientName, String envName, boolean rawMode, boolean useDefaultClientConfig)
+			throws ServiceException {
+			return getServiceDesc(createClientServiceId(adminName, clientName, envName), rawMode, useDefaultClientConfig? 1:0);
+	}	
 
 	@Deprecated
 	public final void reloadServiceDesc(String adminName, String clientName)
@@ -236,7 +249,7 @@ public class ClientServiceDescFactory extends
 	}
 
 	@Override
-	protected ClientServiceDesc createServiceDesc(ServiceId id, boolean rawMode)
+	protected ClientServiceDesc createServiceDesc(ServiceId id, boolean rawMode) 
 			throws ServiceException {
 		ClientServiceId clientSvcId = (ClientServiceId) id;
 		String clientName = clientSvcId.getClientName();
@@ -244,7 +257,7 @@ public class ClientServiceDescFactory extends
 		String envName = clientSvcId.getEnvName();
 
 		ClientConfigHolder config = ClientConfigManager.getInstance()
-				.getConfig(adminName, clientName, envName, rawMode);
+				.getConfig(adminName, clientName, envName, rawMode, id.useDefaultConfig());
 
 		QName svcQName = config.getServiceQName();
 		ClassLoader cl = Thread.currentThread().getContextClassLoader();
@@ -354,20 +367,23 @@ public class ClientServiceDescFactory extends
 			responseDispatcher = new NullDispatcher();
 		}
 
-		URL defServiceLocationURL = null;
-		if (config.getServiceLocation() != null
-				&& config.getServiceLocation().length() > 0) {
-			String urlStr = config.getServiceLocation();
-			urlStr = VariableResolver.processString(urlStr);
-
-			try {
-				defServiceLocationURL = new URL(urlStr);
-			} catch (MalformedURLException e) {
-				throw new ServiceException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_RT_BAD_REQUEST_URL,
+		URL url = null;
+		List<URL> locations = new ArrayList<URL>();
+		if (config.getServiceLocations() != null && config.getServiceLocations().size() > 0) {
+			for(String s:config.getServiceLocations()){
+				if(s.trim().isEmpty())
+					continue;
+				
+				s = VariableResolver.processString(s);
+				try {
+					url = new URL(s);
+				} catch (MalformedURLException e) {
+					throw new ServiceException(ErrorDataFactory.createErrorData(ErrorConstants.SVC_RT_BAD_REQUEST_URL,
 						ErrorConstants.ERRORDOMAIN, new Object[] { config.getClientName(), config.getServiceLocation() } ));
+				}
+				locations.add(url);
 			}
 		}
-
 		String serviceVersion = config.getServiceVersion();
 
 		ApplicationRetryHandler retryHandler = createRetryHandler(clientSvcId,
@@ -380,7 +396,7 @@ public class ClientServiceDescFactory extends
 				config, cl);
 
 		CacheProvider cacheProviderClass = getCacheProviderClass(config,
-				operations, adminName, defServiceLocationURL, cl);
+				operations, adminName, cl);
 
 		AutoMarkdownStateFactory autoMarkdownFactory = createAutoMarkdownStateFactory(
 				clientSvcId, config, cl);
@@ -400,7 +416,7 @@ public class ClientServiceDescFactory extends
 				responseDispatcher, operations, protocols, bindings,
 				transports, typeMappings, cl, g11nOptions, loggingHandlers,
 				serviceInterfaceClass, defRequestBinding, defResponseBinding,
-				defTransportName, defTransport, defServiceLocationURL,
+				defTransportName, defTransport, locations,
 				serviceVersion, retryHandler, customExceptionHandler,
 				errorDataProviderClass, cacheProviderClass,
 				autoMarkdownFactory, defRestRequestDataBinding,
@@ -591,8 +607,8 @@ public class ClientServiceDescFactory extends
 	 *
 	 */
 	private CacheProvider getCacheProviderClass(ClientConfigHolder config,
-			Map<String, ServiceOperationDesc> operations, String adminName,
-			URL defUrl, ClassLoader cl) throws ServiceException {
+			Map<String, ServiceOperationDesc> operations, String adminName, 
+			ClassLoader cl) throws ServiceException {
 		CacheProvider result = null;
 		String className = config.getCacheProviderClass();
 		if (className == null) {

@@ -25,6 +25,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 
+import org.ebayopensource.turmeric.common.v1.types.CommonErrorData;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ErrorDataFactory;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceCreationException;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
@@ -38,10 +39,12 @@ import org.ebayopensource.turmeric.runtime.common.impl.internal.config.MetadataP
 import org.ebayopensource.turmeric.runtime.common.impl.internal.config.TypeMappingConfigHolder;
 import org.ebayopensource.turmeric.runtime.common.impl.internal.service.BaseServiceDescFactory;
 import org.ebayopensource.turmeric.runtime.common.impl.utils.ParseUtils;
+import org.ebayopensource.turmeric.runtime.common.impl.utils.ReflectionUtils;
 import org.ebayopensource.turmeric.runtime.common.pipeline.TransportOptions;
 import org.ebayopensource.turmeric.runtime.common.service.ServiceId;
 import org.ebayopensource.turmeric.runtime.common.types.SOAConstants;
 import org.ebayopensource.turmeric.runtime.common.utils.Preconditions;
+import org.ebayopensource.turmeric.runtime.common.utils.WsdlHelper;
 import org.ebayopensource.turmeric.runtime.errorlibrary.ErrorConstants;
 import org.ebayopensource.turmeric.runtime.sif.impl.internal.service.ClientServiceDescFactory;
 import org.ebayopensource.turmeric.runtime.sif.impl.transport.http.HTTPSyncAsyncClientTransport;
@@ -61,6 +64,7 @@ public class ClientConfigManager extends ConfigManager {
 	private static final String CLIENT_FILENAME = "ClientConfig.xml";
 	private static final String CLIENT_SCHEMA = "client/ClientConfig.xsd";
 	private static final String GLOBAL_SCHEMA = "client/GlobalClientConfig.xsd";
+	private static final String DEFUALT_CLIENT_FILENAME = "DefaultClientConfig.xml";
 	private static final QName DEFAULT_SERVICE = new QName("", "");
 	private static ConfigManager s_instance = null;
 	private static final char FILE_SEPERATOR = '/';
@@ -76,6 +80,10 @@ public class ClientConfigManager extends ConfigManager {
 	private boolean isInTestMode = false;
 	private Map<String, String> m_clientConfigPaths = new Hashtable<String,String>();
 
+	// Cache for Default Client Config
+	private Map<String, Document> defaultClientConfigTable = new HashMap<String, Document>(5);
+	private Map<String, Map<String, ClientConfigHolder>> m_defaultClientData = new HashMap<String, Map<String, ClientConfigHolder>>();
+	private Map<String, String> serviceLocationsFromWsdl = new HashMap<String, String>(); 
 	
 	private static String getGlobalConfigPath()
 	{
@@ -119,17 +127,25 @@ public class ClientConfigManager extends ConfigManager {
 		m_globalClientConfigRoot = getGlobalConfigPath();
 		m_configPath = m_globalClientConfigRoot;
 	}
-	public ClientConfigHolder getConfig(String serviceAdminName, String clientName) throws ServiceCreationException, ServiceNotFoundException {
+	
+	public ClientConfigHolder getConfig(String serviceAdminName, String clientName) 
+			throws ServiceCreationException, ServiceNotFoundException {
 		return getConfig(serviceAdminName, clientName, false);
 	}
 
-	public synchronized ClientConfigHolder getConfig(String serviceAdminName, String clientName, boolean rawMode) throws ServiceCreationException, ServiceNotFoundException {
+	public synchronized ClientConfigHolder getConfig(String serviceAdminName, String clientName, boolean rawMode) 
+			throws ServiceCreationException, ServiceNotFoundException {
 		return getConfig(serviceAdminName, clientName, null, rawMode);
 	}
 
-	public synchronized ClientConfigHolder getConfig(String serviceAdminName, String clientName, String envName,boolean rawMode) throws ServiceCreationException, ServiceNotFoundException {
+	public synchronized ClientConfigHolder getConfig(String serviceAdminName, String clientName, String envName,boolean rawMode) 
+			throws ServiceCreationException, ServiceNotFoundException {
+		return getConfig( serviceAdminName,  clientName,  envName, rawMode, false);
+	}
+	
+	public synchronized ClientConfigHolder getConfig(String serviceAdminName, String clientName, String envName,boolean rawMode, boolean useDefaultClientConfig) throws ServiceCreationException, ServiceNotFoundException {
 		init();
-		Map<String, ClientConfigHolder> clientConfigMap = loadConfig(serviceAdminName, clientName,envName, false, rawMode);
+		Map<String, ClientConfigHolder> clientConfigMap = loadConfig(serviceAdminName, clientName,envName, false, rawMode, useDefaultClientConfig);
 
 		ClientConfigHolder outData = clientConfigMap.get(serviceAdminName);
 		if (outData == null) {
@@ -272,17 +288,22 @@ public class ClientConfigManager extends ConfigManager {
         m_configLoaded = true;
     }
 
-	private synchronized Map<String, ClientConfigHolder> loadConfig(String serviceName, String clientName, boolean isOptional, boolean rawMode) throws ServiceCreationException {
-		return loadConfig(serviceName, clientName,null, isOptional, rawMode);
+	private synchronized Map<String, ClientConfigHolder> loadConfig(String serviceName, String clientName, boolean isOptional, 
+				boolean rawMode) throws ServiceCreationException {
+		return loadConfig(serviceName, clientName,null, isOptional, rawMode, false);
 	}
 
-
+	private String getHashKeyforDefaultConfig(String client, String admin, String env) {
+		if (env == null) {
+			env = "";
+		}
+		return client + "." + admin + "." + env;
+	}
 
 	private synchronized Map<String, ClientConfigHolder> loadConfig(
 			String serviceName, String clientName, String envName,
-			boolean isOptional, boolean rawMode)
+			boolean isOptional, boolean rawMode, boolean useDefaultClientConfig)
 			throws ServiceCreationException {
-		String clientConfigFileName = null;
 		if (clientName == null) {
 			clientName = SOAConstants.DEFAULT_CLIENT_NAME;
 		}
@@ -294,21 +315,75 @@ public class ClientConfigManager extends ConfigManager {
 		if (clientConfigMap != null) {
 			return clientConfigMap;
 		}
-		clientConfigMap = new HashMap<String, ClientConfigHolder>();
-		clientConfigFileName = this.getConfigFilePath(getBasePath(clientName), clientName, envName, serviceName);
+
+		clientConfigMap = readClientConfigMap(serviceName, clientName, envName, isOptional, rawMode, useDefaultClientConfig);
+		m_clientData.put(key, clientConfigMap);
+		return clientConfigMap;
+	}
+
+	public Map<String, ClientConfigHolder> readClientConfigMap
+			(String serviceName, String clientName, String envName, 
+			 boolean isOptional, boolean rawMode, boolean useDefaultClientConfig) 
+					throws ServiceCreationException
+	{ 
+		Map<String, ClientConfigHolder> clientConfigMap = new HashMap<String, ClientConfigHolder>();
+		String clientConfigFileName = this.getConfigFilePath(getBasePath(clientName), clientName, envName, serviceName);
 		String clientConfigSchemaName = s_schemaPath + CLIENT_SCHEMA;
 		String globalFileName = getGlobalBasePath() + GLOBAL_FILENAME;
 		Document configDoc = null;
+		String serviceLocation = null;
 		try{
 			configDoc = ParseUtils.parseConfig(clientConfigFileName, clientConfigSchemaName, isOptional, "client-config-list", ParseUtils.getSchemaCheckLevel());
 		}catch(ServiceCreationException servexc)  {
-	        // try to load from default now
-			// need to log this
-			if ( LOGGER.isLogEnabled( LogLevel.WARN ) ) {
-				LOGGER.log( LogLevel.WARN, "Unable to load ClientConfig.xml from config root " + clientConfigFileName + "(will use default : " + m_configPath + ")");
+	        try {
+				// try to load from default now
+				// need to log this
+				if (LOGGER.isLogEnabled(LogLevel.WARN)) {
+					LOGGER.log(LogLevel.WARN, "Unable to load ClientConfig.xml from config root " + clientConfigFileName
+					        + "(will use default : " + m_configPath + ")");
+				}
+				clientConfigFileName = this.getConfigFilePath(m_configPath, clientName, envName, serviceName);
+				configDoc = ParseUtils.parseConfig(clientConfigFileName, clientConfigSchemaName, isOptional,
+				        "client-config-list", ParseUtils.getSchemaCheckLevel());
+			} catch (ServiceCreationException sce) {
+				if (!useDefaultClientConfig) {
+					throw sce;
+				}
+				CommonErrorData errorData = sce.getErrorMessage().getError().get(0);
+				if (errorData.getErrorId() != 4001) {
+					throw sce;
+				}
+
+				String hashkey = getHashKeyforDefaultConfig(clientName, serviceName, envName);
+				Map<String, ClientConfigHolder> defaultClientConfigMap = m_defaultClientData.get(hashkey);
+
+				if (defaultClientConfigMap != null) {
+					return defaultClientConfigMap;
+				}
+				configDoc = defaultClientConfigTable.get(envName);
+				if (configDoc == null) {
+					if (LOGGER.isLogEnabled(LogLevel.INFO)) {
+						LOGGER.log(LogLevel.INFO, "Loading DefaultClientConfig.xml from SOAConfig");
+					}
+					clientConfigFileName = getZeroClientConfigFilePath(envName);
+					configDoc = ParseUtils.parseConfig(clientConfigFileName, clientConfigSchemaName, isOptional,
+					        "client-config-list", ParseUtils.getSchemaCheckLevel());
+					defaultClientConfigTable.put(envName, configDoc);
+				}
+				try {
+					serviceLocation = serviceLocationsFromWsdl.get(serviceName);
+					if (serviceLocation == null) {
+						serviceLocation = WsdlHelper.getServiceLocationPathInfo(serviceName);
+						serviceLocationsFromWsdl.put(serviceName, serviceLocation);
+					}
+				} catch (ServiceException e) {
+					throw new ServiceCreationException(ErrorDataFactory.createErrorData(ErrorConstants.CFG_VALIDATION_ERROR,
+							ErrorConstants.ERRORDOMAIN, new Object[] {
+					                clientConfigFileName,
+					                "Unable to get service location for default client config in WSDL for : '" + serviceName
+					                        + "'" }));
+				}
 			}
-			clientConfigFileName = this.getConfigFilePath(m_configPath, clientName, envName, serviceName);
-        	configDoc = ParseUtils.parseConfig(clientConfigFileName, clientConfigSchemaName, isOptional, "client-config-list", ParseUtils.getSchemaCheckLevel());
 		}
         if (configDoc == null) {
         	// if still null optional to load it; don't need the return value
@@ -364,6 +439,15 @@ public class ClientConfigManager extends ConfigManager {
             ClientConfigHolder cch = ClientConfigMapper.applyConfigs(adminName, clientName, envName,
             		clientConfigFileName, globalFileName, clientGroup, clientConfig);
 
+        	if (useDefaultClientConfig && serviceLocation != null) {
+				cch.setServiceInterfaceClassName(metaDataHolder.getServiceInterfaceClassName());
+				cch.setServiceLocation(cch.getServiceLocation() + serviceLocation);
+				String hashkey = getHashKeyforDefaultConfig(clientName, serviceName, envName);
+				Map<String, ClientConfigHolder> defaultClientConfigMap  = new  HashMap<String, ClientConfigHolder>();
+				defaultClientConfigMap.put(serviceName, cch);
+				m_defaultClientData.put(hashkey, defaultClientConfigMap);
+			}
+        	
              //Process the transports defined in Config and add the default transports
             processDefaultTransportsInConfig(cch);
             applyConfigBeanOverrides(cch);
@@ -381,8 +465,14 @@ public class ClientConfigManager extends ConfigManager {
 	        }
 	        clientConfigMap.put(adminName, cch);
         }
-        m_clientData.put(key, clientConfigMap);
         return clientConfigMap;
+	}
+
+	public static String getZeroClientConfigFilePath(String envName) {
+		StringBuilder zeroConfigFilePath = new StringBuilder();
+		zeroConfigFilePath.append(DEFAULT_BASE_PATH);
+		zeroConfigFilePath.append(envName).append(FILE_SEPERATOR).append(DEFUALT_CLIENT_FILENAME);
+		return zeroConfigFilePath.toString();
 	}
 
 	private void throwRawModeException(String fileName) throws ServiceCreationException {
@@ -465,11 +555,10 @@ public class ClientConfigManager extends ConfigManager {
 		if (!transportClassesCfg.containsKey(SOAConstants.TRANSPORT_LOCAL)) {
 			String className = "org.ebayopensource.turmeric.runtime.spf.impl.transport.local.LocalTransport";
 			try {
-				Class.forName(className, true, cl);
-
+				ReflectionUtils.loadClass(className, null, cl);
 				// only add if the class can be successfully loaded
 				transportClassesCfg.put(SOAConstants.TRANSPORT_LOCAL, className);
-			} catch (ClassNotFoundException e) {
+			} catch (ServiceException  e) {
 				// ignore, do not add this class by default
 			} catch (NoClassDefFoundError e) {
 				// ignore, do not add this class by default

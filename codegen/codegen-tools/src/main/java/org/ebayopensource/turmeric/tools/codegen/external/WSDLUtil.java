@@ -43,15 +43,19 @@ import javax.wsdl.xml.WSDLReader;
 import javax.xml.namespace.QName;
 
 import org.apache.axis2.util.JavaUtils;
+import org.ebayopensource.turmeric.runtime.codegen.common.PkgNSMappingType;
+import org.ebayopensource.turmeric.runtime.codegen.common.PkgToNSMappingList;
 import org.ebayopensource.turmeric.runtime.common.impl.utils.CallTrackingLogger;
 import org.ebayopensource.turmeric.runtime.common.impl.utils.LogManager;
 import org.ebayopensource.turmeric.tools.codegen.CodeGenContext;
 import org.ebayopensource.turmeric.tools.codegen.InputOptions;
 import org.ebayopensource.turmeric.tools.codegen.exception.PreProcessFailedException;
 import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.AuthenticatingProxyWSDLLocatorImpl;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.WSDLParserException;
 import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.WSDLParserFactory;
 import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.ElementType;
 import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.Parser;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.SchemaType;
 import org.ebayopensource.turmeric.tools.codegen.util.CodeGenConstants;
 import org.ebayopensource.turmeric.tools.codegen.util.CodeGenUtil;
 import org.ebayopensource.turmeric.tools.library.TypeLibraryInputOptions;
@@ -60,8 +64,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
-import org.ebayopensource.turmeric.runtime.codegen.common.PkgNSMappingType;
-import org.ebayopensource.turmeric.runtime.codegen.common.PkgToNSMappingList;
 import com.sun.xml.bind.api.impl.NameConverter;
 
 public class WSDLUtil {
@@ -74,6 +76,37 @@ public class WSDLUtil {
 
 	private static CallTrackingLogger getLogger() {
 		return s_logger;
+	}
+
+	/**
+	 * This method is common interface for Parser.getAllSchemaTypes.
+	 * This method takes care of caching the parsed objects so that Parser.getAllSchemaTypes is called only once.
+	 * 
+	 * The caller of the method should take care that codegencontext should have wsdl definition populated.
+	 * 
+	 * @param wsdlLoc
+	 * @param codeGenContext
+	 * @param types
+	 * @throws WSDLException 
+	 * @throws WSDLParserException 
+	 */
+	public static void persistAndPopulateAllSchemaTypes( CodeGenContext codeGenContext, List<SchemaType> types, String wsdlLoc ) throws WSDLException, WSDLParserException {
+		
+		if( codeGenContext.getSchemaTypes() != null ){
+			types.addAll(codeGenContext.getSchemaTypes() );
+		}else{
+			Definition wsdlDef = codeGenContext.getWsdlDefinition();
+	
+			AuthenticatingProxyWSDLLocatorImpl wsdlLocator = null;
+			if( wsdlLoc != null){
+				wsdlLocator = new AuthenticatingProxyWSDLLocatorImpl(wsdlLoc, "", "");
+			}
+		    Parser.getAllSchemaTypes(wsdlDef, types, wsdlLocator);
+
+		    List<SchemaType> typesBackup = new ArrayList<SchemaType>();
+		    typesBackup.addAll( types );
+		    codeGenContext.setSchemaTypes(typesBackup);
+		}
 	}
 
 
@@ -94,7 +127,7 @@ public class WSDLUtil {
 				wsdlDef = getWSDLDefinition(wsdlLoc);
 			
 			Map<String, String> element2SchemaTypeMap = 
-					getSchemaType2ElementMap(wsdlLoc, wsdlDef);
+				getSchemaType2ElementMap(wsdlLoc, wsdlDef, codeGenContext);
 			
 			wsdlOperations = internalGetWSDLOperations(wsdlDef, element2SchemaTypeMap);
 			
@@ -105,7 +138,7 @@ public class WSDLUtil {
 		return wsdlOperations;
 	}
 	
-	public static Map<String, String> getSchemaType2ElementMap(String wsdlLoc) {
+	public static Map<String, String> getSchemaType2ElementMap(String wsdlLoc, CodeGenContext codeGenContext) {
 		
 		Map<String, String> element2SchemaTypeMap = new HashMap<String, String>();
 		
@@ -115,7 +148,7 @@ public class WSDLUtil {
 		
 		try {
 			Definition wsdlDef = getWSDLDefinition(wsdlLoc);
-			element2SchemaTypeMap = getSchemaType2ElementMap(wsdlLoc, wsdlDef);
+			element2SchemaTypeMap = getSchemaType2ElementMap(wsdlLoc, wsdlDef, codeGenContext);
 		} catch (Exception ex) {
 			//NOPMD
 		}
@@ -124,18 +157,16 @@ public class WSDLUtil {
 	}
 	
 	
-	private static Map<String, String> getSchemaType2ElementMap(String wsdlLoc, Definition wsdlDef) {
-		
+	private static Map<String, String> getSchemaType2ElementMap(String wsdlLoc, Definition wsdlDef, CodeGenContext codeGenContext) {
+			
 		Map<String, String> element2SchemaTypeMap = new HashMap<String, String>();
 		elementQNameMap.clear();
 		
 		try {				
 
-			List types = new ArrayList();
-		    AuthenticatingProxyWSDLLocatorImpl wsdlLocator = 
-		    		new AuthenticatingProxyWSDLLocatorImpl(wsdlLoc, "", "");
-		    Parser.getAllSchemaTypes(wsdlDef, types, wsdlLocator);
-		    
+			List<SchemaType> types = new ArrayList<SchemaType>();
+			persistAndPopulateAllSchemaTypes(codeGenContext, types, wsdlLoc);
+			
 		    for (int i = 0; i < types.size(); i++) {
 		    	Object obj = types.get(i);
 		    	if (obj instanceof ElementType) {
@@ -500,20 +531,22 @@ public class WSDLUtil {
 		wsdlMsg.setElementName(msgPart.getElementName().getLocalPart());
 		wsdlMsg.setElementQname(msgPart.getElementName());
 		if (msgPart.getTypeName() != null) {
+			wsdlMsg.setSchemaTypeQName(msgPart.getTypeName());
 			wsdlMsg.setSchemaTypeName(msgPart.getTypeName().getLocalPart());
 		} else {
 			String typeName = element2SchemaTypeMap.get(msgPart.getElementName().getLocalPart());
 			wsdlMsg.setSchemaTypeName(typeName);
+			wsdlMsg.setSchemaTypeQName( elementQNameMap.get(typeName) );
 		}
 
 		
 		return wsdlMsg;
 	}
 	
-	private static Part getFirstPart(Collection parts) {
+	private static Part getFirstPart(Collection<?> parts) {
 		Part firstPart = null;
 		
-		Iterator partsItr = parts.iterator();
+		Iterator<?> partsItr = parts.iterator();
 		while (partsItr.hasNext()) {
 			firstPart = (Part) partsItr.next();
 			break;

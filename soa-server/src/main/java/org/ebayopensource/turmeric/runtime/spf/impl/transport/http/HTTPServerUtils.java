@@ -15,6 +15,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -34,7 +35,6 @@ import org.ebayopensource.turmeric.runtime.common.types.G11nOptions;
 import org.ebayopensource.turmeric.runtime.common.types.SOAConstants;
 import org.ebayopensource.turmeric.runtime.common.types.SOAHeaders;
 import org.ebayopensource.turmeric.runtime.common.types.ServiceAddress;
-
 import org.ebayopensource.turmeric.runtime.errorlibrary.ErrorConstants;
 import org.ebayopensource.turmeric.runtime.spf.impl.internal.config.OperationMapping;
 import org.ebayopensource.turmeric.runtime.spf.impl.internal.config.OperationMappings;
@@ -50,7 +50,6 @@ import org.ebayopensource.turmeric.runtime.spf.pipeline.RequestMetaContext;
 import com.ebay.kernel.logger.LogLevel;
 import com.ebay.kernel.logger.Logger;
 import com.ebay.kernel.util.IpAddressUtils;
-import com.ebay.kernel.util.JdkUtil;
 import com.ebay.kernel.util.StringUtils;
 
 /**
@@ -78,6 +77,7 @@ public final class HTTPServerUtils {
 	private final RequestMetaContext m_reqMetaCtx;
 	private final String m_rawRequestUri;
 	private final boolean m_isGetMethod;
+	private final boolean m_isDelete;
 	private final ServiceResolver m_serviceResolver;
 	private final List<ParamData> m_params;
 	private int m_systemParamCount;
@@ -86,8 +86,7 @@ public final class HTTPServerUtils {
 	private final int relativeOffset; // '0' based
 
 	
-	private final static Logger s_logger = Logger.getInstance(JdkUtil
-			.forceInit(HTTPServerUtils.class));
+	private final static Logger s_logger = Logger.getInstance(HTTPServerUtils.class);
 
 	public HTTPServerUtils(ISOATransportRequest request,
 			String requiredAdminName, String urlMatchExpression)
@@ -97,8 +96,10 @@ public final class HTTPServerUtils {
 		m_rawRequestUri = request.getRequestURI();
 
 		m_isGetMethod = request.getMethod().equalsIgnoreCase("GET");
+		
+		m_isDelete = request.getMethod().equalsIgnoreCase("DELETE");
 
-		m_reqMetaCtx = new RequestMetaContext(m_isGetMethod, m_rawRequestUri,
+		m_reqMetaCtx = new RequestMetaContext(m_isGetMethod, m_isDelete, m_rawRequestUri,
 				requiredAdminName);
 
 		m_params = new ArrayList<ParamData>();
@@ -112,18 +113,23 @@ public final class HTTPServerUtils {
 		extractSystemParameters();
 
 		m_reqMetaCtx.setUrlMatchExpression(urlMatchExpression);
-		m_reqMetaCtx.setQueryParams(getQueryParams());
-
-		m_serviceResolver = new ServiceResolver(m_reqMetaCtx);
-		this.relativeOffset = getRelativeOffset(request.getServletPath());
 		
-		checkRejectList();
+		this.m_serviceResolver = new ServiceResolver(m_reqMetaCtx);
+		this.relativeOffset = getRelativeOffset(request.getServletPath());
 
+
+
+		checkRejectList();
 		getUrlMappedHeaders();
 
-		if (m_isGetMethod) {
+        	// After url mapping is done, set the query params
+		m_reqMetaCtx.setQueryParams(getQueryParams());
+		m_reqMetaCtx.setRawQueryParams(getRawQueryParams());		
+	
+		if (isGetOrDelete()) {
 			adjustRestHeaders();
 		}
+
 	}
 
 	public RequestMetaContext getReqMetaCtx() {
@@ -148,8 +154,10 @@ public final class HTTPServerUtils {
 		}
 		return servletPath.split("/").length - 2;
 	} 
-	
 
+	private boolean isGetOrDelete() {
+		return m_isGetMethod || m_isDelete;
+	}
 
 	public ServerMessageContextBuilder createMessageContext(
 			Transport responseTransport) throws ServiceException {
@@ -180,8 +188,10 @@ public final class HTTPServerUtils {
 				m_serviceResolver, m_rawRequestUri, requestTransport,
 				responseTransport, rawTransportHeaders, soaCookies,
 				clientAddress, serviceAddress, m_errors,
-				m_request.getServerName(), m_request.getServerPort(),
-				m_reqMetaCtx.getQueryParams());
+				m_request.getServerName(), 
+				m_request.getServerPort(), 
+				m_reqMetaCtx.getQueryParams(), m_reqMetaCtx.getRawQueryParams());
+
 
 		if (forwardedFor != null) {
 			forwardedFor = forwardedFor.trim();
@@ -245,6 +255,15 @@ public final class HTTPServerUtils {
 		}
 	}
 
+	private Map<String, String> getRawQueryParams() {
+		final Map<String, String> queryParams = new LinkedHashMap<String, String>();
+		for (int i = 0; i < m_params.size(); i++) {
+			ParamData param = m_params.get(i);
+			queryParams.put(param.getRawName(), param.getRawValue());
+		}
+		return Collections.unmodifiableMap(queryParams);
+	}
+
 	private void extractSystemParameters() throws ServiceException {
 		// get from query string
 		for (int i = 0; i < m_params.size(); i++) {
@@ -252,7 +271,7 @@ public final class HTTPServerUtils {
 			String name = SOAHeaders
 					.normalizeName(param.getDecodedName(), true);
 			if (SOAHeaders.isSOAHeader(name)) {
-				if (m_isGetMethod && name.equals(SOAHeaders.REST_PAYLOAD)) {
+				if (isGetOrDelete() && name.equals(SOAHeaders.REST_PAYLOAD)) {
 					m_systemParamCount = i;
 					param.setConsumed();
 					continue;
@@ -295,26 +314,35 @@ public final class HTTPServerUtils {
 		String operationName = m_reqMetaCtx.getTransportHeaders().get(SOAHeaders.SERVICE_OPERATION_NAME);
 		// do custom mapping of operation name
 		if (operationName != null) {
-			OperationMappings operationMappings = serviceDesc.getOperationMappings();
-
-
-
+			OperationMappings operationMappings = serviceDesc
+			.getOperationMappings();
+			String operationNameForMapping = operationName;
 			if (operationMappings != null) {
-				OperationMapping operationMapping = operationMappings.getOperationMapping(operationName);
-
+				OperationMapping operationMapping = operationMappings
+					.getOperationMapping(operationNameForMapping);
+				if (operationMapping == null) {
+					operationNameForMapping = m_request.getMethod().toUpperCase()
+						+ operationNameForMapping;
+					operationMapping = operationMappings
+						.getOperationMapping(operationNameForMapping);
+				}
 				if (operationMapping != null) {
 					operationName = operationMapping.getOperationName();
 					HTTPCommonUtils.addTransportHeader(
-							SOAHeaders.SERVICE_OPERATION_NAME, operationName, 
-							m_reqMetaCtx.getTransportHeaders(), false, false, errors);
+							SOAHeaders.SERVICE_OPERATION_NAME, operationName,
+							m_reqMetaCtx.getTransportHeaders(), false, false,
+							errors);
 				}
 			}
 		}
+
 		// Do the request parameter mapping first as it has the lease priority.
 		// If the same parameter specified in the query parameter,
-		// that has to be taken into account.		
-		applyOperationRequestParamMap(operationName, serviceDesc.getOperationRequestParamsDescriptor());
-		applyAliases(operationName, serviceDesc.getOperationRequestParamsDescriptor());	
+		// that has to be taken into account.
+		applyOperationRequestParamMap(operationName, serviceDesc
+				.getOperationRequestParamsDescriptor());
+		applyAliases(operationName, serviceDesc
+				.getOperationRequestParamsDescriptor());
 
 	}
 
@@ -375,7 +403,7 @@ public final class HTTPServerUtils {
 	}
 
 	public String getRequestUriForLogging(String requestUri) {
-		if (requestUri.length() > 80) {
+		if (requestUri != null && requestUri.length() > 80) {
 			return requestUri.substring(0, 80);
 		}
 
@@ -550,7 +578,7 @@ public final class HTTPServerUtils {
 	private void checkIfSecurityCredential(String paramName) {
 		if (!nonAnonGetAllowed) {
 			// Check if this query parameter name is a security header
-			if (m_isGetMethod
+			if (isGetOrDelete()
 					&& (paramName != null)
 					&& paramName.toUpperCase().startsWith(
 							SECURITY_HEADER_PREFIX)) {
@@ -681,7 +709,7 @@ public final class HTTPServerUtils {
 
 	private InputStream getInputStream(String encoding) throws ServiceException {
 		try {
-			if (m_isGetMethod) {
+			if (isGetOrDelete()) {
 				// remove consumed params
 				String queryString = buildQueryString();
 

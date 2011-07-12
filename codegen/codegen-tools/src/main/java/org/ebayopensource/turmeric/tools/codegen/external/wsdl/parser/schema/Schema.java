@@ -21,12 +21,13 @@ import org.w3c.dom.NodeList;
  * 
  * @author Owen Burroughs <owenb@apache.org>
  */
-public class Schema implements Serializable {
+public class Schema extends Annotation implements Serializable {
 	
 	static final long serialVersionUID = 1L;	
 	
-	private String targetNamespace = "";
-	private ArrayList types = new ArrayList();
+	private String targetNamespace = "";	
+	private List<SchemaType> types = new ArrayList<SchemaType>();
+	@SuppressWarnings("unchecked")
 	private ArrayList iaiLocations = new ArrayList();
 	private List<Element> iaiElements = new ArrayList<Element>();
 
@@ -35,7 +36,8 @@ public class Schema implements Serializable {
 	 * @param el The dom element for this schema
 	 */	
 	@SuppressWarnings("unchecked")
-	Schema(Element el) {
+	public Schema(Element el) {
+		this(el, el.getAttribute("targetNamespace"));
 		targetNamespace = el.getAttribute("targetNamespace");
         NodeList children = el.getChildNodes();
 		for (int i=0; i<children.getLength(); i++) {
@@ -49,6 +51,12 @@ public class Schema implements Serializable {
 					types.add(new SimpleType(subEl, targetNamespace));
 				} else if (elType.equals("element")) {
 					types.add(new ElementType(subEl, targetNamespace));	
+				} else if( elType.equals("attributeGroup") ){ 
+					types.add(new AttributeGroupType(subEl, targetNamespace));
+				} else if( elType.equals("attribute") ){ 
+					types.add(new Attribute(subEl, targetNamespace));
+				} else if( elType.equals("group") ){ 
+					types.add(new GroupType(subEl, targetNamespace));	
 				} else if (elType.equals("import") || elType.equals("include")) {
 					// If either an import or an include is defined, we need to get
 					// the referenced file so store its location (if appropriate)
@@ -64,11 +72,17 @@ public class Schema implements Serializable {
 		}
 	}
 	
+	private Schema(Element el, String targetNameSpace) {
+		super(el, targetNameSpace);
+		this.targetNamespace = targetNameSpace;
+	}
+
+	
 	/**
 	 * Get a list of all the types within this schema
 	 * @return A list of SchemaType objects
 	 */
-	public List getTypes() {
+	public List<SchemaType> getTypes() {
 		return types;
 	}
 

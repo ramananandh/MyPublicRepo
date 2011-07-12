@@ -25,8 +25,14 @@ import com.ibm.wsdl.util.xml.DOMUtils;
  * 
  * @author Owen Burroughs <owenb@apache.org>
  */
-public abstract class SchemaType implements Serializable {
+public abstract class SchemaType extends Annotation implements Serializable {
+
+	static final long serialVersionUID = 1L;	
 	
+	public SchemaType(Element el, String tns) {
+		super(el, tns);
+	}
+
 	/**
 	 * Get a flag to indicate if this type is a complexType
 	 * @return The boolean flag
@@ -78,15 +84,15 @@ public abstract class SchemaType implements Serializable {
 	/**
 	 * Get the "name" attribute of this type
 	 * @return The type's name
-	 */		
-	public QName getTypeName() {
-		return null;
-    }
+	 */	
+	public abstract QName getTypeName() ;
+
 
 	/**
 	 * Get a the direct children (SimpleType or ComplexType only) for this element
 	 * @return The children
-	 */		
+	 */			
+	@SuppressWarnings("unchecked")
 	public List getChildren() {
 		return null;
     }
