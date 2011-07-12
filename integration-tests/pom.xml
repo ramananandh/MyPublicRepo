@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ================================================================== -->
+<!-- Licensed under the Apache License, Version 2.0 (the "License"); -->
+<!-- you may not use this file except in compliance with the License. -->
+<!-- You may obtain a copy of the License at -->
+<!-- -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- ================================================================== -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.ebayopensource.turmeric.runtime</groupId>
+		<artifactId>turmeric-runtime-parent</artifactId>
+		<version>1.0.1.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<groupId>org.ebayopensource.turmeric.runtime.tests</groupId>
+	<artifactId>turmeric-runtime-tests-parent</artifactId>
+	<packaging>pom</packaging>
+	<name>Turmeric Parent :: Runtime Integration Tests</name>
+	<modules>
+		<module>SOATests</module>
+		<module>sample-types</module>
+		<module>SOATestsCommon</module>
+		<module>Test1Service</module>
+		<module>Test1ServiceImpl</module>
+		<module>Test1LoggingConsumer</module>
+		<module>Test1ServiceAttachmentConsumer</module>
+		<module>Test1ServiceConfigInvalidServiceConsumer</module>
+		<module>Test1ServiceConfigNestedServiceConsumer</module>
+		<module>Test1ServiceConfigNoG11nConsumer</module>
+		<module>Test1ServiceConfigRemoteConsumer</module>
+		<module>Test1ServiceConfigSkipSerializationConsumer</module>
+		<module>Test1ServiceConsumer</module>
+		<module>Test1ServiceLocalBindingConsumer</module>
+		<module>Test1ServicePipelineConsumer</module>
+		<module>Test1ServiceTypeConverterConsumer</module>
+   		<module>AdvertisingUniqueIDServiceV1</module>
+		<module>AdvertisingUniqueIDServiceV1Consumer</module>
+   		<module>AdvertisingUniqueIDServiceV1Impl</module>
+<!--   		<module>SOAQETestImplFactoryServiceV1</module>
+		<module>SOAQETestImplFactoryServiceV1Consumer</module>
+   		<module>SOAQETestImplFactoryServiceV1Impl</module>
+-->
+   		<module>SoaTestServiceV1</module>
+		<module>SoaTestServiceV1Consumer</module>
+   		<module>SoaTestServiceV1Impl</module>
+	</modules>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+					<includes>
+						<include>**/*Test.java</include>
+						<include>**/*Tests.java</include>
+					</includes>
+					<excludes>
+						<exclude>**/AllTests.java</exclude>
+						<exclude>**/AllJunitTests.java</exclude>
+						<exclude>**/AllJUnitTests.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+						<phase>package</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<phase>verify</phase>
+						<goals>
+							<goal>checkstyle</goal>
+						</goals>
+						<configuration>
+							<skip>true</skip>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+   <profiles>
+      <profile>
+         <id>cobertura</id>
+         <build>
+            <pluginManagement>
+               <plugins>
+                  <plugin>
+                     <groupId>org.ebayopensource.turmeric.maven</groupId>
+                     <artifactId>turmeric-maven-plugin</artifactId>
+                     <version>${project.version}</version>
+                     <dependencies>
+                        <dependency>
+                           <groupId>net.sourceforge.cobertura</groupId>
+                           <artifactId>cobertura</artifactId>
+                           <version>1.9.4.1</version>
+                        </dependency>
+                     </dependencies>
+                  </plugin>
+               </plugins>
+            </pluginManagement>
+         </build>
+      </profile>
+   </profiles>
+   
+</project>
