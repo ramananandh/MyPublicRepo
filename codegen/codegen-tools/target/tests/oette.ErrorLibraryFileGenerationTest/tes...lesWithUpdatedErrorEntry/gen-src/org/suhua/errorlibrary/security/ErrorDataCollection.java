@@ -1,0 +1,27 @@
+
+package org.suhua.errorlibrary.security;
+
+import org.ebayopensource.turmeric.common.v1.types.CommonErrorData;
+import org.ebayopensource.turmeric.common.v1.types.ErrorCategory;
+import org.ebayopensource.turmeric.common.v1.types.ErrorSeverity;
+
+public class ErrorDataCollection {
+
+    private final static String ORGANIZATION = "eBay";
+    public final static CommonErrorData new_error3 = createCommonErrorData(1002L, (ErrorSeverity.WARNING), (ErrorCategory.SYSTEM), "new_error3", "security", "newSubdomain", (null));
+    public final static CommonErrorData new_error2 = createCommonErrorData(1003L, (ErrorSeverity.WARNING), (ErrorCategory.APPLICATION), "new_error2", "security", "System", (null));
+
+    private static CommonErrorData createCommonErrorData(long errorId, ErrorSeverity severity, ErrorCategory category, String errorName, String domain, String subDomain, String errorGroup) {
+        CommonErrorData errorData = new CommonErrorData();
+        errorData.setErrorId(errorId);
+        errorData.setSeverity(severity);
+        errorData.setCategory(category);
+        errorData.setSubdomain(subDomain);
+        errorData.setDomain(domain);
+        errorData.setErrorGroups(errorGroup);
+        errorData.setErrorName(errorName);
+        errorData.setOrganization(ORGANIZATION);
+        return errorData;
+    }
+
+}

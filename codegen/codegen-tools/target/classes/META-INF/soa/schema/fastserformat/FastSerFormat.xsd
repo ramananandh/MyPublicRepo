@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.ebayopensource.org/turmeric/runtime/codegen/common"
+	xmlns:tns="http://www.ebayopensource.org/turmeric/runtime/codegen/common"
+	elementFormDefault="qualified">
+
+	<simpleType name="FastSerFormatType">
+		<restriction base="string">
+			<enumeration value="protobuf"></enumeration>
+			<!--
+			<enumeration value="avro"></enumeration>
+			-->
+		</restriction>
+	</simpleType>
+
+    <simpleType name="ValidationRule">
+    	<restriction base="string">
+    		<enumeration value="Any Not Supported"></enumeration>
+    		<enumeration value="Any Attribute Not Supported"></enumeration>
+    		<enumeration value="Field Not Supported"></enumeration>
+    		<enumeration value="Key Not Supported"></enumeration>
+    		<enumeration value="Key Ref Not Supported"></enumeration>
+    		<enumeration value="Notation Not Supported"></enumeration>
+    		<enumeration value="Redefine Not Supported"></enumeration>
+    		<enumeration value="Selector Not Supported"></enumeration>
+    		<enumeration value="Union Not Supported"></enumeration>
+    		<enumeration value="Unique Not Supported"></enumeration>
+    		<enumeration value="Polymorphism Not Supported"></enumeration>
+    		<enumeration value="Anonymous Type Not Supported"></enumeration>
+    		<enumeration value="Min and Max occurs are Not Supported in Choice"></enumeration>
+    		<enumeration value="Min and Max occurs are Not Supported in Sequence"></enumeration>
+    		<enumeration value="Old Schemas Not Supported"></enumeration>
+    		<enumeration value="Element without type Not Supported"></enumeration>
+    		<enumeration value="Attributes without type Not Supported"></enumeration>
+    		<enumeration value="Attribute nillable is not supported"></enumeration>
+    		<enumeration value="Attribute name cannot be same as field name"></enumeration>
+    		<enumeration value="Two elements cannot have same name"></enumeration>
+    		<enumeration value="Name of attribute cannot be value when extending simple type"></enumeration>
+    		<enumeration value="IDREF and IDREFs are not supported"></enumeration>
+    		<enumeration value="anyType and anySimpleType Not Supported"></enumeration>
+    		<enumeration value="mixed attribute Not Supported"></enumeration>
+    		<enumeration value="unbounded simple type with list not supported"></enumeration>
+    		<enumeration value="Attribute substitutiongroup is not supported"></enumeration>
+    		<enumeration value="Multiple Namespace wsdl is not supported"></enumeration>
+    		<enumeration value="unbounded element with type 'ID' is not supported"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="ValidationRule2FormatMap">
+    	<sequence>
+    		<element name="rule" type="tns:ValidationRule"></element>
+    		<element name="format" type="tns:FastSerFormatType" minOccurs="1" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="FastSerFormatValidationError">
+    	<sequence>
+    		<element name="error" type="tns:ValidationRule"></element>
+    		<element name="description" type="string"></element>
+    		<element name="fileName" type="string"></element>
+    		<element name="lineNumber" type="int"></element>
+    		<element name="columnNumber" type="int"></element>
+    	</sequence>
+    </complexType>
+
+	<complexType name="FastSerFormatValidationErrorList">
+		<sequence>
+			<element name="errorList" type="tns:FastSerFormatValidationError" minOccurs="0" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+	
+	<complexType name="FastSerFormatValidationTemplate">
+    	<sequence>
+    		<element name="errorData" type="tns:FastSerFormatValidationErrorList"></element>
+    		<element name="rule2Formats" type="tns:ValidationRule2FormatMap" minOccurs="0" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+	<complexType name="SchemaNodeAttribute">
+		<sequence>
+			<element name="attributeName" type="string"></element>
+			<element name="attributeValue" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="SchemaNodeLibraryInfo">
+		<sequence>
+			<element name="libraryName" type="string"></element>
+			<element name="namespace" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="SchemaNode">
+		<sequence>
+			<element name="nodeName" type="string"></element>
+			<element name="attributes" type="tns:SchemaNodeAttribute" minOccurs="0" maxOccurs="unbounded"></element>
+			<element name="parentNode" type="tns:SchemaNode"></element>
+			<element name="childNodes" type="tns:SchemaNode" minOccurs="0" maxOccurs="unbounded"></element>
+			<element name="fileName" type="string"></element>
+    		<element name="lineNumber" type="int"></element>
+    		<element name="columnNumber" type="int"></element>
+    		<element name="targetNamespace" type="string"></element>
+    		<element name="libraryInfo" type="tns:SchemaNodeLibraryInfo"></element>
+ 
+     		<element name="abstractAttrExists" type="boolean" />
+    		<element name="maxoccursAttrExists" type="boolean" />
+    		<element name="nameAttrExists" type="boolean" />
+    		<element name="baseAttrExists" type="boolean" />
+    		<element name="refAttrExists" type="boolean" />
+    		<element name="typeAttrExists" type="boolean" />
+    		<element name="itemTypeAttrExists" type="boolean" />
+
+    		<element name="abstractAttrValue" type="boolean" />
+    		<element name="maxoccursAttrValue" type="string" />
+    		<element name="nameAttrValue" type="string" />
+    		<element name="baseAttrValue" type="QName" />
+    		<element name="refAttrValue" type="QName" />
+    		<element name="typeAttrValue" type="QName" />
+    		<element name="itemTypeAttrValue" type="QName" />
+		</sequence>
+	</complexType>
+</schema>
