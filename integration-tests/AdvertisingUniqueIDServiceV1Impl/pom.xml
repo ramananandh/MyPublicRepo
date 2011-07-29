@@ -65,5 +65,11 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.ebayopensource.turmeric.runtime.tests</groupId>
+			<artifactId>SOATestsCommon</artifactId>
+			<version>${project.version}</version>
+			<type>pom</type>
+		</dependency>
 	</dependencies>
 </project>
