@@ -4,16 +4,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.ebayopensource.turmeric.tools.TestResourceUtil;
 import org.ebayopensource.turmeric.tools.codegen.AbstractServiceGeneratorTestCase;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.validator.FastSerFormatNotSupportedException;
 import org.ebayopensource.turmeric.tools.codegen.util.CodeGenUtil;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TestName;
-
-import com.ebay.qa.junit.two.eight.AbstractTestCase;
-import com.ebay.soaframework.tools.codegen.ServiceGenerator;
-import com.ebay.soaframework.tools.codegen.fastserformat.validator.FastSerFormatNotSupportedException;
 
 public class TestTypeLibraryProtobuf extends AbstractServiceGeneratorTestCase {
 	
@@ -26,7 +22,8 @@ File libProperty = null;
 public void init() throws Exception{
 
 		
-		destDir = getTestingDir(this.getClass().getSimpleName()+"."+name.getMethodName());
+		destDir = testingdir.getDir().getAbsolutePath();
+		mavenTestingRules.setFailOnViolation(false);
 		
 		
 		CodeGenUtil.deleteContentsOfDir(new File(destDir));
@@ -44,16 +41,20 @@ public void init() throws Exception{
 		
 		
 		libProps.put("nonXSDFormats","protobuf");
-		//libProps.put("TYPE_LIBRARY_VERSION","1.0.0");
-		//libProps.put("TYPE_LIBRARY_NAMESPACE","http://www.ebay.com/soaframework/examples/config");
-		//libProps.put("TYPE_LIBRARY_NAME","TestTypeLibrary");
 		
 	}
+
+	private File getPathOfFile(String name){
+	return TestResourceUtil.getResource("xsd/"
+			+ name);
+	
+}
+
 	@Test(expected=FastSerFormatNotSupportedException.class)
 	public void testCase1() throws Exception{
 		
-		File xsd1 = new File("wsdlorxsd/TestXsd.xsd");
-		File wsdlFile = new File("wsdlorxsd/ShippingService.wsdl");
+		File xsd1 = getPathOfFile("TestXsd.xsd");
+		File wsdlFile = getProtobufRelatedInput("ShippingService.wsdl");
 		
 
 		
@@ -62,7 +63,9 @@ public void init() throws Exception{
 				  "-wsdl",wsdlFile.getAbsolutePath(),
 				  "-genType","ValidateXSDsForNonXSDFormats",
 				  "-xsdPathsForValidation","xsd/TestXsd.xsd",
-				  "-nonXSDFormats","protobuf"
+				  "-nonXSDFormats","protobuf",
+				  "-pr",destDir,
+				  "-dest",destDir
 				  
 				 };
 		
@@ -73,8 +76,7 @@ public void init() throws Exception{
 	public void testCase2() throws Exception{
 		
 		fillProperties(libProps, libProperty);
-		File xsd1 = new File("wsdlorxsd/TestXsd.xsd");
-		File wsdlFile = new File("wsdlorxsd/ShippingService.wsdl");
+		File wsdlFile = getProtobufRelatedInput("ShippingService.wsdl");
 		
 
 		
@@ -97,8 +99,8 @@ public void init() throws Exception{
 	@Test(expected=FastSerFormatNotSupportedException.class)
 	public void testCase3() throws Exception{
 		
-		File xsd1 = new File("wsdlorxsd/TestXsd.xsd");
-		File wsdlFile = new File("wsdlorxsd/ShippingService.wsdl");
+		
+		File wsdlFile = getProtobufRelatedInput("ShippingService.wsdl");
 		
 
 		
@@ -107,7 +109,9 @@ public void init() throws Exception{
 				  "-wsdl",wsdlFile.getAbsolutePath(),
 				  "-genType","ValidateXSDsForNonXSDFormats",
 				  "-xsdPathsForValidation","xsd/TestXsd.xsd,xsd/TestXsd1.xsd",
-				  "-nonXSDFormats","protobuf"
+				  "-nonXSDFormats","protobuf",
+				  "-pr",destDir,
+				  "-dest",destDir
 				  
 				 };
 		
@@ -120,8 +124,8 @@ public void init() throws Exception{
 	@Test(expected=FastSerFormatNotSupportedException.class)
 	public void testCase4() throws Exception{
 		
-		File xsd1 = new File("wsdlorxsd/TestXsd.xsd");
-		File wsdlFile = new File("wsdlorxsd/ShippingService.wsdl");
+		
+		File wsdlFile = getProtobufRelatedInput("ShippingService.wsdl");
 		
 
 		
@@ -130,7 +134,9 @@ public void init() throws Exception{
 				  "-wsdl",wsdlFile.getAbsolutePath(),
 				  "-genType","ValidateXSDsForNonXSDFormats",
 				  "-xsdPathsForValidation","xsd/TestXsd2.xsd",
-				  "-nonXSDFormats","protobuf"
+				  "-nonXSDFormats","protobuf",
+				  "-pr",destDir,
+				  "-dest",destDir
 				  
 				 };
 		
@@ -143,8 +149,8 @@ public void init() throws Exception{
 	@Test(expected=FastSerFormatNotSupportedException.class)
 	public void testCase5() throws Exception{
 		
-		File xsd1 = new File("wsdlorxsd/TestXsd.xsd");
-		File wsdlFile = new File("wsdlorxsd/ShippingService.wsdl");
+		File xsd1 = getPathOfFile("TestXsd.xsd");
+		File wsdlFile = getProtobufRelatedInput("ShippingService.wsdl");
 		
 
 		
@@ -153,7 +159,9 @@ public void init() throws Exception{
 				  "-wsdl",wsdlFile.getAbsolutePath(),
 				  "-genType","ValidateXSDsForNonXSDFormats",
 				  "-xsdPathsForValidation","xsd/TestXsd3.xsd",
-				  "-nonXSDFormats","protobuf"
+				  "-nonXSDFormats","protobuf",
+				  "-pr",destDir,
+				  "-dest",destDir
 				  
 				 };
 		
@@ -166,7 +174,7 @@ public void init() throws Exception{
 	public void testCase6() throws Exception{
 		
 		File xsd1 = new File("wsdlorxsd/TestXsd.xsd");
-		File wsdlFile = new File("wsdlorxsd/ShippingService.wsdl");
+		File wsdlFile = getProtobufRelatedInput("ShippingService.wsdl");
 		
 
 		
@@ -175,7 +183,9 @@ public void init() throws Exception{
 				  "-wsdl",wsdlFile.getAbsolutePath(),
 				  "-genType","ValidateXSDsForNonXSDFormats",
 				  "-xsdPathsForValidation","xsd/SupportedXsd.xsd",
-				  "-nonXSDFormats","protobuf"
+				  "-nonXSDFormats","protobuf",
+				  "-pr",destDir,
+				  "-dest",destDir
 				  
 				 };
 		
@@ -186,8 +196,8 @@ public void init() throws Exception{
 	@Test
 	public void testCase7() throws Exception{
 		
-		File xsd1 = new File("wsdlorxsd/SupportedXsd.xsd");
-		File wsdlFile = new File("wsdlorxsd/ShippingService.wsdl");
+		File xsd1 = getPathOfFile("SupportedXsd.xsd");
+		File wsdlFile = getProtobufRelatedInput("ShippingService.wsdl");
 		
 
 		
@@ -196,7 +206,9 @@ public void init() throws Exception{
 				  "-wsdl",wsdlFile.getAbsolutePath(),
 				  "-genType","ValidateXSDsForNonXSDFormats",
 				  "-xsdPathsForValidation",xsd1.getAbsolutePath(),
-				  "-nonXSDFormats","protobuf"
+				  "-nonXSDFormats","protobuf",
+				  "-pr",destDir,
+				  "-dest",destDir
 				  
 				 };
 		
@@ -204,12 +216,13 @@ public void init() throws Exception{
 		
 	}
 	
-	@Test
+	
+	@Test(expected=FastSerFormatNotSupportedException.class)
 	public void testCase8() throws Exception{
 		
 		//SOATestUserTypeLibrary.jar
-		File xsd1 = new File("wsdlorxsd");
-		File wsdlFile = new File("wsdlorxsd/ShippingService.wsdl");
+		File xsd1 = new File("src/test/resources/xsd");
+		File wsdlFile = getProtobufRelatedInput("ShippingService.wsdl");
 		
 
 		
@@ -218,7 +231,9 @@ public void init() throws Exception{
 				  "-wsdl",wsdlFile.getAbsolutePath(),
 				  "-genType","ValidateXSDsForNonXSDFormats",
 				  "-xsdPathsForValidation","jar:file:\\"+ xsd1.getAbsolutePath() +"/SOATestUserTypeLibrary.jar!/types/RegistrationInfoType.xsd,jar:file:\\"+ xsd1.getAbsolutePath() +"/SOATestUserTypeLibrary.jar!/types/UserInfoType.xsd",
-				  "-nonXSDFormats","protobuf"
+				  "-nonXSDFormats","protobuf",
+				  "-pr",destDir,
+				  "-dest",destDir
 				  
 				 };
 		
@@ -231,7 +246,7 @@ public void init() throws Exception{
 	public void testCase9() throws Exception{
 		
 	
-		File wsdlFile = new File("wsdlorxsd/ShippingService.wsdl");
+		File wsdlFile = getProtobufRelatedInput("ShippingService.wsdl");
 		
 
 		
@@ -240,7 +255,9 @@ public void init() throws Exception{
 				  "-wsdl",wsdlFile.getAbsolutePath(),
 				  "-genType","ValidateXSDsForNonXSDFormats",
 				  "-xsdPathsForValidation","types/RegistrationInfoType.xsd,types/UserInfoType.xsd",
-				  "-nonXSDFormats","protobuf"
+				  "-nonXSDFormats","protobuf",
+				  "-pr",destDir,
+				  "-dest",destDir
 				  
 				 };
 		

@@ -3,9 +3,6 @@
  */
 package org.ebayopensource.turmeric.tools.codegen.proto;
 
-import static com.ebay.soaframework.tools.codegen.util.CodeGenConstants.GEN_META_SRC_FOLDER;
-import static com.ebay.soaframework.tools.codegen.util.CodeGenConstants.GEN_SRC_FOLDER;
-
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
@@ -19,39 +16,38 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
 
 import javax.wsdl.Definition;
 
-import com.ebay.soaframework.tools.codegen.CodeGenContext;
-import com.ebay.soaframework.tools.codegen.InputOptions;
-import com.ebay.soaframework.tools.codegen.ServiceCodeGenArgsParser;
-import com.ebay.soaframework.tools.codegen.ServiceCodeGenArgsValidator;
-import com.ebay.soaframework.tools.codegen.exception.BadInputOptionException;
-import com.ebay.soaframework.tools.codegen.exception.BadInputValueException;
-import com.ebay.soaframework.tools.codegen.exception.CodeGenFailedException;
-import com.ebay.soaframework.tools.codegen.exception.MissingInputOptionException;
-import com.ebay.soaframework.tools.codegen.external.WSDLUtil;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.dotproto.DotProtoGenerator;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufEnumEntry;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufEnumMessage;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufField;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufFieldModifier;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufFieldType;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufMessage;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufSchema;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.SchemaTypeName;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.tag.DefaultProtobufTagGenerator;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.tag.ProtobufTagGenerator;
-import com.ebay.soaframework.tools.codegen.handler.ConsoleResponseHandler;
-import com.ebay.soaframework.tools.codegen.handler.DontPromptResponseHandler;
-import com.ebay.soaframework.tools.codegen.handler.UserResponseHandler;
-import com.ebay.soaframework.tools.codegen.util.CodeGenUtil;
-import com.ebay.soaframework.tools.library.TypeLibraryInputOptions;
-import com.ebay.soaframework.tools.library.codegen.TypeLibraryCodeGenArgsParser;
-import com.ebay.soaframework.tools.library.codegen.TypeLibraryCodeGenArgsValidator;
-import com.ebay.soaframework.tools.library.codegen.TypeLibraryCodeGenBuilder;
-import com.ebay.soaframework.tools.library.codegen.TypeLibraryCodeGenContext;
+import org.ebayopensource.turmeric.tools.codegen.CodeGenContext;
+import org.ebayopensource.turmeric.tools.codegen.InputOptions;
+import org.ebayopensource.turmeric.tools.codegen.ServiceCodeGenArgsParser;
+import org.ebayopensource.turmeric.tools.codegen.ServiceCodeGenArgsValidator;
+import org.ebayopensource.turmeric.tools.codegen.exception.BadInputOptionException;
+import org.ebayopensource.turmeric.tools.codegen.exception.BadInputValueException;
+import org.ebayopensource.turmeric.tools.codegen.exception.CodeGenFailedException;
+import org.ebayopensource.turmeric.tools.codegen.exception.MissingInputOptionException;
+import org.ebayopensource.turmeric.tools.codegen.external.WSDLUtil;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.dotproto.DotProtoGenerator;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufEnumEntry;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufEnumMessage;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufField;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufFieldModifier;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufFieldType;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufMessage;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufSchema;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.SchemaTypeName;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.tag.DefaultProtobufTagGenerator;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.tag.ProtobufTagGenerator;
+import org.ebayopensource.turmeric.tools.codegen.handler.ConsoleResponseHandler;
+import org.ebayopensource.turmeric.tools.codegen.handler.DontPromptResponseHandler;
+import org.ebayopensource.turmeric.tools.codegen.handler.UserResponseHandler;
+import org.ebayopensource.turmeric.tools.codegen.util.CodeGenUtil;
+import org.ebayopensource.turmeric.tools.library.TypeLibraryInputOptions;
+import org.ebayopensource.turmeric.tools.library.codegen.TypeLibraryCodeGenArgsParser;
+import org.ebayopensource.turmeric.tools.library.codegen.TypeLibraryCodeGenArgsValidator;
+import org.ebayopensource.turmeric.tools.library.codegen.TypeLibraryCodeGenBuilder;
+import org.ebayopensource.turmeric.tools.library.codegen.TypeLibraryCodeGenContext;
 
 import edu.emory.mathcs.backport.java.util.Arrays;
 
@@ -62,6 +58,8 @@ import edu.emory.mathcs.backport.java.util.Arrays;
 @SuppressWarnings("unchecked")
 public class ProtobufSchemaMapperTestUtils {
 	
+	private static final String GEN_SRC_FOLDER ="gen-src";
+	private static final String GEN_META_SRC_FOLDER ="gen-meta-src";
 	private static final List<String> s_protobufTypes = Arrays.asList(new String[]{
 											"int32",
 											"sint32",

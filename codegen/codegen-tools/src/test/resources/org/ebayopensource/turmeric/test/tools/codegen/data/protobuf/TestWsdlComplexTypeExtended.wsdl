@@ -39,7 +39,7 @@
 					
 					<xs:complexType name="SampleComplexType">
 					<xs:sequence>
-					<xs:element  maxOccurs="unbounded" name="Ent" type="tns:MySimpleTypeIntRest" /><!-- nillable="true"-->
+					<xs:element  maxOccurs="unbounded" name="par" type="tns:MySimpleTypeIntRest" /><!-- nillable="true"-->
 					<xs:element minOccurs="1" name="Value1" type="xs:string" /> <!-- nillable="true"-->
 					<xs:element minOccurs="0" name="Value2" type="xs:string"  /><!-- nillable="true"-->
 					<xs:element minOccurs="0" maxOccurs="2" name="Value3" type="xs:string"  />

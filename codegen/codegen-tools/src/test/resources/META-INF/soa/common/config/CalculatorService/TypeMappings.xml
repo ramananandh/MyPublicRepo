@@ -2,7 +2,7 @@
 <service enable-namespace-folding="false" name="CalculatorService" xmlns="http://www.ebay.com/soaframework/common/config">
     <package-map>
         <package xml-namespace="http://www.ebay.com/marketplace/shipping/v1/services" name="com.ebay.marketplace.shipping.v1.services"/>
-        <package xml-namespace="http://www.ebay.com/marketplace/services" name="com.ebay.marketplace.services"/>
+        <package xml-namespace="http://www.ebayopensource.org/turmeric/common/v1/types" name="org.ebayopensource.turmeric.common.v1.types"/>
     </package-map>
     <operation-list>
         <operation methodName="regenerateLabel" name="regenerateLabel">
@@ -19,9 +19,9 @@
                 <has-attachment>false</has-attachment>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
-                <xml-element-name>{http://www.ebay.com/marketplace/services}errorMessage</xml-element-name>
+                <xml-element-name>{http://www.ebayopensource.org/turmeric/common/v1/types}errorMessage</xml-element-name>
             </error-message>
         </operation>
         <operation methodName="getInsuranceQuote" name="getInsuranceQuote">
@@ -38,9 +38,9 @@
                 <has-attachment>false</has-attachment>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
-                <xml-element-name>{http://www.ebay.com/marketplace/services}errorMessage</xml-element-name>
+                <xml-element-name>{http://www.ebayopensource.org/turmeric/common/v1/types}errorMessage</xml-element-name>
             </error-message>
         </operation>
         <operation methodName="getVersion" name="getVersion">
@@ -57,9 +57,9 @@
                 <has-attachment>false</has-attachment>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
-                <xml-element-name>{http://www.ebay.com/marketplace/services}errorMessage</xml-element-name>
+                <xml-element-name>{http://www.ebayopensource.org/turmeric/common/v1/types}errorMessage</xml-element-name>
             </error-message>
         </operation>
         <operation methodName="getLabelRate" name="getLabelRate">
@@ -76,9 +76,9 @@
                 <has-attachment>false</has-attachment>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
-                <xml-element-name>{http://www.ebay.com/marketplace/services}errorMessage</xml-element-name>
+                <xml-element-name>{http://www.ebayopensource.org/turmeric/common/v1/types}errorMessage</xml-element-name>
             </error-message>
         </operation>
         <operation methodName="generateLabels" name="generateLabels">
@@ -95,9 +95,9 @@
                 <has-attachment>false</has-attachment>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
-                <xml-element-name>{http://www.ebay.com/marketplace/services}errorMessage</xml-element-name>
+                <xml-element-name>{http://www.ebayopensource.org/turmeric/common/v1/types}errorMessage</xml-element-name>
             </error-message>
         </operation>
         <operation methodName="getRates" name="getRates">
@@ -114,9 +114,9 @@
                 <has-attachment>false</has-attachment>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
-                <xml-element-name>{http://www.ebay.com/marketplace/services}errorMessage</xml-element-name>
+                <xml-element-name>{http://www.ebayopensource.org/turmeric/common/v1/types}errorMessage</xml-element-name>
             </error-message>
         </operation>
         <operation methodName="getVoidLabelStatus" name="getVoidLabelStatus">
@@ -133,9 +133,9 @@
                 <has-attachment>false</has-attachment>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
-                <xml-element-name>{http://www.ebay.com/marketplace/services}errorMessage</xml-element-name>
+                <xml-element-name>{http://www.ebayopensource.org/turmeric/common/v1/types}errorMessage</xml-element-name>
             </error-message>
         </operation>
         <operation methodName="validateAddress" name="validateAddress">
@@ -152,9 +152,9 @@
                 <has-attachment>false</has-attachment>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
-                <xml-element-name>{http://www.ebay.com/marketplace/services}errorMessage</xml-element-name>
+                <xml-element-name>{http://www.ebayopensource.org/turmeric/common/v1/types}errorMessage</xml-element-name>
             </error-message>
         </operation>
         <operation methodName="voidLabel" name="voidLabel">
@@ -171,9 +171,9 @@
                 <has-attachment>false</has-attachment>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
-                <xml-element-name>{http://www.ebay.com/marketplace/services}errorMessage</xml-element-name>
+                <xml-element-name>{http://www.ebayopensource.org/turmeric/common/v1/types}errorMessage</xml-element-name>
             </error-message>
         </operation>
         <operation methodName="fetchLabels" name="fetchLabels">
@@ -190,9 +190,9 @@
                 <has-attachment>false</has-attachment>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
-                <xml-element-name>{http://www.ebay.com/marketplace/services}errorMessage</xml-element-name>
+                <xml-element-name>{http://www.ebayopensource.org/turmeric/common/v1/types}errorMessage</xml-element-name>
             </error-message>
         </operation>
     </operation-list>

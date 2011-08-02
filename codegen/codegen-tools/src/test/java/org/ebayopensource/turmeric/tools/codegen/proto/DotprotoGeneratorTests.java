@@ -1,10 +1,9 @@
 /**
  * 
  */
-package com.ebay.test.soaframework.tools.codegen;
+package org.ebayopensource.turmeric.tools.codegen.proto;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,50 +11,63 @@ import javax.xml.namespace.QName;
 
 import junit.framework.Assert;
 
+import org.ebayopensource.turmeric.tools.TestResourceUtil;
+import org.ebayopensource.turmeric.tools.codegen.AbstractServiceGeneratorTestCase;
+import org.ebayopensource.turmeric.tools.codegen.CodeGenContext;
+import org.ebayopensource.turmeric.tools.codegen.exception.CodeGenFailedException;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.WSDLParserException;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.SchemaType;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.FastSerFormatCodegenBuilder;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.ProtobufSchemaMapper;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.dotproto.DotProtoGenerator;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufEnumMessage;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufField;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufMessage;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufSchema;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.SchemaTypeName;
 import org.junit.Test;
-
-import com.ebay.soaframework.tools.codegen.CodeGenContext;
-import com.ebay.soaframework.tools.codegen.exception.CodeGenFailedException;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.WSDLParserException;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.SchemaType;
-import com.ebay.soaframework.tools.codegen.fastserformat.FastSerFormatCodegenBuilder;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.ProtobufSchemaMapper;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.dotproto.DotProtoGenerator;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufEnumMessage;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufField;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufMessage;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufSchema;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.SchemaTypeName;
-import com.ebay.test.TestAnnotate;
 
 /**
  * @author anav
  *
  */
-public class DotprotoGeneratorTests extends CodeGenBaseTestCase{
-	public static String[] getEmptyWsdlArgs() {
+public class DotprotoGeneratorTests extends AbstractServiceGeneratorTestCase{
+	
+	@Override
+	public File getProtobufRelatedInput(String name) {
+		return TestResourceUtil.getResource("org/ebayopensource/turmeric/test/tools/codegen/data/proto/"
+				+ name);
+	}
+	
+	
+	public static String[] getEmptyWsdlArgs(File wsdl,File destDir) {
+		File binDir = new File(destDir, "bin");
 		String testArgs[] = new String[] {
 				"-servicename",
 				"FindItemServiceEmpty",
 				"-wsdl",
-				"UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/FindItemServiceEmpty.wsdl",
-				"-genType", "ClientNoConfig", "-src", ".\\UnitTests\\src",
-				"-dest", ".\\tmp", "-scv", "1.0.0", "-bin", ".\\bin",
+				wsdl.getAbsolutePath(),
+				"-genType", "ClientNoConfig", "-src",destDir.getAbsolutePath(),
+				"-dest", destDir.getAbsolutePath(), "-scv", "1.0.0", "-bin", binDir.getAbsolutePath(),
 				 "-enabledNamespaceFolding",
 				"-nonXSDFormats", "protobuf" };
 		return testArgs;
 	}
 
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
 	public void testDotprotoGenerationForEmptyWSDL() throws Exception {
-		String protoPath = ".\\tmp\\meta-src\\META-INF\\soa\\services\\proto\\FindItemServiceEmpty\\FindItemServiceEmpty.proto";
+		
+		File wsdl1 = getProtobufRelatedInput("FindItemServiceEmpty.wsdl");
+		File destDir = testingdir.getDir();
+		
+		String protoPath = destDir.getAbsolutePath() + "\\meta-src\\META-INF\\soa\\services\\proto\\FindItemServiceEmpty\\FindItemServiceEmpty.proto";
 		File emptyProto = new File( protoPath );
 		if(emptyProto.exists() ){
 			emptyProto.delete();
 		}
 
-		CodeGenContext context = ProtobufSchemaMapperTestUtils.getCodeGenContext( getEmptyWsdlArgs() );
+		
+		CodeGenContext context = ProtobufSchemaMapperTestUtils.getCodeGenContext( getEmptyWsdlArgs(wsdl1,destDir) );
 		
 		FastSerFormatCodegenBuilder.getInstance().validateServiceIfApplicable(context);
 		
@@ -85,25 +97,30 @@ public class DotprotoGeneratorTests extends CodeGenBaseTestCase{
 		if(dotproto.exists() ){
 			ProtobufSchemaMapperTestUtils.loadFindItemServiceManuallyWrittenProtoFile( dotproto.getPath() );
 		}
-	}
+	} 
 	
-	public static String[] getTestAWsdlArgs() {
+	public static String[] getTestAWsdlArgs(File wsdl,File destDir) {
+		
+		File binDir = new File(destDir,"bin");
 		String testArgs[] = new String[] {
 				"-servicename",
 				"FindItemService",
 				"-wsdl",
-				"UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/FindItemServiceAdjustedV3.wsdl",
-				"-genType", "ClientNoConfig", "-src", ".\\UnitTests\\src",
-				"-dest", ".", "-scv", "1.0.0", "-bin", ".\\bin",
-				// "-enabledNamespaceFolding",
+				wsdl.getAbsolutePath(),
+				"-genType", "ClientNoConfig", "-src",destDir.getAbsolutePath(),
+				"-dest", destDir.getAbsolutePath(), "-scv", "1.0.0", "-bin", binDir.getAbsolutePath(),
 				"-nonXSDFormats", "protobuf" };
 		return testArgs;
 	}
 
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
 	public void testDotprotoGeneration() throws Exception {
-		CodeGenContext context = ProtobufSchemaMapperTestUtils.getCodeGenContext( getTestAWsdlArgs() );
+		
+
+		File wsdl1 = getProtobufRelatedInput("FindItemServiceAdjustedV3.wsdl");
+		File destDir = testingdir.getDir();
+		
+		CodeGenContext context = ProtobufSchemaMapperTestUtils.getCodeGenContext( getTestAWsdlArgs(wsdl1,destDir) );
 		
 		List<SchemaType> listOfSchemaTypes;
 		try {
@@ -120,7 +137,7 @@ public class DotprotoGeneratorTests extends CodeGenBaseTestCase{
 			throw new CodeGenFailedException("Dot Proto generation failed.", e1);
 		}
 		
-		String dotprotofilepath = "UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/FindItemServiceAdjustedV3.proto";
+		String dotprotofilepath = getProtobufRelatedInput("FindItemServiceAdjustedV3.proto").getAbsolutePath();
 		List<ProtobufMessage> messagesFromFile = ProtobufSchemaMapperTestUtils.loadFindItemServiceManuallyWrittenProtoFile( dotprotofilepath );
 		
 		updateMessagesLoadedFromFile( messagesFromFile, context, "com.ebay.marketplace.search.v1.services" );

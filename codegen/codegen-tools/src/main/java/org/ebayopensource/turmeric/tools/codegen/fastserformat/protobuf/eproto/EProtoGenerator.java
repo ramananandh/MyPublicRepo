@@ -33,6 +33,7 @@ import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.Pr
 import org.ebayopensource.turmeric.tools.codegen.util.CodeGenUtil;
 import org.ebayopensource.turmeric.tools.codegen.util.ContextClassLoaderUtil;
 
+import com.google.protobuf.ByteString;
 import com.sun.codemodel.JBlock;
 import com.sun.codemodel.JCatchBlock;
 import com.sun.codemodel.JClass;
@@ -1001,7 +1002,7 @@ public class EProtoGenerator extends BaseEProtoGenerator {
 	 * This method is to convert the jaxb pojo type to jproto type at runtime. 
 	 * This method basically uses jproto builder to build the jproto object. 
 	 * This method also checks if runtime polymorphism is used and if yes, we throw a PolymorphismNotSupportedException
-	 * Use Google’s FieldDescriptor APIs corresponding to the field to set the values
+	 * Use Google's FieldDescriptor APIs corresponding to the field to set the values
 	 * Similar to the getters logic, newInstance logic will be different for different return types namely
 	 * 		1)primitive types
 	 * 		2)String

@@ -3,7 +3,7 @@ elemA=elemA=float=optional
 elemB=elemB=SampleComplexType=optional
 
 http://codegen.tools.soaframework.test.ebay.com=SampleComplexType
-Ent=Ent=int=repeated
+par=par=int=repeated
 Value1=value1=string=required
 Value2=value2=string=optional
 Value3=value3=string=repeated

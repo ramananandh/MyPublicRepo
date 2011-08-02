@@ -2,64 +2,62 @@ package org.ebayopensource.turmeric.tools.codegen.proto;
 
 import java.io.File;
 
+import org.ebayopensource.turmeric.tools.TestResourceUtil;
+import org.ebayopensource.turmeric.tools.codegen.AbstractServiceGeneratorTestCase;
+import org.ebayopensource.turmeric.tools.codegen.util.CodeGenUtil;
 import org.junit.Test;
 
-import com.ebay.soaframework.tools.codegen.ServiceGenerator;
-import com.ebay.soaframework.tools.codegen.util.CodeGenUtil;
-import com.ebay.test.TestAnnotate;
-import com.ebay.test.soaframework.tools.codegen.ServiceGeneratorTestUtils;
+public class ProtoBufFullRun extends AbstractServiceGeneratorTestCase {
 
-public class ProtoBufFullRun extends BaseEprotoGeneratorTest{
-
-	private static String destLoc = ".";
+	public  File getProtobufInputFile(String name) {
+		return TestResourceUtil.getResource("org/ebayopensource/turmeric/test/tools/codegen/data/proto/"
+				+ name);
+	}
 	
-	private static String[] getAllComplexTypeWsdlArgs() {
+	
+
+
+
+	
+	@Test
+	
+	public void testComplexTypeWsdlFullFlow() throws Exception {
+		
+		File destDir = testingdir.getDir();
+		File binDir  = new File(destDir, "bin");
+		File wsdl = getProtobufInputFile("TestFullRunComplexTypeWsdl.wsdl");
+		
 		String testArgs[] = new String[] {
 				"-servicename",
 				"CalculatorService1",
 				"-wsdl",
-				"./UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/TestFullRunComplexTypeWsdl.wsdl",
+				wsdl.getAbsolutePath(),
 				"-genType", "ClientNoConfig", 
-				"-envmapper", "com.ebay.soaframework.extended.sif.MarketplaceEnvironmentMapperImpl",
-				"-src", "./UnitTests/src",
-				"-dest", destLoc, 
-				"-mdest", "./meta-src/",
+				"-envmapper", "org.ebayopensource.turmeric.tools.codegen.EnvironmentMapperImpl",
+				"-src", destDir.getAbsolutePath(),
+				"-dest", destDir.getAbsolutePath(), 
+				"-mdest", destDir.getAbsolutePath() + "/meta-src/",
 				"-scv", "1.0.0", 
-//				"-bin", "./bin",
+				"-bin",binDir.getAbsolutePath(),
 				 "-enabledNamespaceFolding",
 				"-nonXSDFormats", "protobuf" };
-		return testArgs;
-	}
-	
-	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, 
-			feature = TestAnnotate.Feature.Codegen, 
-			subFeature = "", 
-			description = "", 
-			bugID = "", 
-			trainID = "", 
-			projectID = "", 
-			authorDev = "", 
-			authorQE = "")
-	public void testComplexTypeWsdlFullFlow() throws Exception {
 		
-		CodeGenUtil.deleteContentsOfDir(new File(destLoc + "/gen-meta-src"));
-		logDebugMessage("**** Begin testForTestingDefaultingInputTypeInterface() ****");
-		String protoLocation = CodeGenUtil.genDestFolderPath(destLoc, "/meta-src/META-INF/soa/services/proto/CalculatorService1");
+		CodeGenUtil.deleteContentsOfDir(new File(destDir + "/gen-meta-src"));
+		
+		String protoLocation = CodeGenUtil.genDestFolderPath(destDir.getAbsolutePath(), "/meta-src/META-INF/soa/services/proto/CalculatorService1");
 		File deleteProtoFileLocation = new File(protoLocation);
 		if(deleteProtoFileLocation.exists())
 			CodeGenUtil.deleteContentsOfDir(deleteProtoFileLocation);
-		ServiceGenerator serviceGenerator = ServiceGeneratorTestUtils.createServiceGenerator();
+		
 		try {
-			serviceGenerator.startCodeGen(getAllComplexTypeWsdlArgs());
+			performDirectCodeGen(testArgs);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			throw ex;
 		}
 
-		logDebugMessage("**** End testForTestingDefaultingInputTypeInterface() ****");
 	
 
-		CodeGenUtil.deleteContentsOfDir(new File(destLoc + "/gen-src"));
+		CodeGenUtil.deleteContentsOfDir(new File(destDir.getAbsolutePath() + "/gen-src"));
 	}
 }

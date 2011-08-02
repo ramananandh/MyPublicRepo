@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceRuntimeException;
 import org.ebayopensource.turmeric.runtime.common.impl.utils.LogManager;
+import org.ebayopensource.turmeric.runtime.common.registration.ClassLoaderRegistry;
 import org.ebayopensource.turmeric.runtime.common.types.SOAHeaders;
 import org.ebayopensource.turmeric.runtime.sif.service.EnvironmentMapper;
 import org.ebayopensource.turmeric.runtime.sif.service.Service;

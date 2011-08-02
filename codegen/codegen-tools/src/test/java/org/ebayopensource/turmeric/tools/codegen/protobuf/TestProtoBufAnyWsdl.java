@@ -34,17 +34,20 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.namespace.QName;
 
 import org.ebayopensource.turmeric.tools.codegen.AbstractServiceGeneratorTestCase;
-import org.ebayopensource.turmeric.tools.codegen.ServiceGenerator;
 import org.ebayopensource.turmeric.tools.codegen.util.CodeGenUtil;
 import org.ebayopensource.turmeric.tools.codegen.util.JavacHelper;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.google.protobuf.ByteString;
+
 
 public class TestProtoBufAnyWsdl extends AbstractServiceGeneratorTestCase{
 	
-	String destDir = new File("generated").getAbsolutePath();
+	File destDir = null;
+	String name =null;
+	
     public static String getPackageFromNamespace(String namespace) {
     	
     	//Using the method used by JAXB directly to avoid potential conflicts with JAXB generated code
@@ -56,16 +59,17 @@ public class TestProtoBufAnyWsdl extends AbstractServiceGeneratorTestCase{
     Map<String,String> xsdToJaxbType = new HashMap<String,String>();
     @Before
     public void init(){
-    	CodeGenUtil.deleteContentsOfDir(new File(destDir));
+    	destDir = testingdir.getDir();
+    	CodeGenUtil.deleteContentsOfDir(destDir);
     	//wsdlFileName.add("auth");
     	
     	//wsdlFileName.add("TestWsdlIDNotSupported");
     	//wsdlFileName.add("authentication");
     	//wsdlFileName.add("TestWsdlBug");
-    	wsdlFileName.add("TestWsdlXsdTypes");
+    	//wsdlFileName.add("TestWsdlXsdTypes");
     	//wsdlFileName.add("TestKeywordsAsNames");
-    	CodeGenUtil.deleteContentsOfDir(new File(destDir));
-    	wsdlFileName.add("TestAllVariationsWsdl");
+    	CodeGenUtil.deleteContentsOfDir(destDir);
+    	//wsdlFileName.add("TestAllVariationsWsdl");
     	//wsdlFileName.add("TestWsdlChoiceAttrGroup");
     	 //wsdlFileName.add("IntOps");
     	//wsdlFileName.add("TestWsdlChoiceAttrGroup");
@@ -188,14 +192,15 @@ public class TestProtoBufAnyWsdl extends AbstractServiceGeneratorTestCase{
 	
 		File wsdlpath = null;
 		File fileExp = null;
-		File bin = new File("generated/bin/");
-		File proto = new File("generated/");
-		File gensrc = new File("generated/gen-src/");
+		File bin = new File(destDir.getAbsolutePath() + "/bin/");
+	
+		System.out.println(bin.getAbsoluteFile());
+		File gensrc = new File(destDir,"gen-src");
 		
 		
-		URL [] urls = {bin.toURI().toURL(),proto.toURI().toURL(),gensrc.toURI().toURL()};
+		URL [] urls = {new URL("file:/"+ destDir.getAbsolutePath()+"/bin/"),destDir.toURI().toURL(),gensrc.toURI().toURL()};
 		URLClassLoader loader = new URLClassLoader(urls,Thread.currentThread().getContextClassLoader());
-		Thread.currentThread().setContextClassLoader(loader);
+		
 		
 		
 		for(String name1 : wsdlFileName){
@@ -203,12 +208,12 @@ public class TestProtoBufAnyWsdl extends AbstractServiceGeneratorTestCase{
 			CodeGenUtil.deleteContentsOfDir(new File(destDir +"/gen-meta-src"));
 			CodeGenUtil.deleteContentsOfDir(new File(destDir +"/meta-src"));
 			CodeGenUtil.deleteContentsOfDir(new File(destDir +"/bin"));
-		wsdlpath = new File("wsdlorxsd/"+name1+".wsdl");
+		wsdlpath = getProtobufRelatedInput(name1+".wsdl");
 		
-		fileExp = new File("wsdlorxsd/"+name1+".txt");
+		fileExp = getProtobufRelatedInput(name1 +".txt");
 		
 		
-		String name = "CalculatorService";
+		name = name1;
 		String wsdlNSToPkg = getPackageFromNamespace("http://codegen.tools.soaframework.test.ebay.com");
 		//String wsdlNSToPkg = getPackageFromNamespace("http://www.ebay.com/marketplace/search/v1/services");
 		//String wsdlNSToPkg = getPackageFromNamespace("http://www.ebay.com/marketplace/shipping/v1/services");
@@ -217,13 +222,13 @@ public class TestProtoBufAnyWsdl extends AbstractServiceGeneratorTestCase{
 		
 		//ensureClean(destDir +"/gen-meta-src/soa/services/wsdl");
 		//ensureClean(destDir +"/meta-src");
-		generateJaxbClasses(wsdlpath.getAbsolutePath(), destDir);
+		generateJaxbClasses(wsdlpath.getAbsolutePath(), destDir.getAbsolutePath(),bin,name);
 		
-		
+		Thread.currentThread().setContextClassLoader(loader);
 		
 		Class<?> protoClass = Thread.currentThread().getContextClassLoader().loadClass(wsdlNSToPkg +".proto." +name);
 		
-		File file = new File("generated/meta-src/META-INF/soa/services/proto/CalculatorService/CalculatorService.proto");
+		File file = new File(destDir,"meta-src/META-INF/soa/services/proto/" +name+"/"+name+".proto");
 		ProtoFileParser parser = new ProtoFileParser(file);
 		List<Message> msg = parser.parse();
 		assertTagAssignment(msg);
@@ -420,11 +425,11 @@ public class TestProtoBufAnyWsdl extends AbstractServiceGeneratorTestCase{
 			if(ms.isEnums() && messageName.contains("Enum")){
 				messageName = messageName.trim().substring(0,messageName.length()-4);
 			}
-			String eprotoPath ="generated/gen-src/"+ packagetoDirPath(wsdlNSToPkg)+"/proto/extended/E" +messageName+".java";
+			String eprotoPath =destDir.getAbsolutePath()+"/gen-src/"+ packagetoDirPath(wsdlNSToPkg)+"/proto/extended/E" +messageName+".java";
 			
 			compile(msgInfo, eprotoPath, bin, setTypes, wsdlNSToPkg,messageName);
 			
-			eprotoPath ="generated/gen-src/"+ packagetoDirPath(wsdlNSToPkg)+"/proto/extended/E" +messageName+".java";
+			eprotoPath =destDir.getAbsolutePath()+"/gen-src/"+ packagetoDirPath(wsdlNSToPkg)+"/proto/extended/E" +messageName+".java";
 			compileEproto(eprotoPath, bin);
 			
 		}
@@ -708,15 +713,15 @@ public void assertTagAssignment(List<Message> msg){
 			 for(ElementInformation el : m.getElementInfo()){
 					if(el.getDataType().equals("Enum.")){
 						String  [] str = el.getDataType().split(".");
-						eprotoPath ="generated/gen-src/"+ packagetoDirPath(wsdlNSToPkg)+"/proto/extended/E" +str[0].trim().substring(0,m.getMessageName().length()-4)+".java";
+						eprotoPath =destDir.getAbsolutePath()+"/gen-src/"+ packagetoDirPath(wsdlNSToPkg)+"/proto/extended/E" +str[0].trim().substring(0,m.getMessageName().length()-4)+".java";
 						compileEproto(eprotoPath, bin);
 					}
 					if(!setTypes.contains(el.getDataType())){
-						eprotoPath ="generated/gen-src/"+ packagetoDirPath(wsdlNSToPkg)+"/proto/extended/E" +el.getDataType()+".java";
+						eprotoPath =destDir.getAbsolutePath()+"/gen-src/"+ packagetoDirPath(wsdlNSToPkg)+"/proto/extended/E" +el.getDataType()+".java";
 						compile(msg, eprotoPath, bin, setTypes, wsdlNSToPkg,el.getDataType());
 					}
 			 }
-			 eprotoPath ="generated/gen-src/"+ packagetoDirPath(wsdlNSToPkg)+"/proto/extended/E" +m.getMessageName()+".java";
+			 eprotoPath =destDir.getAbsolutePath()+"/gen-src/"+ packagetoDirPath(wsdlNSToPkg)+"/proto/extended/E" +m.getMessageName()+".java";
 			 compileEproto(eprotoPath, bin);
 			 return;
 		 }
@@ -741,7 +746,7 @@ public void assertTagAssignment(List<Message> msg){
 	
 	public Object makeProtoObject(List<MessageInformation> msgList,MessageInformation ms,String wsdlNSToPkg) throws ClassNotFoundException, IllegalArgumentException, IllegalAccessException, InvocationTargetException{
 		
-		Class<?> protoClass = Thread.currentThread().getContextClassLoader().loadClass(wsdlNSToPkg +".proto.CalculatorService");
+		Class<?> protoClass = Thread.currentThread().getContextClassLoader().loadClass(wsdlNSToPkg +".proto."+ name);
 		Object builderObj = null;
 
 		Object builtObj = null;
@@ -808,7 +813,7 @@ public void assertTagAssignment(List<Message> msg){
 			if(m.getName().equalsIgnoreCase(methodPrefix+ firstLetterUpperCase(el.getElementName()))){
 				
 				 if(el.isEnums()){
-					 Class<?> protoClass = Thread.currentThread().getContextClassLoader().loadClass(wsdlNSToPkg +".proto.CalculatorService");
+					 Class<?> protoClass = Thread.currentThread().getContextClassLoader().loadClass(wsdlNSToPkg +".proto."+name);
 					 Class<?> eprotoClass = Thread.currentThread().getContextClassLoader().loadClass(wsdlNSToPkg +".proto.extended.E" +ms.getMessageName());
 					 
 					 String [] enumMessage = el.getDataType().split("Enum.");
@@ -1221,8 +1226,8 @@ public void assertTagAssignment(List<Message> msg){
 		}
 	}
 	
-	public void generateJaxbClasses(String path,String destDir) throws Exception{
-		String [] testArgs = {"-serviceName","CalculatorService",
+	public void generateJaxbClasses(String path,String destDir,File binDir,String serviceName) throws Exception{
+		String [] testArgs = {"-serviceName",serviceName,
 				  "-genType","ClientNoConfig",	
 				  "-wsdl",path,
 				  "-mdest",destDir+"/gen-meta-src",
@@ -1236,8 +1241,7 @@ public void assertTagAssignment(List<Message> msg){
 				  "-scv","1.0.0",
 				  "-pr",destDir};
 		
-		ServiceGenerator sgen = new ServiceGenerator();
-		sgen.startCodeGen(testArgs);
+		performDirectCodeGen(testArgs, binDir);
 		
 	}
 	

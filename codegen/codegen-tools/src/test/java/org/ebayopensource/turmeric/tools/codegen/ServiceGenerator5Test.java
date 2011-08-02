@@ -8,8 +8,6 @@
  *******************************************************************************/
 package org.ebayopensource.turmeric.tools.codegen;
 
-import static org.hamcrest.Matchers.*;
-
 import java.io.File;
 
 import javax.xml.namespace.QName;
@@ -20,7 +18,6 @@ import org.ebayopensource.turmeric.tools.TestResourceUtil;
 import org.ebayopensource.turmeric.tools.codegen.exception.MissingInputOptionException;
 import org.ebayopensource.turmeric.tools.codegen.external.WSDLUtil;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -137,7 +134,7 @@ public class ServiceGenerator5Test extends AbstractServiceGeneratorTestCase {
 		try {
 			performDirectCodeGen(args);
 		} catch (MissingInputOptionException exception) {
-			Assert.assertThat(exception.getMessage(), containsString("Input file is missing"));
+			Assert.assertTrue(exception.getMessage(), containsString("Input file is missing"));
 			
 		}
 	}

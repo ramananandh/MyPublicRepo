@@ -30,7 +30,7 @@
 					  </xs:restriction>
 					 </xs:simpleType>
 					
-					<xs:complexType name="MyComplexType">
+					<xs:complexType name="MyComplexType1">
 					  <xs:sequence>
 					   <xs:element maxOccurs="1" minOccurs="0" name="elemB"
 					    type="tns:MySimpleTypeIntRest" />
@@ -40,7 +40,7 @@
 					
 					<xs:complexType name="MyComplexTypeComplexContentType">
 					  <xs:complexContent>
-					   <xs:extension base="tns:MyComplexType">
+					   <xs:extension base="tns:MyComplexType1">
 					    <xs:sequence>
 					     <xs:element maxOccurs="1" minOccurs="0"
 					      name="inputB" type="xs:long" />

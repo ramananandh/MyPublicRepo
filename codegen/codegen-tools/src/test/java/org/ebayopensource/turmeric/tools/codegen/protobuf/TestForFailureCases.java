@@ -9,8 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.ebayopensource.turmeric.runtime.codegen.common.FastSerFormatValidationError;
 import org.ebayopensource.turmeric.tools.codegen.AbstractServiceGeneratorTestCase;
-import org.ebayopensource.turmeric.tools.codegen.ServiceGenerator;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.validator.FastSerFormatNotSupportedException;
 import org.junit.Test;
 
 public class TestForFailureCases extends AbstractServiceGeneratorTestCase {
@@ -24,6 +25,8 @@ public class TestForFailureCases extends AbstractServiceGeneratorTestCase {
 	
 	@Test
 	public void testNegativeCases() throws MalformedURLException{
+		
+		File destDir = testingdir.getDir();
 		
 	List<String> wsdls = new ArrayList<String>();
 	wsdls.add("TestWsdlNotSupported");
@@ -80,23 +83,22 @@ public class TestForFailureCases extends AbstractServiceGeneratorTestCase {
 	messageMap.put("TestWsdlPolymorphism",messages);
 	//TestWsdlNotSupported.wsdl
 		
-	File bin = new File("generated/bin/");
-	File proto = new File("generated/");
-	File gensrc = new File("generated/gen-src/");
+	File bin = new File(destDir,"bin");
+	File gensrc = new File(destDir,"gen-src");
 	
 	
-	URL [] urls = {bin.toURI().toURL(),proto.toURI().toURL(),gensrc.toURI().toURL()};
+	URL [] urls = {new URL("file:/"+ destDir.getAbsolutePath()+"/bin/"),destDir.toURI().toURL(),gensrc.toURI().toURL()};
 	URLClassLoader loader = new URLClassLoader(urls,Thread.currentThread().getContextClassLoader());
 	Thread.currentThread().setContextClassLoader(loader);
-	String destDir = new File("generated").getAbsolutePath();
+
 
 	
 	File file = new File("generated/gen-meta-src/META-INF/soa/services/proto/CalculatorService/CalculatorService.proto");
 	
 	for(String name :wsdls){
 			try {
-				File wsdlpath = new File("wsdlorxsd/"+wsdls+".wsdl");
-				generateJaxbClasses(wsdlpath.getAbsolutePath(), destDir);
+				File wsdlpath = getProtobufRelatedInput(name+".wsdl");
+				generateJaxbClasses(wsdlpath.getAbsolutePath(), destDir.getAbsolutePath(),bin);
 			} catch (FastSerFormatNotSupportedException e) {
 				
 				List<FastSerFormatValidationError> error = e.getErrors();
@@ -112,22 +114,21 @@ public class TestForFailureCases extends AbstractServiceGeneratorTestCase {
 	}
 	
 	
-	public void generateJaxbClasses(String path,String destDir) throws Exception{
+	public void generateJaxbClasses(String path,String destDir,File binDir) throws Exception{
 		String [] testArgs = {"-serviceName","CalculatorService",
 				  "-genType","ServiceFromWSDLIntf",	
 				  "-wsdl",path,
 				  "-gip","com.ebay.test.soaframework.tools.codegen",
 				  "-dest",destDir,
 				  "-src",destDir,
-				  "-bin",destDir+"/bin",
+				  "-bin",binDir.getAbsolutePath(),
 				  "-slayer","INTERMEDIATE",
 				  "-fastserformat","protobuf",
 				  "-enabledNamespaceFolding",
 				  "-scv","1.0.0",
 				  "-pr",destDir};
 		
-		ServiceGenerator sgen = new ServiceGenerator();
-		sgen.startCodeGen(testArgs);
+		 performDirectCodeGen(testArgs, binDir);
 		
 	}
 

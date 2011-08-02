@@ -7,54 +7,62 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
 
 import javax.xml.namespace.QName;
 
+import org.ebayopensource.turmeric.tools.TestResourceUtil;
+import org.ebayopensource.turmeric.tools.codegen.AbstractServiceGeneratorTestCase;
+import org.ebayopensource.turmeric.tools.codegen.CodeGenContext;
+import org.ebayopensource.turmeric.tools.codegen.exception.CodeGenFailedException;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.WSDLParserException;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.SchemaType;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.FastSerFormatCodegenBuilder;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.ProtobufSchemaMapper;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufEnumMessage;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufField;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufMessage;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufOption;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufOptionType;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufSchema;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.SchemaTypeName;
 import org.junit.Assert;
 import org.junit.Test;
-
-import com.ebay.soaframework.tools.codegen.CodeGenContext;
-import com.ebay.soaframework.tools.codegen.exception.CodeGenFailedException;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.WSDLParserException;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.SchemaType;
-import com.ebay.soaframework.tools.codegen.fastserformat.FastSerFormatCodegenBuilder;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.ProtobufSchemaMapper;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.dotproto.DotProtoGenerator;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufEnumMessage;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufField;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufMessage;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufOption;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufOptionType;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufSchema;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.SchemaTypeName;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.tag.DefaultProtobufTagGenerator;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.tag.ProtobufTagGenerator;
-import com.ebay.test.TestAnnotate;
 
 /**
  * @author rkulandaivel
  * 
  */
-public class ProtobufSchemaMapperTests extends CodeGenBaseTestCase {
+public class ProtobufSchemaMapperTests extends AbstractServiceGeneratorTestCase {
 
-	public static String[] getTestAWsdlArgs() {
+	
+
+	public  File getProtobufInput(String name) {
+		return TestResourceUtil.getResource("org/ebayopensource/turmeric/test/tools/codegen/data/proto/"
+				+ name);
+	}
+	
+
+
+	@Test
+
+	public void testDePolymorphizedFindItemServiceWsdl() throws Exception {
+		
+		File destDir = testingdir.getDir();
+		File binDir = new File(destDir,"bin");
+		File wsdl = getProtobufInput("FindItemServiceAdjustedV3.wsdl");	
+		
 		String testArgs[] = new String[] {
 				"-servicename",
 				"FindItemService",
-				"-wsdl",
-				"UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/FindItemServiceAdjustedV3.wsdl",
-				"-genType", "ClientNoConfig", "-src", ".\\UnitTests\\src",
-				"-dest", ".\\tmp", "-scv", "1.0.0", "-bin", ".\\bin",
+				"-wsdl",wsdl.getAbsolutePath(),
+				
+				"-genType", "ClientNoConfig", "-src", destDir.getAbsolutePath(),
+				"-dest", destDir.getAbsolutePath(), "-scv", "1.0.0", "-bin",binDir.getAbsolutePath(),
 				// "-enabledNamespaceFolding",
 				"-nonXSDFormats", "protobuf" };
-		return testArgs;
-	}
-
-	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
-	public void testDePolymorphizedFindItemServiceWsdl() throws Exception {
-		CodeGenContext context = ProtobufSchemaMapperTestUtils.getCodeGenContext( getTestAWsdlArgs() );
+		
+		
+		CodeGenContext context = ProtobufSchemaMapperTestUtils.getCodeGenContext(testArgs);
 		
 		FastSerFormatCodegenBuilder.getInstance().validateServiceIfApplicable(context);
 		
@@ -72,7 +80,7 @@ public class ProtobufSchemaMapperTests extends CodeGenBaseTestCase {
 		}
 		ProtobufSchema schema = ProtobufSchemaMapper.getInstance().createProtobufSchema(listOfSchemaTypes, context);
 		//System.out.println(schema);
-		String dotprotofilepath = "UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/FindItemServiceAdjustedV3.proto";
+		String dotprotofilepath = getProtobufInput("FindItemServiceAdjustedV3.proto").getAbsolutePath();
 
 		List<ProtobufMessage> messagesFromFile = ProtobufSchemaMapperTestUtils.loadFindItemServiceManuallyWrittenProtoFile( dotprotofilepath );
 		updateMessagesLoadedFromFile( messagesFromFile, context, "com.ebay.marketplace.search.v1.services" );

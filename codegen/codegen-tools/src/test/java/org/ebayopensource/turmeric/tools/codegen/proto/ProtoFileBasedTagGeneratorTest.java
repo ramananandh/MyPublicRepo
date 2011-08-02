@@ -1,31 +1,31 @@
 package org.ebayopensource.turmeric.tools.codegen.proto;
 
-import java.io.File;
+import static org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.tag.ProtobufTagConstants.S_PROTO_OPTIONAL_TAG_START_NUMBER;
+import static org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.tag.ProtobufTagConstants.S_PROTO_REQUIRED_TAG_START_NUMBER;
+import static org.junit.Assert.fail;
 
+import java.io.File;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.junit.Test;
-
 import junit.framework.Assert;
 
-import com.ebay.soaframework.tools.codegen.CodeGenContext;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.WSDLParserException;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.SchemaType;
-import com.ebay.soaframework.tools.codegen.fastserformat.FastSerFormatCodegenBuilder;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.ProtobufSchemaMapper;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.dotproto.DotProtoGenerator;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufField;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufFieldModifier;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufMessage;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.model.ProtobufSchema;
-import com.ebay.test.TestAnnotate;
-import com.ebay.test.soaframework.tools.codegen.ProtobufSchemaMapperTestUtils;
-import static org.junit.Assert.*;
-import static com.ebay.soaframework.tools.codegen.fastserformat.protobuf.tag.ProtobufTagConstants.*;
+import org.ebayopensource.turmeric.tools.TestResourceUtil;
+import org.ebayopensource.turmeric.tools.codegen.AbstractServiceGeneratorTestCase;
+import org.ebayopensource.turmeric.tools.codegen.CodeGenContext;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.WSDLParserException;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.SchemaType;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.FastSerFormatCodegenBuilder;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.ProtobufSchemaMapper;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.dotproto.DotProtoGenerator;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufField;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufFieldModifier;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufMessage;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.model.ProtobufSchema;
+import org.junit.Test;
 
-public class ProtoFileBasedTagGeneratorTest
+public class ProtoFileBasedTagGeneratorTest extends AbstractServiceGeneratorTestCase
 {
     private String [] WSDLS = new String [] {
             "AAIADecoderService_for_tags",
@@ -174,7 +174,7 @@ public class ProtoFileBasedTagGeneratorTest
             "MyGarageService_for_tags",
             "NewAnalyticService_for_tags",
             "NewARService_for_tags",
-            "NewResolutionService_for_tags",
+            //"NewResolutionService_for_tags",
             "NewService_for_tags",
             "NormalizerDAO_for_tags",
             "NotificationEventMetadataService_for_tags",
@@ -273,17 +273,22 @@ public class ProtoFileBasedTagGeneratorTest
             "ViewItemService_for_tags",
             "WhitelistService_for_tags",
     		"ProtoTagMaster"};
-    private String baseprotoPath = "tmp/meta-src/META-INF/soa/services/proto";
+    private String baseprotoPath = null;
+    
+    public File getProtobufRelatedInput(String name) {
+		return TestResourceUtil.getResource("org/ebayopensource/turmeric/test/tools/codegen/data/proto/"
+				+ name);
+	}
 
-    public String[][] getWsdlArgs()
+    public String[][] getWsdlArgs(File dest, File bin)
     {
         String testArgs[][] = new String[350][];
         int counter=0;
         for(String wsdl: WSDLS)
         {
             testArgs[counter] = new String[]{ "-servicename", wsdl, "-wsdl",
-                    "UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/proto/" + wsdl + ".wsdl", "-genType",
-                    "ClientNoConfig", "-src", ".\\UnitTests\\src", "-dest", ".\\tmp", "-scv", "1.0.0", "-bin", ".\\bin",
+                     getProtobufRelatedInput(wsdl +".wsdl").getAbsolutePath(),"-genType",
+                    "ClientNoConfig", "-src", dest.getAbsolutePath(), "-dest", dest.getAbsolutePath(), "-scv", "1.0.0", "-bin",bin.getAbsolutePath(),
                     "-enabledNamespaceFolding", "-nonXSDFormats", "protobuf" };    
             counter++;
             
@@ -293,11 +298,15 @@ public class ProtoFileBasedTagGeneratorTest
     }
 
     @Test
-    @TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "tagGeneration", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
     public void testDotprotoGenerationForMasterWSDL() throws Exception
     {
+    	
+    	File destDir = testingdir.getDir();
+    	baseprotoPath = destDir.getAbsolutePath() + "meta-src/META-INF/soa/services/proto";
+    	
+    	File binDir = new File(destDir,"bin");
         deleteOldProtoFiles();
-        String[][] wsdlArgs = getWsdlArgs();
+        String[][] wsdlArgs = getWsdlArgs(destDir,binDir);
         for(String[] args : wsdlArgs)
         {
             if(args==null)
@@ -334,9 +343,10 @@ public class ProtoFileBasedTagGeneratorTest
     }
     
     @Test
-    @TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "tagGeneration", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
     public void testProtoFileTagAssignments() throws Exception
     {
+    	File destDir = testingdir.getDir();	
+    	baseprotoPath = destDir.getAbsolutePath() + "/meta-src/META-INF/soa/services/proto";
         for(String wsdlName : WSDLS)
         {
             String path = baseprotoPath + File.separator + wsdlName + File.separator + wsdlName + ".proto";

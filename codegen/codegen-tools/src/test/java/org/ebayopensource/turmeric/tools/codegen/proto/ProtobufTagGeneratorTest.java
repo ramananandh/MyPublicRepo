@@ -5,7 +5,10 @@ import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.assertTrue;
 import static junit.framework.Assert.fail;
-import static com.ebay.soaframework.tools.codegen.fastserformat.protobuf.tag.ProtobufTagConstants.*;
+import static org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.tag.ProtobufTagConstants.S_PROTO_TAG_MAX_VALUE;
+import static org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.tag.ProtobufTagConstants.S_PROTO_TAG_MIN_VALUE;
+import static org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.tag.ProtobufTagConstants.S_PROTO_TAG_RESERVED_MAX_VALUE;
+import static org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.tag.ProtobufTagConstants.S_PROTO_TAG_RESERVED_MIN_VALUE;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -13,25 +16,26 @@ import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import javax.wsdl.Definition;
 import javax.wsdl.factory.WSDLFactory;
 import javax.wsdl.xml.WSDLReader;
 import javax.xml.namespace.QName;
 
+import org.ebayopensource.turmeric.tools.TestResourceUtil;
+import org.ebayopensource.turmeric.tools.codegen.AbstractServiceGeneratorTestCase;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.SchemaType;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.tag.DefaultProtobufTagGenerator;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.tag.ProtobufMetadataFileWriter;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.tag.ProtobufMetadataWriter;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.tag.ProtobufTagGenerator;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.tag.QnameMapBuilder;
 import org.junit.Test;
 import org.xml.sax.InputSource;
 
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.SchemaType;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.tag.DefaultProtobufTagGenerator;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.tag.ProtobufMetadataFileWriter;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.tag.ProtobufMetadataWriter;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.tag.ProtobufTagGenerator;
-import com.ebay.soaframework.tools.codegen.fastserformat.protobuf.tag.QnameMapBuilder;
-
-public class ProtobufTagGeneratorTest extends CodeGenBaseTestCase
+public class ProtobufTagGeneratorTest extends AbstractServiceGeneratorTestCase
 {
 
     private final File protoFile = new File("UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/.MasterProto");
@@ -41,6 +45,11 @@ public class ProtobufTagGeneratorTest extends CodeGenBaseTestCase
     
     private final File junkProtoFile = new File("lib/JUNKPROTO");
     private final File junkWsdlFile = new File("lib/JUNKWSDL");
+    
+    public File getProtobufRelatedInput(String name) {
+		return TestResourceUtil.getResource("org/ebayopensource/turmeric/test/tools/codegen/data/proto/"
+				+ name);
+	}
 
     @Test
     public void testDefaultProtobufTagGenerator_positive()

@@ -3,60 +3,72 @@
  */
 package org.ebayopensource.turmeric.tools.codegen.proto;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.ebayopensource.turmeric.runtime.codegen.common.FastSerFormatValidationError;
+import org.ebayopensource.turmeric.runtime.codegen.common.ValidationRule;
+import org.ebayopensource.turmeric.tools.TestResourceUtil;
+import org.ebayopensource.turmeric.tools.codegen.AbstractServiceGeneratorTestCase;
+import org.ebayopensource.turmeric.tools.codegen.CodeGenContext;
+import org.ebayopensource.turmeric.tools.codegen.exception.CodeGenFailedException;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.WSDLParserConstants;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.FastSerFormatCodegenBuilder;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.validator.FastSerFormatNotSupportedException;
+import org.ebayopensource.turmeric.tools.codegen.fastserformat.protobuf.validator.FastSerFormatValidationHandler;
 import org.junit.Assert;
 import org.junit.Test;
-
-import com.ebay.soaframework.tools.codegen.CodeGenContext;
-import com.ebay.soaframework.tools.codegen.ServiceGenerator;
-import com.ebay.soaframework.tools.codegen.exception.CodeGenFailedException;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.WSDLParserConstants;
-import com.ebay.soaframework.tools.codegen.fastserformat.FastSerFormatCodegenBuilder;
-import com.ebay.soaframework.tools.codegen.fastserformat.FastSerFormatCodegenValidator;
-import com.ebay.soaframework.tools.codegen.fastserformat.FastSerFormatValidationError;
-import com.ebay.soaframework.tools.codegen.fastserformat.ValidationRule;
-import com.ebay.soaframework.tools.codegen.fastserformat.validator.FastSerFormatNotSupportedException;
-import com.ebay.soaframework.tools.codegen.fastserformat.validator.FastSerFormatValidationHandler;
-import com.ebay.test.TestAnnotate;
 
 /**
  * @author rkulandaivel
  *
  */
-public class FastSerFormatValidationTests extends CodeGenBaseTestCase {
+public class FastSerFormatValidationTests extends AbstractServiceGeneratorTestCase {
+	
+	
+	@Override
+	public File getProtobufRelatedInput(String name) {
+		return TestResourceUtil.getResource("org/ebayopensource/turmeric/test/tools/codegen/data/proto/"
+				+ name);
+	}
 
-	public static String[] getTestInvalidArgs() {
+	public static String[] getTestInvalidArgs(File wsdl,File destDir) {
+		
+		File binDir = new File(destDir,"bin");
 		String testArgs[] = new String[] {
 				"-servicename",
 				"CalcService",
 				"-wsdl",
-				"UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/CalcServiceProtobufInvalid.wsdl",
-				"-genType", "All", "-src", ".\\UnitTests\\src",
-				"-dest", ".\\tmp", "-scv", "1.0.0", "-bin", ".\\bin",
+				wsdl.getAbsolutePath(),
+				"-genType", "All", "-src", destDir.getAbsolutePath(),
+				"-dest",destDir.getAbsolutePath(), "-scv", "1.0.0", "-bin",binDir.getAbsolutePath(),
 				//"-enabledNamespaceFolding",
 				"-nonXSDFormats", "protobuf" };
 		return testArgs;
 	}
 
-	public static String[] getTestValidArgs() {
+	public static String[] getTestValidArgs(File wsdl, File destDir) {
+		File binDir = new File(destDir,"bin");
 		String testArgs[] = new String[] {
 				"-servicename",
 				"CalcService",
 				"-wsdl",
-				"UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/CalcServiceProtobufInvalid.wsdl",
-				"-genType", "All", "-src", ".\\UnitTests\\src",
-				"-dest", ".\\tmp", "-scv", "1.0.0", "-bin", ".\\bin",
+				wsdl.getAbsolutePath(),
+				"-genType", "All", "-src", destDir.getAbsolutePath(),
+				"-dest",destDir.getAbsolutePath(), "-scv", "1.0.0", "-bin",binDir.getAbsolutePath(),
 				"-enabledNamespaceFolding",
 				"-nonXSDFormats", "protobuf" };
 		return testArgs;
 	}
 	
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
 	public void validateService() throws Exception {
-		CodeGenContext context = ProtobufSchemaMapperTestUtils.getCodeGenContext( getTestInvalidArgs() );
+		
+		File wsdl1  = getProtobufRelatedInput("CalcServiceProtobufInvalid.wsdl");
+		File wsdl2 = getProtobufRelatedInput("CalcServiceProtobufInvalidNS.wsdl");
+		File destDir = testingdir.getDir();
+		CodeGenContext context = ProtobufSchemaMapperTestUtils.getCodeGenContext( getTestInvalidArgs(wsdl1,destDir) );
 		
 		//commented the test case bacause the check for enable namespace folding is removed.
 //		try {
@@ -78,7 +90,7 @@ public class FastSerFormatValidationTests extends CodeGenBaseTestCase {
 			}
 		}
 
-		context.getInputOptions().setInputFile("UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/CalcServiceProtobufInvalidNS.wsdl");
+		context.getInputOptions().setInputFile(wsdl2.getAbsolutePath());
 		try {
 			FastSerFormatCodegenBuilder.getInstance().validateServiceIfApplicable(context);
 		} catch (CodeGenFailedException e) {
@@ -88,7 +100,7 @@ public class FastSerFormatValidationTests extends CodeGenBaseTestCase {
 			}
 		}
 
-		context = ProtobufSchemaMapperTestUtils.getCodeGenContext( getTestValidArgs() );
+		context = ProtobufSchemaMapperTestUtils.getCodeGenContext( getTestValidArgs(wsdl2,destDir) );
 		try {
 			FastSerFormatCodegenBuilder.getInstance().validateServiceIfApplicable(context);
 		} catch (CodeGenFailedException e) {
@@ -134,12 +146,12 @@ public class FastSerFormatValidationTests extends CodeGenBaseTestCase {
 		
 	}
 
-	public static String[] getTestArgsForXsdValidation() {
+	public static String[] getTestArgsForXsdValidation(File wsdl, File destDir) {
 		String testArgs[] = new String[] {
 				"-servicename",
 				"CalcService",
 				"-wsdl",
-				"UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/CalcServiceProtobufInvalid.wsdl",
+				wsdl.getAbsolutePath(),
 				"-genType", "ValidateXSDsForNonXSDFormats", 
 				"-enabledNamespaceFolding",
 				"-nonXSDFormats", "protobuf",
@@ -147,17 +159,16 @@ public class FastSerFormatValidationTests extends CodeGenBaseTestCase {
 		return testArgs;
 	}
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
 	public void testParsingXSds() {
 
-		ServiceGenerator serviceGenerator = ServiceGeneratorTestUtils
-		.createServiceGenerator();
+		File destDir = testingdir.getDir();
+		File wsdl1  = getProtobufRelatedInput("CalcServiceProtobufInvalid.wsdl");
 		
 		Set<ValidationRule> expectedRules = new HashSet<ValidationRule>();
 		expectedRules.add(ValidationRule.ANONYMOUS_TYPE_NOT_SUPPORTED );
 		expectedRules.add(ValidationRule.POLYMORPHISM_NOT_SUPPORTED );
 		try {
-			serviceGenerator.startCodeGen(getTestArgsForXsdValidation());
+			performDirectCodeGen(getTestArgsForXsdValidation(wsdl1,destDir));
 		} catch( Exception e ){
 			String message = e.getMessage();
 			for( ValidationRule rule : expectedRules ){

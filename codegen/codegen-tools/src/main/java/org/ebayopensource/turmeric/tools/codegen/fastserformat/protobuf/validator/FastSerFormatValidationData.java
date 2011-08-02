@@ -57,6 +57,8 @@ public class FastSerFormatValidationData {
 		InputStream inputStream = CodeGenUtil
 				.getInputStreamForAFileFromClasspath(
 						VALIDATION_TEMPLATE_FILE_LOCATION, FastSerFormatValidationData.class.getClassLoader());
+		
+		
 		if (inputStream == null) {
 			getLogger().warning("Could not load Validation Template file");
 		} else {

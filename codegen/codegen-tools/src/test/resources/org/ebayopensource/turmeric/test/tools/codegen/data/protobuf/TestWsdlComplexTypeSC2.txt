@@ -3,7 +3,7 @@ value=value=string=optional
 attrA=attrA=date=optional
 attrB=attrB=int=optional
 
-http://codegen.tools.soaframework.test.ebay.com=MyComplexType
+http://codegen.tools.soaframework.test.ebay.com=MyComplexType1
 elemB=elemB=int=optional
 elemA=elemA=float=optional
 

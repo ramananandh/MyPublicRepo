@@ -15,34 +15,35 @@ import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.ebayopensource.turmeric.tools.TestResourceUtil;
+import org.ebayopensource.turmeric.tools.codegen.AbstractServiceGeneratorTestCase;
+import org.ebayopensource.turmeric.tools.codegen.external.WSDLUtil;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.WSDLParserConstants;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.Attribute;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.AttributeGroup;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.AttributeGroupType;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.ComplexContent;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.ComplexType;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.ElementType;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.GroupType;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.RestrictionEnumeration;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.Schema;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.SchemaType;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.Sequence;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.SimpleContent;
+import org.ebayopensource.turmeric.tools.codegen.external.wsdl.parser.schema.SimpleType;
 import org.junit.Assert;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import com.ebay.soaframework.tools.codegen.external.WSDLUtil;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.WSDLParserConstants;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.Attribute;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.AttributeGroup;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.AttributeGroupType;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.ComplexContent;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.ComplexType;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.ElementType;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.GroupType;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.RestrictionEnumeration;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.Schema;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.SchemaType;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.Sequence;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.SimpleContent;
-import com.ebay.soaframework.tools.codegen.external.wsdl.parser.schema.SimpleType;
-import com.ebay.test.TestAnnotate;
 import com.ibm.wsdl.util.xml.QNameUtils;
 
 /**
  * @author rkulandaivel
  * 
  */
-public class SchemaParserTests extends CodeGenBaseTestCase {
+public class SchemaParserTests extends AbstractServiceGeneratorTestCase {
 	
 	private static final String XSD_SCHEMA_NAMESPACE = "http://www.w3.org/2001/XMLSchema";
 	
@@ -71,10 +72,17 @@ public class SchemaParserTests extends CodeGenBaseTestCase {
 		builder = factory.newDocumentBuilder();
 		return builder.parse(wsdlOrXsdPath);
 	}
+	
+	private String getPathOfFile(String name){
+		return TestResourceUtil.getResource("types/TypeLibrarySupportForProtobuf/"
+				+ name).getAbsolutePath();
+		
+	}
+	
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
+	
 	public void testEnumType() throws Exception {
-		String enumTypeXsdPath = "meta-src/types/TypeLibrarySupportForProtoBuf/MyEnumType.xsd";
+		String enumTypeXsdPath = getPathOfFile("MyEnumType.xsd");
 		
 		Document document = parseXSDOrWsdl(enumTypeXsdPath);
 		
@@ -107,9 +115,8 @@ public class SchemaParserTests extends CodeGenBaseTestCase {
 	}
 	
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
 	public void testSimpleType() throws Exception {
-		String enumTypeXsdPath = "meta-src/types/TypeLibrarySupportForProtoBuf/MySimpleTypeIntRest.xsd";
+		String enumTypeXsdPath = getPathOfFile("MySimpleTypeIntRest.xsd");
 		
 		Document document = parseXSDOrWsdl(enumTypeXsdPath);
 		
@@ -135,9 +142,9 @@ public class SchemaParserTests extends CodeGenBaseTestCase {
 	}
 
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
+
 	public void testSimpleTypeWithList() throws Exception {
-		String enumTypeXsdPath = "meta-src/types/TypeLibrarySupportForProtoBuf/MySimpleTypeList.xsd";
+		String enumTypeXsdPath = getPathOfFile("MySimpleTypeList.xsd");
 		
 		Document document = parseXSDOrWsdl(enumTypeXsdPath);
 		
@@ -160,9 +167,9 @@ public class SchemaParserTests extends CodeGenBaseTestCase {
 	
 	
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
+
 	public void testComplexType() throws Exception {
-		String enumTypeXsdPath = "meta-src/types/TypeLibrarySupportForProtoBuf/MyComplexType.xsd";
+		String enumTypeXsdPath = getPathOfFile("MyComplexType.xsd");
 		
 		Document document = parseXSDOrWsdl(enumTypeXsdPath);
 		
@@ -213,9 +220,8 @@ public class SchemaParserTests extends CodeGenBaseTestCase {
 	
 	
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
 	public void testComplexTypeWithAttribute() throws Exception {
-		String enumTypeXsdPath = "meta-src/types/TypeLibrarySupportForProtoBuf/ComplexTypeWithAttr.xsd";
+		String enumTypeXsdPath = getPathOfFile("ComplexTypeWithAttr.xsd");
 		
 		Document document = parseXSDOrWsdl(enumTypeXsdPath);
 		
@@ -252,9 +258,9 @@ public class SchemaParserTests extends CodeGenBaseTestCase {
 	}
 
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
+	
 	public void testComplexTypeWithAttributeGroup() throws Exception {
-		String enumTypeXsdPath = "meta-src/types/TypeLibrarySupportForProtoBuf/ComplexTypeWithAttrGp.xsd";
+		String enumTypeXsdPath = getPathOfFile("ComplexTypeWithAttrGp.xsd");
 		
 		Document document = parseXSDOrWsdl(enumTypeXsdPath);
 		
@@ -308,9 +314,9 @@ public class SchemaParserTests extends CodeGenBaseTestCase {
 	}
 	
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
+
 	public void testComplexTypeWithChoice() throws Exception {
-		String enumTypeXsdPath = "meta-src/types/TypeLibrarySupportForProtoBuf/ComplexTypeUsingChoice.xsd";
+		String enumTypeXsdPath = getPathOfFile("ComplexTypeUsingChoice.xsd");
 		
 		Document document = parseXSDOrWsdl(enumTypeXsdPath);
 		
@@ -345,9 +351,9 @@ public class SchemaParserTests extends CodeGenBaseTestCase {
 	}
 
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
+	
 	public void testComplexTypeUsingGroup() throws Exception {
-		String enumTypeXsdPath = "meta-src/types/TypeLibrarySupportForProtoBuf/ComplexTypeusingGrp.xsd";
+		String enumTypeXsdPath = getPathOfFile("ComplexTypeusingGrp.xsd");
 		
 		Document document = parseXSDOrWsdl(enumTypeXsdPath);
 		
@@ -400,9 +406,9 @@ public class SchemaParserTests extends CodeGenBaseTestCase {
 	
 	
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
+
 	public void testComplexTypeUsingSimpleContent() throws Exception {
-		String enumTypeXsdPath = "meta-src/types/TypeLibrarySupportForProtoBuf/ComplexTypeSimpleContentWithAttrGp.xsd";
+		String enumTypeXsdPath =getPathOfFile("ComplexTypeSimpleContentWithAttrGp.xsd");
 		
 		Document document = parseXSDOrWsdl(enumTypeXsdPath);
 		
@@ -458,9 +464,9 @@ public class SchemaParserTests extends CodeGenBaseTestCase {
 	
 	
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
+	
 	public void testComplexTypeUsingComplexContent() throws Exception {
-		String enumTypeXsdPath = "meta-src/types/TypeLibrarySupportForProtoBuf/MyComplexTypeComplexContentType.xsd";
+		String enumTypeXsdPath = getPathOfFile("MyComplexTypeComplexContentType.xsd");
 		
 		Document document = parseXSDOrWsdl(enumTypeXsdPath);
 		
@@ -533,9 +539,9 @@ public class SchemaParserTests extends CodeGenBaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	@Test
-	@TestAnnotate(domainName = TestAnnotate.Domain.Services, feature = TestAnnotate.Feature.Codegen, subFeature = "", description = "", bugID = "", trainID = "", projectID = "", authorDev = "", authorQE = "")
+
 	public void testCurrenyRateServiceWsdl() throws Exception {
-		String wsdlPath = "UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/CurrencyRateService.wsdl";
+		String wsdlPath = getCodegenDataFileInput("CurrencyRateService.wsdl").getAbsolutePath();
 		
 		Definition def = WSDLUtil.getWSDLDefinition( wsdlPath );
 		List<Schema> schemas = new ArrayList<Schema>();
