@@ -1,3 +1,0 @@
-    public List<Response<?>> poll(boolean block, boolean partial)
-        throws InterruptedException
-    ;
