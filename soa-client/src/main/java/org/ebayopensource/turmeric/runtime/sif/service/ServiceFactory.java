@@ -259,6 +259,33 @@ public final class ServiceFactory {
 				null, environmentName, rawMode);
 
 	}
+	
+	/**
+	 * 
+	 * Static factory method for creating a Service object.
+	 * 
+	 * @param adminName
+	 * 			Service admin name	
+	 * @param environment
+	 * 			the client environment. If null, envronmentMapper will be consulted for the environment.
+	 * @param clientName
+	 * 			the client name to retrieve the configuration. If null, ServiceException will be thrown. 
+	 * @param serviceLocation
+	 * 			the service end point URI
+	 * @param rawMode 
+	 *          boolean indicating the raw mode
+	 * @param useDefaultClientConfig
+	 * 			boolean indicating the use of default client config.
+	 * @return
+	 * 		   the service object.
+	 */
+	public static Service create(String adminName, String environment,
+			String clientName, URL serviceLocation, boolean rawMode,
+			boolean useDefaultClientConfig) throws ServiceException {
+		return create(adminName, clientName, serviceLocation, null, null, environment, rawMode, useDefaultClientConfig);
+
+
+	}
 
 	private static Service create(String serviceAdminName, String clientName,
 			URL serviceLocation, String serviceVersion, URL wsdlLocation,

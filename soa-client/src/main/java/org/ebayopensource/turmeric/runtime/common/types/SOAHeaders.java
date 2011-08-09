@@ -154,6 +154,8 @@ public final class SOAHeaders {
 	 * is started.
 	 */
 	public static final String NON_STREAMING_MODE =  SYS_PREFIX + "NON-STREAMING-SERIALIZATION";
+	
+	public static final String AUTH_APPNAME = SYS_PREFIX + "SECURITY-APPNAME";
 
 	private static Set<String> s_caseSensitiveHeaders = new HashSet<String>();
 

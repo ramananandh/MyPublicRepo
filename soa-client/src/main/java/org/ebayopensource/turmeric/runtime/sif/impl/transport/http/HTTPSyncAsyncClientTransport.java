@@ -64,7 +64,6 @@ import org.ebayopensource.turmeric.runtime.sif.service.ClientServiceId;
 import com.ebay.kernel.service.invocation.client.exception.BaseClientSideException;
 import com.ebay.kernel.service.invocation.client.http.HttpStatusEnum;
 import com.ebay.kernel.service.invocation.client.http.Request;
-import com.ebay.kernel.service.invocation.client.http.RequestBodyWriter;
 import com.ebay.kernel.service.invocation.client.http.Response;
 import com.ebay.kernel.service.invocation.client.http.nio.NioAsyncCallback;
 import com.ebay.kernel.service.invocation.client.http.nio.NioAsyncHttpClient;
