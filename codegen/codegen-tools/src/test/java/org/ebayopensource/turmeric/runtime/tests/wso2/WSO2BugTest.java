@@ -8,7 +8,7 @@
  *******************************************************************************/
 package org.ebayopensource.turmeric.runtime.tests.wso2;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsString;
 
 import java.io.BufferedReader;
 import java.io.File;

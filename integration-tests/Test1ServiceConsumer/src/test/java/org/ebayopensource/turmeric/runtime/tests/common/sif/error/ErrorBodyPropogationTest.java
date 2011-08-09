@@ -9,12 +9,13 @@ import java.net.Socket;
 
 import junit.framework.Assert;
 
-import org.ebayopensource.turmeric.junit.AbstractTurmericTestCase;
 import org.ebayopensource.turmeric.runtime.sif.service.Service;
 import org.ebayopensource.turmeric.runtime.sif.service.ServiceFactory;
 import org.junit.Test;
 
-public class ErrorBodyPropogationTest extends AbstractTurmericTestCase {
+public class ErrorBodyPropogationTest extends BaseErrorResponseTest {
+	
+	
 
 	private final String ECHO_STRING = "BH Test String";
 
@@ -118,6 +119,10 @@ public class ErrorBodyPropogationTest extends AbstractTurmericTestCase {
 		}
 
 	}
+	
+	
+
+	
 
 	
 	@Test

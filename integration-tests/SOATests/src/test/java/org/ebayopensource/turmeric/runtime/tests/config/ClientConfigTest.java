@@ -8,7 +8,9 @@
  *******************************************************************************/
 package org.ebayopensource.turmeric.runtime.tests.config;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import java.util.Collection;
 import java.util.Map;
@@ -59,7 +61,9 @@ public class ClientConfigTest extends AbstractTurmericTestCase {
 
 			CompareUtils.writeOutputFile(this.getClass(), output, "client");
 			String compareString = CompareUtils.getCompareString(this.getClass(), "client.compare.txt");
+			System.out.println(output.toString());
 			assertEquals(compareString, output.toString());
+			
 		} finally {
 			configManager.setConfigTestCase("config");
 		}
@@ -138,3 +142,4 @@ public class ClientConfigTest extends AbstractTurmericTestCase {
 		path = ClientConfigManager.getZeroClientConfigFilePath("feature");
 		assertEquals("META-INF/soa/client/config/feature/DefaultClientConfig.xml", path);
 	}
+}

@@ -20,7 +20,7 @@ import org.junit.runners.Suite;
 	CustomHttpHeadersTest.class,
 //	WSDLEnhancementsTest.class,
 //	OperationNameMismatchTest.class
-	UTF8EncodingTests.class,
+	//UTF8EncodingTests.class,
 	AsyncClientStreamingDownloadAttachmentTests.class,
 	AsyncClientStreamingUploadAttachmentTests.class,
 	AttachmentCacheTests.class,

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite skipped="0" tests="1" failures="0" errors="0" name="org.ebayopensource.turmeric.runtime.errorlibrary.ConfigValidationTest" time="0.938">
+<testsuite skipped="0" tests="1" failures="0" errors="0" name="org.ebayopensource.turmeric.runtime.errorlibrary.ConfigValidationTest" time="0.672">
   <properties>
     <property value="IBM Corporation" name="java.vendor"/>
-    <property value="C:\anav" name="localRepository"/>
+    <property value="C:\maven.repo\vthangathurai\realos" name="localRepository"/>
     <property value="SUN_STANDARD" name="sun.java.launcher"/>
     <property value="Windows Server 2003" name="os.name"/>
-    <property value="C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\vm.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\annotation.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\beans.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\java.util.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\jndi.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\logging.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\security.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\sql.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\ibmorb.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\ibmorbapi.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\ibmcfw.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\rt.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\charsets.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\resources.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\ibmpkcs.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\ibmcertpathfw.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\ibmjgssfw.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\ibmjssefw.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\ibmsaslfw.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\ibmjcefw.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\ibmjgssprovider.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\ibmjsseprovider2.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\ibmcertpathprovider.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\ibmxmlcrypto.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\management-agent.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\xml.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\jlm.jar;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\javascript.jar" name="sun.boot.class.path"/>
+    <property value="C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\vm.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\annotation.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\beans.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\java.util.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\jndi.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\logging.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\security.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\sql.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\ibmorb.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\ibmorbapi.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\ibmcfw.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\rt.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\charsets.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\resources.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\ibmpkcs.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\ibmcertpathfw.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\ibmjgssfw.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\ibmjssefw.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\ibmsaslfw.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\ibmjcefw.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\ibmjgssprovider.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\ibmjsseprovider2.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\ibmcertpathprovider.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\ibmxmlcrypto.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\management-agent.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\xml.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\jlm.jar;C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\javascript.jar" name="sun.boot.class.path"/>
     <property value="" name="sun.java2d.fontpath"/>
     <property value="Sun Microsystems Inc." name="java.vm.specification.vendor"/>
     <property value="jvmwi3260sr4ifx-20090506_35012" name="java.runtime.version"/>
-    <property value="anav" name="user.name"/>
+    <property value="vthangathurai" name="user.name"/>
     <property value="j9jit24" name="java.compiler"/>
     <property value="UTF8" name="os.encoding"/>
     <property value="" name="com.ibm.util.extralibs.properties"/>
     <property value="" name="com.ibm.jcl.checkClassPath"/>
     <property value="en" name="user.language"/>
-    <property value="C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\bin" name="com.ibm.oti.vm.bootstrap.library.path"/>
-    <property value="C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\bin" name="sun.boot.library.path"/>
+    <property value="C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\bin" name="com.ibm.oti.vm.bootstrap.library.path"/>
+    <property value="C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\bin" name="sun.boot.library.path"/>
     <property value="1.6.0" name="java.version"/>
     <property value="" name="user.timezone"/>
-    <property value="C:\Documents and Settings\anav\MyPublicRepo\runtime-error-library\target\testing-logs" name="com.ebay.log.dir"/>
+    <property value="C:\soacopy\runtime-error-library\target\testing-logs" name="com.ebay.log.dir"/>
     <property value="32" name="sun.arch.data.model"/>
     <property value="1" name="com.ibm.zero.version"/>
-    <property value="C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\endorsed" name="java.endorsed.dirs"/>
+    <property value="C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\endorsed" name="java.endorsed.dirs"/>
     <property value="24" name="com.ibm.oti.vm.library.version"/>
     <property value="Cp1252" name="sun.jnu.encoding"/>
     <property value="14" name="jxe.current.romimage.version"/>
@@ -30,13 +30,13 @@
     <property value="Java Platform API Specification" name="java.specification.name"/>
     <property value="50.0" name="java.class.version"/>
     <property value="US" name="user.country"/>
-    <property value="C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre" name="java.home"/>
+    <property value="C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre" name="java.home"/>
     <property value="J2RE 1.6.0 IBM J9 2.4 Windows Server 2003 x86-32 jvmwi3260sr4ifx-20090506_35012 (JIT enabled, AOT enabled)
 J9VM - 20090506_035012_lHdSMr
 JIT  - r9_20090213_2028ifx2
 GC   - 20090213_AA" name="java.vm.info"/>
     <property value="5.2 build 3790 Service Pack 2" name="os.version"/>
-    <property value="C:\DOCUME~1\anav\LOCALS~1\Temp\1\surefirebooter3009806146036606513.jar" name="surefire.real.class.path"/>
+    <property value="C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\1\surefirebooter1487918926524650137.jar" name="surefire.real.class.path"/>
     <property value="" name="java.awt.fonts"/>
     <property value=";" name="path.separator"/>
     <property value="2.4" name="java.vm.version"/>
@@ -48,11 +48,11 @@ GC   - 20090213_AA" name="java.vm.info"/>
     <property value="sun.awt.windows.WToolkit" name="awt.toolkit"/>
     <property value="true" name="ibm.signalhandling.sigint"/>
     <property value="ON" name="java.assistive"/>
-    <property value="C:\Documents and Settings\anav" name="user.home"/>
+    <property value="C:\Documents and Settings\vthangathurai" name="user.home"/>
     <property value="little" name="com.ibm.cpu.endian"/>
     <property value="Sun Microsystems Inc." name="java.specification.vendor"/>
     <property value="true" name="ibm.signalhandling.sigchain"/>
-    <property value="C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\bin;.;C:/v3java/ibmsdkpwi3260sr4ifx20090622/jre/bin/j9vm;C:/v3java/ibmsdkpwi3260sr4ifx20090622/jre/bin;C:/v3java/ibmsdkpwi3260sr4ifx20090622/jre/lib/i386;C:\Program Files\HP\NCU;C:\opt\groovy-1.0\bin;C:\opt\maven-2.1-20070204\bin;C:\opt\groovy-1.1-beta-2\bin;C:\opt\maven-2.1-2007-08-17\bin;c:\Perl\bin;C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\bin;C:\v3java\ibmsdkpwi3260sr4ifx20090622\bin ;C:\oracle\ora92\bin;C:\Program Files (x86)\Oracle\jre\1.3.1\bin;C:\Program Files (x86)\Oracle\jre\1.1.8\bin;c:\ruby\bin;C:\Perl64\site\bin;C:\Perl64\bin;C:\Program Files (x86)\Windows Resource Kits\Tools\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files (x86)\SecureCRT\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Rational\common;C:\Program Files (x86)\Rational\ClearCase\bin;C:\Program Files (x86)\System Center Operations Manager 2007\;C:\Program Files\System Center Operations Manager 2007\;C:\opt\apache-ant-1.6.5-20070204\bin;C:\opt\groovy-1.1-beta-3\bin;C:\Program Files (x86)\Windows Imaging\;C:\maven\apache-maven-3.0-beta-1\bin;C:\Program Files\TortoiseSVN\bin" name="java.library.path"/>
+    <property value="C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\bin;.;C:/ede4.5/java6-ibm-sr4ifx3-2009-06-22-windows/bin/../jre/bin/j9vm;C:/ede4.5/java6-ibm-sr4ifx3-2009-06-22-windows/bin/../jre/bin;C:/ede4.5/java6-ibm-sr4ifx3-2009-06-22-windows/bin/../jre/lib/i386;C:\Perl\bin\;C:\ede4.5\java6-ibm-sr4ifx3-2009-06-22-windows\bin\;C:\Program Files (x86)\Rational\ClearCase\bin;C:\Oracle\ora92\bin;C:\windows;C:\windows\System32;C:\windows\System32\Wbem;C:\Program Files (x86)\Vim\vim63;C:\Python22;C:\ruby\bin;C:\Perl\bin;C:\Program Files (x86)\Rational\common;C:\opt\apache-ant-1.6.5-20070204\bin;C:\opt\groovy-1.1-beta-3\bin;C:\Program Files (x86)\Windows Imaging\;C:\windows\system32\WindowsPowerShell\v1.0;C:\tomcat55\bin;C:\windows\system32\WindowsPowerShell\v1.0;C:\maven3\apache-maven-3.0\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\SlikSvn\bin\;C:\Nexus\nexus-oss-webapp-1.9.0.1\bin;C:\HDMIAgentService;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\eclipse\eclipse;" name="java.library.path"/>
     <property value="http://www.ibm.com/" name="java.vendor.url"/>
     <property value="IBM Corporation" name="java.vm.vendor"/>
     <property value="J2RE 1.6.0 IBM J9 2.4 Windows Server 2003 x86-32 jvmwi3260sr4ifx-20090506_35012 (JIT enabled, AOT enabled)
@@ -60,31 +60,31 @@ J9VM - 20090506_035012_lHdSMr
 JIT  - r9_20090213_2028ifx2
 GC   - 20090213_AA" name="java.fullversion"/>
     <property value="Java(TM) SE Runtime Environment" name="java.runtime.name"/>
-    <property value="C:\DOCUME~1\anav\LOCALS~1\Temp\1\surefirebooter3009806146036606513.jar C:\DOCUME~1\anav\LOCALS~1\Temp\1\surefire7378853004082907955tmp C:\DOCUME~1\anav\LOCALS~1\Temp\1\surefire1135275659957427824tmp" name="sun.java.command"/>
-    <property value="C:\Documents and Settings\anav\MyPublicRepo\runtime-error-library\target\test-classes;C:\Documents and Settings\anav\MyPublicRepo\runtime-error-library\target\classes;C:\anav\org\ebayopensource\turmeric\typelib\common-type-library\1.0.1.0-SNAPSHOT\common-type-library-1.0.1.0-SNAPSHOT.jar;C:\anav\org\ebayopensource\turmeric\runtime\config-validation-tests\1.0.1.0-SNAPSHOT\config-validation-tests-1.0.1.0-SNAPSHOT.jar;C:\anav\org\ebayopensource\turmeric\turmeric-junit\1.0.3\turmeric-junit-1.0.3.jar;C:\anav\org\json\json\20080701\json-20080701.jar;C:\anav\org\jdom\jdom\1.1\jdom-1.1.jar;C:\anav\jaxen\jaxen\1.1.1\jaxen-1.1.1.jar;C:\anav\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;C:\anav\jdom\jdom\1.0\jdom-1.0.jar;C:\anav\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;C:\anav\xerces\xercesImpl\2.8.1\xercesImpl-2.8.1.jar;C:\anav\xom\xom\1.0\xom-1.0.jar;C:\anav\xerces\xmlParserAPIs\2.6.2\xmlParserAPIs-2.6.2.jar;C:\anav\xalan\xalan\2.6.0\xalan-2.6.0.jar;C:\anav\com\ibm\icu\icu4j\2.6.1\icu4j-2.6.1.jar;C:\anav\com\thoughtworks\qdox\qdox\1.12\qdox-1.12.jar;C:\anav\commons-lang\commons-lang\2.1\commons-lang-2.1.jar;C:\anav\commons-io\commons-io\1.3.2\commons-io-1.3.2.jar;C:\anav\junit\junit\4.8.1\junit-4.8.1.jar;C:\anav\org\hamcrest\hamcrest-library\1.1\hamcrest-library-1.1.jar;C:\anav\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;C:\anav\org\apache\felix\org.osgi.core\1.0.0\org.osgi.core-1.0.0.jar;" name="java.class.path"/>
+    <property value="C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\1\surefirebooter1487918926524650137.jar C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\1\surefire1688171263226462682tmp C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\1\surefire7355676440118938368tmp" name="sun.java.command"/>
+    <property value="C:\soacopy\runtime-error-library\target\test-classes;C:\soacopy\runtime-error-library\target\classes;C:\maven.repo\vthangathurai\realos\org\ebayopensource\turmeric\typelib\common-type-library\1.0.1.0-SNAPSHOT\common-type-library-1.0.1.0-SNAPSHOT.jar;C:\maven.repo\vthangathurai\realos\org\ebayopensource\turmeric\runtime\config-validation-tests\1.0.1.0-SNAPSHOT\config-validation-tests-1.0.1.0-SNAPSHOT.jar;C:\maven.repo\vthangathurai\realos\org\ebayopensource\turmeric\turmeric-junit\1.0.3\turmeric-junit-1.0.3.jar;C:\maven.repo\vthangathurai\realos\org\json\json\20080701\json-20080701.jar;C:\maven.repo\vthangathurai\realos\org\jdom\jdom\1.1\jdom-1.1.jar;C:\maven.repo\vthangathurai\realos\jaxen\jaxen\1.1.1\jaxen-1.1.1.jar;C:\maven.repo\vthangathurai\realos\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;C:\maven.repo\vthangathurai\realos\jdom\jdom\1.0\jdom-1.0.jar;C:\maven.repo\vthangathurai\realos\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;C:\maven.repo\vthangathurai\realos\xerces\xercesImpl\2.8.1\xercesImpl-2.8.1.jar;C:\maven.repo\vthangathurai\realos\xom\xom\1.0\xom-1.0.jar;C:\maven.repo\vthangathurai\realos\xerces\xmlParserAPIs\2.6.2\xmlParserAPIs-2.6.2.jar;C:\maven.repo\vthangathurai\realos\xalan\xalan\2.6.0\xalan-2.6.0.jar;C:\maven.repo\vthangathurai\realos\com\ibm\icu\icu4j\2.6.1\icu4j-2.6.1.jar;C:\maven.repo\vthangathurai\realos\com\thoughtworks\qdox\qdox\1.12\qdox-1.12.jar;C:\maven.repo\vthangathurai\realos\commons-lang\commons-lang\2.1\commons-lang-2.1.jar;C:\maven.repo\vthangathurai\realos\commons-io\commons-io\1.3.2\commons-io-1.3.2.jar;C:\maven.repo\vthangathurai\realos\junit\junit\4.8.1\junit-4.8.1.jar;C:\maven.repo\vthangathurai\realos\org\hamcrest\hamcrest-library\1.1\hamcrest-library-1.1.jar;C:\maven.repo\vthangathurai\realos\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;C:\maven.repo\vthangathurai\realos\org\apache\felix\org.osgi.core\1.0.0\org.osgi.core-1.0.0.jar;" name="java.class.path"/>
     <property value="Java Virtual Machine Specification" name="java.vm.specification.name"/>
     <property value="1.0" name="java.vm.specification.version"/>
-    <property value="C:\Documents and Settings\anav\MyPublicRepo\runtime-error-library\target\test-classes;C:\Documents and Settings\anav\MyPublicRepo\runtime-error-library\target\classes;C:\anav\org\ebayopensource\turmeric\typelib\common-type-library\1.0.1.0-SNAPSHOT\common-type-library-1.0.1.0-SNAPSHOT.jar;C:\anav\org\ebayopensource\turmeric\runtime\config-validation-tests\1.0.1.0-SNAPSHOT\config-validation-tests-1.0.1.0-SNAPSHOT.jar;C:\anav\org\ebayopensource\turmeric\turmeric-junit\1.0.3\turmeric-junit-1.0.3.jar;C:\anav\org\json\json\20080701\json-20080701.jar;C:\anav\org\jdom\jdom\1.1\jdom-1.1.jar;C:\anav\jaxen\jaxen\1.1.1\jaxen-1.1.1.jar;C:\anav\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;C:\anav\jdom\jdom\1.0\jdom-1.0.jar;C:\anav\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;C:\anav\xerces\xercesImpl\2.8.1\xercesImpl-2.8.1.jar;C:\anav\xom\xom\1.0\xom-1.0.jar;C:\anav\xerces\xmlParserAPIs\2.6.2\xmlParserAPIs-2.6.2.jar;C:\anav\xalan\xalan\2.6.0\xalan-2.6.0.jar;C:\anav\com\ibm\icu\icu4j\2.6.1\icu4j-2.6.1.jar;C:\anav\com\thoughtworks\qdox\qdox\1.12\qdox-1.12.jar;C:\anav\commons-lang\commons-lang\2.1\commons-lang-2.1.jar;C:\anav\commons-io\commons-io\1.3.2\commons-io-1.3.2.jar;C:\anav\junit\junit\4.8.1\junit-4.8.1.jar;C:\anav\org\hamcrest\hamcrest-library\1.1\hamcrest-library-1.1.jar;C:\anav\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;C:\anav\org\apache\felix\org.osgi.core\1.0.0\org.osgi.core-1.0.0.jar;" name="surefire.test.class.path"/>
-    <property value="C:\DOCUME~1\anav\LOCALS~1\Temp\1\" name="java.io.tmpdir"/>
+    <property value="C:\soacopy\runtime-error-library\target\test-classes;C:\soacopy\runtime-error-library\target\classes;C:\maven.repo\vthangathurai\realos\org\ebayopensource\turmeric\typelib\common-type-library\1.0.1.0-SNAPSHOT\common-type-library-1.0.1.0-SNAPSHOT.jar;C:\maven.repo\vthangathurai\realos\org\ebayopensource\turmeric\runtime\config-validation-tests\1.0.1.0-SNAPSHOT\config-validation-tests-1.0.1.0-SNAPSHOT.jar;C:\maven.repo\vthangathurai\realos\org\ebayopensource\turmeric\turmeric-junit\1.0.3\turmeric-junit-1.0.3.jar;C:\maven.repo\vthangathurai\realos\org\json\json\20080701\json-20080701.jar;C:\maven.repo\vthangathurai\realos\org\jdom\jdom\1.1\jdom-1.1.jar;C:\maven.repo\vthangathurai\realos\jaxen\jaxen\1.1.1\jaxen-1.1.1.jar;C:\maven.repo\vthangathurai\realos\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;C:\maven.repo\vthangathurai\realos\jdom\jdom\1.0\jdom-1.0.jar;C:\maven.repo\vthangathurai\realos\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;C:\maven.repo\vthangathurai\realos\xerces\xercesImpl\2.8.1\xercesImpl-2.8.1.jar;C:\maven.repo\vthangathurai\realos\xom\xom\1.0\xom-1.0.jar;C:\maven.repo\vthangathurai\realos\xerces\xmlParserAPIs\2.6.2\xmlParserAPIs-2.6.2.jar;C:\maven.repo\vthangathurai\realos\xalan\xalan\2.6.0\xalan-2.6.0.jar;C:\maven.repo\vthangathurai\realos\com\ibm\icu\icu4j\2.6.1\icu4j-2.6.1.jar;C:\maven.repo\vthangathurai\realos\com\thoughtworks\qdox\qdox\1.12\qdox-1.12.jar;C:\maven.repo\vthangathurai\realos\commons-lang\commons-lang\2.1\commons-lang-2.1.jar;C:\maven.repo\vthangathurai\realos\commons-io\commons-io\1.3.2\commons-io-1.3.2.jar;C:\maven.repo\vthangathurai\realos\junit\junit\4.8.1\junit-4.8.1.jar;C:\maven.repo\vthangathurai\realos\org\hamcrest\hamcrest-library\1.1\hamcrest-library-1.1.jar;C:\maven.repo\vthangathurai\realos\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;C:\maven.repo\vthangathurai\realos\org\apache\felix\org.osgi.core\1.0.0\org.osgi.core-1.0.0.jar;" name="surefire.test.class.path"/>
+    <property value="C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\1\" name="java.io.tmpdir"/>
     <property value="20090218_01" name="java.jcl.version"/>
     <property value="Cp1252" name="ibm.system.encoding"/>
     <property value="x86" name="os.arch"/>
     <property value="sun.awt.Win32GraphicsEnvironment" name="java.awt.graphicsenv"/>
     <property value="false" name="ibm.signalhandling.rs"/>
     <property value="org.ebayopensource.turmeric.junit.logging.SimpleConsoleHandler$Init" name="java.util.logging.config.class"/>
-    <property value="C:\v3java\ibmsdkpwi3260sr4ifx20090622\jre\lib\ext" name="java.ext.dirs"/>
-    <property value="C:\Documents and Settings\anav\MyPublicRepo\runtime-error-library" name="user.dir"/>
+    <property value="C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\lib\ext" name="java.ext.dirs"/>
+    <property value="C:\soacopy\runtime-error-library" name="user.dir"/>
     <property value="
 " name="line.separator"/>
     <property value="IBM J9 VM" name="java.vm.name"/>
     <property value="false" name="com.ibm.oti.shared.enabled"/>
     <property value="32" name="com.ibm.vm.bitmode"/>
-    <property value="C:\Documents and Settings\anav\MyPublicRepo\runtime-error-library" name="basedir"/>
+    <property value="C:\soacopy\runtime-error-library" name="basedir"/>
     <property value="14" name="jxe.lowest.romimage.version"/>
     <property value="Cp1252" name="file.encoding"/>
     <property value="20090121_0923" name="com.ibm.oti.jcl.build"/>
     <property value="1.6" name="java.specification.version"/>
     <property value="scar" name="com.ibm.oti.configuration"/>
   </properties>
-  <testcase classname="org.ebayopensource.turmeric.runtime.errorlibrary.ConfigValidationTest" name="testProjectConfigs" time="0.422"/>
+  <testcase classname="org.ebayopensource.turmeric.runtime.errorlibrary.ConfigValidationTest" name="testProjectConfigs" time="0.453"/>
 </testsuite>

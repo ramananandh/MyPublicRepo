@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.tools.JavaCompiler;
@@ -71,11 +70,6 @@ public abstract class AbstractServiceGeneratorTestCase extends AbstractCodegenTe
 	Thread.currentThread().setContextClassLoader(loader);
 	}
 	
-	public boolean containsString(String str) {
-		  Pattern patt = Pattern.compile(str);
-		  Matcher m = patt.matcher(str);
-		  return m.matches();
-		}
 
 	
 	protected Class<?> loadClass(String fullyQualifiedName) throws ClassNotFoundException{

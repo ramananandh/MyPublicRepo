@@ -13,14 +13,12 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
 import javax.xml.bind.JAXB;
 
-import org.apache.commons.io.IOUtils;
 import org.ebayopensource.turmeric.common.config.ServiceTypeMappingConfig;
 import org.ebayopensource.turmeric.junit.asserts.ClassLoaderAssert;
 import org.ebayopensource.turmeric.junit.utils.MavenTestingUtils;

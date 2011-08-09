@@ -24,7 +24,6 @@ param113=param113=string=repeated
 param14=param14=anyURI=repeated
 param15=param15=boolean=repeated
 param17=param17=byte=repeated
-param18=param18=base64Binary=repeated
 param19=param19=duration=repeated
 param20=param20=dateTime=repeated
 param21=param21=time=repeated

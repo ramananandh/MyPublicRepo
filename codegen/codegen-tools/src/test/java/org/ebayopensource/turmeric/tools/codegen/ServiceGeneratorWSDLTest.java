@@ -8,17 +8,14 @@
  *******************************************************************************/
 package org.ebayopensource.turmeric.tools.codegen;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsString;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.commons.io.FilenameUtils;
 import org.ebayopensource.turmeric.junit.utils.MavenTestingUtils;
 import org.ebayopensource.turmeric.runtime.common.types.SOAConstants;
 import org.ebayopensource.turmeric.tools.TestResourceUtil;
-import org.ebayopensource.turmeric.tools.XmlAdjuster;
 import org.ebayopensource.turmeric.tools.codegen.exception.CodeGenFailedException;
 import org.junit.Assert;
 import org.junit.Test;

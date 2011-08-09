@@ -27,6 +27,8 @@ import org.junit.Test;
 
 public class ProtoFileBasedTagGeneratorTest extends AbstractServiceGeneratorTestCase
 {
+	
+	
     private String [] WSDLS = new String [] {
             "AAIADecoderService_for_tags",
             "AdBillingService_for_tags",
@@ -302,7 +304,7 @@ public class ProtoFileBasedTagGeneratorTest extends AbstractServiceGeneratorTest
     {
     	
     	File destDir = testingdir.getDir();
-    	baseprotoPath = destDir.getAbsolutePath() + "meta-src/META-INF/soa/services/proto";
+    	baseprotoPath = destDir.getAbsolutePath() + "/meta-src/META-INF/soa/services/proto";
     	
     	File binDir = new File(destDir,"bin");
         deleteOldProtoFiles();
@@ -339,14 +341,17 @@ public class ProtoFileBasedTagGeneratorTest extends AbstractServiceGeneratorTest
             }
             ProtobufSchemaMapperTestUtils.validateTagNumberGeneration( context, schema );
         }
+        
+        
+        verifyProtoFileTagAssignments();
 
     }
     
-    @Test
-    public void testProtoFileTagAssignments() throws Exception
+ 
+    public void verifyProtoFileTagAssignments() throws Exception
     {
-    	File destDir = testingdir.getDir();	
-    	baseprotoPath = destDir.getAbsolutePath() + "/meta-src/META-INF/soa/services/proto";
+
+    	
         for(String wsdlName : WSDLS)
         {
             String path = baseprotoPath + File.separator + wsdlName + File.separator + wsdlName + ".proto";

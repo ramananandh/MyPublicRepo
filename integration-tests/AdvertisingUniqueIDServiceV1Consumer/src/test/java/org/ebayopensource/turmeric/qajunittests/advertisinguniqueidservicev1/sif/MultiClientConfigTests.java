@@ -9,6 +9,8 @@ import org.ebayopensource.turmeric.advertising.v1.services.EchoMessageRequest;
 import org.ebayopensource.turmeric.advertisinguniqueidservicev1.gen.SharedAdvertisingUniqueIDServiceV1Consumer;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
 import org.ebayopensource.turmeric.runtime.common.types.SOAConstants;
+import org.ebayopensource.turmeric.runtime.tests.common.util.HttpTestClient;
+import org.ebayopensource.turmeric.runtime.tests.common.util.MetricUtil;
 import org.junit.Test;
 
 
@@ -179,7 +181,7 @@ public class MultiClientConfigTests {
 				"SOAAsyncMCCTestServiceConsumer1_Client/myErrorEnvt/SOAAsyncService/" +
 				"ClientConfig.xml";
 		try {
-			testClient8 = new SharedAdvertisingUniqueIDServiceV1Consumer("SOAAsyncMCCTestServiceConsumer_Client", null);
+			testClient8 = new SharedAdvertisingUniqueIDServiceV1Consumer("AdvertisingUniqueIDServiceV1Consumer", null);
 			EchoMessageRequest req = new EchoMessageRequest();
 			req.setIn("test");
 			Assert.assertEquals(testClient8.echoMessage(req).getOut(), "Test");
@@ -202,6 +204,7 @@ public class MultiClientConfigTests {
 				"SOAAsyncMCCTestServiceConsumer1_Client/myErrorEnvt/SOAAsyncService/" +
 				"ClientConfig.xml";
 		try {
+			 testClient8 = new SharedAdvertisingUniqueIDServiceV1Consumer("AdvertisingUniqueIDServiceV1Consumer", "production");
 			EchoMessageRequest req = new EchoMessageRequest();
 			req.setIn("test");
 			Assert.assertEquals(testClient8.echoMessage(req).getOut(), "Test");
@@ -227,6 +230,7 @@ public class MultiClientConfigTests {
 				"SOAAsyncMCCTestServiceConsumer1_Client/myErrorEnvt/SOAAsyncService/" +
 				"ClientConfig.xml";
 		try {
+			testClient8 = new SharedAdvertisingUniqueIDServiceV1Consumer("AdvertisingUniqueIDServiceV1Consumer", "production");
 			EchoMessageRequest req = new EchoMessageRequest();
 			req.setIn("test");
 			Assert.assertEquals(testClient8.echoMessage(req).getOut(), "Test");
@@ -268,19 +272,20 @@ public class MultiClientConfigTests {
 			queryParams.clear();
 			queryParams.put("id","com.ebay.soa.client.AdvertisingUniqueIDServiceV2.UniqueIDServiceV2Client.dev.Invoker");
 			queryParams.put("REQUEST_BINDING", "JSON");
-			response = MetricUtils.invokeHttpClient(queryParams, "update");
+			response = MetricUtil.invokeHttpClient(queryParams, "update");
 			queryParams.put("forceXml","true");
-			response = MetricUtils.invokeHttpClient(queryParams, "view");
+			response = MetricUtil.invokeHttpClient(queryParams, "view");
 			System.out.println("Response - " + response);
-			assertTrue("Error - Request Binding is not updated to JSON ", 
-					MetricUtils.parseXML(response, "REQUEST_BINDING").contentEquals("JSON"));
+			Assert.assertTrue("Error - Request Binding is not updated to JSON ", 
+					MetricUtil.parseXML(response, "REQUEST_BINDING").contentEquals("JSON"));
 			System.out.println(" ** testWithClientConfigBean ** ");
 		} catch (Exception se) {
-			assertTrue("Error - No Exception should be thrown ", false);
+			Assert.assertTrue("Error - No Exception should be thrown ", false);
 		}
 		queryParams.clear();
 		queryParams.put("id","com.ebay.soa.client.AdvertisingUniqueIDServiceV2.UniqueIDServiceV2Client.dev.Invoker");
 		queryParams.put("REQUEST_BINDING", "XML");
-		response = MetricUtils.invokeHttpClient(queryParams, "update");
+		response = MetricUtil.invokeHttpClient(queryParams, "update");
 	}
+}
 	

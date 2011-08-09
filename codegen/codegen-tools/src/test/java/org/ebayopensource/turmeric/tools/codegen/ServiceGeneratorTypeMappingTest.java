@@ -8,7 +8,9 @@
  *******************************************************************************/
 package org.ebayopensource.turmeric.tools.codegen;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.is;
 
 import java.io.File;
 import java.util.ArrayList;

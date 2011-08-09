@@ -240,6 +240,7 @@ public class SOA29FeatureTests extends AbstractServiceGeneratorTestCase {
 	@Test
 	public void testServiceLocationFromSharedConsumer() throws Exception{
 		File wsdlFile = getProtobufRelatedInput("ShippingService.wsdl");
+		
 		intfProps.put("sipp_version","1.2");
 		fillProperties(intfProps, intfProperty);
 		
@@ -532,7 +533,7 @@ public class SOA29FeatureTests extends AbstractServiceGeneratorTestCase {
 	@Test
 	public void testSupportZeroConfigProperty() throws Exception{
 		
-		MavenTestingUtils.ensureEmpty(destDir);
+		
 		File wsdlFile = getProtobufRelatedInput("ShippingService.wsdl");
 		intfProps.put("support_zero_config","true");
 		fillProperties(intfProps, intfProperty);
@@ -555,7 +556,7 @@ public class SOA29FeatureTests extends AbstractServiceGeneratorTestCase {
 				 };
 		performDirectCodeGen(testArgs, binDir);
 		
-		File metadata = new File(destDir+"/gen-meta-src/META-INF/soa/common/config/CalculatorService/service_metadata.properties");
+		File metadata = new File(destDir+"/meta-src/META-INF/soa/common/config/CalculatorService/service_metadata.properties");
 		Properties prop = loadProperties(metadata);
 		Assert.assertEquals("true",prop.getProperty("support_zero_config"));
 		

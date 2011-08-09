@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<service xmlns="http://www.ebay.com/soaframework/common/config">
+<service xmlns="http://www.ebayopensource.org/turmeric/common/config">
     <package-map>
-        <package name="com.ebay.test.soaframework.sample.types1" xml-namespace="http://www.ebay.com/test/soaframework/sample/service/message"/>
-        <package name="com.ebay.marketplace.services" xml-namespace="http://www.ebay.com/marketplace/services"/>
-        <package name="com.ebay.test.soaframework.sample.errors"  xml-namespace="http://www.ebay.com/test/soaframework/sample/errors"/>
-        <package name="com.ebay.test.soaframework.sample.handlers"  xml-namespace="http://iop.pb.com"/>
+        <package name="org.ebayopensource.turmeric.runtime.tests.service1.sample.types1" xml-namespace="http://www.ebayopensource.org/turmeric/runtime/tests/service1/sample/type1"/>
+        <package name="org.ebayopensource.turmeric.common.v1.types" xml-namespace="http://www.ebayopenopensource.org/turmeric/common/v1/types"/>
+        <package name="org.ebayopensource.turmeric.runtime.tests.service1.sample.errors"  xml-namespace="http://www.ebayopensource.org/turmeric/runtime/tests/service1/sample/errors"/>
+        <package name="org.ebayopensource.turmeric.runtime.tests.service1.sample.handlers"  xml-namespace="http://iop.pb.com"/>
         <package xml-namespace="http://www.w3.org/2001/XMLSchema" name="java.lang"/>
     </package-map>
     <operation-list>
         <operation name="myTestOperation">
             <request-message>
-                <java-type-name>com.ebay.test.soaframework.sample.types1.MyMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.runtime.tests.service1.sample.types1.MyMessage</java-type-name>
                 <xml-type-name>MyMessage</xml-type-name>
                 <xml-element-name>MyMessage</xml-element-name>
             </request-message>
             <response-message>
-                <java-type-name>com.ebay.test.soaframework.sample.types1.MyMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.runtime.tests.service1.sample.types1.MyMessage</java-type-name>
                 <xml-type-name>MyMessage</xml-type-name>
                 <xml-element-name>MyMessage</xml-element-name>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
                 <xml-element-name>ErrorMessage</xml-element-name>
             </error-message>
             <request-header>
-                <java-type-name>com.ebay.test.soaframework.sample.handlers.RequestHeader</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.runtime.tests.service1.sample.handlers.RequestHeader</java-type-name>
                 <xml-type-name>RequestHeader</xml-type-name>
                 <xml-element-name>RequestHeader</xml-element-name>
             </request-header>
             <response-header>
-                <java-type-name>com.ebay.test.soaframework.sample.handlers.RequestHeader</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.runtime.tests.service1.sample.handlers.RequestHeader</java-type-name>
                 <xml-type-name>RequestHeader</xml-type-name>
                 <xml-element-name>RequestHeader</xml-element-name>
             </response-header>            
         </operation>
         <operation name="myNonArgOperation">
             <response-message>
-                <java-type-name>com.ebay.test.soaframework.sample.types1.MyMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.runtime.tests.service1.sample.types1.MyMessage</java-type-name>
                 <xml-type-name>MyMessage</xml-type-name>
                 <xml-element-name>MyMessage</xml-element-name>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
                 <xml-element-name>ErrorMessage</xml-element-name>
             </error-message>
         </operation>
         <operation name="myVoidReturnOperation">
             <request-message>
-                <java-type-name>com.ebay.test.soaframework.sample.types1.MyMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.runtime.tests.service1.sample.types1.MyMessage</java-type-name>
                 <xml-type-name>MyMessage</xml-type-name>
                 <xml-element-name>MyMessage</xml-element-name>
             </request-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
                 <xml-element-name>ErrorMessage</xml-element-name>
             </error-message>
         </operation>
         <operation name="serviceChainingOperation">
             <request-message>
-                <java-type-name>com.ebay.test.soaframework.sample.types1.MyMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.runtime.tests.service1.sample.types1.MyMessage</java-type-name>
                 <xml-type-name>MyMessage</xml-type-name>
                 <xml-element-name>MyMessage</xml-element-name>
             </request-message>
             <response-message>
-                <java-type-name>com.ebay.test.soaframework.sample.types1.MyMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.runtime.tests.service1.sample.types1.MyMessage</java-type-name>
                 <xml-type-name>MyMessage</xml-type-name>
                 <xml-element-name>b</xml-element-name>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
                 <xml-element-name>ErrorMessage</xml-element-name>
             </error-message>
@@ -88,7 +88,7 @@
                 <xml-element-name>Message</xml-element-name>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
                 <xml-element-name>ErrorMessage</xml-element-name>
             </error-message>
@@ -100,7 +100,7 @@
                 <xml-element-name>version</xml-element-name>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
                 <xml-element-name>ErrorMessage</xml-element-name>
             </error-message>
@@ -117,31 +117,31 @@
                 <xml-element-name>isSupported</xml-element-name>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.marketplace.services.ErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.common.v1.types.ErrorMessage</java-type-name>
                 <xml-type-name>ErrorMessage</xml-type-name>
                 <xml-element-name>ErrorMessage</xml-element-name>
             </error-message>
         </operation>
         <operation name="customError1">
             <error-message>
-                <java-type-name>com.ebay.test.soaframework.sample.types1.CustomErrorMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.runtime.tests.service1.sample.types1.CustomErrorMessage</java-type-name>
                 <xml-type-name>CustomErrorMessage</xml-type-name>
                 <xml-element-name>customErrorMessage</xml-element-name>
             </error-message>
         </operation>
         <operation name="customError2">
         	<request-message>
-                <java-type-name>com.ebay.test.soaframework.sample.types1.MyMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.runtime.tests.service1.sample.types1.MyMessage</java-type-name>
                 <xml-type-name>MyMessage</xml-type-name>
                 <xml-element-name>MyMessage</xml-element-name>
         	</request-message>
             <response-message>
-                <java-type-name>com.ebay.test.soaframework.sample.types1.MyMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.runtime.tests.service1.sample.types1.MyMessage</java-type-name>
                 <xml-type-name>MyMessage</xml-type-name>
                 <xml-element-name>MyMessage</xml-element-name>
             </response-message>
             <error-message>
-                <java-type-name>com.ebay.test.soaframework.sample.types1.MyMessage</java-type-name>
+                <java-type-name>org.ebayopensource.turmeric.runtime.tests.service1.sample.types1.MyMessage</java-type-name>
                 <xml-type-name>MyMessage</xml-type-name>
                 <xml-element-name>MyMessage</xml-element-name>
             </error-message>

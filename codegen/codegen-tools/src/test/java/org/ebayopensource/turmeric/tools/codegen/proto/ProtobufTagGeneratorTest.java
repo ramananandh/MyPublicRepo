@@ -37,11 +37,12 @@ import org.xml.sax.InputSource;
 
 public class ProtobufTagGeneratorTest extends AbstractServiceGeneratorTestCase
 {
-
-    private final File protoFile = new File("UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/.MasterProto");
-    private final File corruptedProtoFile = new File("UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/.CorruptedMasterProto");
-    private final File corruptedProtoWithSpaceFile = new File("UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/.CorruptedMasterProto_2.proto");
-    private final File wsdlFile = new File("UnitTests/src/com/ebay/test/soaframework/tools/codegen/data/ProtoTagMaster.wsdl");
+ 
+	
+    private final File protoFile = getProtobufRelatedInput(".MasterProto");
+    private final File corruptedProtoFile = getProtobufRelatedInput(".CorruptedMasterProto");
+    private final File corruptedProtoWithSpaceFile = getProtobufRelatedInput(".CorruptedMasterProto_2.proto");
+    private final File wsdlFile = getProtobufRelatedInput("ProtoTagMaster.wsdl");
     
     private final File junkProtoFile = new File("lib/JUNKPROTO");
     private final File junkWsdlFile = new File("lib/JUNKWSDL");

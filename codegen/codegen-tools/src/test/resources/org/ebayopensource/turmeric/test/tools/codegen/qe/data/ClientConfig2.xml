@@ -57,6 +57,7 @@
                     <client-streaming>false</client-streaming>
 <!--
                     <other-options>
+                        <option name="KEEP_ALIVE">true</option> 
                         <option name="PUT_YOUR_OPTION_NAME">PUT_YOUR_OPTION_VALUE</option> 
                     </other-options>
 -->
@@ -374,6 +375,7 @@
                  <client-streaming>false</client-streaming>
                  <skip-serialization>false</skip-serialization>
                 <other-options>
+                    <option name="KEEP_ALIVE">true</option>
                     <option name="PUT_YOUR_OPTION_NAME">PUT_YOUR_OPTION_VALUE</option> 
                 </other-options>
             </default-options>

@@ -78,7 +78,7 @@ public class TestProtoBufAnyWsdl extends AbstractServiceGeneratorTestCase{
     	//wsdlFileName.add("test");
     	 //wsdlFileName.add("TestWsdlComplexTypeExtended");
     	//wsdlFileName.add("TestWsdlOtherTypes");
-    	 //wsdlFileName.add("TestWsdlListTypes");
+    	 wsdlFileName.add("TestWsdlListTypes");
     	 //wsdlFileName.add("TestWsdlBug19005");
     	 
     	//wsdlFileName.add("TestWsdlComplexTypeSC1");
@@ -86,7 +86,7 @@ public class TestProtoBufAnyWsdl extends AbstractServiceGeneratorTestCase{
     	//wsdlFileName.add("TestWsdlBug19062");
     	//wsdlFileName.add("TestWsdlBug19094");
     	
-    	wsdlFileName.add("TestingBugs");
+    	//wsdlFileName.add("TestingBugs");
     	
     	xsdToProtoType.put("int","sint32");
     	xsdToProtoType.put("integer","sint32");
@@ -999,7 +999,7 @@ public void assertTagAssignment(List<Message> msg){
 									 break;
 								 }else if(dataType.equals("long")){
 									 
-									 mthd.invoke(obj,8971);
+									 mthd.invoke(obj,8971l);
 									 break;
 								 }
 								 else if(dataType.equals("boolean")){

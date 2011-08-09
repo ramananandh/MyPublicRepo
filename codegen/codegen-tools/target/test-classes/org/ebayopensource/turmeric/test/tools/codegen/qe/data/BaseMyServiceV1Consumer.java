@@ -6,6 +6,7 @@ import java.net.URL;
 import org.ebayopensource.turmeric.common.v1.services.MyServiceV1;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceRuntimeException;
+import org.ebayopensource.turmeric.runtime.common.registration.ClassLoaderRegistry;
 import org.ebayopensource.turmeric.runtime.common.types.Cookie;
 import org.ebayopensource.turmeric.runtime.common.types.SOAHeaders;
 import org.ebayopensource.turmeric.runtime.sif.service.Service;
@@ -23,6 +24,7 @@ import org.ebayopensource.turmeric.services.TestType;
 public class BaseMyServiceV1Consumer {
 
     private URL m_serviceLocation = null;
+    private boolean m_useDefaultClientConfig;
     private final static String SVC_ADMIN_NAME = "MyServiceV1";
     private String m_clientName = "MyServiceV1";
     private String m_environment;
@@ -34,26 +36,76 @@ public class BaseMyServiceV1Consumer {
     public BaseMyServiceV1Consumer() {
     }
 
+    /**
+     * This constructor should be used, when a ClientConfig.xml is located in the 
+     * "client" bundle, so that a ClassLoader of this Shared Consumer can be used.
+     * 
+     * @param clientName
+     * @throws ServiceException
+     * 
+     */
     public BaseMyServiceV1Consumer(String clientName)
         throws ServiceException
     {
-        if (clientName == null) {
-            throw new ServiceException("clientName can not be null");
-        }
-        m_clientName = clientName;
+        this(clientName, null);
     }
 
+    /**
+     * This constructor should be used, when a ClientConfig.xml is located in the 
+     * "client" bundle, so that a ClassLoader of this Shared Consumer can be used.
+     * 
+     * @param clientName
+     * @param environment
+     * @throws ServiceException
+     * 
+     */
     public BaseMyServiceV1Consumer(String clientName, String environment)
         throws ServiceException
     {
-        if (environment == null) {
-            throw new ServiceException("environment can not be null");
-        }
+        this(clientName, environment, null, false);
+    }
+
+    /**
+     * This constructor should be used, when a ClientConfig.xml is located 
+     * in some application bundle. Shared Consumer then will call ClassLoaderRegistry 
+     * to register a ClassLoader of an application bundle.
+     * 
+     * @param clientName
+     * @param caller
+     * @param useDefaultClientConfig
+     * @throws ServiceException
+     * 
+     */
+    public BaseMyServiceV1Consumer(String clientName, Class caller, boolean useDefaultClientConfig)
+        throws ServiceException
+    {
+        this(clientName, null, caller, useDefaultClientConfig);
+    }
+
+    /**
+     * This constructor should be used, when a ClientConfig.xml is located 
+     * in some application bundle. Shared Consumer then will call ClassLoaderRegistry 
+     * to register a ClassLoader of an application bundle.
+     * 
+     * @param clientName
+     * @param environment
+     * @param caller
+     * @param useDefaultClientConfig
+     * @throws ServiceException
+     * 
+     */
+    public BaseMyServiceV1Consumer(String clientName, String environment, Class caller, boolean useDefaultClientConfig)
+        throws ServiceException
+    {
         if (clientName == null) {
             throw new ServiceException("clientName can not be null");
         }
         m_clientName = clientName;
-        m_environment = environment;
+        if (environment!= null) {
+            m_environment = environment;
+        }
+        m_useDefaultClientConfig = useDefaultClientConfig;
+        ClassLoaderRegistry.instanceOf().registerServiceClient(m_clientName, m_environment, SVC_ADMIN_NAME, (BaseMyServiceV1Consumer.class), caller, m_useDefaultClientConfig);
     }
 
     /**
@@ -129,7 +181,7 @@ public class BaseMyServiceV1Consumer {
         throws ServiceException
     {
         if (m_service == null) {
-            m_service = ServiceFactory.create(SVC_ADMIN_NAME, m_environment, m_clientName, m_serviceLocation);
+            m_service = ServiceFactory.create(SVC_ADMIN_NAME, m_environment, m_clientName, m_serviceLocation, false, m_useDefaultClientConfig);
         }
         setUserProvidedSecurityCredentials(m_service);
         return m_service;

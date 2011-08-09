@@ -1,10 +1,6 @@
 package org.ebayopensource.turmeric.tools.codegen;
 
-import static org.junit.Assert.*;
-
 import java.io.File;
-
-import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -64,7 +60,8 @@ public class ClientConfigQETest extends AbstractServiceGeneratorTestCase {
 		String goldPath = getTestResrcDir() + "/HelloWorldConsumer/gen-meta-src/META-INF/soa/client/config/HelloWorldService/ClientConfig.xml";
 			
 		assertFileExists(genPath);
-		Assert.assertTrue(compareTwoFiles(genPath, goldPath));
+		assertXML(goldPath, genPath,null);
+		
 		
 
 	}

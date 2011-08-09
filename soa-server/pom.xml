@@ -51,11 +51,6 @@
          <version>1.0.0</version>
       </dependency>
       <dependency>
-         <groupId>org.ebayopensource.turmeric.runtime</groupId>
-         <artifactId>soa-client</artifactId>
-         <version>${project.version}</version>
-      </dependency>
-      <dependency>
          <groupId>javax.servlet</groupId>
          <artifactId>servlet-api</artifactId>
       </dependency>
@@ -64,6 +59,11 @@
          <artifactId>config-validation-tests</artifactId>
          <version>${project.version}</version>
          <scope>test</scope>
+      </dependency>
+      <dependency>
+      	<groupId>org.ebayopensource.turmeric.runtime</groupId>
+      	<artifactId>soa-client</artifactId>
+      	<version>1.0.1.0-SNAPSHOT</version>
       </dependency>
    </dependencies>
 </project>

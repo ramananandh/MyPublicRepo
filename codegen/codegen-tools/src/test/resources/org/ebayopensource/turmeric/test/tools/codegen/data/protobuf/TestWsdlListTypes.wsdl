@@ -96,8 +96,8 @@
 						<xs:element minOccurs="1" maxOccurs="unbounded" name="param113"
 						type="xs:string" />
 						
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="param18"
-						type="xs:base64Binary"/>
+				<!-- 	<xs:element minOccurs="0" maxOccurs="unbounded" name="param18"
+						type="xs:base64Binary"/> -->
 					
 
 					

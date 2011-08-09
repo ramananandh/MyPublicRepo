@@ -242,7 +242,7 @@ public class EProtoGeneratorTest extends AbstractServiceGeneratorTestCase{
 		WSDLUtil.populateCodegenCtxWithWSDLDetails(wsdlFileLoc, context);
 		
 
-//		FastSerFormatCodegenBuilder.getInstance().buildFastSerFormatArtifacts(context);
+		FastSerFormatCodegenBuilder.getInstance().buildFastSerFormatArtifacts(context);
 		generateArtifacts(context);
 //		compileMultipleGeneratedEProtos(context);
 		
@@ -273,7 +273,7 @@ public class EProtoGeneratorTest extends AbstractServiceGeneratorTestCase{
 
 		WSDLUtil.populateCodegenCtxWithWSDLDetails(wsdlFileLoc, context);
 
-//		FastSerFormatCodegenBuilder.getInstance().buildFastSerFormatArtifacts(context);
+		FastSerFormatCodegenBuilder.getInstance().buildFastSerFormatArtifacts(context);
 		generateArtifacts(context);
 		
 

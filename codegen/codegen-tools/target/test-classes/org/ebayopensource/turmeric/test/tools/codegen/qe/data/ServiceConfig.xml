@@ -32,12 +32,12 @@
                                      client config (use-service-version) which of the supported versions to use. 
 -->
 <!--
-    <service-impl-factory-class-name>
-        
-    </service-impl-factory-class-name>
+    <service-impl-factory-class-name></service-impl-factory-class-name>
+    
     <current-version></current-version> 
     <supported-version></supported-version>
 -->
+    
     <service-impl-class-name>com.ebayopensource.impl.AccountServicesImpl</service-impl-class-name>
     <service-interface-class-name>com.ebayopensource.AccountService</service-interface-class-name>
     <service-instance-config>

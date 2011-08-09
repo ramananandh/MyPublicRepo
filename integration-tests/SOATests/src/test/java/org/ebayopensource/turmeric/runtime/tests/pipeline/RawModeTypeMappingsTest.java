@@ -40,7 +40,7 @@ public class RawModeTypeMappingsTest extends AbstractWithServerTest {
 	public static final String OLD_NV_RAW_MESSAGE = "Message=Hello";
 
 	public static final String EXPECTED_XML_RESPONSE = "<?xml version='1.0' encoding='UTF-8'?><xs:Message xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:ms=\"http://www.ebayopensource.org/turmeric/common/v1/types\">Hello</xs:Message>";
-	public static final String EXPECTED_JSON_RESPONSE = "{\"jsonns.ns2\":\"http://iop.pb.com\",\"jsonns.ns3\":\"http://www.ebay.com/test/soaframework/sample/types1\",\"jsonns.ms\":\"http://www.ebayopensource.org/turmeric/common/v1/types\",\"jsonns.xs\":\"http://www.w3.org/2001/XMLSchema\",\"jsonns.xsi\":\"http://www.w3.org/2001/XMLSchema-instance\",\"xs.Message\":[\"Hello\"]}";
+	public static final String EXPECTED_JSON_RESPONSE = "{\"jsonns.ns3\":\"http://iop.pb.com\",\"jsonns.ns3\":\"http://www.ebay.com/test/soaframework/sample/types1\",\"jsonns.ms\":\"http://www.ebayopensource.org/turmeric/common/v1/types\",\"jsonns.xs\":\"http://www.w3.org/2001/XMLSchema\",\"jsonns.xsi\":\"http://www.w3.org/2001/XMLSchema-instance\",\"xs.Message\":[\"Hello\"]}";
 	
 	@Rule
 	public NeedsConfig needsconfig = new NeedsConfig("config");

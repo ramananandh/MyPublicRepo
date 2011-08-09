@@ -10,6 +10,7 @@ import java.util.Set;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
@@ -39,6 +40,7 @@ public class TestDuplicateClasses extends AbstractServiceGeneratorTestCase{
 /*
  * Check for the  duplicate classes in the soatools and soacommon jars. Package name is not considered in this test.
  */
+@Ignore
 public void testDuplicateClassesInJar() throws Exception{
 	
 	File soaTools = new File("../../.././");

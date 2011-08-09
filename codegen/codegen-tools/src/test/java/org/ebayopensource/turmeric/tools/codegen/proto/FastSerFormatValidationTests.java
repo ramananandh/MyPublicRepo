@@ -66,7 +66,7 @@ public class FastSerFormatValidationTests extends AbstractServiceGeneratorTestCa
 	public void validateService() throws Exception {
 		
 		File wsdl1  = getProtobufRelatedInput("CalcServiceProtobufInvalid.wsdl");
-		File wsdl2 = getProtobufRelatedInput("CalcServiceProtobufInvalidNS.wsdl");
+		File wsdl2 = getProtobufRelatedInput("CalcServiceProtobufInvalid.wsdl");
 		File destDir = testingdir.getDir();
 		CodeGenContext context = ProtobufSchemaMapperTestUtils.getCodeGenContext( getTestInvalidArgs(wsdl1,destDir) );
 		

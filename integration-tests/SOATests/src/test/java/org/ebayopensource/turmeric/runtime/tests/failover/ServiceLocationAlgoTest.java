@@ -6,6 +6,9 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
+import org.ebayopensource.turmeric.runtime.sif.impl.internal.service.config.ServiceLocationFactory;
+import org.ebayopensource.turmeric.runtime.sif.impl.internal.service.config.ServiceLocationHolder;
+
 public class ServiceLocationAlgoTest extends TestCase {
 
 	public void testGetLocations() throws Exception{

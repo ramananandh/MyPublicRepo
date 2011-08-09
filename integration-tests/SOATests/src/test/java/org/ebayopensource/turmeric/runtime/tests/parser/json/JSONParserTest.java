@@ -499,7 +499,7 @@ public class JSONParserTest {
 	/**
 	 * @check  Exceptions need to be handled
 	 */
-	@Test(expected=com.ebay.binding.impl.parser.ParseException.class)
+	@Test(expected=org.ebayopensource.turmeric.runtime.binding.impl.parser.ParseException.class)
 	public void jSONParserWithBadInput1() throws Exception {
 		
 		System.out.println("**** Starting testJSONParserWithBadInput1");
@@ -516,7 +516,7 @@ public class JSONParserTest {
 	/**
 	 * @check  Exceptions need to be handled
 	 */
-	@Test(expected=com.ebay.binding.impl.parser.ParseException.class)
+	@Test(expected=org.ebayopensource.turmeric.runtime.binding.impl.parser.ParseException.class)
 	public void jSONParserWithBadInput2() throws Exception {
 		
 		class MyBAInputStream extends InputStream {

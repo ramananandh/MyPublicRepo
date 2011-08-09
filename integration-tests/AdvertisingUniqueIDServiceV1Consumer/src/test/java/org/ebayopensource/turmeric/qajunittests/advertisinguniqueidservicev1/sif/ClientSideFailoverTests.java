@@ -14,6 +14,7 @@ import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceException;
 import org.ebayopensource.turmeric.runtime.common.exceptions.ServiceInvocationRuntimeException;
 import org.ebayopensource.turmeric.runtime.common.types.SOAConstants;
 import org.ebayopensource.turmeric.runtime.tests.common.util.HttpTestClient;
+import org.ebayopensource.turmeric.runtime.tests.common.util.MetricUtil;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -131,7 +132,7 @@ public class ClientSideFailoverTests {
 			queryParams.put("id",
 			"com.ebay.soa.client.AdvertisingUniqueIDServiceV2.UniqueIDServiceV2Client.failover.Invoker");
 			queryParams.put("forceXml","true");
-			String response = MetricUtils.invokeHttpClient(queryParams, "view");
+			String response = MetricUtil.invokeHttpClient(queryParams, "view");
 			System.out.println("Response - " + response);
 			Assert.assertTrue(response.contains("name=\"SERVICE_URL\""));
 			Assert.assertTrue(response.contains("http://localhost:8080/services/advertise/UniqueIDService/v2"));
@@ -155,7 +156,7 @@ public class ClientSideFailoverTests {
 		try {
 			queryParams.put("id","com.ebay.soa.client.AdvertisingUniqueIDServiceV2.UniqueIDServiceV2Client.failover.Invoker");
 			queryParams.put("SERVICE_URL", "http://localhost:9090/services/advertise/UniqueIDService/v2,http://localhost:9090/foo");
-			String response = MetricUtils.invokeHttpClient(queryParams, "update");
+			String response = MetricUtil.invokeHttpClient(queryParams, "update");
 			System.out.println("Response - " + response);
 			Assert.assertTrue(response.contains("SERVICE_URL"));
 			Assert.assertTrue(response.
@@ -172,7 +173,7 @@ public class ClientSideFailoverTests {
 		queryParams.put("id","com.ebay.soa.client.AdvertisingUniqueIDServiceV2.UniqueIDServiceV2Client.failover.Invoker");
 		queryParams.put("SERVICE_URL", "http://localhost:9090/services/advertise/UniqueIDService/v2,http://localhost:8080/foo," +
 				"http://localhost:8080/services/advertise/UniqueIDService/v2");
-		String response = MetricUtils.invokeHttpClient(queryParams, "update");
+		String response = MetricUtil.invokeHttpClient(queryParams, "update");
 		} 
 
 	}

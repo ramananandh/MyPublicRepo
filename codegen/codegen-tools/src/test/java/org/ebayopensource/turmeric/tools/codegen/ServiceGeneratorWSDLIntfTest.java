@@ -20,7 +20,6 @@ import org.ebayopensource.turmeric.tools.GeneratedAssert;
 import org.ebayopensource.turmeric.tools.codegen.exception.CodeGenFailedException;
 import org.ebayopensource.turmeric.tools.codegen.util.CodeGenConstants;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 

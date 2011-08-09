@@ -226,5 +226,10 @@
 			<version>1.3</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.ebayopensource.turmeric.errorlib</groupId>
+			<artifactId>runtime-error-library</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 </project>

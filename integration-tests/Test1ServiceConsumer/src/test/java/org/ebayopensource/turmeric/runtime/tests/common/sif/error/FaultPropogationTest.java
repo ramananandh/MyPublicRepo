@@ -9,14 +9,13 @@ import java.net.Socket;
 
 import junit.framework.Assert;
 
-import org.ebayopensource.turmeric.junit.AbstractTurmericTestCase;
 import org.ebayopensource.turmeric.runtime.common.types.SOAConstants;
 import org.ebayopensource.turmeric.runtime.sif.service.Service;
 import org.ebayopensource.turmeric.runtime.sif.service.ServiceFactory;
 import org.ebayopensource.turmeric.runtime.sif.service.ServiceInvokerOptions;
 import org.junit.Test;
 
-public class FaultPropogationTest extends AbstractTurmericTestCase {
+public class FaultPropogationTest extends BaseErrorResponseTest {
 
 	private final String ECHO_STRING = "BH Test String";
 

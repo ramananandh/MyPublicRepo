@@ -10,6 +10,8 @@ package org.ebayopensource.turmeric.tools.library;
 
 
 
+import static org.hamcrest.Matchers.containsString;
+
 import java.io.File;
 
 import org.ebayopensource.turmeric.junit.utils.MavenTestingUtils;
@@ -204,7 +206,7 @@ public class TypeLibraryCodegenInterfaceTest extends
 			Assert.fail("Expecting exception of type: "
 					+ BadInputValueException.class.getName());
 		} catch (BadInputValueException e) {
-			Assert.assertTrue(e.getMessage(),containsString("The Library version should be in the format X.Y.Z"));
+			Assert.assertThat(e.getMessage(),containsString("The Library version should be in the format X.Y.Z"));
 		}
 	}
 
@@ -242,7 +244,7 @@ public class TypeLibraryCodegenInterfaceTest extends
 			Assert.fail("Expecting exception of type "
 					+ MissingInputOptionException.class.getName());
 		} catch (MissingInputOptionException e) {
-			Assert.assertTrue(e.getMessage(), containsString("absent wsdl"));
+			Assert.assertThat(e.getMessage(), containsString("absent wsdl"));
 		}
 	}
 
@@ -264,7 +266,7 @@ public class TypeLibraryCodegenInterfaceTest extends
 			Assert.fail("Expecting exception of type "
 					+ MissingInputOptionException.class.getName());
 		} catch (MissingInputOptionException e) {
-			Assert.assertTrue(e.getMessage(), containsString("dest absent"));
+			Assert.assertThat(e.getMessage(), containsString("dest absent"));
 		}
 	}
 
@@ -287,7 +289,7 @@ public class TypeLibraryCodegenInterfaceTest extends
 			Assert.fail("Expecting exception of type: "
 					+ BadInputValueException.class.getName());
 		} catch (BadInputValueException e) {
-			Assert.assertTrue(e.getMessage(), containsString("wsdl not found"));
+			Assert.assertThat(e.getMessage(), containsString("wsdl not found"));
 		}
 	}
 
@@ -513,7 +515,7 @@ public class TypeLibraryCodegenInterfaceTest extends
 			Assert.fail("Expecting exception of type: "
 					+ BadInputOptionException.class.getName());
 		} catch (BadInputOptionException e) {
-			Assert.assertTrue(e.getMessage(),
+			Assert.assertThat(e.getMessage(),
 					containsString("Invalid option -myownoption specified"));
 		}
 	}
@@ -534,7 +536,7 @@ public class TypeLibraryCodegenInterfaceTest extends
 					+ BadInputValueException.class.getName());
 		} catch (BadInputValueException e) {
 			Assert
-					.assertTrue(
+					.assertThat(
 							e.getMessage(),
 							containsString("provide a value for the option -libcategory"));
 		}
@@ -577,7 +579,7 @@ public class TypeLibraryCodegenInterfaceTest extends
 			Assert.fail("Expecting exception of type: "
 					+ BadInputValueException.class.getName());
 		} catch (BadInputValueException e) {
-			Assert.assertTrue(e.getMessage(),
+			Assert.assertThat(e.getMessage(),
 					containsString("provide a value for the option -libname"));
 		}
 	}
@@ -598,7 +600,7 @@ public class TypeLibraryCodegenInterfaceTest extends
 					+ BadInputValueException.class.getName());
 		} catch (BadInputValueException e) {
 			Assert
-					.assertTrue(
+					.assertThat(
 							e.getMessage(),
 							containsString("provide a value for the option -libnamespace"));
 		}
@@ -618,7 +620,7 @@ public class TypeLibraryCodegenInterfaceTest extends
 			Assert.fail("Expecting exception of type "
 					+ MissingInputOptionException.class.getName());
 		} catch (MissingInputOptionException e) {
-			Assert.assertTrue(e.getMessage(),
+			Assert.assertThat(e.getMessage(),
 					containsString("TypeLibrary Name is missing"));
 		}
 	}
@@ -639,7 +641,7 @@ public class TypeLibraryCodegenInterfaceTest extends
 					+ BadInputValueException.class.getName());
 		} catch (BadInputValueException e) {
 			Assert
-					.assertTrue(
+					.assertThat(
 							e.getMessage(),
 							containsString("provide a value for the option -libversion"));
 		}
@@ -657,7 +659,7 @@ public class TypeLibraryCodegenInterfaceTest extends
 			Assert.fail("Expecting exception of type "
 					+ MissingInputOptionException.class.getName());
 		} catch (MissingInputOptionException e) {
-			Assert.assertTrue(e.getMessage(),
+			Assert.assertThat(e.getMessage(),
 					containsString("Project Root is missing"));
 		}
 	}
@@ -675,7 +677,7 @@ public class TypeLibraryCodegenInterfaceTest extends
 					+ BadInputValueException.class.getName());
 		} catch (BadInputValueException e) {
 			Assert
-					.assertTrue(
+					.assertThat(
 							e.getMessage(),
 							containsString("provide a proper value for the option -pr"));
 		}
@@ -693,7 +695,7 @@ public class TypeLibraryCodegenInterfaceTest extends
 			Assert.fail("Expecting exception of type: "
 					+ BadInputValueException.class.getName());
 		} catch (BadInputValueException e) {
-			Assert.assertTrue(e.getMessage(),
+			Assert.assertThat(e.getMessage(),
 					containsString("provide a value for the option -pr"));
 		}
 	}
@@ -714,7 +716,7 @@ public class TypeLibraryCodegenInterfaceTest extends
 			Assert.fail("Expecting exception of type: "
 					+ BadInputValueException.class.getName());
 		} catch (BadInputValueException e) {
-			Assert.assertTrue(e.getMessage(),
+			Assert.assertThat(e.getMessage(),
 					containsString("Missing parameter for '-type' option"));
 		}
 	}

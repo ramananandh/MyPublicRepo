@@ -12,17 +12,18 @@ package org.ebayopensource.turmeric.runtime.tests.common.util;
 import java.net.MalformedURLException;
 import java.util.Iterator;
 import java.util.Map;
+
 import com.ebay.kernel.bean.configuration.BeanConfigCategoryInfo;
 import com.ebay.kernel.service.invocation.HttpConfig;
 import com.ebay.kernel.service.invocation.SocketConfig;
 import com.ebay.kernel.service.invocation.SvcChannelStatus;
 import com.ebay.kernel.service.invocation.SvcInvocationConfig;
+import com.ebay.kernel.service.invocation.actionmanager.RemoteSvcInvocationActionManagerAdapter;
 import com.ebay.kernel.service.invocation.client.exception.BaseClientSideException;
 import com.ebay.kernel.service.invocation.client.http.HttpClient;
 import com.ebay.kernel.service.invocation.client.http.HttpStatusEnum;
 import com.ebay.kernel.service.invocation.client.http.Request;
 import com.ebay.kernel.service.invocation.client.http.Response;
-import com.ebay.kernel.service.invocation.actionmanager.RemoteSvcInvocationActionManagerAdapter;
 
 public class HttpTestClient {
 	private HttpClient m_client = null;
@@ -127,6 +128,43 @@ public class HttpTestClient {
 		catch (BaseClientSideException e) {
 			e.printStackTrace();
 			return e.getMessage();
+		}
+	}
+	
+	public Response getResponse(Request request, Map queryParams, String body, String type) {
+		Iterator itr = queryParams.entrySet().iterator();
+		String key = null, value= null;
+		Response response = null;
+
+		while (itr.hasNext()) {
+			Map.Entry entry = (Map.Entry)itr.next();
+			key = entry.getKey().toString();
+			value = entry.getValue().toString();
+			request.addHeader(key,value);
+			if(key.equals("X-TURMERIC-SOA-REQUEST-DATA-FORMAT") && value.equals("XML")){
+				request.setContentType("text/xml");
+			}
+		}
+		if (type.contentEquals("POST")) request.setMethod(Request.POST);
+		else if (type.contentEquals("GET")) request.setMethod(Request.GET);
+		else if (type.contentEquals("PUT")) request.setMethod(Request.PUT);
+		else if (type.contentEquals("DELETE")) request.setMethod(Request.DELETE);
+
+		request.setRawData(body.getBytes());
+		try {
+			response = m_client.invoke(request);
+			return response;
+//			if (response.getRequestStatus() == HttpStatusEnum.SUCCESS)
+
+//			System.out.println("X-EBAY-SOA-RESPONSE-DATA-FORMAT - " + response.getHeader("X-EBAY-SOA-RESPONSE-DATA-FORMAT"));
+//
+//
+//				return response.getBody() + response.getHeader("X-EBAY-SOA-RESPONSE-DATA-FORMAT");
+//			else return response.getRequestStatus().getName();
+
+		} catch (BaseClientSideException e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 
