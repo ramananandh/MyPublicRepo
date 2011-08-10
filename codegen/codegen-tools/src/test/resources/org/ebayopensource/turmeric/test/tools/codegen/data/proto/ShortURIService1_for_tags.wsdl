@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="ShortURIService" targetNamespace="http://www.ebay.com/marketplace/services/shorturiservice" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.ebay.com/marketplace/services/shorturiservice" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services/shorturiservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ShortURIService" targetNamespace="http://www.ebayopensource.org/tumeric/services/shorturiservice">
   <wsdl:types>
-    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services/shorturiservice">
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services/shorturiservice">
 
 			<xsd:simpleType name="AckValue">
 				<xsd:annotation>
@@ -12,7 +11,7 @@
 						communicated to the user.
 					</xsd:documentation>
 					<xsd:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xsd:appinfo>
 				</xsd:annotation>
 				<xsd:restriction base="xsd:string">
@@ -60,7 +59,7 @@
 						all service operations.
 					</xsd:documentation>
 					<xsd:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xsd:appinfo>
 				</xsd:annotation>
 				<xsd:sequence>
@@ -75,7 +74,7 @@
 						associated with the request.
 					</xsd:documentation>
 					<xsd:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xsd:appinfo>
 				</xsd:annotation>
 				<xsd:sequence>
@@ -142,7 +141,7 @@
 						Indicates the Category of the Error.
 					</xsd:documentation>
 					<xsd:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xsd:appinfo>
 				</xsd:annotation>
 				<xsd:restriction base="xsd:token">
@@ -157,7 +156,7 @@
 						The ErrorData which Contains information of the Error like ErrorID, Domain,Error Message etc.,.
 					</xsd:documentation>
 					<xsd:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xsd:appinfo>
 				</xsd:annotation>
 				<xsd:sequence>
@@ -177,7 +176,7 @@
 						ErrorMessage contains a list of Error Data.
 					</xsd:documentation>
 					<xsd:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xsd:appinfo>
 				</xsd:annotation>
 				<!-- 
@@ -196,7 +195,7 @@
 						ErrorParameters contains the Parameter which caused the error.
 					</xsd:documentation>
 					<xsd:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xsd:appinfo>
 				</xsd:annotation>
 				<xsd:simpleContent>
@@ -211,7 +210,7 @@
 						Indicates the Severity of the Error
 					</xsd:documentation>
 					<xsd:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xsd:appinfo>
 				</xsd:annotation>
 				<xsd:restriction base="xsd:token">
@@ -227,7 +226,7 @@
 					</xsd:documentation>
 
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -306,7 +305,7 @@
 			<xsd:complexType name="CreateShortURIRequest">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -364,7 +363,7 @@
 			<xsd:complexType name="CreateShortURIResponse">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -387,7 +386,7 @@
 			<xsd:complexType name="DeleteRequest">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -410,7 +409,7 @@
 			<xsd:complexType name="DeleteResponse">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -430,7 +429,7 @@
 					</xsd:documentation>
 
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -468,7 +467,7 @@
 			<xsd:complexType name="GetInfoLongRequest">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -491,7 +490,7 @@
 			<xsd:complexType name="GetInfoLongResponse">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -514,7 +513,7 @@
 			<xsd:complexType name="GetInfoShortRequest">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -538,7 +537,7 @@
 			<xsd:complexType name="GetInfoShortResponse">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -561,7 +560,7 @@
 			<xsd:complexType name="GetStatsRequest">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -585,7 +584,7 @@
 			<xsd:complexType name="GetStatsResponse">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -612,7 +611,7 @@
 					</xsd:documentation>
 
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -650,7 +649,7 @@
 					</xsd:documentation>
 
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -693,7 +692,7 @@
 			<xsd:complexType name="LookupRequest">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -717,7 +716,7 @@
 			<xsd:complexType name="LookupResponse">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -740,7 +739,7 @@
 			<xsd:complexType name="RegisterShortURIRequest">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -806,7 +805,7 @@
 			<xsd:complexType name="RegisterShortURIResponse">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -829,7 +828,7 @@
 			<xsd:complexType name="SearchRequest">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -866,7 +865,7 @@
 			<xsd:complexType name="SearchResponse">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -893,7 +892,7 @@
 						or REPLACE
 					</xsd:documentation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -920,7 +919,7 @@
 			<xsd:complexType name="UpdateRequest">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -968,7 +967,7 @@
 			<xsd:complexType name="UpdateResponse">
 				<xsd:annotation>
 					<xsd:appinfo>
-						<typeLibrarySource library="ShortURITypeLibrary" namespace="http://www.ebay.com/marketplace/services/shorturi">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services/shorturi">
 						</typeLibrarySource>
 					</xsd:appinfo>
 				</xsd:annotation>
@@ -1003,75 +1002,75 @@
 		</xsd:schema>
   </wsdl:types>
   <wsdl:message name="searchResponse">
-    <wsdl:part name="parameters" element="tns:searchResponse">
+    <wsdl:part element="tns:searchResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="searchRequest">
-    <wsdl:part name="parameters" element="tns:searchRequest">
+    <wsdl:part element="tns:searchRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getInfoShortResponse">
-    <wsdl:part name="parameters" element="tns:getInfoShortResponse">
+    <wsdl:part element="tns:getInfoShortResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="deleteRequest">
-    <wsdl:part name="parameters" element="tns:deleteRequest">
+    <wsdl:part element="tns:deleteRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getInfoLongResponse">
-    <wsdl:part name="parameters" element="tns:getInfoLongResponse">
+    <wsdl:part element="tns:getInfoLongResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getStatsRequest">
-    <wsdl:part name="parameters" element="tns:getStatsRequest">
+    <wsdl:part element="tns:getStatsRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="registerShortURIRequest">
-    <wsdl:part name="parameters" element="tns:registerShortURIRequest">
+    <wsdl:part element="tns:registerShortURIRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="lookupRequest">
-    <wsdl:part name="parameters" element="tns:lookupRequest">
+    <wsdl:part element="tns:lookupRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="createShortURIResponse">
-    <wsdl:part name="parameters" element="tns:createShortURIResponse">
+    <wsdl:part element="tns:createShortURIResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="createShortURIRequest">
-    <wsdl:part name="parameters" element="tns:createShortURIRequest">
+    <wsdl:part element="tns:createShortURIRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getInfoShortRequest">
-    <wsdl:part name="parameters" element="tns:getInfoShortRequest">
+    <wsdl:part element="tns:getInfoShortRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="lookupResponse">
-    <wsdl:part name="parameters" element="tns:lookupResponse">
+    <wsdl:part element="tns:lookupResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="updateResponse">
-    <wsdl:part name="parameters" element="tns:updateResponse">
+    <wsdl:part element="tns:updateResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="deleteResponse">
-    <wsdl:part name="parameters" element="tns:deleteResponse">
+    <wsdl:part element="tns:deleteResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="registerShortURIResponse">
-    <wsdl:part name="parameters" element="tns:registerShortURIResponse">
+    <wsdl:part element="tns:registerShortURIResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getInfoLongRequest">
-    <wsdl:part name="parameters" element="tns:getInfoLongRequest">
+    <wsdl:part element="tns:getInfoLongRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getStatsResponse">
-    <wsdl:part name="parameters" element="tns:getStatsResponse">
+    <wsdl:part element="tns:getStatsResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="updateRequest">
-    <wsdl:part name="parameters" element="tns:updateRequest">
+    <wsdl:part element="tns:updateRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="ShortURIServicePort">
@@ -1258,7 +1257,7 @@
   <wsdl:binding name="ShortURIServiceSOAPBinding" type="tns:ShortURIServicePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="createShortURI">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/createShortURI"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/createShortURI"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -1267,7 +1266,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="registerShortURI">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/registerShortURI"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/registerShortURI"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -1276,7 +1275,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="lookup">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/lookup"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/lookup"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -1285,7 +1284,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getInfoShort">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getInfoShort"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/getInfoShort"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -1294,7 +1293,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getInfoLong">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getInfoLong"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/getInfoLong"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -1303,7 +1302,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getStats">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getStats"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/getStats"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -1312,7 +1311,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="search">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/search"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/search"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -1321,7 +1320,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="update">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/update"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/update"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -1330,7 +1329,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="delete">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/delete"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/delete"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -1345,10 +1344,10 @@
 		The Short URI Service allows clients to create short aliases for long URIs.
 When a short URI is accessed, the client is redirected to the original long URI.
 	</wsdl:documentation> 
-    <wsdl:port name="ShortURIServiceHttp" binding="tns:ShortURIServiceHttpBinding">
+    <wsdl:port binding="tns:ShortURIServiceHttpBinding" name="ShortURIServiceHttp">
       <http:address location="http://shorturiservice.vip/services/systems/ShortURIService/v1"/>
     </wsdl:port>
-    <wsdl:port name="ShortURIServiceSOAP" binding="tns:ShortURIServiceSOAPBinding">
+    <wsdl:port binding="tns:ShortURIServiceSOAPBinding" name="ShortURIServiceSOAP">
       <soap12:address location="http://shorturiservice.vip/services/systems/ShortURIService/v1"/>
     </wsdl:port>
   </wsdl:service>

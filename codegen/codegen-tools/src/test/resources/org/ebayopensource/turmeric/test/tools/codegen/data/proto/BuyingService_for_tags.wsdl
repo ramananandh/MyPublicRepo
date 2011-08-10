@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="BuyingService" targetNamespace="http://www.ebay.com/marketplace/buying/v1/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.ebay.com/marketplace/buying/v1/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/buying/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BuyingService" targetNamespace="http://www.ebayopensource.org/tumeric/buying/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/buying/v1/services" xmlns:tns="http://www.ebay.com/marketplace/buying/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/buying/v1/services">
 			<xs:element name="createCheckoutCartRequest" type="tns:CreateCheckoutCartRequest"/>
 			<xs:element name="createCheckoutCartResponse" type="tns:CreateCheckoutCartResponse"/>
 			<xs:element name="purchaseCheckoutCartRequest" type="tns:PurchaseCheckoutCartRequest"/>
 			<xs:element name="purchaseCheckoutCartResponse" type="tns:PurchaseCheckoutCartResponse"/>
 			<xs:element name="getCheckoutCartRequest" type="tns:GetCheckoutCartRequest"/>
 			<xs:element name="getCheckoutCartResponse" type="tns:GetCheckoutCartResponse"/>
-			<xs:element name="getVersionRequest"  type="tns:GetVersionRequest"/>
-			<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="CreateCheckoutCartRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -42,7 +41,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element minOccurs="1" maxOccurs="unbounded" name="lineItem" type="tns:LineItem">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="lineItem" type="tns:LineItem">
 								<xs:annotation>
 									<xs:documentation>
 										The Items to be purchased.
@@ -274,7 +273,7 @@
 			<xs:simpleType name="PlatformTypeList">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			The platform to which this request is called.
@@ -307,7 +306,7 @@
 			http://www.iso.ch/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html
 		</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -615,7 +614,7 @@
 			domestic, for that site.
 		</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -4324,7 +4323,7 @@
 			<xs:complexType abstract="true" name="BaseServiceRequest">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			The base request container for all service operations.
@@ -4337,7 +4336,7 @@
 			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			The base response container for all service operations.
@@ -4402,7 +4401,7 @@
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			The nature of the response.
@@ -4452,7 +4451,7 @@
 			<xs:simpleType name="ErrorCategory">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			The source of the error.
@@ -4485,7 +4484,7 @@
 			<xs:complexType name="ErrorMessage">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			Details of the error.
@@ -4511,7 +4510,7 @@
 			<xs:complexType name="ErrorData">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			Details of the error.
@@ -4669,7 +4668,7 @@
 			<xs:complexType name="ErrorParameter">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			Contextual information associated with an error.
@@ -4697,7 +4696,7 @@
 			<xs:simpleType name="ErrorSeverity">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			Indicates whether the error is a severe error (causing the request to fail) or an
@@ -4732,7 +4731,7 @@
 			Details of an eBay.com User
 		</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -4787,7 +4786,7 @@
 			A grouping of packages by seller.
 		</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -4840,7 +4839,7 @@
 			Details of an address.
 		</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -4970,7 +4969,7 @@
 			Details of an eBay shipping service.
 		</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -5060,7 +5059,7 @@
 			the SalesTaxPercent and pricing information.
 		</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -5130,7 +5129,7 @@
 			An identifier for an item or a transaction.
 		</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -5217,7 +5216,7 @@
 			<xs:simpleType name="LineItemTypeList">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			The nature of the line item in the Review Your Purchase summary.
@@ -5254,7 +5253,7 @@
 			Applicable for multi-variation listings.
 		</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -5297,7 +5296,7 @@
 			The Item Specifics for a Variation. Applicable for multi-variation listings.
 		</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -5323,7 +5322,7 @@
 			Name/value pair. Applicable to multi-variation listings only.
 		</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -5341,7 +5340,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="value" type="xs:string">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="value" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 					The value in a name/value pair.
@@ -5363,7 +5362,7 @@
 			Payment details for the seller order.
 		</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -5429,7 +5428,7 @@
 				are from the same seller.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -5542,7 +5541,7 @@
 				An eBay or eBay Partner checkout cart.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -5655,7 +5654,7 @@
 			<xs:complexType name="Amount">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -5675,7 +5674,7 @@
 				discount.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -5727,7 +5726,7 @@
 						the time it was added to the cart (it is
 						possible for the item price to change in
 						the time it takes for the user to move
-						from initiating a &quot;buy&quot; to
+						from initiating a "buy" to
 						beginning and completing the checkout
 						process).
 					</xs:documentation>
@@ -5808,28 +5807,28 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="createCheckoutCartRequest">
-		<wsdl:part name="params" element="tns:createCheckoutCartRequest"/>
+		<wsdl:part element="tns:createCheckoutCartRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="createCheckoutCartResponse">
-		<wsdl:part name="params" element="tns:createCheckoutCartResponse"/>
+		<wsdl:part element="tns:createCheckoutCartResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="purchaseCheckoutCartRequest">
-		<wsdl:part name="params" element="tns:purchaseCheckoutCartRequest"/>
+		<wsdl:part element="tns:purchaseCheckoutCartRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="purchaseCheckoutCartResponse">
-		<wsdl:part name="params" element="tns:purchaseCheckoutCartResponse"/>
+		<wsdl:part element="tns:purchaseCheckoutCartResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getCheckoutCartRequest">
-		<wsdl:part name="params" element="tns:getCheckoutCartRequest"/>
+		<wsdl:part element="tns:getCheckoutCartRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getCheckoutCartResponse">
-		<wsdl:part name="params" element="tns:getCheckoutCartResponse"/>
+		<wsdl:part element="tns:getCheckoutCartResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part name="messageParameters" element="tns:getVersionRequest"/>
+		<wsdl:part element="tns:getVersionRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part name="messageParameters" element="tns:getVersionResponse"/>
+		<wsdl:part element="tns:getVersionResponse" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:portType name="BuyingServicePort">
 		<wsdl:operation name="createCheckoutCart">
@@ -5854,8 +5853,8 @@
 			<wsdl:output message="tns:getCheckoutCartResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getVersion">
-			<wsdl:input name="getVersionRequest" message="tns:getVersionRequest"/>
-			<wsdl:output name="getVersionResponse" message="tns:getVersionResponse"/>
+			<wsdl:input message="tns:getVersionRequest" name="getVersionRequest"/>
+			<wsdl:output message="tns:getVersionResponse" name="getVersionResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:binding name="BuyingServiceSoapBinding" type="tns:BuyingServicePort">
@@ -5941,10 +5940,10 @@
 			<Version>1.0.0</Version>
 			Retrieves a checkout cart.
 		</wsdl:documentation>
-		<wsdl:port name="BuyingServiceHttp" binding="tns:BuyingServiceHttpBinding">
+		<wsdl:port binding="tns:BuyingServiceHttpBinding" name="BuyingServiceHttp">
 			<http:address location="http://svcs.ebay.com/services/buying/v1/BuyingService"/>
 		</wsdl:port>
-		<wsdl:port name="BuyingServiceSOAP" binding="tns:BuyingServiceSoapBinding">
+		<wsdl:port binding="tns:BuyingServiceSoapBinding" name="BuyingServiceSOAP">
 			<soap12:address location="http://svcs.ebay.com/services/buying/v1/BuyingService"/>
 		</wsdl:port>
 	</wsdl:service>

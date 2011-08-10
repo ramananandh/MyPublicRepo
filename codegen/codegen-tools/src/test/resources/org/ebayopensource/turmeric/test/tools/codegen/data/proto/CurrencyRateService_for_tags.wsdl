@@ -1,16 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebay.com/marketplace/billing/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CurrencyRateService"
-	targetNamespace="http://www.ebay.com/marketplace/billing/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/billing/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CurrencyRateService" targetNamespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
 	<wsdl:types>
 	
 	
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/billing/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -22,8 +14,7 @@
 					</xs:documentation>
 					
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -72,13 +63,11 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension"
-						type="tns:ExtensionType">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType">
 						<xs:annotation>
 						<xs:documentation>Reserved for future use.</xs:documentation>
 						</xs:annotation>
@@ -93,8 +82,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -106,7 +94,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -121,7 +109,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -136,7 +124,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -147,26 +135,24 @@
 							<xs:documentation>
 								This value represents the date and time when eBay processed the request.
 								This value is returned in GMT, the ISO 8601 date and time format (YYYY-
-								MM- DDTHH:MM:SS.SSSZ). See the &quot;dateTime&quot; type for information about the
+								MM- DDTHH:MM:SS.SSSZ). See the "dateTime" type for information about the
 								time format, and for details on converting to and from the GMT time zone.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension"
-						type="tns:ExtensionType">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType">
 						<xs:annotation>
 							<xs:documentation>
 								Reserved for future use.
 							</xs:documentation>
 							<xs:appinfo>
-								<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-									namespace="http://www.ebay.com/marketplace/services" />
+								<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
@@ -179,14 +165,13 @@
 						errors, and system errors.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
@@ -195,8 +180,7 @@
 						A container for error details.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -363,8 +347,7 @@
          </xs:appinfo>
         </xs:annotation>
        </xs:element>
-       <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"
-        type="tns:ErrorParameter">
+       <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
         <xs:annotation>
          <xs:documentation>
           Various warning and error messages that return one or more variables that 
@@ -391,8 +374,7 @@
         not reported here, but are instead reported as part of a SOAP fault.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!--
@@ -400,15 +382,13 @@
 					processContents="lax" /> </xs:sequence>
 				-->
 				<xs:sequence>
-        <xs:element maxOccurs="unbounded" minOccurs="0" name="error"
-        type="tns:ErrorData">
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
         <xs:annotation>
          <xs:documentation>
           A container for error details.
          </xs:documentation>
          <xs:appinfo>
-          <typeLibrarySource library="SOACommonTypeLibrary"
-            namespace="http://www.ebay.com/marketplace/services" />
+          <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
          </xs:appinfo>
         </xs:annotation>
        </xs:element>
@@ -420,8 +400,7 @@
 						Contextual data associated with an error.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -443,13 +422,12 @@
         or a less severe error (a warning) that should be communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ExtensionType">
@@ -458,8 +436,7 @@
 						Reserved for future use.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -517,7 +494,7 @@
 
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="getVersionRequest" type="tns:GetVersionRequest" />
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
 			<xs:complexType name="GetVersionRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -526,11 +503,11 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getVersionResponse" type="tns:GetVersionResponse" />
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -539,18 +516,18 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getCurrencyConversionRateRequest" type="tns:GetCurrencyConversionRateRequest" />
+			<xs:element name="getCurrencyConversionRateRequest" type="tns:GetCurrencyConversionRateRequest"/>
 				<xs:complexType name="GetCurrencyConversionRateRequest">
 					<xs:annotation>
 						<xs:documentation>
 							Defines the structure of the input for the getCurrencyConversionRate
 							operation. Specify an ISO Currency ID for the currency to convert from and to. 
 							Refer to 
-							&lt;a href=&quot;http://wiki2.arch.ebay.com/display/apdoc/CurrencyRateService_3.0&quot;&gt;CurrencyRateService_3.0&lt;/a&gt;
+							&lt;a href="http://wiki2.arch.ebay.com/display/apdoc/CurrencyRateService_3.0"&gt;CurrencyRateService_3.0&lt;/a&gt;
 							for a list of currencies that this operation supports. 
 							The dateOfConversion is optional, and is set to the current date if not specified. 
 							This operation can't request a conversion rate for a future date, or for dates older than 7 days.
@@ -563,8 +540,7 @@
 						<xs:extension base="tns:BaseRequest">
 
 							<xs:sequence>
-								<xs:element name="fromCurrency"
-									type="tns:IsoCurrencyCode" maxOccurs="1" minOccurs="1" nillable="false">
+								<xs:element maxOccurs="1" minOccurs="1" name="fromCurrency" nillable="false" type="tns:IsoCurrencyCode">
 									<xs:annotation>
 										<xs:documentation>
 											ISO Currency ID of the
@@ -603,8 +579,7 @@
 									</xs:annotation>
 
 								</xs:element>
-								<xs:element name="toCurrency"
-									type="tns:IsoCurrencyCode" maxOccurs="1" minOccurs="1" nillable="false">
+								<xs:element maxOccurs="1" minOccurs="1" name="toCurrency" nillable="false" type="tns:IsoCurrencyCode">
 									<xs:annotation>
 										<xs:documentation>
 											ISO Currency ID of the
@@ -642,8 +617,7 @@
 									</xs:annotation>
 								</xs:element>
 								
-								<xs:element name="conversionDate"
-									type="xs:dateTime" maxOccurs="1" minOccurs="0">
+								<xs:element maxOccurs="1" minOccurs="0" name="conversionDate" type="xs:dateTime">
 									<xs:annotation>
 										<xs:documentation>
 											Date on which currency conversion rate is required. This is an optional parameter, 
@@ -667,7 +641,7 @@
 					</xs:complexContent>
 				</xs:complexType>
 			
-			<xs:element name="getCurrencyConversionRateResponse" type="tns:GetCurrencyConversionRateResponse" />
+			<xs:element name="getCurrencyConversionRateResponse" type="tns:GetCurrencyConversionRateResponse"/>
 				<xs:complexType name="GetCurrencyConversionRateResponse">
 					<xs:annotation>
 						<xs:documentation>
@@ -683,8 +657,7 @@
 					<xs:complexContent>
 						<xs:extension base="tns:BaseResponse">
 							<xs:sequence>
-								<xs:element name="currencyConversionRate" type="xs:string"
-									maxOccurs="1" minOccurs="1">
+								<xs:element maxOccurs="1" minOccurs="1" name="currencyConversionRate" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
 											Currency conversion rate X, represents 1
@@ -698,8 +671,7 @@
 										</xs:appinfo>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="conversionDate" type="xs:dateTime"
-									maxOccurs="1" minOccurs="1">
+								<xs:element maxOccurs="1" minOccurs="1" name="conversionDate" type="xs:dateTime">
 									<xs:annotation>
 										<xs:documentation>
 											The Date for which the conversion rate applies. 
@@ -732,89 +704,89 @@
               This type exposes only a sub-set of ISO 4217. &lt;br&gt; 
               The enumeration represents the Alphabetic Code. Comments are included for quick reference.
             </xs:documentation>
-        <xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+        <xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
         <xs:restriction base="xs:token">   <!-- Currency,                         Entity                          ISO Currency Code -->
-            <xs:enumeration value="USD"></xs:enumeration> <!-- U.S. Dollar                       United States                   840               -->
-            <xs:enumeration value="CAD"></xs:enumeration> <!-- Canadian Dollar                   Canada                          124               -->
-            <xs:enumeration value="GBP"></xs:enumeration> <!-- Pound Sterling                    United Kingdom                  826               -->
-            <xs:enumeration value="DEM"></xs:enumeration> <!-- German Mark                       Germany                         276               -->
-            <xs:enumeration value="AUD"></xs:enumeration> <!-- Australian Dollar                 Australia                       036               -->
-            <xs:enumeration value="JPY"></xs:enumeration> <!-- Japanese Yen                      Japanese Yen                    392               -->
-            <xs:enumeration value="EUR"></xs:enumeration> <!-- Euro                              European Union                  978               -->
-            <xs:enumeration value="FRF"></xs:enumeration> <!-- French Franc                      France                          250               -->
-            <xs:enumeration value="ATS"></xs:enumeration> <!-- Austrian Schilling                Austria                         040               -->
-            <xs:enumeration value="BEF"></xs:enumeration> <!-- Belgian Franc                     Belgium                         056               -->
-            <xs:enumeration value="CHF"></xs:enumeration> <!-- Swiss Franc                       Switzerland                     756               -->
-            <xs:enumeration value="CNY"></xs:enumeration> <!-- Chinese Yuan Renminbi             China                           156               -->
-            <xs:enumeration value="CZK"></xs:enumeration> <!-- Czech Koruna                      Czech Republic                  203               -->
-            <xs:enumeration value="DKK"></xs:enumeration> <!-- Danish Krone                      Denmark                         208               -->
-            <xs:enumeration value="ESP"></xs:enumeration> <!-- Spanish Peseta                    Spain                           724               -->
-            <xs:enumeration value="FIM"></xs:enumeration> <!-- Finnish Markka                    Finland                         246               -->
-            <xs:enumeration value="GRD"></xs:enumeration> <!-- Greek Drachma                     Greece                          300               -->
-            <xs:enumeration value="HKD"></xs:enumeration> <!-- Hong Kong Dollar                  Hong Kong                       344               -->
-            <xs:enumeration value="HUF"></xs:enumeration> <!-- Hungarian Forint                  Hungary                         348               -->
-            <xs:enumeration value="IDR"></xs:enumeration> <!-- Indonesian Rupiah                 Indonesia                       360               -->
-            <xs:enumeration value="IEP"></xs:enumeration> <!-- Irish Pound                       Ireland                         372               -->
-            <xs:enumeration value="ILS"></xs:enumeration> <!-- Israeli new Shekel                Israel                          376               -->
-            <xs:enumeration value="ITL"></xs:enumeration> <!-- Italian Lira                      Italy                           380               -->
-            <xs:enumeration value="NLG"></xs:enumeration> <!-- Dutch Guilder                     Netherlands                     528               -->
-            <xs:enumeration value="NOK"></xs:enumeration> <!-- Norwegian Krone                   Norway                          578               -->
-            <xs:enumeration value="NZD"></xs:enumeration> <!-- New Zealand Dollar                New Zealand                     554               -->
-            <xs:enumeration value="PHP"></xs:enumeration> <!-- Philippine Peso                   Philippines                     608               -->
-            <xs:enumeration value="PLN"></xs:enumeration> <!-- Polish New Zloty                  Poland                          985               -->
-            <xs:enumeration value="PTE"></xs:enumeration> <!-- Portuguese Escudo                 Portugal                        620               -->
-            <xs:enumeration value="RUR"></xs:enumeration> <!-- Russian Ruble                     Russian Federation              810               -->
-            <xs:enumeration value="SEK"></xs:enumeration> <!-- Swedish Krona                     Sweden                          752               -->
-            <xs:enumeration value="SGD"></xs:enumeration> <!-- Singapore Dollar                  Singapore                       702               -->
-            <xs:enumeration value="THB"></xs:enumeration> <!-- Thai Baht                         Thailand                        764               -->
-            <xs:enumeration value="TWD"></xs:enumeration> <!-- New Taiwan dollar                 Taiwan                          901               -->
-            <xs:enumeration value="ZAR"></xs:enumeration> <!-- South African Rand                South Africa                    710               -->
-            <xs:enumeration value="INR"></xs:enumeration> <!-- Indian Rupee                      India                           356               -->
-            <xs:enumeration value="PEN"></xs:enumeration> <!-- Peruvian New Sol                  Peru                            604               -->
-            <xs:enumeration value="MYR"></xs:enumeration> <!-- Malaysian Ringgit                 Malaysia                        458               -->
-            <xs:enumeration value="VND"></xs:enumeration> <!-- Vietnamese New Dong               Vietnam                         704               -->
-            <xs:enumeration value="KRW"></xs:enumeration> <!-- South Korean Won                  South Korea                     410               -->
-            <xs:enumeration value="TRY"></xs:enumeration> <!-- New Turkish Lira                  Turkey                          949               -->
-            <xs:enumeration value="ANG"></xs:enumeration> <!-- Antillian Guilder                 Netherlands Antilles            532               -->
-            <xs:enumeration value="AWG"></xs:enumeration> <!-- Aruban Guilder                    Aruba                           533               -->
-            <xs:enumeration value="BMD"></xs:enumeration> <!-- Bermudan Dollar                   Bermudan Dollar                 060               -->
-            <xs:enumeration value="CRC"></xs:enumeration> <!-- Costa Rican Colon                 Costa Rica                      188               -->
-            <xs:enumeration value="RON"></xs:enumeration> <!-- Romanian New Leu                  Romania                         946               -->
-            <xs:enumeration value="VEF"></xs:enumeration> <!-- Venezuelan Bolivar Fuerte         Venezuela                       937               -->
-            <xs:enumeration value="BBD"></xs:enumeration> <!-- Barbados Dollar                   Barbados                        052               -->
-            <xs:enumeration value="BGN"></xs:enumeration> <!-- Bulgarian Lev                     Bulgaria                        975               -->
-            <xs:enumeration value="BND"></xs:enumeration> <!-- Brunei Dollar                     Brunei                          096               -->
-            <xs:enumeration value="BSD"></xs:enumeration> <!-- Bahamian Dollar                   Bahamas                         044               -->
-            <xs:enumeration value="COP"></xs:enumeration> <!-- Colombian Peso                    Columbia                        170               -->
-            <xs:enumeration value="DOP"></xs:enumeration> <!-- Dominican Peso                    Dominican Republic              214               -->
+            <xs:enumeration value="USD"/> <!-- U.S. Dollar                       United States                   840               -->
+            <xs:enumeration value="CAD"/> <!-- Canadian Dollar                   Canada                          124               -->
+            <xs:enumeration value="GBP"/> <!-- Pound Sterling                    United Kingdom                  826               -->
+            <xs:enumeration value="DEM"/> <!-- German Mark                       Germany                         276               -->
+            <xs:enumeration value="AUD"/> <!-- Australian Dollar                 Australia                       036               -->
+            <xs:enumeration value="JPY"/> <!-- Japanese Yen                      Japanese Yen                    392               -->
+            <xs:enumeration value="EUR"/> <!-- Euro                              European Union                  978               -->
+            <xs:enumeration value="FRF"/> <!-- French Franc                      France                          250               -->
+            <xs:enumeration value="ATS"/> <!-- Austrian Schilling                Austria                         040               -->
+            <xs:enumeration value="BEF"/> <!-- Belgian Franc                     Belgium                         056               -->
+            <xs:enumeration value="CHF"/> <!-- Swiss Franc                       Switzerland                     756               -->
+            <xs:enumeration value="CNY"/> <!-- Chinese Yuan Renminbi             China                           156               -->
+            <xs:enumeration value="CZK"/> <!-- Czech Koruna                      Czech Republic                  203               -->
+            <xs:enumeration value="DKK"/> <!-- Danish Krone                      Denmark                         208               -->
+            <xs:enumeration value="ESP"/> <!-- Spanish Peseta                    Spain                           724               -->
+            <xs:enumeration value="FIM"/> <!-- Finnish Markka                    Finland                         246               -->
+            <xs:enumeration value="GRD"/> <!-- Greek Drachma                     Greece                          300               -->
+            <xs:enumeration value="HKD"/> <!-- Hong Kong Dollar                  Hong Kong                       344               -->
+            <xs:enumeration value="HUF"/> <!-- Hungarian Forint                  Hungary                         348               -->
+            <xs:enumeration value="IDR"/> <!-- Indonesian Rupiah                 Indonesia                       360               -->
+            <xs:enumeration value="IEP"/> <!-- Irish Pound                       Ireland                         372               -->
+            <xs:enumeration value="ILS"/> <!-- Israeli new Shekel                Israel                          376               -->
+            <xs:enumeration value="ITL"/> <!-- Italian Lira                      Italy                           380               -->
+            <xs:enumeration value="NLG"/> <!-- Dutch Guilder                     Netherlands                     528               -->
+            <xs:enumeration value="NOK"/> <!-- Norwegian Krone                   Norway                          578               -->
+            <xs:enumeration value="NZD"/> <!-- New Zealand Dollar                New Zealand                     554               -->
+            <xs:enumeration value="PHP"/> <!-- Philippine Peso                   Philippines                     608               -->
+            <xs:enumeration value="PLN"/> <!-- Polish New Zloty                  Poland                          985               -->
+            <xs:enumeration value="PTE"/> <!-- Portuguese Escudo                 Portugal                        620               -->
+            <xs:enumeration value="RUR"/> <!-- Russian Ruble                     Russian Federation              810               -->
+            <xs:enumeration value="SEK"/> <!-- Swedish Krona                     Sweden                          752               -->
+            <xs:enumeration value="SGD"/> <!-- Singapore Dollar                  Singapore                       702               -->
+            <xs:enumeration value="THB"/> <!-- Thai Baht                         Thailand                        764               -->
+            <xs:enumeration value="TWD"/> <!-- New Taiwan dollar                 Taiwan                          901               -->
+            <xs:enumeration value="ZAR"/> <!-- South African Rand                South Africa                    710               -->
+            <xs:enumeration value="INR"/> <!-- Indian Rupee                      India                           356               -->
+            <xs:enumeration value="PEN"/> <!-- Peruvian New Sol                  Peru                            604               -->
+            <xs:enumeration value="MYR"/> <!-- Malaysian Ringgit                 Malaysia                        458               -->
+            <xs:enumeration value="VND"/> <!-- Vietnamese New Dong               Vietnam                         704               -->
+            <xs:enumeration value="KRW"/> <!-- South Korean Won                  South Korea                     410               -->
+            <xs:enumeration value="TRY"/> <!-- New Turkish Lira                  Turkey                          949               -->
+            <xs:enumeration value="ANG"/> <!-- Antillian Guilder                 Netherlands Antilles            532               -->
+            <xs:enumeration value="AWG"/> <!-- Aruban Guilder                    Aruba                           533               -->
+            <xs:enumeration value="BMD"/> <!-- Bermudan Dollar                   Bermudan Dollar                 060               -->
+            <xs:enumeration value="CRC"/> <!-- Costa Rican Colon                 Costa Rica                      188               -->
+            <xs:enumeration value="RON"/> <!-- Romanian New Leu                  Romania                         946               -->
+            <xs:enumeration value="VEF"/> <!-- Venezuelan Bolivar Fuerte         Venezuela                       937               -->
+            <xs:enumeration value="BBD"/> <!-- Barbados Dollar                   Barbados                        052               -->
+            <xs:enumeration value="BGN"/> <!-- Bulgarian Lev                     Bulgaria                        975               -->
+            <xs:enumeration value="BND"/> <!-- Brunei Dollar                     Brunei                          096               -->
+            <xs:enumeration value="BSD"/> <!-- Bahamian Dollar                   Bahamas                         044               -->
+            <xs:enumeration value="COP"/> <!-- Colombian Peso                    Columbia                        170               -->
+            <xs:enumeration value="DOP"/> <!-- Dominican Peso                    Dominican Republic              214               -->
 
-            <xs:enumeration value="GTQ"></xs:enumeration> <!-- Guatemalan Quetzal                Guatemala                       320               -->
-            <xs:enumeration value="KYD"></xs:enumeration> <!-- Cayman Isles Dollar               Cayman Islands                  136               -->
-            <xs:enumeration value="MVR"></xs:enumeration> <!-- Maldivian Rufiyaa                 Maldives                        462               -->
-            <xs:enumeration value="QAR"></xs:enumeration> <!-- Qatari Rial                       Qatar                           634               -->
-            <xs:enumeration value="SAR"></xs:enumeration> <!-- Saudi Riyal                       Saudi Arabia                    682               -->
-            <xs:enumeration value="TTD"></xs:enumeration> <!-- Trinidadian and Tobagonian Dollar Trinidad and Tobago             780               -->
-            <xs:enumeration value="UAH"></xs:enumeration> <!-- Ukrainian hryvnia                 Ukraine                         980               -->
-            <xs:enumeration value="UYU"></xs:enumeration> <!-- Peso Uruguayo                     Uruguay                         858               -->
-            <xs:enumeration value="XCD"></xs:enumeration> <!-- East Caribbean Dollar             East Caribbean Currency Area    951               -->
-            <xs:enumeration value="XPF"></xs:enumeration> <!-- French Polynesian Franc           French Polynesia                953               -->
-            <xs:enumeration value="JMD"></xs:enumeration> <!-- Jamaican Dollar                   Jamaica                         388               -->
+            <xs:enumeration value="GTQ"/> <!-- Guatemalan Quetzal                Guatemala                       320               -->
+            <xs:enumeration value="KYD"/> <!-- Cayman Isles Dollar               Cayman Islands                  136               -->
+            <xs:enumeration value="MVR"/> <!-- Maldivian Rufiyaa                 Maldives                        462               -->
+            <xs:enumeration value="QAR"/> <!-- Qatari Rial                       Qatar                           634               -->
+            <xs:enumeration value="SAR"/> <!-- Saudi Riyal                       Saudi Arabia                    682               -->
+            <xs:enumeration value="TTD"/> <!-- Trinidadian and Tobagonian Dollar Trinidad and Tobago             780               -->
+            <xs:enumeration value="UAH"/> <!-- Ukrainian hryvnia                 Ukraine                         980               -->
+            <xs:enumeration value="UYU"/> <!-- Peso Uruguayo                     Uruguay                         858               -->
+            <xs:enumeration value="XCD"/> <!-- East Caribbean Dollar             East Caribbean Currency Area    951               -->
+            <xs:enumeration value="XPF"/> <!-- French Polynesian Franc           French Polynesia                953               -->
+            <xs:enumeration value="JMD"/> <!-- Jamaican Dollar                   Jamaica                         388               -->
 
         </xs:restriction>
     </xs:simpleType></xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part element="tns:getVersionRequest" name="params" />
+		<wsdl:part element="tns:getVersionRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part element="tns:getVersionResponse" name="params" />
+		<wsdl:part element="tns:getVersionResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getCurrencyConversionRateRequest">
-		<wsdl:part name="params" element="tns:getCurrencyConversionRateRequest"></wsdl:part>
+		<wsdl:part element="tns:getCurrencyConversionRateRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getCurrencyConversionRateResponse">
-		<wsdl:part name="params" element="tns:getCurrencyConversionRateResponse"></wsdl:part>
+		<wsdl:part element="tns:getCurrencyConversionRateResponse" name="params"/>
 	</wsdl:message>
 	
 	<wsdl:portType name="CurrencyRateServicePort">	
@@ -822,61 +794,57 @@
 			<wsdl:documentation>
 				Gets the service version and a timestamp.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getVersionRequest" />
-			<wsdl:output message="tns:getVersionResponse" />
+			<wsdl:input message="tns:getVersionRequest"/>
+			<wsdl:output message="tns:getVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getCurrencyConversionRate">
 			<wsdl:documentation>
 				Returns the conversion rate between a source and target currency.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getCurrencyConversionRateRequest"></wsdl:input>
-			<wsdl:output message="tns:getCurrencyConversionRateResponse"></wsdl:output>
+			<wsdl:input message="tns:getCurrencyConversionRateRequest"/>
+			<wsdl:output message="tns:getCurrencyConversionRateResponse"/>
 		</wsdl:operation>
 
 	</wsdl:portType>
 	<wsdl:binding name="CurrencyRateServiceHttpBinding" type="tns:CurrencyRateServicePort">
-		<http:binding verb="POST" />
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getCurrencyConversionRate">
-			<http:operation location="getCurrencyConversionRate" />
+			<http:operation location="getCurrencyConversionRate"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="CurrencyRateServiceSOAPBinding"
-		type="tns:CurrencyRateServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="CurrencyRateServiceSOAPBinding" type="tns:CurrencyRateServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/billing/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/billing/v1/services/getVersion"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getCurrencyConversionRate">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/billing/v1/services/getCurrencyConversionRate" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/billing/v1/services/getCurrencyConversionRate"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -887,16 +855,11 @@
 			<version>1.0.0</version>
 			This service provides operations for currencyconversion.
 		</wsdl:documentation>
-		<wsdl:port binding="tns:CurrencyRateServiceHttpBinding"
-			name="CurrencyRateServiceHttpPort">
-			<http:address
-				location="https://svcs.ebay.com/services/billing/v1/CurrencyRateService" />
+		<wsdl:port binding="tns:CurrencyRateServiceHttpBinding" name="CurrencyRateServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/billing/v1/CurrencyRateService"/>
 		</wsdl:port>
-		<wsdl:port binding="tns:CurrencyRateServiceSOAPBinding"
-			name="CurrencyRateServiceSOAPPort">
-			<soap12:address
-				location="https://svcs.ebay.com/services/billing/v1/CurrencyRateService" />
+		<wsdl:port binding="tns:CurrencyRateServiceSOAPBinding" name="CurrencyRateServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/billing/v1/CurrencyRateService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
-

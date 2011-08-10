@@ -1,21 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions
-  name="SellerPerformanceAdminService"
-  targetNamespace="http://www.ebay.com/marketplace/services"
-  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-  xmlns:tns="http://www.ebay.com/marketplace/services"
-  xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SellerPerformanceAdminService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 <wsdl:types>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
-<xs:element name="setSellerPerformanceLevelOverrideRequest"  type="tns:SetSellerPerformanceLevelOverrideRequest" />
-<xs:element name="setSellerPerformanceLevelOverrideResponse"  type="tns:SetSellerPerformanceLevelOverrideResponse" />
+<xs:element name="setSellerPerformanceLevelOverrideRequest" type="tns:SetSellerPerformanceLevelOverrideRequest"/>
+<xs:element name="setSellerPerformanceLevelOverrideResponse" type="tns:SetSellerPerformanceLevelOverrideResponse"/>
 
 <xs:complexType abstract="true" name="BaseServiceRequest">
 	<xs:annotation>
@@ -76,7 +65,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					Details about a single error.
@@ -242,7 +231,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -419,20 +408,17 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseServiceRequest">
 			<xs:sequence>
-				<xs:element name="sellerId" type="xs:long" maxOccurs="1" minOccurs="1"></xs:element>
-            	<xs:element name="program" type="xs:token" maxOccurs="1" minOccurs="1">
+				<xs:element maxOccurs="1" minOccurs="1" name="sellerId" type="xs:long"/>
+            	<xs:element maxOccurs="1" minOccurs="1" name="program" type="xs:token">
             	</xs:element>
-            	<xs:element name="overrideLevel"
-            		type="xs:token" maxOccurs="1" minOccurs="1">
+            	<xs:element maxOccurs="1" minOccurs="1" name="overrideLevel" type="xs:token">
             	</xs:element>
-            	<xs:element name="reasonCode"
-            		type="xs:token" maxOccurs="1" minOccurs="1">
+            	<xs:element maxOccurs="1" minOccurs="1" name="reasonCode" type="xs:token">
             	</xs:element>
-            	<xs:element name="notes" type="xs:string" maxOccurs="1" minOccurs="0">
+            	<xs:element maxOccurs="1" minOccurs="0" name="notes" type="xs:string">
             	</xs:element>
 
-            	<xs:element name="expiryDate"
-            		type="xs:dateTime" maxOccurs="1" minOccurs="1">
+            	<xs:element maxOccurs="1" minOccurs="1" name="expiryDate" type="xs:dateTime">
             	</xs:element>
             </xs:sequence>
 		</xs:extension>
@@ -452,11 +438,9 @@
 		<xs:extension base="tns:BaseServiceResponse">
             		<xs:sequence>
 
-            			<xs:element name="resultMessage" type="xs:token"
-            				maxOccurs="1" minOccurs="1">
+            			<xs:element maxOccurs="1" minOccurs="1" name="resultMessage" type="xs:token">
             			</xs:element>
-            			<xs:element name="failureReason"
-            				type="xs:token" maxOccurs="1" minOccurs="0">
+            			<xs:element maxOccurs="1" minOccurs="0" name="failureReason" type="xs:token">
             			</xs:element>
             		</xs:sequence>
 		</xs:extension>
@@ -466,59 +450,55 @@
 </xs:schema>
 </wsdl:types>
   <wsdl:message name="setSellerPerformanceLevelOverrideRequest">
-  	<wsdl:part name="parameters" element="tns:setSellerPerformanceLevelOverrideRequest"></wsdl:part>
+  	<wsdl:part element="tns:setSellerPerformanceLevelOverrideRequest" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="setSellerPerformanceLevelOverrideResponse">
-  	<wsdl:part name="parameters" element="tns:setSellerPerformanceLevelOverrideResponse"></wsdl:part>
+  	<wsdl:part element="tns:setSellerPerformanceLevelOverrideResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:portType name="SellerPerformanceAdminServicePort">
 
     <wsdl:operation name="setSellerPerformanceLevelOverride">
-    	<wsdl:input message="tns:setSellerPerformanceLevelOverrideRequest"></wsdl:input>
-    	<wsdl:output message="tns:setSellerPerformanceLevelOverrideResponse"></wsdl:output>
+    	<wsdl:input message="tns:setSellerPerformanceLevelOverrideRequest"/>
+    	<wsdl:output message="tns:setSellerPerformanceLevelOverrideResponse"/>
     </wsdl:operation>
 
   </wsdl:portType>
-  <wsdl:binding name="SellerPerformanceAdminServiceHttpBinding"
-  	type="tns:SellerPerformanceAdminServicePort">
+  <wsdl:binding name="SellerPerformanceAdminServiceHttpBinding" type="tns:SellerPerformanceAdminServicePort">
 
-  	<http:binding verb="POST" />
+  	<http:binding verb="POST"/>
   	<wsdl:operation name="setSellerPerformanceLevelOverride">
-  		<http:operation location="/setSellerPerformanceLevelOverride" />
+  		<http:operation location="/setSellerPerformanceLevelOverride"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
   		</wsdl:output>
   	</wsdl:operation>
 
   </wsdl:binding>
 
-  <wsdl:binding name="SellerPerformanceAdminServiceSOAPBinding"
-		type="tns:SellerPerformanceAdminServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+  <wsdl:binding name="SellerPerformanceAdminServiceSOAPBinding" type="tns:SellerPerformanceAdminServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="setSellerPerformanceLevelOverride">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/services/setSellerPerformanceLevelOverride" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/setSellerPerformanceLevelOverride"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
   </wsdl:binding>
   
   <wsdl:service name="SellerPerformanceAdminService">
-		<wsdl:port name="SellerPerformanceAdminServiceHttp" binding="tns:SellerPerformanceAdminServiceHttpBinding">
+		<wsdl:port binding="tns:SellerPerformanceAdminServiceHttpBinding" name="SellerPerformanceAdminServiceHttp">
 			<http:address location="http://svcs.ebay.com/SellerPerformanceAdminService"/>
 		</wsdl:port>
-		<wsdl:port name="SellerPerformanceAdminServiceSOAP" binding="tns:SellerPerformanceAdminServiceSOAPBinding">
-			<soap12:address xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" location="http://svcs.ebay.com/SellerPerformanceAdminService"/>
+		<wsdl:port binding="tns:SellerPerformanceAdminServiceSOAPBinding" name="SellerPerformanceAdminServiceSOAP">
+			<soap12:address location="http://svcs.ebay.com/SellerPerformanceAdminService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

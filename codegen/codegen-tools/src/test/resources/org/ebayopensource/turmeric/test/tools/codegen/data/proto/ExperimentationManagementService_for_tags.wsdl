@@ -1,19 +1,15 @@
-<definitions name="ExperimentationManagementService"
-	targetNamespace="http://www.ebay.com/marketplace/experimentationmanagement/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebay.com/marketplace/experimentationmanagement/v1/services"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/experimentationmanagement/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ExperimentationManagementService" targetNamespace="http://www.ebayopensource.org/tumeric/experimentationmanagement/v1/services">
 	<types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
-			targetNamespace="http://www.ebay.com/marketplace/experimentationmanagement/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/experimentationmanagement/v1/services">
 
-			<xs:element name="getVersionRequest"  type="tns:GetVersionRequest" />
-			<xs:element name="getVersionResponse"  type="tns:GetVersionResponse" />
-			<xs:element name="createExperimentRequest" type="tns:CreateExperimentRequest" />
-			<xs:element name="createExperimentResponse" type="tns:CreateExperimentResponse" />						
-			<xs:element name="updateExperimentRequest" type="tns:UpdateExperimentRequest" />
-			<xs:element name="updateExperimentResponse" type="tns:UpdateExperimentResponse" />
-			<xs:element name="getExperimentRequest" type="tns:GetExperimentRequest" />
-			<xs:element name="getExperimentResponse" type="tns:GetExperimentResponse" />			
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
+			<xs:element name="createExperimentRequest" type="tns:CreateExperimentRequest"/>
+			<xs:element name="createExperimentResponse" type="tns:CreateExperimentResponse"/>						
+			<xs:element name="updateExperimentRequest" type="tns:UpdateExperimentRequest"/>
+			<xs:element name="updateExperimentResponse" type="tns:UpdateExperimentResponse"/>
+			<xs:element name="getExperimentRequest" type="tns:GetExperimentRequest"/>
+			<xs:element name="getExperimentResponse" type="tns:GetExperimentResponse"/>			
 			
 			<xs:complexType name="GetVersionRequest">
 				<xs:annotation>
@@ -22,7 +18,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:complexContent>
-					<xs:extension base="tns:BaseRequest" />
+					<xs:extension base="tns:BaseRequest"/>
 				</xs:complexContent>
 			</xs:complexType>
 			
@@ -35,7 +31,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="version" type="xs:string" />
+							<xs:element name="version" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -46,12 +42,12 @@
 					<xs:documentation>
 						Request object to create an Experiment.
 					</xs:documentation>
-					<xs:appinfo />
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="experiment" type="tns:Experiment">
+							<xs:element maxOccurs="1" minOccurs="1" name="experiment" type="tns:Experiment">
 								<xs:annotation>
 									<xs:documentation>
 										Experiment would be created using an experiment object with a null experiment id.
@@ -72,7 +68,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="1" name="experiment" type="tns:Experiment" />
+							<xs:element maxOccurs="1" minOccurs="0" name="experiment" type="tns:Experiment"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -83,12 +79,12 @@
 					<xs:documentation>
 						Request object to update an Experiment.
 					</xs:documentation>
-					<xs:appinfo />
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="experiment" type="tns:Experiment">
+							<xs:element maxOccurs="1" minOccurs="1" name="experiment" type="tns:Experiment">
 								<xs:annotation>
 									<xs:documentation>
 										The experiment object obtained as response from getExperiment or createExperiment operations can be modified and input to this operation.
@@ -109,7 +105,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="1" name="experiment" type="tns:Experiment" />
+							<xs:element maxOccurs="1" minOccurs="0" name="experiment" type="tns:Experiment"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -120,12 +116,12 @@
 					<xs:documentation>
 						Request object to get an Experiment.
 					</xs:documentation>
-					<xs:appinfo />
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>							
-							<xs:element minOccurs="1" maxOccurs="1" name="experimentId" type="xs:long">  
+							<xs:element maxOccurs="1" minOccurs="1" name="experimentId" type="xs:long">  
 								<xs:annotation>
 									<xs:documentation>
 										Experiment would be obtained based on the experiment Id or experiment Name. 
@@ -146,7 +142,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="1" name="experiment" type="tns:Experiment" />
+							<xs:element maxOccurs="1" minOccurs="0" name="experiment" type="tns:Experiment"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -159,16 +155,16 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>					
-					<xs:element minOccurs="0" maxOccurs="1" name="experimentId" type="xs:long" />
-					<xs:element minOccurs="1" maxOccurs="1" name="experimentName" type="xs:string" />
-					<xs:element minOccurs="1" maxOccurs="1" name="globalId" type="xs:string" />					
-					<xs:element minOccurs="1" maxOccurs="1" name="startDate" type="xs:dateTime" />
-					<xs:element minOccurs="0" maxOccurs="1" name="endDate" type="xs:dateTime" />					
-					<xs:element minOccurs="0" maxOccurs="1" name="experimentStatus" type="xs:token" />										
-					<xs:element minOccurs="0" maxOccurs="1" name="gxt" type="xs:string" />
-					<xs:element minOccurs="0" maxOccurs="1" name="experimentHypothesis" type="xs:string" />				
-					<xs:element minOccurs="1" maxOccurs="unbounded" name="treatment" type="tns:Treatment" /> 
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="trackingROIDefn" type="tns:TrackingROIDefn"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="experimentId" type="xs:long"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="experimentName" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="globalId" type="xs:string"/>					
+					<xs:element maxOccurs="1" minOccurs="1" name="startDate" type="xs:dateTime"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="endDate" type="xs:dateTime"/>					
+					<xs:element maxOccurs="1" minOccurs="0" name="experimentStatus" type="xs:token"/>										
+					<xs:element maxOccurs="1" minOccurs="0" name="gxt" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="experimentHypothesis" type="xs:string"/>				
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="treatment" type="tns:Treatment"/> 
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="trackingROIDefn" type="tns:TrackingROIDefn"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -179,16 +175,16 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="1" name="treatmentId" type="xs:long" />
-					<xs:element minOccurs="1" maxOccurs="1" name="treatmentName" type="xs:string" />                    
-					<xs:element minOccurs="1" maxOccurs="1" name="treatmentType" type="xs:token" />					    
-					<xs:element minOccurs="1" maxOccurs="1" name="treatmentTrafficPercentage" type="xs:float" />  
-					<xs:element minOccurs="0" maxOccurs="1" name="treatmentStatus" type="xs:token" />					
-					<xs:element minOccurs="0" maxOccurs="1" name="treatmentPageIds" type="xs:string" /> <!--revisit -->
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="factor" type="tns:Factor" />					
-					<xs:element minOccurs="0" maxOccurs="1" name="optInUrl" type="xs:string" />
-					<xs:element minOccurs="0" maxOccurs="1" name="optOutUrl" type="xs:string" /> 
-					<xs:element minOccurs="0" maxOccurs="unbounded"  name="treatmentUser" type="tns:TreatmentUser" />
+					<xs:element maxOccurs="1" minOccurs="0" name="treatmentId" type="xs:long"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="treatmentName" type="xs:string"/>                    
+					<xs:element maxOccurs="1" minOccurs="1" name="treatmentType" type="xs:token"/>					    
+					<xs:element maxOccurs="1" minOccurs="1" name="treatmentTrafficPercentage" type="xs:float"/>  
+					<xs:element maxOccurs="1" minOccurs="0" name="treatmentStatus" type="xs:token"/>					
+					<xs:element maxOccurs="1" minOccurs="0" name="treatmentPageIds" type="xs:string"/> <!--revisit -->
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="factor" type="tns:Factor"/>					
+					<xs:element maxOccurs="1" minOccurs="0" name="optInUrl" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="optOutUrl" type="xs:string"/> 
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="treatmentUser" type="tns:TreatmentUser"/>
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -199,12 +195,12 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="1" name="roiEventId" type="xs:long"/>	
-					<xs:element minOccurs="1" maxOccurs="1" name="roiDisplayName" type="xs:string"/>					
-					<xs:element minOccurs="1" maxOccurs="1" name="roiType" type="xs:int"/>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="roiPageId" type="xs:int"/>
-					<xs:element minOccurs="1" maxOccurs="1" name="roiName" type="xs:string"/>
-					<xs:element minOccurs="0" maxOccurs="1" name="roiValue" type="xs:string"/>					
+					<xs:element maxOccurs="1" minOccurs="0" name="roiEventId" type="xs:long"/>	
+					<xs:element maxOccurs="1" minOccurs="1" name="roiDisplayName" type="xs:string"/>					
+					<xs:element maxOccurs="1" minOccurs="1" name="roiType" type="xs:int"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="roiPageId" type="xs:int"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="roiName" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="roiValue" type="xs:string"/>					
 				</xs:sequence>
 			</xs:complexType>
 
@@ -215,7 +211,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="1" name="userId" type="xs:long" />
+					<xs:element minOccurs="1" name="userId" type="xs:long"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -226,9 +222,9 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="0"  maxOccurs="1" name="factorId" type="xs:long" />
-					<xs:element minOccurs="1" maxOccurs="1" name="factorName" type="xs:string" />
-					<xs:element minOccurs="1" maxOccurs="1" name="factorValue" type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="factorId" type="xs:long"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="factorName" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="factorValue" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -238,7 +234,7 @@
 						The various status an experiment can be in. As of now - Pending, Planned, Active, Completed, Canceled, Stopped, Deleted, Ramp_Pending, Ramp_Planned, Ramp_Active, Ramp_Stopped, Ramp_Completed, Default, BlackOutExperiments.
 					</xs:documentation>
 				</xs:annotation>
-				<xs:restriction base="xs:token"></xs:restriction>
+				<xs:restriction base="xs:token"/>
 			</xs:simpleType>
 
 			<xs:simpleType name="TreatmentType">
@@ -248,7 +244,7 @@
 						Control, Variant.
 					</xs:documentation>
 				</xs:annotation>
-				<xs:restriction base="xs:token"></xs:restriction>
+				<xs:restriction base="xs:token"/>
 			</xs:simpleType>
 
 			<xs:simpleType name="TreatmentStatus">
@@ -257,7 +253,7 @@
 						The various status applied to a treatment as of now Inactive,Active,Delete.
 					</xs:documentation>
 				</xs:annotation>
-				<xs:restriction base="xs:token"></xs:restriction>
+				<xs:restriction base="xs:token"/>
 			</xs:simpleType>
 
 			<xs:complexType abstract="true" name="BaseRequest">
@@ -267,24 +263,19 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="extension" type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 
 			<xs:complexType abstract="true" name="BaseResponse">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Base response container for all service
@@ -295,17 +286,16 @@
 				<xs:sequence>
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -314,14 +304,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="extension" type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -331,28 +320,24 @@
 						Extension (if needed)
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
 			<xs:complexType name="ErrorMessage">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						ErrorMessage to indicate any Error/Warning
@@ -362,15 +347,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error" type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -382,9 +366,7 @@
 			<xs:complexType name="ErrorData">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						This represents error details.
@@ -402,7 +384,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -424,14 +406,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates whether the error caused the
@@ -470,14 +451,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 						<xs:annotation>
 							<xs:documentation>
 								There are three categories of errors:
@@ -486,7 +466,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -500,14 +480,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain upon which the
@@ -523,14 +502,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for an exception
@@ -538,14 +516,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter" type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -556,7 +533,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -568,9 +545,7 @@
 			<xs:complexType name="ErrorParameter">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Contextual information associated with an error.
@@ -587,7 +562,7 @@
 								</xs:documentation>
 								<xs:appinfo>
 									<CallInfo>
-										<AllCalls />
+										<AllCalls/>
 										<Returned>
 											Conditionally
 										</Returned>
@@ -602,9 +577,7 @@
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Indicates whether the error is a severe error
@@ -658,9 +631,7 @@
 			<xs:simpleType name="ErrorSeverity">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Indicates whether the error is a severe error
@@ -700,9 +671,7 @@
 			<xs:simpleType name="ErrorCategory">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						There are three categories of error: request
@@ -814,60 +783,60 @@
 			<wsdl:documentation>
 				Creates a new experiment and returns the same if ack is success.
 			</wsdl:documentation>
-			<input message="tns:createExperimentRequest"></input>
-			<output message="tns:createExperimentResponse"></output>
+			<input message="tns:createExperimentRequest"/>
+			<output message="tns:createExperimentResponse"/>
 		</operation>
 		<operation name="updateExperiment">
 			<wsdl:documentation>
 				Updates an existing experiment, if ack success, returns the updated experiment.
 			</wsdl:documentation>
-			<input message="tns:updateExperimentRequest"></input>
-			<output message="tns:updateExperimentResponse"></output>
+			<input message="tns:updateExperimentRequest"/>
+			<output message="tns:updateExperimentResponse"/>
 		</operation>
 		<operation name="getExperiment">
 			<wsdl:documentation>
 				Retrieves the experiment by id.
 			</wsdl:documentation>
-			<input message="tns:getExperimentRequest"></input>
-			<output message="tns:getExperimentResponse"></output>
+			<input message="tns:getExperimentRequest"/>
+			<output message="tns:getExperimentResponse"/>
 		</operation>
 	</portType>
 	<binding name="ExperimentationManagementServiceSOAPBinding" type="tns:ExperimentationManagementServicePort">
-		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<operation name="getVersion">
-			<soap12:operation soapAction="urn:getVersion" style="document" />
+			<soap12:operation soapAction="urn:getVersion" style="document"/>
 			<input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</input>
 			<output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</output>
 		</operation>		
 		<operation name="createExperiment">
-			<soap:operation soapAction="urn:createExperiment" />
+			<soap:operation soapAction="urn:createExperiment"/>
 			<input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="updateExperiment">
-			<soap:operation soapAction="urn:updateExperiment" />
+			<soap:operation soapAction="urn:updateExperiment"/>
 			<input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="getExperiment">
-			<soap:operation soapAction="urn:getExperiment" />
+			<soap:operation soapAction="urn:getExperiment"/>
 			<input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 	</binding>
@@ -878,10 +847,8 @@
 			Create,Read,Update,Delete level operations to experiments
 			and its metadata. Its first use will be to create, update and delete experiments for the dlite tool.
 		</wsdl:documentation>
-		<port binding="tns:ExperimentationManagementServiceSOAPBinding"
-			name="ExperimentationManagementServiceSOAPPort">
-			<soap12:address
-				location="https://svcs.ebay.com/services/experimentationmanagement/ExperimentationManagementService/v1" />
+		<port binding="tns:ExperimentationManagementServiceSOAPBinding" name="ExperimentationManagementServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/experimentationmanagement/ExperimentationManagementService/v1"/>
 		</port>		
 	</service>
 </definitions>

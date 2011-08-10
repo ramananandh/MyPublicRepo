@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 	    	<xs:complexType abstract="true" name="BaseServiceRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -51,7 +50,7 @@
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="version" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 							</xs:documentation>
@@ -65,7 +64,7 @@
 
 					</xs:element>
 
-					<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 							</xs:documentation>
@@ -167,8 +166,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRateLimiterServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="subject" type="tns:SubjectType" >
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="subject" type="tns:SubjectType">
 								<xs:annotation>
 									<xs:documentation>
 										Contains subject information for rate limiting request
@@ -182,8 +180,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="resolvedSubjectGroup" type="tns:SubjectGroupType" >
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="resolvedSubjectGroup" type="tns:SubjectGroupType">
 								<xs:annotation>
 									<xs:documentation>
 									    Contains subject groups which has group membership resolved
@@ -201,8 +198,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element name="challengeAnswer" type="tns:ChallengeAnswer"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="challengeAnswer" type="tns:ChallengeAnswer">
 								<xs:annotation>
 									<xs:documentation>
 										contains information for challenge answer
@@ -216,7 +212,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element name="attr" type="tns:NameValuePair" maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="attr" type="tns:NameValuePair">
 								<xs:annotation>
 									<xs:documentation>
 										contains addition information to do rate limiter
@@ -243,8 +239,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRateLimiterServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0" name="status"
-								type="tns:RateLimiterStatus" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="status" type="tns:RateLimiterStatus">
 								<xs:annotation>
 									<xs:documentation>
 										status of the Rate limiting
@@ -258,8 +253,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="resolvedSubjectGroup" type="tns:SubjectGroupType" >
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="resolvedSubjectGroup" type="tns:SubjectGroupType">
 								<xs:annotation>
 									<xs:documentation>
 										contains subject group list which has group membership resolved.
@@ -273,7 +267,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element name="challenge" type="tns:Challenge" minOccurs="0" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="challenge" type="tns:Challenge">
 								<xs:annotation>
 									<xs:documentation>
 										contains information for answering challenge question.
@@ -390,7 +384,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="domain" type="xs:string" >
+					<xs:element name="domain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								subject group domain information e.g EBAYAPP, IP, etc 
@@ -497,7 +491,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								ErrorMessage to indicate any Error/Warning occured as part of service call.
@@ -617,7 +611,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								error parameter
@@ -715,7 +709,7 @@
 				</xs:restriction>
 			</xs:simpleType>
 
-			<xs:element name="isRateLimitedRequest"  type="tns:isRateLimitedRequest">
+			<xs:element name="isRateLimitedRequest" type="tns:isRateLimitedRequest">
 				<xs:annotation>
 					<xs:documentation>
 						request to make isRateLimited call
@@ -723,7 +717,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="isRateLimitedResponse"  type="tns:isRateLimitedResponse">
+			<xs:element name="isRateLimitedResponse" type="tns:isRateLimitedResponse">
 				<xs:annotation>
 					<xs:documentation>
 						response of calling isRateLimited call
@@ -754,7 +748,7 @@
 					<xs:element name="value" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
-								attribute value e.g sec=1 -> attr name:sec attr value:1
+								attribute value e.g sec=1 -&gt; attr name:sec attr value:1
 							</xs:documentation>
 								<xs:appinfo>
 									<CallInfo>
@@ -850,11 +844,11 @@
 	</wsdl:types>
 
 	<wsdl:message name="isRateLimitedRequest">
-		<wsdl:part name="parameters" element="ns0:isRateLimitedRequest">
+		<wsdl:part element="ns0:isRateLimitedRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="isRateLimitedResponse">
-		<wsdl:part name="parameters" element="ns0:isRateLimitedResponse">
+		<wsdl:part element="ns0:isRateLimitedResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 
@@ -868,62 +862,55 @@
 		</wsdl:operation>
 	</wsdl:portType>
 
-	<wsdl:binding name="RateLimiterServiceSOAP11Binding"
-  		type="ns0:RateLimiterServicePort">
+	<wsdl:binding name="RateLimiterServiceSOAP11Binding" type="ns0:RateLimiterServicePort">
 
-		<soap:binding style="document"
-  			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
   		<wsdl:operation name="isRateLimited">
-  			<soap:operation
-  				soapAction="http://www.ebay.com/marketplace/services/isRateLimited" />
+  			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/isRateLimited"/>
   			<wsdl:input>
-  				<soap:body use="literal" />
+  				<soap:body use="literal"/>
   			</wsdl:input>
 
 			<wsdl:output>
-  				<soap:body use="literal" />
+  				<soap:body use="literal"/>
   			</wsdl:output>
   		</wsdl:operation>
 	</wsdl:binding>
 
-	<wsdl:binding name="RateLimiterServiceSOAP12Binding"
-  		type="ns0:RateLimiterServicePort">
-  		<soap:binding style="document"
-  			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="RateLimiterServiceSOAP12Binding" type="ns0:RateLimiterServicePort">
+  		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
   		<wsdl:operation name="isRateLimited">
-		<soap:operation
-  				soapAction="http://www.ebay.com/marketplace/services/isRateLimited" />
+		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/isRateLimited"/>
   			<wsdl:input>
-  				<soap:body use="literal" />
+  				<soap:body use="literal"/>
   			</wsdl:input>
   			<wsdl:output>
-  				<soap:body use="literal" />
+  				<soap:body use="literal"/>
   			</wsdl:output>
   		</wsdl:operation>
 	</wsdl:binding>
 
-	<wsdl:binding name="RateLimiterServiceHttpBinding"
-  		type="ns0:RateLimiterServicePort">
-  		<http:binding verb="GET" />
+	<wsdl:binding name="RateLimiterServiceHttpBinding" type="ns0:RateLimiterServicePort">
+  		<http:binding verb="GET"/>
   		<wsdl:operation name="isRateLimited">
-  			<http:operation location="/isRateLimited" />
+  			<http:operation location="/isRateLimited"/>
   			<wsdl:input>
-  				<http:urlEncoded />
+  				<http:urlEncoded/>
   			</wsdl:input>
   			<wsdl:output>
-  				<mime:content type="text/xml" />
+  				<mime:content type="text/xml"/>
   			</wsdl:output>
   		</wsdl:operation>
 	</wsdl:binding>
 
 	<wsdl:service name="RateLimiterService">
-		<wsdl:port name="RateLimiterServiceSOAP11port_http" binding="ns0:RateLimiterServiceSOAP11Binding">
+		<wsdl:port binding="ns0:RateLimiterServiceSOAP11Binding" name="RateLimiterServiceSOAP11port_http">
 		  <soap:address location="http://localhost:8080/RateLimiterService"/>
 		</wsdl:port>
-		<wsdl:port name="RateLimiterServiceSOAP12port_http" binding="ns0:RateLimiterServiceSOAP12Binding">
+		<wsdl:port binding="ns0:RateLimiterServiceSOAP12Binding" name="RateLimiterServiceSOAP12port_http">
 		  <soap12:address location="http://localhost:8080/RateLimiterService"/>
 		</wsdl:port>
-		<wsdl:port name="RateLimiterServiceHttpport" binding="ns0:RateLimiterServiceHttpBinding">
+		<wsdl:port binding="ns0:RateLimiterServiceHttpBinding" name="RateLimiterServiceHttpport">
 		  <http:address location="http://localhost:8080/RateLimiterService"/>
 		</wsdl:port>
 	</wsdl:service>

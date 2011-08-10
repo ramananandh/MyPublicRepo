@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="CommonMobileAppService" targetNamespace="http://www.ebay.com/marketplace/mobileor/v1/commonservices" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.ebay.com/marketplace/mobileor/v1/commonservices" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebayopensource.org/tumeric/mobileor/v1/commonservices" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CommonMobileAppService" targetNamespace="http://www.ebayopensource.org/tumeric/mobileor/v1/commonservices">
   <types>
-    <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/mobileor/v1/commonservices" xmlns="http://www.w3.org/2001/XMLSchema">
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/mobileor/v1/commonservices">
 		  <xs:complexType abstract="true" name="BaseResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -10,7 +9,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 
@@ -80,7 +79,7 @@
 			<xs:complexType name="ErrorMessage">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						ErrorMessage to indicate any Error/Warning occured as part of service call.
@@ -110,7 +109,7 @@
 			<xs:complexType name="ErrorData">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						This represents error details.
@@ -282,7 +281,7 @@
 			<xs:complexType name="ErrorParameter">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Contextual information associated with an error.
@@ -311,7 +310,7 @@
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Indicates whether the error is a severe error (causing the request to fail)
@@ -357,7 +356,7 @@
 			<xs:simpleType name="ErrorSeverity">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Indicates whether the error is a severe error (causing the request to fail)
@@ -391,7 +390,7 @@
 			<xs:simpleType name="ErrorCategory">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 							There are three categories of error: request errors, application errors,
@@ -445,7 +444,7 @@
 						This is the base class for request container for all
 						service operations.
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 				<xs:sequence>
 					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
@@ -454,7 +453,7 @@
 				<xs:annotation>
 					<xs:documentation>ExperimentationExecutionService uses extension id 2(Request Opt-in Cookie) and 3(Response Tracking Data) </xs:documentation>
 					
-				<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 				<xs:sequence>
 					<xs:element name="id" type="xs:positiveInteger"/>
 					<xs:element name="version" type="xs:string"/>
@@ -569,19 +568,19 @@
     </schema>
   </types>
   <message name="getVersionResponse">
-    <part name="messageParameters" element="tns:getVersionResponse">
+    <part element="tns:getVersionResponse" name="messageParameters">
     </part>
   </message>
   <message name="getUserTrackingDataResponse">
-    <part name="payload" element="tns:getUserTrackingDataResponse">
+    <part element="tns:getUserTrackingDataResponse" name="payload">
     </part>
   </message>
   <message name="getUserTrackingDataRequest">
-    <part name="payload" element="tns:getUserTrackingDataRequest">
+    <part element="tns:getUserTrackingDataRequest" name="payload">
     </part>
   </message>
   <message name="getVersionRequest">
-    <part name="messageParameters" element="tns:getVersionRequest">
+    <part element="tns:getVersionRequest" name="messageParameters">
     </part>
   </message>
   <portType name="CommonMobileAppServicePort">
@@ -613,7 +612,7 @@
       </output>
     </operation>
     <operation name="getVersion">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/mobile/v1/services/getVersion"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/mobile/v1/services/getVersion"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -623,7 +622,7 @@
     </operation>
   </binding>
   <service name="CommonMobileAppService">
-    <port name="CommonMobileAppServiceSOAPPort" binding="tns:CommonMobileAppServiceSOAPBinding">
+    <port binding="tns:CommonMobileAppServiceSOAPBinding" name="CommonMobileAppServiceSOAPPort">
       <soap:address location="https://svcs.ebay.com/services/mobileor/v1/CommonMobileAppService"/>
     </port>
   </service>

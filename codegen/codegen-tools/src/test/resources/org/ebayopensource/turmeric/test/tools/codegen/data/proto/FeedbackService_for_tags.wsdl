@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="FeedbackService" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FeedbackService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 			<xs:element name="createDSRSummaryByTransactionRequest" type="tns:CreateDSRSummaryByTransactionRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -86,8 +85,8 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element  name="dateRange" type="tns:DateRange" minOccurs="1" />
-							<xs:element  name="dateRangeEventType" type="xs:token" minOccurs="0"/>
+							<xs:element minOccurs="1" name="dateRange" type="tns:DateRange"/>
+							<xs:element minOccurs="0" name="dateRangeEventType" type="xs:token"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -102,9 +101,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element  name="dateRange" type="tns:DateRange" minOccurs="1"/>
-							<xs:element  name="dateRangeEventType" type="xs:token" minOccurs="0"/>
-							<xs:element  name="categoryId" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+							<xs:element minOccurs="1" name="dateRange" type="tns:DateRange"/>
+							<xs:element minOccurs="0" name="dateRangeEventType" type="xs:token"/>
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="categoryId" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -119,12 +118,12 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element  name="dateRange" type="tns:DateRange" minOccurs="1"/>
-							<xs:element  name="dateRangeEventType" type="xs:token" minOccurs="0"/>
-							<xs:element  name="shippingCostType" type="xs:token" minOccurs="0" />
-							<xs:element  name="shippingDestinationType" type="xs:token" minOccurs="0" />
-							<xs:element  name="shipToCountry" type="xs:token" minOccurs="0" maxOccurs="unbounded"/>
-							<xs:element  name="shippingService" type="xs:token" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element minOccurs="1" name="dateRange" type="tns:DateRange"/>
+							<xs:element minOccurs="0" name="dateRangeEventType" type="xs:token"/>
+							<xs:element minOccurs="0" name="shippingCostType" type="xs:token"/>
+							<xs:element minOccurs="0" name="shippingDestinationType" type="xs:token"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="shipToCountry" type="xs:token"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="shippingService" type="xs:token"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -195,8 +194,8 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element  name="dateFrom" type="xs:dateTime" minOccurs="1"/>
-					<xs:element  name="dateTo" type="xs:dateTime" minOccurs="1"/>
+					<xs:element minOccurs="1" name="dateFrom" type="xs:dateTime"/>
+					<xs:element minOccurs="1" name="dateTo" type="xs:dateTime"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="DSRSummary">
@@ -342,7 +341,7 @@
 		</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 					Details about a single error.
@@ -507,7 +506,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -629,31 +628,31 @@
 		</xs:schema>
   </wsdl:types>
   <wsdl:message name="createDSRSummaryByTransactionRequest">
-    <wsdl:part name="inputParameters" element="tns:createDSRSummaryByTransactionRequest">
+    <wsdl:part element="tns:createDSRSummaryByTransactionRequest" name="inputParameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="createDSRSummaryByPeriodRequest">
-    <wsdl:part name="inputParameters" element="tns:createDSRSummaryByPeriodRequest">
+    <wsdl:part element="tns:createDSRSummaryByPeriodRequest" name="inputParameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="createDSRSummaryByCategoryRequest">
-    <wsdl:part name="inputParameters" element="tns:createDSRSummaryByCategoryRequest">
+    <wsdl:part element="tns:createDSRSummaryByCategoryRequest" name="inputParameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="createDSRSummaryByShippingDetailRequest">
-    <wsdl:part name="inputParameters" element="tns:createDSRSummaryByShippingDetailRequest">
+    <wsdl:part element="tns:createDSRSummaryByShippingDetailRequest" name="inputParameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="createDSRSummaryResponse">
-    <wsdl:part name="inputParameters" element="tns:createDSRSummaryResponse">
+    <wsdl:part element="tns:createDSRSummaryResponse" name="inputParameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getDSRSummaryRequest">
-    <wsdl:part name="inputParameters" element="tns:getDSRSummaryRequest">
+    <wsdl:part element="tns:getDSRSummaryRequest" name="inputParameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getDSRSummaryResponse">
-    <wsdl:part name="inputParameters" element="tns:getDSRSummaryResponse">
+    <wsdl:part element="tns:getDSRSummaryResponse" name="inputParameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="FeedbackServicePort">
@@ -688,64 +687,57 @@
     </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="FeedbackServiceSOAPBinding"
-  	type="tns:FeedbackServicePort">
+  <wsdl:binding name="FeedbackServiceSOAPBinding" type="tns:FeedbackServicePort">
 
-  	<soap:binding style="document"
-  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
   	<wsdl:operation name="createDSRSummaryByTransaction">
-  		<soap12:operation soapAction="urn:createDSRSummaryByTransaction"
-  			style="document" />
+  		<soap12:operation soapAction="urn:createDSRSummaryByTransaction" style="document"/>
   		<wsdl:input>
-  			<soap12:body use="literal" />
+  			<soap12:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<soap12:body use="literal" />
+  			<soap12:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="createDSRSummaryByPeriod">
-  		<soap12:operation soapAction="urn:createDSRSummaryByPeriod"
-  			style="document" />
+  		<soap12:operation soapAction="urn:createDSRSummaryByPeriod" style="document"/>
   		<wsdl:input>
-  			<soap12:body use="literal" />
+  			<soap12:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<soap12:body use="literal" />
+  			<soap12:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="createDSRSummaryByCategory">
-  		<soap12:operation soapAction="urn:createDSRSummaryByCategory"
-  			style="document" />
+  		<soap12:operation soapAction="urn:createDSRSummaryByCategory" style="document"/>
   		<wsdl:input>
-  			<soap12:body use="literal" />
+  			<soap12:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<soap12:body use="literal" />
+  			<soap12:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="createDSRSummaryByShippingDetail">
-  		<soap12:operation
-  			soapAction="urn:createDSRSummaryByShippingDetail" style="document" />
+  		<soap12:operation soapAction="urn:createDSRSummaryByShippingDetail" style="document"/>
   		<wsdl:input>
-  			<soap12:body use="literal" />
+  			<soap12:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<soap12:body use="literal" />
+  			<soap12:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="getDSRSummary">
-  		<soap12:operation soapAction="urn:getDSRSummary"
-  			style="document" />
+  		<soap12:operation soapAction="urn:getDSRSummary" style="document"/>
   		<wsdl:input>
-  			<soap12:body use="literal" />
+  			<soap12:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<soap12:body use="literal" />
+  			<soap12:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="FeedbackService">
-    <wsdl:port name="FeedbackServiceSOAP" binding="tns:FeedbackServiceSOAPBinding">
+    <wsdl:port binding="tns:FeedbackServiceSOAPBinding" name="FeedbackServiceSOAP">
       <soap12:address location="https://svcs.ebay.com/FeedbackService"/>
     </wsdl:port>
   </wsdl:service>

@@ -2,14 +2,14 @@
                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                  xmlns:tns="http://codegen.tools.soaframework.test.ebay.com"
-                  xmlns:tns1="http://codegen.tools.soaframework.test.ebay.com.some"
-                  targetNamespace="http://codegen.tools.soaframework.test.ebay.com"
+                  xmlns:tns="http://codegen.tools.soaframework.test.ebayopensource.org"
+                  xmlns:tns1="http://codegen.tools.soaframework.test.ebayopensource.org.some"
+                  targetNamespace="http://codegen.tools.soaframework.test.ebayopensource.org"
                   name="Calculator">
     <wsdl:types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                    xmlns="http://codegen.tools.soaframework.test.ebay.com"
-                    targetNamespace="http://codegen.tools.soaframework.test.ebay.com"
+                    xmlns="http://codegen.tools.soaframework.test.ebayopensource.org"
+                    targetNamespace="http://codegen.tools.soaframework.test.ebayopensource.org"
                     attributeFormDefault="unqualified"
                     elementFormDefault="qualified">
                     
@@ -27,11 +27,11 @@
         </xs:schema>
         
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                    xmlns="http://codegen.tools.soaframework.test.ebay.com"
-                    targetNamespace="http://codegen.tools.soaframework.test.ebay.com.some"
+                    xmlns="http://codegen.tools.soaframework.test.ebayopensource.org"
+                    targetNamespace="http://codegen.tools.soaframework.test.ebayopensource.org.some"
                     attributeFormDefault="unqualified"
                     elementFormDefault="qualified">
-                    <xs:import namespace="http://codegen.tools.soaframework.test.ebay.com"></xs:import>
+                    <xs:import namespace="http://codegen.tools.soaframework.test.ebayopensource.org"></xs:import>
                     
            <xs:complexType name="Test2">
            <xs:sequence>

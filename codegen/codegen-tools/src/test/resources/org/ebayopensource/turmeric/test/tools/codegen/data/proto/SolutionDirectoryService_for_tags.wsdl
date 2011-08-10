@@ -1,40 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
-	<xs:element name="addReviewRequest"  type="tns:AddReviewRequest"/>
-	<xs:element name="addReviewResponse"  type="tns:AddReviewResponse"/>
-	<xs:element name="addSolutionForApprovalRequest"  type="tns:AddSolutionForApprovalRequest"/>
-	<xs:element name="addSolutionForApprovalResponse"  type="tns:AddSolutionForApprovalResponse"/>
-	<xs:element name="adminEditSolutionRequest"  type="tns:AdminEditSolutionRequest"/>
-	<xs:element name="adminEditSolutionResponse"  type="tns:AdminEditSolutionResponse"/>
-	<xs:element name="adminGetSolutionsRequest"  type="tns:AdminGetSolutionsRequest"/>
-	<xs:element name="adminGetSolutionsResponse"  type="tns:AdminGetSolutionsResponse"/>
-	<xs:element name="adminRemoveReviewRequest"  type="tns:AdminRemoveReviewRequest"/>
-	<xs:element name="adminRemoveReviewResponse"  type="tns:AdminRemoveReviewResponse"/>
-	<xs:element name="adminRemoveSolutionRequest"  type="tns:AdminRemoveSolutionRequest"/>
-	<xs:element name="adminRemoveSolutionResponse"  type="tns:AdminRemoveSolutionResponse"/>
-	<xs:element name="adminSetPromotionSolutionsRequest"  type="tns:AdminSetPromotionSolutionsRequest"/>
-	<xs:element name="adminSetPromotionSolutionsResponse"  type="tns:AdminSetPromotionSolutionsResponse"/>
-	<xs:element name="adminSetSolutionStatusRequest"  type="tns:AdminSetSolutionStatusRequest"/>
-	<xs:element name="adminSetSolutionStatusResponse"  type="tns:AdminSetSolutionStatusResponse"/>
-	<xs:element name="editReviewRequest"  type="tns:EditReviewRequest"/>
-	<xs:element name="editReviewResponse"  type="tns:EditReviewResponse"/>
-	<xs:element name="editSolutionRequest"  type="tns:EditSolutionRequest"/>
-	<xs:element name="editSolutionResponse"  type="tns:EditSolutionResponse"/>
-	<xs:element name="findSolutionsRequest"  type="tns:FindSolutionsRequest"/>
-	<xs:element name="findSolutionsResponse"  type="tns:FindSolutionsResponse"/>
-	<xs:element name="getMySolutionsRequest"  type="tns:GetMySolutionsRequest"/>
-	<xs:element name="getMySolutionsResponse"  type="tns:GetMySolutionsResponse"/>
-	<xs:element name="getPromotionSolutionsRequest"  type="tns:GetPromotionSolutionsRequest"/>
-	<xs:element name="getPromotionSolutionsResponse"  type="tns:GetPromotionSolutionsResponse"/>
-	<xs:element name="getReviewsRequest"  type="tns:GetReviewsRequest"/>
-	<xs:element name="getReviewsResponse"  type="tns:GetReviewsResponse"/>
-	<xs:element name="getSolutionsRequest"  type="tns:GetSolutionsRequest"/>
-	<xs:element name="getSolutionsResponse"  type="tns:GetSolutionsResponse"/>
-	<xs:element name="userVisitSolutionRequest"  type="tns:UserVisitSolutionRequest"/>
-	<xs:element name="userVisitSolutionResponse"  type="tns:UserVisitSolutionResponse"/>
+	<xs:element name="addReviewRequest" type="tns:AddReviewRequest"/>
+	<xs:element name="addReviewResponse" type="tns:AddReviewResponse"/>
+	<xs:element name="addSolutionForApprovalRequest" type="tns:AddSolutionForApprovalRequest"/>
+	<xs:element name="addSolutionForApprovalResponse" type="tns:AddSolutionForApprovalResponse"/>
+	<xs:element name="adminEditSolutionRequest" type="tns:AdminEditSolutionRequest"/>
+	<xs:element name="adminEditSolutionResponse" type="tns:AdminEditSolutionResponse"/>
+	<xs:element name="adminGetSolutionsRequest" type="tns:AdminGetSolutionsRequest"/>
+	<xs:element name="adminGetSolutionsResponse" type="tns:AdminGetSolutionsResponse"/>
+	<xs:element name="adminRemoveReviewRequest" type="tns:AdminRemoveReviewRequest"/>
+	<xs:element name="adminRemoveReviewResponse" type="tns:AdminRemoveReviewResponse"/>
+	<xs:element name="adminRemoveSolutionRequest" type="tns:AdminRemoveSolutionRequest"/>
+	<xs:element name="adminRemoveSolutionResponse" type="tns:AdminRemoveSolutionResponse"/>
+	<xs:element name="adminSetPromotionSolutionsRequest" type="tns:AdminSetPromotionSolutionsRequest"/>
+	<xs:element name="adminSetPromotionSolutionsResponse" type="tns:AdminSetPromotionSolutionsResponse"/>
+	<xs:element name="adminSetSolutionStatusRequest" type="tns:AdminSetSolutionStatusRequest"/>
+	<xs:element name="adminSetSolutionStatusResponse" type="tns:AdminSetSolutionStatusResponse"/>
+	<xs:element name="editReviewRequest" type="tns:EditReviewRequest"/>
+	<xs:element name="editReviewResponse" type="tns:EditReviewResponse"/>
+	<xs:element name="editSolutionRequest" type="tns:EditSolutionRequest"/>
+	<xs:element name="editSolutionResponse" type="tns:EditSolutionResponse"/>
+	<xs:element name="findSolutionsRequest" type="tns:FindSolutionsRequest"/>
+	<xs:element name="findSolutionsResponse" type="tns:FindSolutionsResponse"/>
+	<xs:element name="getMySolutionsRequest" type="tns:GetMySolutionsRequest"/>
+	<xs:element name="getMySolutionsResponse" type="tns:GetMySolutionsResponse"/>
+	<xs:element name="getPromotionSolutionsRequest" type="tns:GetPromotionSolutionsRequest"/>
+	<xs:element name="getPromotionSolutionsResponse" type="tns:GetPromotionSolutionsResponse"/>
+	<xs:element name="getReviewsRequest" type="tns:GetReviewsRequest"/>
+	<xs:element name="getReviewsResponse" type="tns:GetReviewsResponse"/>
+	<xs:element name="getSolutionsRequest" type="tns:GetSolutionsRequest"/>
+	<xs:element name="getSolutionsResponse" type="tns:GetSolutionsResponse"/>
+	<xs:element name="userVisitSolutionRequest" type="tns:UserVisitSolutionRequest"/>
+	<xs:element name="userVisitSolutionResponse" type="tns:UserVisitSolutionResponse"/>
 	
 	<xs:element name="requesterCredentials" type="tns:CustomSecurityHeaderType">
 		<xs:annotation>
@@ -62,7 +61,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="eBayAuthToken" type="xs:string" minOccurs="1">
+			<xs:element minOccurs="1" name="eBayAuthToken" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>
 						Authentication token representing the user who is making the
@@ -129,7 +128,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="version" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="version" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>
 					</xs:documentation>
@@ -142,7 +141,7 @@
 				</xs:annotation>
 
 			</xs:element>
-			<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+			<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 				<xs:annotation>
 					<xs:documentation>
 					</xs:documentation>
@@ -210,7 +209,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 				<xs:annotation>
 					<xs:documentation>
 						Details about a single error.
@@ -377,7 +376,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 				<xs:annotation>
 					<xs:documentation>
 						Some warning and error messages return one or more variables that contain
@@ -563,7 +562,7 @@
 		<xs:complexContent>
 			<xs:extension base="tns:BaseServiceRequest">
 				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="solutionId" type="xs:long"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="solutionId" type="xs:long"/>
 					<xs:element minOccurs="0" name="solutionStatus" type="xs:string"/>
 					<xs:element minOccurs="0" name="developerId" type="xs:string"/>
 					<xs:element minOccurs="0" name="sortOption" type="xs:string">
@@ -827,7 +826,7 @@
 		<xs:complexContent>
 			<xs:extension base="tns:BaseServiceRequest">
 				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="solutionId" type="xs:long"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="solutionId" type="xs:long"/>
 					<xs:element minOccurs="0" name="developerId" type="xs:string"/>
 					<xs:element minOccurs="0" name="sortOption" type="xs:string">
 						<xs:annotation>
@@ -1258,103 +1257,103 @@
 </xs:schema>
   </wsdl:types>
   <wsdl:message name="requesterCredentials">
-    <wsdl:part name="RequesterCredentials" element="ns0:requesterCredentials"/>
+    <wsdl:part element="ns0:requesterCredentials" name="RequesterCredentials"/>
   </wsdl:message>
   <wsdl:message name="adminGetSolutionsRequest">
-    <wsdl:part name="AdminGetSolutionsRequest" element="ns0:adminGetSolutionsRequest"/>
+    <wsdl:part element="ns0:adminGetSolutionsRequest" name="AdminGetSolutionsRequest"/>
   </wsdl:message>
   <wsdl:message name="userVisitSolutionResponse">
-    <wsdl:part name="UserVisitSolutionResponse" element="ns0:userVisitSolutionResponse"/>
+    <wsdl:part element="ns0:userVisitSolutionResponse" name="UserVisitSolutionResponse"/>
   </wsdl:message>
   <wsdl:message name="addReviewResponse">
-    <wsdl:part name="AddReviewResponse" element="ns0:addReviewResponse"/>
+    <wsdl:part element="ns0:addReviewResponse" name="AddReviewResponse"/>
   </wsdl:message>
   <wsdl:message name="getMySolutionsResponse">
-    <wsdl:part name="GetMySolutionsResponse" element="ns0:getMySolutionsResponse"/>
+    <wsdl:part element="ns0:getMySolutionsResponse" name="GetMySolutionsResponse"/>
   </wsdl:message>
   <wsdl:message name="userVisitSolutionRequest">
-    <wsdl:part name="UserVisitSolutionRequest" element="ns0:userVisitSolutionRequest"/>
+    <wsdl:part element="ns0:userVisitSolutionRequest" name="UserVisitSolutionRequest"/>
   </wsdl:message>
   <wsdl:message name="addReviewRequest">
-    <wsdl:part name="AddReviewRequest" element="ns0:addReviewRequest"/>
+    <wsdl:part element="ns0:addReviewRequest" name="AddReviewRequest"/>
   </wsdl:message>
   <wsdl:message name="adminGetSolutionsResponse">
-    <wsdl:part name="AdminGetSolutionsResponse" element="ns0:adminGetSolutionsResponse"/>
+    <wsdl:part element="ns0:adminGetSolutionsResponse" name="AdminGetSolutionsResponse"/>
   </wsdl:message>
   <wsdl:message name="adminEditSolutionResponse">
-    <wsdl:part name="AdminEditSolutionResponse" element="ns0:adminEditSolutionResponse"/>
+    <wsdl:part element="ns0:adminEditSolutionResponse" name="AdminEditSolutionResponse"/>
   </wsdl:message>
   <wsdl:message name="addSolutionForApprovalResponse">
-    <wsdl:part name="AddSolutionForApprovalResponse" element="ns0:addSolutionForApprovalResponse"/>
+    <wsdl:part element="ns0:addSolutionForApprovalResponse" name="AddSolutionForApprovalResponse"/>
   </wsdl:message>
   <wsdl:message name="adminSetSolutionStatusRequest">
-    <wsdl:part name="AdminSetSolutionStatusRequest" element="ns0:adminSetSolutionStatusRequest"/>
+    <wsdl:part element="ns0:adminSetSolutionStatusRequest" name="AdminSetSolutionStatusRequest"/>
   </wsdl:message>
   <wsdl:message name="findSolutionsRequest">
-    <wsdl:part name="FindSolutionsRequest" element="ns0:findSolutionsRequest"/>
+    <wsdl:part element="ns0:findSolutionsRequest" name="FindSolutionsRequest"/>
   </wsdl:message>
   <wsdl:message name="adminRemoveSolutionResponse">
-    <wsdl:part name="AdminRemoveSolutionResponse" element="ns0:adminRemoveSolutionResponse"/>
+    <wsdl:part element="ns0:adminRemoveSolutionResponse" name="AdminRemoveSolutionResponse"/>
   </wsdl:message>
   <wsdl:message name="editReviewRequest">
-    <wsdl:part name="EditReviewRequest" element="ns0:editReviewRequest"/>
+    <wsdl:part element="ns0:editReviewRequest" name="EditReviewRequest"/>
   </wsdl:message>
   <wsdl:message name="editSolutionRequest">
-    <wsdl:part name="EditSolutionRequest" element="ns0:editSolutionRequest"/>
+    <wsdl:part element="ns0:editSolutionRequest" name="EditSolutionRequest"/>
   </wsdl:message>
   <wsdl:message name="getReviewsRequest">
-    <wsdl:part name="GetReviewsRequest" element="ns0:getReviewsRequest"/>
+    <wsdl:part element="ns0:getReviewsRequest" name="GetReviewsRequest"/>
   </wsdl:message>
   <wsdl:message name="adminRemoveReviewRequest">
-    <wsdl:part name="AdminRemoveReviewRequest" element="ns0:adminRemoveReviewRequest"/>
+    <wsdl:part element="ns0:adminRemoveReviewRequest" name="AdminRemoveReviewRequest"/>
   </wsdl:message>
   <wsdl:message name="adminRemoveSolutionRequest">
-    <wsdl:part name="AdminRemoveSolutionRequest" element="ns0:adminRemoveSolutionRequest"/>
+    <wsdl:part element="ns0:adminRemoveSolutionRequest" name="AdminRemoveSolutionRequest"/>
   </wsdl:message>
   <wsdl:message name="editReviewResponse">
-    <wsdl:part name="EditReviewResponse" element="ns0:editReviewResponse"/>
+    <wsdl:part element="ns0:editReviewResponse" name="EditReviewResponse"/>
   </wsdl:message>
   <wsdl:message name="getPromotionSolutionsRequest">
-    <wsdl:part name="GetPromotionSolutionsRequest" element="ns0:getPromotionSolutionsRequest"/>
+    <wsdl:part element="ns0:getPromotionSolutionsRequest" name="GetPromotionSolutionsRequest"/>
   </wsdl:message>
   <wsdl:message name="adminSetSolutionStatusResponse">
-    <wsdl:part name="AdminSetSolutionStatusResponse" element="ns0:adminSetSolutionStatusResponse"/>
+    <wsdl:part element="ns0:adminSetSolutionStatusResponse" name="AdminSetSolutionStatusResponse"/>
   </wsdl:message>
   <wsdl:message name="adminEditSolutionRequest">
-    <wsdl:part name="AdminEditSolutionRequest" element="ns0:adminEditSolutionRequest"/>
+    <wsdl:part element="ns0:adminEditSolutionRequest" name="AdminEditSolutionRequest"/>
   </wsdl:message>
   <wsdl:message name="addSolutionForApprovalRequest">
-    <wsdl:part name="AddSolutionForApprovalRequest" element="ns0:addSolutionForApprovalRequest"/>
+    <wsdl:part element="ns0:addSolutionForApprovalRequest" name="AddSolutionForApprovalRequest"/>
   </wsdl:message>
   <wsdl:message name="getMySolutionsRequest">
-    <wsdl:part name="GetMySolutionsRequest" element="ns0:getMySolutionsRequest"/>
+    <wsdl:part element="ns0:getMySolutionsRequest" name="GetMySolutionsRequest"/>
   </wsdl:message>
   <wsdl:message name="getPromotionSolutionsResponse">
-    <wsdl:part name="GetPromotionSolutionsResponse" element="ns0:getPromotionSolutionsResponse"/>
+    <wsdl:part element="ns0:getPromotionSolutionsResponse" name="GetPromotionSolutionsResponse"/>
   </wsdl:message>
   <wsdl:message name="adminRemoveReviewResponse">
-    <wsdl:part name="AdminRemoveReviewResponse" element="ns0:adminRemoveReviewResponse"/>
+    <wsdl:part element="ns0:adminRemoveReviewResponse" name="AdminRemoveReviewResponse"/>
   </wsdl:message>
   <wsdl:message name="getSolutionsRequest">
-    <wsdl:part name="GetSolutionsRequest" element="ns0:getSolutionsRequest"/>
+    <wsdl:part element="ns0:getSolutionsRequest" name="GetSolutionsRequest"/>
   </wsdl:message>
   <wsdl:message name="adminSetPromotionSolutionsResponse">
-    <wsdl:part name="AdminSetPromotionSolutionsResponse" element="ns0:adminSetPromotionSolutionsResponse"/>
+    <wsdl:part element="ns0:adminSetPromotionSolutionsResponse" name="AdminSetPromotionSolutionsResponse"/>
   </wsdl:message>
   <wsdl:message name="getReviewsResponse">
-    <wsdl:part name="GetReviewsResponse" element="ns0:getReviewsResponse"/>
+    <wsdl:part element="ns0:getReviewsResponse" name="GetReviewsResponse"/>
   </wsdl:message>
   <wsdl:message name="getSolutionsResponse">
-    <wsdl:part name="GetSolutionsResponse" element="ns0:getSolutionsResponse"/>
+    <wsdl:part element="ns0:getSolutionsResponse" name="GetSolutionsResponse"/>
   </wsdl:message>
   <wsdl:message name="adminSetPromotionSolutionsRequest">
-    <wsdl:part name="AdminSetPromotionSolutionsRequest" element="ns0:adminSetPromotionSolutionsRequest"/>
+    <wsdl:part element="ns0:adminSetPromotionSolutionsRequest" name="AdminSetPromotionSolutionsRequest"/>
   </wsdl:message>
   <wsdl:message name="editSolutionResponse">
-    <wsdl:part name="EditSolutionResponse" element="ns0:editSolutionResponse"/>
+    <wsdl:part element="ns0:editSolutionResponse" name="EditSolutionResponse"/>
   </wsdl:message>
   <wsdl:message name="findSolutionsResponse">
-    <wsdl:part name="FindSolutionsResponse" element="ns0:findSolutionsResponse"/>
+    <wsdl:part element="ns0:findSolutionsResponse" name="FindSolutionsResponse"/>
   </wsdl:message>
   <wsdl:portType name="SolutionDirectoryServicePort">
     <wsdl:operation name="addReview">
@@ -1570,169 +1569,169 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="SolutionDirectoryServiceSOAPBinding" type="ns0:SolutionDirectoryServicePort">
-    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="addReview">
-    <soap12:operation soapAction="urn:addReview" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:addReview" style="document"/>
       <wsdl:input>
-    <soap12:header use="literal" message="ns0:requesterCredentials" part="RequesterCredentials" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>            
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:header message="ns0:requesterCredentials" part="RequesterCredentials" use="literal"/>            
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="addSolutionForApproval">
-    <soap12:operation soapAction="urn:addSolutionForApproval" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:addSolutionForApproval" style="document"/>
       <wsdl:input>
-    <soap12:header use="literal" message="ns0:requesterCredentials" part="RequesterCredentials" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>      
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:header message="ns0:requesterCredentials" part="RequesterCredentials" use="literal"/>      
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="adminEditSolution">
-    <soap12:operation soapAction="urn:adminEditSolution" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:adminEditSolution" style="document"/>
       <wsdl:input>
-    <soap12:header use="literal" message="ns0:requesterCredentials" part="RequesterCredentials" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>            
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:header message="ns0:requesterCredentials" part="RequesterCredentials" use="literal"/>            
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="adminGetSolutions">
-    <soap12:operation soapAction="urn:adminGetSolutions" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:adminGetSolutions" style="document"/>
       <wsdl:input>
-    <soap12:header use="literal" message="ns0:requesterCredentials" part="RequesterCredentials" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>        
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:header message="ns0:requesterCredentials" part="RequesterCredentials" use="literal"/>        
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="adminRemoveReview">
-    <soap12:operation soapAction="urn:adminRemoveReview" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:adminRemoveReview" style="document"/>
       <wsdl:input>
-    <soap12:header use="literal" message="ns0:requesterCredentials" part="RequesterCredentials" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>          
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:header message="ns0:requesterCredentials" part="RequesterCredentials" use="literal"/>          
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="adminRemoveSolution">
-    <soap12:operation soapAction="urn:adminRemoveSolution" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:adminRemoveSolution" style="document"/>
       <wsdl:input>
-    <soap12:header use="literal" message="ns0:requesterCredentials" part="RequesterCredentials" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>           
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:header message="ns0:requesterCredentials" part="RequesterCredentials" use="literal"/>           
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="adminSetPromotionSolutions">
-    <soap12:operation soapAction="urn:adminSetPromotionSolutions" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:adminSetPromotionSolutions" style="document"/>
       <wsdl:input>
-    <soap12:header use="literal" message="ns0:requesterCredentials" part="RequesterCredentials" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>          
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:header message="ns0:requesterCredentials" part="RequesterCredentials" use="literal"/>          
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="adminSetSolutionStatus">
-    <soap12:operation soapAction="urn:adminSetSolutionStatus" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:adminSetSolutionStatus" style="document"/>
       <wsdl:input>
-    <soap12:header use="literal" message="ns0:requesterCredentials" part="RequesterCredentials" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>       
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:header message="ns0:requesterCredentials" part="RequesterCredentials" use="literal"/>       
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="editReview">
-    <soap12:operation soapAction="urn:editReview" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:editReview" style="document"/>
       <wsdl:input>
-    <soap12:header use="literal" message="ns0:requesterCredentials" part="RequesterCredentials" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>           
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:header message="ns0:requesterCredentials" part="RequesterCredentials" use="literal"/>           
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="editSolution">
-    <soap12:operation soapAction="urn:editSolution" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:editSolution" style="document"/>
       <wsdl:input>
-    <soap12:header use="literal" message="ns0:requesterCredentials" part="RequesterCredentials" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>          
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:header message="ns0:requesterCredentials" part="RequesterCredentials" use="literal"/>          
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="findSolutions">
-    <soap12:operation soapAction="urn:findSolutions" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:findSolutions" style="document"/>
       <wsdl:input>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getMySolutions">
-    <soap12:operation soapAction="urn:getMySolutions" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:getMySolutions" style="document"/>
       <wsdl:input>
-    <soap12:header use="literal" message="ns0:requesterCredentials" part="RequesterCredentials" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>            
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:header message="ns0:requesterCredentials" part="RequesterCredentials" use="literal"/>            
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getPromotionSolutions">
-    <soap12:operation soapAction="urn:getPromotionSolutions" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:getPromotionSolutions" style="document"/>
       <wsdl:input>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getReviews">
-    <soap12:operation soapAction="urn:getReviews" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:getReviews" style="document"/>
       <wsdl:input>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getSolutions">
-    <soap12:operation soapAction="urn:getSolutions" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:getSolutions" style="document"/>
       <wsdl:input>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="userVisitSolution">
-    <soap12:operation soapAction="urn:userVisitSolution" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:userVisitSolution" style="document"/>
       <wsdl:input>
-    <soap12:header use="literal" message="ns0:requesterCredentials" part="RequesterCredentials" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>            
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:header message="ns0:requesterCredentials" part="RequesterCredentials" use="literal"/>            
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="SolutionDirectoryService">
-    <wsdl:port name="SolutionDirectoryServiceSOAP" binding="ns0:SolutionDirectoryServiceSOAPBinding">
-    <soap12:address location="http://svcs.ebay.com/SolutionDirectoryService" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <wsdl:port binding="ns0:SolutionDirectoryServiceSOAPBinding" name="SolutionDirectoryServiceSOAP">
+    <soap12:address location="http://svcs.ebay.com/SolutionDirectoryService"/>
     </wsdl:port>
-    <wsdl:port name="SolutionDirectoryServiceHttp" binding="ns0:SolutionDirectoryServiceHttpBinding">
+    <wsdl:port binding="ns0:SolutionDirectoryServiceHttpBinding" name="SolutionDirectoryServiceHttp">
       <http:address location="http://svcs.ebay.com/SolutionDirectoryService"/>
     </wsdl:port>
   </wsdl:service>

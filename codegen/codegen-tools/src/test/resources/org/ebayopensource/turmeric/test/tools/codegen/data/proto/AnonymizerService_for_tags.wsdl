@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 	<wsdl:types>
-		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services">
-			<xs:element name="authenticateConversationRequest"  type="tns:AuthenticateConversationRequest">
+		<xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
+			<xs:element name="authenticateConversationRequest" type="tns:AuthenticateConversationRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This operation takes a secretId, recipientAnonymousStem pair and decides whether the 2 users are in a valid conversation. Validity is definied by both users being in good state, not suspended, the subjectId not being invlidated, the conversation stems not being expired, and the users actually having an active conversation going on between them. 
@@ -18,13 +17,13 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderSecretId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="recipientAnonymousStem" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="senderSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="recipientAnonymousStem" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="authenticateConversationResponse"  type="tns:AuthenticateConversationResponse"/>
+			<xs:element name="authenticateConversationResponse" type="tns:AuthenticateConversationResponse"/>
 			<xs:complexType name="AuthenticateConversationResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -34,22 +33,22 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderSecretId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderUserId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="subjectId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="conversationId" type="xs:long"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="conversationExpiryTime" type="xs:dateTime"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="comments" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="externalMessageId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="subjectType" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="senderAlternateSendingSecretId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="senderAlternateReceivingSecretId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="stemExpiryCounter" type="xs:long"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="senderSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="senderUserId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="subjectId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="conversationId" type="xs:long"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="conversationExpiryTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="comments" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="externalMessageId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="subjectType" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="senderAlternateSendingSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="senderAlternateReceivingSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="stemExpiryCounter" type="xs:long"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="authenticateConversationAndGetStemsRequest"  type="tns:AuthenticateConversationAndGetStemsRequest">
+			<xs:element name="authenticateConversationAndGetStemsRequest" type="tns:AuthenticateConversationAndGetStemsRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This operation takes a secretId, recipientAnonymousStem pair and decides whether the 2 users are in a valid conversation. Validity is definied by both users being in good state, not suspended, the subjectId not being invlidated, the conversation stems not being expired, and the users actually having an active conversation going on between them. 
@@ -65,13 +64,13 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderSecretId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="recipientAnonymousStem" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="senderSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="recipientAnonymousStem" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="authenticateConversationAndGetStemsResponse"  type="tns:AuthenticateConversationAndGetStemsResponse"/>
+			<xs:element name="authenticateConversationAndGetStemsResponse" type="tns:AuthenticateConversationAndGetStemsResponse"/>
 			<xs:complexType name="AuthenticateConversationAndGetStemsResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -81,23 +80,23 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderStem" type="tns:Stem"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="recipientStem" type="tns:Stem"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="subjectId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="conversationId" type="xs:long"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="conversationExpiryTime" type="xs:dateTime"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="comments" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="externalMessageId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="subjectType" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="senderAlternateSendingSecretId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="senderAlternateReceivingSecretId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="recipientAlternateReceivingSecretId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="stemExpiryCounter" type="xs:long"/>							
+							<xs:element maxOccurs="1" minOccurs="1" name="senderStem" type="tns:Stem"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="recipientStem" type="tns:Stem"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="subjectId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="conversationId" type="xs:long"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="conversationExpiryTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="comments" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="externalMessageId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="subjectType" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="senderAlternateSendingSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="senderAlternateReceivingSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="recipientAlternateReceivingSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="stemExpiryCounter" type="xs:long"/>							
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getStemsRequest"  type="tns:GetStemsRequest">
+			<xs:element name="getStemsRequest" type="tns:GetStemsRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This operation looks up both the anonymous User's stems and the associated converversation related information
@@ -113,15 +112,15 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderUserId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="recipientUserId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="subjectId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="conversationId" type="xs:long"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="senderUserId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="recipientUserId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="subjectId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="conversationId" type="xs:long"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getStemsResponse"  type="tns:GetStemsResponse"/>
+			<xs:element name="getStemsResponse" type="tns:GetStemsResponse"/>
 			<xs:complexType name="GetStemsResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -131,18 +130,18 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderStem" type="tns:Stem"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="recipientStem" type="tns:Stem"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="subjectId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="conversationId" type="xs:long"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="conversationExpiryTime" type="xs:dateTime"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="stemExpiryCounter" type="xs:long"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="validConversation" type="xs:boolean"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="senderStem" type="tns:Stem"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="recipientStem" type="tns:Stem"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="subjectId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="conversationId" type="xs:long"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="conversationExpiryTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="stemExpiryCounter" type="xs:long"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="validConversation" type="xs:boolean"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="anonymizeReplyRequest"  type="tns:AnonymizeReplyRequest">
+			<xs:element name="anonymizeReplyRequest" type="tns:AnonymizeReplyRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This operation returns takes in the sender's secret id and the recipient's anonymous stem, and returns the actual user information 
@@ -160,12 +159,12 @@ where it might not be required to authenticate conversations at all
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="recipientAnonymousStem" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="recipientAnonymousStem" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="anonymizeReplyResponse"  type="tns:AnonymizeReplyResponse"/>
+			<xs:element name="anonymizeReplyResponse" type="tns:AnonymizeReplyResponse"/>
 			<xs:complexType name="AnonymizeReplyResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -175,16 +174,16 @@ where it might not be required to authenticate conversations at all
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderAnonymousStem" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="recipientSecretId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="recipientAlternateReceivingSecretId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="recipientUserId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="conversationId" type="xs:long"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="senderAnonymousStem" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="recipientSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="recipientAlternateReceivingSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="recipientUserId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="conversationId" type="xs:long"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="createStemsRequest"  type="tns:CreateStemsRequest">
+			<xs:element name="createStemsRequest" type="tns:CreateStemsRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This operation takes the information for the 2 Users and also the conversation related information like expiry, and create the stems
@@ -202,17 +201,17 @@ where it might not be required to authenticate conversations at all
 						<xs:sequence>
 							<xs:element maxOccurs="1" minOccurs="1" name="sender" type="tns:AnonymousConversationUser"/>
 							<xs:element maxOccurs="1" minOccurs="1" name="recipient" type="tns:AnonymousConversationUser"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="subjectId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="subjectType" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="externalMessageType" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="externalMessageId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="conversationExpiryTime" type="xs:dateTime"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="forceNewStemCreation" type="xs:boolean"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="subjectId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="subjectType" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="externalMessageType" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="externalMessageId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="conversationExpiryTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="forceNewStemCreation" type="xs:boolean"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="createStemsResponse"  type="tns:CreateStemsResponse"/>
+			<xs:element name="createStemsResponse" type="tns:CreateStemsResponse"/>
 			<xs:complexType name="CreateStemsResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -222,14 +221,14 @@ where it might not be required to authenticate conversations at all
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderStem" type="tns:Stem"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="recipientStem" type="tns:Stem"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="conversationId" type="xs:long"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="senderStem" type="tns:Stem"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="recipientStem" type="tns:Stem"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="conversationId" type="xs:long"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getRecipientStemRequest"  type="tns:GetRecipientStemRequest">
+			<xs:element name="getRecipientStemRequest" type="tns:GetRecipientStemRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This operation takes one user's Internal User Id, and for the passed in conversation, return the anonymous stem of the other party
@@ -245,13 +244,13 @@ where it might not be required to authenticate conversations at all
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="conversationId" type="xs:long"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderUserId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="conversationId" type="xs:long"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="senderUserId" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getRecipientStemResponse"  type="tns:GetRecipientStemResponse"/>
+			<xs:element name="getRecipientStemResponse" type="tns:GetRecipientStemResponse"/>
 			<xs:complexType name="GetRecipientStemResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -261,12 +260,12 @@ where it might not be required to authenticate conversations at all
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="1" name="recipientAnonymousStem" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="recipientAnonymousStem" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="confirmUserInvolvementRequest"  type="tns:ConfirmUserInvolvementRequest">
+			<xs:element name="confirmUserInvolvementRequest" type="tns:ConfirmUserInvolvementRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This operation takes in the senderAnonymousStem and the recipient's internal id and confirms that they are involved in
@@ -283,13 +282,13 @@ an active Conversation, returning the conversation Id
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="recipientUserId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderAnonymousStem" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="recipientUserId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="senderAnonymousStem" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="confirmUserInvolvementResponse"  type="tns:ConfirmUserInvolvementResponse"/>
+			<xs:element name="confirmUserInvolvementResponse" type="tns:ConfirmUserInvolvementResponse"/>
 			<xs:complexType name="ConfirmUserInvolvementResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -299,12 +298,12 @@ an active Conversation, returning the conversation Id
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="1" name="conversationId" type="xs:long"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="conversationId" type="xs:long"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="setStemExpiryRequest"  type="tns:SetStemExpiryRequest">
+			<xs:element name="setStemExpiryRequest" type="tns:SetStemExpiryRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This operation locates the conversation by using the sender's secret id and the recipient Anonymous Stem, and updates
@@ -321,14 +320,14 @@ the expiry dates of the stems in the conversation to the passed in date
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="stemExpiryTime" type="xs:dateTime"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="conversationId" type="xs:long"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="incrementStemExpiryCounter" type="xs:boolean"/>							
+							<xs:element maxOccurs="1" minOccurs="1" name="stemExpiryTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="conversationId" type="xs:long"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="incrementStemExpiryCounter" type="xs:boolean"/>							
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="setStemExpiryResponse"  type="tns:SetStemExpiryResponse"/>
+			<xs:element name="setStemExpiryResponse" type="tns:SetStemExpiryResponse"/>
 			<xs:complexType name="SetStemExpiryResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -338,14 +337,14 @@ the expiry dates of the stems in the conversation to the passed in date
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="1" name="conversationId" type="xs:long"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="stemExpiryTime" type="xs:dateTime"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="stemExpiryCounter" type="xs:long"/>														
+							<xs:element maxOccurs="1" minOccurs="0" name="conversationId" type="xs:long"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="stemExpiryTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="stemExpiryCounter" type="xs:long"/>														
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="updateUserInformationRequest"  type="tns:UpdateUserInformationRequest">
+			<xs:element name="updateUserInformationRequest" type="tns:UpdateUserInformationRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This operation will update the user related information, and set them to the passed in values. It will set empty values to 
@@ -362,16 +361,16 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="secretId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="alternateSendingSecretId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="alternateReceivingSecretId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="unbounded" name="deletedFields" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="userId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="secretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="alternateSendingSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="alternateReceivingSecretId" type="xs:string"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="deletedFields" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="updateUserInformationResponse"  type="tns:UpdateUserInformationResponse"/>
+			<xs:element name="updateUserInformationResponse" type="tns:UpdateUserInformationResponse"/>
 			<xs:complexType name="UpdateUserInformationResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -381,17 +380,17 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="secretId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="alternateSendingSecretId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="alternateReceivingSecretId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="createTime" type="xs:dateTime"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="lastUpdateTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="userId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="secretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="alternateSendingSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="alternateReceivingSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="createTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="lastUpdateTime" type="xs:dateTime"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="updateAllowedSubstringRequest"  type="tns:UpdateAllowedSubstringRequest">
+			<xs:element name="updateAllowedSubstringRequest" type="tns:UpdateAllowedSubstringRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This operation will update the allowedSubtring to the passed in value
@@ -407,14 +406,14 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="allowedSubstring" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="unbounded" name="deletedFields" type="xs:string"/>							
+							<xs:element maxOccurs="1" minOccurs="1" name="userId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="allowedSubstring" type="xs:string"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="deletedFields" type="xs:string"/>							
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="updateAllowedSubstringResponse"  type="tns:UpdateAllowedSubstringResponse"/>
+			<xs:element name="updateAllowedSubstringResponse" type="tns:UpdateAllowedSubstringResponse"/>
 			<xs:complexType name="UpdateAllowedSubstringResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -424,15 +423,15 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="allowedSubstring" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="createTime" type="xs:dateTime"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="lastUpdateTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="userId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="allowedSubstring" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="createTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="lastUpdateTime" type="xs:dateTime"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getAnonymousUserRequest"  type="tns:GetAnonymousUserRequest">
+			<xs:element name="getAnonymousUserRequest" type="tns:GetAnonymousUserRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This operation will get the details of a user by locating him from the stem
@@ -453,7 +452,7 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getAnonymousUserResponse"  type="tns:GetAnonymousUserResponse"/>
+			<xs:element name="getAnonymousUserResponse" type="tns:GetAnonymousUserResponse"/>
 			<xs:complexType name="GetAnonymousUserResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -463,20 +462,20 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderUserId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderSecretId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderAlternateSendingSecretId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="senderAlternateReceivingSecretId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="senderAllowedSubstring" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="conversationId" type="xs:long"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="recipientAnonymousStem" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="externalMessageId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="subjectId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="senderUserId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="senderSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="senderAlternateSendingSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="senderAlternateReceivingSecretId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="senderAllowedSubstring" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="conversationId" type="xs:long"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="recipientAnonymousStem" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="externalMessageId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="subjectId" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="reinstateConversationSubjectRequest"  type="tns:ReinstateConversationSubjectRequest">
+			<xs:element name="reinstateConversationSubjectRequest" type="tns:ReinstateConversationSubjectRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This operation will reinstate all conversations where the passed in subjectId is participating
@@ -492,13 +491,13 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAnonymizerServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="subjectId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="comments" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="subjectId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="comments" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="reinstateConversationSubjectResponse"  type="tns:ReinstateConversationSubjectResponse"/>
+			<xs:element name="reinstateConversationSubjectResponse" type="tns:ReinstateConversationSubjectResponse"/>
 			<xs:complexType name="ReinstateConversationSubjectResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -529,7 +528,7 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="adjacencyId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="adjacencyId" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -569,7 +568,7 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 							</xs:documentation>
@@ -582,7 +581,7 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 						</xs:annotation>
 
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 							</xs:documentation>
@@ -617,7 +616,7 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorData">
@@ -634,7 +633,7 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 					<xs:element name="message" type="xs:string"/>
 					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
 					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -657,9 +656,9 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 				</xs:annotation>
 				<xs:sequence>
 
-					<xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:string"/>
-					<xs:element minOccurs="1" maxOccurs="1" name="secretId" type="xs:string"/>
-					<xs:element minOccurs="1" maxOccurs="1" name="anonymousStem" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="userId" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="secretId" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="anonymousStem" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="AnonymousConversationUser">
@@ -755,70 +754,70 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="authenticateConversationRequest">
-		<wsdl:part name="messageParameters" element="ns0:authenticateConversationRequest"/>
+		<wsdl:part element="ns0:authenticateConversationRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="authenticateConversationResponse">
-		<wsdl:part name="messageParameters" element="ns0:authenticateConversationResponse"/>
+		<wsdl:part element="ns0:authenticateConversationResponse" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="anonymizeReplyRequest">
-		<wsdl:part name="messageParameters" element="ns0:anonymizeReplyRequest"/>
+		<wsdl:part element="ns0:anonymizeReplyRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="anonymizeReplyResponse">
-		<wsdl:part name="messageParameters" element="ns0:anonymizeReplyResponse"/>
+		<wsdl:part element="ns0:anonymizeReplyResponse" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="getStemsRequest">
-		<wsdl:part name="messageParameters" element="ns0:getStemsRequest"/>
+		<wsdl:part element="ns0:getStemsRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="getStemsResponse">
-		<wsdl:part name="messageParameters" element="ns0:getStemsResponse"/>
+		<wsdl:part element="ns0:getStemsResponse" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="createStemsRequest">
-		<wsdl:part name="messageParameters" element="ns0:createStemsRequest"/>
+		<wsdl:part element="ns0:createStemsRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="createStemsResponse">
-		<wsdl:part name="messageParameters" element="ns0:createStemsResponse"/>
+		<wsdl:part element="ns0:createStemsResponse" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="getRecipientStemRequest">
-		<wsdl:part name="messageParameters" element="ns0:getRecipientStemRequest"/>
+		<wsdl:part element="ns0:getRecipientStemRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="getRecipientStemResponse">
-		<wsdl:part name="messageParameters" element="ns0:getRecipientStemResponse"/>
+		<wsdl:part element="ns0:getRecipientStemResponse" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="confirmUserInvolvementRequest">
-		<wsdl:part name="messageParameters" element="ns0:confirmUserInvolvementRequest"/>
+		<wsdl:part element="ns0:confirmUserInvolvementRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="confirmUserInvolvementResponse">
-		<wsdl:part name="messageParameters" element="ns0:confirmUserInvolvementResponse"/>
+		<wsdl:part element="ns0:confirmUserInvolvementResponse" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="setStemExpiryRequest">
-		<wsdl:part name="messageParameters" element="ns0:setStemExpiryRequest"/>
+		<wsdl:part element="ns0:setStemExpiryRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="setStemExpiryResponse">
-		<wsdl:part name="messageParameters" element="ns0:setStemExpiryResponse"/>
+		<wsdl:part element="ns0:setStemExpiryResponse" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="updateUserInformationRequest">
-		<wsdl:part name="messageParameters" element="ns0:updateUserInformationRequest"/>
+		<wsdl:part element="ns0:updateUserInformationRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="updateUserInformationResponse">
-		<wsdl:part name="messageParameters" element="ns0:updateUserInformationResponse"/>
+		<wsdl:part element="ns0:updateUserInformationResponse" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="updateAllowedSubstringRequest">
-		<wsdl:part name="messageParameters" element="ns0:updateAllowedSubstringRequest"/>
+		<wsdl:part element="ns0:updateAllowedSubstringRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="updateAllowedSubstringResponse">
-		<wsdl:part name="messageParameters" element="ns0:updateAllowedSubstringResponse"/>
+		<wsdl:part element="ns0:updateAllowedSubstringResponse" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="getAnonymousUserRequest">
-		<wsdl:part name="messageParameters" element="ns0:getAnonymousUserRequest"/>
+		<wsdl:part element="ns0:getAnonymousUserRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="getAnonymousUserResponse">
-		<wsdl:part name="messageParameters" element="ns0:getAnonymousUserResponse"/>
+		<wsdl:part element="ns0:getAnonymousUserResponse" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="authenticateConversationAndGetStemsRequest">
-		<wsdl:part name="messageParameters" element="ns0:authenticateConversationAndGetStemsRequest"/>
+		<wsdl:part element="ns0:authenticateConversationAndGetStemsRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="authenticateConversationAndGetStemsResponse">
-		<wsdl:part name="messageParameters" element="ns0:authenticateConversationAndGetStemsResponse"/>
+		<wsdl:part element="ns0:authenticateConversationAndGetStemsResponse" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:portType name="AnonymizerServicePortType">
 		<wsdl:operation name="authenticateConversation">
@@ -867,110 +866,110 @@ null if the ignoreNullParameters is false, otherwise it will only update the par
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:binding name="AnonymizerServiceSOAP12Binding" type="ns0:AnonymizerServicePortType">
-		<soap12:binding xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="authenticateConversation">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:authenticateConversation" style="document"/>
+			<soap12:operation soapAction="urn:authenticateConversation" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getStems">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getStems" style="document"/>
+			<soap12:operation soapAction="urn:getStems" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="anonymizeReply">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:anonymizeReply" style="document"/>
+			<soap12:operation soapAction="urn:anonymizeReply" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="createStems">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:createStems" style="document"/>
+			<soap12:operation soapAction="urn:createStems" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getRecipientStem">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getRecipientStem" style="document"/>
+			<soap12:operation soapAction="urn:getRecipientStem" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="confirmUserInvolvement">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:confirmUserInvolvement" style="document"/>
+			<soap12:operation soapAction="urn:confirmUserInvolvement" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="setStemExpiry">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:setStemExpiry" style="document"/>
+			<soap12:operation soapAction="urn:setStemExpiry" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="updateUserInformation">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:updateUserInformation" style="document"/>
+			<soap12:operation soapAction="urn:updateUserInformation" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getAnonymousUser">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getAnonymousUser" style="document"/>
+			<soap12:operation soapAction="urn:getAnonymousUser" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="authenticateConversationAndGetStems">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:authenticateConversationAndGetStems" style="document"/>
+			<soap12:operation soapAction="urn:authenticateConversationAndGetStems" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="updateAllowedSubstring">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:updateAllowedSubstring" style="document"/>
+			<soap12:operation soapAction="urn:updateAllowedSubstring" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="AnonymizerService">
-		<wsdl:port name="AnonymizerServiceSOAP12port_http" binding="ns0:AnonymizerServiceSOAP12Binding">
-			<soap12:address xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" location="http://svcs.ebay.com/AnonymizerService"/>
+		<wsdl:port binding="ns0:AnonymizerServiceSOAP12Binding" name="AnonymizerServiceSOAP12port_http">
+			<soap12:address location="http://svcs.ebay.com/AnonymizerService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

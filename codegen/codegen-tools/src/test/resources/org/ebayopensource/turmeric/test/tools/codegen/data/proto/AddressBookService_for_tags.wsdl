@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" name="AddressBookService" targetNamespace="http://www.ebay.com/marketplace/checkout/v1/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebay.com/marketplace/checkout/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebayopensource.org/tumeric/checkout/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AddressBookService" targetNamespace="http://www.ebayopensource.org/tumeric/checkout/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/checkout/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/checkout/v1/services">
 			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
 			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
-			<xs:element name="addAddressRequest"  type="tns:AddAddressRequest"/>
-			<xs:element name="addAddressResponse"  type="tns:AddAddressResponse"/>
-			<xs:element name="updateAddressRequest"  type="tns:UpdateAddressRequest"/>
-			<xs:element name="updateAddressResponse"  type="tns:UpdateAddressResponse"/>
-			<xs:element name="removeAddressRequest"  type="tns:RemoveAddressRequest"/>
-			<xs:element name="removeAddressResponse"  type="tns:RemoveAddressResponse"/>
-			<xs:element name="getAddressesRequest"  type="tns:GetAddressesRequest"/>
-			<xs:element name="getAddressesResponse"  type="tns:GetAddressesResponse"/>
-			<xs:element name="setPrimaryAddressRequest"  type="tns:SetPrimaryAddressRequest"/>
-			<xs:element name="setPrimaryAddressResponse"  type="tns:SetPrimaryAddressResponse"/>
+			<xs:element name="addAddressRequest" type="tns:AddAddressRequest"/>
+			<xs:element name="addAddressResponse" type="tns:AddAddressResponse"/>
+			<xs:element name="updateAddressRequest" type="tns:UpdateAddressRequest"/>
+			<xs:element name="updateAddressResponse" type="tns:UpdateAddressResponse"/>
+			<xs:element name="removeAddressRequest" type="tns:RemoveAddressRequest"/>
+			<xs:element name="removeAddressResponse" type="tns:RemoveAddressResponse"/>
+			<xs:element name="getAddressesRequest" type="tns:GetAddressesRequest"/>
+			<xs:element name="getAddressesResponse" type="tns:GetAddressesResponse"/>
+			<xs:element name="setPrimaryAddressRequest" type="tns:SetPrimaryAddressRequest"/>
+			<xs:element name="setPrimaryAddressResponse" type="tns:SetPrimaryAddressResponse"/>
 			<xs:complexType name="GetVersionRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -50,7 +49,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -101,7 +100,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -114,7 +113,7 @@
 				<xs:annotation>
 					<xs:documentation>Reserved for future use.</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -156,7 +155,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -212,7 +211,7 @@
 							<xs:documentation>
 								This value represents the date and time when eBay processed the request.
 								This value is returned in GMT, the ISO 8601 date and time format (YYYY-
-								MM- DDTHH:MM:SS.SSSZ). See the &quot;dateTime&quot; type for information about the
+								MM- DDTHH:MM:SS.SSSZ). See the "dateTime" type for information about the
 								time format, and for details on converting to and from the GMT time zone.
 							</xs:documentation> 
 							<xs:appinfo>
@@ -239,7 +238,7 @@
 						errors, and system errors.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -272,7 +271,7 @@
 						A container for error details.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 					<xs:sequence>
@@ -431,8 +430,7 @@
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"
-							type="tns:ErrorParameter">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 							<xs:annotation>
 								<xs:documentation>
 									Various warning and error messages that return one or more variables that 
@@ -459,7 +457,7 @@
 						of a SOAP fault.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -478,7 +476,7 @@
 						Contextual data associated with an error.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -500,7 +498,7 @@
 						or a less severe error (a warning) that should be communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -526,7 +524,7 @@
 						Details of an address.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="BuyingCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/buying/v1/services/types">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/buying/v1/services/types">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -647,8 +645,8 @@
 						<xs:annotation>
 							<xs:documentation>
 								User's primary phone number. This may
-								return a value of &quot;Invalid
-								Request&quot; if you are not authorized
+								return a value of "Invalid
+								Request" if you are not authorized
 								to see a user's phone number.
 							</xs:documentation>
 							<xs:appinfo>
@@ -736,7 +734,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-				   <xs:element name="addressId" type="xs:long"  minOccurs="1" maxOccurs="1">
+				   <xs:element maxOccurs="1" minOccurs="1" name="addressId" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								Unique AddressId present in the Ebay_User_Addresses table.
@@ -749,7 +747,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					 <xs:element name="addressType" type="tns:AddressType" minOccurs="1" maxOccurs="1">
+					 <xs:element maxOccurs="1" minOccurs="1" name="addressType" type="tns:AddressType">
 						<xs:annotation>
 							<xs:documentation>
 								Type of an address. Same as the UserAddressEnum class.
@@ -762,7 +760,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					 <xs:element name="addressStatus" type="xs:string" minOccurs="1" maxOccurs="1">
+					 <xs:element maxOccurs="1" minOccurs="1" name="addressStatus" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Status of the the address (Visible, Default, Hidden).
@@ -775,7 +773,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					 <xs:element name="addressFields" type="tns:Address" minOccurs="1" maxOccurs="1">
+					 <xs:element maxOccurs="1" minOccurs="1" name="addressFields" type="tns:Address">
 						<xs:annotation>
 							<xs:documentation>
 								Address information. Contains the Name, Street1, Street2, City, State, Country, Postal Code, and Phone Number.
@@ -956,7 +954,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-						 <xs:element name="addressFieldValues" type="tns:Address" minOccurs="1" maxOccurs="1">
+						 <xs:element maxOccurs="1" minOccurs="1" name="addressFieldValues" type="tns:Address">
 						    <xs:annotation>
 							   <xs:documentation>
 								Address information. Contains the Name, Street1, Street2, 
@@ -970,7 +968,7 @@
 							   </xs:appinfo>
 						    </xs:annotation>
 					     </xs:element>
-					     <xs:element name="addressType" type="tns:AddressType" minOccurs="0">
+					     <xs:element minOccurs="0" name="addressType" type="tns:AddressType">
 						    <xs:annotation>
 							   <xs:documentation>
 								Type of an address. Same as the UserAddressEnum class.
@@ -983,7 +981,7 @@
 							   </xs:appinfo>
 						    </xs:annotation>
 					     </xs:element>
-					     <xs:element name="addressvalidationRequired" type="xs:boolean" minOccurs="0">
+					     <xs:element minOccurs="0" name="addressvalidationRequired" type="xs:boolean">
 						    <xs:annotation>
 							   <xs:documentation>
 								Enable to provide third party validation for US addresses.
@@ -996,7 +994,7 @@
 							   </xs:appinfo>
 						    </xs:annotation>
 					     </xs:element>
-					     <xs:element name="makePrimary" type="xs:boolean" minOccurs="0">
+					     <xs:element minOccurs="0" name="makePrimary" type="xs:boolean">
 						    <xs:annotation>
 							   <xs:documentation>
 								If makePrimary=true, then make the added address the default address in the table. 
@@ -1011,7 +1009,7 @@
 							   </xs:appinfo>
 						    </xs:annotation>
 					     </xs:element>
-					     <xs:element name="userAcceptedThirdPartyValidatedAddress" type="xs:boolean" minOccurs="0">
+					     <xs:element minOccurs="0" name="userAcceptedThirdPartyValidatedAddress" type="xs:boolean">
 						    <xs:annotation>
 							   <xs:documentation>
 								Inserts the address in the table that a third party application modifies.
@@ -1038,7 +1036,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-						  <xs:element name="addressID" type="xs:string" minOccurs="1">
+						  <xs:element minOccurs="1" name="addressID" type="xs:string">
 						    <xs:annotation>
 							   <xs:documentation>
 								Unique AddressId present in the Ebay_User_Addresses table.
@@ -1052,7 +1050,7 @@
 							   </xs:appinfo>
 						    </xs:annotation>
 					     </xs:element>
-					     <xs:element name="addressvalidated" type="xs:boolean" minOccurs="0">
+					     <xs:element minOccurs="0" name="addressvalidated" type="xs:boolean">
 						    <xs:annotation>
 							   <xs:documentation>
 								Enables when a third party application validates an address.
@@ -1065,7 +1063,7 @@
 							   </xs:appinfo>
 						    </xs:annotation>
 					     </xs:element>
-					     <xs:element name="addressModified" type="xs:boolean" minOccurs="0">
+					     <xs:element minOccurs="0" name="addressModified" type="xs:boolean">
 						    <xs:annotation>
 							   <xs:documentation>
 								Enables when a third party application modifies an address.
@@ -1078,7 +1076,7 @@
 							   </xs:appinfo>
 						    </xs:annotation>
 					     </xs:element>
-					     <xs:element name="modifiedFields" type="tns:ModifiedFields" minOccurs="0">
+					     <xs:element minOccurs="0" name="modifiedFields" type="tns:ModifiedFields">
 						    <xs:annotation>
 							   <xs:documentation>
 								Shows the fields in the response that a third party application modifies. 
@@ -1091,7 +1089,7 @@
 							   </xs:appinfo>
 						    </xs:annotation>
 					     </xs:element>
-					     <xs:element name="addressFieldValues" type="tns:Address" minOccurs="0" maxOccurs="1">
+					     <xs:element maxOccurs="1" minOccurs="0" name="addressFieldValues" type="tns:Address">
 							   <xs:annotation>
 							     <xs:documentation>
 								     Address Information. Contains the Name, Street1, Street2, 
@@ -1121,7 +1119,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="addressID" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="addressID" type="xs:string">
 							   <xs:annotation>
 							     <xs:documentation>
 								     Unique AddressId that is present in the Ebay_User_Addresses table.
@@ -1135,7 +1133,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="externalID" type="xs:string" minOccurs="0" maxOccurs="1">
+					       <xs:element maxOccurs="1" minOccurs="0" name="externalID" type="xs:string">
 							   <xs:annotation>
 							     <xs:documentation>
 								     Unique Id that is present in the Ebay_User_Addresses table for PayPal addresses.
@@ -1149,7 +1147,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="addressFieldValues" type="tns:Address" minOccurs="1" maxOccurs="1">
+					       <xs:element maxOccurs="1" minOccurs="1" name="addressFieldValues" type="tns:Address">
 							   <xs:annotation>
 							     <xs:documentation>
 								     Address information. Contains the Name, Street1, Street2, 
@@ -1163,7 +1161,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="addressType" type="tns:AddressType" minOccurs="1">
+					       <xs:element minOccurs="1" name="addressType" type="tns:AddressType">
 							   <xs:annotation>
 							     <xs:documentation>
 								     Type of an address. Same as the UserAddressEnum class.
@@ -1176,7 +1174,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="addressvalidationRequired" type="xs:boolean" minOccurs="0">
+					       <xs:element minOccurs="0" name="addressvalidationRequired" type="xs:boolean">
 							   <xs:annotation>
 							     <xs:documentation>
 								     Enable to validate US addresses with a third party application.
@@ -1189,7 +1187,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="makePrimary" type="xs:boolean" minOccurs="0">
+					       <xs:element minOccurs="0" name="makePrimary" type="xs:boolean">
 							   <xs:annotation>
 							     <xs:documentation>
 									 Set the default address in the table to the address you are adding. 
@@ -1204,7 +1202,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="userAcceptedThirdPartyValidatedAddress" type="xs:boolean" minOccurs="0">
+					       <xs:element minOccurs="0" name="userAcceptedThirdPartyValidatedAddress" type="xs:boolean">
 							   <xs:annotation>
 							     <xs:documentation>
 									 Inserts the address in the table that a third party application modifies.								   
@@ -1231,7 +1229,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-						   <xs:element name="addressID" type="xs:string" minOccurs="1">
+						   <xs:element minOccurs="1" name="addressID" type="xs:string">
 							   <xs:annotation>
 							     <xs:documentation>
 								     Unique AddressId present in the Ebay_User_Addresses table
@@ -1244,7 +1242,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="addressvalidated" type="xs:boolean" minOccurs="0">
+					       <xs:element minOccurs="0" name="addressvalidated" type="xs:boolean">
 							   <xs:annotation>
 							     <xs:documentation>
 									 Enables when a third party application validates an address.
@@ -1257,7 +1255,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="addressModified" type="xs:boolean" minOccurs="0">
+					       <xs:element minOccurs="0" name="addressModified" type="xs:boolean">
 							   <xs:annotation>
 							     <xs:documentation>
 									 Enables when a third party application modifies an address.
@@ -1270,7 +1268,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="modifiedFields" type="tns:ModifiedFields" minOccurs="0">
+					       <xs:element minOccurs="0" name="modifiedFields" type="tns:ModifiedFields">
 							   <xs:annotation>
 							     <xs:documentation>
 								    Shows the fields in the response that the a third party application modifies.
@@ -1283,7 +1281,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					        <xs:element name="addressFieldValues" type="tns:Address" minOccurs="0" maxOccurs="1">
+					        <xs:element maxOccurs="1" minOccurs="0" name="addressFieldValues" type="tns:Address">
 							   <xs:annotation>
 							     <xs:documentation>
 								     Address information. Contains the Name, Street1, Street2, 
@@ -1310,7 +1308,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-						   <xs:element name="addressID" type="xs:string" minOccurs="1" maxOccurs="1">
+						   <xs:element maxOccurs="1" minOccurs="1" name="addressID" type="xs:string">
 							   <xs:annotation>
 							     <xs:documentation>
 								     Unique AddressId that is present in the Ebay_User_Addresses table.
@@ -1351,7 +1349,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="addressID" type="xs:string" minOccurs="0">
+							<xs:element minOccurs="0" name="addressID" type="xs:string">
 							   <xs:annotation>
 							     <xs:documentation>
 								     Unique AddressId that is present in the Ebay_User_Addresses table.
@@ -1365,7 +1363,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="addressType" type="tns:AddressType" minOccurs="0">
+					       <xs:element minOccurs="0" name="addressType" type="tns:AddressType">
 							   <xs:annotation>
 							     <xs:documentation>
 								    Type of an address. Same as the UserAddressEnum class.
@@ -1378,7 +1376,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="noOfAddressesToBeReturned" type="xs:int" minOccurs="0">
+					       <xs:element minOccurs="0" name="noOfAddressesToBeReturned" type="xs:int">
 							   <xs:annotation>
 							     <xs:documentation>
 								     Number of addresses that are shown in the response. The maximum value is 50.
@@ -1408,7 +1406,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-						   <xs:element name="userAddress" type="tns:UserAddress" minOccurs="0" maxOccurs="unbounded">
+						   <xs:element maxOccurs="unbounded" minOccurs="0" name="userAddress" type="tns:UserAddress">
 							   <xs:annotation>
 							     <xs:documentation>
 								    UserAddress information. Contains AddressId, AddressStatus, and Address field values.
@@ -1421,7 +1419,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="addressCount" type="xs:int" minOccurs="0">
+					       <xs:element minOccurs="0" name="addressCount" type="xs:int">
 							   <xs:annotation>
 							     <xs:documentation>
 								    Number of addresses shown in the response.
@@ -1449,7 +1447,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-						   <xs:element name="addressID" type="xs:string" minOccurs="0" maxOccurs="1">
+						   <xs:element maxOccurs="1" minOccurs="0" name="addressID" type="xs:string">
 							   <xs:annotation>
 							     <xs:documentation>
 								    Unique AddressId that is present in the Ebay_User_Addresses table.
@@ -1463,7 +1461,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="externalID" type="xs:string" minOccurs="0" maxOccurs="1">
+					       <xs:element maxOccurs="1" minOccurs="0" name="externalID" type="xs:string">
 							   <xs:annotation>
 							     <xs:documentation>
 								     Unique Id that is present in the Ebay_User_Addresses table for PayPal addresses.
@@ -1477,7 +1475,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="addressType" type="tns:AddressType" minOccurs="0" maxOccurs="1">
+					       <xs:element maxOccurs="1" minOccurs="0" name="addressType" type="tns:AddressType">
 							   <xs:annotation>
 							     <xs:documentation>
 								    Type of an address. Same as the UserAddressEnum class.
@@ -1490,7 +1488,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="addressFieldValues" type="tns:Address" minOccurs="0" maxOccurs="1">
+					       <xs:element maxOccurs="1" minOccurs="0" name="addressFieldValues" type="tns:Address">
 							   <xs:annotation>
 							     <xs:documentation>
 								     Address information. Contains the Name, Street1, Street2, 
@@ -1504,7 +1502,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="addressvalidationRequired" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					       <xs:element maxOccurs="1" minOccurs="0" name="addressvalidationRequired" type="xs:boolean">
 							   <xs:annotation>
 							     <xs:documentation>
 								    Enable to validate US addresses by a third party application.
@@ -1517,7 +1515,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					       <xs:element name="userAcceptedThirdPartyValidatedAddress" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					       <xs:element maxOccurs="1" minOccurs="0" name="userAcceptedThirdPartyValidatedAddress" type="xs:boolean">
 							   <xs:annotation>
 							     <xs:documentation>
 									 Enable to insert an address in the table that a third party application modifies.
@@ -1544,7 +1542,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-						  <xs:element name="addressID" type="xs:string" minOccurs="1">
+						  <xs:element minOccurs="1" name="addressID" type="xs:string">
 							   <xs:annotation>
 							     <xs:documentation>
 								    Unique AddressId present in the Ebay_User_Addresses table.
@@ -1558,7 +1556,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					        <xs:element name="addressvalidated" type="xs:boolean" minOccurs="0">
+					        <xs:element minOccurs="0" name="addressvalidated" type="xs:boolean">
 							   <xs:annotation>
 							     <xs:documentation>
 								    Enables when a third party application validates an address.
@@ -1571,7 +1569,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					        <xs:element name="addressModified" type="xs:boolean" minOccurs="0">
+					        <xs:element minOccurs="0" name="addressModified" type="xs:boolean">
 							   <xs:annotation>
 							     <xs:documentation>
 									 Enables when a third party application modifies an address.
@@ -1584,7 +1582,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					        <xs:element name="modifiedFields" type="tns:ModifiedFields" minOccurs="0">
+					        <xs:element minOccurs="0" name="modifiedFields" type="tns:ModifiedFields">
 							   <xs:annotation>
 							     <xs:documentation>
 								    Shows the fields in the response that a third party application modifies.
@@ -1597,7 +1595,7 @@
 							   </xs:appinfo>
 						     </xs:annotation>
 					       </xs:element>
-					        <xs:element name="addressFieldValues" type="tns:Address" minOccurs="0" maxOccurs="1">
+					        <xs:element maxOccurs="1" minOccurs="0" name="addressFieldValues" type="tns:Address">
 							   <xs:annotation>
 							     <xs:documentation>
 								     Address information. Contains the Name, Street1, Street2, 
@@ -1739,7 +1737,7 @@
 	<wsdl:binding name="AddressBookServiceSOAPBinding" type="tns:AddressBookServicePort">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/checkout/v1/services/AddressBookService"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/checkout/v1/services/AddressBookService"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1748,7 +1746,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="addAddress">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/checkout/v1/services/AddressBookService"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/checkout/v1/services/AddressBookService"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1757,7 +1755,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="updateAddress">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/checkout/v1/services/AddressBookService"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/checkout/v1/services/AddressBookService"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1766,7 +1764,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="removeAddress">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/checkout/v1/services/AddressBookService"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/checkout/v1/services/AddressBookService"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1775,7 +1773,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getAddresses">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/checkout/v1/services/AddressBookService"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/checkout/v1/services/AddressBookService"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1784,7 +1782,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="setPrimaryAddress">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/checkout/v1/services/AddressBookService"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/checkout/v1/services/AddressBookService"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>

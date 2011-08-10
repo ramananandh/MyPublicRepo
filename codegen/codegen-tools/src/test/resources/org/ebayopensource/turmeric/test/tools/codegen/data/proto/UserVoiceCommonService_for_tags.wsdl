@@ -1,20 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="UserVoiceCommonService" 
-targetNamespace="http://www.ebay.com/marketplace/services"
-xmlns="http://schemas.xmlsoap.org/wsdl/" 
-xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
-xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
-xmlns:tns="http://www.ebay.com/marketplace/services" 
-xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
-xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UserVoiceCommonService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services"
- xmlns:tns="http://www.ebay.com/marketplace/services"
- xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
-			<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionResponse">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
@@ -87,7 +75,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 								value if you work with them to
 								troubleshoot issues. &lt;br /&gt; &lt;br
 								/&gt; &lt;span
-								class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt;
+								class="tablenote"&gt;&lt;strong&gt;Note:&lt;/strong&gt;
 								The version in use is normally the
 								latest release version, as specified in
 								the release notes. Note that eBay
@@ -110,7 +98,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 								when eBay processed the request. This
 								value is returned in GMT, the ISO 8601
 								date and time format (YYYY-MM-
-								DDTHH:MM:SS.SSSZ). See the &quot;dateTime&quot;
+								DDTHH:MM:SS.SSSZ). See the "dateTime"
 								type for information about the time
 								format, and for details on converting to
 								and from the GMT time zone.
@@ -138,7 +126,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
@@ -312,7 +300,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -757,8 +745,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:element name="setSubjectRefsRequest"  type="tns:SetSubjectRefsRequest"/>
-			<xs:element name="setSubjectRefsResponse"  type="tns:SetSubjectRefsResponse"/>
+			<xs:element name="setSubjectRefsRequest" type="tns:SetSubjectRefsRequest"/>
+			<xs:element name="setSubjectRefsResponse" type="tns:SetSubjectRefsResponse"/>
 			<xs:complexType name="SetSubjectRefsRequest">
 				<xs:sequence>
 					<xs:element maxOccurs="unbounded" minOccurs="1" name="setSubjectRefRequest" type="tns:SetSubjectRefRequest">
@@ -790,8 +778,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:element name="setSubjectRefRequest"  type="tns:SetSubjectRefRequest"/>
-			<xs:element name="setSubjectRefResponse"  type="tns:SetSubjectRefResponse"/>
+			<xs:element name="setSubjectRefRequest" type="tns:SetSubjectRefRequest"/>
+			<xs:element name="setSubjectRefResponse" type="tns:SetSubjectRefResponse"/>
 
 			<xs:complexType name="SetSubjectRefRequest">
 				<xs:complexContent>
@@ -821,8 +809,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 			</xs:complexType>
 
 
-			<xs:element name="deleteSubjectRefsRequest"  type="tns:DeleteSubjectRefsRequest"/>
-			<xs:element name="deleteSubjectRefsResponse"  type="tns:DeleteSubjectRefsResponse"/>
+			<xs:element name="deleteSubjectRefsRequest" type="tns:DeleteSubjectRefsRequest"/>
+			<xs:element name="deleteSubjectRefsResponse" type="tns:DeleteSubjectRefsResponse"/>
 			<xs:complexType name="DeleteSubjectRefsRequest">
 				<xs:sequence>
 					<xs:element maxOccurs="unbounded" minOccurs="1" name="deleteSubjectRefRequest" type="tns:DeleteSubjectRefRequest">
@@ -855,8 +843,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:element name="deleteSubjectRefRequest"  type="tns:DeleteSubjectRefRequest"/>
-			<xs:element name="deleteSubjectRefResponse"  type="tns:DeleteSubjectRefResponse"/>
+			<xs:element name="deleteSubjectRefRequest" type="tns:DeleteSubjectRefRequest"/>
+			<xs:element name="deleteSubjectRefResponse" type="tns:DeleteSubjectRefResponse"/>
 			<xs:complexType name="DeleteSubjectRefRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseUserVoiceCommonServiceRequest">
@@ -888,7 +876,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 
 
 			<xs:element name="rateSubjectsRequest" nillable="false" type="tns:RateSubjectsRequest"/>
-			<xs:element name="rateSubjectsResponse"  type="tns:RateSubjectsResponse"/>
+			<xs:element name="rateSubjectsResponse" type="tns:RateSubjectsResponse"/>
 			<xs:complexType name="RateSubjectsRequest">
 				<xs:sequence>
 					<xs:element maxOccurs="unbounded" minOccurs="1" name="rateSubjectRequest" type="tns:RateSubjectRequest">
@@ -921,7 +909,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 			</xs:complexType>
 
 			<xs:element name="rateSubjectRequest" nillable="false" type="tns:RateSubjectRequest"/>
-			<xs:element name="rateSubjectResponse"  type="tns:RateSubjectResponse"/>
+			<xs:element name="rateSubjectResponse" type="tns:RateSubjectResponse"/>
 
 			<xs:complexType name="RateSubjectRequest">
 				<xs:complexContent>
@@ -958,8 +946,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 			</xs:complexType>
 
 
-			<xs:element name="deleteRatingsRequest"  type="tns:DeleteRatingsRequest"/>
-			<xs:element name="deleteRatingsResponse"  type="tns:DeleteRatingsResponse"/>
+			<xs:element name="deleteRatingsRequest" type="tns:DeleteRatingsRequest"/>
+			<xs:element name="deleteRatingsResponse" type="tns:DeleteRatingsResponse"/>
 			<xs:complexType name="DeleteRatingsRequest">
 				<xs:sequence>
 					<xs:element maxOccurs="unbounded" minOccurs="1" name="deleteRatingRequest" type="tns:DeleteRatingRequest">
@@ -991,8 +979,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:element name="deleteRatingRequest"  type="tns:DeleteRatingRequest"/>
-			<xs:element name="deleteRatingResponse"  type="tns:DeleteRatingResponse"/>
+			<xs:element name="deleteRatingRequest" type="tns:DeleteRatingRequest"/>
+			<xs:element name="deleteRatingResponse" type="tns:DeleteRatingResponse"/>
 
 			<xs:complexType name="DeleteRatingRequest">
 				<xs:complexContent>
@@ -1026,8 +1014,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 			</xs:simpleType>
 
 
-			<xs:element name="findUserVoiceBySubjectRequest"  type="tns:FindUserVoiceBySubjectRequest"/>
-			<xs:element name="findUserVoiceBySubjectResponse"  type="tns:FindUserVoiceBySubjectResponse"/>
+			<xs:element name="findUserVoiceBySubjectRequest" type="tns:FindUserVoiceBySubjectRequest"/>
+			<xs:element name="findUserVoiceBySubjectResponse" type="tns:FindUserVoiceBySubjectResponse"/>
 
 			<xs:complexType name="RatingRangeFilter">
 				<xs:sequence>
@@ -1125,8 +1113,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 			</xs:complexType>
 
 
-			<xs:element name="getRatingStatisticsForSubjectsRequest"  type="tns:GetRatingStatisticsForSubjectsRequest"/>
-			<xs:element name="getRatingStatisticsForSubjectsResponse"  type="tns:GetRatingStatisticsForSubjectsResponse"/>
+			<xs:element name="getRatingStatisticsForSubjectsRequest" type="tns:GetRatingStatisticsForSubjectsRequest"/>
+			<xs:element name="getRatingStatisticsForSubjectsResponse" type="tns:GetRatingStatisticsForSubjectsResponse"/>
 			<xs:complexType name="GetRatingStatisticsForSubjectsRequest">
 				<xs:sequence>
 					<xs:element maxOccurs="unbounded" minOccurs="1" name="getRatingStatisticsForSubjectRequest" type="tns:GetRatingStatisticsForSubjectRequest">
@@ -1159,8 +1147,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:element name="getRatingStatisticsForSubjectRequest"  type="tns:GetRatingStatisticsForSubjectRequest"/>
-			<xs:element name="getRatingStatisticsForSubjectResponse"  type="tns:GetRatingStatisticsForSubjectResponse"/>
+			<xs:element name="getRatingStatisticsForSubjectRequest" type="tns:GetRatingStatisticsForSubjectRequest"/>
+			<xs:element name="getRatingStatisticsForSubjectResponse" type="tns:GetRatingStatisticsForSubjectResponse"/>
 
 			<xs:complexType name="GetRatingStatisticsForSubjectRequest">
 				<xs:complexContent>
@@ -1196,8 +1184,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:element name="findUserVoiceByUserRequest"  type="tns:FindUserVoiceByUserRequest"/>
-			<xs:element name="findUserVoiceByUserResponse"  type="tns:FindUserVoiceByUserResponse"/>
+			<xs:element name="findUserVoiceByUserRequest" type="tns:FindUserVoiceByUserRequest"/>
+			<xs:element name="findUserVoiceByUserResponse" type="tns:FindUserVoiceByUserResponse"/>
 
 
 			<xs:complexType name="FindUserVoiceByUserRequest">
@@ -1270,8 +1258,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:element name="findSubjectRefsRequest"  type="tns:FindSubjectRefsRequest"/>
-			<xs:element name="findSubjectRefsResponse"  type="tns:FindSubjectRefsResponse"/>
+			<xs:element name="findSubjectRefsRequest" type="tns:FindSubjectRefsRequest"/>
+			<xs:element name="findSubjectRefsResponse" type="tns:FindSubjectRefsResponse"/>
 
 			<xs:complexType name="FindSubjectRefsRequest">
 				<xs:complexContent>
@@ -1346,8 +1334,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:element name="getRatingSchemeRequest"  type="tns:GetRatingSchemeRequest"/>
-			<xs:element name="getRatingSchemeResponse"  type="tns:GetRatingSchemeResponse"/>
+			<xs:element name="getRatingSchemeRequest" type="tns:GetRatingSchemeRequest"/>
+			<xs:element name="getRatingSchemeResponse" type="tns:GetRatingSchemeResponse"/>
 
 			<xs:complexType name="GetRatingSchemeRequest">
 				<xs:complexContent>
@@ -1391,8 +1379,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:element name="getUserVoicesRequest"  type="tns:GetUserVoicesRequest"/>
-			<xs:element name="getUserVoicesResponse"  type="tns:GetUserVoicesResponse"/>
+			<xs:element name="getUserVoicesRequest" type="tns:GetUserVoicesRequest"/>
+			<xs:element name="getUserVoicesResponse" type="tns:GetUserVoicesResponse"/>
 
 			<xs:complexType name="GetUserVoicesRequest">
 				<xs:complexContent>
@@ -1455,127 +1443,127 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 		</xs:schema>
   </types>
   <message name="rateSubjectsResponse">
-    <part name="messageParameters" element="tns:rateSubjectsResponse">
+    <part element="tns:rateSubjectsResponse" name="messageParameters">
     </part>
   </message>
   <message name="findUserVoiceBySubjectResponse">
-    <part name="messageParameters" element="tns:findUserVoiceBySubjectResponse">
+    <part element="tns:findUserVoiceBySubjectResponse" name="messageParameters">
     </part>
   </message>
   <message name="setSubjectRefsResponse">
-    <part name="messageParameters" element="tns:setSubjectRefsResponse">
+    <part element="tns:setSubjectRefsResponse" name="messageParameters">
     </part>
   </message>
   <message name="setSubjectRefResponse">
-    <part name="messageParameters" element="tns:setSubjectRefResponse">
+    <part element="tns:setSubjectRefResponse" name="messageParameters">
     </part>
   </message>
   <message name="deleteRatingsResponse">
-    <part name="messageParameters" element="tns:deleteRatingsResponse">
+    <part element="tns:deleteRatingsResponse" name="messageParameters">
     </part>
   </message>
   <message name="deleteSubjectRefsRequest">
-    <part name="messageParameters" element="tns:deleteSubjectRefsRequest">
+    <part element="tns:deleteSubjectRefsRequest" name="messageParameters">
     </part>
   </message>
   <message name="setSubjectRefsRequest">
-    <part name="messageParameters" element="tns:setSubjectRefsRequest">
+    <part element="tns:setSubjectRefsRequest" name="messageParameters">
     </part>
   </message>
   <message name="getRatingSchemeResponse">
-    <part name="messageParameters" element="tns:getRatingSchemeResponse">
+    <part element="tns:getRatingSchemeResponse" name="messageParameters">
     </part>
   </message>
   <message name="getRatingStatisticsForSubjectResponse">
-    <part name="messageParameters" element="tns:getRatingStatisticsForSubjectResponse">
+    <part element="tns:getRatingStatisticsForSubjectResponse" name="messageParameters">
     </part>
   </message>
   <message name="findSubjectRefsRequest">
-    <part name="messageParameters" element="tns:findSubjectRefsRequest">
+    <part element="tns:findSubjectRefsRequest" name="messageParameters">
     </part>
   </message>
   <message name="findUserVoiceByUserResponse">
-    <part name="messageParameters" element="tns:findUserVoiceByUserResponse">
+    <part element="tns:findUserVoiceByUserResponse" name="messageParameters">
     </part>
   </message>
   <message name="deleteSubjectRefResponse">
-    <part name="messageParameters" element="tns:deleteSubjectRefResponse">
+    <part element="tns:deleteSubjectRefResponse" name="messageParameters">
     </part>
   </message>
   <message name="getRatingStatisticsForSubjectsRequest">
-    <part name="messageParameters" element="tns:getRatingStatisticsForSubjectsRequest">
+    <part element="tns:getRatingStatisticsForSubjectsRequest" name="messageParameters">
     </part>
   </message>
   <message name="findSubjectRefsResponse">
-    <part name="messageParameters" element="tns:findSubjectRefsResponse">
+    <part element="tns:findSubjectRefsResponse" name="messageParameters">
     </part>
   </message>
   <message name="getRatingStatisticsForSubjectRequest">
-    <part name="messageParameters" element="tns:getRatingStatisticsForSubjectRequest">
+    <part element="tns:getRatingStatisticsForSubjectRequest" name="messageParameters">
     </part>
   </message>
   <message name="deleteRatingResponse">
-    <part name="messageParameters" element="tns:deleteRatingResponse">
+    <part element="tns:deleteRatingResponse" name="messageParameters">
     </part>
   </message>
   <message name="rateSubjectsRequest">
-    <part name="messageParameters" element="tns:rateSubjectsRequest">
+    <part element="tns:rateSubjectsRequest" name="messageParameters">
     </part>
   </message>
   <message name="findUserVoiceBySubjectRequest">
-    <part name="messageParameters" element="tns:findUserVoiceBySubjectRequest">
+    <part element="tns:findUserVoiceBySubjectRequest" name="messageParameters">
     </part>
   </message>
   <message name="getUserVoicesRequest">
-    <part name="messageParameters" element="tns:getUserVoicesRequest">
+    <part element="tns:getUserVoicesRequest" name="messageParameters">
     </part>
   </message>
   <message name="rateSubjectResponse">
-    <part name="messageParameters" element="tns:rateSubjectResponse">
+    <part element="tns:rateSubjectResponse" name="messageParameters">
     </part>
   </message>
   <message name="getUserVoicesResponse">
-    <part name="messageParameters" element="tns:getUserVoicesResponse">
+    <part element="tns:getUserVoicesResponse" name="messageParameters">
     </part>
   </message>
   <message name="rateSubjectRequest">
-    <part name="messageParameters" element="tns:rateSubjectRequest">
+    <part element="tns:rateSubjectRequest" name="messageParameters">
     </part>
   </message>
   <message name="getVersionResponse">
-    <part name="parameters" element="tns:getVersionResponse">
+    <part element="tns:getVersionResponse" name="parameters">
     </part>
   </message>
   <message name="deleteSubjectRefsResponse">
-    <part name="messageParameters" element="tns:deleteSubjectRefsResponse">
+    <part element="tns:deleteSubjectRefsResponse" name="messageParameters">
     </part>
   </message>
   <message name="deleteRatingsRequest">
-    <part name="messageParameters" element="tns:deleteRatingsRequest">
+    <part element="tns:deleteRatingsRequest" name="messageParameters">
     </part>
   </message>
   <message name="deleteRatingRequest">
-    <part name="messageParameters" element="tns:deleteRatingRequest">
+    <part element="tns:deleteRatingRequest" name="messageParameters">
     </part>
   </message>
   <message name="setSubjectRefRequest">
-    <part name="messageParameters" element="tns:setSubjectRefRequest">
+    <part element="tns:setSubjectRefRequest" name="messageParameters">
     </part>
   </message>
   <message name="getRatingStatisticsForSubjectsResponse">
-    <part name="messageParameters" element="tns:getRatingStatisticsForSubjectsResponse">
+    <part element="tns:getRatingStatisticsForSubjectsResponse" name="messageParameters">
     </part>
   </message>
   <message name="deleteSubjectRefRequest">
-    <part name="messageParameters" element="tns:deleteSubjectRefRequest">
+    <part element="tns:deleteSubjectRefRequest" name="messageParameters">
     </part>
   </message>
   <message name="findUserVoiceByUserRequest">
-    <part name="messageParameters" element="tns:findUserVoiceByUserRequest">
+    <part element="tns:findUserVoiceByUserRequest" name="messageParameters">
     </part>
   </message>
   <message name="getRatingSchemeRequest">
-    <part name="messageParameters" element="tns:getRatingSchemeRequest">
+    <part element="tns:getRatingSchemeRequest" name="messageParameters">
     </part>
   </message>
   <portType name="UserVoiceCommonServicePort">
@@ -1747,213 +1735,195 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
       </output>
     </operation>
   </binding>
-  <binding name="UserVoiceCommonServiceSoapBinding"
-  	type="tns:UserVoiceCommonServicePort">
+  <binding name="UserVoiceCommonServiceSoapBinding" type="tns:UserVoiceCommonServicePort">
 
-  	<soap:binding style="document"
-  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
   	<operation name="getVersion">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/getVersion" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/getVersion"/>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="setSubjectRefs">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/setSubjectRefs" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/setSubjectRefs"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="setSubjectRef">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/setSubjectRef" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/setSubjectRef"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="deleteSubjectRefs">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/deleteSubjectRefs" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/deleteSubjectRefs"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="deleteSubjectRef">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/deleteSubjectRef" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/deleteSubjectRef"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="rateSubjects">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/rateSubjects" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/rateSubjects"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="rateSubject">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/rateSubject" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/rateSubject"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="findUserVoiceBySubject">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/findUserVoiceBySubject" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/findUserVoiceBySubject"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="getRatingStatisticsForSubjects">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/getRatingStatisticsForSubjects" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/getRatingStatisticsForSubjects"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="getRatingStatisticsForSubject">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/getRatingStatisticsForSubject" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/getRatingStatisticsForSubject"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="deleteRatings">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/deleteRatings" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/deleteRatings"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="deleteRating">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/deleteRating" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/deleteRating"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="findUserVoiceByUser">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/findUserVoiceByUser" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/findUserVoiceByUser"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="findSubjectRefs">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/findSubjectRefs" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/findSubjectRefs"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="getRatingScheme">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/getRatingScheme" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/getRatingScheme"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="getUserVoices">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/services/getUserVoices" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/getUserVoices"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   </binding>
@@ -1965,7 +1935,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 			subject such as a product, an app etc. The service also
 			allows end user to provide user voices on other people's user voices.
 		</wsdl:documentation>
-    <port name="UserVoiceCommonServiceSOAP" binding="tns:UserVoiceCommonServiceSoapBinding">
+    <port binding="tns:UserVoiceCommonServiceSoapBinding" name="UserVoiceCommonServiceSOAP">
       <soap12:address location="http://www.ebay.com/marketplace/services/UserVoiceCommonService"/>
     </port>
   </service>

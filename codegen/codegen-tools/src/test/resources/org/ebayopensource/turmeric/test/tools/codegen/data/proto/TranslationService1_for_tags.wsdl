@@ -1,76 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="TranslationService"
-	targetNamespace="http://www.ebay.com/marketplace/l10n/v1/services"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:tns="http://www.ebay.com/marketplace/l10n/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/l10n/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TranslationService" targetNamespace="http://www.ebayopensource.org/tumeric/l10n/v1/services">
 	
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
-    	targetNamespace="http://www.ebay.com/marketplace/l10n/v1/services">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/l10n/v1/services">
 
-<xs:element name="getRealmsRequest"  type="tns:GetRealmsRequest"/>
-<xs:element name="getRealmsResponse"  type="tns:GetRealmsResponse"/>
+<xs:element name="getRealmsRequest" type="tns:GetRealmsRequest"/>
+<xs:element name="getRealmsResponse" type="tns:GetRealmsResponse"/>
 
-<xs:element name="getProjectsRequest"  type="tns:GetProjectsRequest"/>
-<xs:element name="getProjectsResponse"  type="tns:GetProjectsResponse"/>
-<xs:element name="getProjectRequest"  type="tns:GetProjectRequest"/>
-<xs:element name="getProjectResponse"  type="tns:GetProjectResponse"/>
-<xs:element name="getProjectStatusRequest"  type="tns:GetProjectStatusRequest"/>
-<xs:element name="getProjectStatusResponse"  type="tns:GetProjectStatusResponse"/>
-<xs:element name="createProjectRequest"  type="tns:CreateProjectRequest"/>
-<xs:element name="createProjectResponse"  type="tns:CreateProjectResponse"/>
-<xs:element name="updateProjectRequest"  type="tns:UpdateProjectRequest"/>
-<xs:element name="updateProjectResponse"  type="tns:UpdateProjectResponse"/>
-<xs:element name="evaluateProjectRequest"  type="tns:EvaluateProjectRequest"/>
-<xs:element name="evaluateProjectResponse"  type="tns:EvaluateProjectResponse"/>
-<xs:element name="commitProjectRequest"  type="tns:CommitProjectRequest"/>
-<xs:element name="commitProjectResponse"  type="tns:CommitProjectResponse"/>
-<xs:element name="cancelProjectRequest"  type="tns:CancelProjectRequest"/>
-<xs:element name="cancelProjectResponse"  type="tns:CancelProjectResponse"/>
+<xs:element name="getProjectsRequest" type="tns:GetProjectsRequest"/>
+<xs:element name="getProjectsResponse" type="tns:GetProjectsResponse"/>
+<xs:element name="getProjectRequest" type="tns:GetProjectRequest"/>
+<xs:element name="getProjectResponse" type="tns:GetProjectResponse"/>
+<xs:element name="getProjectStatusRequest" type="tns:GetProjectStatusRequest"/>
+<xs:element name="getProjectStatusResponse" type="tns:GetProjectStatusResponse"/>
+<xs:element name="createProjectRequest" type="tns:CreateProjectRequest"/>
+<xs:element name="createProjectResponse" type="tns:CreateProjectResponse"/>
+<xs:element name="updateProjectRequest" type="tns:UpdateProjectRequest"/>
+<xs:element name="updateProjectResponse" type="tns:UpdateProjectResponse"/>
+<xs:element name="evaluateProjectRequest" type="tns:EvaluateProjectRequest"/>
+<xs:element name="evaluateProjectResponse" type="tns:EvaluateProjectResponse"/>
+<xs:element name="commitProjectRequest" type="tns:CommitProjectRequest"/>
+<xs:element name="commitProjectResponse" type="tns:CommitProjectResponse"/>
+<xs:element name="cancelProjectRequest" type="tns:CancelProjectRequest"/>
+<xs:element name="cancelProjectResponse" type="tns:CancelProjectResponse"/>
 
-<xs:element name="getJobsRequest"  type="tns:GetJobsRequest"/>
-<xs:element name="getJobsResponse"  type="tns:GetJobsResponse"/>
-<xs:element name="getJobRequest"  type="tns:GetJobRequest"/>
-<xs:element name="getJobResponse"  type="tns:GetJobResponse"/>
-<xs:element name="getJobStatusRequest"  type="tns:GetJobStatusRequest"/>
-<xs:element name="getJobStatusResponse"  type="tns:GetJobStatusResponse"/>
-<xs:element name="addJobRequest"  type="tns:AddJobRequest"/>
-<xs:element name="addJobResponse"  type="tns:AddJobResponse"/>
-<xs:element name="cancelJobRequest"  type="tns:CancelJobRequest"/>
-<xs:element name="cancelJobResponse"  type="tns:CancelJobResponse"/>
+<xs:element name="getJobsRequest" type="tns:GetJobsRequest"/>
+<xs:element name="getJobsResponse" type="tns:GetJobsResponse"/>
+<xs:element name="getJobRequest" type="tns:GetJobRequest"/>
+<xs:element name="getJobResponse" type="tns:GetJobResponse"/>
+<xs:element name="getJobStatusRequest" type="tns:GetJobStatusRequest"/>
+<xs:element name="getJobStatusResponse" type="tns:GetJobStatusResponse"/>
+<xs:element name="addJobRequest" type="tns:AddJobRequest"/>
+<xs:element name="addJobResponse" type="tns:AddJobResponse"/>
+<xs:element name="cancelJobRequest" type="tns:CancelJobRequest"/>
+<xs:element name="cancelJobResponse" type="tns:CancelJobResponse"/>
 
-<xs:element name="getContentNamesRequest"  type="tns:GetContentNamesRequest"/>
-<xs:element name="getContentNamesResponse"  type="tns:GetContentNamesResponse"/>
-<xs:element name="getSourceContentRequest"  type="tns:GetSourceContentRequest"/>
-<xs:element name="getSourceContentResponse"  type="tns:GetSourceContentResponse"/>
-<xs:element name="getTranslatedContentRequest"  type="tns:GetTranslatedContentRequest"/>
-<xs:element name="getTranslatedContentResponse"  type="tns:GetTranslatedContentResponse"/>
-<xs:element name="addSourceContentRequest"  type="tns:AddSourceContentRequest"/>
-<xs:element name="addSourceContentResponse"  type="tns:AddSourceContentResponse"/>
-<xs:element name="updateSourceContentRequest"  type="tns:UpdateSourceContentRequest"/>
-<xs:element name="updateSourceContentResponse"  type="tns:UpdateSourceContentResponse"/>
-<xs:element name="submitTranslatedContentChangeRequest"  type="tns:SubmitTranslatedContentChangeRequest"/>
-<xs:element name="submitTranslatedContentChangeResponse"  type="tns:SubmitTranslatedContentChangeResponse"/>
-<xs:element name="getContentUnitNamesRequest"  type="tns:GetContentUnitNamesRequest"/>
-<xs:element name="getContentUnitNamesResponse"  type="tns:GetContentUnitNamesResponse"/>
-<xs:element name="getContentUnitRequest"  type="tns:GetContentUnitRequest"/>
-<xs:element name="getContentUnitResponse"  type="tns:GetContentUnitResponse"/>
+<xs:element name="getContentNamesRequest" type="tns:GetContentNamesRequest"/>
+<xs:element name="getContentNamesResponse" type="tns:GetContentNamesResponse"/>
+<xs:element name="getSourceContentRequest" type="tns:GetSourceContentRequest"/>
+<xs:element name="getSourceContentResponse" type="tns:GetSourceContentResponse"/>
+<xs:element name="getTranslatedContentRequest" type="tns:GetTranslatedContentRequest"/>
+<xs:element name="getTranslatedContentResponse" type="tns:GetTranslatedContentResponse"/>
+<xs:element name="addSourceContentRequest" type="tns:AddSourceContentRequest"/>
+<xs:element name="addSourceContentResponse" type="tns:AddSourceContentResponse"/>
+<xs:element name="updateSourceContentRequest" type="tns:UpdateSourceContentRequest"/>
+<xs:element name="updateSourceContentResponse" type="tns:UpdateSourceContentResponse"/>
+<xs:element name="submitTranslatedContentChangeRequest" type="tns:SubmitTranslatedContentChangeRequest"/>
+<xs:element name="submitTranslatedContentChangeResponse" type="tns:SubmitTranslatedContentChangeResponse"/>
+<xs:element name="getContentUnitNamesRequest" type="tns:GetContentUnitNamesRequest"/>
+<xs:element name="getContentUnitNamesResponse" type="tns:GetContentUnitNamesResponse"/>
+<xs:element name="getContentUnitRequest" type="tns:GetContentUnitRequest"/>
+<xs:element name="getContentUnitResponse" type="tns:GetContentUnitResponse"/>
 
-<xs:element name="getAttachmentNamesRequest"  type="tns:GetAttachmentNamesRequest"/>
-<xs:element name="getAttachmentNamesResponse"  type="tns:GetAttachmentNamesResponse"/>
-<xs:element name="uploadAttachmentRequest"  type="tns:UploadAttachmentRequest"/>
-<xs:element name="uploadAttachmentResponse"  type="tns:UploadAttachmentResponse"/>
-<xs:element name="linkAttachmentRequest"  type="tns:LinkAttachmentRequest"/>
-<xs:element name="linkAttachmentResponse"  type="tns:LinkAttachmentResponse"/>
+<xs:element name="getAttachmentNamesRequest" type="tns:GetAttachmentNamesRequest"/>
+<xs:element name="getAttachmentNamesResponse" type="tns:GetAttachmentNamesResponse"/>
+<xs:element name="uploadAttachmentRequest" type="tns:UploadAttachmentRequest"/>
+<xs:element name="uploadAttachmentResponse" type="tns:UploadAttachmentResponse"/>
+<xs:element name="linkAttachmentRequest" type="tns:LinkAttachmentRequest"/>
+<xs:element name="linkAttachmentResponse" type="tns:LinkAttachmentResponse"/>
 
-<xs:element name="getVersionRequest"  type="tns:GetVersionRequest"/>
-<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 
 <xs:complexType name="GetVersionRequest">
 	<xs:annotation>
@@ -374,7 +363,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="parent" minOccurs="0" type="tns:Realm">
+		<xs:element minOccurs="0" name="parent" type="tns:Realm">
 			<xs:annotation>
 				<xs:documentation>
 					Parent of the realm.
@@ -387,7 +376,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="child" maxOccurs="unbounded" minOccurs="0" type="tns:Realm">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="child" type="tns:Realm">
 			<xs:annotation>
 				<xs:documentation>
 					Children of the realm.
@@ -443,14 +432,14 @@
 				</xs:documentation>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="firstName" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="firstName" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Contact first name.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="lastName" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="lastName" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Contact last name.
@@ -464,7 +453,7 @@
 				</xs:documentation>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="phone" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="phone" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Contact user phone.
@@ -495,7 +484,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="contact" maxOccurs="unbounded" type="tns:Contact">
+		<xs:element maxOccurs="unbounded" name="contact" type="tns:Contact">
 			<xs:annotation>
 				<xs:documentation>
 					Project contact container.
@@ -508,7 +497,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="note" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="note" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Project note.
@@ -534,7 +523,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="timelineTemplate" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="timelineTemplate" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Targeted due date.
@@ -547,7 +536,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="requestedTimeline" maxOccurs="unbounded" minOccurs="0" type="tns:Timeline">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="requestedTimeline" type="tns:Timeline">
 			<xs:annotation>
 				<xs:documentation>
 					Requested time lines container.
@@ -571,7 +560,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="projectId" minOccurs="0" type="xs:long">
+		<xs:element minOccurs="0" name="projectId" type="xs:long">
 			<xs:annotation>
 				<xs:documentation>
 					Unique identifier for a project, assigned by the system.
@@ -615,7 +604,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="projectInfo" minOccurs="0" type="tns:ProjectInfo">
+		<xs:element minOccurs="0" name="projectInfo" type="tns:ProjectInfo">
 			<xs:annotation>
 				<xs:documentation>
 					Project info.
@@ -642,7 +631,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="timeline" maxOccurs="unbounded" minOccurs="0" type="tns:Timeline">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="timeline" type="tns:Timeline">
 			<xs:annotation>
 				<xs:documentation>
 					Actual time lines.
@@ -669,7 +658,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="processingLog" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="processingLog" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Processing log for the project.
@@ -708,7 +697,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="note" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="note" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Note for the job.
@@ -722,7 +711,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="contentName" maxOccurs="unbounded" minOccurs="0" type="xs:string">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="contentName" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Source content name list for the job.
@@ -735,7 +724,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="targetLocale" maxOccurs="unbounded" minOccurs="0" type="xs:string">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="targetLocale" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Target country language list for the job.
@@ -759,7 +748,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="jobId" minOccurs="0" type="xs:long">
+		<xs:element minOccurs="0" name="jobId" type="xs:long">
 			<xs:annotation>
 				<xs:documentation>
 					Unique identifier for a job, assigned by the system.
@@ -772,7 +761,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="projectId" minOccurs="0" type="xs:long">
+		<xs:element minOccurs="0" name="projectId" type="xs:long">
 			<xs:annotation>
 				<xs:documentation>
 					The project this job belongs to.
@@ -799,7 +788,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="jobInfo" minOccurs="0" type="tns:JobInfo">
+		<xs:element minOccurs="0" name="jobInfo" type="tns:JobInfo">
 			<xs:annotation>
 				<xs:documentation>
 					Job activity type.
@@ -825,7 +814,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="processingLog" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="processingLog" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Processing log for the job.
@@ -879,7 +868,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="usage" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="usage" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Usage.
@@ -893,7 +882,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="processing" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="processing" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Processing.
@@ -907,7 +896,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="segment" maxOccurs="unbounded" minOccurs="0" type="tns:Segment">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="segment" type="tns:Segment">
 			<xs:annotation>
 				<xs:documentation>
 					Segment parts container.
@@ -921,7 +910,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="note" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="note" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Note for the unit.
@@ -936,7 +925,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="sid" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="sid" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Unit SID.
@@ -951,7 +940,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="authoringType" minOccurs="0" type="tns:AuthoringType">
+		<xs:element minOccurs="0" name="authoringType" type="tns:AuthoringType">
 			<xs:annotation>
 				<xs:documentation>
 					Unit authoring type.
@@ -990,7 +979,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="note" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="note" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Note for the content.
@@ -1004,7 +993,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="locale" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="locale" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Country language of the content.
@@ -1018,7 +1007,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="contentUnit" maxOccurs="unbounded" minOccurs="0" type="tns:ContentUnit">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="contentUnit" type="tns:ContentUnit">
 			<xs:annotation>
 				<xs:documentation>
 					Content units container.
@@ -1043,7 +1032,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="note" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="note" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Segment note.
@@ -1057,7 +1046,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="text" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="text" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Segment text.
@@ -1085,7 +1074,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="pairingId" minOccurs="0" type="xs:string">
+		<xs:element minOccurs="0" name="pairingId" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Segment paring id.
@@ -1130,7 +1119,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseResponse">
 			<xs:sequence>
-				<xs:element name="realm" maxOccurs="unbounded" minOccurs="0" type="tns:Realm">
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="realm" type="tns:Realm">
 					<xs:annotation>
 						<xs:documentation>
 							A realm configured in the system.
@@ -1247,7 +1236,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							Project id.
@@ -1303,7 +1292,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							The project of job.
@@ -1388,7 +1377,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="jobId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="jobId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							The id of job to be canceled.
@@ -1431,7 +1420,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							The project id of the content.
@@ -1487,7 +1476,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							The project id of the content.
@@ -1526,7 +1515,7 @@
 						</xs:appinfo>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="contentUnitName" minOccurs="0" type="xs:string">
+				<xs:element minOccurs="0" name="contentUnitName" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>
 							The name of the content unit.
@@ -1582,7 +1571,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							The project id.
@@ -1622,7 +1611,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseResponse">
 			<xs:sequence>
-				<xs:element name="contentUnitName" maxOccurs="unbounded" minOccurs="0" type="xs:string">
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="contentUnitName" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>
 							Content unit name list.
@@ -1654,7 +1643,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							Project id.
@@ -1752,7 +1741,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							The id of the project to be evaluated.
@@ -1779,7 +1768,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseResponse">
 			<xs:sequence>
-				<xs:element name="timeline" maxOccurs="unbounded" minOccurs="0" type="tns:Timeline">
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="timeline" type="tns:Timeline">
 					<xs:annotation>
 						<xs:documentation>
 							Estimated time lines.
@@ -1811,7 +1800,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							The id of the project to be committed.
@@ -1854,7 +1843,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							The id of the project to be canceled.
@@ -1910,7 +1899,7 @@
 						</xs:appinfo>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="projectState" minOccurs="0" type="tns:ProjectState">
+				<xs:element minOccurs="0" name="projectState" type="tns:ProjectState">
 					<xs:annotation>
 						<xs:documentation>
 							Project state filter.
@@ -1923,7 +1912,7 @@
 						</xs:appinfo>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="projectName" minOccurs="0" type="xs:string">
+				<xs:element minOccurs="0" name="projectName" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>
 							Project name filter.
@@ -1950,7 +1939,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseResponse">
 			<xs:sequence>
-				<xs:element name="project" maxOccurs="unbounded" minOccurs="0" type="tns:Project">
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="project" type="tns:Project">
 					<xs:annotation>
 						<xs:documentation>
 							Retrieved projects.
@@ -1982,7 +1971,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							The id of the project to be retrieved.
@@ -2041,7 +2030,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							The id of the project to be retrieved.
@@ -2100,7 +2089,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							Project id.
@@ -2113,7 +2102,7 @@
 						</xs:appinfo>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="jobState" minOccurs="0" type="tns:JobState">
+				<xs:element minOccurs="0" name="jobState" type="tns:JobState">
 					<xs:annotation>
 						<xs:documentation>
 							Job state filter.
@@ -2126,7 +2115,7 @@
 						</xs:appinfo>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="jobName" minOccurs="0" type="xs:string">
+				<xs:element minOccurs="0" name="jobName" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>
 							Job name filter.
@@ -2153,7 +2142,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseResponse">
 			<xs:sequence>
-				<xs:element name="job" maxOccurs="unbounded" minOccurs="0" type="tns:Job">
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="job" type="tns:Job">
 					<xs:annotation>
 						<xs:documentation>
 							Jobs to be retrieved.
@@ -2185,7 +2174,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="jobId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="jobId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							The id of the job to be retrieved.
@@ -2244,7 +2233,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="jobId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="jobId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							The id of the job to be retrieved.
@@ -2303,7 +2292,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							Project id.
@@ -2316,7 +2305,7 @@
 						</xs:appinfo>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="jobName" minOccurs="0" type="xs:string">
+				<xs:element minOccurs="0" name="jobName" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>
 							Job name filter.
@@ -2343,7 +2332,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseResponse">
 			<xs:sequence>
-				<xs:element name="contentName" maxOccurs="unbounded" minOccurs="0" type="xs:string">
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="contentName" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>
 							Content names for a project.
@@ -2434,7 +2423,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							Project id.
@@ -2562,7 +2551,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							Project id.
@@ -2575,7 +2564,7 @@
 						</xs:appinfo>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="contentName" minOccurs="0" type="xs:string">
+				<xs:element minOccurs="0" name="contentName" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>
 							Content name filter.
@@ -2602,7 +2591,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseResponse">
 			<xs:sequence>
-				<xs:element name="attachmentName" maxOccurs="unbounded" minOccurs="0" type="xs:string">
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="attachmentName" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>
 							Attachment names.
@@ -2634,7 +2623,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							Project id.
@@ -2690,7 +2679,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element name="projectId" minOccurs="1"  type="xs:long">
+				<xs:element minOccurs="1" name="projectId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation>
 							Project id.
@@ -2754,7 +2743,7 @@
 				Container for time ranges.
 			</xs:documentation>
 			<xs:appinfo>
-				<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+				<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 			<CallInfo>
 				<CallName>getProjects</CallName>
 				<RequiredInput>No</RequiredInput>
@@ -2801,7 +2790,7 @@
 <xs:complexType abstract="true" name="BaseRequest">
 		<xs:annotation>
 			<xs:appinfo>
-				<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+				<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 			</xs:appinfo>
 			<xs:documentation>
 				This is the base class for request container for all
@@ -2819,7 +2808,7 @@
 <xs:complexType abstract="true" name="BaseResponse">
 	<xs:annotation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 		<xs:documentation>
 			Base response container for all service operations.
@@ -2890,7 +2879,7 @@
 <xs:complexType name="ExtensionType">
 	<xs:annotation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 		<xs:documentation>Documentation goes here</xs:documentation>
 		<xs:appinfo/>
@@ -2911,7 +2900,7 @@
 <xs:simpleType name="AckValue">
 	<xs:annotation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 		<xs:documentation>
 			Indicates whether the error is a severe error (causing the request to fail)
@@ -2958,7 +2947,7 @@
 <xs:complexType name="ErrorMessage">
 	<xs:annotation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 		<xs:documentation>
 			ErrorMessage to indicate any Error/Warning occured as part of service call.
@@ -2967,7 +2956,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					ActivityProfile about a single error.
@@ -2987,7 +2976,7 @@
 <xs:complexType name="ErrorData">
 	<xs:annotation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 		<xs:documentation>
 			This represents error details.
@@ -3126,7 +3115,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -3148,7 +3137,7 @@
 <xs:complexType name="ErrorParameter">
 	<xs:annotation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 		<xs:documentation>
 			Contextual information associated with an error.
@@ -3178,7 +3167,7 @@
 <xs:simpleType name="ErrorSeverity">
 	<xs:annotation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 		<xs:documentation>
 			Indicates whether the error is a severe error (causing the request to fail)
@@ -3213,7 +3202,7 @@
 <xs:simpleType name="ErrorCategory">
 	<xs:annotation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 		<xs:documentation>
 			There are three categories of error: request errors, application errors,
@@ -3265,211 +3254,211 @@
 </xs:schema>
   </wsdl:types>
   <wsdl:message name="getVersionRequest">
-    <wsdl:part name="getVersionRequest" element="tns:getVersionRequest">
+    <wsdl:part element="tns:getVersionRequest" name="getVersionRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getVersionResponse">
-    <wsdl:part name="getVersionResponse" element="tns:getVersionResponse">
+    <wsdl:part element="tns:getVersionResponse" name="getVersionResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="addSourceContentRequest">
-    <wsdl:part name="addSourceContentRequest" element="tns:addSourceContentRequest">
+    <wsdl:part element="tns:addSourceContentRequest" name="addSourceContentRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="addJobRequest">
-    <wsdl:part name="addJobRequest" element="tns:addJobRequest">
+    <wsdl:part element="tns:addJobRequest" name="addJobRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="updateProjectRequest">
-    <wsdl:part name="updateProjectRequest" element="tns:updateProjectRequest">
+    <wsdl:part element="tns:updateProjectRequest" name="updateProjectRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="createProjectResponse">
-    <wsdl:part name="createProjectResponse" element="tns:createProjectResponse">
+    <wsdl:part element="tns:createProjectResponse" name="createProjectResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getContentNamesRequest">
-    <wsdl:part name="getContentNamesRequest" element="tns:getContentNamesRequest">
+    <wsdl:part element="tns:getContentNamesRequest" name="getContentNamesRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getContentNamesResponse">
-    <wsdl:part name="getContentNamesResponse" element="tns:getContentNamesResponse">
+    <wsdl:part element="tns:getContentNamesResponse" name="getContentNamesResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getSourceContentRequest">
-    <wsdl:part name="getSourceContentRequest" element="tns:getSourceContentRequest">
+    <wsdl:part element="tns:getSourceContentRequest" name="getSourceContentRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getSourceContentResponse">
-    <wsdl:part name="getSourceContentResponse" element="tns:getSourceContentResponse">
+    <wsdl:part element="tns:getSourceContentResponse" name="getSourceContentResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getProjectRequest">
-    <wsdl:part name="getProjectRequest" element="tns:getProjectRequest">
+    <wsdl:part element="tns:getProjectRequest" name="getProjectRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getProjectResponse">
-    <wsdl:part name="getProjectResponse" element="tns:getProjectResponse">
+    <wsdl:part element="tns:getProjectResponse" name="getProjectResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getProjectStatusRequest">
-    <wsdl:part name="getProjectStatusRequest" element="tns:getProjectStatusRequest">
+    <wsdl:part element="tns:getProjectStatusRequest" name="getProjectStatusRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getProjectStatusResponse">
-    <wsdl:part name="getProjectStatusResponse" element="tns:getProjectStatusResponse">
+    <wsdl:part element="tns:getProjectStatusResponse" name="getProjectStatusResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getTranslatedContentRequest">
-    <wsdl:part name="getTranslatedContentRequest" element="tns:getTranslatedContentRequest">
+    <wsdl:part element="tns:getTranslatedContentRequest" name="getTranslatedContentRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getTranslatedContentResponse">
-    <wsdl:part name="getTranslatedContentResponse" element="tns:getTranslatedContentResponse">
+    <wsdl:part element="tns:getTranslatedContentResponse" name="getTranslatedContentResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getJobsRequest">
-    <wsdl:part name="getJobsRequest" element="tns:getJobsRequest">
+    <wsdl:part element="tns:getJobsRequest" name="getJobsRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getJobsResponse">
-    <wsdl:part name="getJobsResponse" element="tns:getJobsResponse">
+    <wsdl:part element="tns:getJobsResponse" name="getJobsResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getJobRequest">
-    <wsdl:part name="getJobRequest" element="tns:getJobRequest">
+    <wsdl:part element="tns:getJobRequest" name="getJobRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getJobResponse">
-    <wsdl:part name="getJobResponse" element="tns:getJobResponse">
+    <wsdl:part element="tns:getJobResponse" name="getJobResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getJobStatusRequest">
-    <wsdl:part name="getJobStatusRequest" element="tns:getJobStatusRequest">
+    <wsdl:part element="tns:getJobStatusRequest" name="getJobStatusRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getJobStatusResponse">
-    <wsdl:part name="getJobStatusResponse" element="tns:getJobStatusResponse">
+    <wsdl:part element="tns:getJobStatusResponse" name="getJobStatusResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="evaluateProjectRequest">
-    <wsdl:part name="evaluateProjectRequest" element="tns:evaluateProjectRequest">
+    <wsdl:part element="tns:evaluateProjectRequest" name="evaluateProjectRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="evaluateProjectResponse">
-    <wsdl:part name="evaluateProjectResponse" element="tns:evaluateProjectResponse">
+    <wsdl:part element="tns:evaluateProjectResponse" name="evaluateProjectResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="commitProjectRequest">
-    <wsdl:part name="commitProjectRequest" element="tns:commitProjectRequest">
+    <wsdl:part element="tns:commitProjectRequest" name="commitProjectRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="commitProjectResponse">
-    <wsdl:part name="commitProjectResponse" element="tns:commitProjectResponse">
+    <wsdl:part element="tns:commitProjectResponse" name="commitProjectResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="cancelProjectRequest">
-    <wsdl:part name="cancelProjectRequest" element="tns:cancelProjectRequest">
+    <wsdl:part element="tns:cancelProjectRequest" name="cancelProjectRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="cancelProjectResponse">
-    <wsdl:part name="cancelProjectResponse" element="tns:cancelProjectResponse">
+    <wsdl:part element="tns:cancelProjectResponse" name="cancelProjectResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getRealmsRequest">
-    <wsdl:part name="getRealmsRequest" element="tns:getRealmsRequest">
+    <wsdl:part element="tns:getRealmsRequest" name="getRealmsRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getRealmsResponse">
-    <wsdl:part name="getRealmsResponse" element="tns:getRealmsResponse">
+    <wsdl:part element="tns:getRealmsResponse" name="getRealmsResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="cancelJobRequest">
-    <wsdl:part name="cancelJobRequest" element="tns:cancelJobRequest">
+    <wsdl:part element="tns:cancelJobRequest" name="cancelJobRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="createProjectRequest">
-    <wsdl:part name="createProjectRequest" element="tns:createProjectRequest">
+    <wsdl:part element="tns:createProjectRequest" name="createProjectRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="updateProjectResponse">
-    <wsdl:part name="updateProjectResponse" element="tns:updateProjectResponse">
+    <wsdl:part element="tns:updateProjectResponse" name="updateProjectResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="addJobResponse">
-    <wsdl:part name="addJobResponse" element="tns:addJobResponse">
+    <wsdl:part element="tns:addJobResponse" name="addJobResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getProjectsRequest">
-    <wsdl:part name="getProjectsRequest" element="tns:getProjectsRequest">
+    <wsdl:part element="tns:getProjectsRequest" name="getProjectsRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getProjectsResponse">
-    <wsdl:part name="getProjectsResponse" element="tns:getProjectsResponse">
+    <wsdl:part element="tns:getProjectsResponse" name="getProjectsResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="addSourceContentResponse">
-    <wsdl:part name="addSourceContentResponse" element="tns:addSourceContentResponse">
+    <wsdl:part element="tns:addSourceContentResponse" name="addSourceContentResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="cancelJobResponse">
-    <wsdl:part name="cancelJobResponse" element="tns:cancelJobResponse">
+    <wsdl:part element="tns:cancelJobResponse" name="cancelJobResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="submitTranslatedContentChangeRequest">
-    <wsdl:part name="submitTranslatedContentChangeRequest" element="tns:submitTranslatedContentChangeRequest">
+    <wsdl:part element="tns:submitTranslatedContentChangeRequest" name="submitTranslatedContentChangeRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="submitTranslatedContentChangeResponse">
-    <wsdl:part name="submitTranslatedContentChangeResponse" element="tns:submitTranslatedContentChangeResponse">
+    <wsdl:part element="tns:submitTranslatedContentChangeResponse" name="submitTranslatedContentChangeResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getContentUnitNamesRequest">
-    <wsdl:part name="getContentUnitNamesRequest" element="tns:getContentUnitNamesRequest">
+    <wsdl:part element="tns:getContentUnitNamesRequest" name="getContentUnitNamesRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getContentUnitNamesResponse">
-    <wsdl:part name="getContentUnitNamesResponse" element="tns:getContentUnitNamesResponse">
+    <wsdl:part element="tns:getContentUnitNamesResponse" name="getContentUnitNamesResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getContentUnitRequest">
-    <wsdl:part name="getContentUnitRequest" element="tns:getContentUnitRequest">
+    <wsdl:part element="tns:getContentUnitRequest" name="getContentUnitRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getContentUnitResponse">
-    <wsdl:part name="getContentUnitResponse" element="tns:getContentUnitResponse">
+    <wsdl:part element="tns:getContentUnitResponse" name="getContentUnitResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="updateSourceContentRequest">
-    <wsdl:part name="updateSourceContentRequest" element="tns:updateSourceContentRequest">
+    <wsdl:part element="tns:updateSourceContentRequest" name="updateSourceContentRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="updateSourceContentResponse">
-    <wsdl:part name="updateSourceContentResponse" element="tns:updateSourceContentResponse">
+    <wsdl:part element="tns:updateSourceContentResponse" name="updateSourceContentResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getAttachmentNamesRequest">
-    <wsdl:part name="getAttachmentNamesRequest" element="tns:getAttachmentNamesRequest">
+    <wsdl:part element="tns:getAttachmentNamesRequest" name="getAttachmentNamesRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getAttachmentNamesResponse">
-    <wsdl:part name="getAttachmentNamesResponse" element="tns:getAttachmentNamesResponse">
+    <wsdl:part element="tns:getAttachmentNamesResponse" name="getAttachmentNamesResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="uploadAttachmentRequest">
-    <wsdl:part name="uploadAttachmentRequest" element="tns:uploadAttachmentRequest">
+    <wsdl:part element="tns:uploadAttachmentRequest" name="uploadAttachmentRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="uploadAttachmentResponse">
-    <wsdl:part name="uploadAttachmentResponse" element="tns:uploadAttachmentResponse">
+    <wsdl:part element="tns:uploadAttachmentResponse" name="uploadAttachmentResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="linkAttachmentRequest">
-    <wsdl:part name="linkAttachmentRequest" element="tns:linkAttachmentRequest">
+    <wsdl:part element="tns:linkAttachmentRequest" name="linkAttachmentRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="linkAttachmentResponse">
-    <wsdl:part name="linkAttachmentResponse" element="tns:linkAttachmentResponse">
+    <wsdl:part element="tns:linkAttachmentResponse" name="linkAttachmentResponse">
     </wsdl:part>
   </wsdl:message>
 
@@ -4112,10 +4101,10 @@
 <wsdl:documentation>
 		<Version>1.0.0</Version>
 	</wsdl:documentation>
-    <wsdl:port name="TranslationServiceHttp" binding="tns:TranslationServiceHttpBinding">
+    <wsdl:port binding="tns:TranslationServiceHttpBinding" name="TranslationServiceHttp">
       <http:address location="https://svcs.ebay.com/services/l10n/v1/TranslationService"/>
     </wsdl:port>
-    <wsdl:port name="TranslationServiceSOAP" binding="tns:TranslationServiceSOAPBinding">
+    <wsdl:port binding="tns:TranslationServiceSOAPBinding" name="TranslationServiceSOAP">
       <soap12:address location="https://svcs.ebay.com/services/l10n/v1/TranslationService"/>
     </wsdl:port>
   </wsdl:service>

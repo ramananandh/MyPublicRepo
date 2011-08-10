@@ -1,22 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="CatalogService"
-	targetNamespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:ns0="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:tns="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/">
-	<wsdl:documentation />
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/tumeric/v1/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/tumeric/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CatalogService" targetNamespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services">
+	<wsdl:documentation/>
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"
-			xmlns:tns="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"
-			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services">
 
 
             <xs:complexType abstract="true" name="BaseServiceRequest">
@@ -28,7 +13,7 @@
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
@@ -68,7 +53,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The version of the response payload schema. Indicates the version of the
@@ -84,7 +69,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								This value represents the date and time when eBay processed the
@@ -118,15 +103,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -155,7 +139,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -177,14 +161,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates whether the error caused the
@@ -223,14 +206,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 						<xs:annotation>
 							<xs:documentation>
 								There are three categories of errors:
@@ -239,7 +221,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -253,14 +235,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain upon which the
@@ -276,14 +257,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for an exception
@@ -291,14 +271,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -309,7 +288,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -336,7 +315,7 @@
 								</xs:documentation>
 								<xs:appinfo>
 									<CallInfo>
-										<AllCalls />
+										<AllCalls/>
 										<Returned>
 											Conditionally
 										</Returned>
@@ -503,19 +482,16 @@
 			</xs:simpleType>
 
 
-			<xs:element name="findProductsResponse"
-				type="tns:FindProductsResponse">
+			<xs:element name="findProductsResponse" type="tns:FindProductsResponse">
                 <xs:annotation>
                 	<xs:documentation>
                 		Response object for Find Product operation
                 	</xs:documentation>
                 </xs:annotation>
 			</xs:element>
-			<xs:element name="getProductDetailsResponse"
-				type="tns:GetProductDetailsResponse">
+			<xs:element name="getProductDetailsResponse" type="tns:GetProductDetailsResponse">
 			</xs:element>
-			<xs:element name="findProductsRequest"
-				type="tns:FindProductsRequest">
+			<xs:element name="findProductsRequest" type="tns:FindProductsRequest">
 			</xs:element>
 
 			<xs:complexType name="FindProductsRequest">
@@ -531,8 +507,7 @@
 
 
 							
-                            							<xs:element name="productSearch"
-								type="tns:ProductRequest" maxOccurs="unbounded" minOccurs="0">
+                            							<xs:element maxOccurs="unbounded" minOccurs="0" name="productSearch" type="tns:ProductRequest">
                                 <xs:annotation>
                                 	<xs:documentation>
                                 		User can findproducts for one
@@ -552,8 +527,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="paginationInput" type="tns:PaginationInput">
+							<xs:element maxOccurs="1" minOccurs="0" name="paginationInput" type="tns:PaginationInput">
 								<xs:annotation>
 									<xs:documentation>
 										Controls the pagination of the
@@ -564,8 +538,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="sortOrderInput" type="tns:SortOrderInput">
+							<xs:element maxOccurs="1" minOccurs="0" name="sortOrderInput" type="tns:SortOrderInput">
 								<xs:annotation>
 									<xs:documentation>
 										Sort Order for the result set.
@@ -579,7 +552,7 @@
 								</xs:annotation>
 							</xs:element>
 
-                            <xs:element name="productStatusFilter" type="tns:ProductStatus" maxOccurs="1" minOccurs="0">
+                            <xs:element maxOccurs="1" minOccurs="0" name="productStatusFilter" type="tns:ProductStatus">
                                 <xs:annotation>
                                 	<xs:documentation>
                                 		User can specify if he wants to
@@ -589,7 +562,7 @@
                                 	</xs:documentation>
                                 </xs:annotation>
 							</xs:element>
-                            <xs:element name="dataset" type="xs:token" maxOccurs="unbounded" minOccurs="0">
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="dataset" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
 										This will define what are
@@ -615,34 +588,28 @@
 				</xs:annotation>
 
 				<xs:sequence>
-					<xs:element name="ePID" type="xs:string"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="ePID" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Ebay Product Reference Id
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ISBN" type="xs:string"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="ISBN" type="xs:string">
 					</xs:element>
-					<xs:element name="UPC" type="xs:string"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="UPC" type="xs:string">
 					</xs:element>
-					<xs:element name="EAN" type="xs:string"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="EAN" type="xs:string">
 					</xs:element>
-					<xs:element name="productId" type="xs:string"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="productId" type="xs:string">
 					</xs:element>
-                    <xs:element name="brandMPN" type="tns:BrandMPN" maxOccurs="1" minOccurs="0"></xs:element>
+                    <xs:element maxOccurs="1" minOccurs="0" name="brandMPN" type="tns:BrandMPN"/>
 
-						processContents="lax">
+						processContents="lax"&gt;
 
                 </xs:sequence>
 			</xs:complexType>
-			<xs:element name="getProductDetailsRequest"
-				type="tns:GetProductDetailsRequest">
+			<xs:element name="getProductDetailsRequest" type="tns:GetProductDetailsRequest">
 			</xs:element>
 
 			<xs:complexType name="GetProductDetailsRequest">
@@ -655,8 +622,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="productIdentifier"
-								type="tns:ProductIdentifier" maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="productIdentifier" type="tns:ProductIdentifier">
 								<xs:annotation>
 									<xs:documentation>
 										The ProductIdentifierType and a
@@ -667,10 +633,9 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="dataset"
-								type="xs:token" maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="dataset" type="xs:token">
                                 <xs:annotation>
-                                	<xs:documentation></xs:documentation>
+                                	<xs:documentation/>
                                 </xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -685,8 +650,7 @@
 						<xs:sequence>
 
 
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="fitmentDataAvailable" type="xs:boolean">
+							<xs:element maxOccurs="1" minOccurs="1" name="fitmentDataAvailable" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>
 										Indicates whether this product
@@ -694,8 +658,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="product"
-								type="tns:Product" maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="product" type="tns:Product">
 							</xs:element>
 						</xs:sequence>
 
@@ -705,7 +668,7 @@
 
 			<xs:complexType name="FindProductsResponse">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
@@ -713,9 +676,7 @@
 
 
 
-							<xs:element name="productSearchResult"
-								type="tns:ProductResponse" maxOccurs="unbounded"
-								minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="productSearchResult" type="tns:ProductResponse">
 							</xs:element>
 						</xs:sequence>
 
@@ -740,8 +701,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="unitOfMeasurement" type="xs:token">
+					<xs:element maxOccurs="1" minOccurs="0" name="unitOfMeasurement" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								UOM of this value. List of valid values
@@ -788,8 +748,7 @@
 
 			<xs:complexType name="Property">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1"
-						name="canonicalName" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="canonicalName" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								This is the canonical name of the
@@ -798,10 +757,9 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="propertyNameMetadata"
-						type="tns:PropertyNameMetadata" maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="propertyNameMetadata" type="tns:PropertyNameMetadata">
 					</xs:element>
-					<xs:element name="displayName" type="xs:string" maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="displayName" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								This will be the display name of the
@@ -813,11 +771,9 @@
 
 			<xs:complexType name="PropertyValue">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1"
-						name="property" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="property" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="value" type="tns:Value">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="value" type="tns:Value">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -831,24 +787,21 @@
 								below.
 							</xs:documentation>
 						</xs:annotation>
-						<xs:element name="text"
-							type="tns:StringValue">
+						<xs:element name="text" type="tns:StringValue">
 							<xs:annotation>
 								<xs:documentation>
 									For string value type.
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="number"
-							type="tns:NumericValue">
+						<xs:element name="number" type="tns:NumericValue">
 							<xs:annotation>
 								<xs:documentation>
 									For numeric value type.
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="URL"
-							type="tns:URIValue">
+						<xs:element name="URL" type="tns:URIValue">
 							<xs:annotation>
 								<xs:documentation>
 									For URL value type.
@@ -857,7 +810,7 @@
 						</xs:element>
 					</xs:choice>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
@@ -874,8 +827,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="0" name="pageNumber"
-						type="xs:int">
+					<xs:element minOccurs="0" name="pageNumber" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Specifies the maximum number of entries
@@ -887,8 +839,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="entriesPerPage"
-						type="xs:int">
+					<xs:element minOccurs="0" name="entriesPerPage" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates the maximum number of items
@@ -898,7 +849,7 @@
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
@@ -906,11 +857,10 @@
 
 			<xs:complexType name="PaginationOutput">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="0" name="pageNumber"
-						type="xs:int">
+					<xs:element minOccurs="0" name="pageNumber" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates the page of data returned by
@@ -920,8 +870,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="entriesPerPage"
-						type="xs:int">
+					<xs:element minOccurs="0" name="entriesPerPage" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates the maximum number of items
@@ -931,8 +880,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="totalPages"
-						type="xs:int">
+					<xs:element minOccurs="0" name="totalPages" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates the total number of pages of
@@ -942,8 +890,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="totalEntries"
-						type="xs:int">
+					<xs:element minOccurs="0" name="totalEntries" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates the total number of items that
@@ -954,16 +901,14 @@
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:element name="findProductsByCompatibilityResponse"
-				type="tns:FindProductsResponse">
+			<xs:element name="findProductsByCompatibilityResponse" type="tns:FindProductsResponse">
 
 			</xs:element>
-			<xs:element name="findProductsByCompatibilityRequest"
-				type="tns:FindProductsByCompatibilityRequest">
+			<xs:element name="findProductsByCompatibilityRequest" type="tns:FindProductsByCompatibilityRequest">
 			</xs:element>
 
 			<xs:complexType name="SortOrderInput">
@@ -975,8 +920,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="propertyName" type="xs:string"
-						maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="propertyName" type="xs:string">
                         <xs:annotation>
                         	<xs:documentation>
                         		This will be one of the properties
@@ -984,8 +928,7 @@
                         	</xs:documentation>
                         </xs:annotation>
 					</xs:element>
-					<xs:element name="order" maxOccurs="1" minOccurs="1"
-						type="tns:OrderType">
+					<xs:element maxOccurs="1" minOccurs="1" name="order" type="tns:OrderType">
 						<xs:annotation>
 							<xs:documentation>
 								Order of the sort, either Ascending or
@@ -1033,10 +976,7 @@
 
 
 
-							<xs:element
-								name="productByCompatibilitySearch"
-								type="tns:ProductByCompatibilityRequest" maxOccurs="unbounded"
-								minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="productByCompatibilitySearch" type="tns:ProductByCompatibilityRequest">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1044,12 +984,10 @@
 			</xs:complexType>
 
 
-			<xs:element name="getProductSearchNamesResponse"
-				type="tns:GetProductSearchNamesResponse">
+			<xs:element name="getProductSearchNamesResponse" type="tns:GetProductSearchNamesResponse">
 
 			</xs:element>
-			<xs:element name="getProductSearchValuesRequest"
-				type="tns:GetProductSearchValuesRequest">
+			<xs:element name="getProductSearchValuesRequest" type="tns:GetProductSearchValuesRequest">
 
                 <xs:annotation>
                 	<xs:documentation>
@@ -1058,8 +996,7 @@
                 	</xs:documentation>
                 </xs:annotation>
 			</xs:element>
-			<xs:element name="getProductSearchValuesResponse"
-				type="tns:GetProductSearchValuesResponse">
+			<xs:element name="getProductSearchValuesResponse" type="tns:GetProductSearchValuesResponse">
 
 			</xs:element>
 
@@ -1076,8 +1013,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="catalogId"
-								type="xs:string" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="catalogId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										Return properties for a given
@@ -1085,8 +1021,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="dataset"
-								type="xs:token" maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="dataset" type="xs:token">
                                 <xs:annotation>
                                 	<xs:documentation>
                                 		This will define what are
@@ -1103,8 +1038,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getProductSearchNamesRequest"
-				type="tns:GetProductSearchNamesRequest">
+			<xs:element name="getProductSearchNamesRequest" type="tns:GetProductSearchNamesRequest">
 				<xs:annotation>
 					<xs:documentation>
 						Request object for getPropertiesInCatalog
@@ -1123,8 +1057,7 @@
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
 
-							<xs:element name="properties"
-								type="tns:Properties" maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="properties" type="tns:Properties">
                                 <xs:annotation>
                                 	<xs:documentation>
                                 		This will contain the catalog
@@ -1141,12 +1074,10 @@
 
 			<xs:complexType name="GetProductSearchValuesRequest">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:GetProductSearchValuesBaseRequest">
+					<xs:extension base="tns:GetProductSearchValuesBaseRequest">
 						<xs:sequence>
 
-							<xs:element name="propertyName"
-								type="xs:string" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="propertyName" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										PropertyLiteral Determines which
@@ -1161,13 +1092,11 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:complexType
-				name="GetProductSearchValuesBaseRequest">
+			<xs:complexType name="GetProductSearchValuesBaseRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="catalogId"
-								type="xs:string" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="catalogId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										This should be a valid catalog
@@ -1176,8 +1105,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element name="propertyFilter"
-								type="tns:PropertyValue" maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="propertyFilter" type="tns:PropertyValue">
 								<xs:annotation>
 									<xs:documentation>
 										Constrains the output of values
@@ -1193,15 +1121,13 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element name="listFormatOnly"
-								type="xs:boolean" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="listFormatOnly" type="xs:boolean">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:complexType
-				name="GetProductSearchValuesResponse">
+			<xs:complexType name="GetProductSearchValuesResponse">
                 <xs:annotation>
                 	<xs:documentation>
                 		This will contain the response for the
@@ -1216,8 +1142,7 @@
                 <xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="metadataVersion"
-								type="xs:string" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="metadataVersion" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										Version information reflects the
@@ -1226,8 +1151,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="propertyValues"
-								type="tns:PropertyValue" maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="propertyValues" type="tns:PropertyValue">
 								<xs:annotation>
 									<xs:documentation>
 										This will be populated for the
@@ -1235,8 +1159,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="propertyValuesTree"
-								type="tns:PropertyNameValue" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="propertyValuesTree" type="tns:PropertyNameValue">
 								<xs:annotation>
 									<xs:documentation>
 										This will be populated for
@@ -1244,8 +1167,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="treeFormat"
-								type="xs:boolean" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="treeFormat" type="xs:boolean">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1263,15 +1185,13 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="Ascending"></xs:enumeration>
-					<xs:enumeration value="Descending"></xs:enumeration>
+					<xs:enumeration value="Ascending"/>
+					<xs:enumeration value="Descending"/>
 				</xs:restriction>
 			</xs:simpleType>
-			<xs:element name="getProductCompatibilitiesRequest"
-				type="tns:GetProductCompatibilitiesRequest">
+			<xs:element name="getProductCompatibilitiesRequest" type="tns:GetProductCompatibilitiesRequest">
 			</xs:element>
-			<xs:element name="getProductCompatibilitiesResponse"
-				type="tns:GetProductCompatiblitiesResponse">
+			<xs:element name="getProductCompatibilitiesResponse" type="tns:GetProductCompatiblitiesResponse">
 
 			</xs:element>
 
@@ -1281,9 +1201,7 @@
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
 
-							<xs:element name="productDetails"
-								type="tns:BaseProductDetails" maxOccurs="unbounded"
-								minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="productDetails" type="tns:BaseProductDetails">
 							</xs:element>
 						</xs:sequence>
 
@@ -1301,8 +1219,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="productIdentifier"
-								type="tns:ProductIdentifier" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="productIdentifier" type="tns:ProductIdentifier">
 								<xs:annotation>
 									<xs:documentation>
 										The ProductIdentifierType and a
@@ -1314,18 +1231,13 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element name="paginationInput"
-								type="tns:PaginationInput" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="paginationInput" type="tns:PaginationInput">
 							</xs:element>
-							<xs:element name="propertyFilter"
-								type="tns:PropertyValue" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="propertyFilter" type="tns:PropertyValue">
 							</xs:element>
-							<xs:element name="dataset" type="xs:token"
-								maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="dataset" type="xs:token">
 							</xs:element>
-							<xs:element name="sortOrderInput"
-								type="tns:CompatibilitySort" maxOccurs="unbounded"
-								minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="sortOrderInput" type="tns:CompatibilitySort">
 								<xs:annotation>
 									<xs:documentation>
 										We need to allow multiple sort
@@ -1337,8 +1249,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="disabledProductFilter"
-								type="tns:ProductStatus" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="disabledProductFilter" type="tns:ProductStatus">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1355,8 +1266,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="paginationOutput"
-								type="tns:PaginationOutput" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="paginationOutput" type="tns:PaginationOutput">
 								<xs:annotation>
 									<xs:documentation>
 										Indicates the pagination of the
@@ -1368,8 +1278,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="compatibilityDetails"
-								type="tns:Product" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="compatibilityDetails" type="tns:Product">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1396,8 +1305,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="catalogId"
-								type="xs:string" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="catalogId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										Provide the interface catalog
@@ -1407,8 +1315,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="dataset"
-								type="xs:token" maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="dataset" type="xs:token">
                                 <xs:annotation>
                                 	<xs:documentation>
                                 		This will define what are
@@ -1433,8 +1340,7 @@
 		
 			<xs:complexType name="Properties">
 				<xs:sequence>
-					<xs:element name="metadataVersion" type="xs:string"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="metadataVersion" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Version information reflects the latest
@@ -1442,21 +1348,18 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="catalogId" type="xs:string"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="catalogId" type="xs:string">
 					</xs:element>
-					<xs:element name="property" type="tns:Property"
-						maxOccurs="unbounded" minOccurs="0">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:Property">
 					</xs:element>
-					<xs:element name="dataset" type="xs:token" maxOccurs="1" minOccurs="1"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="1" name="dataset" type="xs:token"/>
 				</xs:sequence>
 			</xs:complexType>
 		
 		
 			<xs:complexType name="BaseProductDetails">
 				<xs:sequence>
-					<xs:element name="product"
-						type="tns:Product" maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="product" type="tns:Product">
 						<xs:annotation>
 							<xs:documentation>
 								All products as per the given input
@@ -1471,13 +1374,11 @@
 		
 			<xs:complexType name="Product">
 				<xs:sequence>
-					<xs:element name="productIdentifier" type="tns:ProductIdentifier"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="productIdentifier" type="tns:ProductIdentifier">
 					</xs:element>
-					<xs:element name="productDetails"
-						type="tns:PropertyValue" maxOccurs="unbounded" minOccurs="0">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="productDetails" type="tns:PropertyValue">
 					</xs:element>
-					<xs:element name="productStatus" type="tns:ProductStatus" maxOccurs="1" minOccurs="0"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="productStatus" type="tns:ProductStatus"/>
 				</xs:sequence>
 			</xs:complexType>
 		
@@ -1493,15 +1394,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="count" type="xs:int" maxOccurs="1"
-						minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="count" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								number of products in the family group
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-                    <xs:element name="headProduct" type="tns:Product" maxOccurs="1" minOccurs="0">
+                    <xs:element maxOccurs="1" minOccurs="0" name="headProduct" type="tns:Product">
                     	<xs:annotation>
                     		<xs:documentation>
                     			This will contain the details to be
@@ -1509,8 +1409,7 @@
 
                     		</xs:documentation>
                     	</xs:annotation></xs:element>
-                    <xs:element name="member" type="tns:Product"
-						maxOccurs="unbounded" minOccurs="0">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="member" type="tns:Product">
                         <xs:annotation>
                         	<xs:documentation>
                         		This will contain all the member
@@ -1526,17 +1425,14 @@
 				<xs:sequence>
 					<xs:choice>
 
-						<xs:element name="propertyFilter"
-							type="tns:PropertyValue" maxOccurs="unbounded" minOccurs="0">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="propertyFilter" type="tns:PropertyValue">
 						</xs:element>
-						<xs:element name="AAIA" type="xs:string"
-							maxOccurs="1" minOccurs="0">
+						<xs:element maxOccurs="1" minOccurs="0" name="AAIA" type="xs:string">
 						</xs:element>
-						<xs:element name="HSNTSN" type="xs:string"
-							maxOccurs="1" minOccurs="0">
+						<xs:element maxOccurs="1" minOccurs="0" name="HSNTSN" type="xs:string">
 						</xs:element>
 
-							maxOccurs="unbounded">
+							maxOccurs="unbounded"&gt;
 
 					</xs:choice>
 				</xs:sequence>
@@ -1546,8 +1442,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseProductDetails">
 						<xs:sequence>
-							<xs:element name="productGroupings"
-								type="tns:ProductGroupings" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="productGroupings" type="tns:ProductGroupings">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1556,8 +1451,7 @@
 		
 			<xs:complexType name="ProductGroupings">
 				<xs:sequence>
-					<xs:element name="productFamily"
-						type="tns:ProductFamily" maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="productFamily" type="tns:ProductFamily">
 					</xs:element>
 
 				</xs:sequence>
@@ -1573,17 +1467,14 @@
                 	</xs:documentation>
                 </xs:annotation>
                 <xs:sequence>
-					<xs:element name="excludeForeBaySelling" type="xs:boolean"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="excludeForeBaySelling" type="xs:boolean">
                         <xs:annotation>
-                        	<xs:documentation></xs:documentation>
+                        	<xs:documentation/>
                         </xs:annotation>
 					</xs:element>
-					<xs:element name="excludeForeBayReviews"
-						type="xs:boolean" maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="excludeForeBayReviews" type="xs:boolean">
 					</xs:element>
-					<xs:element name="excludeForHalfSelling" type="xs:boolean"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="excludeForHalfSelling" type="xs:boolean">
 					</xs:element>
 
 				</xs:sequence>
@@ -1597,8 +1488,7 @@
                 	</xs:documentation>
                 </xs:annotation>
                 <xs:sequence>
-					<xs:element name="displaySequence" type="xs:int"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="displaySequence" type="xs:int">
 					</xs:element>
 
 				</xs:sequence>
@@ -1606,41 +1496,37 @@
 		
 			<xs:complexType name="BrandMPN">
 				<xs:sequence>
-					<xs:element name="brand" type="xs:string"
-						maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="brand" type="xs:string">
 					</xs:element>
-					<xs:element name="MPN" type="xs:string" maxOccurs="1" minOccurs="1"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="1" name="MPN" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 		
 			<xs:complexType name="PropertyNameValue">
 				<xs:sequence>
-					<xs:element name="name" type="xs:string"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="name" type="xs:string">
 					</xs:element>
-					<xs:element name="value" type="xs:string"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="value" type="xs:string">
 					</xs:element>
-					<xs:element name="childPropertyNameValue" type="tns:PropertyNameValue" maxOccurs="unbounded" minOccurs="0"></xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="childPropertyNameValue" type="tns:PropertyNameValue"/>
 				</xs:sequence>
 			</xs:complexType>
 		
 			<xs:complexType name="CompatibilitySort">
 				<xs:sequence>
-					<xs:element name="sortOrderInput"
-						type="tns:SortOrderInput" maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="sortOrderInput" type="tns:SortOrderInput">
 					</xs:element>
-					<xs:element name="sortPriority" type="tns:SortPriority" maxOccurs="1" minOccurs="1"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="1" name="sortPriority" type="tns:SortPriority"/>
 				</xs:sequence>
 			</xs:complexType>
 		
 			<xs:simpleType name="SortPriority">
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Sort1"></xs:enumeration>
-					<xs:enumeration value="Sort2"></xs:enumeration>
-					<xs:enumeration value="Sort3"></xs:enumeration>
-					<xs:enumeration value="Sort4"></xs:enumeration>
-					<xs:enumeration value="Sort5"></xs:enumeration>
+					<xs:enumeration value="Sort1"/>
+					<xs:enumeration value="Sort2"/>
+					<xs:enumeration value="Sort3"/>
+					<xs:enumeration value="Sort4"/>
+					<xs:enumeration value="Sort5"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:element name="getProductSearchValuesBulkRequest" type="tns:GetProductSearchValuesBulkRequest">
@@ -1652,41 +1538,34 @@
 			<xs:element name="getCompatibilitySearchValuesBulkResponse" type="tns:GetCompatibilitySearchValuesBulkResponse">
 			</xs:element>
 		
-			<xs:complexType
-				name="GetCompatibilitySearchValuesBulkRequest">
+			<xs:complexType name="GetCompatibilitySearchValuesBulkRequest">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:GetProductSearchValuesBaseRequest">
+					<xs:extension base="tns:GetProductSearchValuesBaseRequest">
 						<xs:sequence>
-							<xs:element name="propertyName"
-								type="xs:string" maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="propertyName" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 		
-			<xs:complexType
-				name="GetProductSearchValuesBulkResponse">
+			<xs:complexType name="GetProductSearchValuesBulkResponse">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:GetProductSearchValuesResponse">
+					<xs:extension base="tns:GetProductSearchValuesResponse">
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 		
-			<xs:complexType
-				name="GetCompatibilitySearchValuesBulkResponse">
+			<xs:complexType name="GetCompatibilitySearchValuesBulkResponse">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:GetProductSearchValuesResponse">
+					<xs:extension base="tns:GetProductSearchValuesResponse">
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 		
 			<xs:complexType name="ProductRequest">
 				<xs:sequence>
-                    <xs:element name="invocationId" type="xs:string" maxOccurs="1" minOccurs="1">
+                    <xs:element maxOccurs="1" minOccurs="1" name="invocationId" type="xs:string">
                     	<xs:annotation>
                     		<xs:documentation>
                     			Invocation id will help the user to
@@ -1694,10 +1573,9 @@
                     			operations
                     		</xs:documentation>
                     	</xs:annotation></xs:element>
-                    <xs:element name="catalogId" type="xs:string"
-						maxOccurs="1" minOccurs="0">
+                    <xs:element maxOccurs="1" minOccurs="0" name="catalogId" type="xs:string">
 					</xs:element>
-                    <xs:element name="keywords" type="xs:string" maxOccurs="1" minOccurs="0">
+                    <xs:element maxOccurs="1" minOccurs="0" name="keywords" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Keywords will be used to further refine
@@ -1710,26 +1588,24 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-                    <xs:element name="propertyFilter" type="tns:PropertyValue" maxOccurs="unbounded" minOccurs="0">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="propertyFilter" type="tns:PropertyValue">
 							</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 		
 			<xs:complexType name="ProductResponse">
 				<xs:sequence>
-					<xs:element name="products"
-						type="tns:ProductDetails" maxOccurs="unbounded" minOccurs="0">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="products" type="tns:ProductDetails">
 					</xs:element>
-					<xs:element name="paginationOutput"
-						type="tns:PaginationOutput" maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="paginationOutput" type="tns:PaginationOutput">
 					</xs:element>
-					<xs:element name="invocationId" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="invocationId" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 		
 			<xs:complexType name="ProductByCompatibilityRequest">
 				<xs:sequence>
-                    <xs:element name="applicationPropertyFilter" type="tns:CompatibilityPropertyFilter" maxOccurs="1" minOccurs="0">
+                    <xs:element maxOccurs="1" minOccurs="0" name="applicationPropertyFilter" type="tns:CompatibilityPropertyFilter">
 								<xs:annotation>
 									<xs:documentation>
 										This will contain the property
@@ -1742,19 +1618,16 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-                    <xs:element name="productSearch"
-						type="tns:ProductRequest" maxOccurs="1" minOccurs="0">
+                    <xs:element maxOccurs="1" minOccurs="0" name="productSearch" type="tns:ProductRequest">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 		
 			<xs:complexType name="GetProductSearchValuesBulkRequest">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:GetProductSearchValuesBaseRequest">
+					<xs:extension base="tns:GetProductSearchValuesBaseRequest">
 						<xs:sequence>
-							<xs:element name="propertyName"
-								type="xs:string" maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="propertyName" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1763,72 +1636,67 @@
 		
 			<xs:simpleType name="DatasetValue">
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Searchable"></xs:enumeration>
-					<xs:enumeration value="Sortable"></xs:enumeration>
-					<xs:enumeration value="DisplayableSmall"></xs:enumeration>
-					<xs:enumeration value="DisplayableMedium"></xs:enumeration>
-					<xs:enumeration value="DisplayableLarge"></xs:enumeration>
-					<xs:enumeration value="DisplayableAll"></xs:enumeration>
+					<xs:enumeration value="Searchable"/>
+					<xs:enumeration value="Sortable"/>
+					<xs:enumeration value="DisplayableSmall"/>
+					<xs:enumeration value="DisplayableMedium"/>
+					<xs:enumeration value="DisplayableLarge"/>
+					<xs:enumeration value="DisplayableAll"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getProductDetailsRequest">
-		<wsdl:part name="parameters" element="ns0:getProductDetailsRequest">
+		<wsdl:part element="ns0:getProductDetailsRequest" name="parameters">
 			<wsdl:documentation>
 				Request object for getProductDetails operation
 			</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getProductDetailsResponse">
-		<wsdl:part name="parameters" element="ns0:getProductDetailsResponse">
+		<wsdl:part element="ns0:getProductDetailsResponse" name="parameters">
 			<wsdl:documentation>
 				response object for getProductDetails operation
 			</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="findProductsResponse">
-		<wsdl:part name="parameters"
-			element="ns0:findProductsResponse">
+		<wsdl:part element="ns0:findProductsResponse" name="parameters">
 			<wsdl:documentation>
 				response object for findProductInCatalog operation
 			</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="findProductsRequest">
-		<wsdl:part name="parameters" element="ns0:findProductsRequest">
+		<wsdl:part element="ns0:findProductsRequest" name="parameters">
 			<wsdl:documentation>
 				request object for findProductsInCatalog operation
 			</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="findProductsByCompatibilityRequest">
-		<wsdl:part name="parameters"
-			element="ns0:findProductsByCompatibilityRequest">
+		<wsdl:part element="ns0:findProductsByCompatibilityRequest" name="parameters">
 			<wsdl:documentation>
 				Request object for findProductsInCatalogByFitment operation
 			</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="findProductsByCompatibilityResponse">
-		<wsdl:part name="parameters"
-			element="ns0:findProductsByCompatibilityResponse">
+		<wsdl:part element="ns0:findProductsByCompatibilityResponse" name="parameters">
 			<wsdl:documentation>
 				Response object for findProductsInCatalogByFitment operation
 			</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getProductSearchNamesRequest">
-		<wsdl:part name="parameters"
-			element="ns0:getProductSearchNamesRequest">
+		<wsdl:part element="ns0:getProductSearchNamesRequest" name="parameters">
 			<wsdl:documentation>
 				Request object for getPropertiesInCatalog operation.
 			</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getProductSearchNamesResponse">
-		<wsdl:part name="parameters"
-			element="ns0:getProductSearchNamesResponse">
+		<wsdl:part element="ns0:getProductSearchNamesResponse" name="parameters">
 			<wsdl:documentation>
 				Response object for getPropertiesInCatalog
 				operation.
@@ -1836,8 +1704,7 @@
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getProductSearchValuesRequest">
-		<wsdl:part name="parameters"
-			element="ns0:getProductSearchValuesRequest">
+		<wsdl:part element="ns0:getProductSearchValuesRequest" name="parameters">
 			<wsdl:documentation>
 				Request object for getPropertyValues
 				operation.
@@ -1845,8 +1712,7 @@
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getProductSearchValuesResponse">
-		<wsdl:part name="parameters"
-			element="ns0:getProductSearchValuesResponse">
+		<wsdl:part element="ns0:getProductSearchValuesResponse" name="parameters">
 			<wsdl:documentation>
 				Response object for getPropertyValues
 				operation.
@@ -1854,16 +1720,14 @@
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getProductCompatibilitiesRequest">
-		<wsdl:part name="parameters"
-			element="ns0:getProductCompatibilitiesRequest">
+		<wsdl:part element="ns0:getProductCompatibilitiesRequest" name="parameters">
 			<wsdl:documentation>
 				Request object for getProductFitmentDetails operation.
 			</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getProductCompatibilitiesResponse">
-		<wsdl:part name="parameters"
-			element="ns0:getProductCompatibilitiesResponse">
+		<wsdl:part element="ns0:getProductCompatibilitiesResponse" name="parameters">
 			<wsdl:documentation>
 				Response object for getProductFitmentDetails operation.
 			</wsdl:documentation>
@@ -1871,28 +1735,28 @@
 	</wsdl:message>
 
 	<wsdl:message name="getCompatibilitySearchNamesRequest">
-		<wsdl:part name="parameters" element="ns0:getCompatibilitySearchNamesRequest"></wsdl:part>
+		<wsdl:part element="ns0:getCompatibilitySearchNamesRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getCompatibilitySearchNamesResponse">
-		<wsdl:part name="parameters" element="ns0:getCompatibilitySearchNamesResponse"></wsdl:part>
+		<wsdl:part element="ns0:getCompatibilitySearchNamesResponse" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getCompatibilitySearchValuesRequest">
-		<wsdl:part name="parameters" element="ns0:getCompatibilitySearchValuesRequest"></wsdl:part>
+		<wsdl:part element="ns0:getCompatibilitySearchValuesRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getCompatibilitySearchValuesResponse">
-		<wsdl:part name="parameters" element="ns0:getCompatibilitySearchValuesResponse"></wsdl:part>
+		<wsdl:part element="ns0:getCompatibilitySearchValuesResponse" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getProductSearchValuesBulkRequest">
-		<wsdl:part name="parameters" element="ns0:getProductSearchValuesBulkRequest"></wsdl:part>
+		<wsdl:part element="ns0:getProductSearchValuesBulkRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getProductSearchValuesBulkResponse">
-		<wsdl:part name="parameters" element="ns0:getProductSearchValuesBulkResponse"></wsdl:part>
+		<wsdl:part element="ns0:getProductSearchValuesBulkResponse" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getCompatibilitySearchValuesBulkRequest">
-		<wsdl:part name="parameters" element="ns0:getCompatibilitySearchValuesBulkRequest"></wsdl:part>
+		<wsdl:part element="ns0:getCompatibilitySearchValuesBulkRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getCompatibilitySearchValuesBulkResponse">
-		<wsdl:part name="parameters" element="ns0:getCompatibilitySearchValuesBulkResponse"></wsdl:part>
+		<wsdl:part element="ns0:getCompatibilitySearchValuesBulkResponse" name="parameters"/>
 	</wsdl:message>
 	<wsdl:portType name="CatalogServicePortType">
 	<wsdl:operation name="getProductSearchNames">
@@ -1907,18 +1771,16 @@ If the input is parts catalog id, the properties would be (according to the depe
 	if the input is tires catalog id, the properties would be (according to the dependency graph): &amp;quot;Manufacturer &amp;quot;, &amp;quot;Tire Width &amp;quot;, &amp;quot;Aspect Ratio &amp;quot;, &amp;quot;Diameter &amp;quot;, &amp;quot;Load Index &amp;quot;, &amp;quot;Speed Index &amp;quot;
 
 			</wsdl:documentation>
-			<wsdl:input
-				message="ns0:getProductSearchNamesRequest">
+			<wsdl:input message="ns0:getProductSearchNamesRequest">
 			</wsdl:input>
-			<wsdl:output
-				message="ns0:getProductSearchNamesResponse">
+			<wsdl:output message="ns0:getProductSearchNamesResponse">
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getCompatibilitySearchNames">
 			<wsdl:documentation>This operation will provide the ability to get properties of the application. For example,If the input is Tires catalog Id then the response would be the properties : &amp;quot;Make &amp;quot;, &amp;quot;Model &amp;quot;, &amp;quot;Year &amp;quot;, &amp;quot;Trim &amp;quot;, &amp;quot;Engine &amp;quot;
 </wsdl:documentation>
-			<wsdl:input message="ns0:getCompatibilitySearchNamesRequest"></wsdl:input>
-			<wsdl:output message="ns0:getCompatibilitySearchNamesResponse"></wsdl:output>
+			<wsdl:input message="ns0:getCompatibilitySearchNamesRequest"/>
+			<wsdl:output message="ns0:getCompatibilitySearchNamesResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getProductSearchValues">
 			<wsdl:documentation>This will contain the response for the propertyValues. If the catalog is fitment enabled then we will have the propertyValueTree populated. If the catalog is not fitment enabled then we will generate the propertyValues which will be a list of values for each property and not a dependency tree 
@@ -1931,17 +1793,15 @@ Returns a list of all available aspect ratios for Bridgestone tires which have a
 
 
 			</wsdl:documentation>
-			<wsdl:input
-				message="ns0:getProductSearchValuesRequest">
+			<wsdl:input message="ns0:getProductSearchValuesRequest">
 			</wsdl:input>
-			<wsdl:output
-				message="ns0:getProductSearchValuesResponse">
+			<wsdl:output message="ns0:getProductSearchValuesResponse">
 			</wsdl:output>
 		</wsdl:operation>
 			<wsdl:operation name="getProductSearchValuesBulk">
 			<wsdl:documentation>This will enable the user to get property values for more than one field. This will allow the user to get values for upto 10 fields.This operation will be Rate limited.</wsdl:documentation>
-			<wsdl:input message="ns0:getProductSearchValuesBulkRequest"></wsdl:input>
-			<wsdl:output message="ns0:getProductSearchValuesBulkResponse"></wsdl:output>
+			<wsdl:input message="ns0:getProductSearchValuesBulkRequest"/>
+			<wsdl:output message="ns0:getProductSearchValuesBulkResponse"/>
 		</wsdl:operation>
 				<wsdl:operation name="getCompatibilitySearchValues">
 			<wsdl:documentation>This operation will provide the property values for the application catalog. Input will be the catalog id of the interface catalog.  This operation will only allow the user to get one field at a time
@@ -1950,13 +1810,13 @@ For input Tires Catalog id, Get me all possible values for a property (e.g. Engi
 
 Returns a list of all available engines for a 1997 Honda Civic
 </wsdl:documentation>
-			<wsdl:input message="ns0:getCompatibilitySearchValuesRequest"></wsdl:input>
-			<wsdl:output message="ns0:getCompatibilitySearchValuesResponse"></wsdl:output>
+			<wsdl:input message="ns0:getCompatibilitySearchValuesRequest"/>
+			<wsdl:output message="ns0:getCompatibilitySearchValuesResponse"/>
 		</wsdl:operation>
 			<wsdl:operation name="getCompatibilitySearchValuesBulk">
 			<wsdl:documentation>This will enable the user to get compatibiltiy property values for more than one field. This will allow the user to get values for upto 10 fields.This operation will be Rate limited.</wsdl:documentation>
-			<wsdl:input message="ns0:getCompatibilitySearchValuesBulkRequest"></wsdl:input>
-			<wsdl:output message="ns0:getCompatibilitySearchValuesBulkResponse"></wsdl:output>
+			<wsdl:input message="ns0:getCompatibilitySearchValuesBulkRequest"/>
+			<wsdl:output message="ns0:getCompatibilitySearchValuesBulkResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="findProducts">
 			<wsdl:documentation>
@@ -1975,11 +1835,10 @@ Name:Value pair #2:  &amp;quot;Part type &amp;quot;= &amp;quot;Brake disc &amp;q
 	Returns all products which are of part type  &amp;quot;brake discs &amp;quot; and manufactured by  &amp;quot;Brembo &amp;quot;
 
 			</wsdl:documentation>
-			<wsdl:input name="findProductsInCatalogRequest"
-				message="ns0:findProductsRequest">
-				<wsdl:documentation />
+			<wsdl:input message="ns0:findProductsRequest" name="findProductsInCatalogRequest">
+				<wsdl:documentation/>
 			</wsdl:input>
-			<wsdl:output message="ns0:findProductsResponse"></wsdl:output>
+			<wsdl:output message="ns0:findProductsResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="findProductsByCompatibility">
 			<wsdl:documentation>
@@ -2000,8 +1859,8 @@ Application Filter
 
 Returns all products (in tires catalog) which have a tire width of  &amp;quot;185 &amp;quot; and fit any 2007 BMW
 </wsdl:documentation>
-			<wsdl:input message="ns0:findProductsByCompatibilityRequest"></wsdl:input>
-			<wsdl:output message="ns0:findProductsByCompatibilityResponse"></wsdl:output>
+			<wsdl:input message="ns0:findProductsByCompatibilityRequest"/>
+			<wsdl:output message="ns0:findProductsByCompatibilityResponse"/>
 		</wsdl:operation>
 		
 		<wsdl:operation name="getProductDetails">
@@ -2009,8 +1868,8 @@ Returns all products (in tires catalog) which have a tire width of  &amp;quot;18
 				Given the product reference id, this operation will get
 				the product details. This operation will indicate if the product has fitment information or not.
 			</wsdl:documentation>
-			<wsdl:input message="ns0:getProductDetailsRequest"></wsdl:input>
-			<wsdl:output message="ns0:getProductDetailsResponse"></wsdl:output>
+			<wsdl:input message="ns0:getProductDetailsRequest"/>
+			<wsdl:output message="ns0:getProductDetailsResponse"/>
 		</wsdl:operation>
 		
 		
@@ -2022,9 +1881,8 @@ Returns all products (in tires catalog) which have a tire width of  &amp;quot;18
 				product has fitment data or not, by calling the
 				getProductDetails operation.
 			</wsdl:documentation>
-			<wsdl:input message="ns0:getProductCompatibilitiesRequest"></wsdl:input>
-			<wsdl:output
-				message="ns0:getProductCompatibilitiesResponse">
+			<wsdl:input message="ns0:getProductCompatibilitiesRequest"/>
+			<wsdl:output message="ns0:getProductCompatibilitiesResponse">
 			</wsdl:output>
 		</wsdl:operation>
 
@@ -2032,117 +1890,115 @@ Returns all products (in tires catalog) which have a tire width of  &amp;quot;18
 	
 	
 	</wsdl:portType>
-	<wsdl:binding name="CatalogServiceSOAP12Binding"
-		type="ns0:CatalogServicePortType">
-<soap12:binding xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+	<wsdl:binding name="CatalogServiceSOAP12Binding" type="ns0:CatalogServicePortType">
+<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 	
 		<wsdl:operation name="findProducts">
-		<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:findProducts" style="document"/>
+		<soap12:operation soapAction="urn:findProducts" style="document"/>
 			
 			<wsdl:input name="findProductsInCatalogRequest">
 
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getProductDetails">
 
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getProductDetails" style="document"/>
+			<soap12:operation soapAction="urn:getProductDetails" style="document"/>
 			<wsdl:input>
 
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="findProductsByCompatibility">
 
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:findProductsByCompatibility" style="document"/>
+			<soap12:operation soapAction="urn:findProductsByCompatibility" style="document"/>
 			<wsdl:input>
 
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getProductSearchNames">
 
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getProductSearchNames" style="document"/>
+			<soap12:operation soapAction="urn:getProductSearchNames" style="document"/>
 			<wsdl:input>
 
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getProductSearchValues">
 
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getProductSearchValues" style="document"/>
+			<soap12:operation soapAction="urn:getProductSearchValues" style="document"/>
 			<wsdl:input>
 
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getProductCompatibilities">
 
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getProductCompatibilities" style="document"/>
+			<soap12:operation soapAction="urn:getProductCompatibilities" style="document"/>
 			<wsdl:input>
 
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getCompatibilitySearchNames">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getCompatibilitySearchNames" style="document"/>
+			<soap12:operation soapAction="urn:getCompatibilitySearchNames" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getProductSearchValuesBulk">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getProductSearchValuesBulk" style="document"/>
+			<soap12:operation soapAction="urn:getProductSearchValuesBulk" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
-		<wsdl:operation
-			name="getCompatibilitySearchValues">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getCompatibilitySearchValues" style="document"/>
+		<wsdl:operation name="getCompatibilitySearchValues">
+			<soap12:operation soapAction="urn:getCompatibilitySearchValues" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getCompatibilitySearchValuesBulk">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getCompatibilitySearchValuesBulk" style="document"/>
+			<soap12:operation soapAction="urn:getCompatibilitySearchValuesBulk" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -2152,10 +2008,8 @@ Returns all products (in tires catalog) which have a tire width of  &amp;quot;18
 			find the metadata required for the product search.
 			<Version>1.0.0</Version>
 		</wsdl:documentation>
-		<wsdl:port name="CatalogServiceSOAP12port_http"
-			binding="ns0:CatalogServiceSOAP12Binding">
-			<soap12:address
-				location="http://svcs.ebay.com/services/marketplacecatalog/CatalogService/v1" />
+		<wsdl:port binding="ns0:CatalogServiceSOAP12Binding" name="CatalogServiceSOAP12port_http">
+			<soap12:address location="http://svcs.ebay.com/services/marketplacecatalog/CatalogService/v1"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

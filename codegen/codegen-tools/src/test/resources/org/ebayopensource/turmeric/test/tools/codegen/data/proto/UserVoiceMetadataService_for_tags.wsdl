@@ -1,23 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="UserVoiceMetadataService" 
-targetNamespace="http://www.ebay.com/marketplace/uservoice/v1/services" 
-xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
-xmlns:tns="http://www.ebay.com/marketplace/uservoice/v1/services" 
-xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
-xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/uservoice/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UserVoiceMetadataService" targetNamespace="http://www.ebayopensource.org/tumeric/uservoice/v1/services">
   <types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
-    targetNamespace="http://www.ebay.com/marketplace/uservoice/v1/services" 
-    xmlns:tns="http://www.ebay.com/marketplace/uservoice/v1/services" 
-    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/uservoice/v1/services">
 		 <xs:complexType name="GetVersionRequest">
 		 <xs:complexContent>
-		  <xs:extension base="tns:BaseRequest" /> 
+		  <xs:extension base="tns:BaseRequest"/> 
 		  </xs:complexContent>
 		  </xs:complexType>		
-			<xs:element name="getVersionRequest"  type="tns:GetVersionRequest"/>
-			<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionResponse">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
@@ -33,11 +23,11 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded" /> 
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/> 
 				</xs:sequence>
 			</xs:complexType>
 			<!--  standard framework response types  -->
-			<xs:complexType name="BaseResponse" abstract="true">
+			<xs:complexType abstract="true" name="BaseResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -46,7 +36,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded" /> 
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/> 
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
 							<xs:documentation>
@@ -128,13 +118,13 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 			<xs:complexType name="ExtensionType">
 			 <xs:annotation>
 			  <xs:documentation>Documentation goes here</xs:documentation> 
-			  <xs:appinfo /> 
+			  <xs:appinfo/> 
 			  </xs:annotation>
 			  <xs:sequence>
-			  <xs:element name="id" type="xs:positiveInteger" /> 
-			  <xs:element name="version" type="xs:string" /> 
-			  <xs:element name="contentType" type="xs:string" /> 
-			  <xs:element name="value" type="xs:string" /> 
+			  <xs:element name="id" type="xs:positiveInteger"/> 
+			  <xs:element name="version" type="xs:string"/> 
+			  <xs:element name="contentType" type="xs:string"/> 
+			  <xs:element name="value" type="xs:string"/> 
 
 			  </xs:sequence>
 			  </xs:complexType>		
@@ -148,7 +138,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
@@ -319,7 +309,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -755,51 +745,46 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:sequence>
 			</xs:complexType>
 			
-			<xs:element name="setUserVoiceMetadataRequest"  type="tns:SetUserVoiceMetadataRequest"/>
-			<xs:element name="setUserVoiceMetadataResponse"  type="tns:SetUserVoiceMetadataResponse"/>
+			<xs:element name="setUserVoiceMetadataRequest" type="tns:SetUserVoiceMetadataRequest"/>
+			<xs:element name="setUserVoiceMetadataResponse" type="tns:SetUserVoiceMetadataResponse"/>
 			<xs:complexType name="SetUserVoiceMetadataRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseUserVoiceMetadataServiceRequest">
 						<xs:sequence>
-							<xs:element name="userId" type="xs:string" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="userId" type="xs:string">
 							<xs:annotation>
 								<xs:documentation> The user id of the user that is creating the meta data</xs:documentation>
 							</xs:annotation>							
 							</xs:element>
-							<xs:element name="subjectTypeConfig"
-								type="tns:SubjectTypeConfig" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="subjectTypeConfig" type="tns:SubjectTypeConfig">
 								<xs:annotation>
 									<xs:documentation>
 										Subject specific information such as subject type, user id, tenant and application
 									</xs:documentation>
 								</xs:annotation>								
 							</xs:element>
-							<xs:element name="reviewConfig"
-								type="tns:ReviewConfig" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="reviewConfig" type="tns:ReviewConfig">
 							<xs:annotation>
 								<xs:documentation>
 									Review specific information such as whether reviews are enabled, review facets etc
 								</xs:documentation>
 							</xs:annotation>								
 							</xs:element>
-							<xs:element name="commentConfig"
-								type="tns:CommentConfig" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="commentConfig" type="tns:CommentConfig">
 							<xs:annotation>
 								<xs:documentation>
 									Comment specific information such as whether comments are enabled, comment facets etc
 								</xs:documentation>
 							</xs:annotation>								
 							</xs:element>
-							<xs:element name="tagConfig"
-								type="tns:TagConfig" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="tagConfig" type="tns:TagConfig">
 							<xs:annotation>
 								<xs:documentation>
 									Information whether tagging is enabled
 								</xs:documentation>
 							</xs:annotation>								
 							</xs:element>
-							<xs:element name="ratingConfig"
-								type="tns:RatingConfig" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="ratingConfig" type="tns:RatingConfig">
 											<xs:annotation>
 								<xs:documentation>
 									Rating specific information such as whether ratings are enabled, rating facets etc
@@ -819,40 +804,35 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseUserVoiceMetadataServiceResponse">
 						<xs:sequence>
-							<xs:element name="subjectTypeConfig"
-								type="tns:SubjectTypeConfig" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="subjectTypeConfig" type="tns:SubjectTypeConfig">
 								<xs:annotation>
 									<xs:documentation>
 										Subject specific information such as subject type, user id, tenant and application
 									</xs:documentation>
 								</xs:annotation>								
 							</xs:element>
-							<xs:element name="reviewConfig"
-								type="tns:ReviewConfig" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="reviewConfig" type="tns:ReviewConfig">
 							<xs:annotation>
 								<xs:documentation>
 									Review specific information such as whether reviews are enabled, review facets etc
 								</xs:documentation>
 							</xs:annotation>								
 							</xs:element>
-							<xs:element name="commentConfig"
-								type="tns:CommentConfig" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="commentConfig" type="tns:CommentConfig">
 							<xs:annotation>
 								<xs:documentation>
 									Comment specific information such as whether comments are enabled, comment facets etc
 								</xs:documentation>
 							</xs:annotation>								
 							</xs:element>
-							<xs:element name="tagConfig"
-								type="tns:TagConfig" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="tagConfig" type="tns:TagConfig">
 							<xs:annotation>
 								<xs:documentation>
 									Information whether tagging is enabled
 								</xs:documentation>
 							</xs:annotation>								
 							</xs:element>
-							<xs:element name="ratingConfig"
-								type="tns:RatingConfig" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="ratingConfig" type="tns:RatingConfig">
 											<xs:annotation>
 								<xs:documentation>
 									Rating specific information such as whether ratings are enabled, rating facets etc
@@ -864,8 +844,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:complexContent>
 			</xs:complexType>
 			
-		<xs:element name="getUserVoiceMetadataRequest"  type="tns:GetUserVoiceMetadataRequest"/>
-			<xs:element name="getUserVoiceMetadataResponse"  type="tns:GetUserVoiceMetadataResponse"/>
+		<xs:element name="getUserVoiceMetadataRequest" type="tns:GetUserVoiceMetadataRequest"/>
+			<xs:element name="getUserVoiceMetadataResponse" type="tns:GetUserVoiceMetadataResponse"/>
 			<xs:complexType name="GetUserVoiceMetadataRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseUserVoiceMetadataServiceRequest">
@@ -886,45 +866,40 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseUserVoiceMetadataServiceResponse">
 						<xs:sequence>
-							<xs:element name="userId" type="xs:string" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="userId" type="xs:string">
 							<xs:annotation>
 								<xs:documentation> The user id of the user that created the meta data</xs:documentation>
 							</xs:annotation>							
 							</xs:element>
-							<xs:element name="subjectTypeConfig"
-								type="tns:SubjectTypeConfig" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="subjectTypeConfig" type="tns:SubjectTypeConfig">
 								<xs:annotation>
 									<xs:documentation>
 										Subject specific information such as subject type, user id, tenant and application
 									</xs:documentation>
 								</xs:annotation>								
 							</xs:element>
-							<xs:element name="reviewConfig"
-								type="tns:ReviewConfig" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="reviewConfig" type="tns:ReviewConfig">
 							<xs:annotation>
 								<xs:documentation>
 									Review specific information such as whether reviews are enabled, review facets etc
 								</xs:documentation>
 							</xs:annotation>								
 							</xs:element>
-							<xs:element name="commentConfig"
-								type="tns:CommentConfig" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="commentConfig" type="tns:CommentConfig">
 							<xs:annotation>
 								<xs:documentation>
 									Comment specific information such as whether comments are enabled, comment facets etc
 								</xs:documentation>
 							</xs:annotation>								
 							</xs:element>
-							<xs:element name="tagConfig"
-								type="tns:TagConfig" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="tagConfig" type="tns:TagConfig">
 							<xs:annotation>
 								<xs:documentation>
 									Information whether tagging is enabled
 								</xs:documentation>
 							</xs:annotation>								
 							</xs:element>
-							<xs:element name="ratingConfig"
-								type="tns:RatingConfig" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="ratingConfig" type="tns:RatingConfig">
 											<xs:annotation>
 								<xs:documentation>
 									Rating specific information such as whether ratings are enabled, rating facets etc
@@ -936,17 +911,15 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:complexContent>
 			</xs:complexType>
 			
-			<xs:element name="getRatingSchemeResponse"
-				type="tns:GetRatingSchemeResponse">
+			<xs:element name="getRatingSchemeResponse" type="tns:GetRatingSchemeResponse">
 
 			</xs:element>
-			<xs:element name="getRatingSchemeRequest"
-				type="tns:GetRatingSchemeRequest">
+			<xs:element name="getRatingSchemeRequest" type="tns:GetRatingSchemeRequest">
 			</xs:element>
 
 			<xs:complexType name="GetRatingSchemeRequest">
 				<xs:sequence>
-					<xs:element name="ratingSchemeId" type="xs:long" maxOccurs="unbounded" minOccurs="0">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="ratingSchemeId" type="xs:long">
 					<xs:annotation>
 						<xs:documentation> The Rating scheme id (eg. rating scheme id for star rating / vote rating etc</xs:documentation>
 					</xs:annotation>
@@ -955,14 +928,14 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 			</xs:complexType>
     
 			<xs:simpleType name="long">
-				<xs:restriction base="xs:string"></xs:restriction>
+				<xs:restriction base="xs:string"/>
 			</xs:simpleType>
     
 			<xs:complexType name="GetRatingSchemeResponse">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseUserVoiceMetadataServiceResponse">
 						<xs:sequence>
-							<xs:element name="ratingSchemeDefinition" type="tns:RatingSchemeDefinition" maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="ratingSchemeDefinition" type="tns:RatingSchemeDefinition">
 						<xs:annotation>
 							<xs:documentation>
 								the rating scheme information (rating type, min and max values etc)
@@ -1150,36 +1123,35 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
         </xs:schema>
   </types>
   <message name="getUserVoiceMetadataResponse">
-    <part name="messageParameters" element="tns:getUserVoiceMetadataResponse">
+    <part element="tns:getUserVoiceMetadataResponse" name="messageParameters">
     </part>
   </message>
   <message name="getVersionRequest">
-    <part name="parameters" element="tns:getVersionRequest">
+    <part element="tns:getVersionRequest" name="parameters">
     </part>
   </message>
   <message name="getVersionResponse">
-    <part name="parameters" element="tns:getVersionResponse">
+    <part element="tns:getVersionResponse" name="parameters">
     </part>
   </message>
   <message name="setUserVoiceMetadataResponse">
-    <part name="messageParameters" element="tns:setUserVoiceMetadataResponse">
+    <part element="tns:setUserVoiceMetadataResponse" name="messageParameters">
     </part>
   </message>
   <message name="setUserVoiceMetadataRequest">
-    <part name="messageParameters" element="tns:setUserVoiceMetadataRequest">
+    <part element="tns:setUserVoiceMetadataRequest" name="messageParameters">
     </part>
   </message>
   <message name="getUserVoiceMetadataRequest">
-    <part name="messageParameters" element="tns:getUserVoiceMetadataRequest">
+    <part element="tns:getUserVoiceMetadataRequest" name="messageParameters">
     </part>
   </message>
   <message name="getRatingSchemeRequest">
-  	<part name="messageParameters"
-  		element="tns:getRatingSchemeRequest">
+  	<part element="tns:getRatingSchemeRequest" name="messageParameters">
   	</part>
   </message>
   <message name="getRatingSchemeResponse">
-  	<part name="messageParameters" element="tns:getRatingSchemeResponse"></part>
+  	<part element="tns:getRatingSchemeResponse" name="messageParameters"/>
   </message>
   <portType name="UserVoiceMetadataServicePort">
     <operation name="getVersion">
@@ -1212,8 +1184,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
  	<wsdl:documentation>
 				Operation to get the rating scheme for a subject type
 			</wsdl:documentation>
-    	<input message="tns:getRatingSchemeRequest"></input>
-    	<output message="tns:getRatingSchemeResponse"></output>
+    	<input message="tns:getRatingSchemeRequest"/>
+    	<output message="tns:getRatingSchemeResponse"/>
     </operation>
   </portType>
   <binding name="UserVoiceMetadataServiceSoapBinding" type="tns:UserVoiceMetadataServicePort">
@@ -1243,13 +1215,12 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
       </output>
     </operation>
  	<operation name="getRatingScheme">
-  		<soap:operation
-  			soapAction="urn:getRatingScheme" style="document"/>
+  		<soap:operation soapAction="urn:getRatingScheme" style="document"/>
   		<input>
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>      
   </binding>
@@ -1269,7 +1240,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 			reviews, ratings, comments and tags etc on a external
 			subject such as a product, an application etc. 
 		</wsdl:documentation>
-    <port name="UserVoiceMetadataServiceSOAP" binding="tns:UserVoiceMetadataServiceSoapBinding">
+    <port binding="tns:UserVoiceMetadataServiceSoapBinding" name="UserVoiceMetadataServiceSOAP">
       <soap12:address location="https://svcs.ebay.com/services/uservoice/v1/UserVoiceMetadataService"/>
     </port>
   </service>

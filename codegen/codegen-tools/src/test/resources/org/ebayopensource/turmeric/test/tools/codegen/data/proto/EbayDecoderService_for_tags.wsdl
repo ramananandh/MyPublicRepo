@@ -1,23 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<wsdl:definitions
-  name="EbayDecoderService"
-  targetNamespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"
-  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-  xmlns:tns="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"
-  xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/tumeric/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EbayDecoderService" targetNamespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services">
   
   <wsdl:types>
-  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified"  targetNamespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"  xmlns:tns="http://www.ebay.com/marketplace/marketplacecatalog/v1/services" >
+  <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services">
 
     
-    <xs:element name="getItemCompatibilitiesRequest" type="tns:GetItemCompatibilitiesRequest" ></xs:element>
-    <xs:element name="getItemCompatibilitiesResponse" type="tns:GetItemCompatibilitiesResponse" ></xs:element>
+    <xs:element name="getItemCompatibilitiesRequest" type="tns:GetItemCompatibilitiesRequest"/>
+    <xs:element name="getItemCompatibilitiesResponse" type="tns:GetItemCompatibilitiesResponse"/>
    
     <xs:complexType name="GetItemCompatibilitiesRequest">
             	<xs:complexContent>
@@ -52,7 +40,7 @@
       </xs:complexType> 
 	
 	
-	<xs:complexType  name="ItemCompatibilityList">
+	<xs:complexType name="ItemCompatibilityList">
 			<xs:sequence>
 				<xs:element name="Type" type="tns:Type">
                    <xs:annotation>				
@@ -61,7 +49,7 @@
 				        </xs:documentation>
 				   </xs:annotation>
 				</xs:element>
-				<xs:element minOccurs="1" maxOccurs="unbounded"  name="Compatibility" type="tns:Compatibility">
+				<xs:element maxOccurs="unbounded" minOccurs="1" name="Compatibility" type="tns:Compatibility">
 				  <xs:annotation>				
 				     <xs:documentation>
 					 Represents a Unique Compatibility Combination 			
@@ -72,7 +60,7 @@
 	</xs:complexType>
 	
 	
-	<xs:simpleType  name="Type" >
+	<xs:simpleType name="Type">
 	   <xs:restriction base="xs:token">
               <xs:enumeration value="NameValue"/>
               <xs:enumeration value="AAIA"/>
@@ -81,17 +69,17 @@
 	</xs:simpleType>
 	
 		
-	<xs:complexType  name="Compatibility" >
+	<xs:complexType name="Compatibility">
 	   <xs:sequence>
-			   <xs:element minOccurs="0" maxOccurs="1" name="Delete" type="xs:string">
+			   <xs:element maxOccurs="1" minOccurs="0" name="Delete" type="xs:string">
 			      <xs:annotation>
 				        <xs:documentation>
 					        Indicates to delete the Compatibilities 			
 				        </xs:documentation>
 			      </xs:annotation>			    
 			    </xs:element>			
-		        <xs:element minOccurs="1" maxOccurs="unbounded" name="NameValueList" type="tns:NameValueList"/>
-			    <xs:element minOccurs="0" maxOccurs="1" name="CompatibilityNotes" type="xs:string">
+		        <xs:element maxOccurs="unbounded" minOccurs="1" name="NameValueList" type="tns:NameValueList"/>
+			    <xs:element maxOccurs="1" minOccurs="0" name="CompatibilityNotes" type="xs:string">
 			      <xs:annotation>				
 				     <xs:documentation>
 					 All the Compatibility attributes other than Make,Model,Year,Trim and Engine  			
@@ -101,16 +89,16 @@
 		</xs:sequence>	
 	</xs:complexType>
 	
-	<xs:complexType  name="NameValueList">
+	<xs:complexType name="NameValueList">
 			<xs:sequence>
-				<xs:element  name="Name" type="xs:string">
+				<xs:element name="Name" type="xs:string">
 				  <xs:annotation>
 				      <xs:documentation>
 					      Contains the name of the Compatibility			
 				      </xs:documentation>
 			      </xs:annotation>
 				</xs:element>
-				<xs:element  name="Value" type="xs:string">
+				<xs:element name="Value" type="xs:string">
 				   <xs:annotation>
 				      <xs:documentation>
 					  Contains the value of the Compatibility			
@@ -129,8 +117,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="extension" type="tns:ExtensionType"
-				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -138,15 +125,15 @@
 	<xs:complexType name="ExtensionType">
 		<xs:annotation>
 			<xs:documentation>Documentation goes here</xs:documentation>
-			<xs:appinfo></xs:appinfo>
+			<xs:appinfo/>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="id" type="xs:positiveInteger" />
-			<xs:element name="version" type="xs:string" />
-			<xs:element name="contentType" type="xs:string" />
-			<xs:element name="value" type="xs:string" />
+			<xs:element name="id" type="xs:positiveInteger"/>
+			<xs:element name="version" type="xs:string"/>
+			<xs:element name="contentType" type="xs:string"/>
+			<xs:element name="value" type="xs:string"/>
 
-				processContents="lax" />
+				processContents="lax" /&gt;
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -166,15 +153,14 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls />
+							<AllCalls/>
 							<Returned>Always</Returned>
 
 						</CallInfo>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="errorMessage"
-				type="tns:ErrorMessage">
+			<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 				<xs:annotation>
 					<xs:documentation>
 						Information for an error or warning that
@@ -183,19 +169,19 @@
 
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls />
+							<AllCalls/>
 							<Returned>Conditionally</Returned>
 						</CallInfo>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="version" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="version" type="xs:string">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls />
+							<AllCalls/>
 							<Returned>Always</Returned>
 
 						</CallInfo>
@@ -203,21 +189,19 @@
 				</xs:annotation>
 
 			</xs:element>
-			<xs:element name="timestamp" type="xs:dateTime"
-				minOccurs="0">
+			<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls />
+							<AllCalls/>
 							<Returned>Always</Returned>
 						</CallInfo>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="extension" type="tns:ExtensionType"
-				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -230,7 +214,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					Details about a single error.
@@ -398,7 +382,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -571,10 +555,10 @@
 
 
   <wsdl:message name="getItemCompatibilitiesRequest">
-  	<wsdl:part name="parameters" element="tns:getItemCompatibilitiesRequest"></wsdl:part>
+  	<wsdl:part element="tns:getItemCompatibilitiesRequest" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getItemCompatibilitiesResponse">
-  	<wsdl:part name="parameters" element="tns:getItemCompatibilitiesResponse"></wsdl:part>
+  	<wsdl:part element="tns:getItemCompatibilitiesResponse" name="parameters"/>
   </wsdl:message>
   
   <wsdl:portType name="EbayDecoderServicePort">
@@ -582,34 +566,34 @@
     <wsdl:documentation>
 				Calls the AAIADecoder Service and then formats the fitment information returned.
 	</wsdl:documentation>
-    	<wsdl:input message="tns:getItemCompatibilitiesRequest"></wsdl:input>
-    	<wsdl:output message="tns:getItemCompatibilitiesResponse"></wsdl:output>
+    	<wsdl:input message="tns:getItemCompatibilitiesRequest"/>
+    	<wsdl:output message="tns:getItemCompatibilitiesResponse"/>
     </wsdl:operation>
   </wsdl:portType>
   
   
   <wsdl:binding name="EbayDecoderServiceSOAPBinding" type="tns:EbayDecoderServicePort">
-  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
   	<wsdl:operation name="getItemCompatibilities">
-  		<soap:operation soapAction="http://www.ebay.com/marketplace/" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric"/>
   		<wsdl:input>
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>  	
   </wsdl:binding>
   
    <wsdl:binding name="EbayDecoderServiceHttpBinding" type="tns:EbayDecoderServicePort">
-  	<http:binding verb="POST" />
+  	<http:binding verb="POST"/>
   	<wsdl:operation name="getItemCompatibilities">
-  		<http:operation location="/getItemCompatibilities" />
+  		<http:operation location="/getItemCompatibilities"/>
   		<wsdl:input>
-  			<mime:content part="getItemCompatibilities" type="application/x-www-form-urlencoded" />
+  			<mime:content part="getItemCompatibilities" type="application/x-www-form-urlencoded"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content part="getItemCompatibilitiesResponse" type="text/xml" />
+  			<mime:content part="getItemCompatibilitiesResponse" type="text/xml"/>
   		</wsdl:output>
   	</wsdl:operation>
    </wsdl:binding>
@@ -621,10 +605,10 @@
 		      The EbayDecoder Service will accept Motors Compatibility information in ACES format from Sellers and provide re-formatted 
 		      Compatibility Information in Name-Value List aligned with AddItem API.
 	      </wsdl:documentation>
- 		<wsdl:port name="EbayDecoderServiceHttpPort" binding="tns:EbayDecoderServiceHttpBinding">
+ 		<wsdl:port binding="tns:EbayDecoderServiceHttpBinding" name="EbayDecoderServiceHttpPort">
 			<http:address location="https://svcs.ebay.com/services/marketplacecatalog/EbayDecoderService/v1"/>
 		</wsdl:port>
- 		<wsdl:port name="EbayDecoderServiceSOAPPort" binding="tns:EbayDecoderServiceSOAPBinding">
+ 		<wsdl:port binding="tns:EbayDecoderServiceSOAPBinding" name="EbayDecoderServiceSOAPPort">
 			<soap12:address location="https://svcs.ebay.com/services/marketplacecatalog/EbayDecoderService/v1"/>
 		</wsdl:port>
 	</wsdl:service>

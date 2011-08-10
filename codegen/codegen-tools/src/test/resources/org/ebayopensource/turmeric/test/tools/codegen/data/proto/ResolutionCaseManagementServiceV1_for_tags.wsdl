@@ -1,7 +1,7 @@
-<definitions name="ResolutionCaseManagementService" targetNamespace="http://www.ebay.com/marketplace/resolution/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebay.com/marketplace/resolution/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/resolution/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ResolutionCaseManagementService" targetNamespace="http://www.ebayopensource.org/tumeric/resolution/v1/services">
 
 	<types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/resolution/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/resolution/v1/services">
 
 
 <xs:simpleType name="AckValue">
@@ -10,7 +10,7 @@
 			Indicates the results of the call request.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 			<callInfo>
 			  <AllCalls/>
 			  <returned>Always</returned>
@@ -63,7 +63,7 @@
 			This is the base class for the request container for all service operations.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:sequence>
@@ -88,7 +88,7 @@
 			Returns error information associated with the request.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:sequence>
@@ -168,7 +168,7 @@
 			cannot be corrected by changing request values.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:restriction base="xs:token">
@@ -220,7 +220,7 @@
 			A container for error details.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:sequence>
@@ -347,7 +347,7 @@
 			Information regarding an error or warning that occurred when eBay processed the request. Not returned when the ack value is Success.  
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<!--
@@ -378,7 +378,7 @@
 			Contextual data associated with an error. 
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:simpleContent>
@@ -407,7 +407,7 @@
 			Indicates whether the error is a fatal error (causing the request to fail) or a less severe error (a warning) that should be communicated to the user. 
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:restriction base="xs:token">
@@ -435,7 +435,7 @@
 			Reserved for future use.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:sequence>
@@ -2884,7 +2884,7 @@
 			Monetary amount.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 			<CallInfo>
 				<CallName>getUserCases</CallName>
 				<CallName>getEBPCaseDetail</CallName>
@@ -3854,7 +3854,7 @@
 			The address of the eBay user.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 			<callInfo>
 				<callName>getEBPCaseDetail</callName>
 				<returned>Conditionally</returned>
@@ -3980,7 +3980,7 @@
 			details associated with the returned cases.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 			<callInfo>
 				<callName>getUserCases</callName>
 				<requiredInput>No</requiredInput>
@@ -4042,7 +4042,7 @@
 			criteria.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:sequence>

@@ -1,87 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:tns="http://www.ebay.com/marketplace/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	name="ShippingCalculatorServiceV2"
-	targetNamespace="http://www.ebay.com/marketplace/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ShippingCalculatorServiceV2" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/services"
-			xmlns:tns="http://www.ebay.com/marketplace/services"
-			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 
 			<xs:element name="calculateRates">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="in" type="xs:string"></xs:element>
+						<xs:element name="in" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="calculateRatesResponse">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="out" type="xs:string"></xs:element>
+						<xs:element name="out" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="shippingCalculatorBatchResponse"
-				 type="tns:ShippingCalculatorBatchResponse" />
+			<xs:element name="shippingCalculatorBatchResponse" type="tns:ShippingCalculatorBatchResponse"/>
 			<xs:complexType name="ShippingCalculatorBatchResponse">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0"
-								maxOccurs="unbounded" name="shippingCalculatorResponses"
-								 type="tns:ShippingCalculatorResponse">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="shippingCalculatorResponses" type="tns:ShippingCalculatorResponse">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="Address">
-				<xs:annotation></xs:annotation>
+				<xs:annotation/>
 				<xs:sequence>
-					<xs:element minOccurs="0" name="name"
-						type="xs:string">
+					<xs:element minOccurs="0" name="name" type="xs:string">
 					</xs:element>
-					<xs:element minOccurs="0" name="street1"
-						type="xs:string">
+					<xs:element minOccurs="0" name="street1" type="xs:string">
 					</xs:element>
-					<xs:element minOccurs="0" name="street2"
-						type="xs:string">
+					<xs:element minOccurs="0" name="street2" type="xs:string">
 					</xs:element>
-					<xs:element minOccurs="0" name="city"
-						type="xs:string">
+					<xs:element minOccurs="0" name="city" type="xs:string">
 					</xs:element>
-					<xs:element minOccurs="0" name="county"
-						type="xs:string">
+					<xs:element minOccurs="0" name="county" type="xs:string">
 					</xs:element>
-					<xs:element minOccurs="0" name="stateOrProvince"
-						type="xs:string">
+					<xs:element minOccurs="0" name="stateOrProvince" type="xs:string">
 					</xs:element>
-					<xs:element minOccurs="0" name="country"
-						type="xs:string">
+					<xs:element minOccurs="0" name="country" type="xs:string">
 					</xs:element>
-					<xs:element minOccurs="0" name="postalCode"
-						type="xs:string">
+					<xs:element minOccurs="0" name="postalCode" type="xs:string">
 					</xs:element>
 
-						processContents="lax">
+						processContents="lax"&gt;
 
 				</xs:sequence>
 			</xs:complexType>
-			<xs:complexType name="BaseServiceRequest" abstract="true">
+			<xs:complexType abstract="true" name="BaseServiceRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This is the base class for request container for
@@ -90,38 +65,33 @@
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax">
+						processContents="lax"&gt;
 
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="shippingCalculatorBatchRequest"
-				 type="tns:ShippingCalculatorBatchRequest" />
+			<xs:element name="shippingCalculatorBatchRequest" type="tns:ShippingCalculatorBatchRequest"/>
 			<xs:complexType name="ShippingCalculatorBatchRequest">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								name="shippingCalculatorRequests"
-								type="tns:ShippingCalculatorRequest">
+							<xs:element maxOccurs="unbounded" name="shippingCalculatorRequests" type="tns:ShippingCalculatorRequest">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="shippingCalculatorRequest" 
-				type="tns:ShippingCalculatorRequest" />
+			<xs:element name="shippingCalculatorRequest" type="tns:ShippingCalculatorRequest"/>
 			<xs:complexType name="ShippingCalculatorRequest">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1"
-								name="sourceAddress" type="tns:Address">
+							<xs:element minOccurs="1" name="sourceAddress" type="tns:Address">
 								<xs:annotation>
 									<xs:appinfo>
 										<CallInfo>
@@ -141,8 +111,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element minOccurs="1" name="destAddress"
-								type="tns:Address">
+							<xs:element minOccurs="1" name="destAddress" type="tns:Address">
 								<xs:annotation>
 									<xs:appinfo>
 										<CallInfo>
@@ -162,8 +131,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element minOccurs="1" name="id"
-								type="xs:string">
+							<xs:element minOccurs="1" name="id" type="xs:string">
 								<xs:annotation>
 									<xs:appinfo>
 										<CallInfo>
@@ -183,8 +151,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element minOccurs="1"
-								name="shippingDate" type="xs:dateTime">
+							<xs:element minOccurs="1" name="shippingDate" type="xs:dateTime">
 								<xs:annotation>
 									<xs:appinfo>
 										<CallInfo>
@@ -205,8 +172,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element minOccurs="0"
-								name="declaredValue" type="xs:double">
+							<xs:element minOccurs="0" name="declaredValue" type="xs:double">
 								<xs:annotation>
 									<xs:appinfo>
 										<CallInfo>
@@ -226,8 +192,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element minOccurs="1"
-								name="shippingPackageInfo" type="tns:ItemSpecifics">
+							<xs:element minOccurs="1" name="shippingPackageInfo" type="tns:ItemSpecifics">
 								<xs:annotation>
 									<xs:appinfo>
 										<CallInfo>
@@ -247,9 +212,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element minOccurs="1"
-								maxOccurs="unbounded" name="shippingServiceData"
-								type="tns:ShippingServiceData">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="shippingServiceData" type="tns:ShippingServiceData">
 								<xs:annotation>
 									<xs:appinfo>
 										<CallInfo>
@@ -269,8 +232,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element minOccurs="1" name="currencyId"
-								type="xs:string">
+							<xs:element minOccurs="1" name="currencyId" type="xs:string">
 								<xs:annotation>
 									<xs:appinfo>
 										<CallInfo>
@@ -299,8 +261,8 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="Residential"></xs:enumeration>
-					<xs:enumeration value="Commercial"></xs:enumeration>
+					<xs:enumeration value="Residential"/>
+					<xs:enumeration value="Commercial"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:simpleType name="ShippingRateType">
@@ -310,18 +272,17 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="OnDemand"></xs:enumeration>
-					<xs:enumeration value="DailyPickup"></xs:enumeration>
+					<xs:enumeration value="OnDemand"/>
+					<xs:enumeration value="DailyPickup"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ShippingServiceData">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:sequence>
 
-					<xs:element minOccurs="0"
-						name="deliveryConfirmation" type="xs:boolean">
+					<xs:element minOccurs="0" name="deliveryConfirmation" type="xs:boolean">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -337,8 +298,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="1" name="shippingService"
-						type="xs:string">
+					<xs:element minOccurs="1" name="shippingService" type="xs:string">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -364,8 +324,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="deliveryType"
-						type="tns:ShippingDeliveryType">
+					<xs:element minOccurs="0" name="deliveryType" type="tns:ShippingDeliveryType">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -381,8 +340,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="rateType"
-						type="tns:ShippingRateType">
+					<xs:element minOccurs="0" name="rateType" type="tns:ShippingRateType">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -400,8 +358,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="signatureRequired"
-						type="xs:boolean">
+					<xs:element minOccurs="0" name="signatureRequired" type="xs:boolean">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -418,12 +375,11 @@
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax">
+						processContents="lax"&gt;
 
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="shippingCalculatorResponse"
-				 type="tns:ShippingCalculatorResponse" />
+			<xs:element name="shippingCalculatorResponse" type="tns:ShippingCalculatorResponse"/>
 			<xs:complexType name="ItemSpecifics">
 				<xs:annotation>
 					<xs:appinfo>
@@ -436,10 +392,9 @@
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax">
+						processContents="lax"&gt;
 
-					<xs:element minOccurs="1" name="weightMajor"
-						type="tns:WeightMeasure">
+					<xs:element minOccurs="1" name="weightMajor" type="tns:WeightMeasure">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -451,8 +406,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="1" name="weightMinor"
-						type="tns:WeightMeasure">
+					<xs:element minOccurs="1" name="weightMinor" type="tns:WeightMeasure">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -464,8 +418,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="1" name="packageType"
-						type="xs:string">
+					<xs:element minOccurs="1" name="packageType" type="xs:string">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -477,8 +430,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="irregular"
-						type="xs:boolean">
+					<xs:element minOccurs="0" name="irregular" type="xs:boolean">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -490,8 +442,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="packageLength"
-						type="tns:LinearMeasure">
+					<xs:element minOccurs="0" name="packageLength" type="tns:LinearMeasure">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -503,8 +454,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="packageWidth"
-						type="tns:LinearMeasure">
+					<xs:element minOccurs="0" name="packageWidth" type="tns:LinearMeasure">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -516,8 +466,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="packageDepth"
-						type="tns:LinearMeasure">
+					<xs:element minOccurs="0" name="packageDepth" type="tns:LinearMeasure">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -529,8 +478,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="declaredValue"
-						type="xs:double">
+					<xs:element minOccurs="0" name="declaredValue" type="xs:double">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -540,7 +488,7 @@
 									<RequiredInput>No</RequiredInput>
 								</CallInfo>
 							</xs:appinfo>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
 									<CallName>
@@ -554,41 +502,39 @@
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="LinearMeasure">
-				<xs:annotation></xs:annotation>
+				<xs:annotation/>
 				<xs:simpleContent>
 					<xs:extension base="xs:double">
-						<xs:attribute use="required" name="unit"
-							type="tns:linearMeasurementUnit">
+						<xs:attribute name="unit" type="tns:linearMeasurementUnit" use="required">
 						</xs:attribute>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
 			<xs:complexType name="WeightMeasure">
-				<xs:annotation></xs:annotation>
+				<xs:annotation/>
 				<xs:simpleContent>
 					<xs:extension base="xs:double">
-						<xs:attribute use="required" name="unit"
-							type="tns:weightMeasurementUnit">
+						<xs:attribute name="unit" type="tns:weightMeasurementUnit" use="required">
 						</xs:attribute>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
 			<xs:simpleType name="linearMeasurementUnit">
-				<xs:annotation></xs:annotation>
+				<xs:annotation/>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="cm"></xs:enumeration>
-					<xs:enumeration value="mm"></xs:enumeration>
-					<xs:enumeration value="inches"></xs:enumeration>
-					<xs:enumeration value="ft"></xs:enumeration>
+					<xs:enumeration value="cm"/>
+					<xs:enumeration value="mm"/>
+					<xs:enumeration value="inches"/>
+					<xs:enumeration value="ft"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:simpleType name="weightMeasurementUnit">
-				<xs:annotation></xs:annotation>
+				<xs:annotation/>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="kg"></xs:enumeration>
-					<xs:enumeration value="gm"></xs:enumeration>
-					<xs:enumeration value="lbs"></xs:enumeration>
-					<xs:enumeration value="oz"></xs:enumeration>
+					<xs:enumeration value="kg"/>
+					<xs:enumeration value="gm"/>
+					<xs:enumeration value="lbs"/>
+					<xs:enumeration value="oz"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:simpleType name="AckValue">
@@ -602,31 +548,29 @@
 				</xs:annotation>
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="Success">
-						<xs:annotation></xs:annotation>
+						<xs:annotation/>
 					</xs:enumeration>
 					<xs:enumeration value="Failure">
-						<xs:annotation></xs:annotation>
+						<xs:annotation/>
 					</xs:enumeration>
 					<xs:enumeration value="Warning">
-						<xs:annotation></xs:annotation>
+						<xs:annotation/>
 					</xs:enumeration>
 					<xs:enumeration value="PartialFailure">
-						<xs:annotation></xs:annotation>
+						<xs:annotation/>
 					</xs:enumeration>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="Amount">
-				<xs:annotation></xs:annotation>
+				<xs:annotation/>
 				<xs:simpleContent>
 					<xs:extension base="xs:double">
-						<xs:attribute use="required" name="currencyID"
-							type="xs:string">
+						<xs:attribute name="currencyID" type="xs:string" use="required">
 						</xs:attribute>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
-			<xs:complexType name="BaseServiceResponse"
-				abstract="true">
+			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -639,7 +583,7 @@
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
@@ -649,12 +593,11 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -665,33 +608,31 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="version"
-						type="xs:string">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
 							</xs:appinfo>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="timestamp"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax">
+						processContents="lax"&gt;
 
 				</xs:sequence>
 			</xs:complexType>
@@ -702,63 +643,56 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System"></xs:enumeration>
-					<xs:enumeration value="Application"></xs:enumeration>
-					<xs:enumeration value="Request"></xs:enumeration>
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
 				<xs:annotation>
-					<xs:appinfo></xs:appinfo>
+					<xs:appinfo/>
 					<xs:documentation>
 						Documentation goes here
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long"></xs:element>
-					<xs:element name="domain" type="xs:string"></xs:element>
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string">
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 					</xs:element>
-					<xs:element name="message" type="xs:string"></xs:element>
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token">
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="unbounded"
-						name="parameter" type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
 				<xs:annotation>
-					<xs:appinfo></xs:appinfo>
+					<xs:appinfo/>
 					<xs:documentation>
 						Documentation goes here
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded"
-						name="error" type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
 				<xs:annotation>
-					<xs:appinfo></xs:appinfo>
+					<xs:appinfo/>
 					<xs:documentation>
 						Documentation goes here
 					</xs:documentation>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute use="optional" name="name"
-							type="xs:string">
+						<xs:attribute name="name" type="xs:string" use="optional">
 						</xs:attribute>
 					</xs:extension>
 				</xs:simpleContent>
@@ -770,17 +704,16 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error"></xs:enumeration>
-					<xs:enumeration value="Warning"></xs:enumeration>
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ServiceCostResponse">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="1" name="shippingService"
-						type="xs:string">
+					<xs:element minOccurs="1" name="shippingService" type="xs:string">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -807,34 +740,27 @@
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax">
+						processContents="lax"&gt;
 
-					<xs:element minOccurs="0" name="errorCode"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorCode" type="tns:ErrorMessage">
 					</xs:element>
-					<xs:element minOccurs="0"
-						name="shippingInsuranceCost" type="tns:Amount">
+					<xs:element minOccurs="0" name="shippingInsuranceCost" type="tns:Amount">
 					</xs:element>
-					<xs:element minOccurs="0" name="shippingServiceCost"
-						type="tns:Amount">
+					<xs:element minOccurs="0" name="shippingServiceCost" type="tns:Amount">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ShippingCalculatorResponse">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0"
-								maxOccurs="unbounded" name="errorDataList" 
-								type="tns:ErrorData">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="errorDataList" type="tns:ErrorData">
 							</xs:element>
-							<xs:element name="id" type="xs:int"></xs:element>
-							<xs:element minOccurs="0"
-								maxOccurs="unbounded" name="shippingServiceResponses"
-								 type="tns:ServiceCostResponse">
+							<xs:element name="id" type="xs:int"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="shippingServiceResponses" type="tns:ServiceCostResponse">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -844,99 +770,82 @@
 	</wsdl:types>
 
 	<wsdl:message name="calculateRatesRequest">
-		<wsdl:part name="calculateRatesRequest"
-			element="tns:shippingCalculatorRequest">
+		<wsdl:part element="tns:shippingCalculatorRequest" name="calculateRatesRequest">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="calculateRatesResponse">
-		<wsdl:part name="calculateRatesResponse"
-			element="tns:shippingCalculatorResponse">
+		<wsdl:part element="tns:shippingCalculatorResponse" name="calculateRatesResponse">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="calculateBatchRatesRequest">
-		<wsdl:part name="calculateBatchRatesRequest"
-			element="tns:shippingCalculatorBatchRequest">
+		<wsdl:part element="tns:shippingCalculatorBatchRequest" name="calculateBatchRatesRequest">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="calculateBatchRatesResponse">
-		<wsdl:part name="calculateBatchRatesResponse"
-			element="tns:shippingCalculatorBatchResponse">
+		<wsdl:part element="tns:shippingCalculatorBatchResponse" name="calculateBatchRatesResponse">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:portType name="ShippingCalculatorServiceV2Port">
 
 		<wsdl:operation name="calculateRates">
-			<wsdl:input message="tns:calculateRatesRequest"></wsdl:input>
-			<wsdl:output message="tns:calculateRatesResponse"></wsdl:output>
+			<wsdl:input message="tns:calculateRatesRequest"/>
+			<wsdl:output message="tns:calculateRatesResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="calculateBatchRates">
-			<wsdl:input message="tns:calculateBatchRatesRequest"></wsdl:input>
-			<wsdl:output message="tns:calculateBatchRatesResponse"></wsdl:output>
+			<wsdl:input message="tns:calculateBatchRatesRequest"/>
+			<wsdl:output message="tns:calculateBatchRatesResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="ShippingCalculatorServiceV2HttpBinding"
-		type="tns:ShippingCalculatorServiceV2Port">
+	<wsdl:binding name="ShippingCalculatorServiceV2HttpBinding" type="tns:ShippingCalculatorServiceV2Port">
 
 
-		<http:binding verb="POST" />
+		<http:binding verb="POST"/>
 		<wsdl:operation name="calculateRates">
-			<http:operation location="/calculateRates" />
+			<http:operation location="/calculateRates"/>
 			<wsdl:input>
-				<mime:content part="calculateRates"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="calculateRates" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="calculateRates" type="text/xml" />
+				<mime:content part="calculateRates" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="calculateBatchRates">
-			<http:operation location="/calculateBatchRates" />
+			<http:operation location="/calculateBatchRates"/>
 			<wsdl:input>
-				<mime:content part="calculateBatchRates"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="calculateBatchRates" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="calculateBatchRates"
-					type="text/xml" />
+				<mime:content part="calculateBatchRates" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="ShippingCalculatorServiceV2SOAPBinding"
-		type="tns:ShippingCalculatorServiceV2Port">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="ShippingCalculatorServiceV2SOAPBinding" type="tns:ShippingCalculatorServiceV2Port">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="calculateRates">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/services/calculateRates" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/calculateRates"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="calculateBatchRates">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/services/calculateBatchRates" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/calculateBatchRates"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="ShippingCalculatorServiceV2">
-		<wsdl:port binding="tns:ShippingCalculatorServiceV2HttpBinding"
-			name="ShippingCalculatorServiceV2Http">
-			<http:address
-				location="http://svcs.ebay.com/ShippingCalculatorServiceV2" />
+		<wsdl:port binding="tns:ShippingCalculatorServiceV2HttpBinding" name="ShippingCalculatorServiceV2Http">
+			<http:address location="http://svcs.ebay.com/ShippingCalculatorServiceV2"/>
 		</wsdl:port>
-		<wsdl:port binding="tns:ShippingCalculatorServiceV2SOAPBinding"
-			name="ShippingCalculatorServiceV2SOAP">
-			<soap12:address
-				location="http://svcs.ebay.com/ShippingCalculatorServiceV2"
-				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+		<wsdl:port binding="tns:ShippingCalculatorServiceV2SOAPBinding" name="ShippingCalculatorServiceV2SOAP">
+			<soap12:address location="http://svcs.ebay.com/ShippingCalculatorServiceV2"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

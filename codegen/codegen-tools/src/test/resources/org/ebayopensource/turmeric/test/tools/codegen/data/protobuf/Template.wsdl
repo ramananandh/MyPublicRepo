@@ -5,13 +5,13 @@
 	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
 	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
 	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:tns="http://www.ebay.com/marketplace/adcommerce/v1/services"
+	xmlns:tns="http://www.ebayopensource.org/tumeric/adcommerce/v1/services"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NewProtoFactService"
-	targetNamespace="http://www.ebay.com/marketplace/adcommerce/v1/services">
+	targetNamespace="http://www.ebayopensource.org/tumeric/adcommerce/v1/services">
 	<wsdl:types>
 		<xs:schema attributeFormDefault="unqualified"
 			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/adcommerce/v1/services">
+			targetNamespace="http://www.ebayopensource.org/tumeric/adcommerce/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -23,7 +23,7 @@
 					<xs:appinfo>
 						<typeLibrarySource
 							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							namespace="http://www.ebayopensource.org/tumeric/services" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -76,7 +76,7 @@
 					<xs:appinfo>
 						<typeLibrarySource
 							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							namespace="http://www.ebayopensource.org/tumeric/services" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -94,7 +94,7 @@
 					<xs:appinfo>
 						<typeLibrarySource
 							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							namespace="http://www.ebayopensource.org/tumeric/services" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -161,7 +161,7 @@
 					<xs:appinfo>
 						<typeLibrarySource
 							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							namespace="http://www.ebayopensource.org/tumeric/services" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -178,7 +178,7 @@
 					<xs:appinfo>
 						<typeLibrarySource
 							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							namespace="http://www.ebayopensource.org/tumeric/services" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -205,7 +205,7 @@
 					<xs:appinfo>
 						<typeLibrarySource
 							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							namespace="http://www.ebayopensource.org/tumeric/services" />
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -227,7 +227,7 @@
 					<xs:appinfo>
 						<typeLibrarySource
 							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							namespace="http://www.ebayopensource.org/tumeric/services" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -245,7 +245,7 @@
 					<xs:appinfo>
 						<typeLibrarySource
 							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							namespace="http://www.ebayopensource.org/tumeric/services" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -261,7 +261,7 @@
 					<xs:appinfo>
 						<typeLibrarySource
 							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							namespace="http://www.ebayopensource.org/tumeric/services" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -395,7 +395,7 @@
 			transport="http://schemas.xmlsoap.org/soap/http" />
 		<wsdl:operation name="getVersion">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/adcommerce/v1/services/getVersion" />
+				soapAction="http://www.ebayopensource.org/tumeric/adcommerce/v1/services/getVersion" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -405,7 +405,7 @@
 		</wsdl:operation>
 		<wsdl:operation name="newOperation">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/adcommerce/v1/services/newOperation" />
+				soapAction="http://www.ebayopensource.org/tumeric/adcommerce/v1/services/newOperation" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>

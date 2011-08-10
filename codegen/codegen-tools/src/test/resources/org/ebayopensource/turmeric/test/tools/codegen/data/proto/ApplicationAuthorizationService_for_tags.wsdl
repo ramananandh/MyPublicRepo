@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.ebay.com/marketplace/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services">
+		<xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 			<xs:complexType abstract="true" name="BaseServiceRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -47,7 +46,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 				</xs:documentation>
@@ -59,7 +58,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 				</xs:documentation>
@@ -137,7 +136,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorData">
@@ -154,7 +153,7 @@
 					<xs:element name="message" type="xs:string"/>
 					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
 					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -198,14 +197,10 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseApplicationAuthorizationServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1"
-								name="permissionName" type="xs:token" />
-							<xs:element minOccurs="1"
-								name="operationKey" type="tns:OperationKey" />
-							<xs:element minOccurs="0" name="subjectKey"
-								type="tns:SubjectKey" />
-							<xs:element name="securityDomain"
-								type="tns:SecurityDomain" minOccurs="0" maxOccurs="1">
+							<xs:element minOccurs="1" name="permissionName" type="xs:token"/>
+							<xs:element minOccurs="1" name="operationKey" type="tns:OperationKey"/>
+							<xs:element minOccurs="0" name="subjectKey" type="tns:SubjectKey"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="securityDomain" type="tns:SecurityDomain">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -231,18 +226,18 @@
 			</xs:simpleType> -->
 			<xs:complexType name="OperationKey">
 				<xs:sequence>
-					<xs:element name="operationId" type="xs:long" minOccurs="0"/>
-					<xs:element name="operationName" type="xs:token" minOccurs="0"/>
+					<xs:element minOccurs="0" name="operationId" type="xs:long"/>
+					<xs:element minOccurs="0" name="operationName" type="xs:token"/>
 					<xs:element name="resourceName" type="xs:token"/>
 					<xs:element name="resourceType" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ResourceKey">
 				<xs:sequence>
-					<xs:element name="resourceId" type="xs:long" minOccurs="0"/>
+					<xs:element minOccurs="0" name="resourceId" type="xs:long"/>
 					<xs:element name="resourceType" type="xs:string">
             		</xs:element>
-					<xs:element name="resourceName" type="xs:token" minOccurs="0"/>
+					<xs:element minOccurs="0" name="resourceName" type="xs:token"/>
 				</xs:sequence>
 			</xs:complexType>
 			<!--
@@ -289,13 +284,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseApplicationAuthorizationServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1"
-								name="operationKey" type="tns:OperationKey"
-								maxOccurs="unbounded" />
-							<xs:element minOccurs="0" name="subjectKey"
-								type="tns:SubjectKey" />
-							<xs:element name="securityDomain"
-								type="tns:SecurityDomain" minOccurs="0" maxOccurs="1">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="operationKey" type="tns:OperationKey"/>
+							<xs:element minOccurs="0" name="subjectKey" type="tns:SubjectKey"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="securityDomain" type="tns:SecurityDomain">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -318,13 +309,10 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseApplicationAuthorizationServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="0" name="subjectKey"
-								type="tns:SubjectKey" />
-							<xs:element name="resourceKey"
-								type="tns:ResourceKey" minOccurs="0" maxOccurs="unbounded">
+							<xs:element minOccurs="0" name="subjectKey" type="tns:SubjectKey"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="resourceKey" type="tns:ResourceKey">
 							</xs:element>
-							<xs:element name="securityDomain"
-								type="tns:SecurityDomain" minOccurs="0" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="securityDomain" type="tns:SecurityDomain">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -334,7 +322,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseApplicationAuthorizationServiceResponse">
 						<xs:sequence>
-							<xs:element name="operation" type="tns:OperationKey" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="operation" type="tns:OperationKey">
             				</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -343,32 +331,32 @@
 		
 			<xs:simpleType name="SecurityDomain">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="ASAC20"></xs:enumeration>
-					<xs:enumeration value="ASAC30"></xs:enumeration>
+					<xs:enumeration value="ASAC20"/>
+					<xs:enumeration value="ASAC30"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="hasPermissionRequest">
-		<wsdl:part name="parameters" element="ns0:hasPermissionRequest">
+		<wsdl:part element="ns0:hasPermissionRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="hasPermissionResponse">
-		<wsdl:part name="parameters" element="ns0:hasPermissionResponse">
+		<wsdl:part element="ns0:hasPermissionResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="hasAuthorizeAccessRequest">
-		<wsdl:part name="parameters" element="ns0:hasAuthorizeAccessRequest"/>
+		<wsdl:part element="ns0:hasAuthorizeAccessRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="hasAuthorizeAccessResponse">
-		<wsdl:part name="parameters" element="ns0:hasAuthorizeAccessResponse"/>
+		<wsdl:part element="ns0:hasAuthorizeAccessResponse" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getAuthorizedOperationsRequest">
-		<wsdl:part name="parameters" element="ns0:getAuthorizedOperationsRequest">
+		<wsdl:part element="ns0:getAuthorizedOperationsRequest" name="parameters">
   	</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getAuthorizedOperationsResponse">
-		<wsdl:part name="parameters" element="ns0:getAuthorizedOperationsResponse"/>
+		<wsdl:part element="ns0:getAuthorizedOperationsResponse" name="parameters"/>
 	</wsdl:message>
 	<wsdl:portType name="ApplicationAuthorizationServicePortType">
 		<wsdl:operation name="hasPermission">
@@ -448,11 +436,11 @@
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="ApplicationAuthorizationService">
-		<wsdl:port name="ApplicationAuthorizationServiceSOAP" binding="ns0:ApplicationAuthorizationServiceSoapBinding">
+		<wsdl:port binding="ns0:ApplicationAuthorizationServiceSoapBinding" name="ApplicationAuthorizationServiceSOAP">
 			<soap:address location="http://svcs.ebay.com/ApplicationAuthorizationService"/>
 		</wsdl:port>
 
-		<wsdl:port name="ApplicationAuthorizationServiceHttp" binding="ns0:ApplicationAuthorizationServiceHttpBinding">
+		<wsdl:port binding="ns0:ApplicationAuthorizationServiceHttpBinding" name="ApplicationAuthorizationServiceHttp">
 			<http:address location="http://svcs.ebay.com/ApplicationAuthorizationService"/>
 		</wsdl:port>
 	</wsdl:service>

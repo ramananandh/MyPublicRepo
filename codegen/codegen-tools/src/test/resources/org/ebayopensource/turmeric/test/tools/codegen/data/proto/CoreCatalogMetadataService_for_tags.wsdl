@@ -1,21 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions
-  name="CoreCatalogMetadataService"
-  targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services"
-  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-  xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services"
-  xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/catalog/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CoreCatalogMetadataService" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
 
 <wsdl:types>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-attributeFormDefault="unqualified" elementFormDefault="qualified" 
-targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services" 
-xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
 
 <xs:complexType abstract="true" name="BaseServiceRequest">
 	<xs:annotation>
@@ -77,7 +63,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					Details about a single error.
@@ -245,7 +231,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -435,7 +421,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             						</xs:documentation>
             					</xs:annotation>
             				</xs:element>
-            				<xs:element name="metadataRequestType" type="tns:MetadataRequestType" maxOccurs="unbounded" minOccurs="1">
+            				<xs:element maxOccurs="unbounded" minOccurs="1" name="metadataRequestType" type="tns:MetadataRequestType">
                                 <xs:annotation>
                                 	<xs:documentation>
                                 		The kind of information
@@ -459,7 +445,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
 					</xs:documentation>
 				</xs:annotation>
 				<xs:simpleContent>
-					<xs:extension base="xs:token"></xs:extension>
+					<xs:extension base="xs:token"/>
 				</xs:simpleContent>
             </xs:complexType>
         
@@ -475,7 +461,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             		</xs:documentation>
             	</xs:annotation>
             	<xs:simpleContent>
-            		<xs:extension base="xs:token"></xs:extension>
+            		<xs:extension base="xs:token"/>
             	</xs:simpleContent>
             </xs:complexType>
             
@@ -488,7 +474,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
                 	</xs:documentation>
                 </xs:annotation>
                 <xs:simpleContent>
-					<xs:extension base="xs:token"></xs:extension>
+					<xs:extension base="xs:token"/>
 				</xs:simpleContent>
             </xs:complexType>
         
@@ -523,7 +509,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
 					</xs:documentation>
 				</xs:annotation>	
 				<xs:simpleContent>
-					<xs:extension base="xs:token"></xs:extension>
+					<xs:extension base="xs:token"/>
 				</xs:simpleContent>
             </xs:complexType>
         
@@ -604,8 +590,8 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
 
             <xs:complexType name="PropertyValue">
             	<xs:sequence>
-            		<xs:element name="property" type="tns:Property"></xs:element>
-            		<xs:element name="value" type="tns:Value" maxOccurs="unbounded" minOccurs="1"></xs:element>
+            		<xs:element name="property" type="tns:Property"/>
+            		<xs:element maxOccurs="unbounded" minOccurs="1" name="value" type="tns:Value"/>
 
             	</xs:sequence>
             </xs:complexType>
@@ -619,7 +605,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             	<xs:complexContent>
             		<xs:extension base="tns:Property">
             			<xs:sequence>
-            				<xs:element name="localizedName" type="xs:string" minOccurs="0"></xs:element>
+            				<xs:element minOccurs="0" name="localizedName" type="xs:string"/>
             				<xs:element name="dataType" type="tns:DataType">
             					<xs:annotation>
             						<xs:documentation>
@@ -634,7 +620,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             						</xs:documentation>
             					</xs:annotation>
             				</xs:element>
-            				<xs:element name="unitOfMeasurement" type="tns:UnitOfMeasurement" maxOccurs="1" minOccurs="0"></xs:element>
+            				<xs:element maxOccurs="1" minOccurs="0" name="unitOfMeasurement" type="tns:UnitOfMeasurement"/>
             				<xs:element name="multivalued" type="xs:boolean">
             					<xs:annotation>
             						<xs:documentation>
@@ -684,7 +670,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             						</xs:documentation>
             					</xs:annotation>
             				</xs:element>
-            				<xs:element name="valueSortType" type="tns:ValueSortType" maxOccurs="1" minOccurs="0"></xs:element>
+            				<xs:element maxOccurs="1" minOccurs="0" name="valueSortType" type="tns:ValueSortType"/>
             			</xs:sequence>
             		</xs:extension>
             	</xs:complexContent>
@@ -692,9 +678,9 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
 
             <xs:simpleType name="DataType">
             	<xs:restriction base="xs:string">
-            		<xs:enumeration value="Numeric"></xs:enumeration>
-            		<xs:enumeration value="String"></xs:enumeration>
-            		<xs:enumeration value="URI"></xs:enumeration>
+            		<xs:enumeration value="Numeric"/>
+            		<xs:enumeration value="String"/>
+            		<xs:enumeration value="URI"/>
             	</xs:restriction>
             </xs:simpleType>
 
@@ -705,10 +691,10 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             		</xs:documentation>
             	</xs:annotation>
             	<xs:restriction base="xs:string">
-            		<xs:enumeration value="ALPHABETIC_ASCENDING"></xs:enumeration>
-            		<xs:enumeration value="ALPHABETIC_DESCENDING"></xs:enumeration>
-            		<xs:enumeration value="NUMERIC_ASCENDING"></xs:enumeration>
-            		<xs:enumeration value="NUMERIC_DESCENDING"></xs:enumeration>
+            		<xs:enumeration value="ALPHABETIC_ASCENDING"/>
+            		<xs:enumeration value="ALPHABETIC_DESCENDING"/>
+            		<xs:enumeration value="NUMERIC_ASCENDING"/>
+            		<xs:enumeration value="NUMERIC_DESCENDING"/>
             		<xs:enumeration value="AS_GIVEN">
 						<xs:annotation>
 							<xs:documentation>
@@ -726,8 +712,8 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             		</xs:documentation>
             	</xs:annotation>
             	<xs:sequence>
-            		<xs:element name="property" type="tns:PropertyWithMetadata"></xs:element>
-            		<xs:element name="value" type="tns:Value" maxOccurs="unbounded" minOccurs="0"></xs:element>
+            		<xs:element name="property" type="tns:PropertyWithMetadata"/>
+            		<xs:element maxOccurs="unbounded" minOccurs="0" name="value" type="tns:Value"/>
 
             	</xs:sequence>
             </xs:complexType>
@@ -747,7 +733,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             				</xs:documentation>
             			</xs:annotation>
             		</xs:element>
-            		<xs:element name="localizedName" type="xs:string" minOccurs="0">
+            		<xs:element minOccurs="0" name="localizedName" type="xs:string">
             			<xs:annotation>
             				<xs:documentation>
             					The localized name for this property
@@ -755,8 +741,8 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             				</xs:documentation>
             			</xs:annotation>
             		</xs:element>
-            		<xs:element name="type" type="tns:PropertySetType"></xs:element>
-            		<xs:element name="order" type="xs:int" minOccurs="0">
+            		<xs:element name="type" type="tns:PropertySetType"/>
+            		<xs:element minOccurs="0" name="order" type="xs:int">
             			<xs:annotation>
             				<xs:documentation>
             					Some property sets are ordered. E.g.
@@ -768,7 +754,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             				</xs:documentation>
             			</xs:annotation>
             		</xs:element>
-            		<xs:element name="property" type="tns:Property" maxOccurs="unbounded" minOccurs="1">
+            		<xs:element maxOccurs="unbounded" minOccurs="1" name="property" type="tns:Property">
             			<xs:annotation>
             				<xs:documentation>
             					A list of properties in this property
@@ -810,8 +796,8 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             				</xs:documentation>
             			</xs:annotation>
             		</xs:element>
-            		<xs:element name="locale" type="tns:Locale"></xs:element>
-            		<xs:element name="property" type="tns:PropertyWithMetadataAndValues" maxOccurs="unbounded" minOccurs="0">
+            		<xs:element name="locale" type="tns:Locale"/>
+            		<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:PropertyWithMetadataAndValues">
             			<xs:annotation>
             				<xs:documentation>
             					A list of properties in this catalog.
@@ -820,7 +806,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             				</xs:documentation>
             			</xs:annotation>
             		</xs:element>
-            		<xs:element name="propertySet" type="tns:PropertySet" maxOccurs="unbounded" minOccurs="0">
+            		<xs:element maxOccurs="unbounded" minOccurs="0" name="propertySet" type="tns:PropertySet">
             			<xs:annotation>
             				<xs:documentation>
             					Property sets for the catalog. This is
@@ -837,7 +823,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             	<xs:complexContent>
             		<xs:extension base="tns:BaseServiceResponse">
             			<xs:sequence>
-            				<xs:element name="catalog" type="tns:Catalog"></xs:element>
+            				<xs:element name="catalog" type="tns:Catalog"/>
             			</xs:sequence>
             		</xs:extension>
             	</xs:complexContent>
@@ -855,8 +841,8 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             						</xs:documentation>
             					</xs:annotation>
             				</xs:element>
-            				<xs:element name="locale" type="tns:Locale"></xs:element>
-            				<xs:element name="propertyValue" type="tns:PropertyValue" maxOccurs="unbounded" minOccurs="1">
+            				<xs:element name="locale" type="tns:Locale"/>
+            				<xs:element maxOccurs="unbounded" minOccurs="1" name="propertyValue" type="tns:PropertyValue">
             					<xs:annotation>
             						<xs:documentation>
             							List of properties and their
@@ -867,7 +853,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             						</xs:documentation>
             					</xs:annotation>
             				</xs:element>
-            				<xs:element name="requestedProperty" type="tns:Property" maxOccurs="unbounded" minOccurs="0">
+            				<xs:element maxOccurs="unbounded" minOccurs="0" name="requestedProperty" type="tns:Property">
                                 <xs:annotation>
                                 	<xs:documentation>
                                 		List of properties to compute.
@@ -885,7 +871,7 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             	<xs:complexContent>
             		<xs:extension base="tns:BaseServiceResponse">
             			<xs:sequence>
-            				<xs:element name="computedPropertyValue" type="tns:PropertyValue" maxOccurs="unbounded" minOccurs="0">
+            				<xs:element maxOccurs="unbounded" minOccurs="0" name="computedPropertyValue" type="tns:PropertyValue">
                                 <xs:annotation>
                                 	<xs:documentation>
                                 		List of properties that were
@@ -903,87 +889,87 @@ xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xsd="http:
             	</xs:complexContent>
             </xs:complexType>
 
-            <xs:element name="getMetadata" type="tns:GetMetadataRequest" ></xs:element>
-            <xs:element name="getMetadataResponse" type="tns:GetMetadataResponse" ></xs:element>
-            <xs:element name="computeProperties" type="tns:ComputePropertiesRequest" ></xs:element>
-            <xs:element name="computePropertiesResponse" type="tns:ComputePropertiesResponse" ></xs:element>
+            <xs:element name="getMetadata" type="tns:GetMetadataRequest"/>
+            <xs:element name="getMetadataResponse" type="tns:GetMetadataResponse"/>
+            <xs:element name="computeProperties" type="tns:ComputePropertiesRequest"/>
+            <xs:element name="computePropertiesResponse" type="tns:ComputePropertiesResponse"/>
 
 </xs:schema>
 </wsdl:types>
 
   <wsdl:message name="getMetadataRequest">
-  	<wsdl:part name="parameters" element="tns:getMetadata"></wsdl:part>
+  	<wsdl:part element="tns:getMetadata" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getMetadataResponse">
-  	<wsdl:part name="parameters" element="tns:getMetadataResponse"></wsdl:part>
+  	<wsdl:part element="tns:getMetadataResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="computePropertiesRequest">
-        <wsdl:part name="parameters" element="tns:computeProperties"></wsdl:part>
+        <wsdl:part element="tns:computeProperties" name="parameters"/>
   </wsdl:message>
 	<wsdl:message name="computePropertiesResponse">
-		<wsdl:part name="parameters" element="tns:computePropertiesResponse"></wsdl:part>
+		<wsdl:part element="tns:computePropertiesResponse" name="parameters"/>
 	</wsdl:message>
 
   <wsdl:portType name="CoreCatalogMetadataServicePort">
     <wsdl:operation name="getMetadata">
-    	<wsdl:input message="tns:getMetadataRequest"></wsdl:input>
-    	<wsdl:output message="tns:getMetadataResponse"></wsdl:output>
+    	<wsdl:input message="tns:getMetadataRequest"/>
+    	<wsdl:output message="tns:getMetadataResponse"/>
     </wsdl:operation>
     <wsdl:operation name="computeProperties">
-    	<wsdl:input message="tns:computePropertiesRequest"></wsdl:input>
-    	<wsdl:output message="tns:computePropertiesResponse"></wsdl:output>
+    	<wsdl:input message="tns:computePropertiesRequest"/>
+    	<wsdl:output message="tns:computePropertiesResponse"/>
     </wsdl:operation>
   </wsdl:portType>
 
   <wsdl:binding name="CoreCatalogMetadataServiceSOAPBinding" type="tns:CoreCatalogMetadataServicePort">
-  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
   	<wsdl:operation name="getMetadata">
-  		<soap:operation soapAction="http://www.ebay.com/marketplace/catalog/v1/services/getMetadata" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/getMetadata"/>
   		<wsdl:input>
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="computeProperties">
-  		<soap:operation soapAction="http://www.ebay.com/marketplace/catalog/v1/services/computeProperties" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/computeProperties"/>
   		<wsdl:input>
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   </wsdl:binding>
 
   <wsdl:binding name="CoreCatalogMetadataServiceHttpBinding" type="tns:CoreCatalogMetadataServicePort">
-  	<http:binding verb="POST" />
+  	<http:binding verb="POST"/>
   	<wsdl:operation name="getMetadata">
-  		<http:operation location="/getMetadata" />
+  		<http:operation location="/getMetadata"/>
   		<wsdl:input>
-  			<mime:content part="getMetadata" type="application/x-www-form-urlencoded" />
+  			<mime:content part="getMetadata" type="application/x-www-form-urlencoded"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content part="getMetadataResponse" type="text/xml" />
+  			<mime:content part="getMetadataResponse" type="text/xml"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="computeProperties">
-  		<http:operation location="/computeProperties" />
+  		<http:operation location="/computeProperties"/>
   		<wsdl:input>
-  			<mime:content part="computeProperties" type="application/x-www-form-urlencoded" />
+  			<mime:content part="computeProperties" type="application/x-www-form-urlencoded"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content part="computePropertiesResponse" type="text/xml" />
+  			<mime:content part="computePropertiesResponse" type="text/xml"/>
   		</wsdl:output>
   	</wsdl:operation>
   </wsdl:binding>
  
   <wsdl:service name="CoreCatalogMetadataService">
- 		<wsdl:port name="CoreCatalogMetadataServiceHttp" binding="tns:CoreCatalogMetadataServiceHttpBinding">
+ 		<wsdl:port binding="tns:CoreCatalogMetadataServiceHttpBinding" name="CoreCatalogMetadataServiceHttp">
 			<http:address location="http://apicatalogs.vip.ebay.com/ws/spf/CoreCatalogMetadataService"/>
 		</wsdl:port>
- 		<wsdl:port name="CoreCatalogMetadataServiceSOAP" binding="tns:CoreCatalogMetadataServiceSOAPBinding">
+ 		<wsdl:port binding="tns:CoreCatalogMetadataServiceSOAPBinding" name="CoreCatalogMetadataServiceSOAP">
 			<soap12:address location="http://apicatalogs.vip.ebay.com/ws/spf/CoreCatalogMetadataService"/>
 		</wsdl:port>
 	</wsdl:service>

@@ -1,20 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="AdGroupService"
-	targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:tns="http://www.ebaypartnernetwork.com/adcommerce/v1/services"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebaypartnernetwork.com/adcommerce/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AdGroupService" targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services"
-			xmlns:tns="http://www.ebaypartnernetwork.com/adcommerce/v1/services"
-			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services">
 
 			<xs:complexType name="BaseAdGroupResponse">
 				<xs:complexContent>
@@ -27,8 +13,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAdGroupResponse">
 						<xs:sequence>
-							<xs:element name="adGroup"
-								type="tns:AdGroup" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="adGroup" type="tns:AdGroup">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -39,8 +24,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAdGroupResponse">
 						<xs:sequence>
-							<xs:element name="adGroupList"
-								type="tns:AdGroupList" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="adGroupList" type="tns:AdGroupList">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -49,20 +33,15 @@
 
 			<xs:complexType name="AdGroup">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="defaultMaxCPC"
-						type="xs:double">
+					<xs:element minOccurs="0" name="defaultMaxCPC" type="xs:double">
 					</xs:element>
-					<xs:element minOccurs="0" name="description"
-						type="xs:string">
+					<xs:element minOccurs="0" name="description" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="adGroupId" type="xs:long">
+					<xs:element maxOccurs="1" minOccurs="0" name="adGroupId" type="xs:long">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="name" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="status" type="xs:token">
+					<xs:element maxOccurs="1" minOccurs="0" name="status" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								expected values are ACTIVE and PENDING
@@ -83,8 +62,7 @@
 				</xs:complexType>
 			</xs:element>
 
-			<xs:element name="addAdGroupResponse"
-				type="tns:AdGroupResponse" />
+			<xs:element name="addAdGroupResponse" type="tns:AdGroupResponse"/>
 
 			<xs:element name="updateAdGroupRequest">
 				<xs:complexType>
@@ -95,8 +73,7 @@
 				</xs:complexType>
 			</xs:element>
 
-			<xs:element name="updateAdGroupResponse"
-				type="tns:BaseAdGroupResponse" />
+			<xs:element name="updateAdGroupResponse" type="tns:BaseAdGroupResponse"/>
 
 			<xs:element name="deleteAdGroupRequest">
 				<xs:complexType>
@@ -107,8 +84,7 @@
 				</xs:complexType>
 			</xs:element>
 
-			<xs:element name="deleteAdGroupResponse"
-				type="tns:BaseAdGroupResponse" />
+			<xs:element name="deleteAdGroupResponse" type="tns:BaseAdGroupResponse"/>
 
 			<xs:element name="getAdGroupRequest">
 				<xs:complexType>
@@ -119,17 +95,15 @@
 				</xs:complexType>
 			</xs:element>
 
-			<xs:element name="getAdGroupResponse"
-				type="tns:AdGroupResponse" />
+			<xs:element name="getAdGroupResponse" type="tns:AdGroupResponse"/>
 
 			<!--  common types -->
-			<xs:element name="getVersionResponse" 
-				type="tns:GetVersionResponse" />
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 
 			<xs:complexType name="GetVersionResponse">
 				<xs:annotation>
-					<xs:documentation />
-					<xs:appinfo />
+					<xs:documentation/>
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
@@ -137,8 +111,7 @@
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:complexType abstract="true"
-				name="BaseAdCommerceResponse">
+			<xs:complexType abstract="true" name="BaseAdCommerceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all AdCommerce
@@ -148,8 +121,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="control" type="tns:Control" />
+							<xs:element maxOccurs="1" minOccurs="0" name="control" type="tns:Control"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -157,32 +129,26 @@
 
 			<xs:complexType name="Control">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="requestId" type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="totalProcessedCount" type="xs:int" />
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="totalSuccessCount" type="xs:int" />
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="quotaRemaining" type="xs:int" />
+					<xs:element maxOccurs="1" minOccurs="0" name="requestId" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="totalProcessedCount" type="xs:int"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="totalSuccessCount" type="xs:int"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="quotaRemaining" type="xs:int"/>
 				</xs:sequence>
 			</xs:complexType>
 
 			<xs:element name="getCampaignAdGroupsRequest">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="campaignId" type="xs:long"></xs:element>
+						<xs:element name="campaignId" type="xs:long"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 
-			<xs:element name="getCampaignAdGroupsResponse"
-				type="tns:BulkAdGroupResponse" />
+			<xs:element name="getCampaignAdGroupsResponse" type="tns:BulkAdGroupResponse"/>
 
 			<xs:complexType name="AdGroupList">
 				<xs:sequence>
-					<xs:element name="adGroup" type="tns:AdGroup"
-						maxOccurs="unbounded" minOccurs="0">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="adGroup" type="tns:AdGroup">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -197,11 +163,10 @@
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
-			<xs:complexType abstract="true"
-				name="BaseServiceResponse">
+			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -212,17 +177,16 @@
 				<xs:sequence>
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -231,38 +195,36 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="version"
-						type="xs:string">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="timestamp"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="AckValue">
@@ -325,15 +287,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -359,7 +320,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -388,14 +349,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates whether the error caused the
@@ -437,14 +397,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 						<xs:annotation>
 							<xs:documentation>
 								There are three categories of errors:
@@ -453,7 +412,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -467,14 +426,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain upon which the
@@ -495,14 +453,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for an exception
@@ -510,14 +467,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -528,7 +484,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -553,7 +509,7 @@
 								</xs:documentation>
 								<xs:appinfo>
 									<CallInfo>
-										<AllCalls />
+										<AllCalls/>
 										<Returned>
 											Conditionally
 										</Returned>
@@ -668,159 +624,137 @@
 
 
 	<wsdl:message name="getAdGroupResponse">
-		<wsdl:part name="messageParameters"
-			element="tns:getAdGroupResponse">
+		<wsdl:part element="tns:getAdGroupResponse" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateAdGroupResponse">
-		<wsdl:part name="messageParameters"
-			element="tns:updateAdGroupResponse">
+		<wsdl:part element="tns:updateAdGroupResponse" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addAdGroupRequest">
-		<wsdl:part name="messageParameters"
-			element="tns:addAdGroupRequest">
+		<wsdl:part element="tns:addAdGroupRequest" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="deleteAdGroupResponse">
-		<wsdl:part name="messageParameters"
-			element="tns:deleteAdGroupResponse">
+		<wsdl:part element="tns:deleteAdGroupResponse" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part name="messageParameters"
-			element="tns:getVersionResponse">
+		<wsdl:part element="tns:getVersionResponse" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="deleteAdGroupRequest">
-		<wsdl:part name="messageParameters"
-			element="tns:deleteAdGroupRequest">
+		<wsdl:part element="tns:deleteAdGroupRequest" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addAdGroupResponse">
-		<wsdl:part name="messageParameters"
-			element="tns:addAdGroupResponse">
+		<wsdl:part element="tns:addAdGroupResponse" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateAdGroupRequest">
-		<wsdl:part name="messageParameters"
-			element="tns:updateAdGroupRequest">
+		<wsdl:part element="tns:updateAdGroupRequest" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getAdGroupRequest">
-		<wsdl:part name="messageParameters"
-			element="tns:getAdGroupRequest">
+		<wsdl:part element="tns:getAdGroupRequest" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getCampaignAdGroupsRequest">
-		<wsdl:part name="parameters"
-			element="tns:getCampaignAdGroupsRequest">
+		<wsdl:part element="tns:getCampaignAdGroupsRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getCampaignAdGroupsResponse">
-		<wsdl:part name="parameters"
-			element="tns:getCampaignAdGroupsResponse">
+		<wsdl:part element="tns:getCampaignAdGroupsResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:portType name="AdGroupServicePortType">
 		<wsdl:operation name="getVersion">
-			<wsdl:output name="getVersion"
-				message="tns:getVersionResponse">
+			<wsdl:output message="tns:getVersionResponse" name="getVersion">
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="addAdGroup">
-			<wsdl:input message="tns:addAdGroupRequest"></wsdl:input>
-			<wsdl:output message="tns:addAdGroupResponse"></wsdl:output>
+			<wsdl:input message="tns:addAdGroupRequest"/>
+			<wsdl:output message="tns:addAdGroupResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="updateAdGroup">
-			<wsdl:input message="tns:updateAdGroupRequest"></wsdl:input>
+			<wsdl:input message="tns:updateAdGroupRequest"/>
 			<wsdl:output message="tns:updateAdGroupResponse">
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="deleteAdGroup">
-			<wsdl:input message="tns:deleteAdGroupRequest"></wsdl:input>
+			<wsdl:input message="tns:deleteAdGroupRequest"/>
 			<wsdl:output message="tns:deleteAdGroupResponse">
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getAdGroup">
-			<wsdl:input message="tns:getAdGroupRequest"></wsdl:input>
-			<wsdl:output message="tns:getAdGroupResponse"></wsdl:output>
+			<wsdl:input message="tns:getAdGroupRequest"/>
+			<wsdl:output message="tns:getAdGroupResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getCampaignAdGroups">
-			<wsdl:input message="tns:getCampaignAdGroupsRequest"></wsdl:input>
-			<wsdl:output message="tns:getCampaignAdGroupsResponse"></wsdl:output>
+			<wsdl:input message="tns:getCampaignAdGroupsRequest"/>
+			<wsdl:output message="tns:getCampaignAdGroupsResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="AdGroupServiceSOAP12Binding"
-		type="tns:AdGroupServicePortType">
-		<soap12:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="AdGroupServiceSOAP12Binding" type="tns:AdGroupServicePortType">
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap12:operation soapAction="urn:getVersion"
-				style="document" />
+			<soap12:operation soapAction="urn:getVersion" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="addAdGroup">
-			<soap12:operation soapAction="urn:addAdGroup"
-				style="document" />
+			<soap12:operation soapAction="urn:addAdGroup" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="deleteAdGroup">
-			<soap12:operation soapAction="urn:deleteAdGroup"
-				style="document" />
+			<soap12:operation soapAction="urn:deleteAdGroup" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="updateAdGroup">
-			<soap12:operation soapAction="urn:updateAdGroup"
-				style="document" />
+			<soap12:operation soapAction="urn:updateAdGroup" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getAdGroup">
-			<soap12:operation soapAction="urn:getAdGroup"
-				style="document" />
+			<soap12:operation soapAction="urn:getAdGroup" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getCampaignAdGroups">
-			<soap12:operation soapAction="urn:getCampaignAdGroups"
-				style="document" />
+			<soap12:operation soapAction="urn:getCampaignAdGroups" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="AdGroupService">
-		<wsdl:port name="AdGroupServiceSOAP12port_http"
-			binding="tns:AdGroupServiceSOAP12Binding">
-			<soap12:address
-				location="https://svcs.ebaypartnernetwork.com/adcommerce/v1/AdGroupService" />
+		<wsdl:port binding="tns:AdGroupServiceSOAP12Binding" name="AdGroupServiceSOAP12port_http">
+			<soap12:address location="https://svcs.ebaypartnernetwork.com/adcommerce/v1/AdGroupService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

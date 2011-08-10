@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/marketplace/mpinvintelligence/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" name="SKUService" targetNamespace="http://www.ebay.com/marketplace/mpinvintelligence/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://www.ebayopensource.org/tumeric/mpinvintelligence/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SKUService" targetNamespace="http://www.ebayopensource.org/tumeric/mpinvintelligence/v1/services">
 	<types>
-		<xs:schema xmlns:tns="http://www.ebay.com/marketplace/mpinvintelligence/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebay.com/marketplace/mpinvintelligence/v1/services" elementFormDefault="qualified" attributeFormDefault="unqualified">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/mpinvintelligence/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -11,7 +10,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -55,21 +54,21 @@
 					</xs:enumeration>
 				</xs:restriction>
 			</xs:simpleType>
-			<xs:complexType name="BaseRequest" abstract="true">
+			<xs:complexType abstract="true" name="BaseRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This is the base class for request container for
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:complexType name="BaseResponse" abstract="true">
+			<xs:complexType abstract="true" name="BaseResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -77,7 +76,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -92,7 +91,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="errorMessage" type="tns:ErrorMessage" minOccurs="0">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -107,7 +106,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation/>
 							<xs:appinfo>
@@ -118,7 +117,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation/>
 							<xs:appinfo>
@@ -129,7 +128,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="ErrorCategory">
@@ -138,7 +137,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -153,18 +152,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="errorId" type="xs:long"/>
 					<xs:element name="domain" type="xs:string"/>
-					<xs:element name="subdomain" type="xs:string" minOccurs="0"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
 					<xs:element name="severity" type="tns:ErrorSeverity"/>
 					<xs:element name="category" type="tns:ErrorCategory"/>
 					<xs:element name="message" type="xs:string"/>
-					<xs:element name="exceptionId" type="xs:token" minOccurs="0"/>
-					<xs:element name="parameter" type="tns:ErrorParameter" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -173,11 +172,11 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -186,7 +185,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -201,7 +200,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -215,7 +214,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -323,7 +322,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="skuId" type="xs:long" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="skuId" type="xs:long"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -335,7 +334,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="skuId" type="xs:long" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="skuId" type="xs:long"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -371,7 +370,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="response" type="tns:DailySKUDemand" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="response" type="tns:DailySKUDemand"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -380,23 +379,23 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="supplyData" type="tns:SupplyData" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="supplyData" type="tns:SupplyData"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="Metrics">
 				<xs:sequence>
-					<xs:element name="pricingDetail" type="tns:PricingDetail" maxOccurs="1"/>
-					<xs:element name="demand" type="tns:DailySKUDemand" maxOccurs="unbounded"/>
-					<xs:element name="supplyData" type="tns:SupplyData" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="1" name="pricingDetail" type="tns:PricingDetail"/>
+					<xs:element maxOccurs="unbounded" name="demand" type="tns:DailySKUDemand"/>
+					<xs:element maxOccurs="unbounded" name="supplyData" type="tns:SupplyData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="PricingDetail">
 				<xs:sequence>
-					<xs:element name="dailyLowestPricing" type="tns:DailyLowestPricing" maxOccurs="unbounded"/>
-					<xs:element name="bestPrice" type="tns:DailyBestPrice" maxOccurs="1"/>
-					<xs:element name="averagePrice" type="tns:AveragePrice" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" name="dailyLowestPricing" type="tns:DailyLowestPricing"/>
+					<xs:element maxOccurs="1" name="bestPrice" type="tns:DailyBestPrice"/>
+					<xs:element maxOccurs="unbounded" name="averagePrice" type="tns:AveragePrice"/>
 				</xs:sequence>
 				<xs:attribute name="metricDate" type="xs:dateTime"/>
 			</xs:complexType>			
@@ -426,9 +425,9 @@
 			</xs:complexType>
 			<xs:complexType name="RetailerPricing">
 				<xs:sequence>
-					<xs:element name="retailerDailyLowestPricing" type="tns:RetailerDailyLowestPricing" maxOccurs="unbounded"/>
-					<xs:element name="retailerBestPrice" type="tns:RetailerDailyBestPrice" maxOccurs="1"/>
-					<xs:element name="retailerAveragePrice" type="tns:RetailerAveragePrice" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" name="retailerDailyLowestPricing" type="tns:RetailerDailyLowestPricing"/>
+					<xs:element maxOccurs="1" name="retailerBestPrice" type="tns:RetailerDailyBestPrice"/>
+					<xs:element maxOccurs="unbounded" name="retailerAveragePrice" type="tns:RetailerAveragePrice"/>
 				</xs:sequence>
 				<xs:attribute name="retailerMetricDate" type="xs:dateTime"/>
 			</xs:complexType>
@@ -473,7 +472,7 @@
 					<xs:element name="snapshotDate" type="xs:dateTime"/>
 					<xs:element name="siteId" type="xs:integer"/>
 					<xs:element name="metrics" type="tns:Metrics"/>
-					<xs:element name="retailerPricing" type="tns:RetailerPricing" maxOccurs="1"/>
+					<xs:element maxOccurs="1" name="retailerPricing" type="tns:RetailerPricing"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="PricingDataResponse">
@@ -483,7 +482,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="response" type="tns:PricingData" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="response" type="tns:PricingData"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -514,8 +513,8 @@
 			</xs:complexType>
 			<xs:complexType name="SupplyData">
 				<xs:sequence>
-					<xs:element name="dailySupplyData" type="tns:DailySupplyData" maxOccurs="1"/>
-					<xs:element name="timeFrameSupplyData" type="tns:TimeFrameSupplyData" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="1" name="dailySupplyData" type="tns:DailySupplyData"/>
+					<xs:element maxOccurs="unbounded" name="timeFrameSupplyData" type="tns:TimeFrameSupplyData"/>
 				</xs:sequence>
 				<xs:attribute name="skuId" type="xs:long"/>
 				<xs:attribute name="siteId" type="xs:integer"/>
@@ -538,7 +537,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="response" type="tns:RetailerPricing" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="response" type="tns:RetailerPricing"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -553,14 +552,14 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="skuResponse" type="tns:SkuData" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="skuResponse" type="tns:SkuData"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="ListingDetail">
 				<xs:sequence>
-					<xs:element name="listingId" type="xs:long" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="listingId" type="xs:long"/>
 				</xs:sequence>
 				<xs:attribute name="skuId" type="xs:long"/>
 				<xs:attribute name="siteId" type="xs:integer"/>
@@ -575,7 +574,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="listingDetail" type="tns:ListingDetail" minOccurs="1" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="listingDetail" type="tns:ListingDetail"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -590,7 +589,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:SKUResponse">
 						<xs:sequence>
-							<xs:element name="productId" type="xs:long" minOccurs="1" maxOccurs="1"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="productId" type="xs:long"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -605,7 +604,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:SKUResponse">
 						<xs:sequence>
-							<xs:element name="listingId" type="xs:long" minOccurs="1" maxOccurs="1"/>						
+							<xs:element maxOccurs="1" minOccurs="1" name="listingId" type="xs:long"/>						
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -625,55 +624,55 @@
 		</xs:schema>
 	</types>
 	<message name="supplyDataMessageResponse">
-		<part name="body" element="tns:getSupplyDataResponse">
+		<part element="tns:getSupplyDataResponse" name="body">
     </part>
 	</message>
 	<message name="skuForListingMessageResponse">
-		<part name="body" element="tns:getSKUForListingResponse">
+		<part element="tns:getSKUForListingResponse" name="body">
     </part>
 	</message>	
 	<message name="listingMessageRequest">
-		<part name="body" element="tns:getListingRequest">
+		<part element="tns:getListingRequest" name="body">
     </part>
 	</message>
 	<message name="getVersionRequest">
-		<part name="params" element="tns:getVersionRequest">
+		<part element="tns:getVersionRequest" name="params">
     </part>
 	</message>
 	<message name="skuMessageResponse">
-		<part name="body" element="tns:getSKUResponse">
+		<part element="tns:getSKUResponse" name="body">
     </part>
 	</message>
 	<message name="pricingDataMessageResponse">
-		<part name="body" element="tns:getPricingDataResponse">
+		<part element="tns:getPricingDataResponse" name="body">
     </part>
 	</message>
 	<message name="retailerPricingDataMessageResponse">
-		<part name="body" element="tns:getRetailerPricingDataResponse">
+		<part element="tns:getRetailerPricingDataResponse" name="body">
     </part>
 	</message>
 	<message name="productMessageResponse">
-		<part name="body" element="tns:getSKUProductResponse">
+		<part element="tns:getSKUProductResponse" name="body">
     </part>
 	</message>
 	<message name="productMessageRequest">
-		<part name="body" element="tns:getProductRequest">
+		<part element="tns:getProductRequest" name="body">
     </part>
 	</message>
 	<message name="listingMessageResponse">
-		<part name="body" element="tns:getSKUListingResponse">
+		<part element="tns:getSKUListingResponse" name="body">
     </part>
 	</message>
 	<message name="skuMessageRequest">
-		<part name="body" element="tns:getSKURequest">
+		<part element="tns:getSKURequest" name="body">
     </part>
 	</message>
 	<message name="getVersionResponse">
-		<part name="params" element="tns:getVersionResponse">
+		<part element="tns:getVersionResponse" name="params">
     </part>
 	</message>
 	<message name="skuDemandMessageResponse">
-		<part name="body" element="tns:getSKUDemandResponse">
+		<part element="tns:getSKUDemandResponse" name="body">
     </part>
 	</message>
 	<portType name="SKUServicePort">
@@ -739,7 +738,7 @@
 	<binding name="SKUServiceSOAPBinding" type="tns:SKUServicePort">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<operation name="getVersion">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/mpinvintelligence/v1/services#getVersion"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/mpinvintelligence/v1/services#getVersion"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -748,7 +747,7 @@
 			</output>
 		</operation>
 		<operation name="getSKUDemand">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/mpinvintelligence/v1/services#getSKUDemand"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/mpinvintelligence/v1/services#getSKUDemand"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -757,7 +756,7 @@
 			</output>
 		</operation>
 		<operation name="getSKUSupply">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/mpinvintelligence/v1/services#getSKUSupply"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/mpinvintelligence/v1/services#getSKUSupply"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -766,7 +765,7 @@
 			</output>
 		</operation>
 		<operation name="getSKUDetail">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/mpinvintelligence/v1/services#getSKUDetail"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/mpinvintelligence/v1/services#getSKUDetail"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -775,7 +774,7 @@
 			</output>
 		</operation>
 		<operation name="getSKUForListing">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/mpinvintelligence/v1/servicess#getSKUForListing"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/mpinvintelligence/v1/servicess#getSKUForListing"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -784,7 +783,7 @@
 			</output>
 		</operation>
 		<operation name="getListingForSKU">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/mpinvintelligence/v1/services#getListingForSKU"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/mpinvintelligence/v1/services#getListingForSKU"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -793,7 +792,7 @@
 			</output>
 		</operation>
 		<operation name="getSKUForProduct">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/mpinvintelligence/v1/services#getSKUForProductId"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/mpinvintelligence/v1/services#getSKUForProductId"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -802,7 +801,7 @@
 			</output>
 		</operation>
 		<operation name="getSKUPricing">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/mpinvintelligence/v1/services#getSKUPricing"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/mpinvintelligence/v1/services#getSKUPricing"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -812,7 +811,7 @@
 		</operation>
 	</binding>
 	<service name="SKUService">
-		<port name="SKUServiceSOAPPort" binding="tns:SKUServiceSOAPBinding">
+		<port binding="tns:SKUServiceSOAPBinding" name="SKUServiceSOAPPort">
 			<soap:address location="https://svcs.ebay.com/services/mpinvintelligence/v1/SKUService"/>
 		</port>
 	</service>

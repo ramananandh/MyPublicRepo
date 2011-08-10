@@ -1,17 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:tns="http://www.ebay.com/marketplace/buying/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StoreInfoService"
-	targetNamespace="http://www.ebay.com/marketplace/buying/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/buying/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StoreInfoService" targetNamespace="http://www.ebayopensource.org/tumeric/buying/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/buying/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/buying/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -21,9 +10,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -74,14 +61,11 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="extension" type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType abstract="true" name="BaseResponse">
@@ -92,25 +76,22 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -119,38 +100,35 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="version"
-						type="xs:string">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="timestamp"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="extension" type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="ErrorCategory">
@@ -159,15 +137,13 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
@@ -176,25 +152,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long" />
-					<xs:element name="domain" type="xs:string" />
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string" />
-					<xs:element name="severity"
-						type="tns:ErrorSeverity" />
-					<xs:element name="category"
-						type="tns:ErrorCategory" />
-					<xs:element name="message" type="xs:string" />
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token" />
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter" type="tns:ErrorParameter" />
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+					<xs:element name="severity" type="tns:ErrorSeverity"/>
+					<xs:element name="category" type="tns:ErrorCategory"/>
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -203,9 +172,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -215,8 +182,7 @@
 					</xs:sequence>
 				-->
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error" type="tns:ErrorData" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -225,15 +191,12 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string"
-							use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -243,14 +206,12 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ExtensionType">
@@ -259,22 +220,19 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="getVersionRequest"
-				type="tns:GetVersionRequest" />
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
 			<xs:complexType name="GetVersionRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -283,12 +241,11 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getVersionResponse"
-				type="tns:GetVersionResponse" />
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -297,7 +254,7 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
@@ -312,8 +269,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="storeId"
-								type="xs:string" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="storeId" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -324,11 +280,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="storeFrontInfo"
-								type="tns:StoreFrontInfo" minOccurs="0" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="storeFrontInfo" type="tns:StoreFrontInfo">
 							</xs:element>
-							<xs:element name="logId"
-								type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="logId" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -344,8 +298,7 @@
             	<xs:complexContent>
             		<xs:extension base="tns:BaseRequest">
             			<xs:sequence>
-            				<xs:element name="ownerId"
-            					type="xs:string" minOccurs="1" maxOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="1" name="ownerId" type="xs:string">
             				</xs:element>
             			</xs:sequence>
             		</xs:extension>
@@ -356,12 +309,9 @@
             	<xs:complexContent>
             		<xs:extension base="tns:BaseResponse">
             			<xs:sequence>
-            				<xs:element name="storeFrontInfo"
-            					type="tns:StoreFrontInfo" minOccurs="0"
-            					maxOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="0" name="storeFrontInfo" type="tns:StoreFrontInfo">
             				</xs:element>
-            				<xs:element name="logId"
-            					type="xs:string" minOccurs="0" maxOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="0" name="logId" type="xs:string">
             				</xs:element>
             			</xs:sequence>
             		</xs:extension>
@@ -371,45 +321,29 @@
             <xs:complexType name="StoreFrontInfo">
             	<xs:sequence>
             		<!-- from the table: ebay_storefronts -->
-            		<xs:element minOccurs="1" name="storeName"
-            			type="xs:string" maxOccurs="1"/>
+            		<xs:element maxOccurs="1" minOccurs="1" name="storeName" type="xs:string"/>
 
 
-            		<xs:element minOccurs="0" name="customLogo"
-            			type="xs:string" />
+            		<xs:element minOccurs="0" name="customLogo" type="xs:string"/>
             		<!-- replaced by custom logo ???  
             			<xs:element minOccurs="0" name="storeGraphic"
             			type="xs:int" />
             		-->
-            		<xs:element minOccurs="0" name="subscriptionLevel"
-            			type="xs:string" maxOccurs="1"/>
-            		<xs:element minOccurs="0" name="lightColor"
-            			type="xs:string" />
-            		<xs:element minOccurs="0" name="darkColor"
-            			type="xs:string" />
-            		<xs:element minOccurs="0" name="colorId"
-            			type="xs:int" />
-            		<xs:element minOccurs="0" name="colorForeGround"
-            			type="xs:string" />
-            		<xs:element minOccurs="0" name="colorBackGround"
-            			type="xs:string" />
-            		<xs:element minOccurs="0" name="colorText"
-            			type="xs:string" />
-            		<xs:element minOccurs="0" name="vacationReturnDate"
-            			type="xs:dateTime" />
-            		<xs:element minOccurs="0" name="onVacation"
-            			type="xs:boolean" />
-            		<xs:element minOccurs="0"
-            			name="storeFrontCustomMessage" type="xs:string"
-            			maxOccurs="1" />
-            		<xs:element name="showCustomHeader"
-            			type="xs:boolean" minOccurs="0" maxOccurs="1">
+            		<xs:element maxOccurs="1" minOccurs="0" name="subscriptionLevel" type="xs:string"/>
+            		<xs:element minOccurs="0" name="lightColor" type="xs:string"/>
+            		<xs:element minOccurs="0" name="darkColor" type="xs:string"/>
+            		<xs:element minOccurs="0" name="colorId" type="xs:int"/>
+            		<xs:element minOccurs="0" name="colorForeGround" type="xs:string"/>
+            		<xs:element minOccurs="0" name="colorBackGround" type="xs:string"/>
+            		<xs:element minOccurs="0" name="colorText" type="xs:string"/>
+            		<xs:element minOccurs="0" name="vacationReturnDate" type="xs:dateTime"/>
+            		<xs:element minOccurs="0" name="onVacation" type="xs:boolean"/>
+            		<xs:element maxOccurs="1" minOccurs="0" name="storeFrontCustomMessage" type="xs:string"/>
+            		<xs:element maxOccurs="1" minOccurs="0" name="showCustomHeader" type="xs:boolean">
             		</xs:element>
-            		<xs:element name="showCustomListingHeader"
-            			type="xs:boolean" minOccurs="0" maxOccurs="1">
+            		<xs:element maxOccurs="1" minOccurs="0" name="showCustomListingHeader" type="xs:boolean">
             		</xs:element>
-            		<xs:element name="showCustomListingHeaderAndLeftNav"
-            			type="xs:boolean" minOccurs="0" maxOccurs="1">
+            		<xs:element maxOccurs="1" minOccurs="0" name="showCustomListingHeaderAndLeftNav" type="xs:boolean">
             		</xs:element>
 
             		<!-- from the table: storefront_viewitem_header    
@@ -444,18 +378,12 @@
             		-->
 
             		<!-- from the table: storefront_preference -->
-            		<xs:element minOccurs="0" name="colorSchemeId"
-            			type="xs:int" />
-            		<xs:element minOccurs="0" name="primaryColor"
-            			type="xs:string" />
-            		<xs:element minOccurs="0" name="secondaryColor"
-            			type="xs:string" />
-            		<xs:element minOccurs="0" name="storeNameFontFace"
-            			type="xs:string" />
-            		<xs:element minOccurs="0" name="storeNameFontSize"
-            			type="xs:string" />
-            		<xs:element minOccurs="0" name="storeNameFontColor"
-            			type="xs:string" />
+            		<xs:element minOccurs="0" name="colorSchemeId" type="xs:int"/>
+            		<xs:element minOccurs="0" name="primaryColor" type="xs:string"/>
+            		<xs:element minOccurs="0" name="secondaryColor" type="xs:string"/>
+            		<xs:element minOccurs="0" name="storeNameFontFace" type="xs:string"/>
+            		<xs:element minOccurs="0" name="storeNameFontSize" type="xs:string"/>
+            		<xs:element minOccurs="0" name="storeNameFontColor" type="xs:string"/>
             	</xs:sequence>
             </xs:complexType>
             <xs:element name="getStoreFrontInfoByOwnerNameRequest" type="tns:GetStoreFrontInfoByOwnerNameRequest">
@@ -464,30 +392,24 @@
 
             </xs:element>
 		
-            <xs:complexType
-            	name="GetStoreFrontInfoByOwnerNameRequest">
+            <xs:complexType name="GetStoreFrontInfoByOwnerNameRequest">
             	<xs:complexContent>
             		<xs:extension base="tns:BaseRequest">
             			<xs:sequence>
-            				<xs:element name="ownerName"
-            					type="xs:string" minOccurs="1" maxOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="1" name="ownerName" type="xs:string">
             				</xs:element>
             			</xs:sequence>
             		</xs:extension>
             	</xs:complexContent>
             </xs:complexType>
 		
-            <xs:complexType
-            	name="GetStoreFrontInfoByOwnerNameResponse">
+            <xs:complexType name="GetStoreFrontInfoByOwnerNameResponse">
             	<xs:complexContent>
             		<xs:extension base="tns:BaseResponse">
             			<xs:sequence>
-            				<xs:element name="storeFrontInfo"
-            					type="tns:StoreFrontInfo" minOccurs="0"
-            					maxOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="0" name="storeFrontInfo" type="tns:StoreFrontInfo">
             				</xs:element>
-            				<xs:element name="logId"
-            					type="xs:string" minOccurs="0" maxOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="0" name="logId" type="xs:string">
             				</xs:element>
             			</xs:sequence>
             		</xs:extension>
@@ -496,132 +418,125 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part element="tns:getVersionRequest" name="params" />
+		<wsdl:part element="tns:getVersionRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part element="tns:getVersionResponse" name="params" />
+		<wsdl:part element="tns:getVersionResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getStoreFrontInfoByStoreIdRequest">
-		<wsdl:part name="param" element="tns:getStoreFrontInfoByStoreIdRequest"></wsdl:part>
+		<wsdl:part element="tns:getStoreFrontInfoByStoreIdRequest" name="param"/>
 	</wsdl:message>
 	<wsdl:message name="getStoreFrontInfoByStoreIdResponse">
-		<wsdl:part name="param" element="tns:getStoreFrontInfoByStoreIdResponse"></wsdl:part>
+		<wsdl:part element="tns:getStoreFrontInfoByStoreIdResponse" name="param"/>
 	</wsdl:message>
 	<wsdl:message name="getStoreFrontInfoByOwnerIdRequest">
-		<wsdl:part name="param" element="tns:getStoreFrontInfoByOwnerIdRequest"></wsdl:part>
+		<wsdl:part element="tns:getStoreFrontInfoByOwnerIdRequest" name="param"/>
 	</wsdl:message>
 	<wsdl:message name="getStoreFrontInfoByOwnerIdResponse">
-		<wsdl:part name="param" element="tns:getStoreFrontInfoByOwnerIdResponse"></wsdl:part>
+		<wsdl:part element="tns:getStoreFrontInfoByOwnerIdResponse" name="param"/>
 	</wsdl:message>
 	<wsdl:message name="getStoreFrontInfoByOwnerNameRequest">
-		<wsdl:part name="request" element="tns:getStoreFrontInfoByOwnerNameRequest"></wsdl:part>
+		<wsdl:part element="tns:getStoreFrontInfoByOwnerNameRequest" name="request"/>
 	</wsdl:message>
 	<wsdl:message name="getStoreFrontInfoByOwnerNameResponse">
-		<wsdl:part name="response" element="tns:getStoreFrontInfoByOwnerNameResponse"></wsdl:part>
+		<wsdl:part element="tns:getStoreFrontInfoByOwnerNameResponse" name="response"/>
 	</wsdl:message>
 	<wsdl:portType name="StoreInfoServicePort">
 		<wsdl:operation name="getVersion">
 			<wsdl:documentation>Get the current version of this service.</wsdl:documentation>
-			<wsdl:input message="tns:getVersionRequest" />
-			<wsdl:output message="tns:getVersionResponse" />
+			<wsdl:input message="tns:getVersionRequest"/>
+			<wsdl:output message="tns:getVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getStoreFrontInfoByStoreId">
 			<wsdl:documentation>To retrieve the store information by using the store ID. </wsdl:documentation>
-			<wsdl:input message="tns:getStoreFrontInfoByStoreIdRequest"></wsdl:input>
-			<wsdl:output message="tns:getStoreFrontInfoByStoreIdResponse"></wsdl:output>
+			<wsdl:input message="tns:getStoreFrontInfoByStoreIdRequest"/>
+			<wsdl:output message="tns:getStoreFrontInfoByStoreIdResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getStoreFrontInfoByOwnerId">
 			<wsdl:documentation>To retrieve the store information by using the store's owner ID. </wsdl:documentation>
-			<wsdl:input message="tns:getStoreFrontInfoByOwnerIdRequest"></wsdl:input>
-			<wsdl:output message="tns:getStoreFrontInfoByOwnerIdResponse"></wsdl:output>
+			<wsdl:input message="tns:getStoreFrontInfoByOwnerIdRequest"/>
+			<wsdl:output message="tns:getStoreFrontInfoByOwnerIdResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getStoreFrontInfoByOwnerName">
-			<wsdl:input message="tns:getStoreFrontInfoByOwnerNameRequest"></wsdl:input>
-			<wsdl:output message="tns:getStoreFrontInfoByOwnerNameResponse"></wsdl:output>
+			<wsdl:input message="tns:getStoreFrontInfoByOwnerNameRequest"/>
+			<wsdl:output message="tns:getStoreFrontInfoByOwnerNameResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="StoreInfoServiceHttpBinding"
-		type="tns:StoreInfoServicePort">
-		<http:binding verb="POST" />
+	<wsdl:binding name="StoreInfoServiceHttpBinding" type="tns:StoreInfoServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getStoreFrontInfoByStoreId">
-			<http:operation location="/getStoreFrontInfoByStoreId" />
+			<http:operation location="/getStoreFrontInfoByStoreId"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getStoreFrontInfoByOwnerId">
-			<http:operation location="/getStoreFrontInfoByOwnerId" />
+			<http:operation location="/getStoreFrontInfoByOwnerId"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getStoreFrontInfoByOwnerName">
-			<http:operation location="/getStoreFrontInfoByOwnerName" />
+			<http:operation location="/getStoreFrontInfoByOwnerName"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="StoreInfoServiceSOAPBinding"
-		type="tns:StoreInfoServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="StoreInfoServiceSOAPBinding" type="tns:StoreInfoServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/buying/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/getVersion"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getStoreFrontInfoByStoreId">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/buying/v1/services/getStoreFrontInfoByStoreId" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/getStoreFrontInfoByStoreId"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getStoreFrontInfoByOwnerId">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/buying/v1/services/getStoreFrontInfoByOwnerId" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/getStoreFrontInfoByOwnerId"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getStoreFrontInfoByOwnerName">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/buying/v1/services/getStoreFrontInfoByOwnerName" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/getStoreFrontInfoByOwnerName"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -629,16 +544,11 @@
 		<wsdl:documentation>
 			<version>1.0.0</version>
 		</wsdl:documentation>
-		<wsdl:port binding="tns:StoreInfoServiceHttpBinding"
-			name="StoreInfoServiceHttpPort">
-			<http:address
-				location="https://svcs.ebay.com/services/buying/v1/StoreInfoService" />
+		<wsdl:port binding="tns:StoreInfoServiceHttpBinding" name="StoreInfoServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/buying/v1/StoreInfoService"/>
 		</wsdl:port>
-		<wsdl:port binding="tns:StoreInfoServiceSOAPBinding"
-			name="StoreInfoServiceSOAPPort">
-			<soap12:address
-				location="https://svcs.ebay.com/services/buying/v1/StoreInfoService" />
+		<wsdl:port binding="tns:StoreInfoServiceSOAPBinding" name="StoreInfoServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/buying/v1/StoreInfoService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
-

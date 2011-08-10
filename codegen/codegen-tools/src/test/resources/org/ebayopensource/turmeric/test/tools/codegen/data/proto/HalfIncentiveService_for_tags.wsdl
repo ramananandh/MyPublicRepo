@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<definitions name="HalfIncentiveService" targetNamespace="http://www.ebay.com/marketplace/half/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/marketplace/half/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/half/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="HalfIncentiveService" targetNamespace="http://www.ebayopensource.org/tumeric/half/v1/services">
 		<types>
-			<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/half/v1/services" xmlns:tns="http://www.ebay.com/marketplace/half/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-				<xs:element name="getVersionRequest"  type="tns:GetVersionRequest" /> 
-				<xs:element name="getVersionResponse"  type="tns:GetVersionResponse" /> 
-				<xs:element name="issueIncentiveRequest" type="tns:IssueIncentiveRequest" /> 
-				<xs:element name="issueIncentiveResponse" type="tns:IssueIncentiveResponse" />
+			<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/half/v1/services">
+				<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/> 
+				<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/> 
+				<xs:element name="issueIncentiveRequest" type="tns:IssueIncentiveRequest"/> 
+				<xs:element name="issueIncentiveResponse" type="tns:IssueIncentiveResponse"/>
 
 				
 				<xs:complexType name="GetVersionRequest">
@@ -41,7 +40,7 @@
 					<xs:complexContent>
 						<xs:extension base="tns:BaseRequest">
 							<xs:sequence>
-								<xs:element name="transactionArray" type="tns:TransactionArrayType" minOccurs="1" maxOccurs="1">
+								<xs:element maxOccurs="1" minOccurs="1" name="transactionArray" type="tns:TransactionArrayType">
 									<xs:annotation>
 										<xs:documentation>
 											List of Transaction objects representing the transactions resulting
@@ -80,11 +79,11 @@
 							The base request container for all service operations.
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 					</xs:annotation>	
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType" />
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 					</xs:sequence>				
 				</xs:complexType>				
 				
@@ -94,7 +93,7 @@
 							The base response container for all service operations.
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 					</xs:annotation>
 					<xs:sequence>
@@ -150,7 +149,7 @@
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:element>	
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType" />					
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>					
 					</xs:sequence>
 				</xs:complexType>
 				
@@ -160,7 +159,7 @@
 							Documentation goes here
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 					</xs:annotation>
 					<xs:sequence>
@@ -178,7 +177,7 @@
 							This represents error details.
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 					</xs:annotation>
 					<xs:sequence>
@@ -353,11 +352,11 @@
 							part of a SOAP fault.
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 					</xs:annotation>
 					<xs:sequence>
-						<xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 							<xs:annotation>
 								<xs:documentation>
 									Details about a single error.
@@ -379,7 +378,7 @@
 							Contextual information associated with an error.
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 					</xs:annotation>
 					<xs:simpleContent>
@@ -405,7 +404,7 @@
 				<xs:simpleType name="ErrorCategory">
 					<xs:annotation>
 						<xs:appinfo>
-							<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 						<xs:documentation>
 							The source of the error.
@@ -443,7 +442,7 @@
 							informational error (a warning) that should be communicated to the user.
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 					</xs:annotation>
 					<xs:restriction base="xs:string">
@@ -477,7 +476,7 @@
 						</xs:documentation>
 					</xs:annotation>
 					<xs:sequence>
-						<xs:element name="transaction" type="tns:TransactionType" minOccurs="1" maxOccurs="unbounded">
+						<xs:element maxOccurs="unbounded" minOccurs="1" name="transaction" type="tns:TransactionType">
 							<xs:annotation>
 								<xs:documentation>
 									Information about one transaction.
@@ -500,7 +499,7 @@
 						</xs:documentation>
 					</xs:annotation>
 					<xs:sequence>
-						<xs:element name="transactionID" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="transactionID" type="xs:string">
 							<xs:annotation>
 								<xs:documentation>
 									Transaction ID
@@ -519,7 +518,7 @@
 				<xs:simpleType name="AckValue">
 					<xs:annotation>
 						<xs:appinfo>
-							<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 						<xs:documentation>
 							The nature of the response.
@@ -570,16 +569,16 @@
 				</xs:schema>
 			</types>
 		<message name="getVersionRequest">
-			<part name="messageParameters" element="tns:getVersionRequest"/>
+			<part element="tns:getVersionRequest" name="messageParameters"/>
 		</message>
 		<message name="getVersionResponse">
-			<part name="messageParameters" element="tns:getVersionResponse"/>
+			<part element="tns:getVersionResponse" name="messageParameters"/>
 		</message>
 		<message name="issueIncentiveRequest">
-			<part name="params" element="tns:issueIncentiveRequest"/>
+			<part element="tns:issueIncentiveRequest" name="params"/>
 		</message>
 		<message name="issueIncentiveResponse">
-			<part name="params" element="tns:issueIncentiveResponse"/>
+			<part element="tns:issueIncentiveResponse" name="params"/>
 		</message>
 		
 		<portType name="HalfIncentiveServicePort">
@@ -587,15 +586,15 @@
 				<documentation>
 					Operation to test the health ot status of the service endpoint.
 				</documentation>
-				<input name="getVersionRequest" message="tns:getVersionRequest"/>
-				<output name="getVersionResponse" message="tns:getVersionResponse"/>
+				<input message="tns:getVersionRequest" name="getVersionRequest"/>
+				<output message="tns:getVersionResponse" name="getVersionResponse"/>
 			</operation>
 			<operation name="issueIncentive">
 				<documentation>
 					Allows seller to file a claim for rental items
 				</documentation>
-				<input name="issueIncentiveRequest" message="tns:issueIncentiveRequest"/>
-				<output name="issueIncentiveResponse" message="tns:issueIncentiveResponse"/>
+				<input message="tns:issueIncentiveRequest" name="issueIncentiveRequest"/>
+				<output message="tns:issueIncentiveResponse" name="issueIncentiveResponse"/>
 			</operation>
 		</portType>
 		
@@ -649,11 +648,11 @@
 				<Version>1.0.0</Version> 
 				This service provides the operations to issue gift coupons to the buyer if a rental transactionis successful
 			</documentation>
-			<port name="HalfIncentiveServiceHttpPort" binding="tns:HalfIncentiveServiceHttpBinding">
-				<http:address location="https://svcs.ebay.com/services/half/v1/HalfIncentiveService" /> 
+			<port binding="tns:HalfIncentiveServiceHttpBinding" name="HalfIncentiveServiceHttpPort">
+				<http:address location="https://svcs.ebay.com/services/half/v1/HalfIncentiveService"/> 
 			</port>
-			<port name="HalfIncentiveServiceSOAPPort" binding="tns:HalfIncentiveServiceSOAPBinding">
-				<soap12:address location="https://svcs.ebay.com/services/half/v1/HalfIncentiveService" /> 
+			<port binding="tns:HalfIncentiveServiceSOAPBinding" name="HalfIncentiveServiceSOAPPort">
+				<soap12:address location="https://svcs.ebay.com/services/half/v1/HalfIncentiveService"/> 
 			</port>
 		</service>
 	</definitions>

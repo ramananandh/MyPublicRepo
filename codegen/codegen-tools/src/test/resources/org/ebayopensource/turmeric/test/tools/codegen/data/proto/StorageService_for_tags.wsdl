@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.ebay.com/marketplace/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 			<xs:complexType abstract="true" name="BaseServiceRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -115,7 +114,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						This Enum is defined for StorageService reserved tags.
-						user.staas.expirationEnd -> Client need to use this tag whenever an object expiry date need to be set. 
+						user.staas.expirationEnd -&gt; Client need to use this tag whenever an object expiry date need to be set. 
 						How to set it : This tag need to be set in usermetadata tagname and the tag value should be
 						and tag value should have valid date in the format : "yyyy-MM-dd'T'HH:mm:ssZ".   
 					</xs:documentation>
@@ -181,7 +180,7 @@
 				 ObjectName, meta data List and ACL List. Refer to the individual object definitions for structure and details.
 			Description:
 				This operation is used to create an object in the storage system.
-				ACL and user meta data parameters are optional. Once created, the object can be increased to any size see &apos;UpdateObject.&apos; 
+				ACL and user meta data parameters are optional. Once created, the object can be increased to any size see 'UpdateObject.' 
 				No validation is done on the meta data. Appropriate system meta data is generated automatically
 				The request may include custom headers to specify meta data that assigns a tag name to the object and
 				creates a list able tag with a name-value pair for indexing purposes.
@@ -468,7 +467,7 @@
 					<xs:extension base="ns0:BaseServiceRequest">
 						<xs:sequence>
 							<xs:element name="objectKey" type="ns0:ObjectKey"/>
-							<xs:element name="metadataTags" minOccurs="0" type="ns0:MetadataTags"/>
+							<xs:element minOccurs="0" name="metadataTags" type="ns0:MetadataTags"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -683,7 +682,7 @@
 					<xs:extension base="ns0:BaseServiceRequest">
 						<xs:sequence>
 							<xs:element name="objectKey" type="ns0:ObjectKey"/>
-							<xs:element name="metadataTags" minOccurs="0" type="ns0:MetadataTags"/>
+							<xs:element minOccurs="0" name="metadataTags" type="ns0:MetadataTags"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -747,7 +746,7 @@
 			Optional Parameters :
 				NONE
 			Description : 
-							This operation retrieves all object IDs indexed by a given tag. As mentioned earlier, list able tags are created in a user&apos;s own name space hence, they are private to that user. Only objects belonging to the requesting UID are returned. 	
+							This operation retrieves all object IDs indexed by a given tag. As mentioned earlier, list able tags are created in a user's own name space hence, they are private to that user. Only objects belonging to the requesting UID are returned. 	
 			Error Conditions :
 				INVALID_CREDENTIALS - You would get this error message when the Application name passed is invalid.
 														 Action : Pass the correct Application Name in the Header. 														 
@@ -823,9 +822,9 @@
 			</xs:complexType>
 			<xs:complexType name="ObjectKey">
 				<xs:choice>
-					<xs:element name="objectId" minOccurs="0" type="ns0:ObjectId"/>
-					<xs:element name="objectName" minOccurs="0" type="ns0:ObjectName"/>
-					<xs:element name="objectType" minOccurs="0" type="ns0:ObjectTypeEnum"/>
+					<xs:element minOccurs="0" name="objectId" type="ns0:ObjectId"/>
+					<xs:element minOccurs="0" name="objectName" type="ns0:ObjectName"/>
+					<xs:element minOccurs="0" name="objectType" type="ns0:ObjectTypeEnum"/>
 				</xs:choice>
 			</xs:complexType>
 			<xs:simpleType name="ObjectId">
@@ -1042,7 +1041,7 @@
 				</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="ns0:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="ns0:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 						Details about a single error.
@@ -1207,7 +1206,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="ns0:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="ns0:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 						Some warning and error messages return one or more variables that contain
@@ -1329,161 +1328,161 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="copyObjectRequest">
-		<wsdl:part name="parameters" element="ns0:copyObject">
+		<wsdl:part element="ns0:copyObject" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="listDirectoryRequest">
-		<wsdl:part name="parameters" element="ns0:listDirectory">
+		<wsdl:part element="ns0:listDirectory" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part name="parameters" element="ns0:getVersion">
+		<wsdl:part element="ns0:getVersion" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="createObjectRequest">
-		<wsdl:part name="parameters" element="ns0:createObject">
+		<wsdl:part element="ns0:createObject" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="createDirectoryRequest">
-		<wsdl:part name="parameters" element="ns0:createDirectory">
+		<wsdl:part element="ns0:createDirectory" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="createObjectWithAttachmentRequest">
-		<wsdl:part name="parameters" element="ns0:createObjectWithAttachment">
+		<wsdl:part element="ns0:createObjectWithAttachment" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="setUserMetadataResponse">
-		<wsdl:part name="parameters" element="ns0:setUserMetadataResponse">
+		<wsdl:part element="ns0:setUserMetadataResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="setACLRequest">
-		<wsdl:part name="parameters" element="ns0:setACL">
+		<wsdl:part element="ns0:setACL" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="deleteObjectRequest">
-		<wsdl:part name="parameters" element="ns0:deleteObject">
+		<wsdl:part element="ns0:deleteObject" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="readObjectResponse">
-		<wsdl:part name="parameters" element="ns0:readObjectResponse">
+		<wsdl:part element="ns0:readObjectResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="readObjectWithAttachmentResponse">
-		<wsdl:part name="parameters" element="ns0:readObjectWithAttachmentResponse">
+		<wsdl:part element="ns0:readObjectWithAttachmentResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="listObjectsResponse">
-		<wsdl:part name="parameters" element="ns0:listObjectsResponse">
+		<wsdl:part element="ns0:listObjectsResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="cloneObject_faultMsg">
   </wsdl:message>
 	<wsdl:message name="listUserMetadataTagsRequest">
-		<wsdl:part name="parameters" element="ns0:listUserMetadataTags">
+		<wsdl:part element="ns0:listUserMetadataTags" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getACLResponse">
-		<wsdl:part name="parameters" element="ns0:getACLResponse">
+		<wsdl:part element="ns0:getACLResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="listObjectsRequest">
-		<wsdl:part name="parameters" element="ns0:listObjects">
+		<wsdl:part element="ns0:listObjects" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="deleteObjectResponse">
-		<wsdl:part name="parameters" element="ns0:deleteObjectResponse">
+		<wsdl:part element="ns0:deleteObjectResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="setUserMetadataRequest">
-		<wsdl:part name="parameters" element="ns0:setUserMetadata">
+		<wsdl:part element="ns0:setUserMetadata" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateObjectRequest">
-		<wsdl:part name="parameters" element="ns0:updateObject">
+		<wsdl:part element="ns0:updateObject" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateObjectWithAttachmentRequest">
-		<wsdl:part name="parameters" element="ns0:updateObjectWithAttachment">
+		<wsdl:part element="ns0:updateObjectWithAttachment" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="setACLResponse">
-		<wsdl:part name="parameters" element="ns0:setACLResponse">
+		<wsdl:part element="ns0:setACLResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="readObjectRequest">
-		<wsdl:part name="parameters" element="ns0:readObject">
+		<wsdl:part element="ns0:readObject" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="queryObjectsResponse">
-		<wsdl:part name="parameters" element="ns0:queryObjectsResponse">
+		<wsdl:part element="ns0:queryObjectsResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getSystemMetadataRequest">
-		<wsdl:part name="parameters" element="ns0:getSystemMetadata">
+		<wsdl:part element="ns0:getSystemMetadata" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="deleteUserMetadataResponse">
-		<wsdl:part name="parameters" element="ns0:deleteUserMetadataResponse">
+		<wsdl:part element="ns0:deleteUserMetadataResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="listUserMetadataTagsResponse">
-		<wsdl:part name="parameters" element="ns0:listUserMetadataTagsResponse">
+		<wsdl:part element="ns0:listUserMetadataTagsResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateObjectResponse">
-		<wsdl:part name="parameters" element="ns0:updateObjectResponse">
+		<wsdl:part element="ns0:updateObjectResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="copyObjectResponse">
-		<wsdl:part name="parameters" element="ns0:copyObjectResponse">
+		<wsdl:part element="ns0:copyObjectResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="listDirectoryResponse">
-		<wsdl:part name="parameters" element="ns0:listDirectoryResponse">
+		<wsdl:part element="ns0:listDirectoryResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part name="parameters" element="ns0:getVersionResponse">
+		<wsdl:part element="ns0:getVersionResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="createObjectResponse">
-		<wsdl:part name="parameters" element="ns0:createObjectResponse">
+		<wsdl:part element="ns0:createObjectResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="createDirectoryResponse">
-		<wsdl:part name="parameters" element="ns0:createDirectoryResponse">
+		<wsdl:part element="ns0:createDirectoryResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="cloneObjectRequest">
-		<wsdl:part name="parameters" element="ns0:cloneObject">
+		<wsdl:part element="ns0:cloneObject" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getUserMetadataResponse">
-		<wsdl:part name="parameters" element="ns0:getUserMetadataResponse">
+		<wsdl:part element="ns0:getUserMetadataResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="cloneObjectResponse">
-		<wsdl:part name="parameters" element="ns0:cloneObjectResponse">
+		<wsdl:part element="ns0:cloneObjectResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="deleteUserMetadataRequest">
-		<wsdl:part name="parameters" element="ns0:deleteUserMetadata">
+		<wsdl:part element="ns0:deleteUserMetadata" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getSystemMetadataResponse">
-		<wsdl:part name="parameters" element="ns0:getSystemMetadataResponse">
+		<wsdl:part element="ns0:getSystemMetadataResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="queryObjectsRequest">
-		<wsdl:part name="parameters" element="ns0:queryObjects">
+		<wsdl:part element="ns0:queryObjects" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getUserMetadataRequest">
-		<wsdl:part name="parameters" element="ns0:getUserMetadata">
+		<wsdl:part element="ns0:getUserMetadata" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getACLRequest">
-		<wsdl:part name="parameters" element="ns0:getACL">
+		<wsdl:part element="ns0:getACL" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:portType name="StorageServicePort">
@@ -1999,10 +1998,10 @@
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="StorageService">
-		<wsdl:port name="StorageServiceSOAP" binding="ns0:StorageServiceSOAPBinding">
+		<wsdl:port binding="ns0:StorageServiceSOAPBinding" name="StorageServiceSOAP">
 			<soap12:address location="http://svcs.ebay.com/StorageService"/>
 		</wsdl:port>
-		<wsdl:port name="StorageServiceHttp" binding="ns0:StorageServiceHttpBinding">
+		<wsdl:port binding="ns0:StorageServiceHttpBinding" name="StorageServiceHttp">
 			<http:address location="http://svcs.ebay.com/StorageService"/>
 		</wsdl:port>
 	</wsdl:service>

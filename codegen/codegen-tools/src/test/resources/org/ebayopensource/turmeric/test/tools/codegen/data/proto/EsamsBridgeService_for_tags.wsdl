@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="EsamsBridgeService" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.ebay.com/marketplace/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EsamsBridgeService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
-    <xsd:schema targetNamespace="http://www.ebay.com/marketplace/services" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:schema targetNamespace="http://www.ebayopensource.org/tumeric/services">
         
         <xsd:complexType abstract="true" name="BaseServiceRequestType">
 			<xsd:annotation>
@@ -80,7 +79,7 @@
 				</xsd:documentation>
 			</xsd:annotation>
 			<xsd:sequence>
-			    <xsd:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData"/>
+			    <xsd:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 			</xsd:sequence>
          </xsd:complexType>
             
@@ -98,7 +97,7 @@
 			    <xsd:element name="message" type="xsd:string"/>
 			    <xsd:element minOccurs="0" name="subdomain" type="xsd:string"/>
 			    <xsd:element minOccurs="0" name="exceptionId" type="xsd:token"/>
-			    <xsd:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter"/>
+			    <xsd:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 			</xsd:sequence>
           </xsd:complexType>
             
@@ -378,67 +377,67 @@
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="getPrivateKeyRequest">
-    <wsdl:part name="parameters" element="tns:getPrivateKey">
+    <wsdl:part element="tns:getPrivateKey" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getCertificateByChannelRequest">
-    <wsdl:part name="parameters" element="tns:GenericKeyLocator">
+    <wsdl:part element="tns:GenericKeyLocator" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getTrustStoreResponse">
-    <wsdl:part name="parameters" element="tns:TrustStore">
+    <wsdl:part element="tns:TrustStore" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getCertificateBySelectorRequest">
-    <wsdl:part name="parameters" element="tns:CertSelector">
+    <wsdl:part element="tns:CertSelector" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getAllKeysResponse">
-    <wsdl:part name="parameters" element="tns:AllKeys">
+    <wsdl:part element="tns:AllKeys" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getAllKeysRequest">
-    <wsdl:part name="parameters" element="tns:getAllKeys">
+    <wsdl:part element="tns:getAllKeys" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getKeyPairRequest">
-    <wsdl:part name="parameters" element="tns:GenericKeyLocator">
+    <wsdl:part element="tns:GenericKeyLocator" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getSecretKeyRequest">
-    <wsdl:part name="getSecurityKeyRequestMsg" element="tns:GenericKeyLocator">
+    <wsdl:part element="tns:GenericKeyLocator" name="getSecurityKeyRequestMsg">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getKeyPairResponse">
-    <wsdl:part name="parameters" element="tns:KeyPairHolder">
+    <wsdl:part element="tns:KeyPairHolder" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getTrustStoreRequest">
-    <wsdl:part name="parameters" element="tns:getTrustStore">
+    <wsdl:part element="tns:getTrustStore" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getNonKeyRequest">
-    <wsdl:part name="parameters" element="tns:GenericKeyLocator">
+    <wsdl:part element="tns:GenericKeyLocator" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getNonKeyResponse">
-    <wsdl:part name="parameters" element="tns:NonKeyHolder">
+    <wsdl:part element="tns:NonKeyHolder" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getCertificateByChannelResponse">
-    <wsdl:part name="parameters" element="tns:CertificateHolder">
+    <wsdl:part element="tns:CertificateHolder" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getCertificateBySelectorResponse">
-    <wsdl:part name="parameters" element="tns:CertificateHolder">
+    <wsdl:part element="tns:CertificateHolder" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getPrivateKeyResponse">
-    <wsdl:part name="parameters" element="tns:KeyPairHolder">
+    <wsdl:part element="tns:KeyPairHolder" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getSecretKeyResponse">
-    <wsdl:part name="getSecretKeyResponseMsg" element="tns:SecretKeyHolder">
+    <wsdl:part element="tns:SecretKeyHolder" name="getSecretKeyResponseMsg">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="soapNameService">
@@ -552,7 +551,7 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="EsamsBridgeService">
-    <wsdl:port name="soapNameService" binding="tns:soapNameService">
+    <wsdl:port binding="tns:soapNameService" name="soapNameService">
       <soap:address location="http://localhost:8080/ws/spf"/>
     </wsdl:port>
   </wsdl:service>

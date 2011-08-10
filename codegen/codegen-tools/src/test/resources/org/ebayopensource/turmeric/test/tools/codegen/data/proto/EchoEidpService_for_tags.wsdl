@@ -1,21 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
- 	   <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"  targetNamespace="http://www.ebay.com/marketplace/services" xmlns:echo="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services"  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+ 	   <xs:schema xmlns:echo="http://www.ebayopensource.org/tumeric/services" xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 				
 	<xs:complexType name="EchoLocaleType">
-			<xs:attribute  name="locale" type ="xs:string" />
-			<xs:attribute name="lang"  type ="xs:string"/>
-			<xs:attribute name="siteId" type ="xs:string"/>
+			<xs:attribute name="locale" type="xs:string"/>
+			<xs:attribute name="lang" type="xs:string"/>
+			<xs:attribute name="siteId" type="xs:string"/>
 	</xs:complexType>
 	
 	<xs:complexType name="EchoPrincipalIdentifer">
-		<xs:attribute name="fqname"  type="xs:string"/>
+		<xs:attribute name="fqname" type="xs:string"/>
 	</xs:complexType>
 	
 	<xs:complexType name="EchoVersionType">
-				<xs:attribute name="major"  type="xs:string"/>
-				<xs:attribute name="minor"  type="xs:string"/>
+				<xs:attribute name="major" type="xs:string"/>
+				<xs:attribute name="minor" type="xs:string"/>
 				<xs:attribute name="release" type="xs:string"/>
 	</xs:complexType>
 	
@@ -159,7 +158,7 @@
 	</xs:complexType>
 -->
 	<!-- Base Request Types -->
-	<xs:complexType name="BaseAuthenticatedServiceRequest" abstract="true">
+	<xs:complexType abstract="true" name="BaseAuthenticatedServiceRequest">
 		<xs:annotation>
 			<xs:documentation>
 			This is the base class for request container for all service operations.
@@ -173,7 +172,7 @@
 	
 	<!-- ****************************************************************************** -->
 	<!-- Base Response Types -->
-	<xs:complexType name="BaseServiceResponse" abstract="true">
+	<xs:complexType abstract="true" name="BaseServiceResponse">
 		<xs:annotation>
 			<xs:documentation>
 				Base response container for all service operations. Contains error information
@@ -284,7 +283,7 @@
 					</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="error" type="tns:ErrorData"  minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 				<xs:annotation>
 					<xs:documentation>
 								ActivityProfile about a single error.
@@ -408,7 +407,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="subdomain" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="subdomain" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>
 								Name of the subdomain upon which the error occurred. 
@@ -436,7 +435,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="exceptionId" type="xs:token" minOccurs="0">
+			<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 				<xs:annotation>
 					<xs:documentation>
 								Unique identifier for an exception associated with an error.
@@ -449,7 +448,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="parameter" type="tns:ErrorParameter"  minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 				<xs:annotation>
 					<xs:documentation>
 								Some warning and error messages return one or more variables that contain
@@ -608,7 +607,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-    <xs:complexType name="BaseLoginServiceRequest" abstract="true">
+    <xs:complexType abstract="true" name="BaseLoginServiceRequest">
 		<xs:sequence>
 			<xs:element name="header" type="tns:EchoUnAuthenticatedRequestHeader"/>
 		</xs:sequence>
@@ -619,7 +618,7 @@
 			<xs:extension base="tns:BaseLoginServiceRequest">
 				<xs:sequence>
 					<xs:element name="credential" type="tns:EchoLoginCredentialsType"/>
-					<xs:element name="accept" minOccurs="0"  type="xs:string">
+					<xs:element minOccurs="0" name="accept" type="xs:string">
 					</xs:element>
 				</xs:sequence>
 			</xs:extension>
@@ -648,35 +647,35 @@
 	
 	
 	  <!--  before insert  -->
-			<xs:element name="authenticateRequest"   type="tns:EchoAuthenticateRequestType"/>
+			<xs:element name="authenticateRequest" type="tns:EchoAuthenticateRequestType"/>
 	
-			<xs:element name="authenticateResponse"   type="tns:EchoAuthenticateResponseType"/>
+			<xs:element name="authenticateResponse" type="tns:EchoAuthenticateResponseType"/>
 			
-			<xs:element name="loginRequest"  type="tns:EchoLoginRequestType"/>
+			<xs:element name="loginRequest" type="tns:EchoLoginRequestType"/>
 	
-			<xs:element name="loginResponse"  type="tns:EchoLoginResponseType"/>
+			<xs:element name="loginResponse" type="tns:EchoLoginResponseType"/>
 
 		</xs:schema>
   </wsdl:types>
 
   <wsdl:message name="authenticateRequest">
-    <wsdl:part name="authenticateRequest" element="ns0:authenticateRequest">
+    <wsdl:part element="ns0:authenticateRequest" name="authenticateRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="authenticateResponse">
-    <wsdl:part name="authenticateResponse" element="ns0:authenticateResponse">
+    <wsdl:part element="ns0:authenticateResponse" name="authenticateResponse">
     </wsdl:part> 
     
   </wsdl:message>
   
  
  <wsdl:message name="loginRequest">
-    <wsdl:part name="loginRequest" element="ns0:loginRequest">
+    <wsdl:part element="ns0:loginRequest" name="loginRequest">
     </wsdl:part>
   </wsdl:message>
   
   <wsdl:message name="loginResponse">
-    <wsdl:part name="loginResponse" element="ns0:loginResponse">
+    <wsdl:part element="ns0:loginResponse" name="loginResponse">
     </wsdl:part>
   </wsdl:message>
   
@@ -748,10 +747,10 @@
   </wsdl:binding>
   
   <wsdl:service name="EchoEidpService">
-    <wsdl:port name="EchoEidpServiceSOAP" binding="ns0:EchoEidpServiceSOAPBinding">
+    <wsdl:port binding="ns0:EchoEidpServiceSOAPBinding" name="EchoEidpServiceSOAP">
       <soap12:address location="http://svcs.ebay.com/EchoEidpService"/>
     </wsdl:port>
-    <wsdl:port name="EchoEidpServiceHttp" binding="ns0:EchoEidpServiceHttpBinding">
+    <wsdl:port binding="ns0:EchoEidpServiceHttpBinding" name="EchoEidpServiceHttp">
       <http:address location="http://svcs.ebay.com/EchoEidpService"/>
     </wsdl:port>
   </wsdl:service>

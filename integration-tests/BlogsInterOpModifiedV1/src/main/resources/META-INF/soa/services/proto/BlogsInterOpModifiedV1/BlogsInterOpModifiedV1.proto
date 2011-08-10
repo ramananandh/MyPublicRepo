@@ -1,6 +1,6 @@
-package com.ebay.marketplace.services ;
+package org.ebayopensource.turmeric.services;
 
-option java_package = "com.ebay.marketplace.services.proto" ;
+option java_package = "org.ebayopensource.turmeric.services" ;
 option java_outer_classname = "BlogsInterOpModifiedV1" ;
 option optimize_for = SPEED ;
 

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?> <!--- B''H -->
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www.ebay.com/marketplace/services">
+<?xml version="1.0" encoding="UTF-8"?><!--- B''H --><wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services"> 						
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services"> 						
 			<xs:complexType name="AnalysisResponse">				
 				<xs:sequence>
 					<xs:element minOccurs="0" name="ignoredCategories" type="tns:IgnoredCategoryList"/>
@@ -28,7 +27,7 @@
 			</xs:complexType>			
 			<xs:complexType name="CategoryAnalysisResponseList">				
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfCategoryAnalysisResponse"  type="tns:CategoryAnalysisResponse"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfCategoryAnalysisResponse" type="tns:CategoryAnalysisResponse"/>
 				</xs:sequence>				
 			</xs:complexType>			
 			<xs:complexType name="Outlier">				
@@ -58,7 +57,7 @@
 			</xs:complexType>			
 			<xs:complexType name="TotalMachineConfidenceList">				
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfTotalMachineConfidence"  type="tns:TotalMachineConfidence"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfTotalMachineConfidence" type="tns:TotalMachineConfidence"/>
 				</xs:sequence>				
 			</xs:complexType>			
 			<xs:complexType name="AnalysisRequest">				
@@ -94,22 +93,22 @@
 			</xs:complexType>			
 			<xs:complexType name="OutlierList">				
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfOutlier"  type="tns:Outlier"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfOutlier" type="tns:Outlier"/>
 				</xs:sequence>				
 			</xs:complexType>			
 			<xs:complexType name="MachineConfidenceList">				
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfMachineConfidence"  type="tns:MachineConfidence"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfMachineConfidence" type="tns:MachineConfidence"/>
 				</xs:sequence>				
 			</xs:complexType>			
 			<xs:complexType name="IgnoredCategoryList">				
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfIgnoredCategory"  type="tns:IgnoredCategory"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfIgnoredCategory" type="tns:IgnoredCategory"/>
 				</xs:sequence>				
 			</xs:complexType>			
 			<xs:complexType name="CategoryAnalysisList">				
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfCategoryAnalysis"  type="tns:CategoryAnalysis"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfCategoryAnalysis" type="tns:CategoryAnalysis"/>
 				</xs:sequence>				
 			</xs:complexType>						
 			<xs:complexType name="getCategoryAnalysisRequest">
@@ -133,22 +132,22 @@
 				</xs:sequence>
 			</xs:complexType>						
 			<xs:element name="getCategoryAnalysis" type="tns:getCategoryAnalysisRequest"/>
-			<xs:element name="getCategoryAnalysisResponse"  type="tns:getCategoryAnalysisResponse"/>			
+			<xs:element name="getCategoryAnalysisResponse" type="tns:getCategoryAnalysisResponse"/>			
 			<xs:element name="getAnalysis" type="tns:getAnalysisRequest"/>
-			<xs:element name="getAnalysisResponse"  type="tns:getAnalysisResponse"/>			
+			<xs:element name="getAnalysisResponse" type="tns:getAnalysisResponse"/>			
 		</xs:schema>
 	</wsdl:types>			
 	<wsdl:message name="getCategoryAnalysisRequest">
-		<wsdl:part name="parameters" element="tns:getCategoryAnalysis"/>
+		<wsdl:part element="tns:getCategoryAnalysis" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getCategoryAnalysisResponse">
-		<wsdl:part name="parameters" element="tns:getCategoryAnalysisResponse"/>
+		<wsdl:part element="tns:getCategoryAnalysisResponse" name="parameters"/>
 	</wsdl:message>			
 	<wsdl:message name="getAnalysisRequest">
-		<wsdl:part name="parameters" element="tns:getAnalysis"/>
+		<wsdl:part element="tns:getAnalysis" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getAnalysisResponse">
-		<wsdl:part name="parameters" element="tns:getAnalysisResponse"/>
+		<wsdl:part element="tns:getAnalysisResponse" name="parameters"/>
 	</wsdl:message>	
 	<wsdl:portType name="MachineMetricAnalyzerServicePortType">		
 		<wsdl:operation name="getCategoryAnalysis">
@@ -224,13 +223,13 @@
 			</wsdl:operation>			
 	</wsdl:binding>	
 	<wsdl:service name="MachineMetricAnalyzerService">	
-		<wsdl:port name="MachineMetricAnalyzerServiceHttpSoap11Endpoint" binding="tns:MachineMetricAnalyzerServiceSoap11Binding">
+		<wsdl:port binding="tns:MachineMetricAnalyzerServiceSoap11Binding" name="MachineMetricAnalyzerServiceHttpSoap11Endpoint">
 			<soap:address location="http://localhost:8080/MachineMetricAnalyzerService"/>
 		</wsdl:port>		
-		<wsdl:port name="MachineMetricAnalyzerServiceHttpSoap12Endpoint" binding="tns:MachineMetricAnalyzerServiceSoap12Binding">
+		<wsdl:port binding="tns:MachineMetricAnalyzerServiceSoap12Binding" name="MachineMetricAnalyzerServiceHttpSoap12Endpoint">
 			<soap12:address location="http://localhost:8080/MachineMetricAnalyzerService"/>
 		</wsdl:port>		
-		<wsdl:port name="MachineMetricAnalyzerServiceHttpEndpoint" binding="tns:MachineMetricAnalyzerServiceHTTPBinding">
+		<wsdl:port binding="tns:MachineMetricAnalyzerServiceHTTPBinding" name="MachineMetricAnalyzerServiceHttpEndpoint">
 			<http:address location="http://localhost:8080/MachineMetricAnalyzerService"/>
 		</wsdl:port>		
 	</wsdl:service>

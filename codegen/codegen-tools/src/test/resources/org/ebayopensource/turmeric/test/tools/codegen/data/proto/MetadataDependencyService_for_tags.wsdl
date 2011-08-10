@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="MetadataService" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ins="http://www.ebay.com/marketplace/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.ebay.com/marketplace/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:ins="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MetadataService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 	<wsdl:documentation>Description: This API takes an input site, category id, and namespace, returns the version of the catalog metadata, which the category maps to in the namespace.</wsdl:documentation>
 	<wsdl:types>
-		<xsd:schema targetNamespace="http://www.ebay.com/marketplace/services" attributeFormDefault="qualified" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ebay.com/marketplace/services">
+		<xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 			<xsd:element name="getFields" type="ins:GetFieldsRequest">
 				<xsd:annotation>
 					<xsd:documentation/>
@@ -26,7 +25,7 @@
 							</xsd:documentation>
 							<xsd:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xsd:appinfo>
@@ -42,7 +41,7 @@
 							</xsd:documentation>
 							<xsd:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xsd:appinfo>
@@ -60,7 +59,7 @@
 							</xsd:documentation>
 							<xsd:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xsd:appinfo>
@@ -72,17 +71,17 @@
 								This value represents the date and time
 								when eBay processed the request. The
 								time zone of this value is &amp;lt;a
-								href=&quot;types/simpleTypes.html#dateTime&quot;&amp;gt;GMT&amp;lt;/a&amp;gt;
+								href="types/simpleTypes.html#dateTime"&amp;gt;GMT&amp;lt;/a&amp;gt;
 								and the format is the ISO 8601 date and
 								time format (YYYY-MM-DDTHH:MM:SS.SSSZ).
-								See the &quot;dateTime&quot; type for
+								See the "dateTime" type for
 								information about this time format and
 								converting to and from the GMT time
 								zone.
 							</xsd:documentation>
 							<xsd:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xsd:appinfo>
@@ -100,7 +99,7 @@
 		</xsd:documentation>
 				</xsd:annotation>
 				<xsd:sequence>
-					<xsd:element maxOccurs="unbounded" minOccurs="0" name="error"  type="ins:ErrorData">
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="error" type="ins:ErrorData">
 						<xsd:annotation>
 							<xsd:documentation>
 					Details about a single error.
@@ -158,7 +157,7 @@
 						<xsd:annotation>
 							<xsd:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xsd:appinfo>
@@ -176,7 +175,7 @@
 						<xsd:annotation>
 							<xsd:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xsd:appinfo>
@@ -247,7 +246,7 @@
 							</xsd:documentation>
 							<xsd:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xsd:appinfo>
@@ -266,7 +265,7 @@
 							</xsd:appinfo>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="ins:ErrorParameter">
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="ins:ErrorParameter">
 						<xsd:annotation>
 							<xsd:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -533,10 +532,10 @@
 								global ID you specify must correspond to
 								an eBay site with a valid site ID (see
 								&lt;a
-								href=&quot;http://developer.ebay.com/DevZone/merchandising/docs/Concepts/SiteIDToGlobalID.html&quot;&gt;eBay
+								href="http://developer.ebay.com/DevZone/merchandising/docs/Concepts/SiteIDToGlobalID.html"&gt;eBay
 								Site ID to Global ID Mapping&lt;/a&gt;).
 								See &lt;a
-								href=&quot;http://developer.ebay.com/DevZone/merchandising/docs/CallRef/Enums/GlobalIdList.html&quot;&gt;Global
+								href="http://developer.ebay.com/DevZone/merchandising/docs/CallRef/Enums/GlobalIdList.html"&gt;Global
 								ID Values&lt;/a&gt; for a complete list
 								of the eBay global IDs.
 							</xsd:documentation>
@@ -623,10 +622,10 @@
 								global ID you specify must correspond to
 								an eBay site with a valid site ID (see
 								&lt;a
-								href=&quot;http://developer.ebay.com/DevZone/merchandising/docs/Concepts/SiteIDToGlobalID.html&quot;&gt;eBay
+								href="http://developer.ebay.com/DevZone/merchandising/docs/Concepts/SiteIDToGlobalID.html"&gt;eBay
 								Site ID to Global ID Mapping&lt;/a&gt;).
 								See &lt;a
-								href=&quot;http://developer.ebay.com/DevZone/merchandising/docs/CallRef/Enums/GlobalIdList.html&quot;&gt;Global
+								href="http://developer.ebay.com/DevZone/merchandising/docs/CallRef/Enums/GlobalIdList.html"&gt;Global
 								ID Values&lt;/a&gt; for a complete list
 								of the eBay global IDs.
 							</xsd:documentation>
@@ -728,10 +727,10 @@
 								global ID you specify must correspond to
 								an eBay site with a valid site ID (see
 								&lt;a
-								href=&quot;http://developer.ebay.com/DevZone/merchandising/docs/Concepts/SiteIDToGlobalID.html&quot;&gt;eBay
+								href="http://developer.ebay.com/DevZone/merchandising/docs/Concepts/SiteIDToGlobalID.html"&gt;eBay
 								Site ID to Global ID Mapping&lt;/a&gt;).
 								See &lt;a
-								href=&quot;http://developer.ebay.com/DevZone/merchandising/docs/CallRef/Enums/GlobalIdList.html&quot;&gt;Global
+								href="http://developer.ebay.com/DevZone/merchandising/docs/CallRef/Enums/GlobalIdList.html"&gt;Global
 								ID Values&lt;/a&gt; for a complete list
 								of the eBay global IDs.
 							</xsd:documentation>
@@ -757,10 +756,10 @@
 								global ID you specify must correspond to
 								an eBay site with a valid site ID (see
 								&lt;a
-								href=&quot;http://developer.ebay.com/DevZone/merchandising/docs/Concepts/SiteIDToGlobalID.html&quot;&gt;eBay
+								href="http://developer.ebay.com/DevZone/merchandising/docs/Concepts/SiteIDToGlobalID.html"&gt;eBay
 								Site ID to Global ID Mapping&lt;/a&gt;).
 								See &lt;a
-								href=&quot;http://developer.ebay.com/DevZone/merchandising/docs/CallRef/Enums/GlobalIdList.html&quot;&gt;Global
+								href="http://developer.ebay.com/DevZone/merchandising/docs/CallRef/Enums/GlobalIdList.html"&gt;Global
 								ID Values&lt;/a&gt; for a complete list
 								of the eBay global IDs.
 							</xsd:documentation>
@@ -787,10 +786,10 @@
 								global ID you specify must correspond to
 								an eBay site with a valid site ID (see
 								&lt;a
-								href=&quot;http://developer.ebay.com/DevZone/merchandising/docs/Concepts/SiteIDToGlobalID.html&quot;&gt;eBay
+								href="http://developer.ebay.com/DevZone/merchandising/docs/Concepts/SiteIDToGlobalID.html"&gt;eBay
 								Site ID to Global ID Mapping&lt;/a&gt;).
 								See &lt;a
-								href=&quot;http://developer.ebay.com/DevZone/merchandising/docs/CallRef/Enums/GlobalIdList.html&quot;&gt;Global
+								href="http://developer.ebay.com/DevZone/merchandising/docs/CallRef/Enums/GlobalIdList.html"&gt;Global
 								ID Values&lt;/a&gt; for a complete list
 								of the eBay global IDs.
 							</xsd:documentation>
@@ -892,8 +891,8 @@
 								The namespace from which to navigate
 								relationship and generate navigation
 								tree. Valid valures are:
-								&quot;FITS&quot; (fitment by
-								application), &quot;ISA&quot; (fitment
+								"FITS" (fitment by
+								application), "ISA" (fitment
 								by specification).
 							</xsd:documentation>
 						</xsd:annotation></xsd:element>
@@ -932,8 +931,8 @@
 							<xsd:documentation>
 								The namespace from which to discover the
 								relationsship for input N:V pairs. Valid
-								valures are: &quot;FITS&quot; (fitment
-								by application), &quot;ISA&quot;
+								valures are: "FITS" (fitment
+								by application), "ISA"
 								(fitment by specification).
 							</xsd:documentation>
 						</xsd:annotation></xsd:element>
@@ -1056,8 +1055,8 @@
                         	<xsd:documentation>
                         		The namespace from which the metadata
                         		version is requested. Valid valures are:
-                        		&quot;FITS&quot; (fitment by
-                        		application), &quot;ISA&quot; (fitment
+                        		"FITS" (fitment by
+                        		application), "ISA" (fitment
                         		by specification).
                         	</xsd:documentation>
                         </xsd:annotation>
@@ -1139,52 +1138,52 @@
 		</xsd:schema>
 	</wsdl:types>
 	<wsdl:message name="discoverRelationshipRequest">
-		<wsdl:part name="discoverRelationshipRequest" element="ins:discoverRelationship">
+		<wsdl:part element="ins:discoverRelationship" name="discoverRelationshipRequest">
 			<wsdl:documentation>The request for the discoverRealtionship API</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="navigateRelationshipResponse">
-		<wsdl:part name="navigateRelationshipResponse" element="ins:navigateRelationshipResponse">
+		<wsdl:part element="ins:navigateRelationshipResponse" name="navigateRelationshipResponse">
 			<wsdl:documentation>The response to the navigateRelationship API</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getFieldsRequest">
-		<wsdl:part name="getFieldsRequest" element="ins:getFields">
+		<wsdl:part element="ins:getFields" name="getFieldsRequest">
 			<wsdl:documentation>The request for the getFields API</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="navigateRelationshipRequest">
-		<wsdl:part name="navigateRelationshipRequest" element="ins:navigateRelationship">
+		<wsdl:part element="ins:navigateRelationship" name="navigateRelationshipRequest">
 			<wsdl:documentation>The request to the navigateRelationship API</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="validateRelationshipRequest">
-		<wsdl:part name="validateRelationshipRequest" element="ins:validateRelationship">
+		<wsdl:part element="ins:validateRelationship" name="validateRelationshipRequest">
 			<wsdl:documentation>The request for the validateRelationship API</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getFieldsResponse">
-		<wsdl:part name="getFieldsResponse" element="ins:getFieldsResponse">
+		<wsdl:part element="ins:getFieldsResponse" name="getFieldsResponse">
 			<wsdl:documentation>The response for the getFields API</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getMetadataVersionRequest">
-		<wsdl:part name="getMetadataVersionRequest" element="ins:getMetadataVersion">
+		<wsdl:part element="ins:getMetadataVersion" name="getMetadataVersionRequest">
 			<wsdl:documentation>The request to the getMetadataVersion API</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getMetadataVersionResponse">
-		<wsdl:part name="getMetadataVersionResponse" element="ins:getMetadataVersionResponse">
+		<wsdl:part element="ins:getMetadataVersionResponse" name="getMetadataVersionResponse">
 			<wsdl:documentation>The response to the getMetadataVersion API</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="discoverRelationshipResponse">
-		<wsdl:part name="discoverRelationshipResponse" element="ins:discoverRelationshipResponse">
+		<wsdl:part element="ins:discoverRelationshipResponse" name="discoverRelationshipResponse">
 			<wsdl:documentation>The response for the discoverRelationship API</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="validateRelationshipResponse">
-		<wsdl:part name="validateRelationshipResponse" element="ins:validateRelationshipResponse">
+		<wsdl:part element="ins:validateRelationshipResponse" name="validateRelationshipResponse">
 			<wsdl:documentation>The response for the validateRelationship API</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
@@ -1230,7 +1229,7 @@
 	<wsdl:binding name="MetadataDependencyServiceBindingSOAP" type="tns:MetadataDependencyServicePort">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getFields">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/services/getFields"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/getFields"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1239,7 +1238,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="validateRelationship">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/services/validateRelationship"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/validateRelationship"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1248,7 +1247,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="discoverRelationship">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/services/discoverRelationship"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/discoverRelationship"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1257,7 +1256,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="navigateRelationship">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/services/navigateRelationship"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/navigateRelationship"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1266,7 +1265,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getMetadataVersion">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/services/getMetadataVersion"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/getMetadataVersion"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -1278,7 +1277,7 @@
 	<wsdl:service name="MetadataDependencyService">
 		<wsdl:documentation>MDDS (Metadata Dependency Service) is a SOA Service which captures the dependencies between name value pairs from the metadata (e.g. catalog), and provides the service calls such as validation, discovery, and navigation.<Version>1.0.0</Version>
 		</wsdl:documentation>
-		<wsdl:port name="MetadataDependencyServiceMessage" binding="tns:MetadataDependencyServiceBindingSOAP">
+		<wsdl:port binding="tns:MetadataDependencyServiceBindingSOAP" name="MetadataDependencyServiceMessage">
 			<soap:address location="http://svcs.ebay.com/MetadataDependencyService"/>
 		</wsdl:port>
 	</wsdl:service>

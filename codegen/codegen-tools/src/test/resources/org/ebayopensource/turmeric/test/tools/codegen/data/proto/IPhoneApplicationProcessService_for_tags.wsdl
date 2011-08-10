@@ -1,12 +1,4 @@
-<?xml version="1.0"?>
-<definitions name="IPhoneApplicationProcessService"
-        targetNamespace="http://www.ebay.com/marketplace/mobileor/v1/services"
-        xmlns:tns="http://www.ebay.com/marketplace/mobileor/v1/services"
-        xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
-        xmlns="http://schemas.xmlsoap.org/wsdl/"
-        xmlns:xs="http://www.w3.org/2001/XMLSchema"
-        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-        >
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebayopensource.org/tumeric/mobileor/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="IPhoneApplicationProcessService" targetNamespace="http://www.ebayopensource.org/tumeric/mobileor/v1/services">
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      TYPE DEFINITION - List of services participating in this BPEL process 
@@ -15,17 +7,11 @@
      Schema type and us them as part of the message types.
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
     <types>  
-        <schema attributeFormDefault="unqualified" 
-                elementFormDefault="qualified" 
-                targetNamespace="http://www.ebay.com/marketplace/mobileor/v1/services" 
-                xmlns="http://www.w3.org/2001/XMLSchema"
-                >
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/mobileor/v1/services">
 			<xs:complexType abstract="true" name="BaseResponse">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Base response container for all service operations. Contains error information
@@ -46,7 +32,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="errorMessage" type="tns:ErrorMessage" minOccurs="0">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that occurred when eBay processed the
@@ -60,7 +46,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -68,9 +54,7 @@
 			<xs:complexType name="ErrorMessage">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						ErrorMessage to indicate any Error/Warning occured as part of service call.
@@ -79,7 +63,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
@@ -100,9 +84,7 @@
 			<xs:complexType name="ErrorData">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						This represents error details.
@@ -211,7 +193,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="subdomain" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain upon which the error occurred. 
@@ -239,7 +221,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="exceptionId" type="xs:token" minOccurs="0">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for an exception associated with an error.
@@ -252,7 +234,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="parameter" type="tns:ErrorParameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return one or more variables that contain
@@ -274,9 +256,7 @@
 			<xs:complexType name="ErrorParameter">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Contextual information associated with an error.
@@ -307,9 +287,7 @@
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Indicates whether the error is a severe error (causing the request to fail)
@@ -355,9 +333,7 @@
 			<xs:simpleType name="ErrorSeverity">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Indicates whether the error is a severe error (causing the request to fail)
@@ -391,9 +367,7 @@
 			<xs:simpleType name="ErrorCategory">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 							There are three categories of error: request errors, application errors,
@@ -447,21 +421,21 @@
 						This is the base class for request container for all
 						service operations.
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"></xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ExtensionType">
 				<xs:annotation>
 					<xs:documentation>ExperimentationExecutionService uses extension id 2(Request Opt-in Cookie) and 3(Response Tracking Data) </xs:documentation>
 					
-				<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger"></xs:element>
-					<xs:element name="version" type="xs:string"></xs:element>
-					<xs:element name="contentType" type="xs:string"></xs:element>
-					<xs:element name="value" type="xs:string"></xs:element>
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
 				</xs:sequence>
 			</xs:complexType>
@@ -632,21 +606,21 @@
 	
 	<xs:complexType name="FeedbackHistoryType">
 		<xs:sequence>
-			<xs:element name="periodsInDays" type="int" minOccurs="0" maxOccurs="1"></xs:element>
-			<xs:element name="uniqueNegativeFeedbackCount" type="xs:long" minOccurs="0">
+			<xs:element maxOccurs="1" minOccurs="0" name="periodsInDays" type="int"/>
+			<xs:element minOccurs="0" name="uniqueNegativeFeedbackCount" type="xs:long">
 
 			</xs:element>
-			<xs:element name="uniquePositiveFeedbackCount" type="xs:long" minOccurs="0">
+			<xs:element minOccurs="0" name="uniquePositiveFeedbackCount" type="xs:long">
 
 			</xs:element>
-			<xs:element name="uniqueNeutralFeedbackCount" type="xs:long" minOccurs="0">
+			<xs:element minOccurs="0" name="uniqueNeutralFeedbackCount" type="xs:long">
 	
 			</xs:element>
-			<xs:element name="averageRatingDetails" type="tns:FeedbackRatingDetailCodeType" minOccurs="0" >
+			<xs:element minOccurs="0" name="averageRatingDetails" type="tns:FeedbackRatingDetailCodeType">
 				
 			</xs:element>
-			<xs:element name="rating" type="xs:double" minOccurs="0"></xs:element>
-			<xs:element name="count" type="xs:long" minOccurs="0"/>
+			<xs:element minOccurs="0" name="rating" type="xs:double"/>
+			<xs:element minOccurs="0" name="count" type="xs:long"/>
 		</xs:sequence>
 	</xs:complexType>
 	    <xs:simpleType name="UserIDType">
@@ -663,23 +637,23 @@
              
 			<complexType name="UserInfo">
 				<sequence>
-                    <element name="userID" type="tns:UserIDType" />
-                    <element name="email" type="string" />
-                    <element name="site" type="xs:token" />
-                    <element name="postalCode" type="string" />
-                    <element name="country" type="xs:token" />
+                    <element name="userID" type="tns:UserIDType"/>
+                    <element name="email" type="string"/>
+                    <element name="site" type="xs:token"/>
+                    <element name="postalCode" type="string"/>
+                    <element name="country" type="xs:token"/>
                 </sequence>
 			</complexType>
 			
 			<complexType name="UserProfile">
 				<sequence>
-                    <element name="userID" type="string" />
-                    <element name="myWorldSmallImage" type="string" />
-                    <element name="feedbackScore" type="int" />
-                    <element name="feedbackRatingStar" type="tns:FeedbackRatingStarCodeType" />
-                    <element name="registrationDate" type="dateTime" />
-                    <element name="positiveFeedbackPercent" type="float" />
-                    <element name="feedbackHistory" type="tns:FeedbackHistoryType" />
+                    <element name="userID" type="string"/>
+                    <element name="myWorldSmallImage" type="string"/>
+                    <element name="feedbackScore" type="int"/>
+                    <element name="feedbackRatingStar" type="tns:FeedbackRatingStarCodeType"/>
+                    <element name="registrationDate" type="dateTime"/>
+                    <element name="positiveFeedbackPercent" type="float"/>
+                    <element name="feedbackHistory" type="tns:FeedbackHistoryType"/>
                 </sequence>
 			</complexType>
 			
@@ -696,41 +670,41 @@
 		
 	<xs:complexType name="BuyingSummaryType">
 		<xs:sequence>
-			<xs:element name="biddingCount" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="biddingCount" type="xs:int">
 		
 			</xs:element>
-			<xs:element name="winningCount" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="winningCount" type="xs:int">
 				
 			</xs:element>
-			<xs:element name="totalWinningCost" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="totalWinningCost" type="tns:AmountType">
 				
 			</xs:element>
-			<xs:element name="wonCount" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="wonCount" type="xs:int">
 				
 			</xs:element>
-			<xs:element name="totalWonCost" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="totalWonCost" type="tns:AmountType">
 				
 			</xs:element>
-			<xs:element name="wonDurationInDays" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="wonDurationInDays" type="xs:int">
 			
 			</xs:element>
-			<xs:element name="bestOfferCount" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="bestOfferCount" type="xs:int">
 			  
 			</xs:element>
-			<xs:element name="outBid" type="xs:int" minOccurs="0"></xs:element>
-			<xs:element name="watchingCount" type="xs:int" minOccurs="0"></xs:element>
+			<xs:element minOccurs="0" name="outBid" type="xs:int"/>
+			<xs:element minOccurs="0" name="watchingCount" type="xs:int"/>
 		</xs:sequence>
 	</xs:complexType>
 	
 	<xs:complexType name="SellingSummaryType">
 		<xs:sequence>
-			<xs:element name="activeCount" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="activeCount" type="xs:int">
 			</xs:element>
-			<xs:element name="soldCount" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="soldCount" type="xs:int">
 			</xs:element>
-			<xs:element name="unSoldCount" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="unSoldCount" type="xs:int">
 			</xs:element>
-			<xs:element name="scheduledCount" type="xs:int" minOccurs="0"></xs:element>
+			<xs:element minOccurs="0" name="scheduledCount" type="xs:int"/>
 		</xs:sequence>
 	</xs:complexType>
 	  
@@ -834,9 +808,9 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="eBayPaymentStatus" type="tns:PaymentStatusCodeType" minOccurs="0">
+			<xs:element minOccurs="0" name="eBayPaymentStatus" type="tns:PaymentStatusCodeType">
 			</xs:element>
-			<xs:element name="checkoutStatus" type="tns:CheckoutStatusCodeType" minOccurs="0">
+			<xs:element minOccurs="0" name="checkoutStatus" type="tns:CheckoutStatusCodeType">
 			</xs:element>	
 		</xs:sequence>
 	</xs:complexType>
@@ -1062,20 +1036,20 @@
 
 		<complexType name="FavoriteSearchesType">
            	<sequence>
-                  <element name="FavoriteSearch" type="tns:FavoriteSearchType" minOccurs="0" maxOccurs="unbounded">
+                  <element maxOccurs="unbounded" minOccurs="0" name="FavoriteSearch" type="tns:FavoriteSearchType">
                   </element>
               </sequence>
           </complexType>
           
               <complexType name="FavoriteSearchType">
                  <sequence>
-                     <element name="searchName" type="string" />
-                     <element name="queryKeywords" type="string" />
+                     <element name="searchName" type="string"/>
+                     <element name="queryKeywords" type="string"/>
                  </sequence>
            	 </complexType>     
 
     		
-            <element name="getHomePageRequest" type="tns:GetHomePageRequest"></element>
+            <element name="getHomePageRequest" type="tns:GetHomePageRequest"/>
                 <complexType name="GetHomePageRequest">
                     <xs:complexContent>
 						<xs:extension base="tns:BaseRequest">
@@ -1083,18 +1057,18 @@
 					</xs:complexContent>
                 </complexType>
                   
-            <element name="getHomePageResponse" type="tns:GetHomePageResponse"></element>
+            <element name="getHomePageResponse" type="tns:GetHomePageResponse"/>
             <complexType name="GetHomePageResponse">
                <xs:complexContent>
 				<xs:extension base="tns:BaseResponse">
                  <sequence>
-			<element name="favoriteSearchImageURL" type="string" minOccurs="0" maxOccurs="unbounded"/>
+			<element maxOccurs="unbounded" minOccurs="0" name="favoriteSearchImageURL" type="string"/>
                      <element name="messageSummary" type="string"/>
                      </sequence>
                      </xs:extension>
                      </xs:complexContent>
                 </complexType>
-                     <element name="userInfo" type="tns:UserInfo" />
+                     <element name="userInfo" type="tns:UserInfo"/>
                      <element name="userProfile" type="tns:UserProfile"/>
             <element name="buyingSummary" type="tns:BuyingSummaryType"/>
             
@@ -1111,7 +1085,7 @@
             <element name="ScheduledList" type="tns:PaginatedItemArrayType" minOccurs="0"/>
             -->
             <element name="sellingSummary" type="tns:SellingSummaryType"/>            
-           <element name="getSellingStatusRequest" type="tns:GetSellingStatusRequest"></element>
+           <element name="getSellingStatusRequest" type="tns:GetSellingStatusRequest"/>
                  
              <complexType name="GetSellingStatusRequest">
                     <xs:complexContent>
@@ -1127,24 +1101,24 @@
 					</xs:complexContent>
                 </complexType>
                   
-            <element name="getSellingStatusResponse" type="tns:GetSellingStatusResponse"></element>
+            <element name="getSellingStatusResponse" type="tns:GetSellingStatusResponse"/>
 	 <complexType name="GetSellingStatusResponse">
                   <xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
                     <sequence>
-						<element name="activeList" type="tns:PaginatedItemArrayType" minOccurs="0"/>
-			            <element name="soldList" type="tns:PaginatedOrderTransactionArrayType" minOccurs="0"/>
-			            <element name="unsoldList" type="tns:PaginatedItemArrayType" minOccurs="0"/>
-			            <element name="scheduledList" type="tns:PaginatedItemArrayType" minOccurs="0"/>
+						<element minOccurs="0" name="activeList" type="tns:PaginatedItemArrayType"/>
+			            <element minOccurs="0" name="soldList" type="tns:PaginatedOrderTransactionArrayType"/>
+			            <element minOccurs="0" name="unsoldList" type="tns:PaginatedItemArrayType"/>
+			            <element minOccurs="0" name="scheduledList" type="tns:PaginatedItemArrayType"/>
 			        </sequence>
 			        </xs:extension>
 			      </xs:complexContent>
 			     </complexType>	  
 	<xs:complexType name="PaginatedItemArrayType">
 		<xs:sequence>
-			<xs:element name="item" type="tns:ItemType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:ItemType">
 			</xs:element>
-			<xs:element name="paginationOutput" type="tns:PaginationOutput" minOccurs="0">
+			<xs:element minOccurs="0" name="paginationOutput" type="tns:PaginationOutput">
 			</xs:element>
 
 		</xs:sequence>
@@ -1152,8 +1126,8 @@
 	
 	<xs:complexType name="PaginatedOrderTransactionArrayType">
 		<xs:sequence>
-			<xs:element name="transaction" type="tns:TransactionType"></xs:element>
-			<xs:element name="paginationOutput" type="tns:PaginationOutput" minOccurs="0">
+			<xs:element name="transaction" type="tns:TransactionType"/>
+			<xs:element minOccurs="0" name="paginationOutput" type="tns:PaginationOutput">
 			</xs:element>
 
 		</xs:sequence>
@@ -1162,21 +1136,21 @@
 
 	 <xs:complexType name="ItemType">
 		<xs:sequence>
-			<xs:element name="buyItNowPrice" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="buyItNowPrice" type="tns:AmountType">
 			</xs:element>
-			<xs:element name="itemID" type="tns:ItemIDType" minOccurs="0">
+			<xs:element minOccurs="0" name="itemID" type="tns:ItemIDType">
 			</xs:element>
-			<xs:element name="listingType" type="tns:ListingTypeCodeType" minOccurs="0">
+			<xs:element minOccurs="0" name="listingType" type="tns:ListingTypeCodeType">
 			</xs:element>
-			<xs:element name="site" type="xs:token" minOccurs="0">
+			<xs:element minOccurs="0" name="site" type="xs:token">
 			</xs:element>
-			<xs:element name="startPrice" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="startPrice" type="tns:AmountType">
 			</xs:element>
-			<xs:element name="timeLeft" type="xs:duration" minOccurs="0">
+			<xs:element minOccurs="0" name="timeLeft" type="xs:duration">
 			</xs:element>
-			<xs:element name="title" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="title" type="xs:string">
 			</xs:element>
-			<xs:element name="galleryURL" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="galleryURL" type="xs:string">
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -1184,23 +1158,23 @@
 
 	<xs:complexType name="TransactionType">
 		<xs:sequence>	
-			<xs:element name="createDate" type="xs:dateTime" minOccurs="0">
+			<xs:element minOccurs="0" name="createDate" type="xs:dateTime">
 			</xs:element>
-			<xs:element name="item" type="tns:ItemType" minOccurs="0">
+			<xs:element minOccurs="0" name="item" type="tns:ItemType">
 			</xs:element>
-			<xs:element name="buyerPaidStatus" type="tns:PaidStatusCodeType" minOccurs="0">
+			<xs:element minOccurs="0" name="buyerPaidStatus" type="tns:PaidStatusCodeType">
 			</xs:element>
-			<xs:element name="totalPrice" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="totalPrice" type="tns:AmountType">
 			</xs:element>
-			<xs:element name="transactionID" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="transactionID" type="xs:string">
 			</xs:element>
-			<xs:element name="quantityPurchased" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="quantityPurchased" type="xs:int">
 			</xs:element>
-			<xs:element name="feedbackReceived" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="feedbackReceived" type="xs:int">
 			</xs:element>
-			<xs:element name="soldPrice" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="soldPrice" type="tns:AmountType">
 			</xs:element>
-			<xs:element name="shippingCost" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="shippingCost" type="tns:AmountType">
 			</xs:element>
 
 
@@ -1282,66 +1256,52 @@
         
             <complexType name="ViewItemSellerType">
             	<sequence>
-            		<element name="userID" type="string" maxOccurs="1" minOccurs="1"></element>
-            		<element name="feedbackRatingStar"
-            			type="tns:FeedbackRatingStarCodeType" maxOccurs="1"
-            			minOccurs="1">
+            		<element maxOccurs="1" minOccurs="1" name="userID" type="string"/>
+            		<element maxOccurs="1" minOccurs="1" name="feedbackRatingStar" type="tns:FeedbackRatingStarCodeType">
             		</element>
-            		<element name="feedbackScore" type="int"
-            			maxOccurs="1" minOccurs="1">
+            		<element maxOccurs="1" minOccurs="1" name="feedbackScore" type="int">
             		</element>
-            		<element name="positiveFeedbackPercent" type="float"
-            			maxOccurs="1" minOccurs="1">
+            		<element maxOccurs="1" minOccurs="1" name="positiveFeedbackPercent" type="float">
             		</element>
             	</sequence>
             </complexType>
         
             <complexType name="ViewItemHighBidderType">
             	<sequence>
-            		<element name="userID" type="string" maxOccurs="1"
-            			minOccurs="0">
+            		<element maxOccurs="1" minOccurs="0" name="userID" type="string">
             		</element>
-            		<element name="feedbackPrivate" type="boolean"
-            			maxOccurs="1" minOccurs="0">
+            		<element maxOccurs="1" minOccurs="0" name="feedbackPrivate" type="boolean">
             		</element>
-            		<element name="feedbackScore" type="int"
-            			maxOccurs="1" minOccurs="0">
+            		<element maxOccurs="1" minOccurs="0" name="feedbackScore" type="int">
             		</element>
             	</sequence>
             </complexType>
         
             <complexType name="ViewItemShippingCostSummaryType">
             	<sequence>
-            		<element name="shippingServiceName" type="string"
-            			maxOccurs="1" minOccurs="1">
+            		<element maxOccurs="1" minOccurs="1" name="shippingServiceName" type="string">
             		</element>
-            		<element name="shippingServiceCost"
-            			type="tns:AmountType" maxOccurs="1" minOccurs="1">
+            		<element maxOccurs="1" minOccurs="1" name="shippingServiceCost" type="tns:AmountType">
             		</element>
             	</sequence>
             </complexType>
         
             <complexType name="ViewItemBuyerType">
             	<sequence>
-            		<element name="userID" type="string" maxOccurs="1"
-            			minOccurs="0">
+            		<element maxOccurs="1" minOccurs="0" name="userID" type="string">
             		</element>
-            		<element name="feedbackPrivate" type="boolean"
-            			maxOccurs="1" minOccurs="0">
+            		<element maxOccurs="1" minOccurs="0" name="feedbackPrivate" type="boolean">
             		</element>
-            		<element name="feedbackScore" type="int"
-            			maxOccurs="1" minOccurs="0">
+            		<element maxOccurs="1" minOccurs="0" name="feedbackScore" type="int">
             		</element>
             	</sequence>
             </complexType>
         
             <complexType name="ViewItemPaymentDetailsType">
             	<sequence>
-            		<element name="daysToFullPayment" type="int"
-            			maxOccurs="1" minOccurs="0">
+            		<element maxOccurs="1" minOccurs="0" name="daysToFullPayment" type="int">
             		</element>
-            		<element name="hoursToDeposit" type="int"
-            			maxOccurs="1" minOccurs="0">
+            		<element maxOccurs="1" minOccurs="0" name="hoursToDeposit" type="int">
             		</element>
             	</sequence>
             </complexType>
@@ -1354,19 +1314,19 @@
      part of the port type defintions
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
     <message name="getHomePageRequest">
-        <part name="payload" element="tns:getHomePageRequest"/>
+        <part element="tns:getHomePageRequest" name="payload"/>
     </message>
     
     <message name="getHomePageResponse">
-        <part name="payload" element="tns:getHomePageResponse"/>
+        <part element="tns:getHomePageResponse" name="payload"/>
     </message>
     
     <message name="getSellingStatusRequest">
-        <part name="payload" element="tns:getSellingStatusRequest"/>
+        <part element="tns:getSellingStatusRequest" name="payload"/>
     </message>
     
     <message name="getSellingStatusResponse">
-        <part name="payload" element="tns:getSellingStatusResponse"/>
+        <part element="tns:getSellingStatusResponse" name="payload"/>
     </message>
     
 
@@ -1392,26 +1352,25 @@
 
 
    <binding name="IPhoneApplicationProcessServiceSOAPBinding" type="tns:IPhoneApplicationProcessServicePort">
-    	<soap:binding style="document"
-    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
  
     	<operation name="getHomePage">
-    		<soap:operation soapAction="http://localhost:8080/ode/process" />
+    		<soap:operation soapAction="http://localhost:8080/ode/process"/>
     		<input>
-    			<soap:body use="literal" />
+    			<soap:body use="literal"/>
     		</input>
     		<output>
-    			<soap:body use="literal" />
+    			<soap:body use="literal"/>
     		</output>
     	</operation>
     	
     	<operation name="getSellingStatus">
-    		<soap:operation soapAction="http://localhost:8080/ode/process" />
+    		<soap:operation soapAction="http://localhost:8080/ode/process"/>
     		<input>
-    			<soap:body use="literal" />
+    			<soap:body use="literal"/>
     		</input>
     		<output>
-    			<soap:body use="literal" />
+    			<soap:body use="literal"/>
     		</output>
     	</operation>
     </binding>
@@ -1425,8 +1384,8 @@
     </plnk:partnerLinkType>   
     
      <service name="IPhoneApplicationProcessService">
-    	<port name="IPhoneApplicationProcessServiceSOAPPort" binding="tns:IPhoneApplicationProcessServiceSOAPBinding">
-    		<soap:address location="https://svcs.ebay.com/services/mobileor/v1/IPhoneApplicationProcessService" />
+    	<port binding="tns:IPhoneApplicationProcessServiceSOAPBinding" name="IPhoneApplicationProcessServiceSOAPPort">
+    		<soap:address location="https://svcs.ebay.com/services/mobileor/v1/IPhoneApplicationProcessService"/>
     	</port>
     </service>
 

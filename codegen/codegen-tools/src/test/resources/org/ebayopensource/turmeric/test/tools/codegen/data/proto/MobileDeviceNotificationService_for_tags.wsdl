@@ -1,20 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="MobileDeviceNotificationService"
-	targetNamespace="http://www.ebay.com/marketplace/mobile/v1/services"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:tns="http://www.ebay.com/marketplace/mobile/v1/services"
-	xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/mobile/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MobileDeviceNotificationService" targetNamespace="http://www.ebayopensource.org/tumeric/mobile/v1/services">
 
 	<wsdl:types>
-		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			attributeFormDefault="unqualified" elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/mobile/v1/services"
-			xmlns:tns="http://www.ebay.com/marketplace/mobile/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/mobile/v1/services">
 
 			<xs:complexType abstract="true" name="BaseRequest">
 				<xs:annotation>
@@ -24,8 +11,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="extension"
-						type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ExtensionType">
@@ -34,23 +20,20 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:complexType abstract="true"
-				name="BaseResponse">
+			<xs:complexType abstract="true" name="BaseResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -66,14 +49,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -82,19 +64,18 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
@@ -102,21 +83,19 @@
 						</xs:annotation>
 
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="extension"
-						type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 
 				</xs:sequence>
 			</xs:complexType>
@@ -132,15 +111,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -169,7 +147,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -191,14 +169,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates whether the error caused the
@@ -237,14 +214,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 						<xs:annotation>
 							<xs:documentation>
 								There are three categories of errors:
@@ -253,7 +229,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -267,14 +243,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain upon which the
@@ -290,14 +265,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for an exception
@@ -305,14 +279,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -323,7 +296,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -350,7 +323,7 @@
 								</xs:documentation>
 								<xs:appinfo>
 									<CallInfo>
-										<AllCalls />
+										<AllCalls/>
 										<Returned>
 											Conditionally
 										</Returned>
@@ -526,7 +499,7 @@
 						Examples: en-US, fr-CA, or de.
 					</xs:documentation>
 				</xs:annotation>
-				<xs:restriction base="xs:string"></xs:restriction>
+				<xs:restriction base="xs:string"/>
 			</xs:simpleType>
 
 			<xs:element name="setDeviceNotificationPreferences">
@@ -535,8 +508,7 @@
 						<xs:extension base="tns:BaseRequest">
 							<xs:sequence>
 
-								<xs:element name="userid"
-									type="xs:string">
+								<xs:element name="userid" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
 											The userid of the user for
@@ -545,8 +517,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="deviceHandle"
-									type="tns:DeviceHandleType">
+								<xs:element name="deviceHandle" type="tns:DeviceHandleType">
 									<xs:annotation>
 										<xs:documentation>
 											the token and type of token
@@ -556,8 +527,7 @@
 									</xs:annotation>
 								</xs:element>
 
-								<xs:element name="description"
-									type="xs:string" maxOccurs="1" minOccurs="0">
+								<xs:element maxOccurs="1" minOccurs="0" name="description" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
 											A human readable identification of the device that 
@@ -566,8 +536,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="language"
-									type="tns:EventMessageLanguageTag">
+								<xs:element name="language" type="tns:EventMessageLanguageTag">
 									<xs:annotation>
 										<xs:documentation>
 											A tag describing the
@@ -583,8 +552,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="preferences"
-									type="tns:NotificationPreferencesType">
+								<xs:element name="preferences" type="tns:NotificationPreferencesType">
 									<xs:annotation>
 										<xs:documentation>
 											The preferences to be set
@@ -605,11 +573,10 @@
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element
-				name="setDeviceNotificationPreferencesResponse">
+			<xs:element name="setDeviceNotificationPreferencesResponse">
 				<xs:complexType>
 					<xs:complexContent>
-						<xs:extension base="tns:BaseResponse" />
+						<xs:extension base="tns:BaseResponse"/>
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
@@ -618,8 +585,7 @@
 					<xs:complexContent>
 						<xs:extension base="tns:BaseRequest">
 							<xs:sequence>
-								<xs:element name="userid"
-									type="xs:string">
+								<xs:element name="userid" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
 											The userid for whom device
@@ -628,8 +594,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="deviceHandle"
-									type="tns:DeviceHandleType">
+								<xs:element name="deviceHandle" type="tns:DeviceHandleType">
 									<xs:annotation>
 										<xs:documentation>
 											This token identifies the
@@ -643,15 +608,13 @@
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element
-				name="getDeviceNotificationPreferencesResponse">
+			<xs:element name="getDeviceNotificationPreferencesResponse">
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:extension base="tns:BaseResponse">
 							<xs:sequence>
 
-								<xs:element name="active"
-									type="xs:boolean">
+								<xs:element name="active" type="xs:boolean">
 									<xs:annotation>
 										<xs:documentation>
 											Indicates whether or not the
@@ -669,8 +632,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="description"
-									type="xs:string" maxOccurs="1" minOccurs="0">
+								<xs:element maxOccurs="1" minOccurs="0" name="description" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
 											A human readable identification of the device that 
@@ -679,8 +641,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="language"
-									type="tns:EventMessageLanguageTag">
+								<xs:element name="language" type="tns:EventMessageLanguageTag">
 									<xs:annotation>
 										<xs:documentation>
 											A tag describing the
@@ -695,9 +656,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="preferences"
-									type="tns:NotificationPreferencesType" minOccurs="0"
-									maxOccurs="1">
+								<xs:element maxOccurs="1" minOccurs="0" name="preferences" type="tns:NotificationPreferencesType">
 									<xs:annotation>
 										<xs:documentation>
 											The device notification
@@ -715,15 +674,14 @@
 			</xs:element>
 			<xs:element name="activateUserOnDevice">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:extension base="tns:BaseRequest">
 							<xs:sequence>
 
-								<xs:element name="userid"
-									type="xs:string">
+								<xs:element name="userid" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
 											The userid of the user who
@@ -734,8 +692,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="deviceHandle"
-									type="tns:DeviceHandleType">
+								<xs:element name="deviceHandle" type="tns:DeviceHandleType">
 									<xs:annotation>
 										<xs:documentation>
 											The device token identifying
@@ -745,8 +702,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="description"
-									type="xs:string" maxOccurs="1" minOccurs="0">
+								<xs:element maxOccurs="1" minOccurs="0" name="description" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
 											A human readable identification of the device that 
@@ -755,8 +711,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="language"
-									type="tns:EventMessageLanguageTag">
+								<xs:element name="language" type="tns:EventMessageLanguageTag">
 									<xs:annotation>
 										<xs:documentation>
 											A tag describing the
@@ -780,7 +735,7 @@
 			<xs:element name="activateUserOnDeviceResponse">
 				<xs:complexType>
 					<xs:complexContent>
-						<xs:extension base="tns:BaseResponse" />
+						<xs:extension base="tns:BaseResponse"/>
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
@@ -790,8 +745,7 @@
 						<xs:extension base="tns:BaseRequest">
 							<xs:sequence>
 
-								<xs:element name="userid"
-									type="xs:string">
+								<xs:element name="userid" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
 											The userid of the user for
@@ -801,8 +755,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="deviceHandle"
-									type="tns:DeviceHandleType">
+								<xs:element name="deviceHandle" type="tns:DeviceHandleType">
 									<xs:annotation>
 										<xs:documentation>
 											The device token identifying
@@ -812,8 +765,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="description"
-									type="xs:string" maxOccurs="1" minOccurs="0">
+								<xs:element maxOccurs="1" minOccurs="0" name="description" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
 											A human readable identification of the device that 
@@ -830,7 +782,7 @@
 			<xs:element name="deactivateUserOnDeviceResponse">
 				<xs:complexType>
 					<xs:complexContent>
-						<xs:extension base="tns:BaseResponse" />
+						<xs:extension base="tns:BaseResponse"/>
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
@@ -840,8 +792,7 @@
 						<xs:extension base="tns:BaseRequest">
 							<xs:sequence>
 
-								<xs:element name="userid"
-									type="xs:string">
+								<xs:element name="userid" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
 											The userid of the user for
@@ -855,11 +806,10 @@
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element
-				name="suspendDeviceNotificationsForUserResponse">
+			<xs:element name="suspendDeviceNotificationsForUserResponse">
 				<xs:complexType>
 					<xs:complexContent>
-						<xs:extension base="tns:BaseResponse" />
+						<xs:extension base="tns:BaseResponse"/>
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
@@ -868,9 +818,7 @@
 					<xs:complexContent>
 						<xs:extension base="tns:BaseRequest">
 							<xs:sequence>
-								<xs:element name="inactiveApnsDeviceHandle"
-									type="tns:InactiveApnsDeviceTokenType" maxOccurs="unbounded"
-									minOccurs="1">
+								<xs:element maxOccurs="unbounded" minOccurs="1" name="inactiveApnsDeviceHandle" type="tns:InactiveApnsDeviceTokenType">
 									<xs:annotation>
 										<xs:documentation>
 											The device token identifying
@@ -888,7 +836,7 @@
 			<xs:element name="suspendNotificationsForDeviceResponse">
 				<xs:complexType>
 					<xs:complexContent>
-						<xs:extension base="tns:BaseResponse" />
+						<xs:extension base="tns:BaseResponse"/>
 					</xs:complexContent>
 				</xs:complexType>
 			</xs:element>
@@ -898,8 +846,7 @@
 					<xs:complexContent>
 						<xs:extension base="tns:BaseRequest">
 							<xs:sequence>
-								<xs:element name="userid"
-									type="xs:string">
+								<xs:element name="userid" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
 											the userid of the user
@@ -919,9 +866,7 @@
 						<xs:extension base="tns:BaseResponse">
 							<xs:sequence>
 
-								<xs:element name="userDeviceDetails"
-									type="tns:UserDeviceDetailsType" maxOccurs="unbounded"
-									minOccurs="0">
+								<xs:element maxOccurs="unbounded" minOccurs="0" name="userDeviceDetails" type="tns:UserDeviceDetailsType">
 									<xs:annotation>
 										<xs:documentation>
 											a list of device binding
@@ -936,7 +881,7 @@
 			</xs:element>
 			
 			<xs:complexType name="InactiveApnsDeviceTokenType">
-				<xs:annotation></xs:annotation>
+				<xs:annotation/>
 				<xs:sequence>
 					<xs:element name="deviceToken" type="xs:token">
 						<xs:annotation>
@@ -958,11 +903,9 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="deviceType"
-						type="tns:DeviceTokenType">
+					<xs:element name="deviceType" type="tns:DeviceTokenType">
 					</xs:element>
-					<xs:element name="clientID"
-						type="tns:ClientAppType" maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="clientID" type="tns:ClientAppType">
 						<xs:annotation>
 							<xs:documentation>
 								An ID representing the application
@@ -975,7 +918,7 @@
 			</xs:complexType>
 			
 			<xs:complexType name="DeviceHandleType">
-				<xs:annotation></xs:annotation>
+				<xs:annotation/>
 				<xs:sequence>
 					<xs:element name="deviceToken" type="xs:token">
 						<xs:annotation>
@@ -986,8 +929,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="deviceType"
-						type="tns:DeviceTokenType">
+					<xs:element name="deviceType" type="tns:DeviceTokenType">
 						<xs:annotation>
 							<xs:documentation>
 								identifies the type of device token,
@@ -995,7 +937,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="clientID" type="tns:ClientAppType" maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="clientID" type="tns:ClientAppType">
 
 					</xs:element>
 				</xs:sequence>
@@ -1046,16 +988,14 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="deviceHandle"
-						type="tns:DeviceHandleType">
+					<xs:element name="deviceHandle" type="tns:DeviceHandleType">
 						<xs:annotation>
 							<xs:documentation>
 								identifies the device
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="1"
-						name="description" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="description" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								A human readable identification of the device that 
@@ -1064,8 +1004,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="lastModifiedUserid"
-						type="xs:string">
+					<xs:element name="lastModifiedUserid" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								userid of the last user to modify the
@@ -1074,8 +1013,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="lastModifiedDate"
-						type="xs:dateTime">
+					<xs:element name="lastModifiedDate" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								datetime of the last modification of the
@@ -1084,8 +1022,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="creationDate"
-						type="xs:dateTime">
+					<xs:element name="creationDate" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								datetime when this binding was first
@@ -1103,8 +1040,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="notificationEventTypeCode"
-						type="xs:token">
+					<xs:element name="notificationEventTypeCode" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								identifies the type of notification,
@@ -1112,8 +1048,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="unbounded"
-						name="properties" type="tns:NotificationEventPropertyType">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="properties" type="tns:NotificationEventPropertyType">
 						<xs:annotation>
 							<xs:documentation>
 								name/value pairs of properties specific
@@ -1122,8 +1057,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="active" type="xs:boolean"
-						maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="active" type="xs:boolean">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -1135,16 +1069,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="1" maxOccurs="1" name="name"
-						type="xs:token">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								the name portion of the name/value pair
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="1" name="value"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="value" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								the value portion of a name/value pair
@@ -1162,8 +1094,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded"
-						name="preference" type="tns:EventNotificationPreferenceType">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="preference" type="tns:EventNotificationPreferenceType">
 						<xs:annotation>
 							<xs:documentation>
 								an individual event preference
@@ -1211,76 +1142,63 @@
 	</wsdl:types>
 
 	<wsdl:message name="setDeviceNotificationPreferencesRequest">
-		<wsdl:part name="setDeviceNotificationPreferences"
-			element="tns:setDeviceNotificationPreferences">
+		<wsdl:part element="tns:setDeviceNotificationPreferences" name="setDeviceNotificationPreferences">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="setDeviceNotificationPreferencesResponse">
 
-		<wsdl:part name="setDeviceNotificationPreferencesResponse"
-			element="tns:setDeviceNotificationPreferencesResponse">
+		<wsdl:part element="tns:setDeviceNotificationPreferencesResponse" name="setDeviceNotificationPreferencesResponse">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getDeviceNotificationPreferencesRequest">
-		<wsdl:part name="getDeviceNotificationPreferences"
-			element="tns:getDeviceNotificationPreferences">
+		<wsdl:part element="tns:getDeviceNotificationPreferences" name="getDeviceNotificationPreferences">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getDeviceNotificationPreferencesResponse">
-		<wsdl:part name="getDeviceNotificationPreferencesResponse"
-			element="tns:getDeviceNotificationPreferencesResponse">
+		<wsdl:part element="tns:getDeviceNotificationPreferencesResponse" name="getDeviceNotificationPreferencesResponse">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="activateUserOnDeviceRequest">
-		<wsdl:part name="activateUserOnDevice"
-			element="tns:activateUserOnDevice">
+		<wsdl:part element="tns:activateUserOnDevice" name="activateUserOnDevice">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="activateUserOnDeviceResponse">
 
-		<wsdl:part name="activateUserOnDeviceResponse"
-			element="tns:activateUserOnDeviceResponse">
+		<wsdl:part element="tns:activateUserOnDeviceResponse" name="activateUserOnDeviceResponse">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="deactivateUserOnDeviceRequest">
-		<wsdl:part name="deactivateUserOnDevice"
-			element="tns:deactivateUserOnDevice">
+		<wsdl:part element="tns:deactivateUserOnDevice" name="deactivateUserOnDevice">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="deactivateUserOnDeviceResponse">
 
-		<wsdl:part name="deactivateUserOnDeviceResponse"
-			element="tns:deactivateUserOnDeviceResponse">
+		<wsdl:part element="tns:deactivateUserOnDeviceResponse" name="deactivateUserOnDeviceResponse">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="suspendDeviceNotificationsForUserRequest">
-		<wsdl:part name="suspendDeviceNotificationsForUser"
-			element="tns:suspendDeviceNotificationsForUser">
+		<wsdl:part element="tns:suspendDeviceNotificationsForUser" name="suspendDeviceNotificationsForUser">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="suspendDeviceNotificationsForUserResponse">
 
-		<wsdl:part name="suspendDeviceNotificationsForUserResponse"
-			element="tns:suspendDeviceNotificationsForUserResponse">
+		<wsdl:part element="tns:suspendDeviceNotificationsForUserResponse" name="suspendDeviceNotificationsForUserResponse">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="suspendNotificationsForDeviceRequest">
-		<wsdl:part name="suspendNotificationsForDevice"
-			element="tns:suspendNotificationsForDevice">
+		<wsdl:part element="tns:suspendNotificationsForDevice" name="suspendNotificationsForDevice">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="suspendNotificationsForDeviceResponse">
 
-		<wsdl:part name="suspendNotificationsForDeviceResponse"
-			element="tns:suspendNotificationsForDeviceResponse">
+		<wsdl:part element="tns:suspendNotificationsForDeviceResponse" name="suspendNotificationsForDeviceResponse">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="listDevicesForUserRequest">
-		<wsdl:part name="listDevicesForUser" element="tns:listDevicesForUser"></wsdl:part>
+		<wsdl:part element="tns:listDevicesForUser" name="listDevicesForUser"/>
 	</wsdl:message>
 	<wsdl:message name="listDevicesForUserResponse">
-		<wsdl:part name="listDevicesForUserResponse"
-			element="tns:listDevicesForUserResponse">
+		<wsdl:part element="tns:listDevicesForUserResponse" name="listDevicesForUserResponse">
 		</wsdl:part>
 	</wsdl:message>
 
@@ -1298,11 +1216,9 @@
 				than one device token. All such devices will receive the
 				same notifications
 			</wsdl:documentation>
-			<wsdl:input
-				message="tns:setDeviceNotificationPreferencesRequest">
+			<wsdl:input message="tns:setDeviceNotificationPreferencesRequest">
 			</wsdl:input>
-			<wsdl:output
-				message="tns:setDeviceNotificationPreferencesResponse">
+			<wsdl:output message="tns:setDeviceNotificationPreferencesResponse">
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getDeviceNotificationPreferences">
@@ -1313,11 +1229,9 @@
 				and independent of that, what the device notification
 				preferences are for this user.
 			</wsdl:documentation>
-			<wsdl:input
-				message="tns:getDeviceNotificationPreferencesRequest">
+			<wsdl:input message="tns:getDeviceNotificationPreferencesRequest">
 			</wsdl:input>
-			<wsdl:output
-				message="tns:getDeviceNotificationPreferencesResponse">
+			<wsdl:output message="tns:getDeviceNotificationPreferencesResponse">
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="activateUserOnDevice">
@@ -1330,27 +1244,25 @@
 				Callinig activateUserOnDevice is how notifications are
 				turned back on
 			</wsdl:documentation>
-			<wsdl:input message="tns:activateUserOnDeviceRequest"></wsdl:input>
-			<wsdl:output message="tns:activateUserOnDeviceResponse"></wsdl:output>
+			<wsdl:input message="tns:activateUserOnDeviceRequest"/>
+			<wsdl:output message="tns:activateUserOnDeviceResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="deactivateUserOnDevice">
 			<wsdl:documentation>
 				Deactive sending notifications for the given user to the
 				specified device
 			</wsdl:documentation>
-			<wsdl:input message="tns:deactivateUserOnDeviceRequest"></wsdl:input>
-			<wsdl:output message="tns:deactivateUserOnDeviceResponse"></wsdl:output>
+			<wsdl:input message="tns:deactivateUserOnDeviceRequest"/>
+			<wsdl:output message="tns:deactivateUserOnDeviceResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="suspendDeviceNotificationsForUser">
 			<wsdl:documentation>
 				Suspend device notifications for the specified user for
 				all devices
 			</wsdl:documentation>
-			<wsdl:input
-				message="tns:suspendDeviceNotificationsForUserRequest">
+			<wsdl:input message="tns:suspendDeviceNotificationsForUserRequest">
 			</wsdl:input>
-			<wsdl:output
-				message="tns:suspendDeviceNotificationsForUserResponse">
+			<wsdl:output message="tns:suspendDeviceNotificationsForUserResponse">
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="suspendNotificationsForDevice">
@@ -1359,11 +1271,9 @@
 				any users that have previously registered on this
 				device.
 			</wsdl:documentation>
-			<wsdl:input
-				message="tns:suspendNotificationsForDeviceRequest">
+			<wsdl:input message="tns:suspendNotificationsForDeviceRequest">
 			</wsdl:input>
-			<wsdl:output
-				message="tns:suspendNotificationsForDeviceResponse">
+			<wsdl:output message="tns:suspendNotificationsForDeviceResponse">
 			</wsdl:output>
 		</wsdl:operation>
 
@@ -1373,8 +1283,8 @@
 				showing what is known about devices to which the user
 				has been bound
 			</wsdl:documentation>
-			<wsdl:input message="tns:listDevicesForUserRequest"></wsdl:input>
-			<wsdl:output message="tns:listDevicesForUserResponse"></wsdl:output>
+			<wsdl:input message="tns:listDevicesForUserRequest"/>
+			<wsdl:output message="tns:listDevicesForUserResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
 
@@ -1383,100 +1293,91 @@
 
 
 
-	<wsdl:binding name="eMSNotifySOAPBinding"
-		type="tns:MobileDeviceNotificationServicePort">
+	<wsdl:binding name="eMSNotifySOAPBinding" type="tns:MobileDeviceNotificationServicePort">
 
-		<soap12:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="setDeviceNotificationPreferences">
 
-			<soap12:operation
-				soapAction="urn:setDeviceNotificationPreferences" style="document" />
+			<soap12:operation soapAction="urn:setDeviceNotificationPreferences" style="document"/>
 			<wsdl:input>
 
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getDeviceNotificationPreferences">
 
-			<soap12:operation
-				soapAction="urn:getDeviceNotificationPreferences" style="document" />
+			<soap12:operation soapAction="urn:getDeviceNotificationPreferences" style="document"/>
 			<wsdl:input>
 
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="activateUserOnDevice">
 
-			<soap12:operation soapAction="urn:activateUserOnDevice"
-				style="document" />
+			<soap12:operation soapAction="urn:activateUserOnDevice" style="document"/>
 			<wsdl:input>
 
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="deactivateUserOnDevice">
 
-			<soap12:operation soapAction="urn:deactivateUserOnDevice"
-				style="document" />
+			<soap12:operation soapAction="urn:deactivateUserOnDevice" style="document"/>
 			<wsdl:input>
 
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="suspendDeviceNotificationsForUser">
 
-			<soap12:operation
-				soapAction="urn:suspendDeviceNotificationsForUser" style="document" />
+			<soap12:operation soapAction="urn:suspendDeviceNotificationsForUser" style="document"/>
 			<wsdl:input>
 
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="suspendNotificationsForDevice">
 
-			<soap12:operation
-				soapAction="urn:suspendNotificationsForDevice" style="document" />
+			<soap12:operation soapAction="urn:suspendNotificationsForDevice" style="document"/>
 			<wsdl:input>
 
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="listDevicesForUser">
 
-			<soap12:operation soapAction="urn:listDevicesForUser"
-				style="document" />
+			<soap12:operation soapAction="urn:listDevicesForUser" style="document"/>
 			<wsdl:input>
 
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -1488,11 +1389,8 @@
 			preferences as well as to activiate and deactiveate both
 			users and devices
 		</wsdl:documentation>
-		<wsdl:port name="MobileDeviceNotificationServiceSOAP"
-			binding="tns:eMSNotifySOAPBinding">
-			<soap12:address
-				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-				location="https://svcs.ebay.com/mobile/DeviceNotificationService/v1" />
+		<wsdl:port binding="tns:eMSNotifySOAPBinding" name="MobileDeviceNotificationServiceSOAP">
+			<soap12:address location="https://svcs.ebay.com/mobile/DeviceNotificationService/v1"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

@@ -1,55 +1,54 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 			<!-- list operations -->
-			<xs:element name="addTEVListRequest"  type="tns:AddTEVListRequest"/>
-			<xs:element name="addTEVListResponse"  type="tns:AddTEVListResponse"/>
-			<xs:element name="getTEVListRequest"  type="tns:GetTEVListRequest"/>
-			<xs:element name="getTEVListResponse"  type="tns:GetTEVListResponse"/>
-			<xs:element name="updateTEVListRequest"  type="tns:UpdateTEVListRequest"/>
-			<xs:element name="updateTEVListResponse"  type="tns:UpdateTEVListResponse"/>
-			<xs:element name="deleteTEVListRequest"  type="tns:DeleteTEVListRequest"/>
-			<xs:element name="deleteTEVListResponse"  type="tns:DeleteTEVListResponse"/>
-			<xs:element name="getTEVListLatestVersionRequest"  type="tns:GetTEVListLatestVersionRequest"/>
-			<xs:element name="getTEVListLatestVersionResponse"  type="tns:GetTEVListLatestVersionResponse"/>
-			<xs:element name="getTEVListsRequest"  type="tns:GetTEVListsRequest"/>
-			<xs:element name="getTEVListsResponse"  type="tns:GetTEVListsResponse"/>
+			<xs:element name="addTEVListRequest" type="tns:AddTEVListRequest"/>
+			<xs:element name="addTEVListResponse" type="tns:AddTEVListResponse"/>
+			<xs:element name="getTEVListRequest" type="tns:GetTEVListRequest"/>
+			<xs:element name="getTEVListResponse" type="tns:GetTEVListResponse"/>
+			<xs:element name="updateTEVListRequest" type="tns:UpdateTEVListRequest"/>
+			<xs:element name="updateTEVListResponse" type="tns:UpdateTEVListResponse"/>
+			<xs:element name="deleteTEVListRequest" type="tns:DeleteTEVListRequest"/>
+			<xs:element name="deleteTEVListResponse" type="tns:DeleteTEVListResponse"/>
+			<xs:element name="getTEVListLatestVersionRequest" type="tns:GetTEVListLatestVersionRequest"/>
+			<xs:element name="getTEVListLatestVersionResponse" type="tns:GetTEVListLatestVersionResponse"/>
+			<xs:element name="getTEVListsRequest" type="tns:GetTEVListsRequest"/>
+			<xs:element name="getTEVListsResponse" type="tns:GetTEVListsResponse"/>
 			<!-- ruleset operations-->
-			<xs:element name="addRulesetRequest"  type="tns:AddRulesetRequest"/>
-			<xs:element name="addRulesetResponse"  type="tns:AddRulesetResponse"/>
-			<xs:element name="getRulesetRequest"  type="tns:GetRulesetRequest"/>
-			<xs:element name="getRulesetResponse"  type="tns:GetRulesetResponse"/>
-			<xs:element name="updateRulesetRequest"  type="tns:UpdateRulesetRequest"/>
-			<xs:element name="updateRulesetResponse"  type="tns:UpdateRulesetResponse"/>
-			<xs:element name="deleteRulesetRequest"  type="tns:DeleteRulesetRequest"/>
-			<xs:element name="deleteRulesetResponse"  type="tns:DeleteRulesetResponse"/>
-			<xs:element name="addRuleRequest"  type="tns:AddRuleRequest"/>
-			<xs:element name="addRuleResponse"  type="tns:AddRuleResponse"/>
-			<xs:element name="updateRuleRequest"  type="tns:UpdateRuleRequest"/>
-			<xs:element name="updateRuleResponse"  type="tns:UpdateRuleResponse"/>
-			<xs:element name="getRuleRequest"  type="tns:GetRuleRequest"/>
-			<xs:element name="getRuleResponse"  type="tns:GetRuleResponse"/>
-			<xs:element name="addQualificationRequest"  type="tns:AddQualificationRequest"/>
-			<xs:element name="addQualificationResponse"  type="tns:AddQualificationResponse"/>
-			<xs:element name="updateQualificationRequest"  type="tns:UpdateQualificationRequest"/>
-			<xs:element name="updateQualificationResponse"  type="tns:UpdateQualificationResponse"/>
-			<xs:element name="getQualificationRequest"  type="tns:GetQualificationRequest"/>
-			<xs:element name="getQualificationResponse"  type="tns:GetQualificationResponse"/>
-			<xs:element name="addExemptionRequest"  type="tns:AddExemptionRequest"/>
-			<xs:element name="addExemptionResponse"  type="tns:AddExemptionResponse"/>
-			<xs:element name="updateExemptionRequest"  type="tns:UpdateExemptionRequest"/>
-			<xs:element name="updateExemptionResponse"  type="tns:UpdateExemptionResponse"/>
-			<xs:element name="getExemptionRequest"  type="tns:GetExemptionRequest"/>
-			<xs:element name="getExemptionResponse"  type="tns:GetExemptionResponse"/>
-			<xs:element name="getRulesetsRequest"  type="tns:GetRulesetsRequest"/>
-			<xs:element name="getRulesetsResponse"  type="tns:GetRulesetsResponse"/>
-			<xs:element name="getQualificationsRequest"  type="tns:GetQualificationsRequest"/>
-			<xs:element name="getQualificationsResponse"  type="tns:GetQualificationsResponse"/>			
-			<xs:element name="getRulesRequest"  type="tns:GetRulesRequest"/>
-			<xs:element name="getRulesResponse"  type="tns:GetRulesResponse"/>
-			<xs:element name="getExemptionsRequest"  type="tns:GetExemptionsRequest"/>
-			<xs:element name="getExemptionsResponse"  type="tns:GetExemptionsResponse"/>
+			<xs:element name="addRulesetRequest" type="tns:AddRulesetRequest"/>
+			<xs:element name="addRulesetResponse" type="tns:AddRulesetResponse"/>
+			<xs:element name="getRulesetRequest" type="tns:GetRulesetRequest"/>
+			<xs:element name="getRulesetResponse" type="tns:GetRulesetResponse"/>
+			<xs:element name="updateRulesetRequest" type="tns:UpdateRulesetRequest"/>
+			<xs:element name="updateRulesetResponse" type="tns:UpdateRulesetResponse"/>
+			<xs:element name="deleteRulesetRequest" type="tns:DeleteRulesetRequest"/>
+			<xs:element name="deleteRulesetResponse" type="tns:DeleteRulesetResponse"/>
+			<xs:element name="addRuleRequest" type="tns:AddRuleRequest"/>
+			<xs:element name="addRuleResponse" type="tns:AddRuleResponse"/>
+			<xs:element name="updateRuleRequest" type="tns:UpdateRuleRequest"/>
+			<xs:element name="updateRuleResponse" type="tns:UpdateRuleResponse"/>
+			<xs:element name="getRuleRequest" type="tns:GetRuleRequest"/>
+			<xs:element name="getRuleResponse" type="tns:GetRuleResponse"/>
+			<xs:element name="addQualificationRequest" type="tns:AddQualificationRequest"/>
+			<xs:element name="addQualificationResponse" type="tns:AddQualificationResponse"/>
+			<xs:element name="updateQualificationRequest" type="tns:UpdateQualificationRequest"/>
+			<xs:element name="updateQualificationResponse" type="tns:UpdateQualificationResponse"/>
+			<xs:element name="getQualificationRequest" type="tns:GetQualificationRequest"/>
+			<xs:element name="getQualificationResponse" type="tns:GetQualificationResponse"/>
+			<xs:element name="addExemptionRequest" type="tns:AddExemptionRequest"/>
+			<xs:element name="addExemptionResponse" type="tns:AddExemptionResponse"/>
+			<xs:element name="updateExemptionRequest" type="tns:UpdateExemptionRequest"/>
+			<xs:element name="updateExemptionResponse" type="tns:UpdateExemptionResponse"/>
+			<xs:element name="getExemptionRequest" type="tns:GetExemptionRequest"/>
+			<xs:element name="getExemptionResponse" type="tns:GetExemptionResponse"/>
+			<xs:element name="getRulesetsRequest" type="tns:GetRulesetsRequest"/>
+			<xs:element name="getRulesetsResponse" type="tns:GetRulesetsResponse"/>
+			<xs:element name="getQualificationsRequest" type="tns:GetQualificationsRequest"/>
+			<xs:element name="getQualificationsResponse" type="tns:GetQualificationsResponse"/>			
+			<xs:element name="getRulesRequest" type="tns:GetRulesRequest"/>
+			<xs:element name="getRulesResponse" type="tns:GetRulesResponse"/>
+			<xs:element name="getExemptionsRequest" type="tns:GetExemptionsRequest"/>
+			<xs:element name="getExemptionsResponse" type="tns:GetExemptionsResponse"/>
 									
 			<!--===================================================================
 				Common List operation types
@@ -322,7 +321,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element  maxOccurs="unbounded" name="rule" type="tns:BaseRule"/>
+					<xs:element maxOccurs="unbounded" name="rule" type="tns:BaseRule"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="AddRuleResponse">
@@ -520,7 +519,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="unbounded" name="ruleset" type="tns:Ruleset"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="ruleset" type="tns:Ruleset"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -657,7 +656,7 @@
 			<xs:complexType name="RulesetElement">
 				<xs:sequence>
 					<xs:element name="ruleId" type="xs:int"/>
-					<xs:element minOccurs="0"  name="sequenceNumber" type="xs:int"/>
+					<xs:element minOccurs="0" name="sequenceNumber" type="xs:int"/>
 					<xs:element minOccurs="0" name="action" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
@@ -686,8 +685,8 @@
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="priority" type="xs:int"/>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" type="tns:RuleSetAttribute"/>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="property" type="tns:RuleSetAttribute"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="tns:RuleSetAttribute"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:RuleSetAttribute"/>
 					<xs:element minOccurs="0" name="changeComment" type="xs:string"/>
 					<xs:element minOccurs="0" name="flagWhenResultEquals" type="xs:boolean"/>
 					<xs:element name="creationDate" type="xs:dateTime"/>
@@ -714,7 +713,7 @@
 				<xs:sequence>
 					<xs:element name="qualificationId" type="xs:int"/>
 					<xs:element name="qualifyWhenResultEquals" type="xs:boolean"/>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" type="tns:RuleSetAttribute"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="tns:RuleSetAttribute"/>
 					<xs:element name="changeComment" type="xs:string"/>
 					<xs:element name="creationDate" type="xs:dateTime"/>
 					<xs:element name="lastModifiedDate" type="xs:dateTime"/>
@@ -725,7 +724,7 @@
 				<xs:sequence>
 					<xs:element name="exemptionId" type="xs:int"/>
 					<xs:element name="exemptWhenResultEquals" type="xs:boolean"/>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" type="tns:RuleSetAttribute"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="tns:RuleSetAttribute"/>
 					<xs:element minOccurs="0" name="changeComment" type="xs:string"/>
 					<xs:element name="creationDate" type="xs:dateTime"/>
 					<xs:element name="lastModifiedDate" type="xs:dateTime"/>
@@ -739,7 +738,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element  maxOccurs="unbounded" name="qualification" type="tns:Qualification"/>
+					<xs:element maxOccurs="unbounded" name="qualification" type="tns:Qualification"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="AddQualificationResponse">
@@ -885,7 +884,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded"  name="exemption" type="tns:Exemption"/>
+					<xs:element maxOccurs="unbounded" name="exemption" type="tns:Exemption"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="AddExemptionResponse">
@@ -930,7 +929,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"  name="exemption" type="tns:Exemption"/>
+							<xs:element maxOccurs="unbounded" name="exemption" type="tns:Exemption"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -1059,7 +1058,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 				</xs:documentation>
@@ -1071,7 +1070,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation/>
 							<xs:appinfo>
@@ -1134,7 +1133,7 @@
 		</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 					Details about a single error.
@@ -1299,7 +1298,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -1421,187 +1420,187 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getTEVListResponse">
-		<wsdl:part name="parameters" element="tns:getTEVListResponse">
+		<wsdl:part element="tns:getTEVListResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getTEVListLatestVersionResponse">
-		<wsdl:part name="parameters" element="tns:getTEVListLatestVersionResponse">
+		<wsdl:part element="tns:getTEVListLatestVersionResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="deleteTEVListResponse">
-		<wsdl:part name="parameters" element="tns:deleteTEVListResponse">
+		<wsdl:part element="tns:deleteTEVListResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateTEVListRequest">
-		<wsdl:part name="parameters" element="tns:updateTEVListRequest">
+		<wsdl:part element="tns:updateTEVListRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="deleteTEVListRequest">
-		<wsdl:part name="parameters" element="tns:deleteTEVListRequest">
+		<wsdl:part element="tns:deleteTEVListRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getTEVListLatestVersionRequest">
-		<wsdl:part name="parameters" element="tns:getTEVListLatestVersionRequest">
+		<wsdl:part element="tns:getTEVListLatestVersionRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addTEVListResponse">
-		<wsdl:part name="parameters" element="tns:addTEVListResponse">
+		<wsdl:part element="tns:addTEVListResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateTEVListResponse">
-		<wsdl:part name="parameters" element="tns:updateTEVListResponse">
+		<wsdl:part element="tns:updateTEVListResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addTEVListRequest">
-		<wsdl:part name="parameters" element="tns:addTEVListRequest">
+		<wsdl:part element="tns:addTEVListRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getTEVListRequest">
-		<wsdl:part name="parameters" element="tns:getTEVListRequest">
+		<wsdl:part element="tns:getTEVListRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getTEVListsRequest">
-		<wsdl:part name="parameters" element="tns:getTEVListsRequest">
+		<wsdl:part element="tns:getTEVListsRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getTEVListsResponse">
-		<wsdl:part name="parameters" element="tns:getTEVListsResponse">
+		<wsdl:part element="tns:getTEVListsResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addRulesetRequest">
-		<wsdl:part name="parameters" element="tns:addRulesetRequest">
+		<wsdl:part element="tns:addRulesetRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addRulesetResponse">
-		<wsdl:part name="parameters" element="tns:addRulesetResponse">
+		<wsdl:part element="tns:addRulesetResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getRulesetRequest">
-		<wsdl:part name="parameters" element="tns:getRulesetRequest">
+		<wsdl:part element="tns:getRulesetRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getRulesetResponse">
-		<wsdl:part name="parameters" element="tns:getRulesetResponse">
+		<wsdl:part element="tns:getRulesetResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateRulesetRequest">
-		<wsdl:part name="parameters" element="tns:updateRulesetRequest">
+		<wsdl:part element="tns:updateRulesetRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateRulesetResponse">
-		<wsdl:part name="parameters" element="tns:updateRulesetResponse">
+		<wsdl:part element="tns:updateRulesetResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="deleteRulesetRequest">
-		<wsdl:part name="parameters" element="tns:deleteRulesetRequest">
+		<wsdl:part element="tns:deleteRulesetRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="deleteRulesetResponse">
-		<wsdl:part name="parameters" element="tns:deleteRulesetResponse">
+		<wsdl:part element="tns:deleteRulesetResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addRuleRequest">
-		<wsdl:part name="parameters" element="tns:addRuleRequest">
+		<wsdl:part element="tns:addRuleRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addRuleResponse">
-		<wsdl:part name="parameters" element="tns:addRuleResponse">
+		<wsdl:part element="tns:addRuleResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateRuleRequest">
-		<wsdl:part name="parameters" element="tns:updateRuleRequest">
+		<wsdl:part element="tns:updateRuleRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateRuleResponse">
-		<wsdl:part name="parameters" element="tns:updateRuleResponse">
+		<wsdl:part element="tns:updateRuleResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getRuleRequest">
-		<wsdl:part name="parameters" element="tns:getRuleRequest">
+		<wsdl:part element="tns:getRuleRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getRuleResponse">
-		<wsdl:part name="parameters" element="tns:getRuleResponse">
+		<wsdl:part element="tns:getRuleResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addQualificationRequest">
-		<wsdl:part name="parameters" element="tns:addQualificationRequest">
+		<wsdl:part element="tns:addQualificationRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addQualificationResponse">
-		<wsdl:part name="parameters" element="tns:addQualificationResponse">
+		<wsdl:part element="tns:addQualificationResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateQualificationRequest">
-		<wsdl:part name="parameters" element="tns:updateQualificationRequest">
+		<wsdl:part element="tns:updateQualificationRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateQualificationResponse">
-		<wsdl:part name="parameters" element="tns:updateQualificationResponse">
+		<wsdl:part element="tns:updateQualificationResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getQualificationRequest">
-		<wsdl:part name="parameters" element="tns:getQualificationRequest">
+		<wsdl:part element="tns:getQualificationRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getQualificationResponse">
-		<wsdl:part name="parameters" element="tns:getQualificationResponse">
+		<wsdl:part element="tns:getQualificationResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addExemptionRequest">
-		<wsdl:part name="parameters" element="tns:addExemptionRequest">
+		<wsdl:part element="tns:addExemptionRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addExemptionResponse">
-		<wsdl:part name="parameters" element="tns:addExemptionResponse">
+		<wsdl:part element="tns:addExemptionResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateExemptionRequest">
-		<wsdl:part name="parameters" element="tns:updateExemptionRequest">
+		<wsdl:part element="tns:updateExemptionRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateExemptionResponse">
-		<wsdl:part name="parameters" element="tns:updateExemptionResponse">
+		<wsdl:part element="tns:updateExemptionResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getExemptionRequest">
-		<wsdl:part name="parameters" element="tns:getExemptionRequest">
+		<wsdl:part element="tns:getExemptionRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getExemptionResponse">
-		<wsdl:part name="parameters" element="tns:getExemptionResponse">
+		<wsdl:part element="tns:getExemptionResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getRulesetsRequest">
-		<wsdl:part name="parameters" element="tns:getRulesetsRequest">
+		<wsdl:part element="tns:getRulesetsRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getRulesetsResponse">
-		<wsdl:part name="parameters" element="tns:getRulesetsResponse">
+		<wsdl:part element="tns:getRulesetsResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getQualificationsRequest">
-		<wsdl:part name="parameters" element="tns:getQualificationsRequest">
+		<wsdl:part element="tns:getQualificationsRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getQualificationsResponse">
-		<wsdl:part name="parameters" element="tns:getQualificationsResponse">
+		<wsdl:part element="tns:getQualificationsResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getRulesRequest">
-		<wsdl:part name="parameters" element="tns:getRulesRequest">
+		<wsdl:part element="tns:getRulesRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getRulesResponse">
-		<wsdl:part name="parameters" element="tns:getRulesResponse">
+		<wsdl:part element="tns:getRulesResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>	
 	<wsdl:message name="getExemptionsRequest">
-		<wsdl:part name="parameters" element="tns:getExemptionsRequest">
+		<wsdl:part element="tns:getExemptionsRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getExemptionsResponse">
-		<wsdl:part name="parameters" element="tns:getExemptionsResponse">
+		<wsdl:part element="tns:getExemptionsResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>		
 	<wsdl:portType name="TrackingEventValidationServicePort">
@@ -1662,7 +1661,7 @@ and Exemption of each base rule in short format (meaning all optional elements w
 to use to retrieve the ruleset(s), not for UI service.
 
 It returns the rulesets as follows
-1) the input &quot;level&quot; parameter is required. it can be one of these: 
+1) the input "level" parameter is required. it can be one of these: 
 	0: all the levels, 1=Realtime, 2=Near-Realtime-Prefetch,3=Near-Realtime-Postfetch,4=Offline
 2) if any of the following input parameters are supplied, it returns the ruleset(s) that associates with that parameter. Otherwise, it returns all the possible
 ruleset(s) for that parameter:
@@ -2116,10 +2115,10 @@ ruleset(s) for that parameter:
 		</wsdl:operation>			
 	</wsdl:binding>
 	<wsdl:service name="TrackingEventValidationService">
-		<wsdl:port name="TrackingEventValidationServiceSOAP" binding="tns:TrackingEventValidationServiceSOAPBinding">
+		<wsdl:port binding="tns:TrackingEventValidationServiceSOAPBinding" name="TrackingEventValidationServiceSOAP">
 			<soap12:address location="http://svcs.ebay.com/TrackingEventValidationService"/>
 		</wsdl:port>
-		<wsdl:port name="TrackingEventValidationServiceHttp" binding="tns:TrackingEventValidationServiceHttpBinding">
+		<wsdl:port binding="tns:TrackingEventValidationServiceHttpBinding" name="TrackingEventValidationServiceHttp">
 			<http:address location="http://svcs.ebay.com/TrackingEventValidationService"/>
 		</wsdl:port>
 	</wsdl:service>

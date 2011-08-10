@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions name="WSDLTesting8" 
-targetNamespace="http://www.ebay.com/marketplace/services" 
+targetNamespace="http://www.ebayopensource.org/turmeric/services" 
 xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
 xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
 xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
-xmlns:tns="http://www.ebay.com/marketplace/services" 
+xmlns:tns="http://www.ebayopensource.org/turmeric/services" 
 xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
   <wsdl:types>
-    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services">
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/turmeric/services">
 
 			<!-- import namespace for another namespace xmlns:Q2 -->
 			<xs:import namespace="http://www.ebay.com/soa/test/payment">
@@ -905,7 +905,7 @@ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
   <wsdl:binding name="WSDLTesting8SOAP" type="tns:WSDLTesting8">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="getUserInfo">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getUserInfo"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/turmeric/services/getUserInfo"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -917,7 +917,7 @@ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="getRegistrationInfo">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getRegistrationInfo"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/turmeric/services/getRegistrationInfo"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -926,7 +926,7 @@ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getEmptyAbsPolyType">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getEmptyAbsPolyType"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/turmeric/services/getEmptyAbsPolyType"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -935,7 +935,7 @@ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getChoiceType">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getChoiceType"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/turmeric/services/getChoiceType"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -944,7 +944,7 @@ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getReservedType">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getReservedType"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/turmeric/services/getReservedType"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -953,7 +953,7 @@ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getAnonType">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getAnonType"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/turmeric/services/getAnonType"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -962,7 +962,7 @@ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getRecursionType">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getRecursionType"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/turmeric/services/getRecursionType"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -971,7 +971,7 @@ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getSecurityCredentials">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getSecurityCredentials"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/turmeric/services/getSecurityCredentials"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -980,7 +980,7 @@ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getVersion">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getVersion"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/turmeric/services/getVersion"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.ebay.com/classifiedad/v1/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="ClassifiedAdPeeringService" targetNamespace="http://www.ebay.com/classifiedad/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/classifiedad/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ClassifiedAdPeeringService" targetNamespace="http://www.ebayopensource.org/classifiedad/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/classifiedad/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/classifiedad/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -11,7 +10,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -63,7 +62,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -124,7 +123,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -139,7 +138,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -159,7 +158,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -178,7 +177,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -193,7 +192,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -220,7 +219,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -244,9 +243,9 @@
 							</xs:element>
 							<xs:element maxOccurs="1" minOccurs="0" name="debugEnable" type="xs:boolean">
 							</xs:element>
-							<xs:element maxOccurs= "1" minOccurs="0" name="categoryId" type="xs:long">
+							<xs:element maxOccurs="1" minOccurs="0" name="categoryId" type="xs:long">
 							</xs:element>
-							<xs:element maxOccurs= "unbounded" minOccurs="0" name="eBayCategoryId" type="xs:long">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="eBayCategoryId" type="xs:long">
 							</xs:element>
 							<xs:element maxOccurs="1" minOccurs="0" name="maxPrice" type="tns:Amount">
 							</xs:element>
@@ -348,7 +347,7 @@
 							</xs:element>
 							<xs:element maxOccurs="1" minOccurs="0" name="debugEnable" type="xs:boolean">
 							</xs:element>
-							<xs:element maxOccurs= "unbounded" minOccurs="0" name="eBayCategoryId" type="xs:long">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="eBayCategoryId" type="xs:long">
 							</xs:element>
 							<xs:element maxOccurs="1" minOccurs="0" name="maxPrice" type="tns:Amount">
 							</xs:element>
@@ -386,7 +385,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs= "unbounded" minOccurs="0" name="itemIds" type="xs:long"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="itemIds" type="xs:long"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -417,7 +416,7 @@
 		<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs= "1" minOccurs="1" name="userId" type="xs:long"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="userId" type="xs:long"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -442,7 +441,7 @@
 		<xs:complexType name="PaginationOutput">
 			<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -463,7 +462,7 @@
 			<xs:complexType name="PaginationInput">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -479,7 +478,7 @@
 			<xs:complexType name="SortCriteria">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="ApplicationCatalogDomainTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -518,7 +517,7 @@
 				   </xs:element>
 				   	<xs:element maxOccurs="1" minOccurs="0" name="countryId" type="xs:int">					
 				   </xs:element>
-				   <xs:element minOccurs="0" name="userAddress" type="tns:AddressType" maxOccurs="1">
+				   <xs:element maxOccurs="1" minOccurs="0" name="userAddress" type="tns:AddressType">
 						<xs:annotation>
 							<xs:documentation>
 								User Address details
@@ -535,7 +534,7 @@
 			<xs:complexType name="Amount">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -723,43 +722,43 @@
 	</wsdl:types>
 
 	<wsdl:message name="getBinItemsRequest">
-		<wsdl:part name="parameters" element="tns:getBinItemsRequest">
+		<wsdl:part element="tns:getBinItemsRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getBinItemsResponse">
-		<wsdl:part name="findAdsByLocationRequest" element="tns:getBinItemsResponse">
+		<wsdl:part element="tns:getBinItemsResponse" name="findAdsByLocationRequest">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getAuctionItemsRequest">
-		<wsdl:part name="parameters" element="tns:getAuctionItemsRequest">
+		<wsdl:part element="tns:getAuctionItemsRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getAuctionItemsResponse">
-		<wsdl:part name="params" element="tns:getAuctionItemsResponse">
+		<wsdl:part element="tns:getAuctionItemsResponse" name="params">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getItemsCountRequest">
-		<wsdl:part name="parameters" element="tns:getItemsCountRequest">
+		<wsdl:part element="tns:getItemsCountRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getItemsCountResponse">
-		<wsdl:part name="parameters" element="tns:getItemsCountResponse">
+		<wsdl:part element="tns:getItemsCountResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getSaleDetailsRequest">
-		<wsdl:part name="getSaleDetailsRequest" element="tns:getSaleDetailsRequest">
+		<wsdl:part element="tns:getSaleDetailsRequest" name="getSaleDetailsRequest">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getSaleDetailsResponse">
-		<wsdl:part name="parameters" element="tns:getSaleDetailsResponse">
+		<wsdl:part element="tns:getSaleDetailsResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getUserDetailsRequest">
-		<wsdl:part name="parameters" element="tns:getUserDetailsRequest">
+		<wsdl:part element="tns:getUserDetailsRequest" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getUserDetailsResponse">
-		<wsdl:part name="params" element="tns:getUserDetailsResponse">
+		<wsdl:part element="tns:getUserDetailsResponse" name="params">
     </wsdl:part>
 	</wsdl:message>
 
@@ -921,10 +920,10 @@
 		<Version>1.0.0</Version>
 		The ClasifiedAdPeeringService will serve for the CalsifiedAds - Sale, User, and Searchbackend related calls.		
 	</wsdl:documentation>   
-		<wsdl:port name="ClassifiedAdPeeringServiceHttp" binding="tns:ClassifiedAdPeeringServiceHttpBinding">
+		<wsdl:port binding="tns:ClassifiedAdPeeringServiceHttpBinding" name="ClassifiedAdPeeringServiceHttp">
 			<http:address location="http://svcs.ebay.com/services/classifiedad/ClassifiedAdPeeringService/v1"/>
 		</wsdl:port>
-		<wsdl:port name="ClassifiedAdPeeringServiceSOAP" binding="tns:ClassifiedAdPeeringServiceSOAPBinding">
+		<wsdl:port binding="tns:ClassifiedAdPeeringServiceSOAPBinding" name="ClassifiedAdPeeringServiceSOAP">
 			<soap12:address location="http://svcs.ebay.com/services/classifiedad/ClassifiedAdPeeringService/v1"/>
 		</wsdl:port>
 	</wsdl:service>

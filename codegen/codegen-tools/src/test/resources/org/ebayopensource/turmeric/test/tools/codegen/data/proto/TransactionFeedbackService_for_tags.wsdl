@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebay.com/marketplace/feedback/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TransactionFeedbackService" targetNamespace="http://www.ebay.com/marketplace/feedback/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/feedback/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TransactionFeedbackService" targetNamespace="http://www.ebayopensource.org/tumeric/feedback/v1/services">
 	<wsdl:types>
-		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/feedback/v1/services" xmlns:tns="http://www.ebay.com/marketplace/feedback/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/feedback/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -11,7 +10,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -62,7 +61,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -77,7 +76,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -92,7 +91,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="errorMessage" type="tns:ErrorMessage" minOccurs="0">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -107,7 +106,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation/>
 							<xs:appinfo>
@@ -118,7 +117,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation/>
 							<xs:appinfo>
@@ -138,7 +137,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -153,18 +152,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="errorId" type="xs:long"/>
 					<xs:element name="domain" type="xs:string"/>
-					<xs:element name="subdomain" type="xs:string" minOccurs="0"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
 					<xs:element name="severity" type="tns:ErrorSeverity"/>
 					<xs:element name="category" type="tns:ErrorCategory"/>
 					<xs:element name="message" type="xs:string"/>
-					<xs:element name="exceptionId" type="xs:token" minOccurs="0"/>
-					<xs:element name="parameter" type="tns:ErrorParameter" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -173,7 +172,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -183,7 +182,7 @@
 					</xs:sequence>
 				-->
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -192,7 +191,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -207,7 +206,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -223,11 +222,11 @@
 						feedback service.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="TransactionFeedbackServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/feedback/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/feedback/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="fbQuestion" type="tns:FbQuestionType" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="fbQuestion" type="tns:FbQuestionType"/>
 
 				</xs:sequence>
 			</xs:complexType>
@@ -236,7 +235,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="leaveFeedbackRequest" type="tns:LeaveFeedbackInputDataType" minOccurs="1" maxOccurs="1"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="leaveFeedbackRequest" type="tns:LeaveFeedbackInputDataType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -246,7 +245,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="output" type="xs:string" minOccurs="1" maxOccurs="1"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="output" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -259,8 +258,8 @@
 					<xs:appinfo/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="feedbackQuestionid" type="tns:FbQuestionEnum" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="positiveAnswerPercentage" type="xs:float" minOccurs="0" maxOccurs="1"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="feedbackQuestionid" type="tns:FbQuestionEnum"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="positiveAnswerPercentage" type="xs:float"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="getSellerFeedbackProfileRequest" type="tns:SellerFeedbackProfileRequest"/>
@@ -268,7 +267,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="username" type="xs:string" minOccurs="1" maxOccurs="1"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="username" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -278,8 +277,8 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="username" type="xs:string" minOccurs="1" maxOccurs="1"/>
-							<xs:element name="sellerFeedbackProfile" type="tns:SellerFeedbackProfileType" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="username" type="xs:string"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="sellerFeedbackProfile" type="tns:SellerFeedbackProfileType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -290,14 +289,14 @@
 						Question type for transaction feedback service.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="TransactionFeedbackServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/feedback/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/feedback/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="answer" type="tns:FbQuestionAnswersEnum" minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="answer" type="tns:FbQuestionAnswersEnum">
 					</xs:element>
-					<xs:element name="questionId" type="tns:FbQuestionEnum" minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="questionId" type="tns:FbQuestionEnum">
 					</xs:element>
 
 
@@ -310,7 +309,7 @@
 						questions
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="TransactionFeedbackServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/feedback/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/feedback/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -339,7 +338,7 @@
 						the transaction feedback service.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="TransactionFeedbackServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/feedback/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/feedback/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -385,8 +384,8 @@
 					</xs:enumeration>
 				</xs:restriction>
 			</xs:simpleType>
-			<xs:element name="getVersionRequest"  type="tns:GetVersionRequest"/>
-			<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest"/>
@@ -397,13 +396,13 @@
 					<xs:extension base="tns:BaseServiceResponse"/>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:complexType  name="PaginationInput">
+			<xs:complexType name="PaginationInput">
 				<xs:annotation>
 					<xs:appinfo/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="pageNumber" type="xs:int" minOccurs="0"/>
-					<xs:element name="entriesPerPage" type="xs:int" minOccurs="0"/>
+					<xs:element minOccurs="0" name="pageNumber" type="xs:int"/>
+					<xs:element minOccurs="0" name="entriesPerPage" type="xs:int"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="PaginationOutput">
@@ -411,9 +410,9 @@
 					<xs:appinfo/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="totalPages" type="xs:int" minOccurs="0"/>
-					<xs:element  name="totalCount" type="xs:int" minOccurs="0"/>
-					<xs:element  name="pageNumber" type="xs:int" minOccurs="0"/>
+					<xs:element minOccurs="0" name="totalPages" type="xs:int"/>
+					<xs:element minOccurs="0" name="totalCount" type="xs:int"/>
+					<xs:element minOccurs="0" name="pageNumber" type="xs:int"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="getFeedbackDetailRequest" type="tns:FeedbackDetailRequest"/>
@@ -421,12 +420,12 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="username" type="xs:string" minOccurs="1"/>
-							<xs:element name="userTransactionRole" type="tns:UserTransactionRoleEnum" minOccurs="1"/>
-							<xs:element name="feedbackRole" type="tns:FeedbackRoleEnum" minOccurs="1"/>
-							<xs:element name="paginationInput" type="tns:PaginationInput" minOccurs="1"/>
-							<xs:element name="feedbackFilter" type="tns:FeedbackFilterType" minOccurs="0" maxOccurs="unbounded"/>
-							<xs:element name="feedbackSort" type="tns:FeedbackSortType" minOccurs="0" maxOccurs="1"/>
+							<xs:element minOccurs="1" name="username" type="xs:string"/>
+							<xs:element minOccurs="1" name="userTransactionRole" type="tns:UserTransactionRoleEnum"/>
+							<xs:element minOccurs="1" name="feedbackRole" type="tns:FeedbackRoleEnum"/>
+							<xs:element minOccurs="1" name="paginationInput" type="tns:PaginationInput"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="feedbackFilter" type="tns:FeedbackFilterType"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="feedbackSort" type="tns:FeedbackSortType"/>
 							
 						</xs:sequence>
 					</xs:extension>
@@ -437,9 +436,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="username" type="xs:string" minOccurs="1" maxOccurs="1"/>
-							<xs:element name="paginationOutput" type="tns:PaginationOutput" minOccurs="1" maxOccurs="1"/>
-							<xs:element name="feedback" type="tns:FeedbackType" minOccurs="1" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="username" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="paginationOutput" type="tns:PaginationOutput"/>
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="feedback" type="tns:FeedbackType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -452,9 +451,9 @@
 					<xs:appinfo/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="transactionDetail" type="tns:TransactionDetailType" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="receivedDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="comments" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="transactionDetail" type="tns:TransactionDetailType"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="receivedDate" type="xs:dateTime"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="comments" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="TransactionDetailType">
@@ -465,8 +464,8 @@
 					<xs:appinfo/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="itemTitle" type="xs:string" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="soldPrice" type="xs:double" minOccurs="1" maxOccurs="1"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="itemTitle" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="soldPrice" type="xs:double"/>
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -478,8 +477,8 @@
 					<xs:appinfo/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="filterCriteria" type="tns:FilterCriteriaEnum" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="filterValue" type="tns:FilterValueEnum" minOccurs="0" maxOccurs="1"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="filterCriteria" type="tns:FilterCriteriaEnum"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="filterValue" type="tns:FilterValueEnum"/>
 					
 				</xs:sequence>
 			</xs:complexType>
@@ -492,8 +491,8 @@
 					<xs:appinfo/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="sortBy" type="tns:SortByAttributeEnum" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="orderType" type="tns:OrderTypeEnum" minOccurs="0" maxOccurs="1"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="sortBy" type="tns:SortByAttributeEnum"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="orderType" type="tns:OrderTypeEnum"/>
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -632,28 +631,28 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="leaveFeedbackRequest">
-		<wsdl:part name="params" element="tns:leaveFeedbackRequest"/>
+		<wsdl:part element="tns:leaveFeedbackRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="leaveFeedbackResponse">
-		<wsdl:part name="params" element="tns:leaveFeedbackResponse"/>
+		<wsdl:part element="tns:leaveFeedbackResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part name="messageParameters" element="tns:getVersionRequest"/>
+		<wsdl:part element="tns:getVersionRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part name="messageParameters" element="tns:getVersionResponse"/>
+		<wsdl:part element="tns:getVersionResponse" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="getSellerFeedbackProfileRequest">
-		<wsdl:part name="params" element="tns:getSellerFeedbackProfileRequest"/>
+		<wsdl:part element="tns:getSellerFeedbackProfileRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getSellerFeedbackProfileResponse">
-		<wsdl:part name="params" element="tns:getSellerFeedbackProfileResponse"/>
+		<wsdl:part element="tns:getSellerFeedbackProfileResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getFeedbackDetailRequest">
-		<wsdl:part name="params" element="tns:getFeedbackDetailRequest"/>
+		<wsdl:part element="tns:getFeedbackDetailRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getFeedbackDetailResponse">
-		<wsdl:part name="params" element="tns:getFeedbackDetailResponse"/>
+		<wsdl:part element="tns:getFeedbackDetailResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:portType name="TransactionFeedbackServicePort">
 		<wsdl:operation name="leaveFeedback">
@@ -661,8 +660,8 @@
 			<wsdl:output message="tns:leaveFeedbackResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getVersion">
-			<wsdl:input name="getVersionRequest" message="tns:getVersionRequest"/>
-			<wsdl:output name="getVersionResponse" message="tns:getVersionResponse"/>
+			<wsdl:input message="tns:getVersionRequest" name="getVersionRequest"/>
+			<wsdl:output message="tns:getVersionResponse" name="getVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getSellerFeedbackProfile">
 			<wsdl:input message="tns:getSellerFeedbackProfileRequest"/>
@@ -715,7 +714,7 @@
 	<wsdl:binding name="TransactionFeedbackServiceSOAPBinding" type="tns:TransactionFeedbackServicePort">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="leaveFeedback">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/feedback/v1/services/leaveFeedback"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/feedback/v1/services/leaveFeedback"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -724,7 +723,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getVersion">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/feedback/v1/services/getVersion"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/feedback/v1/services/getVersion"/>
 			<wsdl:input name="getVersionRequest">
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -733,7 +732,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getSellerFeedbackProfile">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/feedback/v1/services/getSellerFeedbackProfile"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/feedback/v1/services/getSellerFeedbackProfile"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -742,7 +741,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getFeedbackDetail">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/feedback/v1/services/getFeedbackDetail"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/feedback/v1/services/getFeedbackDetail"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -752,10 +751,10 @@
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="TransactionFeedbackService">
-		<wsdl:port name="TransactionFeedbackServiceHttpPort" binding="tns:TransactionFeedbackServiceHttpBinding">
+		<wsdl:port binding="tns:TransactionFeedbackServiceHttpBinding" name="TransactionFeedbackServiceHttpPort">
 			<http:address location="https://svcs.ebay.com/services/feedback/TransactionFeedbackService/v1"/>
 		</wsdl:port>
-		<wsdl:port name="TransactionFeedbackServiceSOAPPort" binding="tns:TransactionFeedbackServiceSOAPBinding">
+		<wsdl:port binding="tns:TransactionFeedbackServiceSOAPBinding" name="TransactionFeedbackServiceSOAPPort">
 			<soap12:address location="https://svcs.ebay.com/services/feedback/TransactionFeedbackService/v1"/>
 		</wsdl:port>
 	</wsdl:service>

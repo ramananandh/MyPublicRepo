@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<client-config-list xmlns="http://www.ebay.com/soaframework/common/config">
+<client-config-list xmlns="http://www.ebayopensource.org/turmeric/common/config">
   <client-config>
-    <service-interface-class-name>com.ebay.marketplace.services.advertisinguniqueidservicev2.AdvertisingUniqueIDServiceV2</service-interface-class-name>
+    <service-interface-class-name>org.ebayopensource.turmeric.services.advertisinguniqueidservicev2.AdvertisingUniqueIDServiceV2</service-interface-class-name>
     <service-location>http://localhost:8080/services/advertise/UniqueIDService/v2</service-location>
     <client-instance-config>
       <invocation-options>
@@ -11,7 +11,7 @@
         <consumer-id>UniqueServiceConsmuerV2</consumer-id>
       </invocation-options>
       <transport name="LOCAL">
-				<class-name>com.ebay.soaframework.spf.impl.transport.local.LocalTransport
+				<class-name>org.ebayopensource.turmeric.turmeric.spf.impl.transport.local.LocalTransport
 				</class-name>
 				<default-options>
 					<use-detached-local-binding>false</use-detached-local-binding>

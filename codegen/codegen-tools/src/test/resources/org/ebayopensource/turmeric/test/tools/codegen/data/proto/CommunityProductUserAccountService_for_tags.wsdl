@@ -1,32 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>	
-<wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:ns0="http://www.ebay.com/marketplace/catalog/v1/services"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CommunityProductUserAccountService"
-	targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/catalog/v1/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/catalog/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CommunityProductUserAccountService" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services"
-			xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services"
-			xmlns:xs="http://www.w3.org/2001/XMLSchema">
-			<xs:element name="getUserAccountSummaryRequest" type="tns:GetUserAccountSummaryRequest" />
-			<xs:element name="getUserAccountSummaryResponse" type="tns:GetUserAccountSummaryResponse" />
-			<xs:element name="getUserAccountDetailsForProductsRequest"
-				type="tns:GetUserAccountDetailsForProductsRequest" />
-			<xs:element name="getUserAccountDetailsForProductsResponse"
-				type="tns:GetUserAccountDetailsForProductsResponse" />
-			<xs:element name="uploadMultipleMediaByUserRequest" type="tns:UploadMediaByUserRequest" />
-			<xs:element name="uploadMultipleMediaByUserResponse" type="tns:UploadMediaByUserResponse" />
-			<xs:element name="deleteMediaByUserRequest" type="tns:DeleteMediaByUserRequest" />
-			<xs:element name="deleteMediaByUserResponse" type="tns:DeleteMediaByUserResponse" />
-			<xs:element name="getPaymentDetailsForMediaRequest" type="tns:GetPaymentDetailsForMediaRequest" />
-			<xs:element name="getPaymentDetailsForMediaResponse" type="tns:GetPaymentDetailsForMediaResponse" />
-			<xs:element name="requestPaymentForMediaRequest" type="tns:RequestPaymentForMediaRequest" />
-			<xs:element name="requestPaymentForMediaResponse" type="tns:RequestPaymentForMediaResponse" />
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
+			<xs:element name="getUserAccountSummaryRequest" type="tns:GetUserAccountSummaryRequest"/>
+			<xs:element name="getUserAccountSummaryResponse" type="tns:GetUserAccountSummaryResponse"/>
+			<xs:element name="getUserAccountDetailsForProductsRequest" type="tns:GetUserAccountDetailsForProductsRequest"/>
+			<xs:element name="getUserAccountDetailsForProductsResponse" type="tns:GetUserAccountDetailsForProductsResponse"/>
+			<xs:element name="uploadMultipleMediaByUserRequest" type="tns:UploadMediaByUserRequest"/>
+			<xs:element name="uploadMultipleMediaByUserResponse" type="tns:UploadMediaByUserResponse"/>
+			<xs:element name="deleteMediaByUserRequest" type="tns:DeleteMediaByUserRequest"/>
+			<xs:element name="deleteMediaByUserResponse" type="tns:DeleteMediaByUserResponse"/>
+			<xs:element name="getPaymentDetailsForMediaRequest" type="tns:GetPaymentDetailsForMediaRequest"/>
+			<xs:element name="getPaymentDetailsForMediaResponse" type="tns:GetPaymentDetailsForMediaResponse"/>
+			<xs:element name="requestPaymentForMediaRequest" type="tns:RequestPaymentForMediaRequest"/>
+			<xs:element name="requestPaymentForMediaResponse" type="tns:RequestPaymentForMediaResponse"/>
 
 			<xs:complexType name="GetUserAccountSummaryRequest">
 				<xs:annotation>
@@ -44,7 +30,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
-					<xs:extension base="tns:BaseRequest"></xs:extension>
+					<xs:extension base="tns:BaseRequest"/>
 				</xs:complexContent>
 			</xs:complexType>
 			<!--
@@ -170,13 +156,12 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="1"
-								name="paymentDetail" type="tns:PaymentDetail">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="paymentDetail" type="tns:PaymentDetail">
 								<xs:annotation>
 									<xs:documentation>
 										The payment details for this media
 									</xs:documentation>
-									<xs:appinfo></xs:appinfo>
+									<xs:appinfo/>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -204,8 +189,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="productIdentifier" type="tns:ProductIdentifier">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="productIdentifier" type="tns:ProductIdentifier">
 								<xs:annotation>
 									<xs:documentation>
 										The product identifier type and value. The
@@ -227,8 +211,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="activityDuration" type="xs:token"
-								minOccurs="0" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="activityDuration" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
 										The duration in days for which we need the activity of the user.
@@ -250,8 +233,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="paginationInput"
-								type="tns:PaginationInput">
+							<xs:element maxOccurs="1" minOccurs="0" name="paginationInput" type="tns:PaginationInput">
 								<xs:annotation>
 									<xs:documentation>
 										Controls the pagination of the result set.
@@ -287,8 +269,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:complexType>
@@ -298,37 +279,34 @@
 			<xs:documentation>
 				The payment details for media
 			</xs:documentation>
-			<xs:appinfo></xs:appinfo>
+			<xs:appinfo/>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="paymentStatus" type="xs:token"
-				maxOccurs="1" minOccurs="1">
+			<xs:element maxOccurs="1" minOccurs="1" name="paymentStatus" type="xs:token">
 				<xs:annotation>
 					<xs:documentation>
 						The status of the payment. Returns Success,Failure or Scheduled
 						depending on the status of the payment.
 									</xs:documentation>
-					<xs:appinfo></xs:appinfo>
+					<xs:appinfo/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="paymentInitiationDate" type="xs:dateTime"
-				minOccurs="1" maxOccurs="1">
+			<xs:element maxOccurs="1" minOccurs="1" name="paymentInitiationDate" type="xs:dateTime">
 				<xs:annotation>
 					<xs:documentation>
 						The payment initiation date for that payment
 									</xs:documentation>
-					<xs:appinfo></xs:appinfo>
+					<xs:appinfo/>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="paymentNotes" type="xs:string"
-				maxOccurs="1" minOccurs="0">
+			<xs:element maxOccurs="1" minOccurs="0" name="paymentNotes" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>
 						The payment notes if any for this payment.If there is a failure in
 						the payment, then this
 						will contain the reason for the failure.
 										</xs:documentation>
-					<xs:appinfo></xs:appinfo>
+					<xs:appinfo/>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -349,8 +327,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="mediaSummary" type="tns:MediaSummary"
-								minOccurs="1" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="mediaSummary" type="tns:MediaSummary">
 								<xs:annotation>
 									<xs:documentation>
 										The container for media related information
@@ -377,8 +354,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="totalNoOfMedia" type="xs:int"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="totalNoOfMedia" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								The total number of media
@@ -392,8 +368,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="totalAmountEarned" type="tns:Money"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="totalAmountEarned" type="tns:Money">
 						<xs:annotation>
 							<xs:documentation>
 								The total amount earned by the
@@ -407,8 +382,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="potentialAmount" type="tns:Money"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="potentialAmount" type="tns:Money">
 						<xs:annotation>
 							<xs:documentation>
 								The potential amount that the
@@ -444,13 +418,12 @@
 						The response object for the
 						getUserAccountDetailsForProducts operation
 					</xs:documentation>
-					<xs:appinfo></xs:appinfo>
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="userAccountDetailsForProduct" type="tns:UserAccountDetailsForProduct"
-								minOccurs="1" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="userAccountDetailsForProduct" type="tns:UserAccountDetailsForProduct">
 								<xs:annotation>
 									<xs:documentation>
 										Container for multiple products.
@@ -458,11 +431,10 @@
 										products that the
 										user has uploaded media for.
 									</xs:documentation>
-									<xs:appinfo></xs:appinfo>
+									<xs:appinfo/>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="paginationOutput"
-								type="tns:PaginationOutput">
+							<xs:element maxOccurs="1" minOccurs="0" name="paginationOutput" type="tns:PaginationOutput">
 								<xs:annotation>
 									<xs:documentation>
 										Indicates the pagination of the result set.
@@ -492,8 +464,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -507,7 +478,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -522,7 +493,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -545,7 +516,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -569,7 +540,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -590,8 +561,7 @@
 						associated with the returned items.
 					</xs:documentation>
 					<xsd:appinfo>
-						<xsd:typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<xsd:typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
 					</xsd:appinfo>
 				</xsd:annotation>
 				<xsd:sequence>
@@ -616,7 +586,7 @@
 							<xs:appinfo>
 								<Default>1</Default>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<RequiredInput>No</RequiredInput>
 								</CallInfo>
 							</xs:appinfo>
@@ -641,14 +611,13 @@
 							<xs:appinfo>
 								<Default>25</Default>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<RequiredInput>No</RequiredInput>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xsd:element>
-					<xsd:any maxOccurs="unbounded" minOccurs="0"
-						processContents="lax" />
+					<xsd:any maxOccurs="unbounded" minOccurs="0" processContents="lax"/>
 				</xsd:sequence>
 			</xsd:complexType>
 			<xs:complexType name="PaginationOutput">
@@ -664,8 +633,7 @@
 						criteria.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -684,7 +652,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -705,7 +673,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -747,7 +715,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -775,7 +743,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -793,8 +761,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="1"
-								name="mediaRequest" type="tns:MediaRequest">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="mediaRequest" type="tns:MediaRequest">
 								<xs:annotation>
 									<xs:documentation>
 										Container for all media related
@@ -867,8 +834,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="productIdentifier"
-						type="tns:ProductIdentifier">
+					<xs:element maxOccurs="1" minOccurs="1" name="productIdentifier" type="tns:ProductIdentifier">
 						<xs:annotation>
 							<xs:documentation>
 								The product identifier type and value. The
@@ -882,8 +848,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="media" type="tns:MediaIdentifier"
-						minOccurs="1" maxOccurs="5">
+					<xs:element maxOccurs="5" minOccurs="1" name="media" type="tns:MediaIdentifier">
 						<xs:annotation>
 							<xs:documentation>
 								The media to be uploaded/deleted
@@ -913,8 +878,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="productWithMediaInfo" type="tns:ProductWithMediaInfo"
-						maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="productWithMediaInfo" type="tns:ProductWithMediaInfo">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -924,8 +888,7 @@
 						This represents the eBay Money object
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:complexType>
@@ -942,8 +905,7 @@
 						and cannot be corrected by changing request values.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xsd:annotation>
 				<xsd:restriction base="xsd:token">
@@ -1015,8 +977,7 @@
 						A container for error details.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xsd:annotation>
 				<xsd:sequence>
@@ -1032,7 +993,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -1045,7 +1006,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -1056,14 +1017,14 @@
 							<xs:documentation>
 								Name of the subdomain in which the error
 								occurred.
-								MarketplaceCatalog ->
+								MarketplaceCatalog -&gt;
 								The error is specific to the Marketplace Catalog subdomain.
-								MarketplaceCommon ->
+								MarketplaceCommon -&gt;
 								The error is common to all Marketplace services.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -1111,7 +1072,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -1126,7 +1087,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -1140,7 +1101,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -1154,14 +1115,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xsd:element>
-					<xsd:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter" type="tns:ErrorParameter">
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Various warning and error messages return one
@@ -1171,7 +1131,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -1188,13 +1148,11 @@
 						are instead reported as part of a SOAP fault. 
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"
-						type="tns:ErrorData" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -1209,13 +1167,12 @@
 						contain this value.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string" use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -1229,8 +1186,7 @@
 						the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -1262,19 +1218,17 @@
 			</xs:simpleType>
 			<xs:complexType name="Product">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
 						<CallInfo>
-							<CallName />
+							<CallName/>
 							<Returned>Conditionally</Returned>
 						</CallInfo>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="productIdentifier" type="tns:ProductIdentifier"
-						minOccurs="1" maxOccurs="1" />
-					<xs:element maxOccurs="unbounded" minOccurs="1"
-						name="productDetail" type="ns0:PropertyValue">
+					<xs:element maxOccurs="1" minOccurs="1" name="productIdentifier" type="tns:ProductIdentifier"/>
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="productDetail" type="ns0:PropertyValue">
 						<xs:annotation>
 							<xs:documentation>
 								The details of the product
@@ -1293,8 +1247,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -1337,29 +1290,25 @@
 						Type could be ePID, CPID
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceCatalogDomainTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0" name="ePID"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="ePID" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								eBay Product Reference Id
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="CPID"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="CPID" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Core Product Reference Id
 						</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="productId"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="productId" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Product Reference Id
@@ -1377,16 +1326,13 @@
 						such as Incentive amount.	 
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceCatalogDomainTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="propertyName"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="propertyName" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="value"
-						type="ns0:Value">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="value" type="ns0:Value">
 					</xs:element>
 
 				</xs:sequence>
@@ -1398,8 +1344,7 @@
 							A value can be one of the types given below.
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="MarketplaceCatalogDomainTypeLibrary"
-								namespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services" />
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services"/>
 						</xs:appinfo>
 					</xs:annotation>
 					<xs:element name="text" type="tns:StringValue">
@@ -1420,8 +1365,7 @@
 						This class holds a String value
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceCatalogDomainTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -1450,8 +1394,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="media" type="tns:MediaIdentifier"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="media" type="tns:MediaIdentifier">
 						<xs:annotation>
 							<xs:documentation>
 								The media which has been uploaded
@@ -1468,16 +1411,14 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="selectionStatus"
-						type="tns:SelectionStatus">
+					<xs:element maxOccurs="1" minOccurs="1" name="selectionStatus" type="tns:SelectionStatus">
 						<xs:annotation>
 							<xs:documentation>
 								The upload status of the media
 									</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="remarks"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="remarks" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The reasons for media rejection
@@ -1485,8 +1426,7 @@
 									</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="paidDate"
-						type="xs:date">
+					<xs:element maxOccurs="1" minOccurs="0" name="paidDate" type="xs:date">
 						<xs:annotation>
 							<xs:documentation>
 								Date in which payment was made
@@ -1494,8 +1434,7 @@
 									</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="incentiveEarned"
-						type="tns:Money">
+					<xs:element maxOccurs="1" minOccurs="0" name="incentiveEarned" type="tns:Money">
 						<xs:annotation>
 							<xs:documentation>
 								This represents the incentive
@@ -1540,8 +1479,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="mediaRequest" type="tns:MediaRequest"
-								minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="mediaRequest" type="tns:MediaRequest">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1556,8 +1494,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="1"
-								name="productWithMediaInfo" type="tns:ProductWithMediaInfo">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="productWithMediaInfo" type="tns:ProductWithMediaInfo">
 								<xs:annotation>
 									<xs:documentation>
 										The product from which the media
@@ -1569,7 +1506,7 @@
 										product except the media which
 										has been deleted.
 									</xs:documentation>
-									<xs:appinfo></xs:appinfo>
+									<xs:appinfo/>
 								</xs:annotation>
 							</xs:element>
 						</xs:sequence>
@@ -1587,8 +1524,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:Product">
 						<xs:sequence>
-							<xs:element name="mediaIdentifier" maxOccurs="unbounded"
-								minOccurs="0" type="tns:MediaIdentifier">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="mediaIdentifier" type="tns:MediaIdentifier">
 								<xs:annotation>
 									<xs:documentation>
 										Container for multiple media
@@ -1622,8 +1558,7 @@
 				</xs:annotation>
 
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="productIdentifier"
-						type="tns:ProductIdentifier">
+					<xs:element maxOccurs="1" minOccurs="1" name="productIdentifier" type="tns:ProductIdentifier">
 						<xs:annotation>
 							<xs:documentation>
 								The product identifier type and value.
@@ -1645,16 +1580,14 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="1"
-						name="productDetails" type="ns0:PropertyValue">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="productDetails" type="ns0:PropertyValue">
 						<xs:annotation>
 							<xs:documentation>
 								The details of the product
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="productStatus"
-						type="tns:ProductStatus">
+					<xs:element maxOccurs="1" minOccurs="1" name="productStatus" type="tns:ProductStatus">
 						<xs:annotation>
 							<xs:documentation>
 								Status of the product whose details are being
@@ -1662,16 +1595,14 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="mediaSummary" type="tns:MediaSummary"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="mediaSummary" type="tns:MediaSummary">
 						<xs:annotation>
 							<xs:documentation>
 								The media summary for this particular product
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="mediaSelectionDetail" type="tns:MediaSelectionDetail"
-						minOccurs="1" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="mediaSelectionDetail" type="tns:MediaSelectionDetail">
 						<xs:annotation>
 							<xs:documentation>
 								The media related information
@@ -1696,13 +1627,11 @@
 						This is used to indicate the status of the product.									
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceCatalogDomainTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0" name="productsClosed"
-						type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="0" name="productsClosed" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates that the product is closed.							
@@ -1715,42 +1644,40 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getUserAccountSummaryRequest">
-		<wsdl:part name="params" element="tns:getUserAccountSummaryRequest" />
+		<wsdl:part element="tns:getUserAccountSummaryRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getUserAccountSummaryResponse">
-		<wsdl:part name="params" element="tns:getUserAccountSummaryResponse" />
+		<wsdl:part element="tns:getUserAccountSummaryResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getUserAccountDetailsForProductsRequest">
-		<wsdl:part name="params"
-			element="tns:getUserAccountDetailsForProductsRequest" />
+		<wsdl:part element="tns:getUserAccountDetailsForProductsRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getUserAccountDetailsForProductsResponse">
-		<wsdl:part name="params"
-			element="tns:getUserAccountDetailsForProductsResponse" />
+		<wsdl:part element="tns:getUserAccountDetailsForProductsResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="uploadMediaByUserRequest">
-		<wsdl:part name="params" element="tns:uploadMultipleMediaByUserRequest" />
+		<wsdl:part element="tns:uploadMultipleMediaByUserRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="uploadMediaByUserResponse">
-		<wsdl:part name="params" element="tns:uploadMultipleMediaByUserResponse" />
+		<wsdl:part element="tns:uploadMultipleMediaByUserResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="deleteMediaByUserRequest">
-		<wsdl:part name="params" element="tns:deleteMediaByUserRequest" />
+		<wsdl:part element="tns:deleteMediaByUserRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="deleteMediaByUserResponse">
-		<wsdl:part name="params" element="tns:deleteMediaByUserResponse" />
+		<wsdl:part element="tns:deleteMediaByUserResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="requestPaymentForMediaRequest">
-		<wsdl:part name="params" element="tns:requestPaymentForMediaRequest" />
+		<wsdl:part element="tns:requestPaymentForMediaRequest" name="params"/>
 	</wsdl:message>
 		<wsdl:message name="getPaymentDetailsForMediaRequest">
-		<wsdl:part name="params" element="tns:getPaymentDetailsForMediaRequest" />
+		<wsdl:part element="tns:getPaymentDetailsForMediaRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getPaymentDetailsForMediaResponse">
-		<wsdl:part name="params" element="tns:getPaymentDetailsForMediaResponse" />
+		<wsdl:part element="tns:getPaymentDetailsForMediaResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="requestPaymentForMediaResponse">
-		<wsdl:part name="params" element="tns:requestPaymentForMediaResponse" />
+		<wsdl:part element="tns:requestPaymentForMediaResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:portType name="CommunityProductUserAccountServicePort">
 		<wsdl:operation name="getUserAccountSummary">
@@ -1761,9 +1688,8 @@
 				potential
 				amount for the user.
 			</wsdl:documentation>
-			<wsdl:input name="getUserAccountSummaryRequest" message="ns0:getUserAccountSummaryRequest" />
-			<wsdl:output name="getUserAccountSummaryResponse"
-				message="ns0:getUserAccountSummaryResponse" />
+			<wsdl:input message="ns0:getUserAccountSummaryRequest" name="getUserAccountSummaryRequest"/>
+			<wsdl:output message="ns0:getUserAccountSummaryResponse" name="getUserAccountSummaryResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getUserAccountDetailsForProducts">
 			<wsdl:documentation>
@@ -1776,131 +1702,115 @@
 				information for this user will
 				be returned.
 			</wsdl:documentation>
-			<wsdl:input name="getUserAccountDetailsForProductsRequest"
-				message="ns0:getUserAccountDetailsForProductsRequest" />
-			<wsdl:output name="getUserAccountDetailsForProductsResponse"
-				message="ns0:getUserAccountDetailsForProductsResponse" />
+			<wsdl:input message="ns0:getUserAccountDetailsForProductsRequest" name="getUserAccountDetailsForProductsRequest"/>
+			<wsdl:output message="ns0:getUserAccountDetailsForProductsResponse" name="getUserAccountDetailsForProductsResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="uploadMediaByUser">
 			<wsdl:documentation>
 				This operation is used to upload media for a
 				product
 			</wsdl:documentation>
-			<wsdl:input name="uploadMediaByUserRequest" message="ns0:uploadMediaByUserRequest" />
-			<wsdl:output name="uploadMediaByUserResponse" message="ns0:uploadMediaByUserResponse" />
+			<wsdl:input message="ns0:uploadMediaByUserRequest" name="uploadMediaByUserRequest"/>
+			<wsdl:output message="ns0:uploadMediaByUserResponse" name="uploadMediaByUserResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="deleteMediaByUser">
 			<wsdl:documentation>
 				This operation is used to delete an uploaded
 				media
 			</wsdl:documentation>
-			<wsdl:input name="deleteMediaByUserRequest" message="ns0:deleteMediaByUserRequest" />
-			<wsdl:output name="deleteMediaByUserResponse" message="ns0:deleteMediaByUserResponse" />
+			<wsdl:input message="ns0:deleteMediaByUserRequest" name="deleteMediaByUserRequest"/>
+			<wsdl:output message="ns0:deleteMediaByUserResponse" name="deleteMediaByUserResponse"/>
 		</wsdl:operation>
 			<wsdl:operation name="getPaymentDetailsForMedia">
 			<wsdl:documentation>
 				This operation is used to getPaymentDetails for an uploaded media
 			</wsdl:documentation>
-			<wsdl:input name="getPaymentDetailsForMediaRequest"
-				message="ns0:getPaymentDetailsForMediaRequest" />
-			<wsdl:output name="getPaymentDetailsForMediaResponse"
-				message="ns0:getPaymentDetailsForMediaResponse" />				
+			<wsdl:input message="ns0:getPaymentDetailsForMediaRequest" name="getPaymentDetailsForMediaRequest"/>
+			<wsdl:output message="ns0:getPaymentDetailsForMediaResponse" name="getPaymentDetailsForMediaResponse"/>				
 		</wsdl:operation>
 			<wsdl:operation name="requestPaymentForMedia">
 			<wsdl:documentation>
 				This is used to request a payment for an uploaded Media
 			</wsdl:documentation>
-			<wsdl:input name="requestPaymentForMediaRequest"
-				message="ns0:requestPaymentForMediaRequest" />
-			<wsdl:output name="requestPaymentForMediaResponse"
-				message="ns0:requestPaymentForMediaResponse" />
+			<wsdl:input message="ns0:requestPaymentForMediaRequest" name="requestPaymentForMediaRequest"/>
+			<wsdl:output message="ns0:requestPaymentForMediaResponse" name="requestPaymentForMediaResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="CommunityProductUserAccountServiceHttpBinding"
-		type="tns:CommunityProductUserAccountServicePort">
-		<http:binding verb="POST" />
+	<wsdl:binding name="CommunityProductUserAccountServiceHttpBinding" type="tns:CommunityProductUserAccountServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getUserAccountSummary">
-			<http:operation location="getUserAccountSummary" />
+			<http:operation location="getUserAccountSummary"/>
 			<wsdl:input>
-				<mime:content part="getUserAccountSummary" type="application/x-www-form-urlencoded" />
+				<mime:content part="getUserAccountSummary" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="getUserAccountSummary" type="text/xml" />
+				<mime:content part="getUserAccountSummary" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getUserAccountDetailsForProducts">
-			<http:operation location="getUserAccountDetailsForProducts" />
+			<http:operation location="getUserAccountDetailsForProducts"/>
 			<wsdl:input>
-				<mime:content part="getUserAccountDetailsForProducts"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="getUserAccountDetailsForProducts" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="getUserAccountDetailsForProducts"
-					type="text/xml" />
+				<mime:content part="getUserAccountDetailsForProducts" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="uploadMediaByUser">
-			<http:operation location="uploadMultipleMediaByUser" />
+			<http:operation location="uploadMultipleMediaByUser"/>
 			<wsdl:input>
-				<mime:content part="uploadMultipleMultipleMediaByUser"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="uploadMultipleMultipleMediaByUser" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="uploadMultipleMediaByUser" type="text/xml" />
+				<mime:content part="uploadMultipleMediaByUser" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="deleteMediaByUser">
-			<http:operation location="deleteMultipleMediaByUser" />
+			<http:operation location="deleteMultipleMediaByUser"/>
 			<wsdl:input>
-				<mime:content part="deleteMultipleMediaByUser" type="application/x-www-form-urlencoded" />
+				<mime:content part="deleteMultipleMediaByUser" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="deleteMultipleMediaByUser" type="text/xml" />
+				<mime:content part="deleteMultipleMediaByUser" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 			<wsdl:operation name="getPaymentDetailsForMedia">
-			<http:operation location="getPaymentDetailsForMedia" />
+			<http:operation location="getPaymentDetailsForMedia"/>
 			<wsdl:input>
-				<mime:content part="getPaymentDetailsForMedia"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="getPaymentDetailsForMedia" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="getPaymentDetailsForMedia"
-					type="text/xml" />
+				<mime:content part="getPaymentDetailsForMedia" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>	
 		<wsdl:operation name="requestPaymentForMedia">
-			<http:operation location="requestPaymentForMedia" />
+			<http:operation location="requestPaymentForMedia"/>
 			<wsdl:input>
-				<mime:content part="requestPaymentForMedia"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="requestPaymentForMedia" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="requestPaymentForMedia"
-					type="text/xml" />
+				<mime:content part="requestPaymentForMedia" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>		
 	</wsdl:binding>
-	<wsdl:binding name="CommunityProductUserAccountServiceSOAPBinding"
-		type="tns:CommunityProductUserAccountServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="CommunityProductUserAccountServiceSOAPBinding" type="tns:CommunityProductUserAccountServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getUserAccountSummary">
-			<soap12:operation soapAction="urn:getUserAccountSummary" />
+			<soap12:operation soapAction="urn:getUserAccountSummary"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</output>
 		</wsdl:operation>
 		<wsdl:operation name="getUserAccountDetailsForProducts">
-			<soap:operation soapAction="urn:getUserAccountDetailsForProducts" />
+			<soap:operation soapAction="urn:getUserAccountDetailsForProducts"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</output>
 		</wsdl:operation>
 		<wsdl:operation name="uploadMediaByUser">
@@ -1908,43 +1818,39 @@
 				This operation is used to upload media for a
 				product
 			</wsdl:documentation>
-			<soap12:operation soapAction="urn:uploadMediaByUser"
-				style="document" />
+			<soap12:operation soapAction="urn:uploadMediaByUser" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="deleteMediaByUser">
-			<soap12:operation soapAction="urn:deleteMediaByUser"
-				style="document" />
+			<soap12:operation soapAction="urn:deleteMediaByUser" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getPaymentDetailsForMedia">
-			<soap12:operation soapAction="urn:getPaymentDetailsForMedia"
-				style="document" />
+			<soap12:operation soapAction="urn:getPaymentDetailsForMedia" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 				<wsdl:operation name="requestPaymentForMedia">
-			<soap12:operation soapAction="urn:requestPaymentForMedia"
-				style="document" />
+			<soap12:operation soapAction="urn:requestPaymentForMedia" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -1963,16 +1869,11 @@
 			DeleteMediaByUser - Delete the Media
 			<Version>1.0.0</Version>
 		</wsdl:documentation>
-		<wsdl:port name="CommunityProductUserAccountServiceHttpPort"
-			binding="tns:CommunityProductUserAccountServiceHttpBinding">
-			<http:address
-				location="https://svcs.ebay.com/services/catalog/v1/CommunityProductUserAccountService" />
+		<wsdl:port binding="tns:CommunityProductUserAccountServiceHttpBinding" name="CommunityProductUserAccountServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/catalog/v1/CommunityProductUserAccountService"/>
 		</wsdl:port>
-		<wsdl:port name="CommunityProductUserAccountServiceSOAPPort"
-			binding="tns:CommunityProductUserAccountServiceSOAPBinding">
-			<soap12:address
-				location="https://svcs.ebay.com/services/catalog/v1/CommunityProductUserAccountService" />
+		<wsdl:port binding="tns:CommunityProductUserAccountServiceSOAPBinding" name="CommunityProductUserAccountServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/catalog/v1/CommunityProductUserAccountService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
-

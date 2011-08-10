@@ -1,22 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions 
-	name            = "AdjustmentService"
-    xmlns:wsdl      = "http://schemas.xmlsoap.org/wsdl/"
-    xmlns           = "http://schemas.xmlsoap.org/wsdl/"
-    xmlns:http      = "http://schemas.xmlsoap.org/wsdl/http/"
-    xmlns:mime      = "http://schemas.xmlsoap.org/wsdl/mime/"
-    xmlns:soap      = "http://schemas.xmlsoap.org/wsdl/soap/"
-    xmlns:soap12    = "http://schemas.xmlsoap.org/wsdl/soap12/"
-    xmlns:tns       = "http://www.ebay.com/marketplace/billing/v1/services"
-    xmlns:xs        = "http://www.w3.org/2001/XMLSchema" 
-    targetNamespace = "http://www.ebay.com/marketplace/billing/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/billing/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AdjustmentService" targetNamespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
     
     <wsdl:types>
-        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
-            targetNamespace="http://www.ebay.com/marketplace/billing/v1/services">
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
 
 		 <!-- Usage Adjustment Resquest -->
-	     <xs:element     name="applyUsageAdjustmentRequest" type="tns:ApplyUsageAdjustmentRequest"/>
+	     <xs:element name="applyUsageAdjustmentRequest" type="tns:ApplyUsageAdjustmentRequest"/>
 	     <xs:complexType name="ApplyUsageAdjustmentRequest">
 	      <xs:annotation>
 	         <xs:documentation>
@@ -26,7 +14,7 @@
 	      <xs:complexContent>
 	        <xs:extension base="tns:BaseBatchRequestType">
 	          <xs:sequence>
-	             <xs:element name="usageAdjustment" type="tns:UsageAdjustmentType" minOccurs="1" maxOccurs="unbounded"/>
+	             <xs:element maxOccurs="unbounded" minOccurs="1" name="usageAdjustment" type="tns:UsageAdjustmentType"/>
 	          </xs:sequence>
 	        </xs:extension>
 	       </xs:complexContent>
@@ -41,7 +29,7 @@
 	       <xs:complexContent>
 	         <xs:extension base="tns:BaseAdjustmentRequestType">
 	         <xs:sequence>
-		         <xs:element name="chargeId" type="xs:string" minOccurs="1">
+		         <xs:element minOccurs="1" name="chargeId" type="xs:string">
 		           <xs:annotation>
 		              <xs:documentation>
 		                     Usage Adjustment Identifier. This 
@@ -51,7 +39,7 @@
 		              </xs:documentation>
 		           </xs:annotation>
 		         </xs:element>
-		         <xs:element name="chargeContextId" type="xs:string" minOccurs="0">
+		         <xs:element minOccurs="0" name="chargeContextId" type="xs:string">
 		           <xs:annotation>
 		               <xs:documentation>
 		                    Context of the Credit
@@ -70,7 +58,7 @@
 	     </xs:complexType>      
 	     
 	     <!-- Usage Adjustment Response -->
-	     <xs:element     name="applyUsageAdjustmentResponse" type="tns:ApplyUsageAdjustmentResponse"/>
+	     <xs:element name="applyUsageAdjustmentResponse" type="tns:ApplyUsageAdjustmentResponse"/>
 	     <xs:complexType name="ApplyUsageAdjustmentResponse">
 	       <xs:annotation>
 	       <xs:documentation>
@@ -80,7 +68,7 @@
 	         <xs:complexContent>
 	            <xs:extension base="tns:BaseBatchResponseType">
 	              <xs:sequence>
-	                <xs:element name="usageAdjustmentResponse" type="tns:UsageAdjustmentResponseType" minOccurs="1" maxOccurs="unbounded"/>
+	                <xs:element maxOccurs="unbounded" minOccurs="1" name="usageAdjustmentResponse" type="tns:UsageAdjustmentResponseType"/>
 	              </xs:sequence>
 	            </xs:extension>
 	       </xs:complexContent>
@@ -90,7 +78,7 @@
 	       <xs:complexContent>
 	         <xs:extension base="tns:BaseResponseType">
 	           <xs:sequence>
-	             <xs:element name="referenceId" type="xs:string" minOccurs="0">
+	             <xs:element minOccurs="0" name="referenceId" type="xs:string">
 	               <xs:annotation>
 	                 <xs:documentation>
 	                    Reference identifier. This is an
@@ -105,7 +93,7 @@
 	               </xs:annotation>
 	             </xs:element>
 	                          
-	             <xs:element name="usageAdjustmentResponseDetails" type="tns:UsageAdjustmentResponseDetailsType" minOccurs="0"/>
+	             <xs:element minOccurs="0" name="usageAdjustmentResponseDetails" type="tns:UsageAdjustmentResponseDetailsType"/>
 	                           
 	           </xs:sequence>
 	         </xs:extension>
@@ -120,14 +108,14 @@
 	           </xs:documentation>
 	       </xs:annotation>
 	       <xs:sequence>
-	         <xs:element name="creditRequested" type="xs:double" minOccurs="1">
+	         <xs:element minOccurs="1" name="creditRequested" type="xs:double">
 	           <xs:annotation>
 	             <xs:documentation>
 	                 This is the Credit Amount Requested.
 	             </xs:documentation>
 	           </xs:annotation>
 	         </xs:element>
-	         <xs:element name="actualCreditIssued" type="xs:double" minOccurs="1">
+	         <xs:element minOccurs="1" name="actualCreditIssued" type="xs:double">
 	            <xs:annotation>
 	              <xs:documentation>
 	                 This is the Credit Amount Issued. 
@@ -136,7 +124,7 @@
 	              </xs:documentation>
 	            </xs:annotation>
 	         </xs:element>
-	         <xs:element name="originalCharge" type="xs:double" minOccurs="1">
+	         <xs:element minOccurs="1" name="originalCharge" type="xs:double">
 	            <xs:annotation>
 	              <xs:documentation>
 	                 This is the original charge 
@@ -145,7 +133,7 @@
 	              </xs:documentation>
 	            </xs:annotation>
 	         </xs:element>
-	         <xs:element name="totalPreviousCredits" type="xs:double" minOccurs="1">
+	         <xs:element minOccurs="1" name="totalPreviousCredits" type="xs:double">
 	            <xs:annotation>
 	            <xs:documentation>
 	               This is the cumulative of all 
@@ -154,7 +142,7 @@
 	             </xs:documentation>
 	             </xs:annotation>
 	         </xs:element>
-	         <xs:element name="totalCreditableTransactionBalance" type="xs:double" minOccurs="1">
+	         <xs:element minOccurs="1" name="totalCreditableTransactionBalance" type="xs:double">
 	           <xs:annotation>
 	             <xs:documentation>
 	                This is the amount left after 
@@ -168,7 +156,7 @@
 	     
 		<!-- Recurring Charge Adjustment Request -->
 		
-	     <xs:element     name="applyRecurringChargeAdjustmentRequest" type="tns:ApplyRecurringChargeAdjustmentRequest"/>
+	     <xs:element name="applyRecurringChargeAdjustmentRequest" type="tns:ApplyRecurringChargeAdjustmentRequest"/>
 	     <xs:complexType name="ApplyRecurringChargeAdjustmentRequest">
 	      <xs:annotation>
 	         <xs:documentation>
@@ -178,7 +166,7 @@
 	      <xs:complexContent>
 	        <xs:extension base="tns:BaseBatchRequestType">
 	          <xs:sequence>
-	             <xs:element name="recurringChargeAdjustment" type="tns:RecurringChargeAdjustmentType" minOccurs="1" maxOccurs="unbounded"/>
+	             <xs:element maxOccurs="unbounded" minOccurs="1" name="recurringChargeAdjustment" type="tns:RecurringChargeAdjustmentType"/>
 	          </xs:sequence>
 	        </xs:extension>
 	       </xs:complexContent>
@@ -193,7 +181,7 @@
 	       <xs:complexContent>
 	         <xs:extension base="tns:BaseAdjustmentRequestType">
 	         <xs:sequence>
-	         	<xs:element name="recurringChargeId" type="tns:BilledTransactionIdType" minOccurs="1" >
+	         	<xs:element minOccurs="1" name="recurringChargeId" type="tns:BilledTransactionIdType">
 	         		<xs:annotation>
 	         			<xs:documentation>
 	         				The transaction identifier for the transaction
@@ -201,7 +189,7 @@
 	         			</xs:documentation>
 	         		</xs:annotation>
 	         	</xs:element>
-	         	<xs:element name="elementId" type="xs:long" minOccurs="1" >
+	         	<xs:element minOccurs="1" name="elementId" type="xs:long">
 	         	<xs:annotation>
 	         		<xs:documentation>
 	         			Product element identifier
@@ -216,7 +204,7 @@
 	     
 	     <!-- Non Recurring Charge Adjustment Request -->
 	
-	     <xs:element     name="applyNonRecurringChargeAdjustmentRequest" type="tns:ApplyNonRecurringChargeAdjustmentRequest" />
+	     <xs:element name="applyNonRecurringChargeAdjustmentRequest" type="tns:ApplyNonRecurringChargeAdjustmentRequest"/>
 	     <xs:complexType name="ApplyNonRecurringChargeAdjustmentRequest">
 	     	<xs:annotation>
 	     		<xs:documentation>
@@ -226,7 +214,7 @@
 	     	<xs:complexContent>
 	     		<xs:extension base="tns:BaseBatchRequestType">
 	     			<xs:sequence>
-	     				<xs:element name="nonRecurringChargeAdjustment" type="tns:NonRecurringChargeAdjustmentType" maxOccurs="unbounded" minOccurs="1"/>
+	     				<xs:element maxOccurs="unbounded" minOccurs="1" name="nonRecurringChargeAdjustment" type="tns:NonRecurringChargeAdjustmentType"/>
 	     			</xs:sequence>
 	     		</xs:extension>
 	     	</xs:complexContent>
@@ -242,7 +230,7 @@
 	     	<xs:complexContent>
 	     		<xs:extension base="tns:BaseAdjustmentRequestType">
 	     			<xs:sequence>
-	    				<xs:element name="nonRecurrinChargeId" type="tns:BilledTransactionIdType" minOccurs="1">
+	    				<xs:element minOccurs="1" name="nonRecurrinChargeId" type="tns:BilledTransactionIdType">
 	     					<xs:annotation>
 	     						<xs:documentation>
 	     							The transaction identifier for the transaction
@@ -250,7 +238,7 @@
 	     						</xs:documentation>
 	     					</xs:annotation>
 	     				</xs:element>
-	     				<xs:element name="adjustmentType" type="tns:AdjustmentTransactionTypeCode" minOccurs="1">
+	     				<xs:element minOccurs="1" name="adjustmentType" type="tns:AdjustmentTransactionTypeCode">
 	     					<xs:annotation>
 	     						<xs:documentation>
 	     							Transaction code used to identify the type of
@@ -266,7 +254,7 @@
 	
 	     <!-- Account Adjustment Request -->
 	
-	     <xs:element     name="applyAccountAdjustmentRequest" type="tns:ApplyAccountAdjustmentRequest" />
+	     <xs:element name="applyAccountAdjustmentRequest" type="tns:ApplyAccountAdjustmentRequest"/>
 	     <xs:complexType name="ApplyAccountAdjustmentRequest">
 	     	<xs:annotation>
 	     		<xs:documentation>
@@ -276,7 +264,7 @@
 	     	<xs:complexContent>
 	     		<xs:extension base="tns:BaseBatchRequestType">
 	     			<xs:sequence>
-	     				<xs:element name="accountAdjustment" type="tns:AccountAdjustmentType" maxOccurs="unbounded" minOccurs="1"/>
+	     				<xs:element maxOccurs="unbounded" minOccurs="1" name="accountAdjustment" type="tns:AccountAdjustmentType"/>
 	     			</xs:sequence>
 	     		</xs:extension>
 	     	</xs:complexContent>
@@ -291,7 +279,7 @@
 	     	<xs:complexContent>
 	     		<xs:extension base="tns:BaseAdjustmentRequestType">
 	     			<xs:sequence>
-	     				<xs:element name="adjustmentType" type="tns:AdjustmentTransactionTypeCode" minOccurs="1">
+	     				<xs:element minOccurs="1" name="adjustmentType" type="tns:AdjustmentTransactionTypeCode">
 	     					<xs:annotation>
 	     						<xs:documentation>
 	     							Transaction code used to identify the type of
@@ -299,7 +287,7 @@
 	     						</xs:documentation>
 	     					</xs:annotation>
 	     				</xs:element>
-	     				<xs:element name="creditMode" type="tns:CreditMode" minOccurs="1" >
+	     				<xs:element minOccurs="1" name="creditMode" type="tns:CreditMode">
 	     					<xs:annotation>
 	     						<xs:documentation>
 	     							Indicates whether or not the available credit amount is issued if the requested 
@@ -342,14 +330,14 @@
 	     		</xs:documentation>
 	     	</xs:annotation>
 	     	<xs:sequence>
-	     		<xs:element name="invoiceReference" type="tns:InvoiceReferenceType" minOccurs="1">
+	     		<xs:element minOccurs="1" name="invoiceReference" type="tns:InvoiceReferenceType">
 	     			<xs:annotation>
 	     				<xs:documentation>
 	     					Reference to the invoice.
 	     				</xs:documentation>
 	     			</xs:annotation>
 	     		</xs:element>
-	     		<xs:element name="invoiceRow" type="xs:long" minOccurs="1">
+	     		<xs:element minOccurs="1" name="invoiceRow" type="xs:long">
 	     			<xs:annotation>
 	     				<xs:documentation>
 	     					Row identifier used to identify a row in an
@@ -365,7 +353,7 @@
 	             <xs:documentation>Identifies an invoice.</xs:documentation>
 	         </xs:annotation>
 	         <xs:sequence>
-	             <xs:element name="InvoiceNumberMajor" type="xs:long" minOccurs="1">
+	             <xs:element minOccurs="1" name="InvoiceNumberMajor" type="xs:long">
 	                 <xs:annotation>
 	                     <xs:documentation>
 		                     The second part of the composite primary key identifying 
@@ -374,7 +362,7 @@
 	                     </xs:documentation>
 	                 </xs:annotation>
 	             </xs:element>
-	             <xs:element name="InvoiceNumberMinor" type="xs:int" minOccurs="1">
+	             <xs:element minOccurs="1" name="InvoiceNumberMinor" type="xs:int">
 	                 <xs:annotation>
 	                     <xs:documentation>
 		                    The third part of the composite primary key identifying 
@@ -390,9 +378,9 @@
 	             <xs:documentation>Identifies an invoice.</xs:documentation>
 	         </xs:annotation>
 	         <xs:sequence>
-	             <xs:element name="InvoiceId" type="tns:InvoiceIdType" minOccurs="1">
+	             <xs:element minOccurs="1" name="InvoiceId" type="tns:InvoiceIdType">
 	             </xs:element>
-	             <xs:element name="invoiceStatementDate" type="xs:dateTime" minOccurs="1">
+	             <xs:element minOccurs="1" name="invoiceStatementDate" type="xs:dateTime">
 	                 <xs:annotation>
 	                     <xs:documentation>Invoice statement date.</xs:documentation>
 	                 </xs:annotation>
@@ -411,7 +399,7 @@
 	     </xs:simpleType>
 	     
 	     <!-- Adjustment Response -->
-	     <xs:element     name="applyAdjustmentResponse" type="tns:ApplyAdjustmentResponse"/>
+	     <xs:element name="applyAdjustmentResponse" type="tns:ApplyAdjustmentResponse"/>
 	     <xs:complexType name="ApplyAdjustmentResponse">
 	       <xs:annotation>
 	       <xs:documentation>
@@ -421,7 +409,7 @@
 	         <xs:complexContent>
 	            <xs:extension base="tns:BaseBatchResponseType">
 	              <xs:sequence>
-	                <xs:element name="adjustmentResponse" type="tns:AdjustmentResponseType" minOccurs="1" maxOccurs="unbounded"/>
+	                <xs:element maxOccurs="unbounded" minOccurs="1" name="adjustmentResponse" type="tns:AdjustmentResponseType"/>
 	              </xs:sequence>
 	            </xs:extension>
 	       </xs:complexContent>
@@ -431,7 +419,7 @@
 	       <xs:complexContent>
 	         <xs:extension base="tns:BaseResponseType">
 	           <xs:sequence>
-	             <xs:element name="referenceId" type="xs:string" minOccurs="0">
+	             <xs:element minOccurs="0" name="referenceId" type="xs:string">
 	               <xs:annotation>
 	                 <xs:documentation>
 	                    Reference identifier. This is an
@@ -446,7 +434,7 @@
 	               </xs:annotation>
 	             </xs:element>
 	                          
-	             <xs:element name="adjustmentResponseDetails" type="tns:AdjustmentResponseDetailsType" minOccurs="0"/>
+	             <xs:element minOccurs="0" name="adjustmentResponseDetails" type="tns:AdjustmentResponseDetailsType"/>
 	                           
 	           </xs:sequence>
 	         </xs:extension>
@@ -461,7 +449,7 @@
 	     		</xs:documentation>
 	     	</xs:annotation>
 	     	<xs:sequence>
-	     		<xs:element name="actualAdjustmentApplied" type="tns:Money" minOccurs="1">
+	     		<xs:element minOccurs="1" name="actualAdjustmentApplied" type="tns:Money">
 	     			<xs:annotation>
 	     				<xs:documentation>
 	     					This is the actual adjustment amount applied. It is
@@ -476,46 +464,43 @@
 	
 	     <xs:complexType name="AccountIdType">
 	       <xs:annotation>
-	        <xs:documentation></xs:documentation>
+	        <xs:documentation/>
 	          <xs:appinfo>
-	            <typeLibrarySource library="BillingTypeLibrary"
-	               namespace="http://www.ebay.com/marketplace/billing/v1/services">
+	            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
 	            </typeLibrarySource>
 	          </xs:appinfo>
 	       </xs:annotation>
 	       <xs:sequence>
-	         <xs:element name="clientId"        type="xs:string" minOccurs="1">  </xs:element>
-	         <xs:element name="accountId"       type="xs:string" minOccurs="1">  </xs:element>
-	         <xs:element name="accountSuffixId" type="xs:string" minOccurs="1">  </xs:element>
+	         <xs:element minOccurs="1" name="clientId" type="xs:string">  </xs:element>
+	         <xs:element minOccurs="1" name="accountId" type="xs:string">  </xs:element>
+	         <xs:element minOccurs="1" name="accountSuffixId" type="xs:string">  </xs:element>
 	       </xs:sequence>
 	     </xs:complexType>
 	     
 	        <xs:complexType name="RequestHeaderType">
 	          <xs:annotation>
-	            <xs:documentation></xs:documentation>
+	            <xs:documentation/>
 	            <xs:appinfo>
-	               <typeLibrarySource library="BillingTypeLibrary"
-	                  namespace="http://www.ebay.com/marketplace/billing/v1/services">
+	               <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
 	               </typeLibrarySource>
 	            </xs:appinfo>
 	          </xs:annotation>
 	          <xs:sequence>
-	            <xs:element name="requestId"     type="xs:string">  </xs:element>
-	            <xs:element name="requestTime"   type="xs:dateTime"></xs:element>
+	            <xs:element name="requestId" type="xs:string">  </xs:element>
+	            <xs:element name="requestTime" type="xs:dateTime"/>
 	          </xs:sequence>
 	        </xs:complexType>
 	
 	        <xs:complexType name="ResponseHeaderType">
 	          <xs:annotation>
-	            <xs:documentation></xs:documentation>
+	            <xs:documentation/>
 	            <xs:appinfo>
-	              <typeLibrarySource library="BillingTypeLibrary"
-	                 namespace="http://www.ebay.com/marketplace/billing/v1/services">
+	              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
 	              </typeLibrarySource>
 	            </xs:appinfo>
 	          </xs:annotation>
 	          <xs:sequence>
-	            <xs:element name="requestId"      type="xs:string">                 </xs:element>
+	            <xs:element name="requestId" type="xs:string">                 </xs:element>
 	          </xs:sequence>
 	        </xs:complexType>
 	
@@ -523,16 +508,15 @@
 	          <xs:complexContent>
 	            <xs:extension base="tns:BaseServiceRequest">
 	            <xs:annotation>
-	              <xs:documentation></xs:documentation>
+	              <xs:documentation/>
 	                <xs:appinfo>
-	                  <typeLibrarySource library="BillingTypeLibrary"
-	                   namespace="http://www.ebay.com/marketplace/billing/v1/services">
+	                  <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
 	                  </typeLibrarySource>
 	                </xs:appinfo>
 	              </xs:annotation>
 	              <xs:sequence>
 	                <xs:element name="requestHeader" type="tns:RequestHeaderType"> </xs:element>
-	                <xs:element name="accountId"     type="tns:AccountIdType">     </xs:element>
+	                <xs:element name="accountId" type="tns:AccountIdType">     </xs:element>
 	              </xs:sequence>
 	            </xs:extension>
 	          </xs:complexContent>
@@ -546,15 +530,13 @@
 	        					The common request type that represents the adjustment details
 	        				</xs:documentation>
 	        				<xs:appinfo>
-	        					<typeLibrarySource
-	        						library="BillingTypeLibrary"
-	        						namespace="http://www.ebay.com/marketplace/billing/v1/services">
+	        					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
 	        					</typeLibrarySource>
 	        				</xs:appinfo>
 	        			</xs:annotation>
 	        			<xs:sequence>
 	
-	        				<xs:element name="adjustmentAmount" type="tns:Money" minOccurs="1">
+	        				<xs:element minOccurs="1" name="adjustmentAmount" type="tns:Money">
 	        					<xs:annotation>
 	        						<xs:documentation>
 	        							Amount of the adjustment requested.
@@ -562,7 +544,7 @@
 	        					</xs:annotation>
 	        				</xs:element>
 	
-	        				<xs:element name="reasonCode" type="xs:int" minOccurs="1">
+	        				<xs:element minOccurs="1" name="reasonCode" type="xs:int">
 	        					<xs:annotation>
 	        						<xs:documentation>
 	        							Pre-defined reason code,
@@ -572,7 +554,7 @@
 	        					</xs:annotation>
 	        				</xs:element>
 	
-	        				<xs:element name="adjustmentDate" type="xs:dateTime" minOccurs="1">
+	        				<xs:element minOccurs="1" name="adjustmentDate" type="xs:dateTime">
 	        					<xs:annotation>
 	        						<xs:documentation>
 	        							Date on which the adjustment was
@@ -581,7 +563,7 @@
 	        					</xs:annotation>
 	        				</xs:element>
 	
-	        				<xs:element name="adjustmentRequestStatus" type="tns:RequestStatus" minOccurs="1">
+	        				<xs:element minOccurs="1" name="adjustmentRequestStatus" type="tns:RequestStatus">
 	        					<xs:annotation>
 	        						<xs:documentation>
 	        							Status of an adjustment request;
@@ -589,7 +571,7 @@
 	        					</xs:annotation>
 	        				</xs:element>
 	
-	        				<xs:element name="submitter" type="xs:string" minOccurs="0">
+	        				<xs:element minOccurs="0" name="submitter" type="xs:string">
 	        					<xs:annotation>
 	        						<xs:documentation>
 	        							Id or name of the person who is submitting
@@ -598,7 +580,7 @@
 	        					</xs:annotation>
 	        				</xs:element>
 	
-	        				<xs:element name="memo" type="xs:string" minOccurs="0">
+	        				<xs:element minOccurs="0" name="memo" type="xs:string">
 	        					<xs:annotation>
 	        						<xs:documentation>
 	        							Any description associated with the adjustment.
@@ -615,10 +597,9 @@
 	          <xs:complexContent>
 	            <xs:extension base="tns:BaseServiceResponse">
 	              <xs:annotation>
-	                <xs:documentation></xs:documentation>
+	                <xs:documentation/>
 	                <xs:appinfo>
-	                  <typeLibrarySource library="BillingTypeLibrary"
-	                    namespace="http://www.ebay.com/marketplace/billing/v1/services">
+	                  <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
 	                  </typeLibrarySource>
 	                </xs:appinfo>
 	              </xs:annotation>
@@ -631,24 +612,22 @@
 	        
 	        <xs:complexType name="BaseBatchRequestType">
 	          <xs:annotation>
-	            <xs:documentation></xs:documentation>
+	            <xs:documentation/>
 	              <xs:appinfo>
-	                <typeLibrarySource library="BillingTypeLibrary"
-	                     namespace="http://www.ebay.com/marketplace/billing/v1/services">
+	                <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
 	                </typeLibrarySource>
 	              </xs:appinfo>
 	          </xs:annotation>
 	           <xs:sequence>
-	              <xs:element name="batchId"             type="xs:string"  minOccurs="0">    </xs:element>                
+	              <xs:element minOccurs="0" name="batchId" type="xs:string">    </xs:element>                
 	           </xs:sequence>
 	        </xs:complexType>
 	        
 	        <xs:complexType name="BaseBatchResponseType">
 	          <xs:annotation>
-	          <xs:documentation></xs:documentation>
+	          <xs:documentation/>
 	            <xs:appinfo>
-	              <typeLibrarySource library="BillingTypeLibrary"
-	                 namespace="http://www.ebay.com/marketplace/billing/v1/services">
+	              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
 	              </typeLibrarySource>
 			    </xs:appinfo>
 			  </xs:annotation>
@@ -673,141 +652,139 @@
 							Comments are included for quick reference.
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource
-								library="MarketPlaceServiceCommonTypeLibrary"
-								namespace="http://www.ebay.com/marketplace/services">
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 							</typeLibrarySource>
 						</xs:appinfo>
 					</xs:annotation>
 	
 					<xs:restriction base="xs:token"><!-- Currency,                         Entity                          ISO Currency Code -->
-						<xs:enumeration value="USD"></xs:enumeration>
+						<xs:enumeration value="USD"/>
 						<!-- U.S. Dollar                       United States                   840               -->
-						<xs:enumeration value="CAD"></xs:enumeration>
+						<xs:enumeration value="CAD"/>
 						<!-- Canadian Dollar                   Canada                          124               -->
-						<xs:enumeration value="GBP"></xs:enumeration>
+						<xs:enumeration value="GBP"/>
 						<!-- Pound Sterling                    United Kingdom                  826               -->
-						<xs:enumeration value="DEM"></xs:enumeration>
+						<xs:enumeration value="DEM"/>
 						<!-- German Mark                       Germany                         276               -->
-						<xs:enumeration value="AUD"></xs:enumeration>
+						<xs:enumeration value="AUD"/>
 						<!-- Australian Dollar                 Australia                       036               -->
-						<xs:enumeration value="JPY"></xs:enumeration>
+						<xs:enumeration value="JPY"/>
 						<!-- Japanese Yen                      Japanese Yen                    392               -->
-						<xs:enumeration value="EUR"></xs:enumeration>
+						<xs:enumeration value="EUR"/>
 						<!-- Euro                              European Union                  978               -->
-						<xs:enumeration value="FRF"></xs:enumeration>
+						<xs:enumeration value="FRF"/>
 						<!-- French Franc                      France                          250               -->
-						<xs:enumeration value="ATS"></xs:enumeration>
+						<xs:enumeration value="ATS"/>
 						<!-- Austrian Schilling                Austria                         040               -->
-						<xs:enumeration value="BEF"></xs:enumeration>
+						<xs:enumeration value="BEF"/>
 						<!-- Belgian Franc                     Belgium                         056               -->
-						<xs:enumeration value="CHF"></xs:enumeration>
+						<xs:enumeration value="CHF"/>
 						<!-- Swiss Franc                       Switzerland                     756               -->
-						<xs:enumeration value="CNY"></xs:enumeration>
+						<xs:enumeration value="CNY"/>
 						<!-- Chinese Yuan Renminbi             China                           156               -->
-						<xs:enumeration value="CZK"></xs:enumeration>
+						<xs:enumeration value="CZK"/>
 						<!-- Czech Koruna                      Czech Republic                  203               -->
-						<xs:enumeration value="DKK"></xs:enumeration>
+						<xs:enumeration value="DKK"/>
 						<!-- Danish Krone                      Denmark                         208               -->
-						<xs:enumeration value="ESP"></xs:enumeration>
+						<xs:enumeration value="ESP"/>
 						<!-- Spanish Peseta                    Spain                           724               -->
-						<xs:enumeration value="FIM"></xs:enumeration>
+						<xs:enumeration value="FIM"/>
 						<!-- Finnish Markka                    Finland                         246               -->
-						<xs:enumeration value="GRD"></xs:enumeration>
+						<xs:enumeration value="GRD"/>
 						<!-- Greek Drachma                     Greece                          300               -->
-						<xs:enumeration value="HKD"></xs:enumeration>
+						<xs:enumeration value="HKD"/>
 						<!-- Hong Kong Dollar                  Hong Kong                       344               -->
-						<xs:enumeration value="HUF"></xs:enumeration>
+						<xs:enumeration value="HUF"/>
 						<!-- Hungarian Forint                  Hungary                         348               -->
-						<xs:enumeration value="IDR"></xs:enumeration>
+						<xs:enumeration value="IDR"/>
 						<!-- Indonesian Rupiah                 Indonesia                       360               -->
-						<xs:enumeration value="IEP"></xs:enumeration>
+						<xs:enumeration value="IEP"/>
 						<!-- Irish Pound                       Ireland                         372               -->
-						<xs:enumeration value="ILS"></xs:enumeration>
+						<xs:enumeration value="ILS"/>
 						<!-- Israeli new Shekel                Israel                          376               -->
-						<xs:enumeration value="ITL"></xs:enumeration>
+						<xs:enumeration value="ITL"/>
 						<!-- Italian Lira                      Italy                           380               -->
-						<xs:enumeration value="NLG"></xs:enumeration>
+						<xs:enumeration value="NLG"/>
 						<!-- Dutch Guilder                     Netherlands                     528               -->
-						<xs:enumeration value="NOK"></xs:enumeration>
+						<xs:enumeration value="NOK"/>
 						<!-- Norwegian Krone                   Norway                          578               -->
-						<xs:enumeration value="NZD"></xs:enumeration>
+						<xs:enumeration value="NZD"/>
 						<!-- New Zealand Dollar                New Zealand                     554               -->
-						<xs:enumeration value="PHP"></xs:enumeration>
+						<xs:enumeration value="PHP"/>
 						<!-- Philippine Peso                   Philippines                     608               -->
-						<xs:enumeration value="PLN"></xs:enumeration>
+						<xs:enumeration value="PLN"/>
 						<!-- Polish New Zloty                  Poland                          985               -->
-						<xs:enumeration value="PTE"></xs:enumeration>
+						<xs:enumeration value="PTE"/>
 						<!-- Portuguese Escudo                 Portugal                        620               -->
-						<xs:enumeration value="RUR"></xs:enumeration>
+						<xs:enumeration value="RUR"/>
 						<!-- Russian Ruble                     Russian Federation              810               -->
-						<xs:enumeration value="SEK"></xs:enumeration>
+						<xs:enumeration value="SEK"/>
 						<!-- Swedish Krona                     Sweden                          752               -->
-						<xs:enumeration value="SGD"></xs:enumeration>
+						<xs:enumeration value="SGD"/>
 						<!-- Singapore Dollar                  Singapore                       702               -->
-						<xs:enumeration value="THB"></xs:enumeration>
+						<xs:enumeration value="THB"/>
 						<!-- Thai Baht                         Thailand                        764               -->
-						<xs:enumeration value="TWD"></xs:enumeration>
+						<xs:enumeration value="TWD"/>
 						<!-- New Taiwan dollar                 Taiwan                          901               -->
-						<xs:enumeration value="ZAR"></xs:enumeration>
+						<xs:enumeration value="ZAR"/>
 						<!-- South African Rand                South Africa                    710               -->
-						<xs:enumeration value="INR"></xs:enumeration>
+						<xs:enumeration value="INR"/>
 						<!-- Indian Rupee                      India                           356               -->
-						<xs:enumeration value="PEN"></xs:enumeration>
+						<xs:enumeration value="PEN"/>
 						<!-- Peruvian New Sol                  Peru                            604               -->
-						<xs:enumeration value="MYR"></xs:enumeration>
+						<xs:enumeration value="MYR"/>
 						<!-- Malaysian Ringgit                 Malaysia                        458               -->
-						<xs:enumeration value="VND"></xs:enumeration>
+						<xs:enumeration value="VND"/>
 						<!-- Vietnamese New Dong               Vietnam                         704               -->
-						<xs:enumeration value="KRW"></xs:enumeration>
+						<xs:enumeration value="KRW"/>
 						<!-- South Korean Won                  South Korea                     410               -->
-						<xs:enumeration value="TRY"></xs:enumeration>
+						<xs:enumeration value="TRY"/>
 						<!-- New Turkish Lira                  Turkey                          949               -->
-						<xs:enumeration value="ANG"></xs:enumeration>
+						<xs:enumeration value="ANG"/>
 						<!-- Antillian Guilder                 Netherlands Antilles            532               -->
-						<xs:enumeration value="AWG"></xs:enumeration>
+						<xs:enumeration value="AWG"/>
 						<!-- Aruban Guilder                    Aruba                           533               -->
-						<xs:enumeration value="BMD"></xs:enumeration>
+						<xs:enumeration value="BMD"/>
 						<!-- Bermudan Dollar                   Bermudan Dollar                 060               -->
-						<xs:enumeration value="CRC"></xs:enumeration>
+						<xs:enumeration value="CRC"/>
 						<!-- Costa Rican Colon                 Costa Rica                      188               -->
-						<xs:enumeration value="RON"></xs:enumeration>
+						<xs:enumeration value="RON"/>
 						<!-- Romanian New Leu                  Romania                         946               -->
-						<xs:enumeration value="VEF"></xs:enumeration>
+						<xs:enumeration value="VEF"/>
 						<!-- Venezuelan Bolivar Fuerte         Venezuela                       937               -->
-						<xs:enumeration value="BBD"></xs:enumeration>
+						<xs:enumeration value="BBD"/>
 						<!-- Barbados Dollar                   Barbados                        052               -->
-						<xs:enumeration value="BGN"></xs:enumeration>
+						<xs:enumeration value="BGN"/>
 						<!-- Bulgarian Lev                     Bulgaria                        975               -->
-						<xs:enumeration value="BND"></xs:enumeration>
+						<xs:enumeration value="BND"/>
 						<!-- Brunei Dollar                     Brunei                          096               -->
-						<xs:enumeration value="BSD"></xs:enumeration>
+						<xs:enumeration value="BSD"/>
 						<!-- Bahamian Dollar                   Bahamas                         044               -->
-						<xs:enumeration value="COP"></xs:enumeration>
+						<xs:enumeration value="COP"/>
 						<!-- Colombian Peso                    Columbia                        170               -->
-						<xs:enumeration value="DOP"></xs:enumeration>
+						<xs:enumeration value="DOP"/>
 						<!-- Dominican Peso                    Dominican Republic              214               -->
-						<xs:enumeration value="GTQ"></xs:enumeration>
+						<xs:enumeration value="GTQ"/>
 						<!-- Guatemalan Quetzal                Guatemala                       320               -->
-						<xs:enumeration value="KYD"></xs:enumeration>
+						<xs:enumeration value="KYD"/>
 						<!-- Cayman Isles Dollar               Cayman Islands                  136               -->
-						<xs:enumeration value="MVR"></xs:enumeration>
+						<xs:enumeration value="MVR"/>
 						<!-- Maldivian Rufiyaa                 Maldives                        462               -->
-						<xs:enumeration value="QAR"></xs:enumeration>
+						<xs:enumeration value="QAR"/>
 						<!-- Qatari Rial                       Qatar                           634               -->
-						<xs:enumeration value="SAR"></xs:enumeration>
+						<xs:enumeration value="SAR"/>
 						<!-- Saudi Riyal                       Saudi Arabia                    682               -->
-						<xs:enumeration value="TTD"></xs:enumeration>
+						<xs:enumeration value="TTD"/>
 						<!-- Trinidadian and Tobagonian Dollar Trinidad and Tobago             780               -->
-						<xs:enumeration value="UAH"></xs:enumeration>
+						<xs:enumeration value="UAH"/>
 						<!-- Ukrainian hryvnia                 Ukraine                         980               -->
-						<xs:enumeration value="UYU"></xs:enumeration>
+						<xs:enumeration value="UYU"/>
 						<!-- Peso Uruguayo                     Uruguay                         858               -->
-						<xs:enumeration value="XCD"></xs:enumeration>
+						<xs:enumeration value="XCD"/>
 						<!-- East Caribbean Dollar             East Caribbean Currency Area    951               -->
-						<xs:enumeration value="XPF"></xs:enumeration>
+						<xs:enumeration value="XPF"/>
 						<!-- French Polynesian Franc           French Polynesia                953               -->
-						<xs:enumeration value="JMD"></xs:enumeration>
+						<xs:enumeration value="JMD"/>
 						<!-- Jamaican Dollar                   Jamaica                         388               -->
 	
 					</xs:restriction>
@@ -821,17 +798,14 @@
 	                   Money information.
 	               </xs:documentation>
 	               <xs:appinfo>
-	                  <typeLibrarySource
-	                       library="MarketPlaceServiceCommonTypeLibrary"
-	                       namespace="http://www.ebay.com/marketplace/services">
+	                  <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 	                  </typeLibrarySource>
 	               </xs:appinfo>
 	            </xs:annotation>
 	
 	            <xs:simpleContent>
 	               <xs:extension base="xs:decimal">
-	                  <xs:attribute name="currencyCode"
-	                      type="tns:IsoCurrencyCode" use="required">
+	                  <xs:attribute name="currencyCode" type="tns:IsoCurrencyCode" use="required">
 	                  </xs:attribute>
 	               </xs:extension>
 	            </xs:simpleContent>
@@ -848,9 +822,7 @@
 	             communicated to the user.
 	         </xs:documentation>
 	         <xs:appinfo>
-	           <typeLibrarySource
-	             library="MarketPlaceServiceCommonTypeLibrary"
-	             namespace="http://www.ebay.com/marketplace/services" />
+	           <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	         </xs:appinfo>
 	       </xs:annotation>
 	       <xs:restriction base="xs:string">
@@ -902,9 +874,7 @@
 	           all service operations.
 	         </xs:documentation>
 	         <xs:appinfo>
-	            <typeLibrarySource
-	               library="MarketPlaceServiceCommonTypeLibrary"
-	               namespace="http://www.ebay.com/marketplace/services" />
+	            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	         </xs:appinfo>
 	       </xs:annotation>
 	     </xs:complexType>
@@ -917,24 +887,22 @@
 	          associated with the request.
 	       </xs:documentation>
 	         <xs:appinfo>
-	           <typeLibrarySource
-	               library="MarketPlaceServiceCommonTypeLibrary"
-	                namespace="http://www.ebay.com/marketplace/services" />
+	           <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	         </xs:appinfo>
 	       </xs:annotation>
 	       <xs:sequence>
 	         <xs:element name="ack" type="tns:AckValue">
 	           <xs:annotation>
-	             <xs:documentation />
+	             <xs:documentation/>
 	             <xs:appinfo>
 	               <CallInfo>
-	                 <AllCalls />
+	                 <AllCalls/>
 	                 <Returned>Always</Returned>
 	               </CallInfo>
 	             </xs:appinfo>
 	           </xs:annotation>
 	         </xs:element>
-	         <xs:element name="errorMessage" type="tns:ErrorMessage" minOccurs="0" >
+	         <xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 	           <xs:annotation>
 	             <xs:documentation>
 	               Information for an error or warning that
@@ -943,29 +911,29 @@
 	             </xs:documentation>
 	             <xs:appinfo>
 	               <CallInfo>
-	                 <AllCalls />
+	                 <AllCalls/>
 	                 <Returned>Conditionally</Returned>
 	               </CallInfo>
 	             </xs:appinfo>
 	           </xs:annotation>
 	         </xs:element>
-	         <xs:element name="version" type="xs:string" minOccurs="0">
+	         <xs:element minOccurs="0" name="version" type="xs:string">
 	           <xs:annotation>
-	             <xs:documentation />
+	             <xs:documentation/>
 	             <xs:appinfo>
 	               <CallInfo>
-	                 <AllCalls />
+	                 <AllCalls/>
 	                 <Returned>Always</Returned>
 	               </CallInfo>
 	             </xs:appinfo>
 	           </xs:annotation>
 	         </xs:element>
-	         <xs:element name="timestamp" type="xs:dateTime"  minOccurs="0">
+	         <xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 	           <xs:annotation>
-	             <xs:documentation />
+	             <xs:documentation/>
 	             <xs:appinfo>
 	               <CallInfo>
-	                 <AllCalls />
+	                 <AllCalls/>
 	                 <Returned>Always</Returned>
 	               </CallInfo>
 	             </xs:appinfo>
@@ -980,15 +948,13 @@
 	              Documentation goes here.
 	            </xs:documentation>
 	            <xs:appinfo>
-	              <typeLibrarySource
-	                  library="SOACommonTypeLibrary"
-	                  namespace="http://www.ebay.com/marketplace/services" />
+	              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	            </xs:appinfo>
 	          </xs:annotation>
 	          <xs:restriction base="xs:token">
-	            <xs:enumeration value="System" />
-	            <xs:enumeration value="Application" />
-	            <xs:enumeration value="Request" />
+	            <xs:enumeration value="System"/>
+	            <xs:enumeration value="Application"/>
+	            <xs:enumeration value="Request"/>
 	          </xs:restriction>
 	        </xs:simpleType>
 	
@@ -998,20 +964,18 @@
 	              Documentation goes here
 	            </xs:documentation>
 	            <xs:appinfo>
-	              <typeLibrarySource
-	                 library="SOACommonTypeLibrary"
-	                 namespace="http://www.ebay.com/marketplace/services" />
+	              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	            </xs:appinfo>
 	          </xs:annotation>
 	          <xs:sequence>
-	            <xs:element name="errorId" type="xs:long" />
-	            <xs:element name="domain" type="xs:string" />
-	            <xs:element name="subdomain" type="xs:string" minOccurs="0" />
-	            <xs:element name="severity" type="tns:ErrorSeverity" />
-	            <xs:element name="category" type="tns:ErrorCategory" />
-	            <xs:element name="message" type="xs:string" />
-	            <xs:element name="exceptionId" type="xs:token" minOccurs="0"/>
-	            <xs:element name="parameter" type="tns:ErrorParameter"  minOccurs="0" maxOccurs="unbounded"/>
+	            <xs:element name="errorId" type="xs:long"/>
+	            <xs:element name="domain" type="xs:string"/>
+	            <xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+	            <xs:element name="severity" type="tns:ErrorSeverity"/>
+	            <xs:element name="category" type="tns:ErrorCategory"/>
+	            <xs:element name="message" type="xs:string"/>
+	            <xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+	            <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 		      </xs:sequence>
 	        </xs:complexType>
 	
@@ -1021,9 +985,7 @@
 	              Documentation goes here
 	            </xs:documentation>
 	            <xs:appinfo>
-	              <typeLibrarySource
-	               library="SOACommonTypeLibrary"
-	               namespace="http://www.ebay.com/marketplace/services" />
+	              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	            </xs:appinfo>
 	          </xs:annotation>
 	          <!-- 
@@ -1032,7 +994,7 @@
 	          </xs:sequence>
 	           -->
 	          <xs:sequence>
-	            <xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded" />
+	            <xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 	          </xs:sequence>
 	        </xs:complexType>
 	
@@ -1042,14 +1004,12 @@
 	               Documentation goes here
 	            </xs:documentation>
 	            <xs:appinfo>
-	            <typeLibrarySource
-	                library="SOACommonTypeLibrary"
-	                namespace="http://www.ebay.com/marketplace/services" />
+	            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	            </xs:appinfo>
 	          </xs:annotation>
 	          <xs:simpleContent>
 	            <xs:extension base="xs:string">
-	              <xs:attribute name="name" type="xs:string" use="optional" />
+	              <xs:attribute name="name" type="xs:string" use="optional"/>
 	            </xs:extension>
 	          </xs:simpleContent>
 	        </xs:complexType>
@@ -1060,19 +1020,17 @@
 	              Documentation goes here.
 	            </xs:documentation>
 	            <xs:appinfo>
-	              <typeLibrarySource
-	                 library="SOACommonTypeLibrary"
-	                 namespace="http://www.ebay.com/marketplace/services" />
+	              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	            </xs:appinfo>
 	          </xs:annotation>
 	          <xs:restriction base="xs:token">
-	            <xs:enumeration value="Error" />
-	            <xs:enumeration value="Warning" />
+	            <xs:enumeration value="Error"/>
+	            <xs:enumeration value="Warning"/>
 	          </xs:restriction>
 	        </xs:simpleType>
 	        
 			<!--  Begin of getVersion types  -->			
-            <xs:element     name="getVersionRequest" type="tns:AdjustmentServiceGetVersionRequest" />
+            <xs:element name="getVersionRequest" type="tns:AdjustmentServiceGetVersionRequest"/>
             <xs:complexType name="AdjustmentServiceGetVersionRequest">
                 <xs:annotation>
                     <xs:documentation>
@@ -1081,12 +1039,12 @@
                 </xs:annotation>
                 <xs:complexContent>
                     <xs:extension base="tns:BaseServiceRequest">
-                        <xs:sequence />
+                        <xs:sequence/>
                     </xs:extension>
                 </xs:complexContent>
             </xs:complexType>
             
-            <xs:element     name="getVersionResponse" type="tns:AdjustmentServiceGetVersionResponse" />
+            <xs:element name="getVersionResponse" type="tns:AdjustmentServiceGetVersionResponse"/>
             <xs:complexType name="AdjustmentServiceGetVersionResponse">
                 <xs:annotation>
                     <xs:documentation>
@@ -1109,36 +1067,36 @@
     </wsdl:types>
     
     <wsdl:message name="applyUsageAdjustmentRequest">
-    	<wsdl:part element="tns:applyUsageAdjustmentRequest" name="params" />
+    	<wsdl:part element="tns:applyUsageAdjustmentRequest" name="params"/>
     </wsdl:message>
 
     <wsdl:message name="applyUsageAdjustmentResponse">
-    	<wsdl:part element="tns:applyUsageAdjustmentResponse" name="params" />
+    	<wsdl:part element="tns:applyUsageAdjustmentResponse" name="params"/>
     </wsdl:message>
   
     <wsdl:message name="applyRecurringChargeAdjustmentRequest">
-    	<wsdl:part element="tns:applyRecurringChargeAdjustmentRequest" name="params" />
+    	<wsdl:part element="tns:applyRecurringChargeAdjustmentRequest" name="params"/>
     </wsdl:message>
   
     <wsdl:message name="applyNonRecurringChargeAdjustmentRequest">
-    	<wsdl:part element="tns:applyNonRecurringChargeAdjustmentRequest" name="params" />
+    	<wsdl:part element="tns:applyNonRecurringChargeAdjustmentRequest" name="params"/>
     </wsdl:message>
   
     <wsdl:message name="applyAccountAdjustmentRequest">
-    	<wsdl:part element="tns:applyAccountAdjustmentRequest" name="params" />
+    	<wsdl:part element="tns:applyAccountAdjustmentRequest" name="params"/>
     </wsdl:message>
 
     <wsdl:message name="applyAdjustmentResponse">
-    	<wsdl:part element="tns:applyAdjustmentResponse" name="params" />
+    	<wsdl:part element="tns:applyAdjustmentResponse" name="params"/>
     </wsdl:message>
     
 	<!--  Begin of getVersion messages  -->    
     <wsdl:message name="getVersionRequest">
-        <wsdl:part element="tns:getVersionRequest" name="params" />
+        <wsdl:part element="tns:getVersionRequest" name="params"/>
     </wsdl:message>
     
     <wsdl:message name="getVersionResponse">
-        <wsdl:part element="tns:getVersionResponse" name="params" />
+        <wsdl:part element="tns:getVersionResponse" name="params"/>
     </wsdl:message>
 	<!--  End   of getVersion messages  -->    
   
@@ -1146,146 +1104,141 @@
 	
 	    <wsdl:operation name="applyUsageAdjustment">
 	      <wsdl:documentation>Applies a usage adjustment transaction to a billing account, in billable currency.</wsdl:documentation>
-	      <wsdl:input message="tns:applyUsageAdjustmentRequest" />
-	      <wsdl:output message="tns:applyUsageAdjustmentResponse" />
+	      <wsdl:input message="tns:applyUsageAdjustmentRequest"/>
+	      <wsdl:output message="tns:applyUsageAdjustmentResponse"/>
 	    </wsdl:operation>
 	    
 	    <wsdl:operation name="applyRecurringChargeAdjustment">
 	      <wsdl:documentation>Applies an adjustment against a recurring charge to a billing account.</wsdl:documentation>
-	      <wsdl:input message="tns:applyRecurringChargeAdjustmentRequest" />
-	      <wsdl:output message="tns:applyAdjustmentResponse" />
+	      <wsdl:input message="tns:applyRecurringChargeAdjustmentRequest"/>
+	      <wsdl:output message="tns:applyAdjustmentResponse"/>
 	    </wsdl:operation>
 	    
 	    <wsdl:operation name="applyNonRecurringChargeAdjustment">
 	      <wsdl:documentation>Applies an adjustment against a non-recurring charge to a billing account.</wsdl:documentation>
-	      <wsdl:input message="tns:applyNonRecurringChargeAdjustmentRequest" />
-	      <wsdl:output message="tns:applyAdjustmentResponse" />
+	      <wsdl:input message="tns:applyNonRecurringChargeAdjustmentRequest"/>
+	      <wsdl:output message="tns:applyAdjustmentResponse"/>
 	    </wsdl:operation>
 	    
 	 	<wsdl:operation name="applyAccountAdjustment">
 	      <wsdl:documentation>Applies an invoice adjustment to a billing account.</wsdl:documentation>
-	      <wsdl:input message="tns:applyAccountAdjustmentRequest" />
-	      <wsdl:output message="tns:applyAdjustmentResponse" />
+	      <wsdl:input message="tns:applyAccountAdjustmentRequest"/>
+	      <wsdl:output message="tns:applyAdjustmentResponse"/>
 	    </wsdl:operation>
 	    
         <wsdl:operation name="getVersion">
 	        <wsdl:documentation>Required operation for each service</wsdl:documentation>        
-            <wsdl:input message="tns:getVersionRequest" />
-            <wsdl:output message="tns:getVersionResponse" />
+            <wsdl:input message="tns:getVersionRequest"/>
+            <wsdl:output message="tns:getVersionResponse"/>
         </wsdl:operation>	    
 	
     </wsdl:portType>
     
     <wsdl:binding name="AdjustmentServiceHttpBinding" type="tns:AdjustmentServicePort">
-        <http:binding verb="POST" />
+        <http:binding verb="POST"/>
         
         <wsdl:operation name="applyUsageAdjustment">
-            <http:operation location="/applyUsageAdjustment" />
+            <http:operation location="/applyUsageAdjustment"/>
             <wsdl:input>
-                <mime:content part="params" type="application/x-www-form-urlencoded" />
+                <mime:content part="params" type="application/x-www-form-urlencoded"/>
             </wsdl:input>
             <wsdl:output>
-                <mime:content part="params" type="text/xml" />
+                <mime:content part="params" type="text/xml"/>
             </wsdl:output>
         </wsdl:operation>
 
         <wsdl:operation name="applyRecurringChargeAdjustment">
-            <http:operation location="/applyRecurringChargeAdjustment" />
+            <http:operation location="/applyRecurringChargeAdjustment"/>
             <wsdl:input>
-                <mime:content part="params" type="application/x-www-form-urlencoded" />
+                <mime:content part="params" type="application/x-www-form-urlencoded"/>
             </wsdl:input>
             <wsdl:output>
-                <mime:content part="params" type="text/xml" />
+                <mime:content part="params" type="text/xml"/>
             </wsdl:output>
         </wsdl:operation>
 
         <wsdl:operation name="applyNonRecurringChargeAdjustment">
-            <http:operation location="/applyNonRecurringChargeAdjustment" />
+            <http:operation location="/applyNonRecurringChargeAdjustment"/>
             <wsdl:input>
-                <mime:content part="params" type="application/x-www-form-urlencoded" />
+                <mime:content part="params" type="application/x-www-form-urlencoded"/>
             </wsdl:input>
             <wsdl:output>
-                <mime:content part="params" type="text/xml" />
+                <mime:content part="params" type="text/xml"/>
             </wsdl:output>
         </wsdl:operation>
 
         <wsdl:operation name="applyAccountAdjustment">
-            <http:operation location="/applyAccountAdjustment" />
+            <http:operation location="/applyAccountAdjustment"/>
             <wsdl:input>
-                <mime:content part="params" type="application/x-www-form-urlencoded" />
+                <mime:content part="params" type="application/x-www-form-urlencoded"/>
             </wsdl:input>
             <wsdl:output>
-                <mime:content part="params" type="text/xml" />
+                <mime:content part="params" type="text/xml"/>
             </wsdl:output>
         </wsdl:operation>
         
 		<wsdl:operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:input>
-				<mime:content part="params" type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		        
     </wsdl:binding>
     
     <wsdl:binding name="AdjustmentServiceSOAPBinding" type="tns:AdjustmentServicePort">
-        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         
 	 	<wsdl:operation name="applyUsageAdjustment">
-	  		<soap:operation
-	  			soapAction="http://www.ebay.com/marketplace/billing/v1/services/applyUsageAdjustment" />
+	  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/billing/v1/services/applyUsageAdjustment"/>
 	  		<wsdl:input>
-	  			<soap:body use="literal" />
+	  			<soap:body use="literal"/>
 	  		</wsdl:input>
 	  		<wsdl:output>
-	  			<soap:body use="literal" />
+	  			<soap:body use="literal"/>
 	  		</wsdl:output>
 	  	</wsdl:operation>
 	  	
 	  	<wsdl:operation name="applyRecurringChargeAdjustment">
-	  		<soap:operation
-	  			soapAction="http://www.ebay.com/marketplace/billing/v1/services/applyRecurringChargeAdjustment" />
+	  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/billing/v1/services/applyRecurringChargeAdjustment"/>
 	  		<wsdl:input>
-	  			<soap:body use="literal" />
+	  			<soap:body use="literal"/>
 	  		</wsdl:input>
 	  		<wsdl:output>
-	  			<soap:body use="literal" />
+	  			<soap:body use="literal"/>
 	  		</wsdl:output>
 	  	</wsdl:operation>
 	  	
 	  	<wsdl:operation name="applyNonRecurringChargeAdjustment">
-	  		<soap:operation
-	  			soapAction="http://www.ebay.com/marketplace/billing/v1/services/applyNonRecurringChargeAdjustment" />
+	  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/billing/v1/services/applyNonRecurringChargeAdjustment"/>
 	  		<wsdl:input>
-	  			<soap:body use="literal" />
+	  			<soap:body use="literal"/>
 	  		</wsdl:input>
 	  		<wsdl:output>
-	  			<soap:body use="literal" />
+	  			<soap:body use="literal"/>
 	  		</wsdl:output>
 	  	</wsdl:operation>
 	  	
 	  	<wsdl:operation name="applyAccountAdjustment">
-	  		<soap:operation
-	  			soapAction="http://www.ebay.com/marketplace/billing/v1/services/applyAccountAdjustment" />
+	  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/billing/v1/services/applyAccountAdjustment"/>
 	  		<wsdl:input>
-	  			<soap:body use="literal" />
+	  			<soap:body use="literal"/>
 	  		</wsdl:input>
 	  		<wsdl:output>
-	  			<soap:body use="literal" />
+	  			<soap:body use="literal"/>
 	  		</wsdl:output>
 	  	</wsdl:operation>
 	  	
 	  	<wsdl:operation name="getVersion">
-	  		<soap:operation
-	  			soapAction="http://www.ebay.com/marketplace/billing/v1/services/getVersion" />
+	  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/billing/v1/services/getVersion"/>
 	  		<wsdl:input>
-	  			<soap:body use="literal" />
+	  			<soap:body use="literal"/>
 	  		</wsdl:input>
 	  		<wsdl:output>
-	  			<soap:body use="literal" />
+	  			<soap:body use="literal"/>
 	  		</wsdl:output>
 	  	</wsdl:operation>	  	
 	  	
@@ -1297,13 +1250,12 @@
         </wsdl:documentation>
         
         <wsdl:port binding="tns:AdjustmentServiceHttpBinding" name="AdjustmentServiceHttpPort">
-            <http:address location="https://svcs.ebay.com/services/billing/v1/AdjustmentService" />
+            <http:address location="https://svcs.ebay.com/services/billing/v1/AdjustmentService"/>
         </wsdl:port>
         
         <wsdl:port binding="tns:AdjustmentServiceSOAPBinding" name="AdjustmentServiceSOAPPort">
-            <soap12:address location="https://svcs.ebay.com/services/billing/v1/AdjustmentService" />
+            <soap12:address location="https://svcs.ebay.com/services/billing/v1/AdjustmentService"/>
         </wsdl:port>
         
     </wsdl:service>
 </wsdl:definitions>
-

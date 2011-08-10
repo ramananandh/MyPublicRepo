@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:ns1="http://www.ebay.com/soaframework/common/types" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:ns1="http://www.ebayopensource.org/soaframework/common/types" xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
         	
 			<xs:complexType abstract="true" name="BaseServiceRequestType">
 				<xs:annotation>
@@ -269,7 +268,7 @@
 				</xs:documentation>
 			</xs:annotation>
 			<xs:sequence>
-			    <xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData"/>
+			    <xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 			</xs:sequence>
             	</xs:complexType>
             
@@ -287,7 +286,7 @@
 			    <xs:element name="message" type="xs:string"/>
 			    <xs:element minOccurs="0" name="subdomain" type="xs:string"/>
 			    <xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
-			    <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter"/>
+			    <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 			</xs:sequence>
             	</xs:complexType>
             
@@ -333,92 +332,92 @@
             	
            
 		
-		<xs:element name="registerRequest"  type="tns:RegisterRequest"/>
-		<xs:element name="registerResponse"  type="tns:RegisterResponse"/>
+		<xs:element name="registerRequest" type="tns:RegisterRequest"/>
+		<xs:element name="registerResponse" type="tns:RegisterResponse"/>
 		
-		<xs:element name="unRegisterRequest"  type="tns:UnRegisterRequest"/>
-		<xs:element name="unRegisterResponse"  type="tns:UnRegisterResponse"/>
+		<xs:element name="unRegisterRequest" type="tns:UnRegisterRequest"/>
+		<xs:element name="unRegisterResponse" type="tns:UnRegisterResponse"/>
 		
-		<xs:element name="getIdFromStringRequest"  type="tns:GetIdFromStringRequest"/>
-		<xs:element name="getIdFromStringResponse"  type="tns:GetIdFromStringResponse"/>
+		<xs:element name="getIdFromStringRequest" type="tns:GetIdFromStringRequest"/>
+		<xs:element name="getIdFromStringResponse" type="tns:GetIdFromStringResponse"/>
 		
-		<xs:element name="getStringFromIdRequest"  type="tns:GetStringFromIdRequest"/>
-		<xs:element name="getStringFromIdResponse"  type="tns:GetStringFromIdResponse"/>
+		<xs:element name="getStringFromIdRequest" type="tns:GetStringFromIdRequest"/>
+		<xs:element name="getStringFromIdResponse" type="tns:GetStringFromIdResponse"/>
 		
-		<xs:element name="setIdStringRequest"  type="tns:SetIdStringRequest"/>
-		<xs:element name="setIdStringResponse"  type="tns:SetIdStringResponse"/>
+		<xs:element name="setIdStringRequest" type="tns:SetIdStringRequest"/>
+		<xs:element name="setIdStringResponse" type="tns:SetIdStringResponse"/>
 					
-		<xs:element name="deleteIdStringMapRequest"  type="tns:DeleteIdStringMapRequest"/>
-		<xs:element name="deleteIdStringMapResponse"  type="tns:DeleteIdStringMapResponse"/>
+		<xs:element name="deleteIdStringMapRequest" type="tns:DeleteIdStringMapRequest"/>
+		<xs:element name="deleteIdStringMapResponse" type="tns:DeleteIdStringMapResponse"/>
 		
-		<xs:element name="getNamespaceRequest"  type="tns:GetNamespaceRequest"/>
-		<xs:element name="getNamespaceResponse"  type="tns:GetNamespaceResponse"/>
+		<xs:element name="getNamespaceRequest" type="tns:GetNamespaceRequest"/>
+		<xs:element name="getNamespaceResponse" type="tns:GetNamespaceResponse"/>
 		
-		<xs:element name="getNamespaceTypeRequest"  type="tns:GetNamespaceTypeRequest"/>
-		<xs:element name="getNamespaceTypeResponse"  type="tns:GetNamespaceTypeResponse"/>		
+		<xs:element name="getNamespaceTypeRequest" type="tns:GetNamespaceTypeRequest"/>
+		<xs:element name="getNamespaceTypeResponse" type="tns:GetNamespaceTypeResponse"/>		
 		
-		<xs:element name="getAllObjectNamesRequest"  type="tns:GetAllObjectNamesRequest"/>
-		<xs:element name="getAllObjectNamesResponse"  type="tns:GetAllObjectNamesResponse"/>
+		<xs:element name="getAllObjectNamesRequest" type="tns:GetAllObjectNamesRequest"/>
+		<xs:element name="getAllObjectNamesResponse" type="tns:GetAllObjectNamesResponse"/>
 		
         </xs:schema>
   </wsdl:types>
   <wsdl:message name="setIdStringResponse">
-    <wsdl:part name="parameters" element="ns0:setIdStringResponse"/>
+    <wsdl:part element="ns0:setIdStringResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getStringFromIdResponse">
-    <wsdl:part name="parameters" element="ns0:getStringFromIdResponse"/>
+    <wsdl:part element="ns0:getStringFromIdResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getIdFromStringResponse">
-    <wsdl:part name="parameters" element="ns0:getIdFromStringResponse"/>
+    <wsdl:part element="ns0:getIdFromStringResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="registerRequest">
-    <wsdl:part name="parameters" element="ns0:registerRequest"/>
+    <wsdl:part element="ns0:registerRequest" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getNamespaceRequest">
-    <wsdl:part name="parameters" element="ns0:getNamespaceRequest"/>
+    <wsdl:part element="ns0:getNamespaceRequest" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getNamespaceResponse">
-    <wsdl:part name="parameters" element="ns0:getNamespaceResponse"/>
+    <wsdl:part element="ns0:getNamespaceResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="registerResponse">
-    <wsdl:part name="parameters" element="ns0:registerResponse"/>
+    <wsdl:part element="ns0:registerResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getStringFromIdRequest">
-    <wsdl:part name="parameters" element="ns0:getStringFromIdRequest"/>
+    <wsdl:part element="ns0:getStringFromIdRequest" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getIdFromStringRequest">
-    <wsdl:part name="parameters" element="ns0:getIdFromStringRequest"/>
+    <wsdl:part element="ns0:getIdFromStringRequest" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="setIdStringRequest">
-    <wsdl:part name="parameters" element="ns0:setIdStringRequest"/>
+    <wsdl:part element="ns0:setIdStringRequest" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getNamespaceTypeRequest">
-    <wsdl:part name="parameters" element="ns0:getNamespaceTypeRequest"/>
+    <wsdl:part element="ns0:getNamespaceTypeRequest" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getNamespaceTypeResponse">
-    <wsdl:part name="parameters" element="ns0:getNamespaceTypeResponse"/>
+    <wsdl:part element="ns0:getNamespaceTypeResponse" name="parameters"/>
   </wsdl:message>
     <wsdl:message name="getAllObjectNamesRequest">
-    <wsdl:part name="parameters" element="ns0:getAllObjectNamesRequest"/>
+    <wsdl:part element="ns0:getAllObjectNamesRequest" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getAllObjectNamesResponse">
-    <wsdl:part name="parameters" element="ns0:getAllObjectNamesResponse"/>
+    <wsdl:part element="ns0:getAllObjectNamesResponse" name="parameters"/>
   </wsdl:message>
   
   <wsdl:message name="deleteIdStringMapRequest">
-	<wsdl:part name="parameters" element="ns0:deleteIdStringMapRequest"/>
+	<wsdl:part element="ns0:deleteIdStringMapRequest" name="parameters"/>
   </wsdl:message>
 
   <wsdl:message name="deleteIdStringMapResponse">
-	<wsdl:part name="parameters" element="ns0:deleteIdStringMapResponse"/>
+	<wsdl:part element="ns0:deleteIdStringMapResponse" name="parameters"/>
   </wsdl:message>
   
   <wsdl:message name="unRegisterRequest">
-	 <wsdl:part name="parameters" element="ns0:unRegisterRequest"/>
+	 <wsdl:part element="ns0:unRegisterRequest" name="parameters"/>
   </wsdl:message>
 
  <wsdl:message name="unRegisterResponse">
-	<wsdl:part name="parameters" element="ns0:unRegisterResponse"/>
+	<wsdl:part element="ns0:unRegisterResponse" name="parameters"/>
  </wsdl:message>
   
   <wsdl:portType name="ObjectIdMapperServicePortType">
@@ -463,89 +462,89 @@
     </wsdl:operation>    
   </wsdl:portType>
   <wsdl:binding name="ObjectIdMapperServiceSOAP12Binding" type="ns0:ObjectIdMapperServicePortType">
-    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="register">
-    <soap12:operation soapAction="urn:register" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:register" style="document"/>
       <wsdl:input>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     
     <wsdl:operation name="unRegister">
-		<soap12:operation soapAction="urn:unRegister" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+		<soap12:operation soapAction="urn:unRegister" style="document"/>
 		<wsdl:input>
-			<soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+			<soap12:body use="literal"/>
 		</wsdl:input>
 		<wsdl:output>
-			<soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+			<soap12:body use="literal"/>
 		</wsdl:output>
 	</wsdl:operation>    
     <wsdl:operation name="getIdFromString">
-    <soap12:operation soapAction="urn:getIdFromString" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:getIdFromString" style="document"/>
       <wsdl:input>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getStringFromId">
-    <soap12:operation soapAction="urn:getStringFromId" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:getStringFromId" style="document"/>
       <wsdl:input>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="setIdString">
-    <soap12:operation soapAction="urn:setIdString" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:setIdString" style="document"/>
       <wsdl:input>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     
     <wsdl:operation name="deleteIdStringMap">
-		<soap12:operation soapAction="urn:deleteIdStringMap" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+		<soap12:operation soapAction="urn:deleteIdStringMap" style="document"/>
 		<wsdl:input>
-			<soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+			<soap12:body use="literal"/>
 		</wsdl:input>
 		<wsdl:output>
-			<soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+			<soap12:body use="literal"/>
 		</wsdl:output>
 	</wsdl:operation>
     
     <wsdl:operation name="getNamespace">
-    <soap12:operation soapAction="urn:getNamespace" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:getNamespace" style="document"/>
       <wsdl:input>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getNamespaceType">
-    <soap12:operation soapAction="urn:getNamespaceType" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:getNamespaceType" style="document"/>
       <wsdl:input>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
      <wsdl:operation name="getAllObjectNames">
-    <soap12:operation soapAction="urn:getAllObjectNames" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:getAllObjectNames" style="document"/>
       <wsdl:input>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
@@ -724,14 +723,14 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ObjectIdMapperService">
-    <wsdl:port name="ObjectIdMapperServiceHttpport" binding="ns0:ObjectIdMapperServiceHttpBinding">
+    <wsdl:port binding="ns0:ObjectIdMapperServiceHttpBinding" name="ObjectIdMapperServiceHttpport">
       <http:address location="http://localhost:8080/AuthenticationService"/>
     </wsdl:port>
-    <wsdl:port name="ObjectIdMapperServiceSOAP11port_http" binding="ns0:ObjectIdMapperServiceSOAP11Binding">
+    <wsdl:port binding="ns0:ObjectIdMapperServiceSOAP11Binding" name="ObjectIdMapperServiceSOAP11port_http">
       <soap:address location="http://localhost:8080/AuthenticationService"/>
     </wsdl:port>
-    <wsdl:port name="ObjectIdMapperServiceSOAP12port_http" binding="ns0:ObjectIdMapperServiceSOAP12Binding">
-    <soap12:address location="http://localhost:8080/AuthenticationService" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <wsdl:port binding="ns0:ObjectIdMapperServiceSOAP12Binding" name="ObjectIdMapperServiceSOAP12port_http">
+    <soap12:address location="http://localhost:8080/AuthenticationService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

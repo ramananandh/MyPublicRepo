@@ -1,24 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="PageMetadataService"
-	targetNamespace="http://www.ebay.com/marketplace/services"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:ns0="http://www.ebay.com/marketplace/services"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PageMetadataService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/services"
-			xmlns:tns="http://www.ebay.com/marketplace/services"
-			xmlns:xs="http://www.w3.org/2001/XMLSchema">
-			<xs:element name="getAllPagesRequest"  type="tns:GetAllPagesRequest">
+		<xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
+			<xs:element name="getAllPagesRequest" type="tns:GetAllPagesRequest">
 				<xs:annotation>
 					<xs:documentation> Request to get all pages that are not in 'removed' status for
 						given client and number of records. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="getAllPagesResponse"  type="tns:GetAllPagesResponse">
+			<xs:element name="getAllPagesResponse" type="tns:GetAllPagesResponse">
 				<xs:annotation>
 					<xs:documentation> Response containing the list of pages or error message.
 					</xs:documentation>
@@ -63,7 +53,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation> </xs:documentation>
 							<xs:appinfo>
@@ -74,7 +64,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation> </xs:documentation>
 							<xs:appinfo>
@@ -132,8 +122,7 @@
 						reported aspart of SOAP fault. </xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" 
-						type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation> Details about a single error. </xs:documentation>
 							<xs:appinfo>
@@ -267,8 +256,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" 
-						type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation> Some warning and error messages return one or more
 								variables that contain contextual information about the error. This
@@ -396,8 +384,7 @@
 							<xs:documentation> Status of the page. </xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="pagePublishDate"
-						type="xs:dateTime">
+					<xs:element maxOccurs="1" minOccurs="1" name="pagePublishDate" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation> Date from when the page will be shown to the user.
 							</xs:documentation>
@@ -410,8 +397,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="pageExpirationDate"
-						type="xs:dateTime">
+					<xs:element maxOccurs="1" minOccurs="0" name="pageExpirationDate" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation> Date when the page will no longer be shown to the
 								user. </xs:documentation>
@@ -489,13 +475,13 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getAllPagesResponse">
-		<wsdl:part name="parameters" element="ns0:getAllPagesResponse">
+		<wsdl:part element="ns0:getAllPagesResponse" name="parameters">
 			<wsdl:documentation> Response containing the list of pages or error message.
 			</wsdl:documentation>
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getAllPagesRequest">
-		<wsdl:part name="parameters" element="ns0:getAllPagesRequest">
+		<wsdl:part element="ns0:getAllPagesRequest" name="parameters">
 			<wsdl:documentation> Request to get all pages that are not in 'removed' status for given
 				client and number of records. </wsdl:documentation>
 		</wsdl:part>
@@ -536,10 +522,10 @@
 		<wsdl:documentation>
 			<Version>1.0.0</Version>
 		</wsdl:documentation>
-		<wsdl:port name="PageMetadataServiceHttp" binding="ns0:PageMetadataServiceHttpBinding">
+		<wsdl:port binding="ns0:PageMetadataServiceHttpBinding" name="PageMetadataServiceHttp">
 			<http:address location="http://svcs.ebay.com/PageMetadataService"/>
 		</wsdl:port>
-		<wsdl:port name="PageMetadataServiceSOAP" binding="ns0:PageMetadataServiceSOAPBinding">
+		<wsdl:port binding="ns0:PageMetadataServiceSOAPBinding" name="PageMetadataServiceSOAP">
 			<soap12:address location="http://svcs.ebay.com/PageMetadataService"/>
 		</wsdl:port>
 	</wsdl:service>

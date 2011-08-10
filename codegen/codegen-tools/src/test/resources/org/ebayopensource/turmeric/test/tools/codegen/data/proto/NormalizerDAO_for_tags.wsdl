@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services"> 						
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services"> 						
 			<xs:complexType name="Sample">				
 				<xs:sequence>
 					<xs:element minOccurs="0" name="metricName" type="xs:string"/>
@@ -11,7 +10,7 @@
 			</xs:complexType>			
 			<xs:complexType name="SampleList">				
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfSample"  type="tns:Sample"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfSample" type="tns:Sample"/>
 				</xs:sequence>				
 			</xs:complexType>			
 			<xs:complexType name="NormalizerResult">				
@@ -31,12 +30,12 @@
 			</xs:complexType>			
 			<xs:complexType name="NormalizerResultList">				
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfNormalizerResult"  type="tns:NormalizerResult"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfNormalizerResult" type="tns:NormalizerResult"/>
 				</xs:sequence>				
 			</xs:complexType>			
 			<xs:complexType name="OutlierList">				
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfOutlier"  type="tns:Outlier"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfOutlier" type="tns:Outlier"/>
 				</xs:sequence>				
 			</xs:complexType>			
 			<xs:complexType name="ErrorInfo">				
@@ -73,25 +72,25 @@
 				</xs:sequence>
 			</xs:complexType>						
 			<xs:element name="getSDMeanOutliers" type="tns:getSDMeanOutliersRequest"/>
-			<xs:element name="getSDMeanOutliersResponse"  type="tns:getSDMeanOutliersResponse"/>			
+			<xs:element name="getSDMeanOutliersResponse" type="tns:getSDMeanOutliersResponse"/>			
 			<xs:element name="getSDMeanOutliersByMetric" type="tns:getSDMeanOutliersByMetricRequest"/>
-			<xs:element name="getSDMeanOutliersByMetricResponse"  type="tns:getSDMeanOutliersByMetricResponse"/>			
+			<xs:element name="getSDMeanOutliersByMetricResponse" type="tns:getSDMeanOutliersByMetricResponse"/>			
 		</xs:schema>
   </wsdl:types>
   <wsdl:message name="getSDMeanOutliersByMetricResponse">
-    <wsdl:part name="parameters" element="tns:getSDMeanOutliersByMetricResponse">
+    <wsdl:part element="tns:getSDMeanOutliersByMetricResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getSDMeanOutliersResponse">
-    <wsdl:part name="parameters" element="tns:getSDMeanOutliersResponse">
+    <wsdl:part element="tns:getSDMeanOutliersResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getSDMeanOutliersRequest">
-    <wsdl:part name="parameters" element="tns:getSDMeanOutliers">
+    <wsdl:part element="tns:getSDMeanOutliers" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getSDMeanOutliersByMetricRequest">
-    <wsdl:part name="parameters" element="tns:getSDMeanOutliersByMetric">
+    <wsdl:part element="tns:getSDMeanOutliersByMetric" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="NormalizerDAOPortType">
@@ -172,13 +171,13 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="NormalizerDAO">
-    <wsdl:port name="NormalizerDAOHttpEndpoint" binding="tns:NormalizerDAOHTTPBinding">
+    <wsdl:port binding="tns:NormalizerDAOHTTPBinding" name="NormalizerDAOHttpEndpoint">
       <http:address location="http://localhost:8080/NormalizerDAO"/>
     </wsdl:port>
-    <wsdl:port name="NormalizerDAOHttpSoap12Endpoint" binding="tns:NormalizerDAOSoap12Binding">
+    <wsdl:port binding="tns:NormalizerDAOSoap12Binding" name="NormalizerDAOHttpSoap12Endpoint">
       <soap12:address location="http://localhost:8080/NormalizerDAO"/>
     </wsdl:port>
-    <wsdl:port name="NormalizerDAOHttpSoap11Endpoint" binding="tns:NormalizerDAOSoap11Binding">
+    <wsdl:port binding="tns:NormalizerDAOSoap11Binding" name="NormalizerDAOHttpSoap11Endpoint">
       <soap:address location="http://localhost:8080/NormalizerDAO"/>
     </wsdl:port>
   </wsdl:service>

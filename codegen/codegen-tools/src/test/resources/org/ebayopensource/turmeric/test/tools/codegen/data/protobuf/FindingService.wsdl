@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions name="FindService"
-	targetNamespace="http://www.ebay.com/marketplace/search/v1/services"
+	targetNamespace="http://www.ebayopensource.org/turmeric/search/v1/services"
 	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebay.com/marketplace/search/v1/services"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebayopensource.org/turmeric/search/v1/services"
 	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
 	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
 	<wsdl:types>
 		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 			attributeFormDefault="unqualified" elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/search/v1/services"
-			xmlns:tns="http://www.ebay.com/marketplace/search/v1/services">
+			targetNamespace="http://www.ebayopensource.org/turmeric/search/v1/services"
+			xmlns:tns="http://www.ebayopensource.org/turmeric/search/v1/services">
 
 			<xs:element name="getVersionRequest" type="tns:GetVersionRequest" />
 
@@ -2969,7 +2969,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							namespace="http://www.ebayopensource.org/turmeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -3804,7 +3804,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SearchTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+							namespace="http://www.ebayopensource.org/turmeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -3845,7 +3845,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SearchTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+							namespace="http://www.ebayopensource.org/turmeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -4139,7 +4139,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SearchTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+							namespace="http://www.ebayopensource.org/turmeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -4214,7 +4214,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SearchTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+							namespace="http://www.ebayopensource.org/turmeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -4332,7 +4332,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SearchTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+							namespace="http://www.ebayopensource.org/turmeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -4373,7 +4373,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SearchTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+							namespace="http://www.ebayopensource.org/turmeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -4454,7 +4454,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SearchTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+							namespace="http://www.ebayopensource.org/turmeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -4654,7 +4654,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SearchTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+							namespace="http://www.ebayopensource.org/turmeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -4723,7 +4723,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SearchTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+							namespace="http://www.ebayopensource.org/turmeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -4936,7 +4936,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SearchTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+							namespace="http://www.ebayopensource.org/turmeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -6183,7 +6183,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SearchTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+							namespace="http://www.ebayopensource.org/turmeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -7025,7 +7025,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SearchTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+							namespace="http://www.ebayopensource.org/turmeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -7508,7 +7508,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SearchTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+							namespace="http://www.ebayopensource.org/turmeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -8001,7 +8001,7 @@
 				<xs:annotation>
 					<xs:appinfo>
 						<typeLibrarySource library="SearchTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+							namespace="http://www.ebayopensource.org/turmeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 					<xs:documentation>
@@ -8148,7 +8148,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							namespace="http://www.ebayopensource.org/turmeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -8187,7 +8187,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							namespace="http://www.ebayopensource.org/turmeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -8289,7 +8289,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							namespace="http://www.ebayopensource.org/turmeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -8320,7 +8320,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							namespace="http://www.ebayopensource.org/turmeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -8535,7 +8535,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							namespace="http://www.ebayopensource.org/turmeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -8575,7 +8575,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							namespace="http://www.ebayopensource.org/turmeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -8646,7 +8646,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							namespace="http://www.ebayopensource.org/turmeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -8701,7 +8701,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							namespace="http://www.ebayopensource.org/turmeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -8778,7 +8778,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							namespace="http://www.ebayopensource.org/turmeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -8799,7 +8799,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							namespace="http://www.ebayopensource.org/turmeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -8897,7 +8897,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							namespace="http://www.ebayopensource.org/turmeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -9193,7 +9193,7 @@
 			transport="http://schemas.xmlsoap.org/soap/http" />
 		<wsdl:operation name="getSearchKeywordsRecommendation">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getSearchKeywordsRecommendation" />
+				soapAction="http://www.ebayopensource.org/turmeric/search/v1/services/getSearchKeywordsRecommendation" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -9203,7 +9203,7 @@
 		</wsdl:operation>
 		<wsdl:operation name="findItemsByKeywords">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/findItemsByKeywords" />
+				soapAction="http://www.ebayopensource.org/turmeric/search/v1/services/findItemsByKeywords" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -9213,7 +9213,7 @@
 		</wsdl:operation>
 		<wsdl:operation name="findItemsByCategory">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/findItemsByCategory" />
+				soapAction="http://www.ebayopensource.org/turmeric/search/v1/services/findItemsByCategory" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -9223,7 +9223,7 @@
 		</wsdl:operation>
 		<wsdl:operation name="findItemsAdvanced">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/findItemsAdvanced" />
+				soapAction="http://www.ebayopensource.org/turmeric/search/v1/services/findItemsAdvanced" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -9233,7 +9233,7 @@
 		</wsdl:operation>
 		<wsdl:operation name="findItemsByProduct">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/findItemsByProduct" />
+				soapAction="http://www.ebayopensource.org/turmeric/search/v1/services/findItemsByProduct" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -9243,7 +9243,7 @@
 		</wsdl:operation>
 		<wsdl:operation name="findItemsIneBayStores">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/findItemsIneBayStores" />
+				soapAction="http://www.ebayopensource.org/turmeric/search/v1/services/findItemsIneBayStores" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -9253,7 +9253,7 @@
 		</wsdl:operation>
 		<wsdl:operation name="findItemsByImage">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/findItemsByImage" />
+				soapAction="http://www.ebayopensource.org/turmeric/search/v1/services/findItemsByImage" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -9263,7 +9263,7 @@
 		</wsdl:operation>
 		<wsdl:operation name="getHistograms">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getHistograms" />
+				soapAction="http://www.ebayopensource.org/turmeric/search/v1/services/getHistograms" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -9273,7 +9273,7 @@
 		</wsdl:operation>
 		<wsdl:operation name="findCompletedItems">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/findItemsAdvanced" />
+				soapAction="http://www.ebayopensource.org/turmeric/search/v1/services/findItemsAdvanced" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -9283,7 +9283,7 @@
 		</wsdl:operation>
 		<wsdl:operation name="getVersion">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getVersion" />
+				soapAction="http://www.ebayopensource.org/turmeric/search/v1/services/getVersion" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -9293,7 +9293,7 @@
 		</wsdl:operation>
 		<wsdl:operation name="findItemsForFavoriteSearch">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/findItemsForFavoriteSearch" />
+				soapAction="http://www.ebayopensource.org/turmeric/search/v1/services/findItemsForFavoriteSearch" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>

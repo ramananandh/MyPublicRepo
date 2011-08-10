@@ -1,14 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="TaxCalculationService"
-	targetNamespace="http://www.ebay.com/marketplace/tax/v1/services"
-	xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:tns="http://www.ebay.com/marketplace/tax/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/tax/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="TaxCalculationService" targetNamespace="http://www.ebayopensource.org/tumeric/tax/v1/services">
 	<types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/tax/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/tax/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -19,8 +11,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -67,23 +58,21 @@
 					</xs:enumeration>
 				</xs:restriction>
 			</xs:simpleType>
-			<xs:complexType  name="BaseRequest">
+			<xs:complexType name="BaseRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This is the base class for request container for
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension"
-						type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:complexType  name="BaseResponse">
+			<xs:complexType name="BaseResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -91,17 +80,16 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -116,7 +104,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -124,10 +112,10 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -135,17 +123,16 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension"
-						type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="ErrorCategory">
@@ -154,14 +141,13 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
@@ -170,20 +156,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long" />
-					<xs:element name="domain" type="xs:string" />
-					<xs:element minOccurs="0" name="subdomain" type="xs:string" />
-					<xs:element name="severity" type="tns:ErrorSeverity" />
-					<xs:element name="category" type="tns:ErrorCategory" />
-					<xs:element name="message" type="xs:string" />
-					<xs:element minOccurs="0" name="exceptionId" type="xs:token" />
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"
-						type="tns:ErrorParameter" />
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+					<xs:element name="severity" type="tns:ErrorSeverity"/>
+					<xs:element name="category" type="tns:ErrorCategory"/>
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -192,8 +176,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!--
@@ -201,8 +184,7 @@
 					processContents="lax" /> </xs:sequence>
 				-->
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"
-						type="tns:ErrorData" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -211,13 +193,12 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string" use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -227,13 +208,12 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ExtensionType">
@@ -242,19 +222,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="getVersionRequest" type="tns:GetVersionRequest" />
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
 			<xs:complexType name="GetVersionRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -263,11 +242,11 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getVersionResponse" type="tns:GetVersionResponse" />
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -276,7 +255,7 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
@@ -289,27 +268,23 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="groupId"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="groupId" type="xs:string">
 							</xs:element>
 
 
-							<xs:element name="siteId" type="xs:string" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="siteId" type="xs:string">
 							</xs:element>
 
-							<xs:element maxOccurs="1" minOccurs="1" name="shippingAddress"
-								type="tns:Address">
+							<xs:element maxOccurs="1" minOccurs="1" name="shippingAddress" type="tns:Address">
 								<xs:annotation>
 									<xs:documentation>
 										Shipping Address
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="sellerId"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="sellerId" type="xs:string">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="taxCalculationDate" type="xs:date">
+							<xs:element maxOccurs="1" minOccurs="1" name="taxCalculationDate" type="xs:date">
 								<xs:annotation>
 									<xs:documentation>
 										Tax can change based on date.
@@ -323,8 +298,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="inputLineItemList" type="tns:CalcInputLineItemListType">
+							<xs:element maxOccurs="1" minOccurs="1" name="inputLineItemList" type="tns:CalcInputLineItemListType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -347,10 +321,8 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="groupId"
-								type="xs:string" />
-							<xs:element maxOccurs="unbounded" minOccurs="1"
-								name="outputLineItemList" type="tns:OutputLineItemListType">
+							<xs:element maxOccurs="1" minOccurs="1" name="groupId" type="xs:string"/>
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="outputLineItemList" type="tns:OutputLineItemListType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -361,42 +333,35 @@
 
 			<xs:complexType name="TaxType">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="lineItemAmount"
-						type="tns:Amount" />
-					<xs:element maxOccurs="1" minOccurs="1" name="taxAmount"
-						type="tns:Amount" />
-					<xs:element maxOccurs="1" minOccurs="0" name="taxCategory"
-						type="tns:TaxCategoryType">
+					<xs:element maxOccurs="1" minOccurs="1" name="lineItemAmount" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="taxAmount" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="taxCategory" type="tns:TaxCategoryType">
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="fee"
-						type="tns:TaxFeeType">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="fee" type="tns:TaxFeeType">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 
 			<xs:complexType name="TaxCategoryType">
 				<xs:sequence>
-					<xs:element name="name" type="xs:string" />
-					<xs:element maxOccurs="unbounded" minOccurs="1" name="attribute"
-						type="tns:AttributeType" />
+					<xs:element name="name" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="attribute" type="tns:AttributeType"/>
 				</xs:sequence>
 			</xs:complexType>
 
 
 			<xs:complexType name="TaxFeeType">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="feeAmount"
-						type="tns:Amount" />
-					<xs:element maxOccurs="1" minOccurs="1" name="feeType"
-						type="tns:TaxFeeCodeType" />
+					<xs:element maxOccurs="1" minOccurs="1" name="feeAmount" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="feeType" type="tns:TaxFeeCodeType"/>
 				</xs:sequence>
 			</xs:complexType>
 
 
 			<xs:simpleType name="TaxFeeCodeType">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="Electronic Recycle Fee" />
-					<xs:enumeration value="Tire Recycle Fee" />
+					<xs:enumeration value="Electronic Recycle Fee"/>
+					<xs:enumeration value="Tire Recycle Fee"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -412,21 +377,19 @@
 			
 			<xs:simpleType name="UnitOfMeasureType">
 			      <xs:restriction base="xs:string">
-			            <xs:enumeration value="ea" />
+			            <xs:enumeration value="ea"/>
 			      </xs:restriction>
 			</xs:simpleType>
 
 			<xs:complexType name="CalcInputLineItemType">
 				<xs:sequence>
 
-					<xs:element name="lineItem" type="tns:LineItemType" />
+					<xs:element name="lineItem" type="tns:LineItemType"/>
 
 
-					<xs:element maxOccurs="1" minOccurs="1" name="shippingCost"
-						type="tns:Amount">
+					<xs:element maxOccurs="1" minOccurs="1" name="shippingCost" type="tns:Amount">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="handlingCost"
-						type="tns:Amount">
+					<xs:element maxOccurs="1" minOccurs="1" name="handlingCost" type="tns:Amount">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -436,8 +399,7 @@
 				<xs:sequence>
 					<xs:element name="lineItemId" type="tns:LineItemType">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="shipFrom"
-						type="tns:Address">
+					<xs:element maxOccurs="1" minOccurs="0" name="shipFrom" type="tns:Address">
 					</xs:element>
 					<xs:element name="taxOnSubtotal" type="tns:TaxType">
 					</xs:element>
@@ -447,23 +409,21 @@
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="calculateTaxesRequest" type="tns:CalculateTaxesRequest" />
+			<xs:element name="calculateTaxesRequest" type="tns:CalculateTaxesRequest"/>
 			<xs:complexType name="CalculateTaxesRequest">
 				<xs:sequence>
-					<xs:element name="requestId" type="xs:string" maxOccurs="1" minOccurs="1"/>
-					<xs:element maxOccurs="unbounded" minOccurs="1"
-						name="inputLineItemsGroup" type="tns:CalcInputLineItemsGroupType">
+					<xs:element maxOccurs="1" minOccurs="1" name="requestId" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="inputLineItemsGroup" type="tns:CalcInputLineItemsGroupType">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:element name="calculateTaxesResponse" type="tns:CalculateTaxesResponse" />
+			<xs:element name="calculateTaxesResponse" type="tns:CalculateTaxesResponse"/>
 			<xs:complexType name="CalculateTaxesResponse">
 				<xs:sequence>
 
-					<xs:element name="requestId" type="xs:string" maxOccurs="1" minOccurs="1"/>
-					<xs:element maxOccurs="unbounded" minOccurs="1"
-						name="outputLineItemsGroup" type="tns:CalcOutputLineItemsGroup">
+					<xs:element maxOccurs="1" minOccurs="1" name="requestId" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="outputLineItemsGroup" type="tns:CalcOutputLineItemsGroup">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -471,7 +431,7 @@
 
 			<xs:complexType name="OutputLineItemListType">
 				<xs:sequence>
-					<xs:element name="outputLineItem" type="tns:OutputLineItemType" />
+					<xs:element name="outputLineItem" type="tns:OutputLineItemType"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -479,27 +439,26 @@
 				<xs:sequence>
 					<xs:element name="name" type="xs:string">
 					</xs:element>
-					<xs:element name="value" type="tns:AttributeValueType" />
+					<xs:element name="value" type="tns:AttributeValueType"/>
 				</xs:sequence>
 			</xs:complexType>
 
 			<xs:complexType name="CalcInputLineItemListType">
 
 				<xs:sequence>
-					<xs:element name="inputLineItem" type="tns:CalcInputLineItemType" />
+					<xs:element name="inputLineItem" type="tns:CalcInputLineItemType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="Amount">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:double">
-						<xs:attribute name="currencyId" type="xs:string" use="required" />
+						<xs:attribute name="currencyId" type="xs:string" use="required"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -508,25 +467,24 @@
 			<xs:complexType name="Address">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="0" name="name" type="xs:string" />
-					<xs:element minOccurs="0" name="street1" type="xs:string" />
-					<xs:element minOccurs="0" name="street2" type="xs:string" />
-					<xs:element minOccurs="0" name="city" type="xs:string" />
-					<xs:element minOccurs="0" name="county" type="xs:string" />
-					<xs:element minOccurs="0" name="stateOrProvince" type="xs:string" />
-					<xs:element minOccurs="0" name="country" type="xs:string" />
-					<xs:element minOccurs="0" name="postalCode" type="xs:string" />
+					<xs:element minOccurs="0" name="name" type="xs:string"/>
+					<xs:element minOccurs="0" name="street1" type="xs:string"/>
+					<xs:element minOccurs="0" name="street2" type="xs:string"/>
+					<xs:element minOccurs="0" name="city" type="xs:string"/>
+					<xs:element minOccurs="0" name="county" type="xs:string"/>
+					<xs:element minOccurs="0" name="stateOrProvince" type="xs:string"/>
+					<xs:element minOccurs="0" name="country" type="xs:string"/>
+					<xs:element minOccurs="0" name="postalCode" type="xs:string"/>
 
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:complexType  name="LineItemType">
+			<xs:complexType name="LineItemType">
 				<xs:sequence>
 				</xs:sequence>
 			</xs:complexType>
@@ -536,12 +494,10 @@
 					<xs:extension base="tns:LineItemType">
 						<xs:sequence>
 
-							<xs:element maxOccurs="1" minOccurs="1" name="itemId"
-								type="tns:ItemIdType">
+							<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="tns:ItemIdType">
 							</xs:element>
 
-							<xs:element maxOccurs="1" minOccurs="1" name="quantity"
-								type="xs:long">
+							<xs:element maxOccurs="1" minOccurs="1" name="quantity" type="xs:long">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -552,17 +508,13 @@
 				<xs:complexContent>
 					<xs:extension base="tns:LineItemType">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="transactionId"
-								type="xs:long">
+							<xs:element maxOccurs="1" minOccurs="1" name="transactionId" type="xs:long">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="itemId"
-								type="tns:ItemIdType">
+							<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="tns:ItemIdType">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="itemCost"
-								type="tns:Amount">
+							<xs:element maxOccurs="1" minOccurs="1" name="itemCost" type="tns:Amount">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="quantity"
-								type="xs:long">
+							<xs:element maxOccurs="1" minOccurs="1" name="quantity" type="xs:long">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -571,27 +523,27 @@
 
 			<xs:complexType name="ItemIdType">
 				<xs:sequence>
-					<xs:element name="itemId" type="xs:long" />
-					<xs:element name="skuName" type="xs:string" />
+					<xs:element name="itemId" type="xs:long"/>
+					<xs:element name="skuName" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
 		</xs:schema>
 	</types>
 	<message name="getVersionRequest">
-		<part name="params" element="tns:getVersionRequest">
+		<part element="tns:getVersionRequest" name="params">
 		</part>
 	</message>
 	<message name="calculateTaxRequest">
-		<part name="params" element="tns:calculateTaxesRequest">
+		<part element="tns:calculateTaxesRequest" name="params">
 		</part>
 	</message>
 	<message name="calculateTaxResponse">
-		<part name="params" element="tns:calculateTaxesResponse">
+		<part element="tns:calculateTaxesResponse" name="params">
 		</part>
 	</message>
 	<message name="getVersionResponse">
-		<part name="params" element="tns:getVersionResponse">
+		<part element="tns:getVersionResponse" name="params">
 		</part>
 	</message>
 	<portType name="TaxCalculationServicePort">
@@ -613,47 +565,44 @@
 		</operation>
 	</portType>
 	<binding name="TaxCalculationServiceHttpBinding" type="tns:TaxCalculationServicePort">
-		<http:binding verb="POST" />
+		<http:binding verb="POST"/>
 		<operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</output>
 		</operation>
 		<operation name="calculateTax">
-			<http:operation location="/calculateTax" />
+			<http:operation location="/calculateTax"/>
 			<input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</output>
 		</operation>
 	</binding>
 	<binding name="TaxCalculationServiceSOAPBinding" type="tns:TaxCalculationServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<operation name="getVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/tax/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/tax/v1/services/getVersion"/>
 			<input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="calculateTax">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/tax/v1/services/calculateTax" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/tax/v1/services/calculateTax"/>
 			<input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 	</binding>
@@ -661,13 +610,11 @@
 		<wsdl:documentation>
 			<version>1.0.0</version>
 		</wsdl:documentation>
-		<port name="TaxCalculationServiceHttpPort" binding="tns:TaxCalculationServiceHttpBinding">
-			<http:address
-				location="https://svcs.ebay.com/services/tax/v1/TaxCalculationService" />
+		<port binding="tns:TaxCalculationServiceHttpBinding" name="TaxCalculationServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/tax/v1/TaxCalculationService"/>
 		</port>
-		<port name="TaxCalculationServiceSOAPPort" binding="tns:TaxCalculationServiceSOAPBinding">
-			<soap12:address
-				location="https://svcs.ebay.com/services/tax/v1/TaxCalculationService" />
+		<port binding="tns:TaxCalculationServiceSOAPBinding" name="TaxCalculationServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/tax/v1/TaxCalculationService"/>
 		</port>
 	</service>
 </definitions>

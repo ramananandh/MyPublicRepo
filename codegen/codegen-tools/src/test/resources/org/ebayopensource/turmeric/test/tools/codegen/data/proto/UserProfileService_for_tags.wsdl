@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 		
-			<xs:element name="getUserActivityProfileResponse"  type="tns:GetUserActivityProfileResponse"/>
+			<xs:element name="getUserActivityProfileResponse" type="tns:GetUserActivityProfileResponse"/>
 			
 			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
@@ -40,7 +39,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 							</xs:documentation>
@@ -53,7 +52,7 @@
 						</xs:annotation>
 
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 							</xs:documentation>
@@ -439,7 +438,7 @@
 						Currency in which the monetary amount is specified.
 						&lt;br&gt;&lt;br&gt;
 						For a list of possible enumeration values, see
-						&lt;a href=&quot;Enums/currencyIdList.html.html&quot;&gt;currencyId Values&lt;/a&gt;.
+						&lt;a href="Enums/currencyIdList.html.html"&gt;currencyId Values&lt;/a&gt;.
 					</xs:documentation>
 								<xs:appinfo>
 									<CallInfo>
@@ -463,7 +462,7 @@
 							<xs:element name="itemAsDescribedAverageRate" type="xs:double">
 								<xs:annotation>
 									<xs:documentation>
-										Average rate for &quot;item as described&quot; this user has made in last X days, where X is defined in lookbackPeriod
+										Average rate for "item as described" this user has made in last X days, where X is defined in lookbackPeriod
 									</xs:documentation>
 									<xs:appinfo>
 										<CallInfo>
@@ -476,7 +475,7 @@
 							<xs:element name="communicationAverageRate" type="xs:double">
 								<xs:annotation>
 									<xs:documentation>
-										Average rate for &quot;communication&quot; this user has made in last X days, where X is defined in lookbackPeriod
+										Average rate for "communication" this user has made in last X days, where X is defined in lookbackPeriod
 									</xs:documentation>
 									<xs:appinfo>
 										<CallInfo>
@@ -489,7 +488,7 @@
 							<xs:element name="shippingTimeAverageRate" type="xs:double">
 								<xs:annotation>
 									<xs:documentation>
-										Average rate for &quot;shipping time&quot; this user has made in last X days, where X is defined in lookbackPeriod
+										Average rate for "shipping time" this user has made in last X days, where X is defined in lookbackPeriod
 									</xs:documentation>
 									<xs:appinfo>
 										<CallInfo>
@@ -502,7 +501,7 @@
 							<xs:element name="shippingChargeAverageRate" type="xs:double">
 								<xs:annotation>
 									<xs:documentation>
-										Average rate for &quot;shipping charge&quot; this user has made in last X days, where X is defined in lookbackPeriod
+										Average rate for "shipping charge" this user has made in last X days, where X is defined in lookbackPeriod
 									</xs:documentation>
 									<xs:appinfo>
 										<CallInfo>
@@ -539,7 +538,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								ActivityProfile about a single error.
@@ -705,7 +704,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return one or more variables that contain
@@ -828,7 +827,7 @@
   </wsdl:types>
   <wsdl:message name="getUserActivityProfileRequest"/>
   <wsdl:message name="getUserActivityProfileResponse">
-    <wsdl:part name="params" element="ns0:getUserActivityProfileResponse"/>
+    <wsdl:part element="ns0:getUserActivityProfileResponse" name="params"/>
   </wsdl:message>
   <wsdl:portType name="UserProfileServicePort">
     <wsdl:operation name="getUserActivityProfile">
@@ -849,23 +848,23 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="UserProfileServiceSOAPBinding" type="ns0:UserProfileServicePort">
-    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="getUserActivityProfile">
-    <soap12:operation soapAction="urn:getUserActivityProfile" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:operation soapAction="urn:getUserActivityProfile" style="document"/>
       <wsdl:input>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="UserProfileService">
-    <wsdl:port name="UserProfileServiceHttp" binding="ns0:UserProfileServiceHttpBinding">
+    <wsdl:port binding="ns0:UserProfileServiceHttpBinding" name="UserProfileServiceHttp">
       <http:address location="http://svcs.ebay.com/UserProfileService"/>
     </wsdl:port>
-    <wsdl:port name="UserProfileServiceSOAP" binding="ns0:UserProfileServiceSOAPBinding">
-    <soap12:address location="http://svcs.ebay.com/UserProfileService" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <wsdl:port binding="ns0:UserProfileServiceSOAPBinding" name="UserProfileServiceSOAP">
+    <soap12:address location="http://svcs.ebay.com/UserProfileService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

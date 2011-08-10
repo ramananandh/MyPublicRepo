@@ -1,10 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="ExperimentationExecutionService" targetNamespace="http://www.ebay.com/marketplace/experimentation/v1/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.ebay.com/marketplace/experimentation/v1/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/experimentation/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ExperimentationExecutionService" targetNamespace="http://www.ebayopensource.org/tumeric/experimentation/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
-				targetNamespace="http://www.ebay.com/marketplace/experimentation/v1/services" 
-				xmlns:tns="http://www.ebay.com/marketplace/experimentation/v1/services" 
-				xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/experimentation/v1/services">
 				
 			<xs:element name="getExperimentsRequest" type="tns:GetExperimentsRequest"/>
 			<xs:element name="getExperimentsResponse" type="tns:GetExperimentsResponse"/>
@@ -31,9 +27,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded"/>							
-							<xs:element name="client" type="tns:Client" maxOccurs="1" minOccurs="1"/>
-							<xs:element name="sampleCriteria" type="tns:SampleCriteria" maxOccurs="1" minOccurs="1"/>							
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>							
+							<xs:element maxOccurs="1" minOccurs="1" name="client" type="tns:Client"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="sampleCriteria" type="tns:SampleCriteria"/>							
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -46,7 +42,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded"/>							
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>							
 							<xs:element maxOccurs="unbounded" minOccurs="1" name="experiment" type="tns:Experiment"/>							
 						</xs:sequence>
 					</xs:extension>
@@ -60,7 +56,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded"/>							
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>							
 							<xs:element maxOccurs="1" minOccurs="1" name="client" type="tns:Client"/>
 							<xs:element maxOccurs="1" minOccurs="1" name="sampleCriteria" type="tns:SampleCriteria"/>
 							<xs:element maxOccurs="unbounded" minOccurs="1" name="treatment" type="tns:Treatment"/>							
@@ -76,7 +72,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -89,7 +85,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 							<xs:element maxOccurs="1" minOccurs="1" name="client" type="tns:Client"/>
 							<xs:element maxOccurs="1" minOccurs="1" name="sampleCriteria" type="tns:SampleCriteria"/>
 							<xs:element maxOccurs="unbounded" minOccurs="1" name="fact" type="tns:Fact"/>							
@@ -105,7 +101,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -116,9 +112,9 @@
 					<xs:documentation>Object to hold the client information</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="globalId" type="xs:string" maxOccurs="1" minOccurs="1"/>
-					<xs:element name="applicationId" type="xs:string" maxOccurs="1" minOccurs="0"/>
-					<xs:element name="subApplicationId" type="xs:string" maxOccurs="1" minOccurs="0"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="globalId" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="applicationId" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="subApplicationId" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -127,21 +123,21 @@
 					<xs:documentation>Object to hold Sample Identity and criteriaList. SampleIdentity is GUID for eBay marketplace.</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="sampleIdentity" type="tns:SampleIdentity" minOccurs="1" maxOccurs="unbounded"/>
-					<xs:element name="criteria" type="tns:Criteria" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="sampleIdentity" type="tns:SampleIdentity"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="criteria" type="tns:Criteria"/>
 				</xs:sequence>
 			</xs:complexType>			
 			
 			<xs:complexType name="SampleIdentity">
 				<xs:sequence>		
-					<xs:element name="SampleIdentityType" type="xs:token" maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="SampleIdentityType" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Sample Identity Type
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="SampleIdentityValue" type="xs:string" maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="SampleIdentityValue" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Value of the above mentioned SampleIdentityType
@@ -153,14 +149,14 @@
 			
 			<xs:complexType name="Criteria">
 				<xs:sequence>		
-					<xs:element name="CriteriaType" type="xs:token" maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="CriteriaType" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Criteria Type
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="CriteriaValue" type="xs:string" maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="CriteriaValue" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Value of the above mentioned CriteriaType
@@ -177,7 +173,7 @@
 				<xs:sequence>
 					<xs:element maxOccurs="1" minOccurs="1" name="experimentId" type="xs:long"/>
 					<xs:element maxOccurs="1" minOccurs="1" name="experimentName" type="xs:string"/>
-					<xs:element name="treatment" type="tns:Treatment" minOccurs="1" maxOccurs="1"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="treatment" type="tns:Treatment"/>
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -227,8 +223,8 @@
 					<xs:documentation>Object to hold the Fact.</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -292,7 +288,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
@@ -460,7 +456,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return one or more variables that contain
@@ -632,22 +628,22 @@
 	</wsdl:types>
 	
 	<wsdl:message name="getExperimentsResponse">
-		<wsdl:part name="parameters" element="tns:getExperimentsResponse"/>
+		<wsdl:part element="tns:getExperimentsResponse" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getExperimentsRequest">
-		<wsdl:part name="parameters" element="tns:getExperimentsRequest"/>
+		<wsdl:part element="tns:getExperimentsRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="recordTreatmentsServedResponse">
-		<wsdl:part name="parameters" element="tns:recordTreatmentsServedResponse"/>
+		<wsdl:part element="tns:recordTreatmentsServedResponse" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="recordTreatmentsServedRequest">
-		<wsdl:part name="parameters" element="tns:recordTreatmentsServedRequest"/>
+		<wsdl:part element="tns:recordTreatmentsServedRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="recordFactsRequest">
-		<wsdl:part name="parameters" element="tns:recordFactsRequest"/>
+		<wsdl:part element="tns:recordFactsRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="recordFactsResponse">
-		<wsdl:part name="parameters" element="tns:recordFactsResponse"/>
+		<wsdl:part element="tns:recordFactsResponse" name="parameters"/>
 	</wsdl:message>
 	
 	<wsdl:portType name="ExperimentationExecutionServicePort">
@@ -683,7 +679,7 @@
 	<wsdl:binding name="ExperimentationExecutionServiceSOAPBinding" type="tns:ExperimentationExecutionServicePort">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getExperiments">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/experimentation/v1/services/getExperiments"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/experimentation/v1/services/getExperiments"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -692,7 +688,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="recordTreatmentsServed">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/experimentation/v1/services/recordTreatmentsServed"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/experimentation/v1/services/recordTreatmentsServed"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -701,7 +697,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="recordFacts">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/experimentation/v1/services/recordFacts"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/experimentation/v1/services/recordFacts"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -716,7 +712,7 @@
 		<Version>1.0.0</Version>
 		The Experimentation Execution db now communicates with an Experimentation Execution SOA service that can be accessed by environments like eBox / eVA / eBox on Core, etc, and potentially expand services to other eBay Inc adjacencies like Stub Hub, Paypal, etc assuming those adjacencies have all the necessary infrastructure in place. 
 		</wsdl:documentation>
-		<wsdl:port name="ExperimentationExecutionServiceSOAP" binding="tns:ExperimentationExecutionServiceSOAPBinding">
+		<wsdl:port binding="tns:ExperimentationExecutionServiceSOAPBinding" name="ExperimentationExecutionServiceSOAP">
 			<soap12:address location="https://svcs.ebay.com/services/experimentation/ExperimentationExecutionService/v1"/>
 		</wsdl:port>
 	</wsdl:service>

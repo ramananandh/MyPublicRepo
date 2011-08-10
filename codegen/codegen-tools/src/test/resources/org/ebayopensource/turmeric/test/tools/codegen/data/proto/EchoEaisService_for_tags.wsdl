@@ -1,36 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions
-	targetNamespace="http://www.ebay.com/marketplace/services"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:ns0="http://www.ebay.com/marketplace/services"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/services"
-			xmlns:tns="http://www.ebay.com/marketplace/services"
-			xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://www.ebay.com/marketplace/services" xmlns:Q2="http://www.ebay.com/marketplace/services"> 
+		<xs:schema xmlns:Q1="http://www.ebayopensource.org/tumeric/services" xmlns:Q2="http://www.ebayopensource.org/tumeric/services" xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services"> 
    
    		<!-- Comnon TYPES  start there (do not change)-->
    
    <xs:complexType name="EchoLocaleType">
-			<xs:attribute  name="locale" type ="xs:string" />
-			<xs:attribute name="lang"  type ="xs:string"/>
-			<xs:attribute name="siteId" type ="xs:string"/>
+			<xs:attribute name="locale" type="xs:string"/>
+			<xs:attribute name="lang" type="xs:string"/>
+			<xs:attribute name="siteId" type="xs:string"/>
 	</xs:complexType>
 	
 	<xs:complexType name="EchoPrincipalIdentifer">
-		<xs:attribute name="fqname"  type="xs:string"/>
+		<xs:attribute name="fqname" type="xs:string"/>
 	</xs:complexType>
 	
 	<xs:complexType name="EchoVersionType">
-				<xs:attribute name="major"  type="xs:string"/>
-				<xs:attribute name="minor"  type="xs:string"/>
+				<xs:attribute name="major" type="xs:string"/>
+				<xs:attribute name="minor" type="xs:string"/>
 				<xs:attribute name="release" type="xs:string"/>
 	</xs:complexType>
 	
@@ -174,7 +160,7 @@
 	</xs:complexType>
 -->
 	<!-- Base Request Types -->
-	<xs:complexType name="BaseAuthenticatedServiceRequest" abstract="true">
+	<xs:complexType abstract="true" name="BaseAuthenticatedServiceRequest">
 		<xs:annotation>
 			<xs:documentation>
 			This is the base class for request container for all service operations.
@@ -188,7 +174,7 @@
 	
 	<!-- ****************************************************************************** -->
 	<!-- Base Response Types -->
-	<xs:complexType name="BaseServiceResponse" abstract="true">
+	<xs:complexType abstract="true" name="BaseServiceResponse">
 		<xs:annotation>
 			<xs:documentation>
 				Base response container for all service operations. Contains error information
@@ -299,7 +285,7 @@
 					</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="error" type="tns:ErrorData"  minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 				<xs:annotation>
 					<xs:documentation>
 								ActivityProfile about a single error.
@@ -423,7 +409,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="subdomain" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="subdomain" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>
 								Name of the subdomain upon which the error occurred. 
@@ -451,7 +437,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="exceptionId" type="xs:token" minOccurs="0">
+			<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 				<xs:annotation>
 					<xs:documentation>
 								Unique identifier for an exception associated with an error.
@@ -464,7 +450,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="parameter" type="tns:ErrorParameter"  minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 				<xs:annotation>
 					<xs:documentation>
 								Some warning and error messages return one or more variables that contain
@@ -595,7 +581,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="userName" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="userName" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>
 					user's login name
@@ -607,7 +593,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="eiasUserId" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="eiasUserId" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>
 					eBay user's unique id
@@ -619,7 +605,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="authToken" type="tns:EchoSecurityTokenType" minOccurs="0">
+			<xs:element minOccurs="0" name="authToken" type="tns:EchoSecurityTokenType">
 				<xs:annotation>
 					<xs:documentation>
 					eBay user's Auth and Auth token with expiration date
@@ -686,7 +672,7 @@
 	<!--  Mark up/down application -->
 	<xs:complexType name="EchoSetApplicationOperationStateRequestType">
 		<xs:complexContent>
-			<xs:extension base="tns:BaseAuthenticatedServiceRequest" >
+			<xs:extension base="tns:BaseAuthenticatedServiceRequest">
 			<xs:sequence>
 					<xs:element name="newState" type="tns:EchoApplicationStateType">
 						<xs:annotation>
@@ -703,19 +689,19 @@
 	
 	<xs:complexType name="EchoSetApplicationOperationStateResponseType">
 		<xs:complexContent>
-			<xs:extension base="tns:BaseServiceResponse" />
+			<xs:extension base="tns:BaseServiceResponse"/>
 		</xs:complexContent>
 	</xs:complexType>
 		
 	
 	  <!--  before insert  -->
-	<xs:element name="getSessionRequest"     type="tns:EchoGetSessionRequestType"/>
-	<xs:element name="getSessionResponse"   type="tns:EchoGetSessionResponseType"/>
+	<xs:element name="getSessionRequest" type="tns:EchoGetSessionRequestType"/>
+	<xs:element name="getSessionResponse" type="tns:EchoGetSessionResponseType"/>
 
    <!-- Mark Down Application -->
 	<!-- Mark Up Application -->
-	<xs:element name="setApplicationOperationStateRequest"     type="tns:EchoSetApplicationOperationStateRequestType"/>
-	<xs:element name="setApplicationOperationStateResponse"   type="tns:EchoSetApplicationOperationStateResponseType"/>
+	<xs:element name="setApplicationOperationStateRequest" type="tns:EchoSetApplicationOperationStateRequestType"/>
+	<xs:element name="setApplicationOperationStateResponse" type="tns:EchoSetApplicationOperationStateResponseType"/>
 
 	</xs:schema>
 
@@ -724,57 +710,57 @@
 
 
 	<wsdl:message name="getSessionRequest">
-		<wsdl:part name="getSessionRequest"	 element="ns0:getSessionRequest"></wsdl:part>
+		<wsdl:part element="ns0:getSessionRequest" name="getSessionRequest"/>
 	</wsdl:message>
 
 	<wsdl:message name="getSessionResponse">
-		<wsdl:part name="getSessionResponse"  element="ns0:getSessionResponse"></wsdl:part>
+		<wsdl:part element="ns0:getSessionResponse" name="getSessionResponse"/>
 	</wsdl:message>
 
     <!--  Mark Up Application -->
 	<wsdl:message name="setApplicationOperationStateRequest">
-		   <wsdl:part name="setApplicationOperationStateRequest"	 element="ns0:setApplicationOperationStateRequest"></wsdl:part>
+		   <wsdl:part element="ns0:setApplicationOperationStateRequest" name="setApplicationOperationStateRequest"/>
 	</wsdl:message>
 
 	<wsdl:message name="setApplicationOperationStateResponse">
-		   <wsdl:part name="setApplicationOperationStateResponse"	 element="ns0:setApplicationOperationStateResponse"></wsdl:part>
+		   <wsdl:part element="ns0:setApplicationOperationStateResponse" name="setApplicationOperationStateResponse"/>
 	</wsdl:message>
 	
 	<!-- Port Type -->
 	<wsdl:portType name="EchoEaisServicePort">
 
 		<wsdl:operation name="getSession">
-			<wsdl:input message="ns0:getSessionRequest" />
-			<wsdl:output message="ns0:getSessionResponse" />
+			<wsdl:input message="ns0:getSessionRequest"/>
+			<wsdl:output message="ns0:getSessionResponse"/>
 		</wsdl:operation>
 
 		<wsdl:operation name="setApplicationOperationState">
-			<wsdl:input    message="ns0:setApplicationOperationStateRequest" />
-			<wsdl:output message="ns0:setApplicationOperationStateResponse" />
+			<wsdl:input message="ns0:setApplicationOperationStateRequest"/>
+			<wsdl:output message="ns0:setApplicationOperationStateResponse"/>
 		</wsdl:operation>
 
 	</wsdl:portType>
 	
 	<wsdl:binding name="EchoEaisServiceHttpBinding" type="ns0:EchoEaisServicePort">
-		<http:binding verb="POST" />
+		<http:binding verb="POST"/>
 
 		<wsdl:operation name="getSession">
-			<http:operation location="EchoEaisService/getSession" />
+			<http:operation location="EchoEaisService/getSession"/>
 			<wsdl:input>
-				<mime:content part="getSessionRequest" type="text/xml" />
+				<mime:content part="getSessionRequest" type="text/xml"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="getSessionResponse" type="text/xml" />
+				<mime:content part="getSessionResponse" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 
     	<wsdl:operation name="setApplicationOperationState">
-			<http:operation location="EchoEaisService/setApplicationOperationState" />
+			<http:operation location="EchoEaisService/setApplicationOperationState"/>
 			<wsdl:input>
-				<mime:content part="setApplicationOperationStateRequest" type="text/xml" />
+				<mime:content part="setApplicationOperationStateRequest" type="text/xml"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="setApplicationOperationStateResponse" type="text/xml" />
+				<mime:content part="setApplicationOperationStateResponse" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 
@@ -804,11 +790,11 @@
 	</wsdl:binding>
 	
 	<wsdl:service name="EchoEaisService">
-		<wsdl:port name="EchoEaisServiceSOAP" binding="ns0:EchoEaisServiceSOAPBinding">
-			<soap12:address location="http://svcs.ebay.com/EchoEaisService" />
+		<wsdl:port binding="ns0:EchoEaisServiceSOAPBinding" name="EchoEaisServiceSOAP">
+			<soap12:address location="http://svcs.ebay.com/EchoEaisService"/>
 		</wsdl:port>
-		<wsdl:port name="EchoEaisServiceHttp" binding="ns0:EchoEaisServiceHttpBinding">
-			<http:address location="http://svcs.ebay.com/EchoEaisService" />
+		<wsdl:port binding="ns0:EchoEaisServiceHttpBinding" name="EchoEaisServiceHttp">
+			<http:address location="http://svcs.ebay.com/EchoEaisService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

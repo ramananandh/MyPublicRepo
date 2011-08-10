@@ -1,18 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="ConsumerService"
-	targetNamespace="http://www.ebay.com/marketplace/security/v1/services"
-	xmlns="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:tns="http://www.ebay.com/marketplace/security/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/security/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ConsumerService" targetNamespace="http://www.ebayopensource.org/tumeric/security/v1/services">
 	<types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/security/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/security/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -22,9 +10,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -75,14 +61,11 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="extension"
-						type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType abstract="true" name="BaseResponse">
@@ -93,25 +76,22 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="errorMessage"
-						type="tns:ErrorMessage" minOccurs="0">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -120,38 +100,35 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="extension"
-						type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ExtensionType">
@@ -160,18 +137,16 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="ErrorCategory">
@@ -180,15 +155,13 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
@@ -197,25 +170,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long" />
-					<xs:element name="domain" type="xs:string" />
-					<xs:element name="subdomain" type="xs:string"
-						minOccurs="0" />
-					<xs:element name="severity"
-						type="tns:ErrorSeverity" />
-					<xs:element name="category"
-						type="tns:ErrorCategory" />
-					<xs:element name="message" type="xs:string" />
-					<xs:element name="exceptionId" type="xs:token"
-						minOccurs="0" />
-					<xs:element name="parameter"
-						type="tns:ErrorParameter" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+					<xs:element name="severity" type="tns:ErrorSeverity"/>
+					<xs:element name="category" type="tns:ErrorCategory"/>
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -224,9 +190,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -236,8 +200,7 @@
 					</xs:sequence>
 				-->
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData"
-						minOccurs="0" maxOccurs="unbounded" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -246,15 +209,12 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string"
-							use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -264,18 +224,15 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
-			<xs:element name="authenticateRequest"
-				type="tns:AuthenticateRequest" />
+			<xs:element name="authenticateRequest" type="tns:AuthenticateRequest"/>
 			<xs:complexType name="AuthenticateRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -295,8 +252,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="consumerId"
-								type="xs:string">
+							<xs:element name="consumerId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										The consumerId the callers wants
@@ -311,8 +267,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="secret"
-								type="xs:string">
+							<xs:element name="secret" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										The secret of the consumerId the
@@ -332,8 +287,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="authenticateResponse"
-				type="tns:AuthenticateResponse" />
+			<xs:element name="authenticateResponse" type="tns:AuthenticateResponse"/>
 			<xs:complexType name="AuthenticateResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -344,8 +298,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="consumerKey"
-								type="xs:long" minOccurs="0">
+							<xs:element minOccurs="0" name="consumerKey" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 										The internal digit or oracle id
@@ -356,7 +309,7 @@
 									</xs:documentation>
 									<xs:appinfo>
 										<CallInfo>
-											<AllCalls />
+											<AllCalls/>
 											<Returned>Conditionally</Returned>
 										</CallInfo>
 									</xs:appinfo>
@@ -366,8 +319,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="createConsumerRequest"
-				type="tns:CreateConsumerRequest" />
+			<xs:element name="createConsumerRequest" type="tns:CreateConsumerRequest"/>
 			<xs:complexType name="CreateConsumerRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -392,8 +344,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="consumer"
-								type="tns:Consumer">
+							<xs:element name="consumer" type="tns:Consumer">
 								<xs:annotation>
 									<xs:documentation>
 										The consumer object which has both consumer and
@@ -412,8 +363,7 @@
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:element name="createConsumerResponse"
-				type="tns:CreateConsumerResponse" />
+			<xs:element name="createConsumerResponse" type="tns:CreateConsumerResponse"/>
 			<xs:complexType name="CreateConsumerResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -423,9 +373,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="consumerCredential"
-								type="tns:ConsumerCredential" minOccurs="0"
-								maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="consumerCredential" type="tns:ConsumerCredential">
 								<xs:annotation>
 									<xs:documentation>
 										The generated secrets and IAF
@@ -433,7 +381,7 @@
 									</xs:documentation>
 									<xs:appinfo>
 										<CallInfo>
-											<AllCalls />
+											<AllCalls/>
 											<Returned>Conditionally</Returned>
 										</CallInfo>
 									</xs:appinfo>									
@@ -444,8 +392,7 @@
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:element name="updateConsumerRequest"
-				type="tns:UpdateConsumerRequest" />
+			<xs:element name="updateConsumerRequest" type="tns:UpdateConsumerRequest"/>
 			<xs:complexType name="UpdateConsumerRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -470,8 +417,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="consumer"
-								type="tns:Consumer">
+							<xs:element name="consumer" type="tns:Consumer">
 								<xs:annotation>
 									<xs:documentation>
 										The consumer object which has both consumer and
@@ -490,8 +436,7 @@
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:element name="updateConsumerResponse"
-				type="tns:UpdateConsumerResponse" />
+			<xs:element name="updateConsumerResponse" type="tns:UpdateConsumerResponse"/>
 			<xs:complexType name="UpdateConsumerResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -505,8 +450,7 @@
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:element name="getConsumerCredentialsRequest"
-				type="tns:GetConsumerCredentialsRequest" />
+			<xs:element name="getConsumerCredentialsRequest" type="tns:GetConsumerCredentialsRequest"/>
 			<xs:complexType name="GetConsumerCredentialsRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -533,8 +477,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="consumerId"
-								type="xs:string">
+							<xs:element name="consumerId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										consumerId the caller wants to
@@ -549,8 +492,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="includeToken"
-								type="xs:boolean" minOccurs="0">
+							<xs:element minOccurs="0" name="includeToken" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>
 										Indicate whether the caller
@@ -567,8 +509,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="getNewSecret"
-								type="xs:boolean" minOccurs="0">
+							<xs:element minOccurs="0" name="getNewSecret" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>
 										Indicate whether the caller
@@ -591,8 +532,7 @@
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:element name="getConsumerCredentialsResponse"
-				type="tns:GetConsumerCredentialsResponse" />
+			<xs:element name="getConsumerCredentialsResponse" type="tns:GetConsumerCredentialsResponse"/>
 			<xs:complexType name="GetConsumerCredentialsResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -603,9 +543,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="consumerCredential"
-								type="tns:ConsumerCredential" minOccurs="0"
-								maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="consumerCredential" type="tns:ConsumerCredential">
 								<xs:annotation>
 									<xs:documentation>
 										list of consumerCredentials
@@ -613,7 +551,7 @@
 									</xs:documentation>
 									<xs:appinfo>
 										<CallInfo>
-											<AllCalls />
+											<AllCalls/>
 											<Returned>Conditionally</Returned>
 										</CallInfo>
 									</xs:appinfo>
@@ -669,8 +607,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="consumerDescription"
-						type="xs:string">
+					<xs:element name="consumerDescription" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								This is the consumer description.
@@ -685,8 +622,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="consumerType" type="xs:int"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="consumerType" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								We have two values for now. 0 means
@@ -707,8 +643,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="status" type="xs:long"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="status" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								The status of the consumer. 0 means
@@ -851,8 +786,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="countryId" type="xs:int"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="countryId" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								The ebay countryID of the consumer
@@ -901,8 +835,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="firstPhone" type="xs:string"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="firstPhone" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The phone number of the consumer owner.
@@ -917,8 +850,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="firstFax" type="xs:string"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="firstFax" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The fax number of the consumer owner.
@@ -963,8 +895,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="secondPhone" type="xs:string"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="secondPhone" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The phone number of the escalation person.
@@ -979,8 +910,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="secondFax" type="xs:string"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="secondFax" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The fax number of the escalation person.
@@ -995,8 +925,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="emergencyContact"
-						type="xs:string">
+					<xs:element name="emergencyContact" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The phone number for emergency contact.
@@ -1011,8 +940,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="status" type="xs:long"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="status" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								The status of this developer or owner. 0
@@ -1031,8 +959,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="licenseType" type="xs:long"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="licenseType" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								The license type of the owner or
@@ -1086,8 +1013,7 @@
 							</xs:appinfo>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="credentialValue"
-						type="xs:string">
+					<xs:element name="credentialValue" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								This is the actual value of the
@@ -1105,17 +1031,17 @@
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"  />
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
 			<xs:complexType name="GetVersionRequest">
 				<xs:complexContent>
-					<xs:extension base="tns:BaseRequest" />
+					<xs:extension base="tns:BaseRequest"/>
 				</xs:complexContent>
 			</xs:complexType>
 			
-			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"  />
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionResponse">
 				<xs:complexContent>
-					<xs:extension base="tns:BaseResponse" />
+					<xs:extension base="tns:BaseResponse"/>
 				</xs:complexContent>
 			</xs:complexType>
 
@@ -1123,191 +1049,156 @@
 		</xs:schema>
 	</types>
 	<message name="authenticateResponse">
-		<part name="params" element="tns:authenticateResponse"></part>
+		<part element="tns:authenticateResponse" name="params"/>
 	</message>
 	<message name="getConsumerCredentialsResponse">
-		<part name="params"
-			element="tns:getConsumerCredentialsResponse">
+		<part element="tns:getConsumerCredentialsResponse" name="params">
 		</part>
 	</message>
 	<message name="updateConsumerResponse">
-		<part name="params" element="tns:updateConsumerResponse"></part>
+		<part element="tns:updateConsumerResponse" name="params"/>
 	</message>
 	<message name="updateConsumerRequest">
-		<part name="params" element="tns:updateConsumerRequest"></part>
+		<part element="tns:updateConsumerRequest" name="params"/>
 	</message>
 	<message name="createConsumerResponse">
-		<part name="params" element="tns:createConsumerResponse"></part>
+		<part element="tns:createConsumerResponse" name="params"/>
 	</message>
 	<message name="createConsumerRequest">
-		<part name="params" element="tns:createConsumerRequest"></part>
+		<part element="tns:createConsumerRequest" name="params"/>
 	</message>
 	<message name="getConsumerCredentialsRequest">
-		<part name="params"
-			element="tns:getConsumerCredentialsRequest">
+		<part element="tns:getConsumerCredentialsRequest" name="params">
 		</part>
 	</message>
 	<message name="authenticateRequest">
-		<part name="params" element="tns:authenticateRequest"></part>
+		<part element="tns:authenticateRequest" name="params"/>
 	</message>
 	<message name="getVersionRequest">
-		<part name="params" element="tns:getVersionRequest" />
+		<part element="tns:getVersionRequest" name="params"/>
 	</message>
 	<message name="getVersionResponse">
-		<part name="params" element="tns:getVersionResponse" />
+		<part element="tns:getVersionResponse" name="params"/>
 	</message>
 	
 	<portType name="ConsumerServicePort">
 		<operation name="authenticate">
-			<input message="tns:authenticateRequest"></input>
-			<output message="tns:authenticateResponse"></output>
+			<input message="tns:authenticateRequest"/>
+			<output message="tns:authenticateResponse"/>
 		</operation>
 
 		<operation name="createConsumer">
-			<input message="tns:createConsumerRequest"></input>
-			<output message="tns:createConsumerResponse"></output>
+			<input message="tns:createConsumerRequest"/>
+			<output message="tns:createConsumerResponse"/>
 		</operation>
 		<operation name="updateConsumer">
-			<input message="tns:updateConsumerRequest"></input>
-			<output message="tns:updateConsumerResponse"></output>
+			<input message="tns:updateConsumerRequest"/>
+			<output message="tns:updateConsumerResponse"/>
 		</operation>
 		<operation name="getConsumerCredentials">
-			<input message="tns:getConsumerCredentialsRequest"></input>
+			<input message="tns:getConsumerCredentialsRequest"/>
 			<output message="tns:getConsumerCredentialsResponse">
 			</output>
 		</operation>
 		<operation name="getVersion">
-			<input message="tns:getVersionRequest"></input>
+			<input message="tns:getVersionRequest"/>
 			<output message="tns:getVersionResponse">
 			</output>
 		</operation>		
 	</portType>
-	<binding name="ConsumerServiceHttpBinding"
-		type="tns:ConsumerServicePort">
-		<http:binding verb="POST" />
+	<binding name="ConsumerServiceHttpBinding" type="tns:ConsumerServicePort">
+		<http:binding verb="POST"/>
 		<operation name="authenticate">
-			<http:operation location="/authenticate" />
+			<http:operation location="/authenticate"/>
 			<input>
-				<mime:content part="params"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</output>
 		</operation>
 		<operation name="createConsumer">
-			<http:operation location="/createConsumer" />
+			<http:operation location="/createConsumer"/>
 			<input>
-				<mime:content part="params"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</output>
 		</operation>
 		<operation name="updateConsumer">
-			<http:operation location="/updateConsumer" />
+			<http:operation location="/updateConsumer"/>
 			<input>
-				<mime:content part="params"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</output>
 		</operation>
 		<operation name="getConsumerCredentials">
-			<http:operation location="/getConsumerCredentials" />
+			<http:operation location="/getConsumerCredentials"/>
 			<input>
-				<mime:content part="params"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</output>
 		</operation>
 		<operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<input>
-				<mime:content part="params"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</output>
 		</operation>
 	</binding>
-	<binding name="ConsumerServiceSOAPBinding"
-		type="tns:ConsumerServicePort">
-		<soap12:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<binding name="ConsumerServiceSOAPBinding" type="tns:ConsumerServicePort">
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<operation name="authenticate">
-			<soap12:operation
-				soapAction="http://www.ebay.com/marketplace/security/v1/services/authenticate" />
+			<soap12:operation soapAction="http://www.ebay.com/marketplace/security/v1/services/authenticate"/>
 			<input>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</input>
 			<output>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="createConsumer">
-			<soap12:operation
-				soapAction="http://www.ebay.com/marketplace/security/v1/services/createConsumer" />
+			<soap12:operation soapAction="http://www.ebay.com/marketplace/security/v1/services/createConsumer"/>
 			<input>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</input>
 			<output>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="updateConsumer">
-			<soap12:operation
-				soapAction="http://www.ebay.com/marketplace/security/v1/services/updateConsumer" />
+			<soap12:operation soapAction="http://www.ebay.com/marketplace/security/v1/services/updateConsumer"/>
 			<input>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</input>
 			<output>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="getConsumerCredentials">
-			<soap12:operation
-				soapAction="http://www.ebay.com/marketplace/security/v1/services/getConsumerCredentials" />
+			<soap12:operation soapAction="http://www.ebay.com/marketplace/security/v1/services/getConsumerCredentials"/>
 			<input>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</input>
 			<output>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="getVersion">
-			<soap12:operation
-				soapAction="http://www.ebay.com/marketplace/security/v1/services/getVersion" />
+			<soap12:operation soapAction="http://www.ebay.com/marketplace/security/v1/services/getVersion"/>
 			<input>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</input>
 			<output>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</output>
 		</operation>
 	</binding>
@@ -1315,15 +1206,11 @@
 		<wsdl:documentation>
 			<Version>1.0.0</Version>
 		</wsdl:documentation>
-		<port name="ConsumerServiceHttpPort"
-			binding="tns:ConsumerServiceHttpBinding">
-			<http:address
-				location="https://svcs.ebay.com/services/security/v1/ConsumerService" />
+		<port binding="tns:ConsumerServiceHttpBinding" name="ConsumerServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/security/v1/ConsumerService"/>
 		</port>
-		<port name="ConsumerServiceSOAPPort"
-			binding="tns:ConsumerServiceSOAPBinding">
-			<soap12:address
-				location="https://svcs.ebay.com/services/security/v1/ConsumerService" />
+		<port binding="tns:ConsumerServiceSOAPBinding" name="ConsumerServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/security/v1/ConsumerService"/>
 		</port>
 	</service>
 </definitions>

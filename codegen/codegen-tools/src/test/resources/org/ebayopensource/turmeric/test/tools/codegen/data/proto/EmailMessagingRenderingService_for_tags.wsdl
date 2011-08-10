@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="EmailMessagingRenderingService" targetNamespace="http://www.ebay.com/marketplace/notification/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.ebay.com/marketplace/notification/v1/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/notification/v1/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EmailMessagingRenderingService" targetNamespace="http://www.ebayopensource.org/tumeric/notification/v1/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/notification/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/notification/v1/services">
 
 
 
@@ -126,7 +125,7 @@
 				or an informational error (a warning) that should be communicated to the
 				user.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 		<xs:restriction base="xs:string">
 	
 			<xs:enumeration value="Success">
@@ -169,7 +168,7 @@
 				This is the base class for request container for all
 				service operations.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="ns0:ExtensionType"/>
 		</xs:sequence>
@@ -179,7 +178,7 @@
 				Base response container for all service operations.
 				Contains error information associated with the request.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
 		<xs:sequence>
 			<xs:element name="ack" type="ns0:AckValue">
@@ -244,7 +243,7 @@
 			<xs:documentation>
 				Documentation goes here.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
       <xs:restriction base="xs:token">
         <xs:enumeration value="System"/>
@@ -256,7 +255,7 @@
 		<xs:annotation>
 			<xs:documentation>Documentation goes here</xs:documentation>
 			
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 	
 	  <xs:sequence>
         	<xs:element name="errorId" type="xs:long"/>
@@ -274,7 +273,7 @@
 		<xs:annotation>
 			<xs:documentation>Documentation goes here</xs:documentation>
 			
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 		
 		<!-- 
 		<xs:sequence>
@@ -292,7 +291,7 @@
 		<xs:annotation>
 			<xs:documentation>Documentation goes here</xs:documentation>
 			
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
 		<xs:simpleContent>
 		  <xs:extension base="xs:string">
@@ -304,7 +303,7 @@
 			<xs:documentation>
 				Documentation goes here.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
       <xs:restriction base="xs:token">
         <xs:enumeration value="Error"/>
@@ -315,7 +314,7 @@
 		<xs:annotation>
 			<xs:documentation>Documentation goes here</xs:documentation>
 			
-		<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 			<xs:element name="id" type="xs:positiveInteger"/>
 			<xs:element name="version" type="xs:string"/>
@@ -326,27 +325,27 @@
 	</xs:complexType></xs:schema>
   </wsdl:types>
   <wsdl:message name="getVersionResponse">
-    <wsdl:part name="params" element="ns0:getVersionResp">
+    <wsdl:part element="ns0:getVersionResp" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="renderAndDeliverResponse">
-    <wsdl:part name="params" element="ns0:renderAndDeliverResp">
+    <wsdl:part element="ns0:renderAndDeliverResp" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="renderResponse">
-    <wsdl:part name="params" element="ns0:renderResp">
+    <wsdl:part element="ns0:renderResp" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="renderRequest">
-    <wsdl:part name="params" element="ns0:renderReq">
+    <wsdl:part element="ns0:renderReq" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="renderAndDeliverRequest">
-    <wsdl:part name="params" element="ns0:renderAndDeliverReq">
+    <wsdl:part element="ns0:renderAndDeliverReq" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getVersionRequest">
-    <wsdl:part name="params" element="ns0:getVersionReq">
+    <wsdl:part element="ns0:getVersionReq" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="EmailMessagingRenderingServicePort">
@@ -430,10 +429,10 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="EmailMessagingRenderingService">
-    <wsdl:port name="EmailMessagingRenderingServiceHttpPort" binding="ns0:EmailMessagingRenderingServiceHttpBinding">
+    <wsdl:port binding="ns0:EmailMessagingRenderingServiceHttpBinding" name="EmailMessagingRenderingServiceHttpPort">
       <http:address location="https://svcs.ebay.com/services/notification/EmailMessagingRenderingService/v1"/>
     </wsdl:port>
-    <wsdl:port name="EmailMessagingRenderingServiceSOAPPort" binding="ns0:EmailMessagingRenderingServiceSOAPBinding">
+    <wsdl:port binding="ns0:EmailMessagingRenderingServiceSOAPBinding" name="EmailMessagingRenderingServiceSOAPPort">
       <soap12:address location="https://svcs.ebay.com/services/notification/EmailMessagingRenderingService/v1"/>
     </wsdl:port>
   </wsdl:service>

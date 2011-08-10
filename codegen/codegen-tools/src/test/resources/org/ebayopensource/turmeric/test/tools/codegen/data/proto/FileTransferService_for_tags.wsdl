@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="FileTransferService" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FileTransferService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 <wsdl:types>
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
-<xs:element name="uploadFileRequest"  type="tns:UploadFileRequest"/>
-<xs:element name="uploadFileResponse"  type="tns:UploadFileResponse"/>
-<xs:element name="downloadFileRequest"  type="tns:DownloadFileRequest"/>
-<xs:element name="downloadFileResponse"  type="tns:DownloadFileResponse"/>
+<xs:element name="uploadFileRequest" type="tns:UploadFileRequest"/>
+<xs:element name="uploadFileResponse" type="tns:UploadFileResponse"/>
+<xs:element name="downloadFileRequest" type="tns:DownloadFileRequest"/>
+<xs:element name="downloadFileResponse" type="tns:DownloadFileResponse"/>
 
 <xs:complexType name="UploadFileRequest">
 	<xs:annotation>
@@ -268,7 +267,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="version" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="version" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					The version of the schema that your WSDL is based on.
@@ -281,7 +280,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+		<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 			<xs:annotation>
 				<xs:documentation>
 					The date and time that the response was sent.
@@ -350,7 +349,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					Details about a single error.
@@ -516,7 +515,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -689,19 +688,19 @@
 </xs:schema>
 	</wsdl:types>
 	<wsdl:message name="uploadFileResponse">
-		<wsdl:part name="params" element="tns:uploadFileResponse">
+		<wsdl:part element="tns:uploadFileResponse" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="downloadFileRequest">
-		<wsdl:part name="params" element="tns:downloadFileRequest">
+		<wsdl:part element="tns:downloadFileRequest" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="downloadFileResponse">
-		<wsdl:part name="params" element="tns:downloadFileResponse">
+		<wsdl:part element="tns:downloadFileResponse" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="uploadFileRequest">
-		<wsdl:part name="params" element="tns:uploadFileRequest">
+		<wsdl:part element="tns:uploadFileRequest" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:portType name="FileTransferServicePort">
@@ -764,10 +763,10 @@
 		<wsdl:documentation>
 			<Version>1.1.0</Version>
 		</wsdl:documentation>
-		<wsdl:port name="FileTransferServiceSOAP" binding="tns:FileTransferServiceSOAPBinding">
+		<wsdl:port binding="tns:FileTransferServiceSOAPBinding" name="FileTransferServiceSOAP">
 			<soap12:address location="http://storage.ebay.com/FileTransferService"/>
 		</wsdl:port>
-		<wsdl:port name="FileTransferServiceHttp" binding="tns:FileTransferServiceHttpBinding">
+		<wsdl:port binding="tns:FileTransferServiceHttpBinding" name="FileTransferServiceHttp">
 			<http:address location="http://storage.ebay.com/FileTransferService"/>
 		</wsdl:port>
 	</wsdl:service>

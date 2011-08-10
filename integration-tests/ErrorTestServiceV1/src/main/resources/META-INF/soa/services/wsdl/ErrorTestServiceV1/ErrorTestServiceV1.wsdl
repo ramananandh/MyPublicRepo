@@ -5,13 +5,13 @@
 	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
 	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
 	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:tns="http://www.ebay.com/marketplace/error/v1/services"
+	xmlns:tns="http://www.ebayopensource.org/turmeric/error/v1/services"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TestService"
-	targetNamespace="http://www.ebay.com/marketplace/error/v1/services">
+	targetNamespace="http://www.ebayopensource.org/turmeric/error/v1/services">
 	<wsdl:types>
 		<xs:schema attributeFormDefault="unqualified"
 			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/error/v1/services">
+			targetNamespace="http://www.ebayopensource.org/turmeric/error/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -22,8 +22,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -75,8 +75,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -93,8 +93,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -160,8 +160,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -177,8 +177,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -204,8 +204,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types" />
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -226,8 +226,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -244,8 +244,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -260,8 +260,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types" />
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>

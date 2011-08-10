@@ -1,20 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="CampaignService"
-	targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:tns="http://www.ebaypartnernetwork.com/adcommerce/v1/services"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebaypartnernetwork.com/adcommerce/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CampaignService" targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services"
-			xmlns:tns="http://www.ebaypartnernetwork.com/adcommerce/v1/services"
-			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services">
 			<xs:complexType name="BaseCampaignResponse">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAdCommerceResponse">
@@ -25,8 +11,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCampaignResponse">
 						<xs:sequence>
-							<xs:element name="campaign"
-								type="tns:Campaign">
+							<xs:element name="campaign" type="tns:Campaign">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -37,8 +22,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCampaignResponse">
 						<xs:sequence>
-							<xs:element name="campaignList"
-								type="tns:CampaignList">
+							<xs:element name="campaignList" type="tns:CampaignList">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -47,25 +31,20 @@
 
 			<xs:complexType name="CampaignList">
 				<xs:sequence>
-					<xs:element name="campaign" type="tns:Campaign"
-						maxOccurs="unbounded" minOccurs="0">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="campaign" type="tns:Campaign">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 
 			<xs:complexType name="Campaign">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="campaignId" type="xs:long">
+					<xs:element maxOccurs="1" minOccurs="0" name="campaignId" type="xs:long">
 					</xs:element>
-					<xs:element minOccurs="0" name="description"
-						type="xs:string">
+					<xs:element minOccurs="0" name="description" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="endDate" type="xs:dateTime">
+					<xs:element maxOccurs="1" minOccurs="0" name="endDate" type="xs:dateTime">
 					</xs:element>
-					<xs:element minOccurs="0" name="maxDailyBudget"
-						type="xs:double">
+					<xs:element minOccurs="0" name="maxDailyBudget" type="xs:double">
 						<xs:annotation>
 							<xs:documentation>
 								this value will be interpreted in the
@@ -74,23 +53,18 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="name" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="startDate" type="xs:dateTime">
+					<xs:element maxOccurs="1" minOccurs="0" name="startDate" type="xs:dateTime">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="status" type="xs:token">
+					<xs:element maxOccurs="1" minOccurs="0" name="status" type="xs:token">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="target" type="tns:Target">
+					<xs:element maxOccurs="1" minOccurs="0" name="target" type="tns:Target">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="type"
-						type="xs:token">
+					<xs:element maxOccurs="1" minOccurs="0" name="type" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Type can be either KEYWORD or CATEGORY.
@@ -104,42 +78,36 @@
 			</xs:complexType>
 			<xs:simpleType name="CampaignType">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="KEYWORD" />
-					<xs:enumeration value="CATEGORY" />
+					<xs:enumeration value="KEYWORD"/>
+					<xs:enumeration value="CATEGORY"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="Target">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="country" type="xs:token">
+					<xs:element maxOccurs="1" minOccurs="0" name="country" type="xs:token">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="language" type="xs:token">
+					<xs:element maxOccurs="1" minOccurs="0" name="language" type="xs:token">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:element name="addCampaignRequest">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="campaign"
-							type="tns:Campaign">
+						<xs:element name="campaign" type="tns:Campaign">
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="addCampaignResponse"
-				type="tns:CampaignResponse" />
+			<xs:element name="addCampaignResponse" type="tns:CampaignResponse"/>
 			<xs:element name="updateCampaignRequest">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="campaign"
-							type="tns:Campaign">
+						<xs:element name="campaign" type="tns:Campaign">
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="updateCampaignResponse"
-				type="tns:BaseCampaignResponse" />
+			<xs:element name="updateCampaignResponse" type="tns:BaseCampaignResponse"/>
 			<xs:element name="deleteCampaignRequest">
 				<xs:complexType>
 					<xs:sequence>
@@ -148,8 +116,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="deleteCampaignResponse"
-				type="tns:BaseCampaignResponse" />
+			<xs:element name="deleteCampaignResponse" type="tns:BaseCampaignResponse"/>
 			<xs:element name="getCampaignRequest">
 				<xs:complexType>
 					<xs:sequence>
@@ -158,23 +125,20 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="getCampaignResponse"
-				type="tns:CampaignResponse" />
+			<xs:element name="getCampaignResponse" type="tns:CampaignResponse"/>
 			<!--  common types  -->
-			<xs:element name="getVersionResponse" 
-				type="tns:GetVersionResponse" />
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionResponse">
 				<xs:annotation>
-					<xs:documentation />
-					<xs:appinfo />
+					<xs:documentation/>
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:complexType abstract="true"
-				name="BaseAdCommerceResponse">
+			<xs:complexType abstract="true" name="BaseAdCommerceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all AdCommerce
@@ -184,30 +148,24 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="control" type="tns:Control" />
+							<xs:element maxOccurs="1" minOccurs="0" name="control" type="tns:Control"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="Control">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="requestId" type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="totalProcessedCount" type="xs:int" />
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="totalSuccessCount" type="xs:int" />
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="quotaRemaining" type="xs:int" />
+					<xs:element maxOccurs="1" minOccurs="0" name="requestId" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="totalProcessedCount" type="xs:int"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="totalSuccessCount" type="xs:int"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="quotaRemaining" type="xs:int"/>
 				</xs:sequence>
 			</xs:complexType>
 
 
-			<xs:element name="getCampaignsRequest" 			type="tns:BulkCampaignResponse" />
+			<xs:element name="getCampaignsRequest" type="tns:BulkCampaignResponse"/>
 	
-			<xs:element name="getCampaignsResponse"
-				type="tns:BulkCampaignResponse" />
+			<xs:element name="getCampaignsResponse" type="tns:BulkCampaignResponse"/>
 
 
 
@@ -228,11 +186,10 @@
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
-			<xs:complexType abstract="true"
-				name="BaseServiceResponse">
+			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -243,17 +200,16 @@
 				<xs:sequence>
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -262,38 +218,36 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="version"
-						type="xs:string">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="timestamp"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="AckValue">
@@ -356,15 +310,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -390,7 +343,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -419,14 +372,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates whether the error caused the
@@ -468,14 +420,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 						<xs:annotation>
 							<xs:documentation>
 								There are three categories of errors:
@@ -484,7 +435,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -498,14 +449,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain upon which the
@@ -526,14 +476,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for an exception
@@ -541,14 +490,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -559,7 +507,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -584,7 +532,7 @@
 								</xs:documentation>
 								<xs:appinfo>
 									<CallInfo>
-										<AllCalls />
+										<AllCalls/>
 										<Returned>
 											Conditionally
 										</Returned>
@@ -698,68 +646,56 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="updateCampaignRequest">
-		<wsdl:part name="messageParameters"
-			element="tns:updateCampaignRequest">
+		<wsdl:part element="tns:updateCampaignRequest" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getCampaignResponse">
-		<wsdl:part name="messageParameters"
-			element="tns:getCampaignResponse">
+		<wsdl:part element="tns:getCampaignResponse" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="deleteCampaignRequest">
-		<wsdl:part name="messageParameters"
-			element="tns:deleteCampaignRequest">
+		<wsdl:part element="tns:deleteCampaignRequest" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addCampaignResponse">
-		<wsdl:part name="messageParameters"
-			element="tns:addCampaignResponse">
+		<wsdl:part element="tns:addCampaignResponse" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part name="messageParameters"
-			element="tns:getVersionResponse">
+		<wsdl:part element="tns:getVersionResponse" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addCampaignRequest">
-		<wsdl:part name="messageParameters"
-			element="tns:addCampaignRequest">
+		<wsdl:part element="tns:addCampaignRequest" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="deleteCampaignResponse">
-		<wsdl:part name="messageParameters"
-			element="tns:deleteCampaignResponse">
+		<wsdl:part element="tns:deleteCampaignResponse" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="updateCampaignResponse">
-		<wsdl:part name="messageParameters"
-			element="tns:updateCampaignResponse">
+		<wsdl:part element="tns:updateCampaignResponse" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getCampaignRequest">
-		<wsdl:part name="messageParameters"
-			element="tns:getCampaignRequest">
+		<wsdl:part element="tns:getCampaignRequest" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getCampaignsRequest">
-		<wsdl:part name="messageParameters"
-			element="tns:getCampaignsRequest">
+		<wsdl:part element="tns:getCampaignsRequest" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getCampaignsResponse">
-		<wsdl:part name="messageParameters"
-			element="tns:getCampaignsResponse">
+		<wsdl:part element="tns:getCampaignsResponse" name="messageParameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:portType name="CampaignServicePortType">
 		<wsdl:operation name="getVersion">
-			<wsdl:output name="getVersion"
-				message="tns:getVersionResponse">
+			<wsdl:output message="tns:getVersionResponse" name="getVersion">
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="addCampaign">
-			<wsdl:input message="tns:addCampaignRequest"></wsdl:input>
+			<wsdl:input message="tns:addCampaignRequest"/>
 			<wsdl:output message="tns:addCampaignResponse">
 			</wsdl:output>
 		</wsdl:operation>
@@ -776,7 +712,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getCampaign">
-			<wsdl:input message="tns:getCampaignRequest"></wsdl:input>
+			<wsdl:input message="tns:getCampaignRequest"/>
 			<wsdl:output message="tns:getCampaignResponse">
 			</wsdl:output>
 		</wsdl:operation>
@@ -785,76 +721,66 @@
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="CampaignServiceSOAP12Binding"
-		type="tns:CampaignServicePortType">
-		<soap12:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="CampaignServiceSOAP12Binding" type="tns:CampaignServicePortType">
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap12:operation soapAction="urn:getVersion"
-				style="document" />
+			<soap12:operation soapAction="urn:getVersion" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="addCampaign">
-			<soap12:operation soapAction="urn:addCampaign"
-				style="document" />
+			<soap12:operation soapAction="urn:addCampaign" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="deleteCampaign">
-			<soap12:operation soapAction="urn:deleteCampaign"
-				style="document" />
+			<soap12:operation soapAction="urn:deleteCampaign" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="updateCampaign">
-			<soap12:operation soapAction="urn:updateCampaign"
-				style="document" />
+			<soap12:operation soapAction="urn:updateCampaign" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getCampaign">
-			<soap12:operation soapAction="urn:getCampaign"
-				style="document" />
+			<soap12:operation soapAction="urn:getCampaign" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getCampaigns">
-			<soap12:operation soapAction="urn:getCampaigns"
-				style="document" />
+			<soap12:operation soapAction="urn:getCampaigns" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="CampaignService">
-		<wsdl:port name="CampaignServiceSOAP12port_http"
-			binding="tns:CampaignServiceSOAP12Binding">
-			<soap12:address
-				location="https://svcs.ebaypartnernetwork.com/adcommerce/v1/CampaignService" />
+		<wsdl:port binding="tns:CampaignServiceSOAP12Binding" name="CampaignServiceSOAP12port_http">
+			<soap12:address location="https://svcs.ebaypartnernetwork.com/adcommerce/v1/CampaignService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="ImageTransformationService" targetNamespace="http://www.ebay.com/marketplace/image/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/marketplace/image/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/image/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ImageTransformationService" targetNamespace="http://www.ebayopensource.org/tumeric/image/v1/services">
 	<types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/image/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/image/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation> 
@@ -11,7 +10,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -62,7 +61,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -83,7 +82,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -133,7 +132,7 @@
 							<xs:documentation>
 							This value represents the date and time when eBay processed the request.
 							This value is returned in GMT, the ISO 8601 date and time format 
-							(YYYY-MM-DDTHH:MM:SS.SSSZ). See the &quot;dateTime&quot; type for information 
+							(YYYY-MM-DDTHH:MM:SS.SSSZ). See the "dateTime" type for information 
 							about the time format, and for details on converting to and from the GMT time zone.
 							</xs:documentation>
 							<xs:appinfo>
@@ -161,7 +160,7 @@
 								system errors.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -194,7 +193,7 @@
 						This represents error details.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -306,8 +305,7 @@
         </xs:annotation>
        </xs:element>
 
-       <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"
-        type="tns:ErrorParameter">
+       <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
         <xs:annotation>
          <xs:documentation>
           Various warning and error messages that return one or more variables that 
@@ -327,7 +325,7 @@
 								request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -353,7 +351,7 @@
 						Contextual information associated with an error.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -377,7 +375,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
      <xs:restriction base="xs:token">
@@ -484,7 +482,7 @@
 						constraint like width, height, etc. and the value.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="ImageTypeLibraryV1" namespace="http://www.ebay.com/marketplace/image/v1/types">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/image/v1/types">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -512,7 +510,7 @@
 						Dimension measure type contains the dimension value, and its unit like pixel, cm, etc.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="ImageTypeLibraryV1" namespace="http://www.ebay.com/marketplace/image/v1/types">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/image/v1/types">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -547,7 +545,7 @@
 						dimensionConstraint - provide dimensions details for image height, width, etc.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="ImageTypeLibraryV1" namespace="http://www.ebay.com/marketplace/image/v1/types"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/image/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -594,7 +592,7 @@
 						The dimensions of the image.
 						</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="ImageTypeLibraryV1" namespace="http://www.ebay.com/marketplace/image/v1/types"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/image/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -620,7 +618,7 @@
 						Image metadata details of an image. it can be of type system or user metadata.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="ImageTypeLibraryV1" namespace="http://www.ebay.com/marketplace/image/v1/types"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/image/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -656,7 +654,7 @@
 					and other metadata details. 
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="ImageTypeLibraryV1" namespace="http://www.ebay.com/marketplace/image/v1/types"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/image/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -713,7 +711,7 @@
 						Metadata details of an image.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="ImageTypeLibraryV1" namespace="http://www.ebay.com/marketplace/image/v1/types"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/image/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -834,19 +832,19 @@
 		</xs:schema>
 	</types>
 	<message name="getVersionRequest">
-		<part name="params" element="tns:getVersionRequest">
+		<part element="tns:getVersionRequest" name="params">
     </part>
 	</message>
 	<message name="resizeImageRequest">
-		<part name="messageParameters" element="tns:resizeImageRequest">
+		<part element="tns:resizeImageRequest" name="messageParameters">
     </part>
 	</message>
 	<message name="resizeImageResponse">
-		<part name="messageParameters" element="tns:resizeImageResponse">
+		<part element="tns:resizeImageResponse" name="messageParameters">
     </part>
 	</message>
 	<message name="getVersionResponse">
-		<part name="params" element="tns:getVersionResponse">
+		<part element="tns:getVersionResponse" name="params">
     </part>
 	</message>
 	<portType name="ImageTransformationServicePort">
@@ -890,7 +888,7 @@
 	<binding name="ImageTransformationServiceSOAPBinding" type="tns:ImageTransformationServicePort">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<operation name="getVersion">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/image/v1/services/getVersion"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/image/v1/services/getVersion"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -899,7 +897,7 @@
 			</output>
 		</operation>
 		<operation name="resizeImage">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/image/v1/services/resizeImage"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/image/v1/services/resizeImage"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -914,10 +912,10 @@
 			Image Transformation operations include changes to the image content like
 			resizing, unsharpening, watermarking etc.
 		</wsdl:documentation>
-		<port name="ImageTransformationServiceHttpPort" binding="tns:ImageTransformationServiceHttpBinding">
+		<port binding="tns:ImageTransformationServiceHttpBinding" name="ImageTransformationServiceHttpPort">
 			<http:address location="https://svcs.ebay.com/services/image/v1/ImageTransformationService"/>
 		</port>
-		<port name="ImageTransformationServiceSOAPPort" binding="tns:ImageTransformationServiceSOAPBinding">
+		<port binding="tns:ImageTransformationServiceSOAPBinding" name="ImageTransformationServiceSOAPPort">
 			<soap12:address location="https://svcs.ebay.com/services/image/v1/ImageTransformationService"/>
 		</port>
 	</service>

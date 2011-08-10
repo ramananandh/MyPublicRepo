@@ -1,21 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions
-  name="EbayScheduledDealsService"
-  targetNamespace="http://www.ebay.com/marketplace/services"
-  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-  xmlns:tns="http://www.ebay.com/marketplace/services"
-  xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EbayScheduledDealsService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 <wsdl:types>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 
-<xs:element name="getVersionResponse"  type="tns:GetVersionResponse" />
+<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 
 <xs:complexType name="GetVersionResponse">
 	<xs:annotation>
@@ -96,7 +85,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					Details about a single error.
@@ -264,7 +253,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -440,31 +429,31 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="out" type="xs:string"></xs:element>
+            			<xs:element name="out" type="xs:string"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
 
-            <xs:complexType name="GetTodaysDealsRequestType"></xs:complexType>
+            <xs:complexType name="GetTodaysDealsRequestType"/>
         </xs:schema>
 </wsdl:types>
   <wsdl:message name="getVersionResponse">
-    <wsdl:part name="parameters" element="tns:getVersionResponse"/>
+    <wsdl:part element="tns:getVersionResponse" name="parameters"/>
   </wsdl:message>
 
   <wsdl:message name="getDailyDealRequest">
-  	<wsdl:part name="parameters" element="tns:getTodaysDealsRequest"></wsdl:part>
+  	<wsdl:part element="tns:getTodaysDealsRequest" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getDailyDealResponse">
-  	<wsdl:part name="parameters" element="tns:getDailyDealResponse"></wsdl:part>
+  	<wsdl:part element="tns:getDailyDealResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:portType name="EbayScheduledDealsServicePort">
     <wsdl:operation name="getVersion">
       <wsdl:output message="tns:getVersionResponse"/>
     </wsdl:operation>
     <wsdl:operation name="getDailyDeal">
-    	<wsdl:input message="tns:getDailyDealRequest"></wsdl:input>
-    	<wsdl:output message="tns:getDailyDealResponse"></wsdl:output>
+    	<wsdl:input message="tns:getDailyDealRequest"/>
+    	<wsdl:output message="tns:getDailyDealResponse"/>
     </wsdl:operation>
   </wsdl:portType>
 	<wsdl:binding name="EbayScheduledDealsServiceHttpBinding" type="tns:EbayScheduledDealsServicePort">
@@ -477,23 +466,23 @@
 		</wsdl:operation>
 	</wsdl:binding>
   <wsdl:binding name="EbayScheduledDealsServiceSOAPBinding" type="tns:EbayScheduledDealsServicePort">
-		<soap12:binding xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getVersion" style="document"/>
+			<soap12:operation soapAction="urn:getVersion" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>    
   </wsdl:binding>
 	<wsdl:service name="EbayScheduledDealsService">
-		<wsdl:port name="EbayScheduledDealsServiceHttp" binding="tns:EbayScheduledDealsServiceHttpBinding">
+		<wsdl:port binding="tns:EbayScheduledDealsServiceHttpBinding" name="EbayScheduledDealsServiceHttp">
 			<http:address location="http://svcs.ebay.com/EbayScheduledDealsService"/>
 		</wsdl:port>
-		<wsdl:port name="EbayScheduledDealsServiceSOAP" binding="tns:EbayScheduledDealsServiceSOAPBinding">
-			<soap12:address xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" location="http://svcs.ebay.com/EbayScheduledDealsService"/>
+		<wsdl:port binding="tns:EbayScheduledDealsServiceSOAPBinding" name="EbayScheduledDealsServiceSOAP">
+			<soap12:address location="http://svcs.ebay.com/EbayScheduledDealsService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

@@ -1,42 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:tns="http://www.ebay.com/marketplace/shipping/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	name="AddressVerificationService"
-	targetNamespace="http://www.ebay.com/marketplace/shipping/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/shipping/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AddressVerificationService" targetNamespace="http://www.ebayopensource.org/tumeric/shipping/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/shipping/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/shipping/v1/services">
 
-			<xs:element name="verifyAddressRequest"
-				type="tns:AddressVerificationServiceRequest" />
-			<xs:element name="verifyAddressResponse"
-				type="tns:AddressVerificationServiceResponse" />
+			<xs:element name="verifyAddressRequest" type="tns:AddressVerificationServiceRequest"/>
+			<xs:element name="verifyAddressResponse" type="tns:AddressVerificationServiceResponse"/>
 			<xs:complexType name="AVRequestData">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="ShippingLabelTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/shipping/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/shipping/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="correlationId" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="correlationId" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1"
-						name="contactInfo" type="tns:ContactInfo">
+					<xs:element maxOccurs="1" minOccurs="1" name="contactInfo" type="tns:ContactInfo">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="addressType" type="tns:AddressType">
+					<xs:element maxOccurs="1" minOccurs="0" name="addressType" type="tns:AddressType">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -46,13 +27,11 @@
 						RESIDENTIAL,COMMERCIAL,UNKNOWN - Default
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="ShippingLabelTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/shipping/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/shipping/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
-				<xs:restriction base="xs:token"></xs:restriction>
+				<xs:restriction base="xs:token"/>
 			</xs:simpleType>
 			<xs:complexType name="AddressVerificationServiceRequest">
 				<xs:annotation>
@@ -61,17 +40,14 @@
 						token and kind of AddressValidation
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="ShippingLabelTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/shipping/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/shipping/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="2" minOccurs="1"
-								name="avRequestData" type="tns:AVRequestData">
+							<xs:element maxOccurs="2" minOccurs="1" name="avRequestData" type="tns:AVRequestData">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -84,15 +60,13 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax">
+						processContents="lax"&gt;
 
 				</xs:sequence>
 			</xs:complexType>
@@ -102,42 +76,30 @@
 						Postal mail address
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="ShippingLabelTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/shipping/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/shipping/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="addressLine1" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="addressLine1" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="addressLine2" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="addressLine2" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="addressLine3" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="addressLine3" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="suiteOrApt" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="suiteOrApt" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="city"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="city" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="stateOrProvince" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="stateOrProvince" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="postalCode" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="postalCode" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="additionalPostalCode" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="additionalPostalCode" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1"
-						name="country" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="country" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="urbancode" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="urbancode" type="xs:string">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -148,33 +110,24 @@
 						address and phone number
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="ShippingLabelTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/shipping/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/shipping/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="firstName" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="firstName" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="middleName" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="middleName" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="lastName" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="lastName" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1"
-						name="contactAddress" type="tns:ContactAddress">
+					<xs:element maxOccurs="1" minOccurs="1" name="contactAddress" type="tns:ContactAddress">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="companyName" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="companyName" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="phone"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="phone" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="extension" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="extension" type="xs:string">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -188,27 +141,20 @@
 						error related to address verification.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="ShippingLabelTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/shipping/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/shipping/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="correlationId" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="correlationId" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="verifiedContactInfo" type="tns:ContactInfo">
+					<xs:element maxOccurs="1" minOccurs="0" name="verifiedContactInfo" type="tns:ContactInfo">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="modifiedFields" type="tns:ModifiedFields">
+					<xs:element maxOccurs="1" minOccurs="0" name="modifiedFields" type="tns:ModifiedFields">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="addressType" type="tns:AddressType">
+					<xs:element maxOccurs="1" minOccurs="0" name="addressType" type="tns:AddressType">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="errorMessage" type="tns:ErrorMessage">
+					<xs:element maxOccurs="1" minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -221,9 +167,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -274,27 +218,22 @@
 			</xs:simpleType>
 			<xs:complexType name="AddressVerificationServiceResponse">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="ShippingLabelTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/shipping/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/shipping/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="verifiedAVResponseData"
-								type="tns:AVResponseData">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="verifiedAVResponseData" type="tns:AVResponseData">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:complexType abstract="true"
-				name="BaseServiceResponse">
+			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -302,9 +241,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -317,15 +254,14 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -335,20 +271,19 @@
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element minOccurs="0" name="version"
-						type="xs:string">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
@@ -356,21 +291,20 @@
 						</xs:annotation>
 
 					</xs:element>
-					<xs:element minOccurs="0" name="timestamp"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax">
+						processContents="lax"&gt;
 
 				</xs:sequence>
 			</xs:complexType>
@@ -380,17 +314,15 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System"></xs:enumeration>
-					<xs:enumeration value="Application"></xs:enumeration>
-					<xs:enumeration value="Request"></xs:enumeration>
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 
 			</xs:simpleType>
@@ -401,31 +333,24 @@
 					</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long"></xs:element>
-					<xs:element name="domain" type="xs:string"></xs:element>
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string">
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 					</xs:element>
-					<xs:element name="message" type="xs:string"></xs:element>
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token">
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter" type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 					</xs:element>
 				</xs:sequence>
 
@@ -438,9 +363,7 @@
 					</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -453,8 +376,7 @@
 				-->
 
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error" type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 					</xs:element>
 				</xs:sequence>
 
@@ -466,17 +388,14 @@
 					</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string"
-							use="optional">
+						<xs:attribute name="name" type="xs:string" use="optional">
 						</xs:attribute>
 					</xs:extension>
 				</xs:simpleContent>
@@ -487,16 +406,14 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error"></xs:enumeration>
-					<xs:enumeration value="Warning"></xs:enumeration>
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 
 			</xs:simpleType>
@@ -507,85 +424,66 @@
 						field value get corrected
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="ShippingLabelTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/shipping/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/shipping/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="contactNameChanged" type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="0" name="contactNameChanged" type="xs:boolean">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="addressLine1Changed" type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="0" name="addressLine1Changed" type="xs:boolean">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="addressLine2Changed" type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="0" name="addressLine2Changed" type="xs:boolean">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="addressLine3Changed" type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="0" name="addressLine3Changed" type="xs:boolean">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="cityChanged" type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="0" name="cityChanged" type="xs:boolean">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="stateChanged" type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="0" name="stateChanged" type="xs:boolean">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="postalCodeChanged" type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="0" name="postalCodeChanged" type="xs:boolean">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="additionalPostalCodeChanged" type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="0" name="additionalPostalCodeChanged" type="xs:boolean">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="countryChanged" type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="0" name="countryChanged" type="xs:boolean">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="urbanCodeChanged" type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="0" name="urbanCodeChanged" type="xs:boolean">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="verifyAddressRequest">
-		<wsdl:part name="parameters"
-			element="tns:verifyAddressRequest">
+		<wsdl:part element="tns:verifyAddressRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="verifyAddressResponse">
-		<wsdl:part name="parameters"
-			element="tns:verifyAddressResponse">
+		<wsdl:part element="tns:verifyAddressResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:portType name="AddressVerificationServicePort">
 		<wsdl:operation name="verifyAddresses">
-			<wsdl:input message="tns:verifyAddressRequest"></wsdl:input>
-			<wsdl:output message="tns:verifyAddressResponse"></wsdl:output>
+			<wsdl:input message="tns:verifyAddressRequest"/>
+			<wsdl:output message="tns:verifyAddressResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="AddressVerificationServiceSOAPBinding"
-		type="tns:AddressVerificationServicePort">
+	<wsdl:binding name="AddressVerificationServiceSOAPBinding" type="tns:AddressVerificationServicePort">
 
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="verifyAddresses">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/shipping/v1/services/verifyAddresses" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/shipping/v1/services/verifyAddresses"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="AddressVerificationService">
-		<wsdl:port binding="tns:AddressVerificationServiceSOAPBinding"
-			name="AddressVerificationServiceSOAP">
-			<soap12:address
-				location="https://svcs.ebay.com/services/shipping/AddressVerificationService/v1" />
+		<wsdl:port binding="tns:AddressVerificationServiceSOAPBinding" name="AddressVerificationServiceSOAP">
+			<soap12:address location="https://svcs.ebay.com/services/shipping/AddressVerificationService/v1"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

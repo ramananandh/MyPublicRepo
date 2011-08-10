@@ -1,14 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="UGCEnforcerService" targetNamespace="http://www.ebay.com/marketplace/services"
-							 xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-							  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebay.com/marketplace/services" 
-							  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-							  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:listing="http://www.ebay.com/marketplace/services" 
-							  xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:listing="http://www.ebayopensource.org/tumeric/services" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UGCEnforcerService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
-    					 targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" 
-    					 xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
     					
     					
       <xs:element name="validateMarkupRequest" type="tns:ValidateMarkupRequest">
@@ -258,7 +250,7 @@
 		</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 					Details about a single error.
@@ -423,7 +415,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -545,11 +537,11 @@
     </xs:schema>
   </wsdl:types>
   <wsdl:message name="ValidateMarkupResponse">
-    <wsdl:part name="inputParameters" element="tns:validateMarkupResponse">
+    <wsdl:part element="tns:validateMarkupResponse" name="inputParameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="ValidateMarkupRequest">
-    <wsdl:part name="inputParameters" element="tns:validateMarkupRequest">
+    <wsdl:part element="tns:validateMarkupRequest" name="inputParameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="UGCEnforcerPort">
@@ -573,7 +565,7 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="UGCEnforcerService">
-    <wsdl:port name="UGCEnforcerSOAP" binding="tns:UGCEnforcerService">
+    <wsdl:port binding="tns:UGCEnforcerService" name="UGCEnforcerSOAP">
       <soap12:address location="http://svcs.ebay.com/UGCEnforcerService"/>
     </wsdl:port>
   </wsdl:service>

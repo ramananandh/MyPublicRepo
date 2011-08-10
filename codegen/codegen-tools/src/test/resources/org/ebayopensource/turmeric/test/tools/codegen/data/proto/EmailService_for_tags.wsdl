@@ -1,15 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" 
-    xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
-    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.ebay.com/marketplace/services" 
-    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
-    name="EmailService">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EmailService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
     <wsdl:types>
-        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
-            targetNamespace="http://www.ebay.com/marketplace/services" 
-            xmlns:tns="http://www.ebay.com/marketplace/services" 
-            xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
             <xs:complexType abstract="true" name="BaseServiceRequest">
                 <xs:annotation>
                     <xs:documentation>
@@ -130,7 +121,7 @@
                     </xs:documentation>
                 </xs:annotation>
                 <xs:sequence>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="ns0:ErrorData">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="ns0:ErrorData">
                         <xs:annotation>
                             <xs:documentation>
                                 Details about a single error.
@@ -295,7 +286,7 @@
                             </xs:appinfo>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="ns0:ErrorParameter">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="ns0:ErrorParameter">
                         <xs:annotation>
                             <xs:documentation>
                                 Some warning and error messages return one or more variables that contain
@@ -439,7 +430,7 @@
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="formats" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="formats" type="xs:string">
                         <xs:annotation>
                             <xs:documentation>
                                 Format of a message. The values can be Html, Text, etc. A message type
@@ -455,10 +446,10 @@
                 <xs:complexContent>
                     <xs:extension base="ns0:BaseServiceRequest">
                         <xs:sequence>
-                            <xs:element name="segmentId" type="xs:int" />
-                            <xs:element name="emailId" type="xs:int" />
-                            <xs:element name="messageType" type="ns0:MessageTypeFormat" />
-                            <xs:element name="dataModelXml" type="xs:string" />
+                            <xs:element name="segmentId" type="xs:int"/>
+                            <xs:element name="emailId" type="xs:int"/>
+                            <xs:element name="messageType" type="ns0:MessageTypeFormat"/>
+                            <xs:element name="dataModelXml" type="xs:string"/>
                         </xs:sequence>
                     </xs:extension>
                 </xs:complexContent>
@@ -468,7 +459,7 @@
                 <xs:complexContent>
                     <xs:extension base="ns0:BaseServiceResponse">
                         <xs:sequence>
-                            <xs:element name="renderedMessage" type="xs:string" />
+                            <xs:element name="renderedMessage" type="xs:string"/>
                         </xs:sequence>
                     </xs:extension>
                 </xs:complexContent>
@@ -479,12 +470,12 @@
                 <xs:complexContent>
                     <xs:extension base="ns0:BaseServiceRequest">
                         <xs:sequence>
-                            <xs:element name="segmentId" type="xs:int" />
-                            <xs:element name="emailId" type="xs:int" />
-                            <xs:element name="messageTypes" type="ns0:MessageTypeFormat" minOccurs="1" maxOccurs="unbounded" />
-                            <xs:element name="dataModelXml" type="xs:string" />
-                            <xs:element name="envelopeXml" type="xs:string" />
-                            <xs:element name="deliveryDate" type="xs:dateTime" minOccurs="0" />
+                            <xs:element name="segmentId" type="xs:int"/>
+                            <xs:element name="emailId" type="xs:int"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="1" name="messageTypes" type="ns0:MessageTypeFormat"/>
+                            <xs:element name="dataModelXml" type="xs:string"/>
+                            <xs:element name="envelopeXml" type="xs:string"/>
+                            <xs:element minOccurs="0" name="deliveryDate" type="xs:dateTime"/>
                         </xs:sequence>
                     </xs:extension>
                 </xs:complexContent>
@@ -494,7 +485,7 @@
                 <xs:complexContent>
                     <xs:extension base="ns0:BaseServiceResponse">
                         <xs:sequence>
-                            <xs:element name="trackingId" type="xs:string" />
+                            <xs:element name="trackingId" type="xs:string"/>
                         </xs:sequence>
                     </xs:extension>
                 </xs:complexContent>
@@ -505,8 +496,8 @@
                 <xs:complexContent>
                     <xs:extension base="ns0:BaseServiceRequest">
                         <xs:sequence>
-                            <xs:element name="segmentId" type="xs:int" />
-                            <xs:element name="emailId" type="xs:int" />
+                            <xs:element name="segmentId" type="xs:int"/>
+                            <xs:element name="emailId" type="xs:int"/>
                         </xs:sequence>
                     </xs:extension>
                 </xs:complexContent>
@@ -516,7 +507,7 @@
                 <xs:complexContent>
                     <xs:extension base="ns0:BaseServiceResponse">
                         <xs:sequence>
-                            <xs:element name="dataModelXmlSchema" type="xs:string" />
+                            <xs:element name="dataModelXmlSchema" type="xs:string"/>
                         </xs:sequence>
                     </xs:extension>
                 </xs:complexContent>
@@ -527,7 +518,7 @@
                 <xs:complexContent>
                     <xs:extension base="ns0:BaseServiceRequest">
                         <xs:sequence>
-                            <xs:element name="segmentId" type="xs:int" />
+                            <xs:element name="segmentId" type="xs:int"/>
                         </xs:sequence>
                     </xs:extension>
                 </xs:complexContent>
@@ -537,7 +528,7 @@
                 <xs:complexContent>
                     <xs:extension base="ns0:BaseServiceResponse">
                         <xs:sequence>
-                            <xs:element name="envelopeXmlSchema" type="xs:string" />
+                            <xs:element name="envelopeXmlSchema" type="xs:string"/>
                         </xs:sequence>
                     </xs:extension>
                 </xs:complexContent>
@@ -547,34 +538,34 @@
     </wsdl:types>
     
     <wsdl:message name="getVersionRequest">
-        <wsdl:part name="parameters" element="ns0:getVersionReq" />
+        <wsdl:part element="ns0:getVersionReq" name="parameters"/>
     </wsdl:message>
     <wsdl:message name="getVersionResponse">
-        <wsdl:part name="parameters" element="ns0:getVersionResp" />
+        <wsdl:part element="ns0:getVersionResp" name="parameters"/>
     </wsdl:message>
     <wsdl:message name="renderRequest">
-        <wsdl:part name="parameters" element="ns0:renderReq" />
+        <wsdl:part element="ns0:renderReq" name="parameters"/>
     </wsdl:message>
     <wsdl:message name="renderResponse">
-        <wsdl:part name="parameters" element="ns0:renderResp" />
+        <wsdl:part element="ns0:renderResp" name="parameters"/>
     </wsdl:message>
     <wsdl:message name="renderAndDeliverRequest">
-        <wsdl:part name="parameters" element="ns0:renderAndDeliverReq" />
+        <wsdl:part element="ns0:renderAndDeliverReq" name="parameters"/>
     </wsdl:message>
     <wsdl:message name="renderAndDeliverResponse">
-        <wsdl:part name="parameters" element="ns0:renderAndDeliverResp" />
+        <wsdl:part element="ns0:renderAndDeliverResp" name="parameters"/>
     </wsdl:message>
     <wsdl:message name="getDataModelXmlSchemaRequest">
-        <wsdl:part name="parameters" element="ns0:getDataModelXmlSchemaReq" />
+        <wsdl:part element="ns0:getDataModelXmlSchemaReq" name="parameters"/>
     </wsdl:message>
     <wsdl:message name="getDataModelXmlSchemaResponse">
-        <wsdl:part name="parameters" element="ns0:getDataModelXmlSchemaResp" />
+        <wsdl:part element="ns0:getDataModelXmlSchemaResp" name="parameters"/>
     </wsdl:message>
     <wsdl:message name="getEnvelopeXmlSchemaRequest">
-        <wsdl:part name="parameters" element="ns0:getEnvelopeXmlSchemaReq" />
+        <wsdl:part element="ns0:getEnvelopeXmlSchemaReq" name="parameters"/>
     </wsdl:message>
     <wsdl:message name="getEnvelopeXmlSchemaResponse">
-        <wsdl:part name="parameters" element="ns0:getEnvelopeXmlSchemaResp" />
+        <wsdl:part element="ns0:getEnvelopeXmlSchemaResp" name="parameters"/>
     </wsdl:message>
     
     <wsdl:portType name="EmailServicePort">
@@ -729,10 +720,10 @@
             Email Service API provides a mechanism to render and send emails, MyMessages, SMS, etc. It composes emails based on templates and components
             for different email segments and email types. It also provides API's to retrieve the email envelope and data model schemas.
         </wsdl:documentation>
-        <wsdl:port name="EmailServiceSOAP" binding="ns0:EmailServiceSOAPBinding">
+        <wsdl:port binding="ns0:EmailServiceSOAPBinding" name="EmailServiceSOAP">
             <soap12:address location="http://svcs.ebay.com/EmailService"/>
         </wsdl:port>
-        <wsdl:port name="EmailServiceHttp" binding="ns0:EmailServiceHttpBinding">
+        <wsdl:port binding="ns0:EmailServiceHttpBinding" name="EmailServiceHttp">
             <http:address location="http://svcs.ebay.com/EmailService"/>
         </wsdl:port>
     </wsdl:service>

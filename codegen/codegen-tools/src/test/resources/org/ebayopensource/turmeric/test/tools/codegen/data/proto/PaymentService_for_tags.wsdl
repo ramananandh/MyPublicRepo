@@ -1,22 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions 
-	name            = "PaymentService"
-    xmlns:wsdl      = "http://schemas.xmlsoap.org/wsdl/"
-    xmlns           = "http://schemas.xmlsoap.org/wsdl/"
-    xmlns:http      = "http://schemas.xmlsoap.org/wsdl/http/"
-    xmlns:mime      = "http://schemas.xmlsoap.org/wsdl/mime/"
-    xmlns:soap      = "http://schemas.xmlsoap.org/wsdl/soap/"
-    xmlns:soap12    = "http://schemas.xmlsoap.org/wsdl/soap12/"
-    xmlns:tns       = "http://www.ebay.com/marketplace/billing/v1/services"
-    xmlns:xs        = "http://www.w3.org/2001/XMLSchema" 
-    targetNamespace = "http://www.ebay.com/marketplace/billing/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/billing/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PaymentService" targetNamespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
 	
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/billing/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
 			
      <!-- Transaction Refund Request -->
-     <xs:element     name="applyTransactionRefundRequest" type="tns:ApplyTransactionRefundRequest" />
+     <xs:element name="applyTransactionRefundRequest" type="tns:ApplyTransactionRefundRequest"/>
      <xs:complexType name="ApplyTransactionRefundRequest">
      	<xs:annotation>
      		<xs:documentation>
@@ -28,7 +16,7 @@
      	<xs:complexContent>
      		<xs:extension base="tns:BaseBatchRequestType">
      			<xs:sequence>
-     				<xs:element name="transactionRefundType" type="tns:TransactionRefundType"  minOccurs="1" maxOccurs="unbounded">
+     				<xs:element maxOccurs="unbounded" minOccurs="1" name="transactionRefundType" type="tns:TransactionRefundType">
 						<xs:annotation>
 						    <xs:documentation>List of refunds to be applied.</xs:documentation>
 						    <xs:appinfo>
@@ -36,7 +24,7 @@
 					            <maxOccurs>5</maxOccurs>
 					            <callInfo>
 									<summary>List of refunds to be applied.</summary>
-					            	<allCalls />
+					            	<allCalls/>
 					            </callInfo>
 						    </xs:appinfo>
 						</xs:annotation>
@@ -55,7 +43,7 @@
      	<xs:complexContent>
      		<xs:extension base="tns:BaseRequestType">
      			<xs:sequence>
-       				<xs:element name="refundAmount" type="tns:Money" minOccurs="0">
+       				<xs:element minOccurs="0" name="refundAmount" type="tns:Money">
        					<xs:annotation>
        						<xs:documentation>
        							Amount of the refund. If the amount is not specified, it will be the complete amount of the payment.
@@ -65,14 +53,14 @@
 					            <maxOccurs>1</maxOccurs>
 					            <callInfo>
 									<summary>Amount to be refunded.</summary>
-					            	<allCalls />
+					            	<allCalls/>
 					           	 	<requiredInput>No</requiredInput>
 					            </callInfo>
 						    </xs:appinfo>
        					</xs:annotation>
        				</xs:element>
 
-       				<xs:element name="reasonCode" type="xs:int" minOccurs="1">
+       				<xs:element minOccurs="1" name="reasonCode" type="xs:int">
        					<xs:annotation>
        						<xs:documentation>
        							Pre-defined reason code, establishing the reason for the refund.
@@ -82,14 +70,14 @@
 					            <maxOccurs>1</maxOccurs>
 					            <callInfo>
 									<summary>Pre-defined reason code, establishing the reason for the refund.</summary>
-					            	<allCalls />
+					            	<allCalls/>
 					           	 	<requiredInput>Yes</requiredInput>
 					            </callInfo>
 						    </xs:appinfo>
        					</xs:annotation>
        				</xs:element>
 
-       				<xs:element name="refundDate" type="xs:dateTime" minOccurs="1">
+       				<xs:element minOccurs="1" name="refundDate" type="xs:dateTime">
        					<xs:annotation>
        						<xs:documentation>
        							Date on which the refund was issued on the payment system.
@@ -99,14 +87,14 @@
 					            <maxOccurs>1</maxOccurs>
 					            <callInfo>
 									<summary>Date on which the refund was issued on the payment system.</summary>
-					            	<allCalls />
+					            	<allCalls/>
 					           	 	<requiredInput>Yes</requiredInput>
 					            </callInfo>
 						    </xs:appinfo>
        					</xs:annotation>
        				</xs:element>
 				
-       				<xs:element name="submitter" type="xs:string" minOccurs="0">
+       				<xs:element minOccurs="0" name="submitter" type="xs:string">
        					<xs:annotation>
        						<xs:documentation>
        							Id or name of the person who is submitting the refund request.
@@ -116,14 +104,14 @@
 					            <maxOccurs>1</maxOccurs>
 					            <callInfo>
 									<summary>Identity of the person on behalf of whom the refund request was issued.</summary>
-					            	<allCalls />
+					            	<allCalls/>
 					           	 	<requiredInput>No</requiredInput>
 					            </callInfo>
 						    </xs:appinfo>
        					</xs:annotation>
        				</xs:element>
 
-       				<xs:element name="memo" type="xs:string" minOccurs="0">
+       				<xs:element minOccurs="0" name="memo" type="xs:string">
        					<xs:annotation>
        						<xs:documentation>
        							Any description associated with the refund.
@@ -133,14 +121,14 @@
 					            <maxOccurs>1</maxOccurs>
 					            <callInfo>
 									<summary>Any description associated with the refund.</summary>
-					            	<allCalls />
+					            	<allCalls/>
 					           	 	<requiredInput>No</requiredInput>
 					            </callInfo>
 						    </xs:appinfo>
        					</xs:annotation>
        				</xs:element>
        				
-					<xs:element name="refundMode" type="tns:RefundMode" minOccurs="1">
+					<xs:element minOccurs="1" name="refundMode" type="tns:RefundMode">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates a full refund request or refund cancellation request.
@@ -150,14 +138,14 @@
 					            <maxOccurs>1</maxOccurs>
 					            <callInfo>
 									<summary>Indicates a full refund request or refund cancellation request.</summary>
-					            	<allCalls />
+					            	<allCalls/>
 					           	 	<requiredInput>Yes</requiredInput>
 					            </callInfo>
 						    </xs:appinfo>
 						</xs:annotation>
 					</xs:element>
      			
-     				<xs:element name="paymentId" type="xs:long" minOccurs="1">
+     				<xs:element minOccurs="1" name="paymentId" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								Unique PGW tracking Id of the payment for which the refund is issued.
@@ -167,7 +155,7 @@
 					            <maxOccurs>1</maxOccurs>
 					            <callInfo>
 									<summary>Unique PGW tracking Id of the payment for which the refund is issued.</summary>
-					            	<allCalls />
+					            	<allCalls/>
 					           	 	<requiredInput>Yes</requiredInput>
 					            </callInfo>
 						    </xs:appinfo>
@@ -179,7 +167,7 @@
      </xs:complexType>
      
      <!-- Transaction Refund Response -->
-	 <xs:element     name="applyTransactionRefundResponse" type="tns:ApplyTransactionRefundResponse"/>
+	 <xs:element name="applyTransactionRefundResponse" type="tns:ApplyTransactionRefundResponse"/>
      <xs:complexType name="ApplyTransactionRefundResponse">
        <xs:annotation>
        <xs:documentation>
@@ -189,7 +177,7 @@
          <xs:complexContent>
             <xs:extension base="tns:BaseBatchResponseType">
               <xs:sequence>
-                <xs:element name="transactionRefundResponse" type="tns:TransactionRefundResponseType" minOccurs="1" maxOccurs="unbounded">
+                <xs:element maxOccurs="unbounded" minOccurs="1" name="transactionRefundResponse" type="tns:TransactionRefundResponseType">
 					<xs:annotation>
 					    <xs:documentation>
 					    	This type represents the response for transactionRefund operation. 
@@ -219,7 +207,7 @@
        <xs:complexContent>
          <xs:extension base="tns:BaseResponseType">
            <xs:sequence>
-             <xs:element name="refundTrackingId" type="xs:string" minOccurs="0">
+             <xs:element minOccurs="0" name="refundTrackingId" type="xs:string">
              	<xs:annotation>
 					<xs:documentation>
 						New PGW tracking Id for this refund transaction.
@@ -255,13 +243,12 @@
        <xs:annotation>
         <xs:documentation>This type uniquely identifies an account in the billing system.</xs:documentation>
           <xs:appinfo>
-            <typeLibrarySource library="BillingTypeLibrary"
-               namespace="http://www.ebay.com/marketplace/billing/v1/services">
+            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
             </typeLibrarySource>
           </xs:appinfo>
        </xs:annotation>
        <xs:sequence>
-         <xs:element name="clientId" type="xs:string" minOccurs="1">
+         <xs:element minOccurs="1" name="clientId" type="xs:string">
 				<xs:annotation>
 				    <xs:documentation>
 				          This is a predefined field, which is used to determine the business context for which the account is used.
@@ -274,7 +261,7 @@
 			            <maxLength>32</maxLength>
 			            
 			            <callInfo>
-			            	<allCalls />
+			            	<allCalls/>
 			           	 	<requiredInput>Yes</requiredInput>
 			            </callInfo>
 			             
@@ -282,7 +269,7 @@
 				</xs:annotation>
          </xs:element>
          
-         <xs:element name="accountId"       type="xs:string" minOccurs="1">
+         <xs:element minOccurs="1" name="accountId" type="xs:string">
 			<xs:annotation>
 			    <xs:documentation>
 			          This field combined with accountSuffixId field, uniquely identifies an account. It is an external identifier 
@@ -294,14 +281,14 @@
 		            <maxOccurs>1</maxOccurs>
 		            <maxLength>32</maxLength>
 		            <callInfo>
-		            	<allCalls />
+		            	<allCalls/>
 		           	 	<requiredInput>Yes</requiredInput>
 		            </callInfo>
 			    </xs:appinfo>
 			</xs:annotation>
          </xs:element>
          
-         <xs:element name="accountSuffixId" type="xs:string" minOccurs="1">
+         <xs:element minOccurs="1" name="accountSuffixId" type="xs:string">
 			<xs:annotation>
 			    <xs:documentation>
 			          This field is used to additionally qualify an account. In many cases it represents the type of account created.
@@ -312,7 +299,7 @@
 		            <maxOccurs>1</maxOccurs>
 		            <maxLength>32</maxLength>
 		            <callInfo>
-		            	<allCalls />
+		            	<allCalls/>
 		           	 	<requiredInput>Yes</requiredInput>
 		            </callInfo>
 			    </xs:appinfo>
@@ -325,13 +312,12 @@
           <xs:annotation>
             <xs:documentation>This type is used to uniquely identifies a request.</xs:documentation>
             <xs:appinfo>
-               <typeLibrarySource library="BillingTypeLibrary"
-                  namespace="http://www.ebay.com/marketplace/billing/v1/services">
+               <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
                </typeLibrarySource>
             </xs:appinfo>
           </xs:annotation>
           <xs:sequence>
-            <xs:element name="requestId"     type="xs:string">
+            <xs:element name="requestId" type="xs:string">
 				<xs:annotation>
 				    <xs:documentation>
 				    	This field uniquely identifies a request. Any two requests, (even from different batches) for the same operation with the same requestId, would 
@@ -347,14 +333,14 @@
 			            <maxOccurs>1</maxOccurs>
 			            <callInfo>
 							<summary>This field is used to uniquely identifies a request.</summary>
-			            	<allCalls />
+			            	<allCalls/>
 			           	 	<requiredInput>Yes</requiredInput>
 			            </callInfo>
 				    </xs:appinfo>
 				</xs:annotation>
             </xs:element>
             
-            <xs:element name="requestTime"   type="xs:dateTime">
+            <xs:element name="requestTime" type="xs:dateTime">
 				<xs:annotation>
 				    <xs:documentation>
 				    	This field specifies the time the request was created by service consumer. It is used for informational and 
@@ -365,7 +351,7 @@
 			            <maxOccurs>1</maxOccurs>
 			            <callInfo>
 							<summary>This field specifies the time the request was created by service consumer.</summary>
-			            	<allCalls />
+			            	<allCalls/>
 			           	 	<requiredInput>Yes</requiredInput>
 			            </callInfo>
 				    </xs:appinfo>
@@ -380,8 +366,7 @@
             	This field is used to return additional information related to processing of the request, agnostic to the actual operation executed.
             </xs:documentation>
             <xs:appinfo>
-              <typeLibrarySource library="BillingTypeLibrary"
-                 namespace="http://www.ebay.com/marketplace/billing/v1/services">
+              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
               </typeLibrarySource>
             </xs:appinfo>
           </xs:annotation>
@@ -398,7 +383,7 @@
 				            <maxOccurs>1</maxOccurs>
 				            <callInfo>
 								<summary>This field should be used to match each response with its corresponding request.</summary>
-				            	<allCalls />
+				            	<allCalls/>
 				           	 	<returned>Always</returned>
 				            </callInfo>
 					    </xs:appinfo>
@@ -415,8 +400,7 @@
                   This type is used as a base type for any single service requests.
               </xs:documentation>
                 <xs:appinfo>
-                  <typeLibrarySource library="BillingTypeLibrary"
-                   namespace="http://www.ebay.com/marketplace/billing/v1/services">
+                  <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
                   </typeLibrarySource>
                 </xs:appinfo>
               </xs:annotation>
@@ -432,14 +416,14 @@
 				            <maxOccurs>1</maxOccurs>
 				            <callInfo>
 								<summary>This field is used to uniquely identifies a request in the batch.</summary>
-				            	<allCalls />
+				            	<allCalls/>
 				           	 	<requiredInput>Yes</requiredInput>
 				            </callInfo>
 					    </xs:appinfo>
 					</xs:annotation>
                 </xs:element>
                 
-                <xs:element name="accountId"     type="tns:AccountIdType">
+                <xs:element name="accountId" type="tns:AccountIdType">
 					<xs:annotation>
 					    <xs:documentation>
 					    	This field uniquely identifies an account. Once the account is created, it cannot be changed. 
@@ -449,7 +433,7 @@
 				            <maxOccurs>1</maxOccurs>
 				            <callInfo>
 								<summary>This field uniquely identifies an account.</summary>
-				            	<allCalls />
+				            	<allCalls/>
 				           	 	<requiredInput>Yes</requiredInput>
 				            </callInfo>
 					    </xs:appinfo>
@@ -466,8 +450,7 @@
               <xs:annotation>
                 <xs:documentation>This type is used as a base for any single response returned as part of the batch.</xs:documentation>
                 <xs:appinfo>
-                  <typeLibrarySource library="BillingTypeLibrary"
-                    namespace="http://www.ebay.com/marketplace/billing/v1/services">
+                  <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
                   </typeLibrarySource>
                 </xs:appinfo>
               </xs:annotation>
@@ -482,7 +465,7 @@
 				            <maxOccurs>1</maxOccurs>
 				            <callInfo>
 								<summary>This field is used to return information about processing of the request.</summary>
-				            	<allCalls />
+				            	<allCalls/>
 				            	<returned>Always</returned>
 				            </callInfo>
 					    </xs:appinfo>
@@ -497,13 +480,12 @@
           <xs:annotation>
             <xs:documentation>This type is used as a base for any billing service. It provides a way to submit more than one requests.</xs:documentation>
               <xs:appinfo>
-                <typeLibrarySource library="BillingTypeLibrary"
-                     namespace="http://www.ebay.com/marketplace/billing/v1/services">
+                <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
                 </typeLibrarySource>
               </xs:appinfo>
           </xs:annotation>
            <xs:sequence>
-              <xs:element name="batchId"             type="xs:string"  minOccurs="0" maxOccurs="1">
+              <xs:element maxOccurs="1" minOccurs="0" name="batchId" type="xs:string">
 				<xs:annotation>
 				    <xs:documentation>
 				          This element identifies the whole batch of requests as a single request. 
@@ -513,7 +495,7 @@
 			            <requiredInput>No</requiredInput>
 			            <maxLength>32</maxLength>
 			            <callInfo>
-			            	<allCalls />
+			            	<allCalls/>
 			           	 	<requiredInput>No</requiredInput>
 			            </callInfo>
 				    </xs:appinfo>
@@ -524,10 +506,9 @@
         
         <xs:complexType name="BaseBatchResponseType">
           <xs:annotation>
-          <xs:documentation></xs:documentation>
+          <xs:documentation/>
             <xs:appinfo>
-              <typeLibrarySource library="BillingTypeLibrary"
-                 namespace="http://www.ebay.com/marketplace/billing/v1/services">
+              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
               </typeLibrarySource>
 		    </xs:appinfo>
 		  </xs:annotation>
@@ -552,141 +533,139 @@
 						Comments are included for quick reference.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:restriction base="xs:token"><!-- Currency,                         Entity                          ISO Currency Code -->
-					<xs:enumeration value="USD"></xs:enumeration>
+					<xs:enumeration value="USD"/>
 					<!-- U.S. Dollar                       United States                   840               -->
-					<xs:enumeration value="CAD"></xs:enumeration>
+					<xs:enumeration value="CAD"/>
 					<!-- Canadian Dollar                   Canada                          124               -->
-					<xs:enumeration value="GBP"></xs:enumeration>
+					<xs:enumeration value="GBP"/>
 					<!-- Pound Sterling                    United Kingdom                  826               -->
-					<xs:enumeration value="DEM"></xs:enumeration>
+					<xs:enumeration value="DEM"/>
 					<!-- German Mark                       Germany                         276               -->
-					<xs:enumeration value="AUD"></xs:enumeration>
+					<xs:enumeration value="AUD"/>
 					<!-- Australian Dollar                 Australia                       036               -->
-					<xs:enumeration value="JPY"></xs:enumeration>
+					<xs:enumeration value="JPY"/>
 					<!-- Japanese Yen                      Japanese Yen                    392               -->
-					<xs:enumeration value="EUR"></xs:enumeration>
+					<xs:enumeration value="EUR"/>
 					<!-- Euro                              European Union                  978               -->
-					<xs:enumeration value="FRF"></xs:enumeration>
+					<xs:enumeration value="FRF"/>
 					<!-- French Franc                      France                          250               -->
-					<xs:enumeration value="ATS"></xs:enumeration>
+					<xs:enumeration value="ATS"/>
 					<!-- Austrian Schilling                Austria                         040               -->
-					<xs:enumeration value="BEF"></xs:enumeration>
+					<xs:enumeration value="BEF"/>
 					<!-- Belgian Franc                     Belgium                         056               -->
-					<xs:enumeration value="CHF"></xs:enumeration>
+					<xs:enumeration value="CHF"/>
 					<!-- Swiss Franc                       Switzerland                     756               -->
-					<xs:enumeration value="CNY"></xs:enumeration>
+					<xs:enumeration value="CNY"/>
 					<!-- Chinese Yuan Renminbi             China                           156               -->
-					<xs:enumeration value="CZK"></xs:enumeration>
+					<xs:enumeration value="CZK"/>
 					<!-- Czech Koruna                      Czech Republic                  203               -->
-					<xs:enumeration value="DKK"></xs:enumeration>
+					<xs:enumeration value="DKK"/>
 					<!-- Danish Krone                      Denmark                         208               -->
-					<xs:enumeration value="ESP"></xs:enumeration>
+					<xs:enumeration value="ESP"/>
 					<!-- Spanish Peseta                    Spain                           724               -->
-					<xs:enumeration value="FIM"></xs:enumeration>
+					<xs:enumeration value="FIM"/>
 					<!-- Finnish Markka                    Finland                         246               -->
-					<xs:enumeration value="GRD"></xs:enumeration>
+					<xs:enumeration value="GRD"/>
 					<!-- Greek Drachma                     Greece                          300               -->
-					<xs:enumeration value="HKD"></xs:enumeration>
+					<xs:enumeration value="HKD"/>
 					<!-- Hong Kong Dollar                  Hong Kong                       344               -->
-					<xs:enumeration value="HUF"></xs:enumeration>
+					<xs:enumeration value="HUF"/>
 					<!-- Hungarian Forint                  Hungary                         348               -->
-					<xs:enumeration value="IDR"></xs:enumeration>
+					<xs:enumeration value="IDR"/>
 					<!-- Indonesian Rupiah                 Indonesia                       360               -->
-					<xs:enumeration value="IEP"></xs:enumeration>
+					<xs:enumeration value="IEP"/>
 					<!-- Irish Pound                       Ireland                         372               -->
-					<xs:enumeration value="ILS"></xs:enumeration>
+					<xs:enumeration value="ILS"/>
 					<!-- Israeli new Shekel                Israel                          376               -->
-					<xs:enumeration value="ITL"></xs:enumeration>
+					<xs:enumeration value="ITL"/>
 					<!-- Italian Lira                      Italy                           380               -->
-					<xs:enumeration value="NLG"></xs:enumeration>
+					<xs:enumeration value="NLG"/>
 					<!-- Dutch Guilder                     Netherlands                     528               -->
-					<xs:enumeration value="NOK"></xs:enumeration>
+					<xs:enumeration value="NOK"/>
 					<!-- Norwegian Krone                   Norway                          578               -->
-					<xs:enumeration value="NZD"></xs:enumeration>
+					<xs:enumeration value="NZD"/>
 					<!-- New Zealand Dollar                New Zealand                     554               -->
-					<xs:enumeration value="PHP"></xs:enumeration>
+					<xs:enumeration value="PHP"/>
 					<!-- Philippine Peso                   Philippines                     608               -->
-					<xs:enumeration value="PLN"></xs:enumeration>
+					<xs:enumeration value="PLN"/>
 					<!-- Polish New Zloty                  Poland                          985               -->
-					<xs:enumeration value="PTE"></xs:enumeration>
+					<xs:enumeration value="PTE"/>
 					<!-- Portuguese Escudo                 Portugal                        620               -->
-					<xs:enumeration value="RUR"></xs:enumeration>
+					<xs:enumeration value="RUR"/>
 					<!-- Russian Ruble                     Russian Federation              810               -->
-					<xs:enumeration value="SEK"></xs:enumeration>
+					<xs:enumeration value="SEK"/>
 					<!-- Swedish Krona                     Sweden                          752               -->
-					<xs:enumeration value="SGD"></xs:enumeration>
+					<xs:enumeration value="SGD"/>
 					<!-- Singapore Dollar                  Singapore                       702               -->
-					<xs:enumeration value="THB"></xs:enumeration>
+					<xs:enumeration value="THB"/>
 					<!-- Thai Baht                         Thailand                        764               -->
-					<xs:enumeration value="TWD"></xs:enumeration>
+					<xs:enumeration value="TWD"/>
 					<!-- New Taiwan dollar                 Taiwan                          901               -->
-					<xs:enumeration value="ZAR"></xs:enumeration>
+					<xs:enumeration value="ZAR"/>
 					<!-- South African Rand                South Africa                    710               -->
-					<xs:enumeration value="INR"></xs:enumeration>
+					<xs:enumeration value="INR"/>
 					<!-- Indian Rupee                      India                           356               -->
-					<xs:enumeration value="PEN"></xs:enumeration>
+					<xs:enumeration value="PEN"/>
 					<!-- Peruvian New Sol                  Peru                            604               -->
-					<xs:enumeration value="MYR"></xs:enumeration>
+					<xs:enumeration value="MYR"/>
 					<!-- Malaysian Ringgit                 Malaysia                        458               -->
-					<xs:enumeration value="VND"></xs:enumeration>
+					<xs:enumeration value="VND"/>
 					<!-- Vietnamese New Dong               Vietnam                         704               -->
-					<xs:enumeration value="KRW"></xs:enumeration>
+					<xs:enumeration value="KRW"/>
 					<!-- South Korean Won                  South Korea                     410               -->
-					<xs:enumeration value="TRY"></xs:enumeration>
+					<xs:enumeration value="TRY"/>
 					<!-- New Turkish Lira                  Turkey                          949               -->
-					<xs:enumeration value="ANG"></xs:enumeration>
+					<xs:enumeration value="ANG"/>
 					<!-- Antillian Guilder                 Netherlands Antilles            532               -->
-					<xs:enumeration value="AWG"></xs:enumeration>
+					<xs:enumeration value="AWG"/>
 					<!-- Aruban Guilder                    Aruba                           533               -->
-					<xs:enumeration value="BMD"></xs:enumeration>
+					<xs:enumeration value="BMD"/>
 					<!-- Bermudan Dollar                   Bermudan Dollar                 060               -->
-					<xs:enumeration value="CRC"></xs:enumeration>
+					<xs:enumeration value="CRC"/>
 					<!-- Costa Rican Colon                 Costa Rica                      188               -->
-					<xs:enumeration value="RON"></xs:enumeration>
+					<xs:enumeration value="RON"/>
 					<!-- Romanian New Leu                  Romania                         946               -->
-					<xs:enumeration value="VEF"></xs:enumeration>
+					<xs:enumeration value="VEF"/>
 					<!-- Venezuelan Bolivar Fuerte         Venezuela                       937               -->
-					<xs:enumeration value="BBD"></xs:enumeration>
+					<xs:enumeration value="BBD"/>
 					<!-- Barbados Dollar                   Barbados                        052               -->
-					<xs:enumeration value="BGN"></xs:enumeration>
+					<xs:enumeration value="BGN"/>
 					<!-- Bulgarian Lev                     Bulgaria                        975               -->
-					<xs:enumeration value="BND"></xs:enumeration>
+					<xs:enumeration value="BND"/>
 					<!-- Brunei Dollar                     Brunei                          096               -->
-					<xs:enumeration value="BSD"></xs:enumeration>
+					<xs:enumeration value="BSD"/>
 					<!-- Bahamian Dollar                   Bahamas                         044               -->
-					<xs:enumeration value="COP"></xs:enumeration>
+					<xs:enumeration value="COP"/>
 					<!-- Colombian Peso                    Columbia                        170               -->
-					<xs:enumeration value="DOP"></xs:enumeration>
+					<xs:enumeration value="DOP"/>
 					<!-- Dominican Peso                    Dominican Republic              214               -->
-					<xs:enumeration value="GTQ"></xs:enumeration>
+					<xs:enumeration value="GTQ"/>
 					<!-- Guatemalan Quetzal                Guatemala                       320               -->
-					<xs:enumeration value="KYD"></xs:enumeration>
+					<xs:enumeration value="KYD"/>
 					<!-- Cayman Isles Dollar               Cayman Islands                  136               -->
-					<xs:enumeration value="MVR"></xs:enumeration>
+					<xs:enumeration value="MVR"/>
 					<!-- Maldivian Rufiyaa                 Maldives                        462               -->
-					<xs:enumeration value="QAR"></xs:enumeration>
+					<xs:enumeration value="QAR"/>
 					<!-- Qatari Rial                       Qatar                           634               -->
-					<xs:enumeration value="SAR"></xs:enumeration>
+					<xs:enumeration value="SAR"/>
 					<!-- Saudi Riyal                       Saudi Arabia                    682               -->
-					<xs:enumeration value="TTD"></xs:enumeration>
+					<xs:enumeration value="TTD"/>
 					<!-- Trinidadian and Tobagonian Dollar Trinidad and Tobago             780               -->
-					<xs:enumeration value="UAH"></xs:enumeration>
+					<xs:enumeration value="UAH"/>
 					<!-- Ukrainian hryvnia                 Ukraine                         980               -->
-					<xs:enumeration value="UYU"></xs:enumeration>
+					<xs:enumeration value="UYU"/>
 					<!-- Peso Uruguayo                     Uruguay                         858               -->
-					<xs:enumeration value="XCD"></xs:enumeration>
+					<xs:enumeration value="XCD"/>
 					<!-- East Caribbean Dollar             East Caribbean Currency Area    951               -->
-					<xs:enumeration value="XPF"></xs:enumeration>
+					<xs:enumeration value="XPF"/>
 					<!-- French Polynesian Franc           French Polynesia                953               -->
-					<xs:enumeration value="JMD"></xs:enumeration>
+					<xs:enumeration value="JMD"/>
 					<!-- Jamaican Dollar                   Jamaica                         388               -->
 
 				</xs:restriction>
@@ -700,9 +679,7 @@
                    Money information.
                </xs:documentation>
                <xs:appinfo>
-                  <typeLibrarySource
-                       library="MarketPlaceServiceCommonTypeLibrary"
-                       namespace="http://www.ebay.com/marketplace/services">
+                  <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
                   </typeLibrarySource>
                </xs:appinfo>
             </xs:annotation>
@@ -725,9 +702,7 @@
 	             communicated to the user.
 	         </xs:documentation>
 	         <xs:appinfo>
-	           <typeLibrarySource
-	             library="MarketPlaceServiceCommonTypeLibrary"
-	             namespace="http://www.ebay.com/marketplace/services" />
+	           <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	         </xs:appinfo>
 	       </xs:annotation>
 	       <xs:restriction base="xs:string">
@@ -779,9 +754,7 @@
 	           all service operations.
 	         </xs:documentation>
 	         <xs:appinfo>
-	            <typeLibrarySource
-	               library="MarketPlaceServiceCommonTypeLibrary"
-	               namespace="http://www.ebay.com/marketplace/services" />
+	            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	         </xs:appinfo>
 	       </xs:annotation>
 	     </xs:complexType>
@@ -794,24 +767,22 @@
 	          associated with the request.
 	       </xs:documentation>
 	         <xs:appinfo>
-	           <typeLibrarySource
-	               library="MarketPlaceServiceCommonTypeLibrary"
-	                namespace="http://www.ebay.com/marketplace/services" />
+	           <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	         </xs:appinfo>
 	       </xs:annotation>
 	       <xs:sequence>
 	         <xs:element name="ack" type="tns:AckValue">
 	           <xs:annotation>
-	             <xs:documentation />
+	             <xs:documentation/>
 	             <xs:appinfo>
 	               <CallInfo>
-	                 <AllCalls />
+	                 <AllCalls/>
 	                 <Returned>Always</Returned>
 	               </CallInfo>
 	             </xs:appinfo>
 	           </xs:annotation>
 	         </xs:element>
-	         <xs:element name="errorMessage" type="tns:ErrorMessage" minOccurs="0" >
+	         <xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 	           <xs:annotation>
 	             <xs:documentation>
 	               Information for an error or warning that
@@ -820,29 +791,29 @@
 	             </xs:documentation>
 	             <xs:appinfo>
 	               <CallInfo>
-	                 <AllCalls />
+	                 <AllCalls/>
 	                 <Returned>Conditionally</Returned>
 	               </CallInfo>
 	             </xs:appinfo>
 	           </xs:annotation>
 	         </xs:element>
-	         <xs:element name="version" type="xs:string" minOccurs="0">
+	         <xs:element minOccurs="0" name="version" type="xs:string">
 	           <xs:annotation>
-	             <xs:documentation />
+	             <xs:documentation/>
 	             <xs:appinfo>
 	               <CallInfo>
-	                 <AllCalls />
+	                 <AllCalls/>
 	                 <Returned>Always</Returned>
 	               </CallInfo>
 	             </xs:appinfo>
 	           </xs:annotation>
 	         </xs:element>
-	         <xs:element name="timestamp" type="xs:dateTime"  minOccurs="0">
+	         <xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 	           <xs:annotation>
-	             <xs:documentation />
+	             <xs:documentation/>
 	             <xs:appinfo>
 	               <CallInfo>
-	                 <AllCalls />
+	                 <AllCalls/>
 	                 <Returned>Always</Returned>
 	               </CallInfo>
 	             </xs:appinfo>
@@ -857,15 +828,13 @@
 	              Documentation goes here.
 	            </xs:documentation>
 	            <xs:appinfo>
-	              <typeLibrarySource
-	                  library="SOACommonTypeLibrary"
-	                  namespace="http://www.ebay.com/marketplace/services" />
+	              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	            </xs:appinfo>
 	          </xs:annotation>
 	          <xs:restriction base="xs:token">
-	            <xs:enumeration value="System" />
-	            <xs:enumeration value="Application" />
-	            <xs:enumeration value="Request" />
+	            <xs:enumeration value="System"/>
+	            <xs:enumeration value="Application"/>
+	            <xs:enumeration value="Request"/>
 	          </xs:restriction>
 	        </xs:simpleType>
 	
@@ -875,20 +844,18 @@
 	              Documentation goes here
 	            </xs:documentation>
 	            <xs:appinfo>
-	              <typeLibrarySource
-	                 library="SOACommonTypeLibrary"
-	                 namespace="http://www.ebay.com/marketplace/services" />
+	              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	            </xs:appinfo>
 	          </xs:annotation>
 	          <xs:sequence>
-	            <xs:element name="errorId" type="xs:long" />
-	            <xs:element name="domain" type="xs:string" />
-	            <xs:element name="subdomain" type="xs:string" minOccurs="0" />
-	            <xs:element name="severity" type="tns:ErrorSeverity" />
-	            <xs:element name="category" type="tns:ErrorCategory" />
-	            <xs:element name="message" type="xs:string" />
-	            <xs:element name="exceptionId" type="xs:token" minOccurs="0"/>
-	            <xs:element name="parameter" type="tns:ErrorParameter"  minOccurs="0" maxOccurs="unbounded"/>
+	            <xs:element name="errorId" type="xs:long"/>
+	            <xs:element name="domain" type="xs:string"/>
+	            <xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+	            <xs:element name="severity" type="tns:ErrorSeverity"/>
+	            <xs:element name="category" type="tns:ErrorCategory"/>
+	            <xs:element name="message" type="xs:string"/>
+	            <xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+	            <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 		      </xs:sequence>
 	        </xs:complexType>
 	
@@ -898,13 +865,11 @@
 	              Documentation goes here
 	            </xs:documentation>
 	            <xs:appinfo>
-	              <typeLibrarySource
-	               library="SOACommonTypeLibrary"
-	               namespace="http://www.ebay.com/marketplace/services" />
+	              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	            </xs:appinfo>
 	          </xs:annotation>
 	          <xs:sequence>
-	            <xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded" />
+	            <xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 	          </xs:sequence>
 	        </xs:complexType>
 	
@@ -914,14 +879,12 @@
 	               Documentation goes here
 	            </xs:documentation>
 	            <xs:appinfo>
-	            <typeLibrarySource
-	                library="SOACommonTypeLibrary"
-	                namespace="http://www.ebay.com/marketplace/services" />
+	            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	            </xs:appinfo>
 	          </xs:annotation>
 	          <xs:simpleContent>
 	            <xs:extension base="xs:string">
-	              <xs:attribute name="name" type="xs:string" use="optional" />
+	              <xs:attribute name="name" type="xs:string" use="optional"/>
 	            </xs:extension>
 	          </xs:simpleContent>
 	        </xs:complexType>
@@ -932,19 +895,17 @@
 	              Documentation goes here.
 	            </xs:documentation>
 	            <xs:appinfo>
-	              <typeLibrarySource
-	                 library="SOACommonTypeLibrary"
-	                 namespace="http://www.ebay.com/marketplace/services" />
+	              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 	            </xs:appinfo>
 	          </xs:annotation>
 	          <xs:restriction base="xs:token">
-	            <xs:enumeration value="Error" />
-	            <xs:enumeration value="Warning" />
+	            <xs:enumeration value="Error"/>
+	            <xs:enumeration value="Warning"/>
 	          </xs:restriction>
 	        </xs:simpleType>
 			
 			<!--  Begin of getVersion types  -->			
-            <xs:element     name="getVersionRequest" type="tns:PaymentServiceGetVersionRequest" />
+            <xs:element name="getVersionRequest" type="tns:PaymentServiceGetVersionRequest"/>
             <xs:complexType name="PaymentServiceGetVersionRequest">
                 <xs:annotation>
                     <xs:documentation>
@@ -953,12 +914,12 @@
                 </xs:annotation>
                 <xs:complexContent>
                     <xs:extension base="tns:BaseServiceRequest">
-                        <xs:sequence />
+                        <xs:sequence/>
                     </xs:extension>
                 </xs:complexContent>
             </xs:complexType>
             
-            <xs:element     name="getVersionResponse" type="tns:PaymentServiceGetVersionResponse" />
+            <xs:element name="getVersionResponse" type="tns:PaymentServiceGetVersionResponse"/>
             <xs:complexType name="PaymentServiceGetVersionResponse">
                 <xs:annotation>
                     <xs:documentation>
@@ -981,7 +942,7 @@
 	</wsdl:types>
 	
     <wsdl:message name="applyTransactionRefundRequest">
-		<wsdl:part element="tns:applyTransactionRefundRequest" name="params" />
+		<wsdl:part element="tns:applyTransactionRefundRequest" name="params"/>
     </wsdl:message>
   
     <wsdl:message name="applyTransactionRefundResponse">
@@ -990,10 +951,10 @@
 
 	<!--  Begin of getVersion messages  -->    
     <wsdl:message name="getVersionRequest">
-        <wsdl:part element="tns:getVersionRequest" name="params" />
+        <wsdl:part element="tns:getVersionRequest" name="params"/>
     </wsdl:message>
     <wsdl:message name="getVersionResponse">
-        <wsdl:part element="tns:getVersionResponse" name="params" />
+        <wsdl:part element="tns:getVersionResponse" name="params"/>
     </wsdl:message>
 	<!--  End   of getVersion messages  -->    
 	
@@ -1001,63 +962,61 @@
 	
 		<wsdl:operation name="applyTransactionRefund">
 	        <wsdl:documentation>Applies a refund against a specific payment transaction</wsdl:documentation>
-	        <wsdl:input message="tns:applyTransactionRefundRequest" />
-	        <wsdl:output message="tns:applyTransactionRefundResponse" />
+	        <wsdl:input message="tns:applyTransactionRefundRequest"/>
+	        <wsdl:output message="tns:applyTransactionRefundResponse"/>
 	    </wsdl:operation>
 	    
         <wsdl:operation name="getVersion">
 	        <wsdl:documentation>Required operation for each service</wsdl:documentation>        
-            <wsdl:input message="tns:getVersionRequest" />
-            <wsdl:output message="tns:getVersionResponse" />
+            <wsdl:input message="tns:getVersionRequest"/>
+            <wsdl:output message="tns:getVersionResponse"/>
         </wsdl:operation>
 	</wsdl:portType>
 	
 	<wsdl:binding name="PaymentServiceHttpBinding" type="tns:PaymentServicePort">
-		<http:binding verb="POST" />
+		<http:binding verb="POST"/>
 
 		<wsdl:operation name="applyTransactionRefund">
-			<http:operation location="/applyTransactionRefund" />
+			<http:operation location="/applyTransactionRefund"/>
 			<wsdl:input>
-				<mime:content part="params" type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		
 		<wsdl:operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:input>
-				<mime:content part="params" type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>		
 	</wsdl:binding>
 	
 	<wsdl:binding name="PaymentServiceSOAPBinding" type="tns:PaymentServicePort">
-		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		
 	  	<wsdl:operation name="applyTransactionRefund">
-	  		<soap:operation
-	  			soapAction="http://www.ebay.com/marketplace/billing/v1/services/applyTransactionRefund" />
+	  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/billing/v1/services/applyTransactionRefund"/>
 	  		<wsdl:input>
-	  			<soap:body use="literal" />
+	  			<soap:body use="literal"/>
 	  		</wsdl:input>
 	  		<wsdl:output>
-	  			<soap:body use="literal" />
+	  			<soap:body use="literal"/>
 	  		</wsdl:output>
 	  	</wsdl:operation>
 	  	
 	  	<wsdl:operation name="getVersion">
-	  		<soap:operation
-	  			soapAction="http://www.ebay.com/marketplace/billing/v1/services/getVersion" />
+	  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/billing/v1/services/getVersion"/>
 	  		<wsdl:input>
-	  			<soap:body use="literal" />
+	  			<soap:body use="literal"/>
 	  		</wsdl:input>
 	  		<wsdl:output>
-	  			<soap:body use="literal" />
+	  			<soap:body use="literal"/>
 	  		</wsdl:output>
 	  	</wsdl:operation>	  	
 	</wsdl:binding>
@@ -1069,12 +1028,11 @@
 		</wsdl:documentation>
 		
 		<wsdl:port binding="tns:PaymentServiceHttpBinding" name="PaymentServiceHttpPort">
-			<http:address location="https://svcs.ebay.com/services/billing/v1/PaymentService" />
+			<http:address location="https://svcs.ebay.com/services/billing/v1/PaymentService"/>
 		</wsdl:port>
 		
 		<wsdl:port binding="tns:PaymentServiceSOAPBinding" name="PaymentServiceSOAPPort">
-			<soap12:address location="https://svcs.ebay.com/services/billing/v1/PaymentService" />
+			<soap12:address location="https://svcs.ebay.com/services/billing/v1/PaymentService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
-

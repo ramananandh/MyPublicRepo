@@ -1,29 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions 
-targetNamespace="http://www.ebay.com/marketplace/security/v1/services" 
-xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
-xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
-xmlns:ns0="http://www.ebay.com/marketplace/security/v1/services" 
-xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
-xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
-xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/security/v1/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/security/v1/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/security/v1/services" xmlns:tns="http://www.ebay.com/marketplace/security/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/security/v1/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/security/v1/services">
 
-<xs:element name="getVersionRequest"  type="tns:GetVersionRequest"/>
-<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
-<xs:element name="isUserEntityBlackListedRequest"  type="tns:IsUserEntityBlackListedRequest"/>
-<xs:element name="isUserEntityBlackListedResponse"  type="tns:IsUserEntityBlackListedResponse"/>
-<xs:element name="isUserIdBlackListedRequest"  type="tns:IsUserIdBlackListedRequest"/>
-<xs:element name="isUserIdBlackListedResponse"  type="tns:IsUserIdBlackListedResponse"/>
-<xs:element name="isNameBlackListedRequest"  type="tns:IsNameBlackListedRequest"/>
-<xs:element name="isNameBlackListedResponse"  type="tns:IsNameBlackListedResponse"/>
-<xs:element name="isPhoneBlackListedRequest"  type="tns:IsPhoneBlackListedRequest"/>
-<xs:element name="isPhoneBlackListedResponse"  type="tns:IsPhoneBlackListedResponse"/>
-<xs:element name="isEmaiIdBlackListedRequest"  type="tns:IsEmailIdBlackListedRequest"/>
-<xs:element name="isEmailIdBlackListedResponse"  type="tns:IsEmailIdBlackListedResponse"/>
+<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
+<xs:element name="isUserEntityBlackListedRequest" type="tns:IsUserEntityBlackListedRequest"/>
+<xs:element name="isUserEntityBlackListedResponse" type="tns:IsUserEntityBlackListedResponse"/>
+<xs:element name="isUserIdBlackListedRequest" type="tns:IsUserIdBlackListedRequest"/>
+<xs:element name="isUserIdBlackListedResponse" type="tns:IsUserIdBlackListedResponse"/>
+<xs:element name="isNameBlackListedRequest" type="tns:IsNameBlackListedRequest"/>
+<xs:element name="isNameBlackListedResponse" type="tns:IsNameBlackListedResponse"/>
+<xs:element name="isPhoneBlackListedRequest" type="tns:IsPhoneBlackListedRequest"/>
+<xs:element name="isPhoneBlackListedResponse" type="tns:IsPhoneBlackListedResponse"/>
+<xs:element name="isEmaiIdBlackListedRequest" type="tns:IsEmailIdBlackListedRequest"/>
+<xs:element name="isEmailIdBlackListedResponse" type="tns:IsEmailIdBlackListedResponse"/>
 
 <xs:complexType name="GetVersionRequest">
   <xs:complexContent>
@@ -45,8 +35,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="extension" type="tns:ExtensionType"
-			minOccurs="0" maxOccurs="unbounded" />
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 	</xs:sequence>
 </xs:complexType>
 
@@ -54,15 +43,15 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 <xs:complexType name="ExtensionType">
 	<xs:annotation>
 		<xs:documentation>Documentation goes here</xs:documentation>
-		<xs:appinfo></xs:appinfo>
+		<xs:appinfo/>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="id" type="xs:positiveInteger" />
-		<xs:element name="version" type="xs:string" />
-		<xs:element name="contentType" type="xs:string" />
-		<xs:element name="value" type="xs:string" />
+		<xs:element name="id" type="xs:positiveInteger"/>
+		<xs:element name="version" type="xs:string"/>
+		<xs:element name="contentType" type="xs:string"/>
+		<xs:element name="value" type="xs:string"/>
 
-			processContents="lax" />
+			processContents="lax" /&gt;
 	</xs:sequence>
 </xs:complexType>
 
@@ -81,14 +70,13 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 					</xs:documentation>
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls />
+							<AllCalls/>
 							<Returned>Always</Returned>
 						</CallInfo>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="errorMessage"
-				type="tns:ErrorMessage">
+			<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 				<xs:annotation>
 					<xs:documentation>
 						Information for an error or warning that
@@ -96,39 +84,37 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 					</xs:documentation>
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls />
+							<AllCalls/>
 							<Returned>Conditionally</Returned>
 						</CallInfo>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="version" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="version" type="xs:string">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls />
+							<AllCalls/>
 							<Returned>Always</Returned>
 						</CallInfo>
 					</xs:appinfo>
 				</xs:annotation>
 
 			</xs:element>
-			<xs:element name="timestamp" type="xs:dateTime"
-				minOccurs="0">
+			<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls />
+							<AllCalls/>
 							<Returned>Always</Returned>
 						</CallInfo>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="extension" type="tns:ExtensionType"
-				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -141,7 +127,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 	<xs:complexContent>
 	<xs:extension base="tns:BaseRequest">
 		<xs:sequence>
-			<xs:element name="entityRequest" type="tns:EntityRequestType" maxOccurs="unbounded" minOccurs="1" />			
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="entityRequest" type="tns:EntityRequestType"/>			
 		</xs:sequence>
 	</xs:extension>
 	</xs:complexContent>
@@ -156,7 +142,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 	<xs:complexContent>
 	<xs:extension base="tns:BaseResponse">
 		<xs:sequence>
-			<xs:element name="entityResponse" type="tns:EntityResponseType" maxOccurs="unbounded" minOccurs="1" />		
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="entityResponse" type="tns:EntityResponseType"/>		
 		</xs:sequence>
 	</xs:extension>
 	</xs:complexContent>
@@ -172,8 +158,8 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 	<xs:complexContent>
 	<xs:extension base="tns:BaseRequest">
 		<xs:sequence>
-			<xs:element name="siteID" type="xs:token" maxOccurs="1" minOccurs="1" />
-			<xs:element name="userId" type="xs:token" maxOccurs="1" minOccurs="1" />			
+			<xs:element maxOccurs="1" minOccurs="1" name="siteID" type="xs:token"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="userId" type="xs:token"/>			
 		</xs:sequence>
 	</xs:extension>
 	</xs:complexContent>
@@ -188,8 +174,8 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 	<xs:complexContent>
 	<xs:extension base="tns:BaseResponse">
 		<xs:sequence>
-			<xs:element name="UserEntityBlackListed" type="xs:boolean" maxOccurs="1" minOccurs="1" />
-			<xs:element name="UserEntityBlackListType" type="tns:UserIdBlackListType" maxOccurs="unbounded" minOccurs="0" />
+			<xs:element maxOccurs="1" minOccurs="1" name="UserEntityBlackListed" type="xs:boolean"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="UserEntityBlackListType" type="tns:UserIdBlackListType"/>
 		</xs:sequence>
 	</xs:extension>
 	</xs:complexContent>
@@ -205,8 +191,8 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 	<xs:complexContent>
 	<xs:extension base="tns:BaseRequest">
 		<xs:sequence>
-			<xs:element name="siteID" type="xs:token" maxOccurs="1" minOccurs="1" />
-			<xs:element name="name" type="xs:string" maxOccurs="1" minOccurs="1" />			
+			<xs:element maxOccurs="1" minOccurs="1" name="siteID" type="xs:token"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string"/>			
 		</xs:sequence>
 	</xs:extension>
 	</xs:complexContent>
@@ -221,8 +207,8 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 	<xs:complexContent>
 	<xs:extension base="tns:BaseResponse">
 		<xs:sequence>
-			<xs:element name="UserEntityBlackListed" type="xs:boolean" maxOccurs="1" minOccurs="1" />
-			<xs:element name="UserEntityBlackListType" type="tns:NameBlackListType" maxOccurs="unbounded" minOccurs="0" />
+			<xs:element maxOccurs="1" minOccurs="1" name="UserEntityBlackListed" type="xs:boolean"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="UserEntityBlackListType" type="tns:NameBlackListType"/>
 		</xs:sequence>
 	</xs:extension>
 	</xs:complexContent>
@@ -237,7 +223,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 	<xs:complexContent>
 	<xs:extension base="tns:BaseRequest">
 		<xs:sequence>
-			<xs:element name="phone" type="tns:PhoneNumber" maxOccurs="1" minOccurs="1" />
+			<xs:element maxOccurs="1" minOccurs="1" name="phone" type="tns:PhoneNumber"/>
 		</xs:sequence>
 	</xs:extension>
 	</xs:complexContent>
@@ -252,8 +238,8 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 	<xs:complexContent>
 	<xs:extension base="tns:BaseResponse">
 		<xs:sequence>
-			<xs:element name="UserEntityBlackListed" type="xs:boolean" maxOccurs="1" minOccurs="1" />
-			<xs:element name="UserEntityBlackListType" type="tns:PhoneBlackListType" maxOccurs="unbounded" minOccurs="0" />
+			<xs:element maxOccurs="1" minOccurs="1" name="UserEntityBlackListed" type="xs:boolean"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="UserEntityBlackListType" type="tns:PhoneBlackListType"/>
 		</xs:sequence>
 	</xs:extension>
 	</xs:complexContent>
@@ -267,8 +253,8 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 		</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="entity" type="tns:EntityType" maxOccurs="1" minOccurs="1" />
-			<xs:element name="entityEnvironment" type="tns:EntityEnvitonmentType" maxOccurs="1" minOccurs="1" />
+			<xs:element maxOccurs="1" minOccurs="1" name="entity" type="tns:EntityType"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="entityEnvironment" type="tns:EntityEnvitonmentType"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -280,9 +266,9 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 		</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="entity" type="tns:EntityType" maxOccurs="1" minOccurs="1" />
-			<xs:element name="UserEntityBlackListed" type="xs:boolean" maxOccurs="1" minOccurs="1" />
-			<xs:element name="userEntityBlackListType" type="tns:UserEntityBlackListType" maxOccurs="unbounded" minOccurs="0" />
+			<xs:element maxOccurs="1" minOccurs="1" name="entity" type="tns:EntityType"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="UserEntityBlackListed" type="xs:boolean"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="userEntityBlackListType" type="tns:UserEntityBlackListType"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -295,7 +281,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 		</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="SiteId" type="xs:string" maxOccurs="1" minOccurs="0" />
+			<xs:element maxOccurs="1" minOccurs="0" name="SiteId" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
 	  
@@ -307,10 +293,10 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 		</xs:documentation>
 		</xs:annotation>
         <xs:sequence>
-		    <xs:element name="UserId" type="xs:string" maxOccurs="1" minOccurs="0" />        
-		    <xs:element name="Name" type="xs:string" maxOccurs="1" minOccurs="0" />
-		    <xs:element name="PhoneNumber" type="tns:PhoneNumber" maxOccurs="1" minOccurs="0" />
-		    <xs:element name="EmailId" type="xs:string" maxOccurs="1" minOccurs="0" />
+		    <xs:element maxOccurs="1" minOccurs="0" name="UserId" type="xs:string"/>        
+		    <xs:element maxOccurs="1" minOccurs="0" name="Name" type="xs:string"/>
+		    <xs:element maxOccurs="1" minOccurs="0" name="PhoneNumber" type="tns:PhoneNumber"/>
+		    <xs:element maxOccurs="1" minOccurs="0" name="EmailId" type="xs:string"/>
         </xs:sequence>
 	</xs:complexType>
 	
@@ -321,29 +307,24 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 		</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-		 <xs:element name="UserIdBlackListed" type="tns:UserIdBlackListType"  maxOccurs="1" minOccurs="0"/>    
-		 <xs:element name="NameBlackListed" type="tns:NameBlackListType" maxOccurs="1" minOccurs="0"/>    
-		 <xs:element name="PhoneNumberBlackListed" type="tns:PhoneBlackListType" maxOccurs="1" minOccurs="0"/>    
-		 <xs:element name="EmailIdBlackListed" type="tns:EmailIdBlackListType" maxOccurs="1" minOccurs="0"/>    
+		 <xs:element maxOccurs="1" minOccurs="0" name="UserIdBlackListed" type="tns:UserIdBlackListType"/>    
+		 <xs:element maxOccurs="1" minOccurs="0" name="NameBlackListed" type="tns:NameBlackListType"/>    
+		 <xs:element maxOccurs="1" minOccurs="0" name="PhoneNumberBlackListed" type="tns:PhoneBlackListType"/>    
+		 <xs:element maxOccurs="1" minOccurs="0" name="EmailIdBlackListed" type="tns:EmailIdBlackListType"/>    
 		</xs:sequence>        
 	</xs:complexType>
 	
 	<xs:complexType name="PhoneNumber">
 		<xs:sequence>
-			<xs:element name="phoneNumberPart1"
-				type="xs:string" maxOccurs="1" minOccurs="1">
+			<xs:element maxOccurs="1" minOccurs="1" name="phoneNumberPart1" type="xs:string">
 			</xs:element>
-			<xs:element name="phoneNumberPart2"
-				type="xs:string" maxOccurs="1" minOccurs="0">
+			<xs:element maxOccurs="1" minOccurs="0" name="phoneNumberPart2" type="xs:string">
 			</xs:element>
-			<xs:element name="phoneNumberPart3"
-				type="xs:string" maxOccurs="1" minOccurs="0">
+			<xs:element maxOccurs="1" minOccurs="0" name="phoneNumberPart3" type="xs:string">
 			</xs:element>
-			<xs:element name="phoneNumberPart4"
-				type="xs:string" maxOccurs="1" minOccurs="0">
+			<xs:element maxOccurs="1" minOccurs="0" name="phoneNumberPart4" type="xs:string">
 			</xs:element>
-			<xs:element name="countryCode"
-				type="xs:string" maxOccurs="1" minOccurs="0">
+			<xs:element maxOccurs="1" minOccurs="0" name="countryCode" type="xs:string">
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>  
@@ -356,8 +337,8 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 	<xs:complexContent>
 	<xs:extension base="tns:BaseRequest">
 		<xs:sequence>
-			<xs:element name="siteID" type="xs:token" maxOccurs="1" minOccurs="1" />
-			<xs:element name="emailId" type="xs:string" maxOccurs="1" minOccurs="1" />			
+			<xs:element maxOccurs="1" minOccurs="1" name="siteID" type="xs:token"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="emailId" type="xs:string"/>			
 		</xs:sequence>
 	</xs:extension>
 	</xs:complexContent>
@@ -372,8 +353,8 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 	<xs:complexContent>
 	<xs:extension base="tns:BaseResponse">
 		<xs:sequence>
-			<xs:element name="UserEntityBlackListed" type="xs:boolean" maxOccurs="1" minOccurs="1" />
-			<xs:element name="userEntityBlackListType" type="tns:EmailIdBlackListType" maxOccurs="unbounded" minOccurs="0" />
+			<xs:element maxOccurs="1" minOccurs="1" name="UserEntityBlackListed" type="xs:boolean"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="userEntityBlackListType" type="tns:EmailIdBlackListType"/>
 		</xs:sequence>
 	</xs:extension>
 	</xs:complexContent>
@@ -433,7 +414,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded" >
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					Details about a single error.
@@ -563,7 +544,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 			</xs:annotation>
 
 		</xs:element>
-		<xs:element name="subdomain" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="subdomain" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Name of the subdomain upon which the error occurred. 
@@ -594,7 +575,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="exceptionId" type="xs:token" minOccurs="0">
+		<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 
 			<xs:annotation>
 				<xs:documentation>
@@ -609,7 +590,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="parameter" type="tns:ErrorParameter" minOccurs="0" maxOccurs="unbounded" >
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -871,40 +852,40 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 </xs:schema>
   </wsdl:types>
   <wsdl:message name="getVersionRequest">
-    <wsdl:part name="params" element="ns0:getVersionRequest"/> 
+    <wsdl:part element="ns0:getVersionRequest" name="params"/> 
   </wsdl:message>
   <wsdl:message name="getVersionResponse">
-    <wsdl:part name="params" element="ns0:getVersionResponse"/>
+    <wsdl:part element="ns0:getVersionResponse" name="params"/>
   </wsdl:message>
   <wsdl:message name="isUserEntityBlackListedRequest">
-    <wsdl:part name="params" element="ns0:isUserEntityBlackListedRequest"/>
+    <wsdl:part element="ns0:isUserEntityBlackListedRequest" name="params"/>
   </wsdl:message>
   <wsdl:message name="isUserEntityBlackListedResponse">
-      <wsdl:part name="params" element="ns0:isUserEntityBlackListedResponse"/>
+      <wsdl:part element="ns0:isUserEntityBlackListedResponse" name="params"/>
   </wsdl:message>
   <wsdl:message name="isUserIdBlackListedRequest">
-      <wsdl:part name="params" element="ns0:isUserIdBlackListedRequest"/>
+      <wsdl:part element="ns0:isUserIdBlackListedRequest" name="params"/>
   </wsdl:message>
   <wsdl:message name="isUserIdBlackListedResponse">
-      <wsdl:part name="params" element="ns0:isUserIdBlackListedResponse"/>
+      <wsdl:part element="ns0:isUserIdBlackListedResponse" name="params"/>
 </wsdl:message>
   <wsdl:message name="isNameBlackListedRequest">
-     <wsdl:part name="params" element="ns0:isNameBlackListedRequest"/>
+     <wsdl:part element="ns0:isNameBlackListedRequest" name="params"/>
  </wsdl:message>
   <wsdl:message name="isNameBlackListedResponse">
-      <wsdl:part name="params" element="ns0:isNameBlackListedResponse"/>
+      <wsdl:part element="ns0:isNameBlackListedResponse" name="params"/>
 </wsdl:message>
   <wsdl:message name="isPhoneBlackListedRequest">
-      <wsdl:part name="params" element="ns0:isPhoneBlackListedRequest"/>
+      <wsdl:part element="ns0:isPhoneBlackListedRequest" name="params"/>
 </wsdl:message>
   <wsdl:message name="isPhoneBlackListedResponse">
-      <wsdl:part name="params" element="ns0:isPhoneBlackListedResponse"/>
+      <wsdl:part element="ns0:isPhoneBlackListedResponse" name="params"/>
 </wsdl:message>
   <wsdl:message name="isEmaiIdBlackListedRequest">
-      <wsdl:part name="params" element="ns0:isEmaiIdBlackListedRequest"/>
+      <wsdl:part element="ns0:isEmaiIdBlackListedRequest" name="params"/>
 </wsdl:message>
   <wsdl:message name="isEmailIdBlackListedResponse">
-    <wsdl:part name="params" element="ns0:isEmailIdBlackListedResponse"/>
+    <wsdl:part element="ns0:isEmailIdBlackListedResponse" name="params"/>
   </wsdl:message>
   
   <wsdl:portType name="UserEntityBlackListServicePort">
@@ -916,12 +897,12 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:binding name="UserEntityBlackListServiceHttpBinding" type="ns0:UserEntityBlackListServicePort">
     <http:binding verb="POST"/>
     <wsdl:operation name="getVersion">
-     <http:operation location="UserEntityBlackListService/getVersion" />
+     <http:operation location="UserEntityBlackListService/getVersion"/>
      <wsdl:input>
-       <mime:content part="getVersion" type="text/xml" />
+       <mime:content part="getVersion" type="text/xml"/>
      </wsdl:input>
      <wsdl:output>
-       <mime:content part="getVersion" type="text/xml" />
+       <mime:content part="getVersion" type="text/xml"/>
      </wsdl:output>
   </wsdl:operation>
   </wsdl:binding>
@@ -941,10 +922,10 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:documentation>
 	  <Version>1.0.0</Version>
   </wsdl:documentation>
-    <wsdl:port name="UserEntityBlackListServiceSOAPPort" binding="ns0:UserEntityBlackListServiceSOAPBinding">
+    <wsdl:port binding="ns0:UserEntityBlackListServiceSOAPBinding" name="UserEntityBlackListServiceSOAPPort">
       <soap12:address location="https://svcs.ebay.com/services/security/UserEntityBlackListService/v1"/>
     </wsdl:port>
-    <wsdl:port name="UserEntityBlackListServiceHttpPort" binding="ns0:UserEntityBlackListServiceHttpBinding">
+    <wsdl:port binding="ns0:UserEntityBlackListServiceHttpBinding" name="UserEntityBlackListServiceHttpPort">
       <http:address location="https://svcs.ebay.com/services/security/UserEntityBlackListService/v1"/>
     </wsdl:port>
   </wsdl:service>

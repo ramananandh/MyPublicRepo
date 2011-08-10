@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="urn:webservice.catalog.service.ebay.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:webservice.catalog.service.ebay.com" xmlns:tns="urn:webservice.catalog.service.ebay.com" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions targetNamespace="urn:webservice.catalog.service.ebayopensource.org" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:webservice.catalog.service.ebayopensource.org" xmlns:tns="urn:webservice.catalog.service.ebayopensource.org" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
 <wsdl:types>
 
-  <schema targetNamespace="urn:webservice.catalog.service.ebay.com" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:webservice.catalog.service.ebay.com" xmlns="http://www.w3.org/2001/XMLSchema"  xmlns:apachesoap="http://xml.apache.org/xml-soap">
+  <schema targetNamespace="urn:webservice.catalog.service.ebayopensource.org" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:webservice.catalog.service.ebayopensource.org" xmlns="http://www.w3.org/2001/XMLSchema"  xmlns:apachesoap="http://xml.apache.org/xml-soap">
 
    <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/"></xsd:import>
    <complexType name="mapItem">
@@ -364,13 +364,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
          <wsdl:input name="getUserGroupRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:input>
 
          <wsdl:output name="getUserGroupResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:output>
 
@@ -382,13 +382,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
          <wsdl:input name="newRequestRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:input>
 
          <wsdl:output name="newRequestResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:output>
 
@@ -400,13 +400,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
          <wsdl:input name="editRequestRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:input>
 
          <wsdl:output name="editRequestResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:output>
 
@@ -418,13 +418,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
          <wsdl:input name="deleteRequestRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:input>
 
          <wsdl:output name="deleteRequestResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:output>
 
@@ -436,13 +436,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
          <wsdl:input name="approveRequestRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:input>
 
          <wsdl:output name="approveRequestResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:output>
 
@@ -454,13 +454,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
          <wsdl:input name="getRequestListRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:input>
 
          <wsdl:output name="getRequestListResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:output>
 
@@ -472,13 +472,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
          <wsdl:input name="getRequestRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:input>
 
          <wsdl:output name="getRequestResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:output>
 
@@ -490,13 +490,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
          <wsdl:input name="getProdServiceListRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:input>
 
         <wsdl:output name="getProdServiceListResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:output>
 
@@ -508,13 +508,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
          <wsdl:input name="getProdServiceRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:input>
 
          <wsdl:output name="getProdServiceResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:output>
 
@@ -526,13 +526,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
          <wsdl:input name="getDropDownOptionsRequest">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:input>
 
          <wsdl:output name="getDropDownOptionsResponse">
 
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebay.com" use="encoded"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:webservice.catalog.service.ebayopensource.org" use="encoded"/>
 
          </wsdl:output>
 

@@ -1,20 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="AssertionsService"
-	targetNamespace="http://www.ebay.com/marketplace/services"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:tns="http://www.ebay.com/marketplace/services"
-	xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AssertionsService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 	<wsdl:types>
-		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			attributeFormDefault="unqualified" elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/services"
-			xmlns:tns="http://www.ebay.com/marketplace/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 			<xs:complexType abstract="true" name="BaseServiceRequest">
 				<xs:annotation>
@@ -25,12 +12,11 @@
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:complexType abstract="true"
-				name="BaseServiceResponse">
+			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -49,14 +35,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -65,14 +50,14 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
@@ -87,15 +72,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -124,7 +108,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -146,14 +130,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates whether the error caused the
@@ -192,14 +175,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 						<xs:annotation>
 							<xs:documentation>
 								There are three categories of errors:
@@ -208,7 +190,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -222,14 +204,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain upon which the
@@ -245,14 +226,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for an exception
@@ -260,14 +240,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -278,7 +257,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -305,7 +284,7 @@
 								</xs:documentation>
 								<xs:appinfo>
 									<CallInfo>
-										<AllCalls />
+										<AllCalls/>
 										<Returned>
 											Conditionally
 										</Returned>
@@ -471,18 +450,14 @@
 				</xs:restriction>
 			</xs:simpleType>
 
-			<xs:element name="applyAssertionsRequest"
-				type="tns:ApplyAssertionsRequest">
+			<xs:element name="applyAssertionsRequest" type="tns:ApplyAssertionsRequest">
 			</xs:element>
-			<xs:element name="applyAssertionsResponse"
-				type="tns:ApplyAssertionsResponse">
+			<xs:element name="applyAssertionsResponse" type="tns:ApplyAssertionsResponse">
 			</xs:element>
 
-			<xs:element name="applyAssertionGroupsRequest"
-				type="tns:ApplyAssertionGroupsRequest">
+			<xs:element name="applyAssertionGroupsRequest" type="tns:ApplyAssertionGroupsRequest">
 			</xs:element>
-			<xs:element name="applyAssertionGroupsResponse"
-				type="tns:ApplyAssertionGroupsResponse">
+			<xs:element name="applyAssertionGroupsResponse" type="tns:ApplyAssertionGroupsResponse">
 			</xs:element>
 
 
@@ -490,8 +465,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="assertions"
-								type="tns:Assertion" minOccurs="1" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="assertions" type="tns:Assertion">
 								<xs:annotation>
 									<xs:documentation>
 										a content validation rule that
@@ -506,9 +480,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="artifacts"
-								type="tns:AssertableArtifact" minOccurs="1"
-								maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="artifacts" type="tns:AssertableArtifact">
 								<xs:annotation>
 									<xs:documentation>
 										content refers to a collection
@@ -534,9 +506,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="assertionGroups"
-								type="tns:AssertionGroupAsset" minOccurs="1"
-								maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="assertionGroups" type="tns:AssertionGroupAsset">
 								<xs:annotation>
 									<xs:documentation>
 										an unordered collection of
@@ -557,9 +527,7 @@
 								</xs:annotation>
 
 							</xs:element>
-							<xs:element name="artifacts"
-								type="tns:AssertableArtifact" minOccurs="1"
-								maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="artifacts" type="tns:AssertableArtifact">
 								<xs:annotation>
 									<xs:documentation>
 										content refers to a collection
@@ -619,8 +587,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="artifactCategory"
-						type="xs:string">
+					<xs:element name="artifactCategory" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The category of the Artifact on which
@@ -662,8 +629,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="assetType"
-						type="tns:AssertionGroupAssetTypes">
+					<xs:element name="assetType" type="tns:AssertionGroupAssetTypes">
 						<xs:annotation>
 							<xs:documentation>
 								The following Asset Types are possible
@@ -681,7 +647,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="AssertionGroup"></xs:enumeration>
+					<xs:enumeration value="AssertionGroup"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -714,8 +680,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="assetType"
-						type="tns:AssertionAssetTypes">
+					<xs:element name="assetType" type="tns:AssertionAssetTypes">
 						<xs:annotation>
 							<xs:documentation>
 								The following Asset Types are possible
@@ -756,8 +721,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="assetType"
-						type="tns:AssertionModuleAssetTypes">
+					<xs:element name="assetType" type="tns:AssertionModuleAssetTypes">
 						<xs:annotation>
 							<xs:documentation>
 								The following Asset Types are possible
@@ -798,8 +762,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="assetType"
-						type="tns:AssertionAssetTypes">
+					<xs:element name="assetType" type="tns:AssertionAssetTypes">
 						<xs:annotation>
 							<xs:documentation>
 								The following Asset Types are possible
@@ -818,7 +781,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="Assertion"></xs:enumeration>
+					<xs:enumeration value="Assertion"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -831,15 +794,15 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="AssertionModule"></xs:enumeration>
+					<xs:enumeration value="AssertionModule"/>
 				</xs:restriction>
 			</xs:simpleType>
 
 
 			<xs:simpleType name="AssertionSeverity">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="ERROR"></xs:enumeration>
-					<xs:enumeration value="WARNING"></xs:enumeration>
+					<xs:enumeration value="ERROR"/>
+					<xs:enumeration value="WARNING"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -849,9 +812,8 @@
 					Repository Manager.
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="contentName" type="xs:string"></xs:element>
-					<xs:element name="assetReference"
-						type="tns:AssetReference">
+					<xs:element name="contentName" type="xs:string"/>
+					<xs:element name="assetReference" type="tns:AssetReference">
 						<xs:annotation>
 							<xs:documentation>
 								Details of the Asset which is stored in
@@ -872,13 +834,11 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="name" type="xs:string"
-						minOccurs="1">
+					<xs:element minOccurs="1" name="name" type="xs:string">
 					</xs:element>
-					<xs:element name="version" type="xs:token"></xs:element>
-					<xs:element name="description" type="xs:string"></xs:element>
-					<xs:element name="moduleScripts"
-						type="tns:ExternalContent" minOccurs="1" maxOccurs="unbounded">
+					<xs:element name="version" type="xs:token"/>
+					<xs:element name="description" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="moduleScripts" type="tns:ExternalContent">
 						<xs:annotation>
 							<xs:documentation>
 								ModuleScripts are uitility functions.
@@ -889,11 +849,9 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="assertionProcessorType"
-						type="tns:AssertionProcessorType" minOccurs="1">
+					<xs:element minOccurs="1" name="assertionProcessorType" type="tns:AssertionProcessorType">
 					</xs:element>
-					<xs:element name="contentBindingName"
-						type="tns:ContentBindingName" minOccurs="0">
+					<xs:element minOccurs="0" name="contentBindingName" type="tns:ContentBindingName">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -907,7 +865,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="XQUERY"></xs:enumeration>
+					<xs:enumeration value="XQUERY"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -920,7 +878,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="content" type="xs:string"></xs:element>
+					<xs:element name="content" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -933,8 +891,7 @@
 				</xs:annotation>
 				<xs:sequence>
 
-					<xs:element name="proxy" type="tns:ProxyDetails"
-						minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="proxy" type="tns:ProxyDetails">
 						<xs:annotation>
 							<xs:documentation>
 								Proxy details to be used in case of URLs
@@ -954,7 +911,7 @@
 				</xs:annotation>
 				<xs:sequence>
 
-					<xs:element name="port" type="xs:int"></xs:element>
+					<xs:element name="port" type="xs:int"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -965,7 +922,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="content" type="xs:hexBinary"></xs:element>
+					<xs:element name="content" type="xs:hexBinary"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -979,14 +936,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="FILE_PATH"></xs:enumeration>
+					<xs:enumeration value="FILE_PATH"/>
 				</xs:restriction>
 			</xs:simpleType>
 
 			<xs:simpleType name="ArtifactContentTypes">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="WSDL"></xs:enumeration>
-					<xs:enumeration value="XSD"></xs:enumeration>
+					<xs:enumeration value="WSDL"/>
+					<xs:enumeration value="XSD"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -999,8 +956,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="contentType"
-						type="tns:ArtifactContentTypes">
+					<xs:element name="contentType" type="tns:ArtifactContentTypes">
 					</xs:element>
 					<xs:choice>
 						<xs:annotation>
@@ -1009,8 +965,7 @@
 								validated.
 							</xs:documentation>
 						</xs:annotation>
-						<xs:element name="binaryContent"
-							type="tns:BinaryContent">
+						<xs:element name="binaryContent" type="tns:BinaryContent">
 							<xs:annotation>
 								<xs:documentation>
 									Representation of content in Binary
@@ -1018,8 +973,7 @@
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="textContent"
-							type="tns:TextContent">
+						<xs:element name="textContent" type="tns:TextContent">
 							<xs:annotation>
 								<xs:documentation>
 									Data presented as a String. The data
@@ -1028,8 +982,7 @@
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="urlContent"
-							type="tns:URLContent">
+						<xs:element name="urlContent" type="tns:URLContent">
 							<xs:annotation>
 								<xs:documentation>
 									If the content is located at an URL
@@ -1070,8 +1023,7 @@
 								validated.
 							</xs:documentation>
 						</xs:annotation>
-						<xs:element name="binaryContent"
-							type="tns:BinaryContent">
+						<xs:element name="binaryContent" type="tns:BinaryContent">
 							<xs:annotation>
 								<xs:documentation>
 									Representation of content in Binary
@@ -1079,8 +1031,7 @@
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="stringContent"
-							type="tns:TextContent">
+						<xs:element name="stringContent" type="tns:TextContent">
 							<xs:annotation>
 								<xs:documentation>
 									Data presented as a String. The data
@@ -1089,8 +1040,7 @@
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="urlContent"
-							type="tns:URLContent">
+						<xs:element name="urlContent" type="tns:URLContent">
 							<xs:annotation>
 								<xs:documentation>
 									If the content is located at an URL
@@ -1130,8 +1080,7 @@
 			<xs:complexType name="AssertableArtifact">
 				<xs:sequence>
 					<xs:choice>
-						<xs:element name="artifactAssetReference"
-							type="tns:ArtifactAsset">
+						<xs:element name="artifactAssetReference" type="tns:ArtifactAsset">
 							<xs:annotation>
 								<xs:documentation>
 									The Artifact which is to be
@@ -1141,8 +1090,7 @@
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="artifactExternal"
-							type="tns:ExternalArtifact">
+						<xs:element name="artifactExternal" type="tns:ExternalArtifact">
 							<xs:annotation>
 								<xs:documentation>
 									The artifact which is to be
@@ -1160,8 +1108,7 @@
 			<xs:complexType name="AssertableArtifactReference">
 				<xs:sequence>
 					<xs:choice>
-						<xs:element name="artifactAsset"
-							type="tns:ArtifactAsset">
+						<xs:element name="artifactAsset" type="tns:ArtifactAsset">
 							<xs:annotation>
 								<xs:documentation>
 									The Artifact which is to be
@@ -1171,8 +1118,7 @@
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="artifactExternal"
-							type="tns:ExternalArtifactReference">
+						<xs:element name="artifactExternal" type="tns:ExternalArtifactReference">
 							<xs:annotation>
 								<xs:documentation>
 									The artifact which is to be
@@ -1190,8 +1136,7 @@
 			<xs:complexType name="Assertion">
 				<xs:sequence>
 					<xs:choice>
-						<xs:element name="assertionAsset"
-							type="tns:AssertionAsset">
+						<xs:element name="assertionAsset" type="tns:AssertionAsset">
 							<xs:annotation>
 								<xs:documentation>
 									an AssertionModule which is present
@@ -1200,8 +1145,7 @@
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="externalAssertion"
-							type="tns:ExternalAssertion">
+						<xs:element name="externalAssertion" type="tns:ExternalAssertion">
 							<xs:annotation>
 								<xs:documentation>
 									An assertion whichis outside the
@@ -1215,13 +1159,11 @@
 
 			<xs:complexType name="ExternalAssertion">
 				<xs:sequence>
-					<xs:element name="name" type="xs:string"
-						minOccurs="1">
+					<xs:element minOccurs="1" name="name" type="xs:string">
 					</xs:element>
-					<xs:element name="version" type="xs:token"></xs:element>
-					<xs:element name="description" type="xs:string"></xs:element>
-					<xs:element name="errorSeverity"
-						type="tns:AssertionSeverity" minOccurs="1">
+					<xs:element name="version" type="xs:token"/>
+					<xs:element name="description" type="xs:string"/>
+					<xs:element minOccurs="1" name="errorSeverity" type="tns:AssertionSeverity">
 						<xs:annotation>
 							<xs:documentation>
 								The error severity to be thrown in case
@@ -1229,8 +1171,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="assertionScript"
-						type="tns:ExternalContent" minOccurs="1">
+					<xs:element minOccurs="1" name="assertionScript" type="tns:ExternalContent">
 						<xs:annotation>
 							<xs:documentation>
 								The object storing the actual script
@@ -1238,14 +1179,11 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="assertionProcessorType"
-						type="xs:string" minOccurs="1">
+					<xs:element minOccurs="1" name="assertionProcessorType" type="xs:string">
 					</xs:element>
-					<xs:element name="contentBindingName"
-						type="tns:ContentBindingName" minOccurs="1">
+					<xs:element minOccurs="1" name="contentBindingName" type="tns:ContentBindingName">
 					</xs:element>
-					<xs:element name="assertionModules"
-						type="tns:AssertionModule" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="assertionModules" type="tns:AssertionModule">
 						<xs:annotation>
 							<xs:documentation>
 								An Asset which represents an assertion
@@ -1272,8 +1210,7 @@
 				</xs:annotation>
 				<xs:sequence>
 					<xs:choice>
-						<xs:element name="assertionModuleExternal"
-							type="tns:ExternalAssertionModule">
+						<xs:element name="assertionModuleExternal" type="tns:ExternalAssertionModule">
 							<xs:annotation>
 								<xs:documentation>
 									an AssertionModule which is present
@@ -1283,8 +1220,7 @@
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="moduleAssetReference"
-							type="tns:AssertionModuleAsset">
+						<xs:element name="moduleAssetReference" type="tns:AssertionModuleAsset">
 							<xs:annotation>
 								<xs:documentation>
 									an AssertionModule which is present
@@ -1307,8 +1243,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="assertionReport"
-								type="tns:AssertionReport">
+							<xs:element name="assertionReport" type="tns:AssertionReport">
 								<xs:annotation>
 									<xs:documentation>
 										The report containing the
@@ -1333,9 +1268,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="assertionGroupReport"
-								type="tns:AssertionGroupReport" minOccurs="1"
-								maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="assertionGroupReport" type="tns:AssertionGroupReport">
 								<xs:annotation>
 									<xs:documentation>
 										The report containing the
@@ -1359,14 +1292,11 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="assertionGroup"
-						type="tns:AssertionGroup">
+					<xs:element name="assertionGroup" type="tns:AssertionGroup">
 					</xs:element>
-					<xs:element name="groupLevelSeverity"
-						type="tns:AssertionGroupSeverity">
+					<xs:element name="groupLevelSeverity" type="tns:AssertionGroupSeverity">
 					</xs:element>
-					<xs:element name="artifactReport"
-						type="tns:ArtifactReport" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="artifactReport" type="tns:ArtifactReport">
 						<xs:annotation>
 							<xs:documentation>
 								The report containing the details of the
@@ -1381,8 +1311,8 @@
 
 			<xs:simpleType name="AssertionGroupSeverity">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="ERROR"></xs:enumeration>
-					<xs:enumeration value="WARNING"></xs:enumeration>
+					<xs:enumeration value="ERROR"/>
+					<xs:enumeration value="WARNING"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -1393,8 +1323,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="artifactReport"
-						type="tns:ArtifactReport" minOccurs="1" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="artifactReport" type="tns:ArtifactReport">
 						<xs:annotation>
 							<xs:documentation>
 								The validation report of a single
@@ -1412,11 +1341,9 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="artifact"
-						type="tns:AssertableArtifactReference">
+					<xs:element name="artifact" type="tns:AssertableArtifactReference">
 					</xs:element>
-					<xs:element name="assertionResults"
-						type="tns:AssertionResult" minOccurs="1" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="assertionResults" type="tns:AssertionResult">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -1424,18 +1351,14 @@
 
 			<xs:complexType name="AssertionResult">
 				<xs:sequence>
-					<xs:element name="assertionName" type="xs:string"></xs:element>
-					<xs:element name="assertionVersion"
-						type="xs:token">
+					<xs:element name="assertionName" type="xs:string"/>
+					<xs:element name="assertionVersion" type="xs:token">
 					</xs:element>
-					<xs:element name="assertionDescription"
-						type="xs:string">
+					<xs:element name="assertionDescription" type="xs:string">
 					</xs:element>
-					<xs:element name="assertionSeverity"
-						type="tns:AssertionSeverity">
+					<xs:element name="assertionSeverity" type="tns:AssertionSeverity">
 					</xs:element>
-					<xs:element name="validationResult"
-						type="tns:ValidationResult">
+					<xs:element name="validationResult" type="tns:ValidationResult">
 						<xs:annotation>
 							<xs:documentation>
 								The result of indvidual Assertion
@@ -1443,9 +1366,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="resultItems"
-						type="tns:AssertionResultItem" minOccurs="0"
-						maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="resultItems" type="tns:AssertionResultItem">
 						<xs:annotation>
 							<xs:documentation>
 								Results of assertions conducted on a
@@ -1459,8 +1380,8 @@
 
 			<xs:simpleType name="ValidationResult">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="PASSED"></xs:enumeration>
-					<xs:enumeration value="FAILED"></xs:enumeration>
+					<xs:enumeration value="PASSED"/>
+					<xs:enumeration value="FAILED"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -1468,8 +1389,8 @@
 
 			<xs:complexType name="AssertionResultItem">
 				<xs:sequence>
-					<xs:element name="contentName" type="xs:string"></xs:element>
-					<xs:element name="messageText" type="xs:string"></xs:element>
+					<xs:element name="contentName" type="xs:string"/>
+					<xs:element name="messageText" type="xs:string"/>
 					<xs:element name="lineNumber" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
@@ -1512,10 +1433,8 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="description" type="xs:string"></xs:element>
-					<xs:element name="groupMembers"
-						type="tns:AssertionGroupMember" minOccurs="0"
-						maxOccurs="unbounded">
+					<xs:element name="description" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="groupMembers" type="tns:AssertionGroupMember">
 						<xs:annotation>
 							<xs:documentation>
 								Members of Assertion Group, like
@@ -1529,8 +1448,7 @@
 
 			<xs:complexType name="AssertionGroupMember">
 				<xs:sequence>
-					<xs:element name="assertionGroupAssetReference"
-						type="tns:AssetReference">
+					<xs:element name="assertionGroupAssetReference" type="tns:AssetReference">
 						<xs:annotation>
 							<xs:documentation>
 								Members of an Assertion Group. These
@@ -1545,111 +1463,89 @@
 	</wsdl:types>
 
 	<wsdl:message name="applyAssertionsRequest">
-		<wsdl:part name="parameters"
-			element="tns:applyAssertionsRequest">
+		<wsdl:part element="tns:applyAssertionsRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="applyAssertionsResponse">
-		<wsdl:part name="parameters"
-			element="tns:applyAssertionsResponse">
+		<wsdl:part element="tns:applyAssertionsResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 
 	<wsdl:message name="applyAssertionGroupsRequest">
-		<wsdl:part name="parameters"
-			element="tns:applyAssertionGroupsRequest">
+		<wsdl:part element="tns:applyAssertionGroupsRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="applyAssertionGroupsResponse">
-		<wsdl:part name="parameters"
-			element="tns:applyAssertionGroupsResponse">
+		<wsdl:part element="tns:applyAssertionGroupsResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 
 
 	<wsdl:portType name="AssertionsServicePort">
 		<wsdl:operation name="applyAssertions">
-			<wsdl:input name="applyAssertionsRequest"
-				message="tns:applyAssertionsRequest">
+			<wsdl:input message="tns:applyAssertionsRequest" name="applyAssertionsRequest">
 			</wsdl:input>
-			<wsdl:output name="applyAssertionsResponse"
-				message="tns:applyAssertionsResponse">
+			<wsdl:output message="tns:applyAssertionsResponse" name="applyAssertionsResponse">
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="applyAssertionGroups">
-			<wsdl:input name="applyAssertionGroupsRequest"
-				message="tns:applyAssertionGroupsRequest">
+			<wsdl:input message="tns:applyAssertionGroupsRequest" name="applyAssertionGroupsRequest">
 			</wsdl:input>
-			<wsdl:output name="applyAssertionGroupsResponse"
-				message="tns:applyAssertionGroupsResponse">
+			<wsdl:output message="tns:applyAssertionGroupsResponse" name="applyAssertionGroupsResponse">
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:portType>
 
 
-	<wsdl:binding name="AssertionsServiceHttpBinding"
-		type="tns:AssertionsServicePort">
-		<http:binding verb="POST" />
+	<wsdl:binding name="AssertionsServiceHttpBinding" type="tns:AssertionsServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="applyAssertions">
-			<http:operation location="/applyAssertions" />
+			<http:operation location="/applyAssertions"/>
 			<wsdl:input>
-				<mime:content part="applyAssertions"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="applyAssertions" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="applyAssertionsResponse"
-					type="text/xml" />
+				<mime:content part="applyAssertionsResponse" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="applyAssertionGroups">
-			<http:operation location="/applyAssertionGroups" />
+			<http:operation location="/applyAssertionGroups"/>
 			<wsdl:input>
-				<mime:content part="applyAssertionGroups"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="applyAssertionGroups" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="applyAssertionGroupsResponse"
-					type="text/xml" />
+				<mime:content part="applyAssertionGroupsResponse" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="AssertionsServiceSOAPBinding"
-		type="tns:AssertionsServicePort">
+	<wsdl:binding name="AssertionsServiceSOAPBinding" type="tns:AssertionsServicePort">
 
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="applyAssertions">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/services/applyAssertions" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/applyAssertions"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="applyAssertionGroups">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/services/applyAssertionGroups" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/applyAssertionGroups"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="AssertionsService">
-		<wsdl:port name="AssertionsServiceHttp"
-			binding="tns:AssertionsServiceHttpBinding">
-			<http:address
-				location="http://webservices.ebay.com/AssertionsService" />
+		<wsdl:port binding="tns:AssertionsServiceHttpBinding" name="AssertionsServiceHttp">
+			<http:address location="http://webservices.ebay.com/AssertionsService"/>
 		</wsdl:port>
-		<wsdl:port name="AssertionsServiceSOAP"
-			binding="tns:AssertionsServiceSOAPBinding">
-			<soap12:address
-				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-				location="http://webservices.ebay.com/AssertionsService" />
+		<wsdl:port binding="tns:AssertionsServiceSOAPBinding" name="AssertionsServiceSOAP">
+			<soap12:address location="http://webservices.ebay.com/AssertionsService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

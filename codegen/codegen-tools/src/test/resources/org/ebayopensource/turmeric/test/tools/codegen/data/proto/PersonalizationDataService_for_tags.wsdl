@@ -1,32 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions
-	targetNamespace="http://www.ebay.com/marketplace/personalization/v1/services"
-	jaxb:version="wsdl:2.0"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:tns="http://www.ebay.com/marketplace/personalization/v1/services"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/personalization/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" jaxb:version="wsdl:2.0" targetNamespace="http://www.ebayopensource.org/tumeric/personalization/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified" jaxb:version="2.0"
-			targetNamespace="http://www.ebay.com/marketplace/personalization/v1/services"
-			xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
-			xmlns:tns="http://www.ebay.com/marketplace/personalization/v1/services"
-			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" jaxb:version="2.0" targetNamespace="http://www.ebayopensource.org/tumeric/personalization/v1/services">
 		
-			<xs:element name="getAttributesRequest" 
-				type="tns:GetAttributesRequest" />
-			<xs:element name="getAttributesResponse" 
-				type="tns:GetAttributesResponse" />
-			<xs:element name="setAttributesRequest" 
-				type="tns:SetAttributesRequest" />
-			<xs:element name="setAttributesResponse" 
-				type="tns:SetAttributesResponse" />
+			<xs:element name="getAttributesRequest" type="tns:GetAttributesRequest"/>
+			<xs:element name="getAttributesResponse" type="tns:GetAttributesResponse"/>
+			<xs:element name="setAttributesRequest" type="tns:SetAttributesRequest"/>
+			<xs:element name="setAttributesResponse" type="tns:SetAttributesResponse"/>
 
 			<xs:complexType name="ExtensionType">
 			    <xs:sequence>
@@ -45,7 +24,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="Id" type="xs:string" />
+					<xs:element name="Id" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -54,19 +33,18 @@
 					<xs:documentation>Attribute Id</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="AttributeId" type="xs:int"></xs:element>
+					<xs:element name="AttributeId" type="xs:int"/>
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:complexType name="BaseAttributeValue" abstract="true">
+			<xs:complexType abstract="true" name="BaseAttributeValue">
 				<xs:annotation>
 					<xs:documentation>
 						Attribute Value base type
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="lastModifiedTime"
-						type="xs:dateTime">
+					<xs:element name="lastModifiedTime" type="xs:dateTime">
 					</xs:element>
 
 				</xs:sequence>
@@ -74,13 +52,12 @@
 
 			<xs:complexType name="BooleanAttributeValue">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAttributeValue">
 						<xs:sequence>
-							<xs:element name="value"
-								type="xs:boolean">
+							<xs:element name="value" type="xs:boolean">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -89,13 +66,12 @@
 
 			<xs:complexType name="CustomAttributeValue">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAttributeValue">
 						<xs:sequence>
-							<xs:element name="rawValue"
-								type="xs:string">
+							<xs:element name="rawValue" type="xs:string">
 							</xs:element>
 						
 						</xs:sequence>
@@ -105,13 +81,12 @@
 
 			<xs:complexType name="DateAttributeValue">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAttributeValue">
 						<xs:sequence>
-							<xs:element name="value"
-								type="xs:dateTime">
+							<xs:element name="value" type="xs:dateTime">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -122,113 +97,101 @@
 
 			<xs:complexType name="FloatAttributeValue">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAttributeValue">
 						<xs:sequence>
-							<xs:element name="value" type="xs:float"></xs:element>
+							<xs:element name="value" type="xs:float"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="IntAttributeValue">
-				<xs:annotation></xs:annotation>
+				<xs:annotation/>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAttributeValue">
 						<xs:sequence>
-							<xs:element name="value" type="xs:int"></xs:element>
+							<xs:element name="value" type="xs:int"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="LongAttributeValue">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAttributeValue">
 						<xs:sequence>
-							<xs:element name="value" type="xs:long"></xs:element>
+							<xs:element name="value" type="xs:long"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="ListValue">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:choice>
-						<xs:element maxOccurs="1" name="booleanValue"
-							type="tns:BooleanAttributeValue">
+						<xs:element maxOccurs="1" name="booleanValue" type="tns:BooleanAttributeValue">
 						</xs:element>
-						<xs:element maxOccurs="1" name="intValue"
-							type="tns:IntAttributeValue">
+						<xs:element maxOccurs="1" name="intValue" type="tns:IntAttributeValue">
 						</xs:element>
-						<xs:element maxOccurs="1" name="stringValue"
-							type="tns:StringAttributeValue">
+						<xs:element maxOccurs="1" name="stringValue" type="tns:StringAttributeValue">
 						</xs:element>
-						<xs:element maxOccurs="1" name="longValue"
-							type="tns:LongAttributeValue">
+						<xs:element maxOccurs="1" name="longValue" type="tns:LongAttributeValue">
 						</xs:element>
-						<xs:element maxOccurs="1" name="floatValue"
-							type="tns:FloatAttributeValue">
+						<xs:element maxOccurs="1" name="floatValue" type="tns:FloatAttributeValue">
 						</xs:element>
-						<xs:element maxOccurs="1" name="doubleValue"
-							type="tns:DoubleAttributeValue">
+						<xs:element maxOccurs="1" name="doubleValue" type="tns:DoubleAttributeValue">
 						</xs:element>
-						<xs:element maxOccurs="1" name="dateValue"
-							type="tns:DateAttributeValue">
+						<xs:element maxOccurs="1" name="dateValue" type="tns:DateAttributeValue">
 						</xs:element>
-						<xs:element maxOccurs="1" name="customValue"
-							type="tns:CustomAttributeValue">
+						<xs:element maxOccurs="1" name="customValue" type="tns:CustomAttributeValue">
 						</xs:element>
 					</xs:choice>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="StatusEnum">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="SUCCESS"></xs:enumeration>
-					<xs:enumeration value="ERROR"></xs:enumeration>
-					<xs:enumeration value="TIMEOUT"></xs:enumeration>
-					<xs:enumeration value="DEFAULT_VALUE"></xs:enumeration>
-					<xs:enumeration value="NOT_PROCESSED"></xs:enumeration>
-					<xs:enumeration value="RESERVED1"></xs:enumeration>
-					<xs:enumeration value="RESERVED2"></xs:enumeration>
-					<xs:enumeration value="RESERVED3"></xs:enumeration>
-					<xs:enumeration value="RESERVED4"></xs:enumeration>
-					<xs:enumeration value="RESERVED5"></xs:enumeration>
-					<xs:enumeration value="RESERVED6"></xs:enumeration>
+					<xs:enumeration value="SUCCESS"/>
+					<xs:enumeration value="ERROR"/>
+					<xs:enumeration value="TIMEOUT"/>
+					<xs:enumeration value="DEFAULT_VALUE"/>
+					<xs:enumeration value="NOT_PROCESSED"/>
+					<xs:enumeration value="RESERVED1"/>
+					<xs:enumeration value="RESERVED2"/>
+					<xs:enumeration value="RESERVED3"/>
+					<xs:enumeration value="RESERVED4"/>
+					<xs:enumeration value="RESERVED5"/>
+					<xs:enumeration value="RESERVED6"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="Status">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="statusCode"
-						type="tns:StatusEnum">
+					<xs:element name="statusCode" type="tns:StatusEnum">
 					</xs:element>
-					<xs:element minOccurs="0" name="errorCode"
-						type="xs:int">
+					<xs:element minOccurs="0" name="errorCode" type="xs:int">
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="xs:string">
+					<xs:element minOccurs="0" name="errorMessage" type="xs:string">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			
 			<xs:complexType name="ListAttributeValue">
-				<xs:annotation></xs:annotation>
+				<xs:annotation/>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAttributeValue">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								name="value" type="tns:ListValue">
+							<xs:element maxOccurs="unbounded" name="value" type="tns:ListValue">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -236,18 +199,18 @@
 			</xs:complexType>
 			<xs:complexType name="Attribute">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="Id" type="tns:AttributeId"></xs:element>
-					<xs:element name="Status" type="tns:Status"></xs:element>
-					<xs:element name="Value" type="tns:AttributeValue"></xs:element>
+					<xs:element name="Id" type="tns:AttributeId"/>
+					<xs:element name="Status" type="tns:Status"/>
+					<xs:element name="Value" type="tns:AttributeValue"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="Key">
-				<xs:annotation></xs:annotation>
+				<xs:annotation/>
 				<xs:complexContent>
-					<xs:extension base="tns:Attribute"></xs:extension>
+					<xs:extension base="tns:Attribute"/>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType abstract="true" name="BaseServiceRequest">
@@ -259,26 +222,24 @@
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
-			<xs:complexType abstract="true"
-				name="PdsBaseServiceRequest">				
+			<xs:complexType abstract="true" name="PdsBaseServiceRequest">				
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
 							<xs:element maxOccurs="unbounded" minOccurs="0" name="extensionData" type="tns:ExtensionType"/>
-							<xs:element name="clientId" type="tns:ClientId" />	
+							<xs:element name="clientId" type="tns:ClientId"/>	
 						
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 		
-			<xs:complexType abstract="true"
-				name="PdsBaseServiceResponse">
+			<xs:complexType abstract="true" name="PdsBaseServiceResponse">
 				<xs:complexContent>
-					<xs:extension base="tns:BaseServiceResponse" >
+					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>						
 							<xs:element maxOccurs="unbounded" minOccurs="0" name="extensionData" type="tns:ExtensionType"/>							
 						</xs:sequence>
@@ -312,10 +273,8 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PdsBaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								name="attributes" type="tns:Attribute" />
-							<xs:element maxOccurs="unbounded"
-								name="keys" type="tns:Key" />
+							<xs:element maxOccurs="unbounded" name="attributes" type="tns:Attribute"/>
+							<xs:element maxOccurs="unbounded" name="keys" type="tns:Key"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -347,8 +306,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PdsBaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="attributeStatus" type="xs:string">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="attributeStatus" type="xs:string">
 							</xs:element>
 							<xs:element name="keys" type="xs:string">
 							</xs:element>
@@ -357,8 +315,7 @@
 				</xs:complexContent>
 			</xs:complexType>
 			<!-- inherited ones from the marketplace svc definitions -->
-			<xs:complexType abstract="true"
-				name="BaseServiceResponse">
+			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -374,14 +331,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -390,38 +346,36 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="version"
-						type="xs:string">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="timestamp"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="AckValue">
@@ -484,15 +438,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -518,7 +471,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -540,14 +493,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates whether the error caused the
@@ -586,14 +538,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 						<xs:annotation>
 							<xs:documentation>
 								There are three categories of errors:
@@ -602,7 +553,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -616,14 +567,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain upon which the
@@ -639,14 +589,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for an exception
@@ -654,14 +603,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -672,7 +620,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -697,7 +645,7 @@
 								</xs:documentation>
 								<xs:appinfo>
 									<CallInfo>
-										<AllCalls />
+										<AllCalls/>
 										<Returned>
 											Conditionally
 										</Returned>
@@ -811,39 +759,37 @@
 
 			<xs:complexType name="StringAttributeValue">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAttributeValue">
 						<xs:sequence>
-							<xs:element name="value" type="xs:string"></xs:element>
+							<xs:element name="value" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="DoubleAttributeValue">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseAttributeValue">
 						<xs:sequence>
-							<xs:element name="value" type="xs:double"></xs:element>
+							<xs:element name="value" type="xs:double"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="AttributeValue">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:choice>
-						<xs:element name="complexListValue"
-							type="tns:ListAttributeValue">
+						<xs:element name="complexListValue" type="tns:ListAttributeValue">
 						</xs:element>
-						<xs:element name="simpleListValue"
-							type="tns:ListValue">
+						<xs:element name="simpleListValue" type="tns:ListValue">
 						</xs:element>
 					</xs:choice>
 				</xs:sequence>
@@ -851,23 +797,19 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="setAttributesRequest">
-		<wsdl:part name="parameters"
-			element="tns:setAttributesRequest">
+		<wsdl:part element="tns:setAttributesRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getAttributesResponse">
-		<wsdl:part name="parameters"
-			element="tns:getAttributesResponse">
+		<wsdl:part element="tns:getAttributesResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getAttributesRequest">
-		<wsdl:part name="parameters"
-			element="tns:getAttributesRequest">
+		<wsdl:part element="tns:getAttributesRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="setAttributesResponse">
-		<wsdl:part name="parameters"
-			element="tns:setAttributesResponse">
+		<wsdl:part element="tns:setAttributesResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:portType name="PersonalizationDataServicePort">
@@ -875,7 +817,7 @@
 			<wsdl:documentation>
 				Get one or more attributes
 			</wsdl:documentation>
-			<wsdl:input message="tns:getAttributesRequest"></wsdl:input>
+			<wsdl:input message="tns:getAttributesRequest"/>
 			<wsdl:output message="tns:getAttributesResponse">
 			</wsdl:output>
 		</wsdl:operation>
@@ -883,101 +825,89 @@
 			<wsdl:documentation>
 				Set one or more attributes
 			</wsdl:documentation>
-			<wsdl:input message="tns:setAttributesRequest"></wsdl:input>
+			<wsdl:input message="tns:setAttributesRequest"/>
 			<wsdl:output message="tns:setAttributesResponse">
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:binding name="PersonalizationDataServiceSOAPBinding" type="tns:PersonalizationDataServicePort">
-		<soap12:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getAttributes">
 			<wsdl:documentation>
 				Get one or more attributes
 			</wsdl:documentation>
-			<soap12:operation soapAction="urn:getPdsAttributes"
-				style="document" />
+			<soap12:operation soapAction="urn:getPdsAttributes" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="setAttributes">
 			<wsdl:documentation>
 				Set one or more attributes
 			</wsdl:documentation>
-			<soap12:operation soapAction="urn:setPdsAttributes"
-				style="document" />
+			<soap12:operation soapAction="urn:setPdsAttributes" style="document"/>
 			<wsdl:input>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:binding name="PersonalizationDataServiceSOAP11Binding" type="tns:PersonalizationDataServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getAttributes">
 			<wsdl:documentation>
 				Get one or more attributes
 			</wsdl:documentation>
-			<soap:operation soapAction="urn:getAttributes"
-				style="document" />
+			<soap:operation soapAction="urn:getAttributes" style="document"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="setAttributes">
 			<wsdl:documentation>
 				Set one or more attributes
 			</wsdl:documentation>
-			<soap:operation soapAction="urn:setAttributes"
-				style="document" />
+			<soap:operation soapAction="urn:setAttributes" style="document"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:binding name="PersonalizationDataServiceHttpBinding" type="tns:PersonalizationDataServicePort">
-		<http:binding verb="POST" />
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getAttributes">
 			<wsdl:documentation>
 				Get one or more attributes
 			</wsdl:documentation>
-			<http:operation
-				location="PersonalizationDataService/getAttributes" />
+			<http:operation location="PersonalizationDataService/getAttributes"/>
 			<wsdl:input>
-				<mime:content part="getAttributesRequest"
-					type="text/xml" />
+				<mime:content part="getAttributesRequest" type="text/xml"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="getAttributesResponse"
-					type="text/xml" />
+				<mime:content part="getAttributesResponse" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="setAttributes">
 			<wsdl:documentation>
 				Set one or more attributes
 			</wsdl:documentation>
-			<http:operation
-				location="PersonalizationDataService/setAttributes" />
+			<http:operation location="PersonalizationDataService/setAttributes"/>
 			<wsdl:input>
-				<mime:content part="setAttributesRequest"
-					type="text/xml" />
+				<mime:content part="setAttributesRequest" type="text/xml"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="setAttributesResponse"
-					type="text/xml" />
+				<mime:content part="setAttributesResponse" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -987,18 +917,14 @@
 			Pds Service provides a unified way to access user/visitor
 			attributes.
 		</wsdl:documentation>
-		<wsdl:port name="PersonalizationDataServiceHttp" binding="tns:PersonalizationDataServiceHttpBinding">
-			<http:address
-				location="https://svcs.ebay.com/services/personalization/PersonalizationDataService/v1" />
+		<wsdl:port binding="tns:PersonalizationDataServiceHttpBinding" name="PersonalizationDataServiceHttp">
+			<http:address location="https://svcs.ebay.com/services/personalization/PersonalizationDataService/v1"/>
 		</wsdl:port>
-		<wsdl:port name="PersonalizationDataServiceSOAP12" binding="tns:PersonalizationDataServiceSOAPBinding">
-			<soap12:address
-				location="https://svcs.ebay.com/services/personalization/PersonalizationDataService/v1" />
+		<wsdl:port binding="tns:PersonalizationDataServiceSOAPBinding" name="PersonalizationDataServiceSOAP12">
+			<soap12:address location="https://svcs.ebay.com/services/personalization/PersonalizationDataService/v1"/>
 		</wsdl:port>
-		<wsdl:port name="PersonalizationDataServiceSOAP11port_http"
-			binding="tns:PersonalizationDataServiceSOAP11Binding">
-			<soap:address
-				location="https://svcs.ebay.com/services/personalization/PersonalizationDataService/v1" />
+		<wsdl:port binding="tns:PersonalizationDataServiceSOAP11Binding" name="PersonalizationDataServiceSOAP11port_http">
+			<soap:address location="https://svcs.ebay.com/services/personalization/PersonalizationDataService/v1"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

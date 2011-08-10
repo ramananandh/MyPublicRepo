@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services">
+    <xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 	    	<xs:complexType abstract="true" name="BaseServiceRequestType">
 			<xs:annotation>
@@ -161,7 +160,7 @@
 				</xs:documentation>
 			</xs:annotation>
 			<xs:sequence>
-			    <xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData"/>
+			    <xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 			</xs:sequence>
             	</xs:complexType>
             
@@ -179,7 +178,7 @@
 			    <xs:element name="message" type="xs:string"/>
 			    <xs:element minOccurs="0" name="subdomain" type="xs:string"/>
 			    <xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
-			    <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter"/>
+			    <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 			</xs:sequence>
             	</xs:complexType>
             
@@ -223,15 +222,15 @@
 			</xs:restriction>
             	</xs:simpleType>
             
-		<xs:element name="authorizeRequest"  type="tns:AuthorizeRequestType"/>
-		<xs:element name="authorizeResponse"  type="tns:AuthorizeResponseType"/>
+		<xs:element name="authorizeRequest" type="tns:AuthorizeRequestType"/>
+		<xs:element name="authorizeResponse" type="tns:AuthorizeResponseType"/>
         </xs:schema>
   </wsdl:types>
   <wsdl:message name="authorizeResponse">
-    <wsdl:part name="parameters" element="ns0:authorizeResponse"/>
+    <wsdl:part element="ns0:authorizeResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="authorizeRequest">
-    <wsdl:part name="parameters" element="ns0:authorizeRequest"/>
+    <wsdl:part element="ns0:authorizeRequest" name="parameters"/>
   </wsdl:message>
   <wsdl:portType name="AuthorizationServicePortType">
     <wsdl:operation name="authorize">
@@ -252,14 +251,14 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="AuthorizationServiceSOAP12Binding" type="ns0:AuthorizationServicePortType">
-    <soap12:binding xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="authorize">
-    <soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:authorize" style="document"/>
+    <soap12:operation soapAction="urn:authorize" style="document"/>
       <wsdl:input>
-    <soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+    <soap12:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
-    <soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+    <soap12:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
@@ -276,13 +275,13 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="AuthorizationService">
-    <wsdl:port name="AuthorizationServiceSOAP11port_http" binding="ns0:AuthorizationServiceSOAP11Binding">
+    <wsdl:port binding="ns0:AuthorizationServiceSOAP11Binding" name="AuthorizationServiceSOAP11port_http">
       <soap:address location="http://localhost:8080/AuthorizationService"/>
     </wsdl:port>
-    <wsdl:port name="AuthorizationServiceSOAP12port_http" binding="ns0:AuthorizationServiceSOAP12Binding">
-    <soap12:address xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" location="http://localhost:8080/AuthorizationService"/>
+    <wsdl:port binding="ns0:AuthorizationServiceSOAP12Binding" name="AuthorizationServiceSOAP12port_http">
+    <soap12:address location="http://localhost:8080/AuthorizationService"/>
     </wsdl:port>
-    <wsdl:port name="AuthorizationServiceHttpport" binding="ns0:AuthorizationServiceHttpBinding">
+    <wsdl:port binding="ns0:AuthorizationServiceHttpBinding" name="AuthorizationServiceHttpport">
       <http:address location="http://localhost:8080/AuthorizationService"/>
     </wsdl:port>
   </wsdl:service>

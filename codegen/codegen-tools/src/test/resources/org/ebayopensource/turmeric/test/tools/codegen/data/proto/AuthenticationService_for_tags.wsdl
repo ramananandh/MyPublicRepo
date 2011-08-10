@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://www.ebay.com/marketplace/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 	<wsdl:types>
-        	<xs:schema xmlns:tns="http://www.ebay.com/marketplace/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services">
+        	<xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 	    	<xs:complexType abstract="true" name="BaseServiceRequestType">
 			<xs:annotation>
@@ -61,7 +60,7 @@
 			<xs:complexContent>
 			    	<xs:extension base="tns:BaseAuthenticationServiceRequestType">
 				<xs:sequence>
-                    			<xs:element minOccurs="0" maxOccurs="unbounded" name="credential" type="tns:CredentialType"/>
+                    			<xs:element maxOccurs="unbounded" minOccurs="0" name="credential" type="tns:CredentialType"/>
 				</xs:sequence>
 			    </xs:extension>
 			</xs:complexContent>
@@ -72,8 +71,8 @@
 			    	<xs:extension base="tns:BaseAuthenticationServiceResponseType">
 				<xs:sequence>
                     		    <xs:element minOccurs="0" name="authenticationMethod" type="xs:string"/>
-				    <xs:element minOccurs="0" maxOccurs="unbounded" name="subject" type="tns:SubjectType"/>
-				    <xs:element minOccurs="0" maxOccurs="unbounded" name="subjectgroup" type="tns:SubjectGroupType"/>
+				    <xs:element maxOccurs="unbounded" minOccurs="0" name="subject" type="tns:SubjectType"/>
+				    <xs:element maxOccurs="unbounded" minOccurs="0" name="subjectgroup" type="tns:SubjectGroupType"/>
 				</xs:sequence>
 			    </xs:extension>
 			</xs:complexContent>
@@ -153,7 +152,7 @@
 				</xs:documentation>
 			</xs:annotation>
 			<xs:sequence>
-			    <xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData"/>
+			    <xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 			</xs:sequence>
             	</xs:complexType>
             
@@ -171,7 +170,7 @@
 			    <xs:element name="message" type="xs:string"/>
 			    <xs:element minOccurs="0" name="subdomain" type="xs:string"/>
 			    <xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
-			    <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter"/>
+			    <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 			</xs:sequence>
             	</xs:complexType>
             
@@ -215,16 +214,16 @@
 			</xs:restriction>
             	</xs:simpleType>
             
-		<xs:element name="authenticateRequest"  type="tns:AuthenticateRequestType"/>
-		<xs:element name="authenticateResponse"  type="tns:AuthenticateResponseType"/>
+		<xs:element name="authenticateRequest" type="tns:AuthenticateRequestType"/>
+		<xs:element name="authenticateResponse" type="tns:AuthenticateResponseType"/>
         </xs:schema>
     </wsdl:types>
     
     <wsdl:message name="authenticateRequest">
-        <wsdl:part name="parameters" element="ns0:authenticateRequest"/>
+        <wsdl:part element="ns0:authenticateRequest" name="parameters"/>
     </wsdl:message>
     <wsdl:message name="authenticateResponse">
-        <wsdl:part name="parameters" element="ns0:authenticateResponse"/>
+        <wsdl:part element="ns0:authenticateResponse" name="parameters"/>
     </wsdl:message>
     
     <wsdl:portType name="AuthenticationServicePortType">
@@ -235,7 +234,7 @@
     </wsdl:portType>
 
     <wsdl:binding name="AuthenticationServiceSOAP11Binding" type="ns0:AuthenticationServicePortType">
-        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="authenticate">
             <soap:operation soapAction="urn:authenticate" style="document"/>
             <wsdl:input>
@@ -248,7 +247,7 @@
     </wsdl:binding>
 
     <wsdl:binding name="AuthenticationServiceSOAP12Binding" type="ns0:AuthenticationServicePortType">
-        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="authenticate">
             <soap12:operation soapAction="urn:authenticate" style="document"/>
             <wsdl:input>
@@ -265,21 +264,21 @@
         <wsdl:operation name="authenticate">
             <http:operation location="AuthenticationService/authenticate"/>
             <wsdl:input>
-                <mime:content type="text/xml" part="authenticateRequest"/>
+                <mime:content part="authenticateRequest" type="text/xml"/>
             </wsdl:input>
             <wsdl:output>
-                <mime:content type="text/xml" part="authenticateResponse"/>
+                <mime:content part="authenticateResponse" type="text/xml"/>
             </wsdl:output>
         </wsdl:operation>
     </wsdl:binding>
     <wsdl:service name="AuthenticationService">
-        <wsdl:port name="AuthenticationServiceSOAP11port_http" binding="ns0:AuthenticationServiceSOAP11Binding">
+        <wsdl:port binding="ns0:AuthenticationServiceSOAP11Binding" name="AuthenticationServiceSOAP11port_http">
             <soap:address location="http://localhost:8080/AuthenticationService"/>
         </wsdl:port>
-        <wsdl:port name="AuthenticationServiceSOAP12port_http" binding="ns0:AuthenticationServiceSOAP12Binding">
+        <wsdl:port binding="ns0:AuthenticationServiceSOAP12Binding" name="AuthenticationServiceSOAP12port_http">
             <soap12:address location="http://localhost:8080/AuthenticationService"/>
         </wsdl:port>
-        <wsdl:port name="AuthenticationServiceHttpport" binding="ns0:AuthenticationServiceHttpBinding">
+        <wsdl:port binding="ns0:AuthenticationServiceHttpBinding" name="AuthenticationServiceHttpport">
             <http:address location="http://localhost:8080/AuthenticationService"/>
         </wsdl:port>
     </wsdl:service>

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="AdBillingService" targetNamespace="http://www.ebay.com/marketplace/billingadcommerce/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/marketplace/billingadcommerce/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/billingadcommerce/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AdBillingService" targetNamespace="http://www.ebayopensource.org/tumeric/billingadcommerce/v1/services">
  <types> 
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/billingadcommerce/v1/services">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/billingadcommerce/v1/services">
 
      <!-- CORE TYPES -->
 
@@ -14,7 +13,7 @@
              communicated to the user.
          </xs:documentation>
          <xs:appinfo>
-           <typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+           <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
          </xs:appinfo>
        </xs:annotation>
        <xs:restriction base="xs:string">
@@ -66,7 +65,7 @@
            all service operations.
          </xs:documentation>
          <xs:appinfo>
-            <typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
          </xs:appinfo>
        </xs:annotation>
        <xs:sequence>
@@ -82,7 +81,7 @@
           associated with the request.
        </xs:documentation>
          <xs:appinfo>
-           <typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+           <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
          </xs:appinfo>
        </xs:annotation>
        <xs:sequence>
@@ -144,7 +143,7 @@
               Documentation goes here.
             </xs:documentation>
             <xs:appinfo>
-              <typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
             </xs:appinfo>
           </xs:annotation>
           <xs:restriction base="xs:token">
@@ -160,7 +159,7 @@
               Documentation goes here
             </xs:documentation>
             <xs:appinfo>
-              <typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
             </xs:appinfo>
           </xs:annotation>
           <xs:sequence>
@@ -181,7 +180,7 @@
               Documentation goes here
             </xs:documentation>
             <xs:appinfo>
-              <typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
             </xs:appinfo>
           </xs:annotation>
           <!-- 
@@ -200,7 +199,7 @@
                Documentation goes here
             </xs:documentation>
             <xs:appinfo>
-            <typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
             </xs:appinfo>
           </xs:annotation>
           <xs:simpleContent>
@@ -216,7 +215,7 @@
               Documentation goes here.
             </xs:documentation>
             <xs:appinfo>
-              <typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
             </xs:appinfo>
           </xs:annotation>
           <xs:restriction base="xs:token">
@@ -519,7 +518,7 @@
      <xs:complexType name="UsageCreditResponseType">                           
        <xs:complexContent>
          <xs:extension base="tns:BaseResponseType">
-              <xs:element name="creditAmountIssued" type="tns:Money" minOccurs="1">
+              <xs:element minOccurs="1" name="creditAmountIssued" type="tns:Money">
 				<xs:annotation>
 			        	<xs:documentation>
 			                    This is the Credit Amount Issued. 
@@ -541,7 +540,7 @@
        <xs:annotation>
         <xs:documentation/>
           <xs:appinfo>
-            <typeLibrarySource library="BillingTypeLibrary" namespace="http://www.ebay.com/marketplace/billing/v1/services">
+            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
             </typeLibrarySource>
           </xs:appinfo>
        </xs:annotation>
@@ -556,7 +555,7 @@
           <xs:annotation>
             <xs:documentation/>
             <xs:appinfo>
-               <typeLibrarySource library="BillingTypeLibrary" namespace="http://www.ebay.com/marketplace/billing/v1/services">
+               <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
                </typeLibrarySource>
             </xs:appinfo>
           </xs:annotation>
@@ -570,7 +569,7 @@
           <xs:annotation>
             <xs:documentation/>
             <xs:appinfo>
-              <typeLibrarySource library="BillingTypeLibrary" namespace="http://www.ebay.com/marketplace/billing/v1/services">
+              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
               </typeLibrarySource>
             </xs:appinfo>
           </xs:annotation>
@@ -585,7 +584,7 @@
             <xs:annotation>
               <xs:documentation/>
                 <xs:appinfo>
-                  <typeLibrarySource library="BillingTypeLibrary" namespace="http://www.ebay.com/marketplace/billing/v1/services">
+                  <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
                   </typeLibrarySource>
                 </xs:appinfo>
               </xs:annotation>
@@ -603,7 +602,7 @@
               <xs:annotation>
                 <xs:documentation/>
                 <xs:appinfo>
-                  <typeLibrarySource library="BillingTypeLibrary" namespace="http://www.ebay.com/marketplace/billing/v1/services">
+                  <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
                   </typeLibrarySource>
                 </xs:appinfo>
               </xs:annotation>
@@ -618,7 +617,7 @@
           <xs:annotation>
             <xs:documentation/>
               <xs:appinfo>
-                <typeLibrarySource library="BillingTypeLibrary" namespace="http://www.ebay.com/marketplace/billing/v1/services">
+                <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
                 </typeLibrarySource>
               </xs:appinfo>
           </xs:annotation>
@@ -631,7 +630,7 @@
           <xs:annotation>
           <xs:documentation/>
             <xs:appinfo>
-              <typeLibrarySource library="BillingTypeLibrary" namespace="http://www.ebay.com/marketplace/billing/v1/services">
+              <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/billing/v1/services">
               </typeLibrarySource>
 		    </xs:appinfo>
 		  </xs:annotation>
@@ -687,7 +686,7 @@
 						Comments are included for quick reference.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -833,7 +832,7 @@
                    Money information.
                </xs:documentation>
                <xs:appinfo>
-                  <typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+                  <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
                   </typeLibrarySource>
                </xs:appinfo>
             </xs:annotation>
@@ -849,23 +848,23 @@
     </xs:schema>
   </types>
   <message name="applyUsageCreditResponse">
-    <part name="params" element="tns:applyUsageCreditResponse">
+    <part element="tns:applyUsageCreditResponse" name="params">
     </part>
   </message>
   <message name="applyUsageChargeResponse">
-    <part name="params" element="tns:applyUsageChargeResponse">
+    <part element="tns:applyUsageChargeResponse" name="params">
     </part>
   </message>
   <message name="applyUsageChargeRequest">
-    <part name="params" element="tns:applyUsageChargeRequest">
+    <part element="tns:applyUsageChargeRequest" name="params">
     </part>
   </message>
   <message name="getVersionResponse">
-    <part name="params" element="tns:getVersionResponse">
+    <part element="tns:getVersionResponse" name="params">
     </part>
   </message>
   <message name="applyUsageCreditRequest">
-    <part name="params" element="tns:applyUsageCreditRequest">
+    <part element="tns:applyUsageCreditRequest" name="params">
     </part>
   </message>
   <portType name="AdBillingServicePort">
@@ -891,7 +890,7 @@
   <binding name="AdBillingServiceSOAPBinding" type="tns:AdBillingServicePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="applyUsageCharge">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/billingadcommerce/v1/services/applyUsageCharge"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/billingadcommerce/v1/services/applyUsageCharge"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -900,7 +899,7 @@
       </output>
     </operation>
     <operation name="applyUsageCredit">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/billingadcommerce/v1/services/applyUsageCredit"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/billingadcommerce/v1/services/applyUsageCredit"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -909,7 +908,7 @@
       </output>
     </operation>
     <operation name="getVersion">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/billingadcommerce/v1/services/getVersion"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/billingadcommerce/v1/services/getVersion"/>
       <output>
         <soap:body use="literal"/>
       </output>
@@ -921,7 +920,7 @@
          Ad Billing service handles an operation at a transaction level, on a given billing account.
          Its built to handle all kinds of operations, which adcommerce would expect for its billing needs.
       </wsdl:documentation>
-    <port name="AdBillingServiceSOAPPort" binding="tns:AdBillingServiceSOAPBinding">
+    <port binding="tns:AdBillingServiceSOAPBinding" name="AdBillingServiceSOAPPort">
       <soap12:address location="https://svcs.ebay.com/services/billing/AdBillingService/v1"/>
     </port>
   </service>

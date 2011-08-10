@@ -1,33 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:tns="http://www.ebay.com/marketplace/search/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	name="FindingUserPreferenceService"
-	targetNamespace="http://www.ebay.com/marketplace/search/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/search/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FindingUserPreferenceService" targetNamespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/search/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 
-			<xs:element name="getVersionRequest" type="tns:GetVersionRequest" />
-			<xs:element name="getVersionResponse" type="tns:GetVersionResponse" />
-			<xs:element name="addPreferenceRequest" type="tns:AddPreferenceRequest" />
-			<xs:element name="addPreferenceResponse" type="tns:AddPreferenceResponse" />
-			<xs:element name="removePreferenceRequest" type="tns:RemovePreferenceRequest" />
-			<xs:element name="removePreferenceResponse" type="tns:RemovePreferenceResponse" />
-			<xs:element name="removePreferenceByTypeRequest" type="tns:RemovePreferenceByTypeRequest" />
-			<xs:element name="removePreferenceByTypeResponse" type="tns:RemovePreferenceByTypeResponse" />
-			<xs:element name="savePreferenceRequest" type="tns:SavePreferenceRequest" />
-			<xs:element name="savePreferenceResponse" type="tns:SavePreferenceResponse" />
-			<xs:element name="getPreferenceRequest" type="tns:GetPreferenceRequest" />
-			<xs:element name="getPreferenceResponse" type="tns:GetPreferenceResponse" />
-			<xs:element name="getPreferenceByTypeRequest" type="tns:GetPreferenceByTypeRequest" />
-			<xs:element name="getPreferenceByTypeResponse" type="tns:GetPreferenceByTypeResponse" />
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
+			<xs:element name="addPreferenceRequest" type="tns:AddPreferenceRequest"/>
+			<xs:element name="addPreferenceResponse" type="tns:AddPreferenceResponse"/>
+			<xs:element name="removePreferenceRequest" type="tns:RemovePreferenceRequest"/>
+			<xs:element name="removePreferenceResponse" type="tns:RemovePreferenceResponse"/>
+			<xs:element name="removePreferenceByTypeRequest" type="tns:RemovePreferenceByTypeRequest"/>
+			<xs:element name="removePreferenceByTypeResponse" type="tns:RemovePreferenceByTypeResponse"/>
+			<xs:element name="savePreferenceRequest" type="tns:SavePreferenceRequest"/>
+			<xs:element name="savePreferenceResponse" type="tns:SavePreferenceResponse"/>
+			<xs:element name="getPreferenceRequest" type="tns:GetPreferenceRequest"/>
+			<xs:element name="getPreferenceResponse" type="tns:GetPreferenceResponse"/>
+			<xs:element name="getPreferenceByTypeRequest" type="tns:GetPreferenceByTypeRequest"/>
+			<xs:element name="getPreferenceByTypeResponse" type="tns:GetPreferenceByTypeResponse"/>
 			
 			<xs:complexType name="GetVersionRequest">
 				<xs:annotation>
@@ -37,7 +25,7 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
@@ -49,7 +37,7 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
@@ -62,18 +50,15 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="context"
-								type="tns:ServiceContext">
+							<xs:element maxOccurs="1" minOccurs="1" name="context" type="tns:ServiceContext">
 								<xs:annotation>
 								<xs:documentation>
 								Context.
 								</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element minOccurs="1" maxOccurs="1" 
-								name="id" type="tns:Identity"/>
-							<xs:element minOccurs="1" maxOccurs="1" 
-								name="userPreference" type="tns:UserPreference"/>"
+							<xs:element maxOccurs="1" minOccurs="1" name="id" type="tns:Identity"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="userPreference" type="tns:UserPreference"/>"
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -87,8 +72,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="unbounded"
-								name="profileId" type="xs:long"/>
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="profileId" type="xs:long"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -102,18 +86,15 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="context"
-								type="tns:ServiceContext">
+							<xs:element maxOccurs="1" minOccurs="1" name="context" type="tns:ServiceContext">
 								<xs:annotation>
 								<xs:documentation>
 								Context.
 								</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element minOccurs="1" maxOccurs="1" 
-								name="id" type="tns:Identity"/>
-							<xs:element minOccurs="1" maxOccurs="unbounded" 
-								name="preferenceNameGroup" type="tns:PreferenceNameGroup"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="id" type="tns:Identity"/>
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="preferenceNameGroup" type="tns:PreferenceNameGroup"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -126,7 +107,7 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
@@ -139,18 +120,15 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="context"
-								type="tns:ServiceContext">
+							<xs:element maxOccurs="1" minOccurs="1" name="context" type="tns:ServiceContext">
 								<xs:annotation>
 								<xs:documentation>
 								Context.
 								</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element minOccurs="1" maxOccurs="1" 
-								name="id" type="tns:Identity"/>
-							<xs:element minOccurs="1" maxOccurs="unbounded" 
-								name="namespace" type="tns:NameSpace"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="id" type="tns:Identity"/>
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="namespace" type="tns:NameSpace"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -163,7 +141,7 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
@@ -176,18 +154,15 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="context"
-								type="tns:ServiceContext">
+							<xs:element maxOccurs="1" minOccurs="1" name="context" type="tns:ServiceContext">
 								<xs:annotation>
 								<xs:documentation>
 								Context.
 								</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element minOccurs="1" maxOccurs="1" 
-								name="id" type="tns:Identity"/>
-							<xs:element minOccurs="1" maxOccurs="1" 
-								name="userPreference" type="tns:UserPreference"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="id" type="tns:Identity"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="userPreference" type="tns:UserPreference"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -200,7 +175,7 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
@@ -213,18 +188,15 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="context"
-								type="tns:ServiceContext">
+							<xs:element maxOccurs="1" minOccurs="1" name="context" type="tns:ServiceContext">
 								<xs:annotation>
 								<xs:documentation>
 								Context.
 								</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element minOccurs="1" maxOccurs="1" 
-								name="id" type="tns:Identity"/>
-							<xs:element minOccurs="1" maxOccurs="unbounded" 
-								name="preferenceNameGroup" type="tns:PreferenceNameGroup"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="id" type="tns:Identity"/>
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="preferenceNameGroup" type="tns:PreferenceNameGroup"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -238,8 +210,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" 
-								name="userPreference" type="tns:UserPreference"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="userPreference" type="tns:UserPreference"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -253,18 +224,15 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="context"
-								type="tns:ServiceContext">
+							<xs:element maxOccurs="1" minOccurs="1" name="context" type="tns:ServiceContext">
 								<xs:annotation>
 								<xs:documentation>
 								Context.
 								</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element minOccurs="1" maxOccurs="1" 
-								name="id" type="tns:Identity"/>
-							<xs:element minOccurs="1" maxOccurs="unbounded" 
-								name="namespace" type="tns:NameSpace"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="id" type="tns:Identity"/>
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="namespace" type="tns:NameSpace"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -277,7 +245,7 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:GetPreferenceResponse">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
@@ -362,7 +330,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="1" maxOccurs="1" name="id" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="id" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								When the user is logged in, the user ID should be used
@@ -370,14 +338,14 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="1" name="type" type="tns:IdentityType">
+					<xs:element maxOccurs="1" minOccurs="1" name="type" type="tns:IdentityType">
 						<xs:annotation>
 							<xs:documentation>
 								This field tells whether the ID provided is of USER, SESSION or GUID type.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="1" name="cguid" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="cguid" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								An optional string-type locator object. Only needed for CSA category.
@@ -396,14 +364,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The name of the preference field.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="1" name="value" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The value of the preference field. The type of the value can be looked up from the 
@@ -422,7 +390,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="1" maxOccurs="1" name="namespace" type="tns:NameSpace">
+					<xs:element maxOccurs="1" minOccurs="1" name="namespace" type="tns:NameSpace">
 						<xs:annotation>
 							<xs:documentation>
 								This field is used to distinguish what type of preference this field is. For example,
@@ -432,14 +400,14 @@
 						</xs:annotation>
 					</xs:element>
 					<xs:choice>
-						<xs:element minOccurs="0" maxOccurs="1" name="profileId" type="xs:long">
+						<xs:element maxOccurs="1" minOccurs="0" name="profileId" type="xs:long">
 							<xs:annotation>
 								<xs:documentation>
 									An optional profile ID field for UNIQUELY identify a preference profile.
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" maxOccurs="1" name="profileName" type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="0" name="profileName" type="xs:string">
 							<xs:annotation>
 								<xs:documentation>
 									An optional profile name field, if used in preference search, can be deemed as as
@@ -449,7 +417,7 @@
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="preferenceName" type="xs:string">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="preferenceName" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The name of the preference field need to be retrieved from the service. 
@@ -467,7 +435,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="1" maxOccurs="1" name="namespace" type="tns:NameSpace">
+					<xs:element maxOccurs="1" minOccurs="1" name="namespace" type="tns:NameSpace">
 						<xs:annotation>
 							<xs:documentation>
 								This field is used to distinguish what type of preference this field is. For example,
@@ -477,14 +445,14 @@
 						</xs:annotation>
 					</xs:element>
 					<xs:choice>
-						<xs:element minOccurs="0" maxOccurs="1" name="profileId" type="xs:long">
+						<xs:element maxOccurs="1" minOccurs="0" name="profileId" type="xs:long">
 							<xs:annotation>
 								<xs:documentation>
 									An optional Id for UNIQUELY identifying a group of individual preferences.
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" maxOccurs="1" name="profileName" type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="0" name="profileName" type="xs:string">
 							<xs:annotation>
 								<xs:documentation>
 									An optional name for identifying a group of individual preferences.
@@ -494,7 +462,7 @@
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
-					<xs:element minOccurs="1" maxOccurs="unbounded" name="preference" type="tns:NameValuePair">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="preference" type="tns:NameValuePair">
 						<xs:annotation>
 							<xs:documentation>
 								The name value pair of the preference field. Under one namespace, there 
@@ -515,8 +483,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="1" maxOccurs="unbounded" 
-							name="preferenceGroup" type="tns:PreferenceGroup">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="preferenceGroup" type="tns:PreferenceGroup">
 						<xs:annotation>
 							<xs:documentation>
 								This defines a group of user preferences under the same name space. E.g. 
@@ -533,32 +500,28 @@
 						Contextual information used by search services.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceContext">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0" name="locale"
-								type="xs:token">
+							<xs:element maxOccurs="1" minOccurs="0" name="locale" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
-										Locale in the format of &quot;language,country,variant&quot;. Check
+										Locale in the format of "language,country,variant". Check
 										java.util.Locale.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="timeZone"
-								type="xs:token">
+							<xs:element maxOccurs="1" minOccurs="0" name="timeZone" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
-										Time zone in the format of &quot;GMT+/-hh:mm&quot;
+										Time zone in the format of "GMT+/-hh:mm"
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="currency"
-								type="xs:token">
+							<xs:element maxOccurs="1" minOccurs="0" name="currency" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
 										Money currency. Check com.ebay.af.common.types.Currency for the
@@ -587,7 +550,7 @@
 				or an informational error (a warning) that should be communicated to the
 				user.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 		<xs:restriction base="xs:string">
 	
 			<xs:enumeration value="Success">
@@ -630,9 +593,9 @@
 				This is the base class for request container for all
 				service operations.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"></xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 		</xs:sequence>
 	</xs:complexType><xs:complexType abstract="true" name="BaseResponse">
 		<xs:annotation>
@@ -640,7 +603,7 @@
 				Base response container for all service operations.
 				Contains error information associated with the request.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
 		<xs:sequence>
 			<xs:element name="ack" type="tns:AckValue">
@@ -650,7 +613,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls></AllCalls>
+							<AllCalls/>
 							<Returned>Always</Returned>
 
 						</CallInfo>
@@ -666,7 +629,7 @@
 
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls></AllCalls>
+							<AllCalls/>
 							<Returned>Conditionally</Returned>
 						</CallInfo>
 					</xs:appinfo>
@@ -675,10 +638,10 @@
 
 			<xs:element minOccurs="0" name="version" type="xs:string">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls></AllCalls>
+							<AllCalls/>
 							<Returned>Always</Returned>
 
 						</CallInfo>
@@ -688,22 +651,22 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls></AllCalls>
+							<AllCalls/>
 							<Returned>Always</Returned>
 						</CallInfo>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"></xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 		</xs:sequence>
 	</xs:complexType><xs:complexType name="BaseServiceContext">
 		<xs:annotation>
-			<xs:documentation></xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+			<xs:documentation/>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="1" name="globalId" type="xs:string">
 				<xs:annotation>
@@ -725,29 +688,29 @@
 			<xs:documentation>
 				Documentation goes here.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
       <xs:restriction base="xs:token">
-        <xs:enumeration value="System"></xs:enumeration>
-        <xs:enumeration value="Application"></xs:enumeration>
-        <xs:enumeration value="Request"></xs:enumeration>
+        <xs:enumeration value="System"/>
+        <xs:enumeration value="Application"/>
+        <xs:enumeration value="Request"/>
       </xs:restriction>
 
 	</xs:simpleType><xs:complexType name="ErrorData">
 		<xs:annotation>
 			<xs:documentation>Documentation goes here</xs:documentation>
 			
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 	
 	  <xs:sequence>
-        	<xs:element name="errorId" type="xs:long"></xs:element>
-		  	<xs:element name="domain" type="xs:string"></xs:element>
-			<xs:element minOccurs="0" name="subdomain" type="xs:string"></xs:element>
-			<xs:element name="severity" type="tns:ErrorSeverity"></xs:element>
-	  		<xs:element name="category" type="tns:ErrorCategory"></xs:element>
-	  		<xs:element name="message" type="xs:string"></xs:element>
-	  		<xs:element minOccurs="0" name="exceptionId" type="xs:token"></xs:element>
-	  		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"></xs:element>
+        	<xs:element name="errorId" type="xs:long"/>
+		  	<xs:element name="domain" type="xs:string"/>
+			<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+			<xs:element name="severity" type="tns:ErrorSeverity"/>
+	  		<xs:element name="category" type="tns:ErrorCategory"/>
+	  		<xs:element name="message" type="xs:string"/>
+	  		<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+	  		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 		</xs:sequence>
 	
 	
@@ -755,7 +718,7 @@
 		<xs:annotation>
 			<xs:documentation>Documentation goes here</xs:documentation>
 			
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 		
 		<!-- 
 		<xs:sequence>
@@ -773,11 +736,11 @@
 		<xs:annotation>
 			<xs:documentation>Documentation goes here</xs:documentation>
 			
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
 		<xs:simpleContent>
 		  <xs:extension base="xs:string">
-		    <xs:attribute name="name" type="xs:string" use="optional"></xs:attribute>
+		    <xs:attribute name="name" type="xs:string" use="optional"/>
 		  </xs:extension>
 		</xs:simpleContent>
 	</xs:complexType><xs:simpleType name="ErrorSeverity">
@@ -785,263 +748,249 @@
 			<xs:documentation>
 				Documentation goes here.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
       <xs:restriction base="xs:token">
-        <xs:enumeration value="Error"></xs:enumeration>
-        <xs:enumeration value="Warning"></xs:enumeration>
+        <xs:enumeration value="Error"/>
+        <xs:enumeration value="Warning"/>
       </xs:restriction>
 
 	</xs:simpleType><xs:complexType name="ExtensionType">
 		<xs:annotation>
 			<xs:documentation>Documentation goes here</xs:documentation>
 			
-		<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
-			<xs:element name="id" type="xs:positiveInteger"></xs:element>
-			<xs:element name="version" type="xs:string"></xs:element>
-			<xs:element name="contentType" type="xs:string"></xs:element>
-			<xs:element name="value" type="xs:string"></xs:element>
+			<xs:element name="id" type="xs:positiveInteger"/>
+			<xs:element name="version" type="xs:string"/>
+			<xs:element name="contentType" type="xs:string"/>
+			<xs:element name="value" type="xs:string"/>
 
 		</xs:sequence>
 	</xs:complexType></xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part element="tns:getVersionRequest" name="params" />
+		<wsdl:part element="tns:getVersionRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part element="tns:getVersionResponse" name="params" />
+		<wsdl:part element="tns:getVersionResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="addPreferenceRequest">
-		<wsdl:part element="tns:addPreferenceRequest" name="params" />
+		<wsdl:part element="tns:addPreferenceRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="addPreferenceResponse">
-		<wsdl:part element="tns:addPreferenceResponse" name="params" />
+		<wsdl:part element="tns:addPreferenceResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="removePreferenceRequest">
-		<wsdl:part element="tns:removePreferenceRequest" name="params" />
+		<wsdl:part element="tns:removePreferenceRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="removePreferenceResponse">
-		<wsdl:part element="tns:removePreferenceResponse" name="params" />
+		<wsdl:part element="tns:removePreferenceResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="removePreferenceByTypeRequest">
-		<wsdl:part element="tns:removePreferenceByTypeRequest" name="params" />
+		<wsdl:part element="tns:removePreferenceByTypeRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="removePreferenceByTypeResponse">
-		<wsdl:part element="tns:removePreferenceByTypeResponse" name="params" />
+		<wsdl:part element="tns:removePreferenceByTypeResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="savePreferenceRequest">
-		<wsdl:part element="tns:savePreferenceRequest" name="params" />
+		<wsdl:part element="tns:savePreferenceRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="savePreferenceResponse">
-		<wsdl:part element="tns:savePreferenceResponse" name="params" />
+		<wsdl:part element="tns:savePreferenceResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getPreferenceRequest">
-		<wsdl:part element="tns:getPreferenceRequest"
-			name="params" />
+		<wsdl:part element="tns:getPreferenceRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getPreferenceResponse">
-		<wsdl:part element="tns:getPreferenceResponse"
-			name="params" />
+		<wsdl:part element="tns:getPreferenceResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getPreferenceByTypeRequest">
-		<wsdl:part element="tns:getPreferenceByTypeRequest"
-			name="params" />
+		<wsdl:part element="tns:getPreferenceByTypeRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getPreferenceByTypeResponse">
-		<wsdl:part element="tns:getPreferenceByTypeResponse"
-			name="params" />
+		<wsdl:part element="tns:getPreferenceByTypeResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:portType name="FindingUserPreferenceServicePort">
 		<wsdl:operation name="getVersion">
 			<wsdl:documentation>
 				Documentation goes here.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getVersionRequest" />
-			<wsdl:output message="tns:getVersionResponse" />
+			<wsdl:input message="tns:getVersionRequest"/>
+			<wsdl:output message="tns:getVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="addPreference">
 			<wsdl:documentation>
 				Documentation goes here.
 			</wsdl:documentation>
-			<wsdl:input message="tns:addPreferenceRequest" />
-			<wsdl:output message="tns:addPreferenceResponse" />
+			<wsdl:input message="tns:addPreferenceRequest"/>
+			<wsdl:output message="tns:addPreferenceResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="removePreference">
 			<wsdl:documentation>
 				Documentation goes here.
 			</wsdl:documentation>
-			<wsdl:input message="tns:removePreferenceRequest" />
-			<wsdl:output message="tns:removePreferenceResponse" />
+			<wsdl:input message="tns:removePreferenceRequest"/>
+			<wsdl:output message="tns:removePreferenceResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="removePreferenceByType">
 			<wsdl:documentation>
 				Documentation goes here.
 			</wsdl:documentation>
-			<wsdl:input message="tns:removePreferenceByTypeRequest" />
-			<wsdl:output message="tns:removePreferenceByTypeResponse" />
+			<wsdl:input message="tns:removePreferenceByTypeRequest"/>
+			<wsdl:output message="tns:removePreferenceByTypeResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="savePreference">
 			<wsdl:documentation>
 				Documentation goes here.
 			</wsdl:documentation>
-			<wsdl:input message="tns:savePreferenceRequest" />
-			<wsdl:output message="tns:savePreferenceResponse" />
+			<wsdl:input message="tns:savePreferenceRequest"/>
+			<wsdl:output message="tns:savePreferenceResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getPreference">
 			<wsdl:documentation>
 				Documentation goes here.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getPreferenceRequest" />
-			<wsdl:output message="tns:getPreferenceResponse" />
+			<wsdl:input message="tns:getPreferenceRequest"/>
+			<wsdl:output message="tns:getPreferenceResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getPreferenceByType">
 			<wsdl:documentation>
 				Documentation goes here.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getPreferenceByTypeRequest" />
-			<wsdl:output message="tns:getPreferenceByTypeResponse" />
+			<wsdl:input message="tns:getPreferenceByTypeRequest"/>
+			<wsdl:output message="tns:getPreferenceByTypeResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="FindingUserPreferenceServiceHttpBinding"
-		type="tns:FindingUserPreferenceServicePort">
-		<http:binding verb="POST" />
+	<wsdl:binding name="FindingUserPreferenceServiceHttpBinding" type="tns:FindingUserPreferenceServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="addPreference">
-			<http:operation location="/addPreference" />
+			<http:operation location="/addPreference"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="removePreference">
-			<http:operation location="/removePreference" />
+			<http:operation location="/removePreference"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="removePreferenceByType">
-			<http:operation location="/removePreferenceByType" />
+			<http:operation location="/removePreferenceByType"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="savePreference">
-			<http:operation location="/savePreference" />
+			<http:operation location="/savePreference"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getPreference">
-			<http:operation location="/getPreference" />
+			<http:operation location="/getPreference"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getPreferenceByType">
-			<http:operation location="/getPreferenceByType" />
+			<http:operation location="/getPreferenceByType"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="FindingUserPreferenceServiceSOAPBinding"
-		type="tns:FindingUserPreferenceServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="FindingUserPreferenceServiceSOAPBinding" type="tns:FindingUserPreferenceServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/getVersion"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="addPreference">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/addPreference" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/addPreference"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="removePreference">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/removePreference" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/removePreference"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="removePreferenceByType">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/removePreferenceByType" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/removePreferenceByType"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="savePreference">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/savePreference" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/savePreference"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getPreference">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getPreference" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/getPreference"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getPreferenceByType">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getPreferenceByType" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/getPreferenceByType"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -1049,15 +998,11 @@
 		<wsdl:documentation>
 			<version>1.0.0</version>
 		</wsdl:documentation>
-		<wsdl:port binding="tns:FindingUserPreferenceServiceHttpBinding"
-			name="FindingUserPreferenceServiceHttpPort">
-			<http:address
-				location="https://svcs.ebay.com/services/search/v1/FindingUserPreferenceService" />
+		<wsdl:port binding="tns:FindingUserPreferenceServiceHttpBinding" name="FindingUserPreferenceServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/search/v1/FindingUserPreferenceService"/>
 		</wsdl:port>
-		<wsdl:port binding="tns:FindingUserPreferenceServiceSOAPBinding"
-			name="FindingUserPreferenceServiceSOAPPort">
-			<soap12:address
-				location="https://svcs.ebay.com/services/search/v1/FindingUserPreferenceService" />
+		<wsdl:port binding="tns:FindingUserPreferenceServiceSOAPBinding" name="FindingUserPreferenceServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/search/v1/FindingUserPreferenceService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services"> 						
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services"> 						
 			<xs:complexType name="MonitoringAlertList">				
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfMonitoringAlert"  type="tns:MonitoringAlert"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="elementsOfMonitoringAlert" type="tns:MonitoringAlert"/>
 				</xs:sequence>				
 			</xs:complexType>			
 			<xs:complexType name="ErrorInfo">				
@@ -67,25 +66,25 @@
 				</xs:sequence>
 			</xs:complexType>						
 			<xs:element name="getMonitoringAlerts" type="tns:getMonitoringAlertsRequest"/>
-			<xs:element name="getMonitoringAlertsResponse"  type="tns:getMonitoringAlertsResponse"/>			
+			<xs:element name="getMonitoringAlertsResponse" type="tns:getMonitoringAlertsResponse"/>			
 			<xs:element name="insertMonitoringAlerts" type="tns:insertMonitoringAlertsRequest"/>
-			<xs:element name="insertMonitoringAlertsResponse"  type="tns:insertMonitoringAlertsResponse"/>			
+			<xs:element name="insertMonitoringAlertsResponse" type="tns:insertMonitoringAlertsResponse"/>			
 		</xs:schema>
   </wsdl:types>
   <wsdl:message name="getMonitoringAlertsRequest">
-    <wsdl:part name="parameters" element="tns:getMonitoringAlerts">
+    <wsdl:part element="tns:getMonitoringAlerts" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="insertMonitoringAlertsResponse">
-    <wsdl:part name="parameters" element="tns:insertMonitoringAlertsResponse">
+    <wsdl:part element="tns:insertMonitoringAlertsResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="insertMonitoringAlertsRequest">
-    <wsdl:part name="parameters" element="tns:insertMonitoringAlerts">
+    <wsdl:part element="tns:insertMonitoringAlerts" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getMonitoringAlertsResponse">
-    <wsdl:part name="parameters" element="tns:getMonitoringAlertsResponse">
+    <wsdl:part element="tns:getMonitoringAlertsResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="AVSMonitoringAlertsServicePortType">
@@ -166,13 +165,13 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="AVSMonitoringAlertsService">
-    <wsdl:port name="AVSMonitoringAlertsServiceHttpEndpoint" binding="tns:AVSMonitoringAlertsServiceHTTPBinding">
+    <wsdl:port binding="tns:AVSMonitoringAlertsServiceHTTPBinding" name="AVSMonitoringAlertsServiceHttpEndpoint">
       <http:address location="http://localhost:8080/AVSMonitoringAlertsService"/>
     </wsdl:port>
-    <wsdl:port name="AVSMonitoringAlertsServiceHttpSoap12Endpoint" binding="tns:AVSMonitoringAlertsServiceSoap12Binding">
+    <wsdl:port binding="tns:AVSMonitoringAlertsServiceSoap12Binding" name="AVSMonitoringAlertsServiceHttpSoap12Endpoint">
       <soap12:address location="http://localhost:8080/AVSMonitoringAlertsService"/>
     </wsdl:port>
-    <wsdl:port name="AVSMonitoringAlertsServiceHttpSoap11Endpoint" binding="tns:AVSMonitoringAlertsServiceSoap11Binding">
+    <wsdl:port binding="tns:AVSMonitoringAlertsServiceSoap11Binding" name="AVSMonitoringAlertsServiceHttpSoap11Endpoint">
       <soap:address location="http://localhost:8080/AVSMonitoringAlertsService"/>
     </wsdl:port>
   </wsdl:service>

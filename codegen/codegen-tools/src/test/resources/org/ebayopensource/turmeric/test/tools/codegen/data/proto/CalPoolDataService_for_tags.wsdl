@@ -1,16 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:tns="http://www.ebay.com/marketplace/logging/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CalPoolDataService"
-	targetNamespace="http://www.ebay.com/marketplace/logging/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/logging/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CalPoolDataService" targetNamespace="http://www.ebayopensource.org/tumeric/logging/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/logging/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/logging/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -20,9 +10,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -73,18 +61,15 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
-			<xs:complexType abstract="true"
-				name="BaseServiceResponse">
+			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -92,25 +77,22 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="errorMessage"
-						type="tns:ErrorMessage" minOccurs="0">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -119,38 +101,36 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="ErrorCategory">
@@ -159,15 +139,13 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
@@ -176,25 +154,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long" />
-					<xs:element name="domain" type="xs:string" />
-					<xs:element name="subdomain" type="xs:string"
-						minOccurs="0" />
-					<xs:element name="severity"
-						type="tns:ErrorSeverity" />
-					<xs:element name="category"
-						type="tns:ErrorCategory" />
-					<xs:element name="message" type="xs:string" />
-					<xs:element name="exceptionId" type="xs:token"
-						minOccurs="0" />
-					<xs:element name="parameter"
-						type="tns:ErrorParameter" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+					<xs:element name="severity" type="tns:ErrorSeverity"/>
+					<xs:element name="category" type="tns:ErrorCategory"/>
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -203,9 +174,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -215,8 +184,7 @@
 					</xs:sequence>
 				-->
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData"
-						minOccurs="0" maxOccurs="unbounded" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -225,15 +193,12 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string"
-							use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -243,18 +208,15 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
-			<xs:element name="getPoolListPerColoRequest"
-				type="tns:GetPoolListPerColoRequest" />
+			<xs:element name="getPoolListPerColoRequest" type="tns:GetPoolListPerColoRequest"/>
 			<xs:complexType name="GetPoolListPerColoRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -264,19 +226,15 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="startTime"
-								type="xs:dateTime" minOccurs="1" maxOccurs="1" />
-							<xs:element name="endTime" type="xs:dateTime"
-								minOccurs="1" maxOccurs="1" />
-							<xs:element name="colocation"
-								type="tns:ColoName">
+							<xs:element maxOccurs="1" minOccurs="1" name="startTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="endTime" type="xs:dateTime"/>
+							<xs:element name="colocation" type="tns:ColoName">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getPoolListPerColoResponse"
-				type="tns:GetPoolListPerColoResponse" />
+			<xs:element name="getPoolListPerColoResponse" type="tns:GetPoolListPerColoResponse"/>
 			<xs:complexType name="GetPoolListPerColoResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -286,14 +244,12 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="pool" type="tns:Pool"
-								minOccurs="0" maxOccurs="unbounded" />
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="pool" type="tns:Pool"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getGlobalPoolListRequest"
-				type="tns:GetGlobalPoolListRequest" />
+			<xs:element name="getGlobalPoolListRequest" type="tns:GetGlobalPoolListRequest"/>
 			<xs:complexType name="GetGlobalPoolListRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -303,18 +259,15 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="startTime"
-								type="xs:dateTime" minOccurs="1" maxOccurs="1" />
-							<xs:element name="endTime"
-								type="xs:dateTime" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="startTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="endTime" type="xs:dateTime">
 							</xs:element>
 
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getGlobalPoolListResponse"
-				type="tns:GetGlobalPoolListResponse" />
+			<xs:element name="getGlobalPoolListResponse" type="tns:GetGlobalPoolListResponse"/>
 			<xs:complexType name="GetGlobalPoolListResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -324,16 +277,13 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="pool" type="tns:Pool"
-								minOccurs="0" maxOccurs="unbounded" />
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="pool" type="tns:Pool"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getMachineListPerPoolPerColoRequest"
-				type="tns:GetMachineListPerPoolPerColoRequest" />
-			<xs:complexType
-				name="GetMachineListPerPoolPerColoRequest">
+			<xs:element name="getMachineListPerPoolPerColoRequest" type="tns:GetMachineListPerPoolPerColoRequest"/>
+			<xs:complexType name="GetMachineListPerPoolPerColoRequest">
 				<xs:annotation>
 					<xs:documentation>
 						Document goes here
@@ -342,25 +292,19 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="startTime"
-								type="xs:dateTime" minOccurs="1" maxOccurs="1" />
-							<xs:element name="endTime"
-								type="xs:dateTime" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="startTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="endTime" type="xs:dateTime">
 							</xs:element>
-							<xs:element name="colocation"
-								type="tns:ColoName">
+							<xs:element name="colocation" type="tns:ColoName">
 							</xs:element>
-							<xs:element name="pool"
-								type="tns:Pool">
+							<xs:element name="pool" type="tns:Pool">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getMachineListPerPoolPerColoResponse"
-				type="tns:GetMachineListPerPoolPerColoResponse" />
-			<xs:complexType
-				name="GetMachineListPerPoolPerColoResponse">
+			<xs:element name="getMachineListPerPoolPerColoResponse" type="tns:GetMachineListPerPoolPerColoResponse"/>
+			<xs:complexType name="GetMachineListPerPoolPerColoResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Document goes here
@@ -369,14 +313,12 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="machine" type="tns:Machine"
-								minOccurs="0" maxOccurs="unbounded" />
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="machine" type="tns:Machine"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getMachineListPerPoolRequest"
-				type="tns:GetMachineListPerPoolRequest" />
+			<xs:element name="getMachineListPerPoolRequest" type="tns:GetMachineListPerPoolRequest"/>
 			<xs:complexType name="GetMachineListPerPoolRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -386,20 +328,17 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="startTime"
-								type="xs:dateTime" minOccurs="1" maxOccurs="1" />
-							<xs:element name="endTime"
-								type="xs:dateTime" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="startTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="endTime" type="xs:dateTime">
 							</xs:element>
-							<xs:element name="pool" type="tns:Pool" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="pool" type="tns:Pool">
 							</xs:element>
 
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getMachineListPerPoolResponse"
-				type="tns:GetMachineListPerPoolResponse" />
+			<xs:element name="getMachineListPerPoolResponse" type="tns:GetMachineListPerPoolResponse"/>
 			<xs:complexType name="GetMachineListPerPoolResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -409,8 +348,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="machine" type="tns:Machine"
-								minOccurs="0" maxOccurs="unbounded" />
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="machine" type="tns:Machine"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -468,220 +406,191 @@
 		
 			<xs:complexType name="Pool">
 				<xs:sequence>
-					<xs:element name="name" type="xs:string"></xs:element>
-					<xs:element name="attr" type="xs:string"></xs:element>
+					<xs:element name="name" type="xs:string"/>
+					<xs:element name="attr" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 		
 			<xs:complexType name="Machine">
 				<xs:sequence>
-					<xs:element name="name" type="xs:string"></xs:element>
-					<xs:element name="attr" type="xs:string"></xs:element>
+					<xs:element name="name" type="xs:string"/>
+					<xs:element name="attr" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="getVersionRequest"
-				type="tns:GetVersionRequest">
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest">
 
 			</xs:element>
-			<xs:element name="getVersionResponse"
-				type="tns:GetVersionResponse">
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse">
 
 			</xs:element>
 
 			<xs:complexType name="GetVersionRequest">
 				<xs:complexContent>
-					<xs:extension base="tns:BaseServiceRequest"></xs:extension>
+					<xs:extension base="tns:BaseServiceRequest"/>
 				</xs:complexContent>
 			</xs:complexType>
 		
 			<xs:complexType name="GetVersionResponse">
 				<xs:complexContent>
-					<xs:extension base="tns:BaseServiceResponse"></xs:extension>
+					<xs:extension base="tns:BaseServiceResponse"/>
 				</xs:complexContent>
 			</xs:complexType>
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getPoolListPerColoRequest">
-		<wsdl:part element="tns:getPoolListPerColoRequest"
-			name="params" />
+		<wsdl:part element="tns:getPoolListPerColoRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getPoolListPerColoResponse">
-		<wsdl:part element="tns:getPoolListPerColoResponse"
-			name="params" />
+		<wsdl:part element="tns:getPoolListPerColoResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getGlobalPoolListRequest">
-		<wsdl:part element="tns:getGlobalPoolListRequest" name="params" />
+		<wsdl:part element="tns:getGlobalPoolListRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getGlobalPoolListResponse">
-		<wsdl:part element="tns:getGlobalPoolListResponse"
-			name="params" />
+		<wsdl:part element="tns:getGlobalPoolListResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getMachineListPerPoolPerColoRequest">
-		<wsdl:part element="tns:getMachineListPerPoolPerColoRequest"
-			name="params" />
+		<wsdl:part element="tns:getMachineListPerPoolPerColoRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getMachineListPerPoolPerColoResponse">
-		<wsdl:part element="tns:getMachineListPerPoolPerColoResponse"
-			name="params" />
+		<wsdl:part element="tns:getMachineListPerPoolPerColoResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getMachineListPerPoolRequest">
-		<wsdl:part element="tns:getMachineListPerPoolRequest"
-			name="params" />
+		<wsdl:part element="tns:getMachineListPerPoolRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getMachineListPerPoolResponse">
-		<wsdl:part element="tns:getMachineListPerPoolResponse"
-			name="params" />
+		<wsdl:part element="tns:getMachineListPerPoolResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part name="parameters" element="tns:getVersionRequest"></wsdl:part>
+		<wsdl:part element="tns:getVersionRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part name="parameters" element="tns:getVersionResponse"></wsdl:part>
+		<wsdl:part element="tns:getVersionResponse" name="parameters"/>
 	</wsdl:message>
 	<wsdl:portType name="CalPoolDataServicePort">
 		<wsdl:operation name="getPoolListPerColo">
-			<wsdl:input message="tns:getPoolListPerColoRequest" />
-			<wsdl:output message="tns:getPoolListPerColoResponse" />
+			<wsdl:input message="tns:getPoolListPerColoRequest"/>
+			<wsdl:output message="tns:getPoolListPerColoResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getGlobalPoolList">
-			<wsdl:input message="tns:getGlobalPoolListRequest" />
-			<wsdl:output message="tns:getGlobalPoolListResponse" />
+			<wsdl:input message="tns:getGlobalPoolListRequest"/>
+			<wsdl:output message="tns:getGlobalPoolListResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getMachineListPerPoolPerColo">
-			<wsdl:input
-				message="tns:getMachineListPerPoolPerColoRequest" />
-			<wsdl:output
-				message="tns:getMachineListPerPoolPerColoResponse" />
+			<wsdl:input message="tns:getMachineListPerPoolPerColoRequest"/>
+			<wsdl:output message="tns:getMachineListPerPoolPerColoResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getMachineListPerPool">
-			<wsdl:input message="tns:getMachineListPerPoolRequest" />
-			<wsdl:output message="tns:getMachineListPerPoolResponse" />
+			<wsdl:input message="tns:getMachineListPerPoolRequest"/>
+			<wsdl:output message="tns:getMachineListPerPoolResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getVersion">
-			<wsdl:input message="tns:getVersionRequest"></wsdl:input>
-			<wsdl:output message="tns:getVersionResponse"></wsdl:output>
+			<wsdl:input message="tns:getVersionRequest"/>
+			<wsdl:output message="tns:getVersionResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="CalPoolDataServiceHttpBinding"
-		type="tns:CalPoolDataServicePort">
-		<http:binding verb="POST" />
+	<wsdl:binding name="CalPoolDataServiceHttpBinding" type="tns:CalPoolDataServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getPoolListPerColo">
-			<http:operation location="/getPoolListPerColo" />
+			<http:operation location="/getPoolListPerColo"/>
 			<wsdl:input>
-				<mime:content part="params"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getGlobalPoolList">
-			<http:operation location="/getGlobalPoolList" />
+			<http:operation location="/getGlobalPoolList"/>
 			<wsdl:input>
-				<mime:content part="params"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getMachineListPerPoolPerColo">
-			<http:operation location="/getMachineListPerPoolPerColo" />
+			<http:operation location="/getMachineListPerPoolPerColo"/>
 			<wsdl:input>
-				<mime:content part="params"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getMachineListPerPool">
-			<http:operation location="/getMachineListPerPool" />
+			<http:operation location="/getMachineListPerPool"/>
 			<wsdl:input>
-				<mime:content part="params"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:input>
-				<mime:content part="params"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="CalPoolDataServiceSOAPBinding"
-		type="tns:CalPoolDataServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="CalPoolDataServiceSOAPBinding" type="tns:CalPoolDataServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getPoolListPerColo">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/logging/v1/services/getPoolListPerColo" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/logging/v1/services/getPoolListPerColo"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getGlobalPoolList">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/logging/v1/services/getGlobalPoolList" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/logging/v1/services/getGlobalPoolList"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getMachineListPerPoolPerColo">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/logging/v1/services/getMachineListPerPoolPerColo" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/logging/v1/services/getMachineListPerPoolPerColo"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getMachineListPerPool">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/logging/v1/services/getMachineListPerPool" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/logging/v1/services/getMachineListPerPool"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/logging/v1/services/getMachineListPerPool" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/logging/v1/services/getMachineListPerPool"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="CalPoolDataService">
-		<wsdl:port name="CalPoolDataServiceHttpPort"
-			binding="tns:CalPoolDataServiceHttpBinding">
-			<http:address
-				location="https://svcs.ebay.com/services/logging/v1/CalPoolDataService" />
+		<wsdl:port binding="tns:CalPoolDataServiceHttpBinding" name="CalPoolDataServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/logging/v1/CalPoolDataService"/>
 		</wsdl:port>
-		<wsdl:port name="CalPoolDataServiceSOAPPort"
-			binding="tns:CalPoolDataServiceSOAPBinding">
-			<soap12:address
-				location="https://svcs.ebay.com/services/logging/v1/CalPoolDataService" />
+		<wsdl:port binding="tns:CalPoolDataServiceSOAPBinding" name="CalPoolDataServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/logging/v1/CalPoolDataService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
-

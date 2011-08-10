@@ -1,40 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<wsdl:definitions name="EimPeeringService"
-	targetNamespace="http://www.ebay.com/marketplace/eim/v1/services"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:tns="http://www.ebay.com/marketplace/eim/v1/services"
-	xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/eim/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EimPeeringService" targetNamespace="http://www.ebayopensource.org/tumeric/eim/v1/services">
 	
 	<wsdl:types>
-		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			attributeFormDefault="unqualified" elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/eim/v1/services"
-			xmlns:tns="http://www.ebay.com/marketplace/eim/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/eim/v1/services">
 
 
-			<xs:element name="saveSearchRequest"
-				type="tns:SaveSearchRequest" >
+			<xs:element name="saveSearchRequest" type="tns:SaveSearchRequest">
 			</xs:element>
-			<xs:element name="saveSearchResponse"
-				type="tns:SaveSearchResponse" >
+			<xs:element name="saveSearchResponse" type="tns:SaveSearchResponse">
 			</xs:element>
 
 	
 
-			<xs:element name="getExchangeRatesRequest"
-				type="tns:GetExchangeRatesRequest" >
+			<xs:element name="getExchangeRatesRequest" type="tns:GetExchangeRatesRequest">
 			</xs:element>
-			<xs:element name="getExchangeRatesResponse"
-				type="tns:GetExchangeRatesResponse" >
+			<xs:element name="getExchangeRatesResponse" type="tns:GetExchangeRatesResponse">
 			</xs:element>
 
-			<xs:simpleType  name="EmailFrequency" >
+			<xs:simpleType name="EmailFrequency">
 			   <xs:restriction base="xs:token">
 			      <xs:enumeration value="7"/>
 			      <xs:enumeration value="14"/>
@@ -70,14 +52,14 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="emailRequired" type="xs:boolean" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="emailRequired" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>
 										To notify the user or not 
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="emailFrequency" type="tns:EmailFrequency" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="emailFrequency" type="tns:EmailFrequency">
 								<xs:annotation>
 									<xs:documentation>
 										To Send emails in this frequency
@@ -111,7 +93,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="exchangeRates" type="tns:ExchangeRate" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="exchangeRates" type="tns:ExchangeRate">
 								<xs:annotation>
 									<xs:documentation>
 										Returns the exchange rate againist the dollars
@@ -158,8 +140,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="extension"
-						type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -169,15 +150,15 @@
 					<xs:documentation>
 						Documentation goes here
 					</xs:documentation>
-					<xs:appinfo></xs:appinfo>
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
@@ -198,15 +179,14 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -216,41 +196,38 @@
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="version" type="xs:string"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="extension"
-						type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -266,15 +243,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -303,7 +279,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -325,14 +301,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates whether the error caused the
@@ -371,14 +346,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 						<xs:annotation>
 							<xs:documentation>
 								There are three categories of errors:
@@ -387,7 +361,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -401,14 +375,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain upon which the
@@ -424,14 +397,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for an exception
@@ -439,14 +411,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -457,7 +428,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -484,7 +455,7 @@
 								</xs:documentation>
 								<xs:appinfo>
 									<CallInfo>
-										<AllCalls />
+										<AllCalls/>
 										<Returned>
 											Conditionally
 										</Returned>
@@ -655,26 +626,22 @@
 
 
 	<wsdl:message name="saveSearchRequest">
-		<wsdl:part name="parameters"
-			element="tns:saveSearchRequest">
+		<wsdl:part element="tns:saveSearchRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="saveSearchResponse">
-		<wsdl:part name="parameters"
-			element="tns:saveSearchResponse">
+		<wsdl:part element="tns:saveSearchResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 
 	
 	
 	<wsdl:message name="getExchangeRatesRequest">
-		<wsdl:part name="parameters"
-			element="tns:getExchangeRatesRequest">
+		<wsdl:part element="tns:getExchangeRatesRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getExchangeRatesResponse">
-		<wsdl:part name="parameters"
-			element="tns:getExchangeRatesResponse">
+		<wsdl:part element="tns:getExchangeRatesResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 
@@ -684,73 +651,64 @@
 				Save the User search
 				Configuration Database.
 			</wsdl:documentation>
-			<wsdl:input message="tns:saveSearchRequest"></wsdl:input>
-			<wsdl:output message="tns:saveSearchResponse"></wsdl:output>
+			<wsdl:input message="tns:saveSearchRequest"/>
+			<wsdl:output message="tns:saveSearchResponse"/>
 		</wsdl:operation>
 		
 		<wsdl:operation name="getExchangeRates">
 			<wsdl:documentation>
 			  Get the exchanges rates from market place DB which inturn consumed from Bloomberg
 			</wsdl:documentation>
-			<wsdl:input message="tns:getExchangeRatesRequest"></wsdl:input>
-			<wsdl:output message="tns:getExchangeRatesResponse"></wsdl:output>
+			<wsdl:input message="tns:getExchangeRatesRequest"/>
+			<wsdl:output message="tns:getExchangeRatesResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
 
 
-	<wsdl:binding name="EimPeeringServiceSOAPBinding"
-		type="tns:EimPeeringServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="EimPeeringServiceSOAPBinding" type="tns:EimPeeringServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="saveSearch">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		
 		
 		<wsdl:operation name="getExchangeRates">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		
 	</wsdl:binding>
 
-	<wsdl:binding name="EimPeeringServiceHttpBinding"
-		type="tns:EimPeeringServicePort">
-		<http:binding verb="POST" />
+	<wsdl:binding name="EimPeeringServiceHttpBinding" type="tns:EimPeeringServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="saveSearch">
-			<http:operation location="/saveSearch" />
+			<http:operation location="/saveSearch"/>
 			<wsdl:input>
-				<mime:content part="saveSearchRequest"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="saveSearchRequest" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="saveSearchResponse"
-					type="text/xml" />
+				<mime:content part="saveSearchResponse" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 			
 		<wsdl:operation name="getExchangeRates">
-			<http:operation location="/getExchangeRates" />
+			<http:operation location="/getExchangeRates"/>
 			<wsdl:input>
-				<mime:content part="getExchangeRatesRequest"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="getExchangeRatesRequest" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="getExchangeRatesResponse"
-					type="text/xml" />
+				<mime:content part="getExchangeRatesResponse" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		
@@ -764,15 +722,11 @@
 			EIM Peering Service  - is a private service through which ebay international markets will peer with the ebay market place DB.
 			Operations - Save search, Store user pref lang , Retrieve USer pref lang
 		</wsdl:documentation>
-		<wsdl:port name="EimPeeringServiceHttp"
-			binding="tns:EimPeeringServiceHttpBinding">
-			<http:address
-				location="https://svcs.ebay.com/services/eim/EimPeeringService/v1" />
+		<wsdl:port binding="tns:EimPeeringServiceHttpBinding" name="EimPeeringServiceHttp">
+			<http:address location="https://svcs.ebay.com/services/eim/EimPeeringService/v1"/>
 		</wsdl:port>
-		<wsdl:port name="EimPeeringServiceSOAP"
-			binding="tns:EimPeeringServiceSOAPBinding">
-			<soap12:address
-				location="https://svcs.ebay.com/services/eim/EimPeeringService/v1" />
+		<wsdl:port binding="tns:EimPeeringServiceSOAPBinding" name="EimPeeringServiceSOAP">
+			<soap12:address location="https://svcs.ebay.com/services/eim/EimPeeringService/v1"/>
 		</wsdl:port>
 	</wsdl:service>
 

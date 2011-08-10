@@ -1,15 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="UserIncentivesService"
-	targetNamespace="http://www.ebay.com/marketplace/incentives/v1/UserIncentives/services"
-	xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:tns="http://www.ebay.com/marketplace/incentives/v1/UserIncentives/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/incentives/v1/UserIncentives/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UserIncentivesService" targetNamespace="http://www.ebayopensource.org/tumeric/incentives/v1/UserIncentives/services">
 	<types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/incentives/v1/UserIncentives/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/incentives/v1/UserIncentives/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -20,8 +11,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -74,14 +64,13 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
@@ -90,20 +79,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long" />
-					<xs:element name="domain" type="xs:string" />
-					<xs:element minOccurs="0" name="subdomain" type="xs:string" />
-					<xs:element name="severity" type="tns:ErrorSeverity" />
-					<xs:element name="category" type="tns:ErrorCategory" />
-					<xs:element name="message" type="xs:string" />
-					<xs:element minOccurs="0" name="exceptionId" type="xs:token" />
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"
-						type="tns:ErrorParameter" />
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+					<xs:element name="severity" type="tns:ErrorSeverity"/>
+					<xs:element name="category" type="tns:ErrorCategory"/>
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -112,8 +99,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!--
@@ -121,8 +107,7 @@
 					processContents="lax" /> </xs:sequence>
 				-->
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"
-						type="tns:ErrorData" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -131,13 +116,12 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string" use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -147,16 +131,15 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
-			<xs:element name="getItemIncentivesRequest" type="tns:GetItemIncentivesRequest" />
+			<xs:element name="getItemIncentivesRequest" type="tns:GetItemIncentivesRequest"/>
 			<xs:complexType name="GetItemIncentivesRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -167,15 +150,13 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseIncentivesRequest">
 						<xs:sequence>
-							<xs:element minOccurs="0" name="userDetails" type="tns:UserDetails" />
-							<xs:element maxOccurs="unbounded" minOccurs="1" name="items"
-								type="tns:Item" />
-							<xs:element maxOccurs="1" minOccurs="1" name="requester"
-								type="xs:string"/>
-							<xs:element name="flowType" type="tns:FlowType" />
-							<xs:element name="includeRewards" type="xs:boolean" />
-							<xs:element name="includeBML" type="xs:boolean" />
-							<xs:element name="includeCoupon" type="xs:boolean" />
+							<xs:element minOccurs="0" name="userDetails" type="tns:UserDetails"/>
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="items" type="tns:Item"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="requester" type="xs:string"/>
+							<xs:element name="flowType" type="tns:FlowType"/>
+							<xs:element name="includeRewards" type="xs:boolean"/>
+							<xs:element name="includeBML" type="xs:boolean"/>
+							<xs:element name="includeCoupon" type="xs:boolean"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -183,34 +164,28 @@
 			<xs:complexType abstract="true" name="BaseIncentivesRequest">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="logId" type="xs:string" />
+							<xs:element name="logId" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="Item">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="itemId"
-						type="xs:long" />
-					<xs:element maxOccurs="1" minOccurs="1" name="transactionId"
-						type="xs:long" />
-					<xs:element maxOccurs="1" minOccurs="1" name="itemVariationId"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="1" name="entityType"
-						type="tns:EntitiesType" />
-					<xs:element maxOccurs="1" minOccurs="0" name="itemDetails"
-						type="tns:ItemDetails" />
+					<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:long"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="transactionId" type="xs:long"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="itemVariationId" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="entityType" type="tns:EntitiesType"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="itemDetails" type="tns:ItemDetails"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType abstract="true" name="BaseRequest">
@@ -220,13 +195,11 @@
 						all service operations.
      </xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension"
-						type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ExtensionType">
@@ -235,15 +208,14 @@
 						Documentation goes here
      </xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
 				</xs:sequence>
 			</xs:complexType>
@@ -254,61 +226,43 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="saleEndTime"
-						type="xs:dateTime" />
-					<xs:element maxOccurs="1" minOccurs="1" name="shippingFee"
-						type="tns:Amount" />
-					<xs:element maxOccurs="1" minOccurs="1" name="itemPrice"
-						type="tns:Amount" />
-					<xs:element maxOccurs="1" minOccurs="1" name="itemSellerId"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="1" name="categoryIdList"
-						type="tns:CategoryIdList" />
-					<xs:element maxOccurs="1" minOccurs="1" name="binAvailable"
-						type="xs:boolean" />
-					<xs:element maxOccurs="1" minOccurs="1" name="saleType"
-						type="xs:int" />
-					<xs:element maxOccurs="1" minOccurs="1" name="quantity"
-						type="xs:int" />
-					<xs:element maxOccurs="1" minOccurs="1" name="worldOfGoodItem"
-						type="xs:boolean" />
-					<xs:element maxOccurs="1" minOccurs="1" name="givingWorksItem"
-						type="xs:boolean" />
-					<xs:element maxOccurs="1" minOccurs="1" name="transactionDate"
-						type="xs:dateTime" />
-					<xs:element maxOccurs="1" minOccurs="1" name="transactionAmount"
-						type="tns:Amount" />
-					<xs:element maxOccurs="unbounded" minOccurs="1"
-						name="paymentMethodsComplete" type="xs:int" />
+					<xs:element maxOccurs="1" minOccurs="1" name="saleEndTime" type="xs:dateTime"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="shippingFee" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="itemPrice" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="itemSellerId" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="categoryIdList" type="tns:CategoryIdList"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="binAvailable" type="xs:boolean"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="saleType" type="xs:int"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="quantity" type="xs:int"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="worldOfGoodItem" type="xs:boolean"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="givingWorksItem" type="xs:boolean"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="transactionDate" type="xs:dateTime"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="transactionAmount" type="tns:Amount"/>
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="paymentMethodsComplete" type="xs:int"/>
 				</xs:sequence>
 			</xs:complexType>
 
 			<xs:complexType name="UserDetails">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="rewardsMemberId"
-						type="xs:long">
+					<xs:element maxOccurs="1" minOccurs="1" name="rewardsMemberId" type="xs:long">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="rewardsTestUser"
-						type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="1" name="rewardsTestUser" type="xs:boolean">
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="1"
-						name="rewardsUserSegments" type="xs:int">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="rewardsUserSegments" type="xs:int">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="Amount">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -321,40 +275,35 @@
 			</xs:complexType>
 			<xs:complexType name="CategoryIdList">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="categoryId"
-						type="xs:string">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="categoryId" type="xs:string">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ItemBMLIncentive">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="itemApplicableIncentives" type="tns:ItemApplicableIncentives">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="itemApplicableIncentives" type="tns:ItemApplicableIncentives">
 					</xs:element>
-					<xs:element name="logId" type="xs:string" />
+					<xs:element name="logId" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType abstract="true" name="BaseIncentivesResponse">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -377,13 +326,13 @@
 									</xs:documentation>
 									<xs:appinfo>
 										<CallInfo>
-											<AllCalls />
+											<AllCalls/>
 											<Returned>Always</Returned>
 										</CallInfo>
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="logId" type="xs:string" />
+							<xs:element name="logId" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -396,17 +345,16 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -421,7 +369,7 @@
        </xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -429,10 +377,10 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -440,32 +388,30 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension"
-						type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="Campaign">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="country" type="xs:string" />
-					<xs:element name="adjacencyId" type="xs:string" />
-					<xs:element name="programCode" type="xs:string" />
+					<xs:element name="country" type="xs:string"/>
+					<xs:element name="adjacencyId" type="xs:string"/>
+					<xs:element name="programCode" type="xs:string"/>
 					<xs:element name="incentiveType" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
@@ -475,10 +421,10 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="externalId" type="xs:long" />
+					<xs:element name="externalId" type="xs:long"/>
 					<xs:element minOccurs="0" name="displayMessage" type="xs:string">
 					</xs:element>
-					<xs:element name="language" type="xs:string" />
+					<xs:element name="language" type="xs:string"/>
 					<xs:element minOccurs="0" name="FAQURL" type="xs:string">
 					</xs:element>
 					<xs:element name="campaignStatus" type="xs:string">
@@ -496,25 +442,20 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="budgetAmount" type="tns:Amount">
 					</xs:element>
-					<xs:element minOccurs="0" name="redeemedTotalAmount"
-						type="tns:Amount">
+					<xs:element minOccurs="0" name="redeemedTotalAmount" type="tns:Amount">
 					</xs:element>
-					<xs:element minOccurs="0" name="redeemedTotalCount"
-						type="xs:long">
+					<xs:element minOccurs="0" name="redeemedTotalCount" type="xs:long">
 					</xs:element>
-					<xs:element name="currency" type="xs:string" />
+					<xs:element name="currency" type="xs:string"/>
 					<xs:element minOccurs="0" name="maxUsageCount" type="xs:int">
 					</xs:element>
 					<xs:element minOccurs="0" name="campaignId" type="xs:long">
 					</xs:element>
-					<xs:element minOccurs="0" name="campaignCreationTime"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="campaignCreationTime" type="xs:dateTime">
 					</xs:element>
-					<xs:element minOccurs="0" name="campaignLastModifiedTime"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="campaignLastModifiedTime" type="xs:dateTime">
 					</xs:element>
-					<xs:element minOccurs="0" name="campaignDeletionTime"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="campaignDeletionTime" type="xs:dateTime">
 					</xs:element>
 					<xs:element name="campaignDiscountType" type="xs:string">
 						<xs:annotation>
@@ -523,11 +464,9 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="campaignDiscountPercent"
-						type="xs:double">
+					<xs:element minOccurs="0" name="campaignDiscountPercent" type="xs:double">
 					</xs:element>
-					<xs:element minOccurs="0" name="campaignDiscountAmount"
-						type="tns:Amount">
+					<xs:element minOccurs="0" name="campaignDiscountAmount" type="tns:Amount">
 					</xs:element>
 					<xs:element name="campaignValueType" type="xs:string">
 						<xs:annotation>
@@ -537,11 +476,9 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="campaignMinPurchaseAmount"
-						type="tns:Amount">
+					<xs:element minOccurs="0" name="campaignMinPurchaseAmount" type="tns:Amount">
 					</xs:element>
-					<xs:element minOccurs="0" name="campaignMaxDiscountAmount"
-						type="tns:Amount">
+					<xs:element minOccurs="0" name="campaignMaxDiscountAmount" type="tns:Amount">
 					</xs:element>
 					<xs:element minOccurs="0" name="categoryIdList" type="tns:CategoryIdList">
 					</xs:element>
@@ -564,33 +501,30 @@
 			</xs:complexType>
 			<xs:complexType name="ItemCouponIncentive">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="itemApplicableIncentives" type="tns:ItemApplicableIncentives">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="itemApplicableIncentives" type="tns:ItemApplicableIncentives">
 					</xs:element>
-					<xs:element name="logId" type="xs:string" />
+					<xs:element name="logId" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="getItemIncentivesResponse" type="tns:GetItemIncentivesResponse" />
+			<xs:element name="getItemIncentivesResponse" type="tns:GetItemIncentivesResponse"/>
 			<xs:complexType name="Incentive">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="campaignId" type="xs:long" />
-					<xs:element name="userId" type="xs:string" />
+					<xs:element name="campaignId" type="xs:long"/>
+					<xs:element name="userId" type="xs:string"/>
 					<xs:element minOccurs="0" name="incentiveId" type="xs:long">
 					</xs:element>
 					<xs:element name="incentiveStatus" type="xs:string">
@@ -613,31 +547,24 @@
 					</xs:element>
 					<xs:element name="isoCountryCode" type="xs:string">
 					</xs:element>
-					<xs:element minOccurs="0" name="incentiveDiscountPercent"
-						type="xs:int">
+					<xs:element minOccurs="0" name="incentiveDiscountPercent" type="xs:int">
 					</xs:element>
-					<xs:element minOccurs="0" name="incentiveDiscountAmount"
-						type="tns:Amount">
+					<xs:element minOccurs="0" name="incentiveDiscountAmount" type="tns:Amount">
 					</xs:element>
-					<xs:element minOccurs="0" name="incentiveDiscountType"
-						type="xs:string">
+					<xs:element minOccurs="0" name="incentiveDiscountType" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Possible values: Percent, AmountType.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="incentiveMinPurchaseAmount"
-						type="tns:Amount">
+					<xs:element minOccurs="0" name="incentiveMinPurchaseAmount" type="tns:Amount">
 					</xs:element>
-					<xs:element minOccurs="0" name="incentiveMaxPurchaseAmount"
-						type="tns:Amount">
+					<xs:element minOccurs="0" name="incentiveMaxPurchaseAmount" type="tns:Amount">
 					</xs:element>
-					<xs:element minOccurs="0" name="incentiveMaxDiscountAmount"
-						type="tns:Amount">
+					<xs:element minOccurs="0" name="incentiveMaxDiscountAmount" type="tns:Amount">
 					</xs:element>
-					<xs:element minOccurs="0" name="incentiveAppliedDiscountAmount"
-						type="tns:Amount">
+					<xs:element minOccurs="0" name="incentiveAppliedDiscountAmount" type="tns:Amount">
 					</xs:element>
 					<xs:element minOccurs="0" name="displayMessage" type="xs:string">
 						<xs:annotation>
@@ -646,32 +573,28 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="incentiveCreationTime"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="incentiveCreationTime" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								Only for output.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="incentiveLastModifiedTime"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="incentiveLastModifiedTime" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								Only for output.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="incentiveDeletionTime"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="incentiveDeletionTime" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								Only for output.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="originalDiscountAmount"
-						type="tns:Amount">
+					<xs:element minOccurs="0" name="originalDiscountAmount" type="tns:Amount">
 					</xs:element>
 					<!--Based on interface definition table, the reqired is not clear-->
 					<xs:element minOccurs="0" name="parentCampaign" type="tns:Campaign">
@@ -687,10 +610,9 @@
 			</xs:complexType>
 			<xs:complexType name="IncentiveUsage">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -713,32 +635,29 @@
 			</xs:complexType>
 			<xs:complexType name="IncentiveUsageList">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="IncentiveUsage" type="tns:IncentiveUsage">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="IncentiveUsage" type="tns:IncentiveUsage">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="IncentiveUsageType">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="Redeemed" />
-					<xs:enumeration value="Refunded" />
-					<xs:enumeration value="Invalid" />
+					<xs:enumeration value="Redeemed"/>
+					<xs:enumeration value="Refunded"/>
+					<xs:enumeration value="Invalid"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ItemApplicableIncentives">
@@ -748,122 +667,113 @@
 						list of incentives that apply to this item.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="itemId" type="xs:long" />
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="applicableIncentives" type="tns:Incentive">
+					<xs:element name="itemId" type="xs:long"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="applicableIncentives" type="tns:Incentive">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="PromotionType">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="GlobalPref" />
-					<xs:enumeration value="BaseOffer" />
-					<xs:enumeration value="BoosterOffer" />
-					<xs:enumeration value="ForcedOffer" />
-					<xs:enumeration value="NonStackableBoosterOffer" />
+					<xs:enumeration value="GlobalPref"/>
+					<xs:enumeration value="BaseOffer"/>
+					<xs:enumeration value="BoosterOffer"/>
+					<xs:enumeration value="ForcedOffer"/>
+					<xs:enumeration value="NonStackableBoosterOffer"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="RewardsAmountType">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="programCurrencyId" type="xs:long">
 					</xs:element>
-					<xs:element name="rewardsAmount" type="xs:double" />
+					<xs:element name="rewardsAmount" type="xs:double"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="RewardsEnrollmentType">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="Active" />
-					<xs:enumeration value="Suspended" />
-					<xs:enumeration value="Banned" />
-					<xs:enumeration value="Closed" />
+					<xs:enumeration value="Active"/>
+					<xs:enumeration value="Suspended"/>
+					<xs:enumeration value="Banned"/>
+					<xs:enumeration value="Closed"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:simpleType name="RewardsTransactionReasonCodeType">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="UNKNOWN" />
-					<xs:enumeration value="MAX_SPEND_REACHED" />
-					<xs:enumeration value="PAID_IN_NEXT_CYCLE" />
-					<xs:enumeration value="DISABLED_CYCLE" />
+					<xs:enumeration value="UNKNOWN"/>
+					<xs:enumeration value="MAX_SPEND_REACHED"/>
+					<xs:enumeration value="PAID_IN_NEXT_CYCLE"/>
+					<xs:enumeration value="DISABLED_CYCLE"/>
 					<xs:enumeration value="REFUND_FROM_PREVIOUS_CYCLE">
 					</xs:enumeration>
-					<xs:enumeration value="MAX_EARN_REACHED" />
-					<xs:enumeration value="REFUNDED" />
-					<xs:enumeration value="USER_BANNED" />
-					<xs:enumeration value="DISABLED_PROGRAM" />
-					<xs:enumeration value="USER_SUSPENDED" />
-					<xs:enumeration value="GLOBAL_PREF" />
-					<xs:enumeration value="INVALID_CATEGORY" />
-					<xs:enumeration value="TNS_PENDING" />
-					<xs:enumeration value="USER_OPTEDOUT" />
-					<xs:enumeration value="BASE_UNAVAILABLE" />
-					<xs:enumeration value="INVALID_LISTINGTYPE" />
-					<xs:enumeration value="AMOUNT_REDUCED" />
-					<xs:enumeration value="INVALID_PAYMENTTYPE" />
-					<xs:enumeration value="EARN_REDUCED" />
-					<xs:enumeration value="CS_CANCELLED" />
-					<xs:enumeration value="EARN_LESS_THAN_ONE" />
-					<xs:enumeration value="USER_NOT_ENROLLED" />
-					<xs:enumeration value="PURCHASE_SITE_MISMATCH" />
+					<xs:enumeration value="MAX_EARN_REACHED"/>
+					<xs:enumeration value="REFUNDED"/>
+					<xs:enumeration value="USER_BANNED"/>
+					<xs:enumeration value="DISABLED_PROGRAM"/>
+					<xs:enumeration value="USER_SUSPENDED"/>
+					<xs:enumeration value="GLOBAL_PREF"/>
+					<xs:enumeration value="INVALID_CATEGORY"/>
+					<xs:enumeration value="TNS_PENDING"/>
+					<xs:enumeration value="USER_OPTEDOUT"/>
+					<xs:enumeration value="BASE_UNAVAILABLE"/>
+					<xs:enumeration value="INVALID_LISTINGTYPE"/>
+					<xs:enumeration value="AMOUNT_REDUCED"/>
+					<xs:enumeration value="INVALID_PAYMENTTYPE"/>
+					<xs:enumeration value="EARN_REDUCED"/>
+					<xs:enumeration value="CS_CANCELLED"/>
+					<xs:enumeration value="EARN_LESS_THAN_ONE"/>
+					<xs:enumeration value="USER_NOT_ENROLLED"/>
+					<xs:enumeration value="PURCHASE_SITE_MISMATCH"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="RewardsDetailType">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="rewardsDetailList" type="tns:RewardsResultDetailType"
-						maxOccurs="unbounded" minOccurs="0" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="rewardsDetailList" type="tns:RewardsResultDetailType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="RewardsResultType">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -874,36 +784,31 @@
 					</xs:element>
 					<xs:element name="reasonCode" type="tns:RewardsTransactionReasonCodeType">
 					</xs:element>
-					<xs:element name="transactionId" type="xs:long"></xs:element>
+					<xs:element name="transactionId" type="xs:long"/>
 					<xs:element name="ruleDescription" type="xs:string">
 					</xs:element>
 					<xs:element name="includesBooster" type="xs:boolean">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="rewardsDetailList"
-						type="tns:RewardsDetailType">
+					<xs:element maxOccurs="1" minOccurs="0" name="rewardsDetailList" type="tns:RewardsDetailType">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="GetItemIncentivesResponse">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseIncentivesResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="itemRewardsIncentive" type="tns:ItemRewardsIncentive">
+							<xs:element maxOccurs="1" minOccurs="0" name="itemRewardsIncentive" type="tns:ItemRewardsIncentive">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="itemBMLIncentive"
-								type="tns:ItemBMLIncentive">
+							<xs:element maxOccurs="1" minOccurs="0" name="itemBMLIncentive" type="tns:ItemBMLIncentive">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="itemCouponIncentive" type="tns:ItemCouponIncentive">
+							<xs:element maxOccurs="1" minOccurs="0" name="itemCouponIncentive" type="tns:ItemCouponIncentive">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -911,10 +816,10 @@
 			</xs:complexType>
 			<xs:complexType name="RewardsIncentiveListType">
 		<xs:annotation>
-			<xs:documentation></xs:documentation>
+			<xs:documentation/>
 			
 		<xs:appinfo>
-				<typeLibrarySource library="IncentivesTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+				<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 				</typeLibrarySource>
 			</xs:appinfo></xs:annotation>
 		<xs:sequence>		
@@ -924,34 +829,32 @@
 	</xs:complexType>
 			<xs:complexType name="ItemRewardsIncentive">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="enrollmentStatus" type="tns:RewardsEnrollmentType">
 			</xs:element>
-			<xs:element name="logId" type="xs:string" />
+			<xs:element name="logId" type="xs:string"/>
 			<xs:element maxOccurs="1" minOccurs="0" name="rewardsIncentiveList" type="tns:RewardsIncentiveListType">
 			</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="RewardsResultDetailType">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="promotionName" type="xs:string"></xs:element>
+					<xs:element name="promotionName" type="xs:string"/>
 					<xs:element name="promotionDescription" type="xs:string">
 					</xs:element>
 					<xs:element name="promotionAmount" type="xs:double">
@@ -964,29 +867,23 @@
 			</xs:complexType>
 			<xs:complexType name="RewardsIncentive">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="itemId"
-						type="xs:long">
+					<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:long">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="transactionId"
-						type="xs:long">
+					<xs:element maxOccurs="1" minOccurs="1" name="transactionId" type="xs:long">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="itemVariationId"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="itemVariationId" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="entityType"
-						type="tns:EntitiesType">
+					<xs:element maxOccurs="1" minOccurs="1" name="entityType" type="tns:EntitiesType">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="rewardsResult"
-						type="tns:RewardsResultType">
+					<xs:element maxOccurs="1" minOccurs="0" name="rewardsResult" type="tns:RewardsResultType">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -997,15 +894,14 @@
 						item
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="IncentivesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="ITEM" />
-					<xs:enumeration value="ITEM_VARIATION" />
-					<xs:enumeration value="ITEM_TRANSACTION" />
+					<xs:enumeration value="ITEM"/>
+					<xs:enumeration value="ITEM_VARIATION"/>
+					<xs:enumeration value="ITEM_TRANSACTION"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:simpleType name="FlowType">
@@ -1017,19 +913,19 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="VIEWITEM_FLOW" />
-					<xs:enumeration value="BIN_FLOW" />
-					<xs:enumeration value="BID_FLOW" />
+					<xs:enumeration value="VIEWITEM_FLOW"/>
+					<xs:enumeration value="BIN_FLOW"/>
+					<xs:enumeration value="BID_FLOW"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:schema>
 	</types>
 	<message name="getItemIncentivesRequest">
-		<part name="params" element="tns:getItemIncentivesRequest">
+		<part element="tns:getItemIncentivesRequest" name="params">
 		</part>
 	</message>
 	<message name="getItemIncentivesResponse">
-		<part name="params" element="tns:getItemIncentivesResponse">
+		<part element="tns:getItemIncentivesResponse" name="params">
 		</part>
 	</message>
 	<portType name="UserIncentivesServicePort">
@@ -1041,28 +937,26 @@
 		</operation>
 	</portType>
 	<binding name="UserIncentivesServiceHttpBinding" type="tns:UserIncentivesServicePort">
-		<http:binding verb="POST" />
+		<http:binding verb="POST"/>
 		<operation name="getItemIncentives">
-			<http:operation location="/getItemIncentives" />
+			<http:operation location="/getItemIncentives"/>
 			<input>
-				<mime:content part="params" type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</output>
 		</operation>
 	</binding>
 	<binding name="UserIncentivesServiceSOAPBinding" type="tns:UserIncentivesServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<operation name="getItemIncentives">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/incentives/v1/UserIncentives/services/getItemIncentives" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/incentives/v1/UserIncentives/services/getItemIncentives"/>
 			<input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 	</binding>
@@ -1070,13 +964,11 @@
 		<wsdl:documentation>
 			<Version>1.0.0</Version>
 		</wsdl:documentation>
-		<port name="UserIncentivesServiceHttp" binding="tns:UserIncentivesServiceHttpBinding">
-			<http:address
-				location="https://svcs.ebay.com/services/incentives/v1/UserIncentivesService" />
+		<port binding="tns:UserIncentivesServiceHttpBinding" name="UserIncentivesServiceHttp">
+			<http:address location="https://svcs.ebay.com/services/incentives/v1/UserIncentivesService"/>
 		</port>
-		<port name="UserIncentivesServiceSOAP" binding="tns:UserIncentivesServiceSOAPBinding">
-			<soap12:address
-				location="https://svcs.ebay.com/services/incentives/v1/UserIncentivesService" />
+		<port binding="tns:UserIncentivesServiceSOAPBinding" name="UserIncentivesServiceSOAP">
+			<soap12:address location="https://svcs.ebay.com/services/incentives/v1/UserIncentivesService"/>
 		</port>
 	</service>
 </definitions>

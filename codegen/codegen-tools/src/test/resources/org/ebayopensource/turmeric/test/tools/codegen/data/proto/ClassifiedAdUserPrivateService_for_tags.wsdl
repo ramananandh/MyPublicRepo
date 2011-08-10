@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="ClassifiedAdUserPrivateService" targetNamespace="http://www.ebay.com/classifiedad/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/classifiedad/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/classifiedad/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ClassifiedAdUserPrivateService" targetNamespace="http://www.ebayopensource.org/classifiedad/v1/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/classifiedad/v1/services">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/classifiedad/v1/services">
 
 
 
@@ -19,38 +18,32 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="name" type="xs:string"
-								maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>Name of the user</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-							<xs:element name="phone" type="xs:string"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="phone" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>Phone number of the user</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="email" type="xs:string"
-								maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="email" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>Email Id of the user</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-							<xs:element name="eBayUserId" type="xs:long"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="eBayUserId" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>eBay User Id of the user.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="userType"
-								type="tns:ClassifiedAdUserType" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="userType" type="tns:ClassifiedAdUserType">
 								<xs:annotation>
 									<xs:documentation>This represents the User Type.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="userProperties"
-								type="tns:ClassifiedAdUserProperties" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="userProperties" type="tns:ClassifiedAdUserProperties">
 									<xs:annotation>
 										<xs:documentation>This represents the User properties.</xs:documentation>
 									</xs:annotation>								
@@ -71,12 +64,12 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="userId" type="xs:long" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="userId" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>Unique Id of the user.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="responseCode" type="xs:string" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="responseCode" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>.</xs:documentation>
 								</xs:annotation>
@@ -96,22 +89,22 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="name" type="xs:string" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>This represents the name of the User .</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="phone" type="xs:string" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="phone" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>This represents the phone number of the User .</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="email" type="xs:string" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="email" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>Email Id of the User .</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="userType" type="tns:ClassifiedAdUserType" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="userType" type="tns:ClassifiedAdUserType">
 								<xs:annotation>
 									<xs:documentation>This represents the type of the User .</xs:documentation>
 								</xs:annotation>
@@ -126,7 +119,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="user" type="tns:ClassifiedAdUserInternal" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="user" type="tns:ClassifiedAdUserInternal">
 								<xs:annotation>
 									<xs:documentation>
 										This holds the information that
@@ -166,8 +159,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="user"
-								type="tns:ClassifiedAdUserInternal">
+							<xs:element name="user" type="tns:ClassifiedAdUserInternal">
 									<xs:annotation>
 										<xs:documentation>
 										This holds the information that
@@ -184,8 +176,7 @@
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:element name="authenticateUserInternalResponse"
-				type="tns:AuthenticateUserInternalResponse">
+			<xs:element name="authenticateUserInternalResponse" type="tns:AuthenticateUserInternalResponse">
 
 			</xs:element>
 			<xs:element name="authenticateUserInternalRequest" type="tns:AuthenticateUserInternalRequest">
@@ -195,74 +186,62 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="requestEmail"
-								type="xs:string" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="requestEmail" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>Request Email of the user</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="cookieEmail"
-								type="xs:string" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="cookieEmail" type="xs:string">
 									<xs:annotation>
 										<xs:documentation> Email from the cookie</xs:documentation>
 									</xs:annotation>
 							</xs:element>
-							<xs:element name="guid" type="xs:string"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="guid" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>This is the machine id of the requester.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="eBayUserId" type="xs:long"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="eBayUserId" type="xs:long">
 							<xs:annotation>
 									<xs:documentation>eBay User Id of the user.</xs:documentation>
 							</xs:annotation>								
 							</xs:element>
-							<xs:element name="userToken" type="xs:long"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="userToken" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>This is the unique id given to guid and email id of the user.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="adToken" type="xs:long"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="adToken" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>This the token of the ad.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="adConfirmation"
-								type="xs:boolean" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="adConfirmation" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>Flag to check if the ad is confirmed.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="captcha" type="xs:boolean"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="captcha" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>Flag to check if captcha is assigned or not.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="login" type="xs:boolean"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="login" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>Flag to check if user is logged in.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="adId" type="xs:long"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="adId" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>This is the Unique id given to the ad.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="csCookie" type="xs:string"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="csCookie" type="xs:string">
 								<xs:annotation>
-									<xs:documentation></xs:documentation>
+									<xs:documentation/>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="autoApprove"
-								type="xs:boolean" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="autoApprove" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>Flag to check if the ad is auto approved.</xs:documentation>
 								</xs:annotation>
@@ -272,20 +251,17 @@
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:element name="findeBayUserByIdInternalResponse"
-				type="tns:FindeBayUserByIdInternalResponse">
+			<xs:element name="findeBayUserByIdInternalResponse" type="tns:FindeBayUserByIdInternalResponse">
 
 			</xs:element>
-			<xs:element name="findeBayUserByIdInternalRequest"
-            	type="tns:FindeBayUserByIdInternalRequest">
+			<xs:element name="findeBayUserByIdInternalRequest" type="tns:FindeBayUserByIdInternalRequest">
             </xs:element>
             
             <xs:complexType name="FindeBayUserByIdInternalRequest">
             	<xs:complexContent>
             		<xs:extension base="tns:BaseServiceRequest">
             			<xs:sequence>
-            				<xs:element name="eBayUserId"
-            					type="xs:long">
+            				<xs:element name="eBayUserId" type="xs:long">
             				</xs:element>
             			</xs:sequence>
 
@@ -296,8 +272,7 @@
             	<xs:complexContent>
             		<xs:extension base="tns:BaseServiceResponse">
             			<xs:sequence>
-            				<xs:element name="status"
-            					type="tns:AuthResponseStatus" maxOccurs="1" minOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="1" name="status" type="tns:AuthResponseStatus">
             					<xs:annotation>
 										<xs:documentation>Status of the response.</xs:documentation>
 								</xs:annotation>
@@ -311,8 +286,7 @@
             	<xs:complexContent>
             		<xs:extension base="tns:BaseServiceResponse">
             			<xs:sequence>
-            				<xs:element name="user"
-            					type="tns:ClassifiedAdUserInternal" maxOccurs="unbounded" minOccurs="0">
+            				<xs:element maxOccurs="unbounded" minOccurs="0" name="user" type="tns:ClassifiedAdUserInternal">
             					<xs:annotation>
             						<xs:documentation>
             							This holds the information that
@@ -328,12 +302,10 @@
             	</xs:complexContent>
             </xs:complexType>
 
-            <xs:element name="updateUserPropertiesInternalResponse"
-            	type="tns:UpdateUserPropertiesInternalResponse">
+            <xs:element name="updateUserPropertiesInternalResponse" type="tns:UpdateUserPropertiesInternalResponse">
 
             </xs:element>
-            <xs:element name="updateUserPropertiesInternalRequest"
-            	type="tns:UpdateUserPropertiesInternalRequest">
+            <xs:element name="updateUserPropertiesInternalRequest" type="tns:UpdateUserPropertiesInternalRequest">
             </xs:element>
             
         
@@ -348,8 +320,7 @@
             						</xs:documentation>
             					</xs:annotation>
             				</xs:element>
-            				<xs:element name="properties"
-            					type="tns:ClassifiedAdUserProperties">
+            				<xs:element name="properties" type="tns:ClassifiedAdUserProperties">
             					<xs:annotation>
             						<xs:documentation>
             							This represents the User
@@ -364,24 +335,21 @@
     
             <xs:complexType name="UpdateUserPropertiesInternalResponse">
             	<xs:complexContent>
-            		<xs:extension base="tns:BaseServiceResponse"></xs:extension>
+            		<xs:extension base="tns:BaseServiceResponse"/>
             	</xs:complexContent>
             </xs:complexType>
     
-            <xs:element name="confirmUserTokenInternalResponse"
-            	type="tns:ConfirmUserTokenInternalResponse">
+            <xs:element name="confirmUserTokenInternalResponse" type="tns:ConfirmUserTokenInternalResponse">
 
             </xs:element>
-            <xs:element name="confirmUserTokenInternalRequest"
-            	type="tns:ConfirmUserTokenInternalRequest">
+            <xs:element name="confirmUserTokenInternalRequest" type="tns:ConfirmUserTokenInternalRequest">
             </xs:element>
             
             <xs:complexType name="ConfirmUserTokenInternalRequest">
             	<xs:complexContent>
             		<xs:extension base="tns:BaseServiceRequest">
             			<xs:sequence>
-            				<xs:element name="encryptedToken"
-            					type="xs:string" maxOccurs="1" minOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="1" name="encryptedToken" type="xs:string">
             					<xs:annotation>
 									<xs:documentation>This is the encrypted form the Ad request.</xs:documentation>
 								</xs:annotation>  
@@ -399,34 +367,30 @@
             	</xs:complexContent>
             </xs:complexType>
 
-            <xs:element name="findUserTokenInternalResponse"
-            	type="tns:FindUserTokenInternalResponse">
+            <xs:element name="findUserTokenInternalResponse" type="tns:FindUserTokenInternalResponse">
 
             </xs:element>
 
-            <xs:element name="createUserTokenInternalResponse"
-            	type="tns:CreateUserTokenInternalResponse">
+            <xs:element name="createUserTokenInternalResponse" type="tns:CreateUserTokenInternalResponse">
 
             </xs:element>
-            <xs:element name="findUserTokenInternalRequest"
-            	type="tns:FindUserTokenInternalRequest">
+            <xs:element name="findUserTokenInternalRequest" type="tns:FindUserTokenInternalRequest">
             </xs:element>
-            <xs:element name="createUserTokenInternalRequest"
-            	type="tns:CreateUserTokenInternalRequest">
+            <xs:element name="createUserTokenInternalRequest" type="tns:CreateUserTokenInternalRequest">
             </xs:element>
             
             <xs:complexType name="CreateUserTokenInternalRequest">
             	<xs:complexContent>
             		<xs:extension base="tns:BaseServiceRequest">
             			<xs:sequence>
-            				<xs:element name="email" type="xs:string" maxOccurs="1" minOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="1" name="email" type="xs:string">
             						<xs:annotation>
             							<xs:documentation>
             								Email Id of the user
             							</xs:documentation>
             						</xs:annotation>
             				</xs:element>
-            				<xs:element name="GUID" type="xs:string" maxOccurs="1" minOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="1" name="GUID" type="xs:string">
             					<xs:annotation>
 									<xs:documentation>This is the machine id of the requester.</xs:documentation>
 								</xs:annotation>
@@ -442,14 +406,12 @@
             	<xs:complexContent>
             		<xs:extension base="tns:BaseServiceResponse">
             			<xs:sequence>
-            				<xs:element name="tokenId" type="xs:long"
-            					maxOccurs="1" minOccurs="0">
+            				<xs:element maxOccurs="1" minOccurs="0" name="tokenId" type="xs:long">
             					<xs:annotation>
 									<xs:documentation>Represents the unique id given to the listed ad's activity.</xs:documentation>
             					</xs:annotation>
             				</xs:element>
-            				<xs:element name="encryptrdToken"
-            					type="xs:string" maxOccurs="1" minOccurs="0">
+            				<xs:element maxOccurs="1" minOccurs="0" name="encryptrdToken" type="xs:string">
             					<xs:annotation>
 									<xs:documentation>This is the encrypted form the Ad request.</xs:documentation>
 								</xs:annotation>       
@@ -465,15 +427,14 @@
             	<xs:complexContent>
             		<xs:extension base="tns:BaseServiceRequest">
             			<xs:sequence>
-            				<xs:element name="email" type="xs:string" maxOccurs="1" minOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="1" name="email" type="xs:string">
             					<xs:annotation>
             							<xs:documentation>
             								Email Id of the user
             							</xs:documentation>
             						</xs:annotation>
             				</xs:element>
-            				<xs:element name="GUID"
-            					type="xs:string" maxOccurs="1" minOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="1" name="GUID" type="xs:string">
             					<xs:annotation>
 									<xs:documentation>This is the machine id of the requester.</xs:documentation>
 								</xs:annotation>
@@ -487,13 +448,12 @@
             	<xs:complexContent>
             		<xs:extension base="tns:BaseServiceResponse">
             			<xs:sequence>
-            				<xs:element name="token" type="xs:string" maxOccurs="1" minOccurs="0">
+            				<xs:element maxOccurs="1" minOccurs="0" name="token" type="xs:string">
             					<xs:annotation>
 									<xs:documentation>Represents the unique id given to the listed ad's activity.</xs:documentation>
             					</xs:annotation>
             				</xs:element>
-            				<xs:element name="confirmed"
-            					type="xs:boolean" maxOccurs="1" minOccurs="0">
+            				<xs:element maxOccurs="1" minOccurs="0" name="confirmed" type="xs:boolean">
             					<xs:annotation>
             							<xs:documentation>
             								Flag to check if confirmed .
@@ -527,7 +487,7 @@
 				or an informational error (a warning) that should be communicated to the
 				user.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 		<xs:restriction base="xs:string">
 	
 			<xs:enumeration value="Success">
@@ -569,7 +529,7 @@
 			<xs:documentation>
 				This is the base class for request container for all service operations.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 
 		</xs:sequence>
@@ -579,7 +539,7 @@
 				Base response container for all service operations.
 				Contains error information associated with the request.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
 		<xs:sequence>
 			<xs:element name="ack" type="tns:AckValue">
@@ -589,7 +549,7 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls></AllCalls>
+							<AllCalls/>
 							<Returned>Always</Returned>
 
 						</CallInfo>
@@ -605,7 +565,7 @@
 
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls></AllCalls>
+							<AllCalls/>
 							<Returned>Conditionally</Returned>
 						</CallInfo>
 					</xs:appinfo>
@@ -614,10 +574,10 @@
 
 			<xs:element minOccurs="0" name="version" type="xs:string">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls></AllCalls>
+							<AllCalls/>
 							<Returned>Always</Returned>
 
 						</CallInfo>
@@ -627,11 +587,11 @@
 			</xs:element>
 			<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 
 					<xs:appinfo>
 						<CallInfo>
-							<AllCalls></AllCalls>
+							<AllCalls/>
 							<Returned>Always</Returned>
 						</CallInfo>
 					</xs:appinfo>
@@ -642,7 +602,7 @@
 	</xs:complexType><xs:complexType name="ClassifiedAdUser">
 		<xs:annotation>
 			<xs:documentation>Object that contains all the details of the user</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 		<xs:element maxOccurs="1" minOccurs="0" name="name" type="xs:string">
 				<xs:annotation>
@@ -662,7 +622,7 @@
 				classified user. This is for internal services only, not
 				to be exposed outside eBay
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="tns:ClassifiedAdUser">
 				<xs:sequence>
@@ -699,7 +659,7 @@
 			<xs:documentation>
 				It hold the Ad user flags. Only for internal services use
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="0" name="classicChoice" type="xs:boolean">
 				<xs:annotation>
@@ -717,29 +677,29 @@
 			<xs:documentation>
 				Documentation goes here.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
       <xs:restriction base="xs:token">
-        <xs:enumeration value="System"></xs:enumeration>
-        <xs:enumeration value="Application"></xs:enumeration>
-        <xs:enumeration value="Request"></xs:enumeration>
+        <xs:enumeration value="System"/>
+        <xs:enumeration value="Application"/>
+        <xs:enumeration value="Request"/>
       </xs:restriction>
 
 	</xs:simpleType><xs:complexType name="ErrorData">
 		<xs:annotation>
 			<xs:documentation>Documentation goes here</xs:documentation>
 			
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 	
 	  <xs:sequence>
-        	<xs:element name="errorId" type="xs:long"></xs:element>
-		  	<xs:element name="domain" type="xs:string"></xs:element>
-			<xs:element minOccurs="0" name="subdomain" type="xs:string"></xs:element>
-			<xs:element name="severity" type="tns:ErrorSeverity"></xs:element>
-	  		<xs:element name="category" type="tns:ErrorCategory"></xs:element>
-	  		<xs:element name="message" type="xs:string"></xs:element>
-	  		<xs:element minOccurs="0" name="exceptionId" type="xs:token"></xs:element>
-	  		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"></xs:element>
+        	<xs:element name="errorId" type="xs:long"/>
+		  	<xs:element name="domain" type="xs:string"/>
+			<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+			<xs:element name="severity" type="tns:ErrorSeverity"/>
+	  		<xs:element name="category" type="tns:ErrorCategory"/>
+	  		<xs:element name="message" type="xs:string"/>
+	  		<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+	  		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 		</xs:sequence>
 	
 	
@@ -747,7 +707,7 @@
 		<xs:annotation>
 			<xs:documentation>Documentation goes here</xs:documentation>
 			
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 		
 		<!-- 
 		<xs:sequence>
@@ -765,11 +725,11 @@
 		<xs:annotation>
 			<xs:documentation>Documentation goes here</xs:documentation>
 			
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
 		<xs:simpleContent>
 		  <xs:extension base="xs:string">
-		    <xs:attribute name="name" type="xs:string" use="optional"></xs:attribute>
+		    <xs:attribute name="name" type="xs:string" use="optional"/>
 		  </xs:extension>
 		</xs:simpleContent>
 	</xs:complexType><xs:simpleType name="ErrorSeverity">
@@ -777,105 +737,105 @@
 			<xs:documentation>
 				Documentation goes here.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
       <xs:restriction base="xs:token">
-        <xs:enumeration value="Error"></xs:enumeration>
-        <xs:enumeration value="Warning"></xs:enumeration>
+        <xs:enumeration value="Error"/>
+        <xs:enumeration value="Warning"/>
       </xs:restriction>
 
 	</xs:simpleType></xs:schema>
   </wsdl:types>
   <wsdl:message name="findUserByIdInternalResponse">
-    <wsdl:part name="params" element="tns:findUserByIdInternalResponse"></wsdl:part>
+    <wsdl:part element="tns:findUserByIdInternalResponse" name="params"/>
   </wsdl:message>
   <wsdl:message name="findUserInternalResponse">
-    <wsdl:part name="params" element="tns:findUserInternalResponse"></wsdl:part>
+    <wsdl:part element="tns:findUserInternalResponse" name="params"/>
   </wsdl:message>
   <wsdl:message name="authenticateUserInternalResponse">
-    <wsdl:part name="params" element="tns:authenticateUserInternalResponse"></wsdl:part>
+    <wsdl:part element="tns:authenticateUserInternalResponse" name="params"/>
   </wsdl:message>
   <wsdl:message name="authenticateUserInternalRequest">
-    <wsdl:part name="params" element="tns:authenticateUserInternalRequest"></wsdl:part>
+    <wsdl:part element="tns:authenticateUserInternalRequest" name="params"/>
   </wsdl:message>
   <wsdl:message name="findUserInternalRequest">
-    <wsdl:part name="params" element="tns:findUserInternalRequest"></wsdl:part>
+    <wsdl:part element="tns:findUserInternalRequest" name="params"/>
   </wsdl:message>
   <wsdl:message name="findUserByIdInternalRequest">
-    <wsdl:part name="params" element="tns:findUserByIdInternalRequest"></wsdl:part>
+    <wsdl:part element="tns:findUserByIdInternalRequest" name="params"/>
   </wsdl:message>
   <wsdl:message name="createUserInternalResponse">
-    <wsdl:part name="params" element="tns:createUserInternalResponse"></wsdl:part>
+    <wsdl:part element="tns:createUserInternalResponse" name="params"/>
   </wsdl:message>
   <wsdl:message name="createUserInternalRequest">
-    <wsdl:part name="params" element="tns:createUserInternalRequest"></wsdl:part>
+    <wsdl:part element="tns:createUserInternalRequest" name="params"/>
   </wsdl:message>
   <wsdl:message name="findeBayUserByIdInternalRequest">
-  	<wsdl:part name="params" element="tns:findeBayUserByIdInternalRequest"></wsdl:part>
+  	<wsdl:part element="tns:findeBayUserByIdInternalRequest" name="params"/>
   </wsdl:message>
   <wsdl:message name="findeBayUserByIdInternalResponse">
-  	<wsdl:part name="params" element="tns:findeBayUserByIdInternalResponse"></wsdl:part>
+  	<wsdl:part element="tns:findeBayUserByIdInternalResponse" name="params"/>
   </wsdl:message>
   <wsdl:message name="updateUserPropertiesInternalRequest">
-  	<wsdl:part name="params" element="tns:updateUserPropertiesInternalRequest"></wsdl:part>
+  	<wsdl:part element="tns:updateUserPropertiesInternalRequest" name="params"/>
   </wsdl:message>
   <wsdl:message name="updateUserPropertiesInternalResponse">
-  	<wsdl:part name="params" element="tns:updateUserPropertiesInternalResponse"></wsdl:part>
+  	<wsdl:part element="tns:updateUserPropertiesInternalResponse" name="params"/>
   </wsdl:message>
   <wsdl:message name="confirmUserTokenInternalRequest">
-  	<wsdl:part name="params" element="tns:confirmUserTokenInternalRequest"></wsdl:part>
+  	<wsdl:part element="tns:confirmUserTokenInternalRequest" name="params"/>
   </wsdl:message>
   <wsdl:message name="confirmUserTokenInternalResponse">
-  	<wsdl:part name="params" element="tns:confirmUserTokenInternalResponse"></wsdl:part>
+  	<wsdl:part element="tns:confirmUserTokenInternalResponse" name="params"/>
   </wsdl:message>
   <wsdl:message name="findUserTokenInternalRequest">
-  	<wsdl:part name="params" element="tns:findUserTokenInternalRequest"></wsdl:part>
+  	<wsdl:part element="tns:findUserTokenInternalRequest" name="params"/>
   </wsdl:message>
   <wsdl:message name="findUserTokenInternalResponse">
-  	<wsdl:part name="params" element="tns:findUserTokenInternalResponse"></wsdl:part>
+  	<wsdl:part element="tns:findUserTokenInternalResponse" name="params"/>
   </wsdl:message>
   <wsdl:message name="createUserTokenInternalRequest">
-  	<wsdl:part name="params" element="tns:createUserTokenInternalRequest"></wsdl:part>
+  	<wsdl:part element="tns:createUserTokenInternalRequest" name="params"/>
   </wsdl:message>
   <wsdl:message name="createUserTokenInternalResponse">
-  	<wsdl:part name="params" element="tns:createUserTokenInternalResponse"></wsdl:part>
+  	<wsdl:part element="tns:createUserTokenInternalResponse" name="params"/>
   </wsdl:message>
   <wsdl:portType name="ClassifiedAdUserPrivateServicePort">
     <wsdl:operation name="createUserInternal">
-      <wsdl:input message="tns:createUserInternalRequest"></wsdl:input>
-      <wsdl:output message="tns:createUserInternalResponse"></wsdl:output>
+      <wsdl:input message="tns:createUserInternalRequest"/>
+      <wsdl:output message="tns:createUserInternalResponse"/>
     </wsdl:operation>
     <wsdl:operation name="findUserInternal">
-      <wsdl:input message="tns:findUserInternalRequest"></wsdl:input>
-      <wsdl:output message="tns:findUserInternalResponse"></wsdl:output>
+      <wsdl:input message="tns:findUserInternalRequest"/>
+      <wsdl:output message="tns:findUserInternalResponse"/>
     </wsdl:operation>
     <wsdl:operation name="findUserByIdInternal">
-      <wsdl:input message="tns:findUserByIdInternalRequest"></wsdl:input>
-      <wsdl:output message="tns:findUserByIdInternalResponse"></wsdl:output>
+      <wsdl:input message="tns:findUserByIdInternalRequest"/>
+      <wsdl:output message="tns:findUserByIdInternalResponse"/>
     </wsdl:operation>
     <wsdl:operation name="authenticateUserInternal">
-      <wsdl:input message="tns:authenticateUserInternalRequest"></wsdl:input>
-      <wsdl:output message="tns:authenticateUserInternalResponse"></wsdl:output>
+      <wsdl:input message="tns:authenticateUserInternalRequest"/>
+      <wsdl:output message="tns:authenticateUserInternalResponse"/>
     </wsdl:operation>
     <wsdl:operation name="findeBayUserByIdInternal">
-    	<wsdl:input message="tns:findeBayUserByIdInternalRequest"></wsdl:input>
-    	<wsdl:output message="tns:findeBayUserByIdInternalResponse"></wsdl:output>
+    	<wsdl:input message="tns:findeBayUserByIdInternalRequest"/>
+    	<wsdl:output message="tns:findeBayUserByIdInternalResponse"/>
     </wsdl:operation>
     <wsdl:operation name="updateUserPropertiesInternal">
-    	<wsdl:input message="tns:updateUserPropertiesInternalRequest"></wsdl:input>
-    	<wsdl:output message="tns:updateUserPropertiesInternalResponse"></wsdl:output>
+    	<wsdl:input message="tns:updateUserPropertiesInternalRequest"/>
+    	<wsdl:output message="tns:updateUserPropertiesInternalResponse"/>
     </wsdl:operation>
     <wsdl:operation name="confirmUserTokenInternal">
-    	<wsdl:input message="tns:confirmUserTokenInternalRequest"></wsdl:input>
-    	<wsdl:output message="tns:confirmUserTokenInternalResponse"></wsdl:output>
+    	<wsdl:input message="tns:confirmUserTokenInternalRequest"/>
+    	<wsdl:output message="tns:confirmUserTokenInternalResponse"/>
     </wsdl:operation>
     <wsdl:operation name="findUserTokenInternal">
-    	<wsdl:input message="tns:findUserTokenInternalRequest"></wsdl:input>
-    	<wsdl:output message="tns:findUserTokenInternalResponse"></wsdl:output>
+    	<wsdl:input message="tns:findUserTokenInternalRequest"/>
+    	<wsdl:output message="tns:findUserTokenInternalResponse"/>
     </wsdl:operation>
     <wsdl:operation name="createUserTokenInternal">
-    	<wsdl:input message="tns:createUserTokenInternalRequest"></wsdl:input>
-    	<wsdl:output message="tns:createUserTokenInternalResponse"></wsdl:output>
+    	<wsdl:input message="tns:createUserTokenInternalRequest"/>
+    	<wsdl:output message="tns:createUserTokenInternalResponse"/>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ClassifiedAdUserPrivateServiceSOAPBinding" type="tns:ClassifiedAdUserPrivateServicePort">
@@ -1047,10 +1007,10 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ClassifiedAdUserPrivateService">
-    <wsdl:port name="ClassifiedAdUserPrivateServiceHttpPort" binding="tns:ClassifiedAdUserPrivateServiceHttpBinding">
+    <wsdl:port binding="tns:ClassifiedAdUserPrivateServiceHttpBinding" name="ClassifiedAdUserPrivateServiceHttpPort">
       <http:address location="http://svcs.ebay.com/services/classifiedad/ClassifiedAdUserPrivateService/v1"/>
     </wsdl:port>
-    <wsdl:port name="ClassifiedAdUserPrivateServiceSOAPPort" binding="tns:ClassifiedAdUserPrivateServiceSOAPBinding">
+    <wsdl:port binding="tns:ClassifiedAdUserPrivateServiceSOAPBinding" name="ClassifiedAdUserPrivateServiceSOAPPort">
       <soap12:address location="http://svcs.ebay.com/services/classifiedad/ClassifiedAdUserPrivateService/v1"/>
     </wsdl:port>
   </wsdl:service>

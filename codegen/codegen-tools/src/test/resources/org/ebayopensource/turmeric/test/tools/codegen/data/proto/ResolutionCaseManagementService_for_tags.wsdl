@@ -1,16 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="ResolutionCaseManagementService"
-		targetNamespace="http://www.ebay.com/marketplace/resolution/v1/services"
-		xmlns="http://schemas.xmlsoap.org/wsdl/"
-		xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-		xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-		xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-		xmlns:tns="http://www.ebay.com/marketplace/resolution/v1/services"
-		xmlns:xs="http://www.w3.org/2001/XMLSchema"
-		xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-		xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/resolution/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ResolutionCaseManagementService" targetNamespace="http://www.ebayopensource.org/tumeric/resolution/v1/services">
 	<types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/resolution/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/resolution/v1/services">
 
 
 <xs:simpleType name="AckValue">
@@ -20,7 +10,7 @@
 			an informational error (a warning) that should be communicated to the user.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:restriction base="xs:string">
@@ -69,7 +59,7 @@
 			This is the base class for the request container for all service operations.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:sequence>
@@ -85,7 +75,7 @@
 			Returns error information associated with the request.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:sequence>
@@ -150,7 +140,7 @@
 			cannot be corrected by changing request values.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:restriction base="xs:token">
@@ -202,7 +192,7 @@
 			A container for error details.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:sequence>
@@ -224,7 +214,7 @@
 			Error message.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<!--
@@ -243,7 +233,7 @@
 			Error parameter.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:simpleContent>
@@ -260,7 +250,7 @@
 			Severity of error.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:restriction base="xs:token">
@@ -276,7 +266,7 @@
 			Documentation goes here.
 		</xs:documentation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:sequence>
@@ -517,7 +507,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="transactionId" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="transactionId" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					The specific transaction ID related to the case.
@@ -543,7 +533,7 @@
 	<xs:sequence>
 		<xs:element name="fromDate" type="xs:dateTime">
 		</xs:element>
-		<xs:element name="toDate" type="xs:dateTime" minOccurs="0"/>
+		<xs:element minOccurs="0" name="toDate" type="xs:dateTime"/>
 	</xs:sequence>
 </xs:complexType>
 
@@ -555,7 +545,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="caseType" type="tns:CaseType" maxOccurs="unbounded" minOccurs="1"/>
+		<xs:element maxOccurs="unbounded" minOccurs="1" name="caseType" type="tns:CaseType"/>
 
 	</xs:sequence>
 </xs:complexType>
@@ -647,7 +637,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="caseStatus" type="tns:CaseStatusInputType" maxOccurs="unbounded" minOccurs="1">
+		<xs:element maxOccurs="unbounded" minOccurs="1" name="caseStatus" type="tns:CaseStatusInputType">
 		</xs:element>
 
 	</xs:sequence>
@@ -753,7 +743,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="caseSummary" type="tns:CaseSummaryType" maxOccurs="unbounded" minOccurs="0">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="caseSummary" type="tns:CaseSummaryType">
 			<xs:annotation>
 				<xs:documentation>
 					Summary information on all cases matching input criteria.
@@ -868,8 +858,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="respondByDate" type="xs:dateTime"
-			minOccurs="0">
+		<xs:element minOccurs="0" name="respondByDate" type="xs:dateTime">
 			<xs:annotation>
 				<xs:documentation>
 					The date by which next action needs to be taken by the responsible party.
@@ -912,7 +901,7 @@
 			</xs:annotation>
 		</xs:element>
 
-			processContents="lax" />
+			processContents="lax" /&gt;
 	</xs:sequence>
 </xs:complexType>
 
@@ -973,7 +962,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="userId" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="userId" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					The eBay user ID for the user involved in the dispute case.
@@ -1918,7 +1907,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="transactionPrice" type="tns:Amount" minOccurs="0">
+		<xs:element minOccurs="0" name="transactionPrice" type="tns:Amount">
 			<xs:annotation>
 				<xs:documentation>
 					The amount paid for the transaction.
@@ -1931,7 +1920,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="transactionDate" type="xs:dateTime" minOccurs="0">
+		<xs:element minOccurs="0" name="transactionDate" type="xs:dateTime">
 			<xs:annotation>
 				<xs:documentation>
 					The date of the transaction.
@@ -1944,7 +1933,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="globalId" type="xs:token" minOccurs="0">
+		<xs:element minOccurs="0" name="globalId" type="xs:token">
 			<xs:annotation>
 				<xs:documentation>
 					The eBay site where the item was listed or purchased.
@@ -1979,7 +1968,7 @@
 <xs:complexType name="Amount">
 	<xs:annotation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:simpleContent>
@@ -2027,14 +2016,14 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseResponse">
 			<xs:sequence>
-				<xs:element name="caseSummary" type="tns:CaseSummaryType" minOccurs="0">
+				<xs:element minOccurs="0" name="caseSummary" type="tns:CaseSummaryType">
 					<xs:annotation>
 						<xs:documentation>
 							Summary information.
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="caseDetail" type="tns:EBPCaseDetailType" minOccurs="0">
+				<xs:element minOccurs="0" name="caseDetail" type="tns:EBPCaseDetailType">
 					<xs:annotation>
 						<xs:documentation>
 							The container for detailed eBP case information.
@@ -2054,7 +2043,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="openReason" type="xs:token" minOccurs="0">
+		<xs:element minOccurs="0" name="openReason" type="xs:token">
 			<xs:annotation>
 				<xs:documentation>
 					Reason for opening a case.
@@ -2067,8 +2056,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="decisionReason" type="xs:token"
-			minOccurs="0">
+		<xs:element minOccurs="0" name="decisionReason" type="xs:token">
 			<xs:annotation>
 				<xs:documentation>For future use.</xs:documentation>
 				<xs:appinfo>
@@ -2080,8 +2068,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="decisionDate" type="xs:dateTime"
-			minOccurs="0">
+		<xs:element minOccurs="0" name="decisionDate" type="xs:dateTime">
 			<xs:annotation>
 				<xs:documentation>
 					The date when a decision was made and the case was closed.
@@ -2096,8 +2083,7 @@
 		</xs:element>
 
 
-		<xs:element name="decision" type="tns:CaseDecisionType"
-			minOccurs="0">
+		<xs:element minOccurs="0" name="decision" type="tns:CaseDecisionType">
 			<xs:annotation>
 				<xs:documentation>
 					The disposition of the case.
@@ -2110,8 +2096,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="FVFCredited" type="xs:boolean" maxOccurs="1"
-			minOccurs="0">
+		<xs:element maxOccurs="1" minOccurs="0" name="FVFCredited" type="xs:boolean">
 			<xs:annotation>
 				<xs:documentation>
 					Indicates whether or not a Final Value Fee (FVF) was credited as part of the
@@ -2125,8 +2110,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="notCountedInBuyerProtectionCases"
-			type="xs:boolean" maxOccurs="1" minOccurs="0">
+		<xs:element maxOccurs="1" minOccurs="0" name="notCountedInBuyerProtectionCases" type="xs:boolean">
 			<xs:annotation>
 				<xs:documentation>For future use.</xs:documentation>
 				<xs:appinfo>
@@ -2150,8 +2134,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="appeal" type="tns:AppealType"
-			maxOccurs="unbounded" minOccurs="0">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="appeal" type="tns:AppealType">
 			<xs:annotation>
 				<xs:documentation>
 					Indicates whether the appeal originated from a buyer or seller.
@@ -2164,9 +2147,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="responseHistory"
-			type="tns:EBPCaseResponseHistoryType" maxOccurs="unbounded"
-			minOccurs="0">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="responseHistory" type="tns:EBPCaseResponseHistoryType">
 			<xs:annotation>
 				<xs:documentation>
 					The history of responses for the case.
@@ -2179,7 +2160,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="agreedRefundAmount" type="tns:Amount" maxOccurs="1" minOccurs="0">
+		<xs:element maxOccurs="1" minOccurs="0" name="agreedRefundAmount" type="tns:Amount">
 			<xs:annotation>
 				<xs:documentation>
 					In the case of a partial or full refund, this value indicates the monetary
@@ -2193,8 +2174,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 			</xs:element>
-		<xs:element name="paymentDetail" type="tns:PaymentDetailType"
-			minOccurs="0">
+		<xs:element minOccurs="0" name="paymentDetail" type="tns:PaymentDetailType">
 			<xs:annotation>
 				<xs:documentation>
 					Money movement details.
@@ -2207,8 +2187,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="buyerReturnShipment" type="tns:ShipmentType"
-			minOccurs="0">
+		<xs:element minOccurs="0" name="buyerReturnShipment" type="tns:ShipmentType">
 			<xs:annotation>
 				<xs:documentation>
 					In the case of a return, this field contains details on the buyer's return
@@ -2236,7 +2215,7 @@
 			</xs:annotation>
 		</xs:element>
 
-			processContents="lax" />
+			processContents="lax" /&gt;
 	</xs:sequence>
 </xs:complexType>
 
@@ -2248,7 +2227,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="moneyMovement" type="tns:MoneyMovementDetailType" maxOccurs="unbounded" minOccurs="0">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="moneyMovement" type="tns:MoneyMovementDetailType">
 			<xs:annotation>
 				<xs:documentation>
 					Indicates the movement of the money based on whether the buyer or seller won
@@ -2262,7 +2241,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="balanceDue" type="tns:Amount" minOccurs="0">
+		<xs:element minOccurs="0" name="balanceDue" type="tns:Amount">
 			<xs:annotation>
 				<xs:documentation>
 					The balance due to the buyer or seller.
@@ -2287,7 +2266,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="decision" type="tns:AppealDecisionType" minOccurs="0">
+		<xs:element minOccurs="0" name="decision" type="tns:AppealDecisionType">
 			<xs:annotation>
 				<xs:documentation>
 					The appeal decision.
@@ -2302,7 +2281,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="decisionReason" type="xs:token" minOccurs="0">
+		<xs:element minOccurs="0" name="decisionReason" type="xs:token">
 			<xs:annotation>
 				<xs:documentation>
 					For future use.
@@ -2318,7 +2297,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="decisionDate" type="xs:dateTime" minOccurs="0">
+		<xs:element minOccurs="0" name="decisionDate" type="xs:dateTime">
 			<xs:annotation>
 				<xs:documentation>
 					The date when a decision was made and the case was closed.
@@ -2360,7 +2339,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="note" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="note" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					The member notes for the response.
@@ -2524,7 +2503,7 @@
 			</xs:annotation>
 		</xs:element>
 
-		<xs:element name="amount" type="tns:Amount" minOccurs="0">
+		<xs:element minOccurs="0" name="amount" type="tns:Amount">
 			<xs:annotation>
 				<xs:documentation>
 					The amount of the transaction.
@@ -2537,7 +2516,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="paymentMethod" type="tns:PaymentMethodType" minOccurs="0">
+		<xs:element minOccurs="0" name="paymentMethod" type="tns:PaymentMethodType">
 			<xs:annotation>
 				<xs:documentation>
 					The payment method used for the money movement.
@@ -2550,7 +2529,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="paypalTransactionId" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="paypalTransactionId" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					The PayPal Transaction ID. This element is only applicable if PayPal was used
@@ -2592,8 +2571,8 @@
 		</xs:element>
 
 	</xs:sequence>
-	<xs:attribute name="id" use="required" type="xs:string"/>
-	<xs:attribute name="parentId" use="optional" type="xs:string"/>
+	<xs:attribute name="id" type="xs:string" use="required"/>
+	<xs:attribute name="parentId" type="xs:string" use="optional"/>
 </xs:complexType>
 
 
@@ -2725,35 +2704,35 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="trackingNumber" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="trackingNumber" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					The tracking number used by the shipping carrier.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="carrierUsed" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="carrierUsed" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					The name of the shipment carrier.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="deliveryStatus" type="xs:token" minOccurs="0">
+		<xs:element minOccurs="0" name="deliveryStatus" type="xs:token">
 			<xs:annotation>
 				<xs:documentation>
 					The status of the delivery.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="deliveryDate" type="xs:dateTime" minOccurs="0">
+		<xs:element minOccurs="0" name="deliveryDate" type="xs:dateTime">
 			<xs:annotation>
 				<xs:documentation>
 					The expected date of delivery.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="shippingCost" type="tns:Amount" minOccurs="0">
+		<xs:element minOccurs="0" name="shippingCost" type="tns:Amount">
 			<xs:annotation>
 				<xs:documentation>
 					The total shipping costs.
@@ -2775,7 +2754,7 @@
 <xs:complexType name="Address">
 	<xs:annotation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:sequence>
@@ -2795,7 +2774,7 @@
 <xs:complexType name="PaginationInput">
 	<xs:annotation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:sequence>
@@ -2809,7 +2788,7 @@
 <xs:complexType name="PaginationOutput">
 	<xs:annotation>
 		<xs:appinfo>
-			<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 		</xs:appinfo>
 	</xs:annotation>
 	<xs:sequence>
@@ -2826,22 +2805,22 @@
 	</types>
 
 	<message name="getVersionRequest">
-		<part name="params" element="tns:getVersionRequest"/>
+		<part element="tns:getVersionRequest" name="params"/>
 	</message>
 	<message name="getVersionResponse">
-		<part name="params" element="tns:getVersionResponse"/>
+		<part element="tns:getVersionResponse" name="params"/>
 	</message>
 	<message name="getUserCasesRequest">
-		<part name="params" element="tns:getUserCasesRequest"/>
+		<part element="tns:getUserCasesRequest" name="params"/>
 	</message>
 	<message name="getUserCasesResponse">
-		<part name="params" element="tns:getUserCasesResponse"/>
+		<part element="tns:getUserCasesResponse" name="params"/>
 	</message>
 	<message name="getEBPCaseDetailRequest">
-		<part name="params" element="tns:getEBPCaseDetailRequest"/>
+		<part element="tns:getEBPCaseDetailRequest" name="params"/>
 	</message>
 	<message name="getEBPCaseDetailResponse">
-		<part name="params" element="tns:getEBPCaseDetailResponse"/>
+		<part element="tns:getEBPCaseDetailResponse" name="params"/>
 	</message>
 
 	<portType name="ResolutionCaseManagementServicePort">
@@ -2937,10 +2916,10 @@
 			Service allows consumers to get Resolution case information and its
 			details.
 		</wsdl:documentation>
-		<port name="ResolutionCaseManagementServiceHttpPort" binding="tns:ResolutionCaseManagementServiceHttpBinding">
+		<port binding="tns:ResolutionCaseManagementServiceHttpBinding" name="ResolutionCaseManagementServiceHttpPort">
 			<http:address location="https://svcs.ebay.com/services/resolution/v1/ResolutionCaseManagementService"/>
 		</port>
-		<port name="ResolutionCaseManagementServiceSOAPPort" binding="tns:ResolutionCaseManagementServiceSOAPBinding">
+		<port binding="tns:ResolutionCaseManagementServiceSOAPBinding" name="ResolutionCaseManagementServiceSOAPPort">
 			<soap12:address location="https://svcs.ebay.com/services/resolution/v1/ResolutionCaseManagementService"/>
 		</port>
 	</service>

@@ -1,24 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="UserVoiceBaseService" 
-targetNamespace="http://www.ebay.com/marketplace/uservoice/v1/services" 
-xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
-xmlns:tns="http://www.ebay.com/marketplace/uservoice/v1/services" 
-xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
-xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/uservoice/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UserVoiceBaseService" targetNamespace="http://www.ebayopensource.org/tumeric/uservoice/v1/services">
 
   <types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
-    targetNamespace="http://www.ebay.com/marketplace/uservoice/v1/services" 
-    xmlns:tns="http://www.ebay.com/marketplace/uservoice/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/uservoice/v1/services">
  
 		 <xs:complexType name="GetVersionRequest">
 		 <xs:complexContent>
-		  <xs:extension base="tns:BaseRequest" /> 
+		  <xs:extension base="tns:BaseRequest"/> 
 		  </xs:complexContent>
 		  </xs:complexType>		
-			<xs:element name="getVersionRequest"  type="tns:GetVersionRequest"/>
-			<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionResponse">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
@@ -34,11 +25,11 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded" /> 
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/> 
 				</xs:sequence>
 			</xs:complexType>
 			<!--  standard framework response types  -->
-			<xs:complexType name="BaseResponse" abstract="true">
+			<xs:complexType abstract="true" name="BaseResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -47,7 +38,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded" /> 
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/> 
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
 							<xs:documentation>
@@ -129,13 +120,13 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 			<xs:complexType name="ExtensionType">
 			 <xs:annotation>
 			  <xs:documentation>Documentation goes here</xs:documentation> 
-			  <xs:appinfo /> 
+			  <xs:appinfo/> 
 			  </xs:annotation>
 			  <xs:sequence>
-			  <xs:element name="id" type="xs:positiveInteger" /> 
-			  <xs:element name="version" type="xs:string" /> 
-			  <xs:element name="contentType" type="xs:string" /> 
-			  <xs:element name="value" type="xs:string" /> 
+			  <xs:element name="id" type="xs:positiveInteger"/> 
+			  <xs:element name="version" type="xs:string"/> 
+			  <xs:element name="contentType" type="xs:string"/> 
+			  <xs:element name="value" type="xs:string"/> 
 
 			  </xs:sequence>
 			  </xs:complexType>			
@@ -149,7 +140,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
@@ -320,7 +311,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -764,7 +755,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="ratingFacet" type="tns:BaseRatingFacet">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="ratingFacet" type="tns:BaseRatingFacet">
 					<xs:annotation>
 							<xs:documentation>
 								There can be any number of available rating facets that are associated with the rating.
@@ -812,8 +803,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:restriction>
 			</xs:simpleType>
 
-		<xs:element name="findUserVoiceBySubjectRequest"  type="tns:FindUserVoiceBySubjectRequest"/>
-			<xs:element name="findUserVoiceBySubjectResponse"  type="tns:FindUserVoiceBySubjectResponse"/>
+		<xs:element name="findUserVoiceBySubjectRequest" type="tns:FindUserVoiceBySubjectRequest"/>
+			<xs:element name="findUserVoiceBySubjectResponse" type="tns:FindUserVoiceBySubjectResponse"/>
 			<xs:complexType name="BaseRatingRangeFilter">
 				<xs:sequence>
 					<!--  min and max ratings are all inclusive -->
@@ -937,8 +928,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:complexContent>
 			</xs:complexType>
 					
-		<xs:element name="deleteUserVoicesRequest"  type="tns:DeleteUserVoicesRequest"/>
-			<xs:element name="deleteUserVoicesResponse"  type="tns:DeleteUserVoicesResponse"/>
+		<xs:element name="deleteUserVoicesRequest" type="tns:DeleteUserVoicesRequest"/>
+			<xs:element name="deleteUserVoicesResponse" type="tns:DeleteUserVoicesResponse"/>
 			<xs:complexType name="DeleteUserVoicesRequest">
 				<xs:sequence>
 					<xs:element maxOccurs="unbounded" minOccurs="1" name="deleteUserVoiceRequest" type="tns:DeleteUserVoiceRequest">
@@ -970,8 +961,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:sequence>
 			</xs:complexType>
 			
-		<xs:element name="deleteUserVoiceRequest"  type="tns:DeleteUserVoiceRequest"/>
-		<xs:element name="deleteUserVoiceResponse"  type="tns:DeleteUserVoiceResponse"/>
+		<xs:element name="deleteUserVoiceRequest" type="tns:DeleteUserVoiceRequest"/>
+		<xs:element name="deleteUserVoiceResponse" type="tns:DeleteUserVoiceResponse"/>
 		
 		<xs:complexType name="DeleteUserVoiceRequest">
 				<xs:complexContent>
@@ -1006,8 +997,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:complexContent>
 			</xs:complexType>
 			
-			<xs:element name="findUserVoiceByUserRequest"  type="tns:FindUserVoiceByUserRequest"/>
-			<xs:element name="findUserVoiceByUserResponse"  type="tns:FindUserVoiceByUserResponse"/>
+			<xs:element name="findUserVoiceByUserRequest" type="tns:FindUserVoiceByUserRequest"/>
+			<xs:element name="findUserVoiceByUserResponse" type="tns:FindUserVoiceByUserResponse"/>
 			<xs:complexType name="FindUserVoiceByUserRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
@@ -1050,7 +1041,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 							</xs:element>
 							<xs:element maxOccurs="1" minOccurs="0" name="paginationInput" type="tns:PaginationInput">
 							</xs:element>
-							<xs:element minOccurs="0" maxOccurs="1" name="timeRangeFilter" type="tns:BaseTimeRangeFilter">
+							<xs:element maxOccurs="1" minOccurs="0" name="timeRangeFilter" type="tns:BaseTimeRangeFilter">
 						<xs:annotation>
 							<xs:documentation>
 								the fromTime and toTime range
@@ -1064,14 +1055,14 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 			<xs:complexType name="BaseTimeRangeFilter">
 				<xs:sequence>
 					<!--  min and max time frames are all inclusive -->
-					<xs:element minOccurs="0" maxOccurs="1" name="fromTime" type="xs:date">
+					<xs:element maxOccurs="1" minOccurs="0" name="fromTime" type="xs:date">
 						<xs:annotation>
 							<xs:documentation>
 								the min time value (the fromTime)
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="1" name="toTime" type="xs:date">
+					<xs:element maxOccurs="1" minOccurs="0" name="toTime" type="xs:date">
 						<xs:annotation>
 							<xs:documentation>
 								the max time value (the toTime)
@@ -1111,8 +1102,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:complexContent>
 			</xs:complexType>
 
-		<xs:element name="findUserVoiceByKeywordsRequest"  type="tns:FindUserVoiceByKeywordsRequest"/>
-			<xs:element name="findUserVoiceByKeywordsResponse"  type="tns:FindUserVoiceByKeywordsResponse"/>
+		<xs:element name="findUserVoiceByKeywordsRequest" type="tns:FindUserVoiceByKeywordsRequest"/>
+			<xs:element name="findUserVoiceByKeywordsResponse" type="tns:FindUserVoiceByKeywordsResponse"/>
 			<xs:complexType name="FindUserVoiceByKeywordsRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
@@ -1243,8 +1234,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 				</xs:sequence>
 			</xs:complexType>
 			
-			<xs:element name="getUserVoicesRequest"  type="tns:GetUserVoicesRequest"/>
-			<xs:element name="getUserVoicesResponse"  type="tns:GetUserVoicesResponse"/>
+			<xs:element name="getUserVoicesRequest" type="tns:GetUserVoicesRequest"/>
+			<xs:element name="getUserVoicesResponse" type="tns:GetUserVoicesResponse"/>
 			<xs:complexType name="GetUserVoicesRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
@@ -1336,7 +1327,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 							</xs:annotation>
 						
 						</xs:element>
-						<xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="1" name="userId" type="xs:string">
 							<xs:annotation>
 								<xs:documentation>
 									User id of the comment creator
@@ -1344,7 +1335,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 							</xs:annotation>
 						
 						</xs:element>
-						<xs:element minOccurs="0" maxOccurs="unbounded" name="commentFacet" type="tns:BaseCommentFacet">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="commentFacet" type="tns:BaseCommentFacet">
 							<xs:annotation>
 								<xs:documentation>
 									The facet associated with the comment.
@@ -1430,7 +1421,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 						
 						</xs:element>
 						
-						<xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="1" name="userId" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The user id of the review creator
@@ -1438,7 +1429,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 						</xs:annotation>
 						
 						</xs:element>
-						<xs:element minOccurs="0" maxOccurs="unbounded" name="reviewFacet" type="tns:BaseReviewFacet">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="reviewFacet" type="tns:BaseReviewFacet">
 						<xs:annotation>
 							<xs:documentation>
 								The list of facets associated with the review
@@ -1451,28 +1442,28 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 			</xs:complexType>
 			<xs:complexType name="BaseReport">
 				<xs:sequence>
-						<xs:element minOccurs="0" maxOccurs="1" name="reportId" type="xs:long">
+						<xs:element maxOccurs="1" minOccurs="0" name="reportId" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								the report id in the user voice system
 							</xs:documentation>
 						</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="1" maxOccurs="1" name="reportTitle" type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="1" name="reportTitle" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The report title
 							</xs:documentation>
 						</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="1" maxOccurs="1" name="userId" type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="1" name="userId" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								the user id of the report creator
 							</xs:documentation>
 						</xs:annotation>
 						</xs:element>						
-						<xs:element minOccurs="1" maxOccurs="1" name="reportContent" type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="1" name="reportContent" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								the report content
@@ -1597,8 +1588,8 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 			   </xs:sequence>
 		  </xs:complexType>			
 										
-			<xs:element name="reportUserVoiceRequest"  type="tns:ReportUserVoiceRequest"/>
-			<xs:element name="reportUserVoiceResponse"  type="tns:ReportUserVoiceResponse"/>
+			<xs:element name="reportUserVoiceRequest" type="tns:ReportUserVoiceRequest"/>
+			<xs:element name="reportUserVoiceResponse" type="tns:ReportUserVoiceResponse"/>
 
 			<xs:complexType name="ReportUserVoiceRequest">
 				<xs:complexContent>
@@ -1646,67 +1637,67 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 		</xs:schema>
   </types>
   <message name="findUserVoiceByKeywordsRequest">
-    <part name="messageParameters" element="tns:findUserVoiceByKeywordsRequest">
+    <part element="tns:findUserVoiceByKeywordsRequest" name="messageParameters">
     </part>
   </message>
   <message name="getVersionRequest">
-    <part name="parameters" element="tns:getVersionRequest">
+    <part element="tns:getVersionRequest" name="parameters">
     </part>
   </message>
   <message name="getVersionResponse">
-    <part name="parameters" element="tns:getVersionResponse">
+    <part element="tns:getVersionResponse" name="parameters">
     </part>
   </message>
   <message name="getUserVoicesResponse">
-    <part name="messageParameters" element="tns:getUserVoicesResponse">
+    <part element="tns:getUserVoicesResponse" name="messageParameters">
     </part>
   </message>
   <message name="findUserVoiceBySubjectRequest">
-    <part name="messageParameters" element="tns:findUserVoiceBySubjectRequest">
+    <part element="tns:findUserVoiceBySubjectRequest" name="messageParameters">
     </part>
   </message>
   <message name="findUserVoiceBySubjectResponse">
-    <part name="messageParameters" element="tns:findUserVoiceBySubjectResponse">
+    <part element="tns:findUserVoiceBySubjectResponse" name="messageParameters">
     </part>
   </message>
   <message name="getUserVoicesRequest">
-    <part name="messageParameters" element="tns:getUserVoicesRequest">
+    <part element="tns:getUserVoicesRequest" name="messageParameters">
     </part>
   </message>
   <message name="findUserVoiceByKeywordsResponse">
-    <part name="messageParameters" element="tns:findUserVoiceByKeywordsResponse">
+    <part element="tns:findUserVoiceByKeywordsResponse" name="messageParameters">
     </part>
   </message>
   <message name="findUserVoiceByUserResponse">
-    <part name="messageParameters" element="tns:findUserVoiceByUserResponse">
+    <part element="tns:findUserVoiceByUserResponse" name="messageParameters">
     </part>
   </message>
   <message name="deleteUserVoiceRequest">
-    <part name="messageParameters" element="tns:deleteUserVoiceRequest">
+    <part element="tns:deleteUserVoiceRequest" name="messageParameters">
     </part>
   </message>
   <message name="reportUserVoiceResponse">
-    <part name="messageParameters" element="tns:reportUserVoiceResponse">
+    <part element="tns:reportUserVoiceResponse" name="messageParameters">
     </part>
   </message>
   <message name="deleteUserVoicesRequest">
-    <part name="messageParameters" element="tns:deleteUserVoicesRequest">
+    <part element="tns:deleteUserVoicesRequest" name="messageParameters">
     </part>
   </message>
   <message name="deleteUserVoicesResponse">
-    <part name="messageParameters" element="tns:deleteUserVoicesResponse">
+    <part element="tns:deleteUserVoicesResponse" name="messageParameters">
     </part>
   </message>
   <message name="reportUserVoiceRequest">
-    <part name="messageParameters" element="tns:reportUserVoiceRequest">
+    <part element="tns:reportUserVoiceRequest" name="messageParameters">
     </part>
   </message>
   <message name="deleteUserVoiceResponse">
-    <part name="messageParameters" element="tns:deleteUserVoiceResponse">
+    <part element="tns:deleteUserVoiceResponse" name="messageParameters">
     </part>
   </message>
   <message name="findUserVoiceByUserRequest">
-    <part name="messageParameters" element="tns:findUserVoiceByUserRequest">
+    <part element="tns:findUserVoiceByUserRequest" name="messageParameters">
     </part>
   </message>
   <portType name="UserVoiceBaseServicePort">
@@ -1800,7 +1791,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
   <binding name="UserVoiceBaseServiceSoapBinding" type="tns:UserVoiceBaseServicePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="getVersion">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/uservoicebase/v1/services/getVersion"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/uservoicebase/v1/services/getVersion"/>
       <output>
         <soap:body use="literal"/>
       </output>
@@ -1878,7 +1869,7 @@ xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
 			subject such as a product, an app etc. The service also
 			allows end user to provide user voices on other people's user voices.
 		</wsdl:documentation>
-    <port name="UserVoiceBaseServiceSOAP" binding="tns:UserVoiceBaseServiceSoapBinding">
+    <port binding="tns:UserVoiceBaseServiceSoapBinding" name="UserVoiceBaseServiceSOAP">
       <soap12:address location="https://svcs.ebay.com/services/uservoice/v1/UserVoiceBaseService"/>
     </port>
   </service>

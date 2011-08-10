@@ -1,21 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions
-  name="CategoryServiceInternal"
-  targetNamespace="http://www.ebay.com/marketplace/category/v1/services"
-  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-  xmlns:tns="http://www.ebay.com/marketplace/category/v1/services"
-  xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/category/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CategoryServiceInternal" targetNamespace="http://www.ebayopensource.org/tumeric/category/v1/services">
 
 <wsdl:types>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/category/v1/services" xmlns:tns="http://www.ebay.com/marketplace/category/v1/services">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/category/v1/services">
 
 
-<xs:element name="getVersionResponse"  type="tns:GetVersionResponse" />
+<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 
 <xs:complexType name="GetVersionResponse">
 	<xs:annotation>
@@ -43,7 +32,7 @@
 
 
 
-<xs:element name="getCategoryHierarchyRequest"  type="tns:GetCategoryHierarchyRequest">
+<xs:element name="getCategoryHierarchyRequest" type="tns:GetCategoryHierarchyRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This operation locates the conversation by using the sender's secret id and the recipient Anonymous Stem, and updates
@@ -60,18 +49,18 @@ the expiry dates of the stems in the conversation to the passed in date
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="siteId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="parentCategoryId" type="xs:string"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="level" type="xs:int"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="format" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="unbounded" name="includeCategoryFilter" type="xs:string"/>							
+							<xs:element maxOccurs="1" minOccurs="1" name="siteId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="parentCategoryId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="level" type="xs:int"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="format" type="xs:string"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="includeCategoryFilter" type="xs:string"/>							
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 
 
-<xs:element name="getCategoryHierarchyResponse"  type="tns:GetCategoryHierarchyResponse"/>
+<xs:element name="getCategoryHierarchyResponse" type="tns:GetCategoryHierarchyResponse"/>
 			<xs:complexType name="GetCategoryHierarchyResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -81,7 +70,7 @@ the expiry dates of the stems in the conversation to the passed in date
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="1" name="categoryArray" type="tns:CategoryArray"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="categoryArray" type="tns:CategoryArray"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -94,11 +83,11 @@ the expiry dates of the stems in the conversation to the passed in date
 					</xs:documentation>
 				</xs:annotation>
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="1" name="categoryId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="categoryLevel" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="categoryName" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="categoryParentId" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="unbounded" name="childCategories" type="tns:Category"/>																				
+							<xs:element maxOccurs="1" minOccurs="0" name="categoryId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="categoryLevel" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="categoryName" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="categoryParentId" type="xs:string"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="childCategories" type="tns:Category"/>																				
 						</xs:sequence>
 			</xs:complexType>
 			
@@ -109,9 +98,9 @@ the expiry dates of the stems in the conversation to the passed in date
 					</xs:documentation>
 				</xs:annotation>
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="1" name="categoryCount" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="categoryVersion" type="xs:string"/>
-							<xs:element minOccurs="0" maxOccurs="unbounded" name="category" type="tns:Category"/>																				
+							<xs:element maxOccurs="1" minOccurs="0" name="categoryCount" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="categoryVersion" type="xs:string"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="category" type="tns:Category"/>																				
 						</xs:sequence>
 			</xs:complexType>
 
@@ -175,7 +164,7 @@ the expiry dates of the stems in the conversation to the passed in date
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					Details about a single error.
@@ -343,7 +332,7 @@ the expiry dates of the stems in the conversation to the passed in date
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -515,13 +504,13 @@ the expiry dates of the stems in the conversation to the passed in date
 </xs:schema>
 </wsdl:types>
   <wsdl:message name="getVersionResponse">
-    <wsdl:part name="parameters" element="tns:getVersionResponse"/>
+    <wsdl:part element="tns:getVersionResponse" name="parameters"/>
   </wsdl:message>
 	  	<wsdl:message name="getCategoryHierarchyRequest">
-		<wsdl:part name="messageParameters" element="tns:getCategoryHierarchyRequest"/>
+		<wsdl:part element="tns:getCategoryHierarchyRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="getCategoryHierarchyResponse">
-		<wsdl:part name="messageParameters" element="tns:getCategoryHierarchyResponse"/>
+		<wsdl:part element="tns:getCategoryHierarchyResponse" name="messageParameters"/>
 	</wsdl:message>
 
 	<wsdl:portType name="CategoryServiceInternalPort">
@@ -549,14 +538,14 @@ the expiry dates of the stems in the conversation to the passed in date
 		</wsdl:operation>
 	</wsdl:binding>
   <wsdl:binding name="CategoryServiceInternalSOAPBinding" type="tns:CategoryServiceInternalPort">
-		<soap12:binding xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getVersion" style="document"/>
+			<soap12:operation soapAction="urn:getVersion" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>    
 		
@@ -564,23 +553,23 @@ the expiry dates of the stems in the conversation to the passed in date
 		
 		
 						<wsdl:operation name="getCategoryHierarchy">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getCategoryHierarchy" style="document"/>
+			<soap12:operation soapAction="urn:getCategoryHierarchy" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>  
 		
   </wsdl:binding>
   
 	<wsdl:service name="CategoryServiceInternal">
-		<wsdl:port name="CategoryServiceInternalHttp" binding="tns:CategoryServiceInternalHttpBinding">
+		<wsdl:port binding="tns:CategoryServiceInternalHttpBinding" name="CategoryServiceInternalHttp">
 			<http:address location="http://svcs.ebay.com/CategoryServiceInternal"/>
 		</wsdl:port>
-		<wsdl:port name="CategoryServiceInternalSOAP" binding="tns:CategoryServiceInternalSOAPBinding">
-			<soap12:address xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" location="http://svcs.ebay.com/CategoryServiceInternal"/>
+		<wsdl:port binding="tns:CategoryServiceInternalSOAPBinding" name="CategoryServiceInternalSOAP">
+			<soap12:address location="http://svcs.ebay.com/CategoryServiceInternal"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

@@ -1,28 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="FindingMetadataService"
-	targetNamespace="http://www.ebay.com/marketplace/search/v1/services"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebay.com/marketplace/search/v1/services"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/search/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FindingMetadataService" targetNamespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 
 	<wsdl:types>
 
-		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			attributeFormDefault="unqualified" elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/search/v1/services"
-			xmlns:tns="http://www.ebay.com/marketplace/search/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 
-			<xs:element name="getVersionRequest" type="tns:GetVersionRequest" />
-			<xs:element name="getVersionResponse" type="tns:GetVersionResponse" />
-			<xs:element name="getProductTypesByNamesRequest" type="tns:GetProductTypesByNamesRequest" />
-			<xs:element name="getProductTypesByNamesResponse" type="tns:GetProductTypesByNamesResponse" />
-			<xs:element name="getCategoryPropertiesRequest" type="tns:GetCategoryPropertiesRequest" />
-			<xs:element name="getCategoryPropertiesResponse" type="tns:GetCategoryPropertiesResponse" />
-			<xs:element name="getCatalogPropertiesRequest" type="tns:GetCatalogPropertiesRequest" />
-			<xs:element name="getCatalogPropertiesResponse" type="tns:GetCatalogPropertiesResponse" />
-			<xs:element name="getGlobalDomainRequest" type="tns:GetGlobalDomainRequest" />
-			<xs:element name="getGlobalDomainResponse" type="tns:GetGlobalDomainResponse" />
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
+			<xs:element name="getProductTypesByNamesRequest" type="tns:GetProductTypesByNamesRequest"/>
+			<xs:element name="getProductTypesByNamesResponse" type="tns:GetProductTypesByNamesResponse"/>
+			<xs:element name="getCategoryPropertiesRequest" type="tns:GetCategoryPropertiesRequest"/>
+			<xs:element name="getCategoryPropertiesResponse" type="tns:GetCategoryPropertiesResponse"/>
+			<xs:element name="getCatalogPropertiesRequest" type="tns:GetCatalogPropertiesRequest"/>
+			<xs:element name="getCatalogPropertiesResponse" type="tns:GetCatalogPropertiesResponse"/>
+			<xs:element name="getGlobalDomainRequest" type="tns:GetGlobalDomainRequest"/>
+			<xs:element name="getGlobalDomainResponse" type="tns:GetGlobalDomainResponse"/>
 
 			<xs:complexType name="GetVersionRequest">
 				<xs:complexContent>
@@ -40,8 +31,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="output"
-								type="xs:string" />
+							<xs:element maxOccurs="1" minOccurs="1" name="output" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -50,8 +40,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="context"
-								type="tns:ServiceContext">
+							<xs:element maxOccurs="1" minOccurs="1" name="context" type="tns:ServiceContext">
 								<xs:annotation>
 								   <xs:documentation>
 									   Contextual information used by Search services. The information
@@ -60,11 +49,9 @@
 								   </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="1" name="name"
-								type="xs:string">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="name" type="xs:string">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="loadProperties"
-								type="xs:boolean">
+							<xs:element maxOccurs="1" minOccurs="1" name="loadProperties" type="xs:boolean">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -74,14 +61,11 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0" name="executionTime"
-								type="xs:long">
+							<xs:element maxOccurs="1" minOccurs="0" name="executionTime" type="xs:long">
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="1"
-								name="productType" type="tns:ProductType">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="productType" type="tns:ProductType">
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="property"
-								type="tns:Property">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:Property">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -92,8 +76,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="context"
-								type="tns:ServiceContext">
+							<xs:element maxOccurs="1" minOccurs="1" name="context" type="tns:ServiceContext">
 								<xs:annotation>
 								   <xs:documentation>
 									   Contextual information used by Search services. The information
@@ -102,8 +85,7 @@
 								   </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="1" name="category"
-								type="tns:CategoryKey">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="category" type="tns:CategoryKey">
 								<xs:annotation>
 									<xs:documentation>
 										The category of a product, represented by a unique category key (id).
@@ -119,8 +101,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0" name="executionTime"
-								type="xs:long">
+							<xs:element maxOccurs="1" minOccurs="0" name="executionTime" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 										Time (in milliseconds) taken to execute the request.
@@ -128,8 +109,7 @@
 								</xs:annotation>
 							</xs:element>
 							
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="categoryProperty" type="tns:CategoryProperty">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="categoryProperty" type="tns:CategoryProperty">
 								<xs:annotation>
 									<xs:documentation>
 										Property related to the specified category.
@@ -154,8 +134,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="context" type="tns:ServiceContext"
-								maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="context" type="tns:ServiceContext">
 								<xs:annotation>
 									<xs:documentation>
 										Contextual information used by Search services. The information
@@ -164,24 +143,21 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="1" name="catalogId"
-								type="xs:long">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="catalogId" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 										Catalog id.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="usecase" type="xs:string" maxOccurs="1"
-								minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="usecase" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										Name of usecase	(as defined in UsecaseEnum).
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="dataset" type="xs:string" maxOccurs="unbounded"
-								minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="dataset" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										Name of the dataset	that the property belongs to(as defined in DatasetEnum).
@@ -203,16 +179,14 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0" name="executionDuration"
-								type="xs:long">
+							<xs:element maxOccurs="1" minOccurs="0" name="executionDuration" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 										Time taken to execute GetCatalogPropertiesRequest.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="catalogPropertyList" type="tns:CatalogProperties">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="catalogPropertyList" type="tns:CatalogProperties">
 								<xs:annotation>
 									<xs:documentation>
 										Catalog properties for the specified
@@ -229,8 +203,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="context"
-								type="tns:ServiceContext">
+							<xs:element maxOccurs="1" minOccurs="1" name="context" type="tns:ServiceContext">
 								<xs:annotation>
 								   <xs:documentation>
 									   Contextual information used by Search services. The information
@@ -239,8 +212,7 @@
 								   </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="loadProperties"
-								type="xs:boolean">
+							<xs:element maxOccurs="1" minOccurs="1" name="loadProperties" type="xs:boolean">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -251,14 +223,12 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0" name="executionTime"
-								type="xs:long">
+							<xs:element maxOccurs="1" minOccurs="0" name="executionTime" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>Time (in milliseconds)taken to execute the request.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="globalDomain"
-								type="tns:GlobalDomain">
+							<xs:element maxOccurs="1" minOccurs="1" name="globalDomain" type="tns:GlobalDomain">
 								<xs:annotation>
 									<xs:documentation>
 										A collection of all the eBay site offices.
@@ -274,22 +244,18 @@
 
 			<xs:complexType abstract="true" name="Domain">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="displayName"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="displayName" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="seoName"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="seoName" type="xs:string">
 					</xs:element>
 					<xs:element maxOccurs="1" minOccurs="1" name="id" type="xs:long">
 					</xs:element>
@@ -304,16 +270,14 @@
 				<xs:annotation>
 					<xs:documentation>The category of a product, represented by a unique category key (id). </xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:Key">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="categoryId"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="categoryId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>Unique identifier for the category.</xs:documentation>
 								</xs:annotation>		
@@ -328,20 +292,17 @@
 				<xs:annotation>
 					<xs:documentation>Container for the property related to the category.</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="category"
-						type="tns:CategoryKey">
+					<xs:element maxOccurs="1" minOccurs="1" name="category" type="tns:CategoryKey">
 						<xs:annotation>
 							<xs:documentation>Unique category key as specified in the request.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="property"
-						type="tns:Property">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:Property">
 						<xs:annotation>
 							<xs:documentation>Property of the category.</xs:documentation>
 						</xs:annotation>
@@ -354,14 +315,12 @@
 						
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								A value name for a given aspect. 
@@ -369,39 +328,33 @@
 							</xs:documentation>
 						</xs:annotation>	
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="displayName"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="displayName" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="rank"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="1" name="rank" type="xs:int">
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="property"
-						type="tns:Property">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:Property">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="GlobalDomain">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:Domain">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="aspect"
-								type="tns:GlobalAspect">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="aspect" type="tns:GlobalAspect">
 								<xs:annotation>
 									<xs:documentation>
 										A characteristic of an item in the global domain.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="property"
-								type="tns:Property">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:Property">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -416,20 +369,16 @@
 						in Magellan domain metadata.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parentValue" type="xs:string">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parentValue" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="parentAspectName"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="parentAspectName" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="childAspectName"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="childAspectName" type="xs:string">
 					</xs:element>
 
 				</xs:sequence>
@@ -441,39 +390,29 @@
 						Magellan domain metadata.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="namespace"
-						type="xs:token">
+					<xs:element maxOccurs="1" minOccurs="1" name="namespace" type="xs:token">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="displayName"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="displayName" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="pluralDisplayName"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="pluralDisplayName" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="rank"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="1" name="rank" type="xs:int">
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="aspectValue" type="tns:AspectValue">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="aspectValue" type="tns:AspectValue">
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="property"
-						type="tns:Property">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:Property">
 					</xs:element>
 
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="childDependency" type="tns:AspectDependency">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="childDependency" type="tns:AspectDependency">
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parentDependency" type="tns:AspectDependency">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parentDependency" type="tns:AspectDependency">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -484,46 +423,37 @@
 						Domain Metadata.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:Domain">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="aspect"
-								type="tns:DomainAspect"></xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="property"
-								type="tns:Property"></xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="aspect" type="tns:DomainAspect"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:Property"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="GlobalAspect">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:DomainAspect">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="exclusiveGroup" type="xs:string">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="exclusiveGroup" type="xs:string">
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="inclusiveGroup" type="xs:string">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="inclusiveGroup" type="xs:string">
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="parentInclusiveGroup" type="xs:string">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="parentInclusiveGroup" type="xs:string">
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="siblingOrGroup" type="xs:string">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="siblingOrGroup" type="xs:string">
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="killExclusiveGroup" type="xs:string">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="killExclusiveGroup" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -535,32 +465,28 @@
 						Contextual information used by Search Services.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceContext">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0" name="locale"
-								type="xs:token">
+							<xs:element maxOccurs="1" minOccurs="0" name="locale" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
-										Locale in the format of &quot;language,country,variant&quot;. Check
+										Locale in the format of "language,country,variant". Check
 										java.util.Locale
 					</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="timeZone"
-								type="xs:token">
+							<xs:element maxOccurs="1" minOccurs="0" name="timeZone" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
-										Time zone in the format of &quot;GMT+/-hh:mm&quot;
+										Time zone in the format of "GMT+/-hh:mm"
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="currency"
-								type="xs:token">
+							<xs:element maxOccurs="1" minOccurs="0" name="currency" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
 										Money currency. Check com.ebay.af.common.types.Currency for the
@@ -578,21 +504,18 @@
 						Name value pair for defining properties associated with entities.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The name of the property.
 					</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="value"
-						type="xs:string">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="value" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The values of the property.
@@ -610,8 +533,7 @@
 						user.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -661,8 +583,7 @@
 						Contains error information associated with the request.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 
@@ -674,7 +595,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
@@ -690,7 +611,7 @@
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -706,7 +627,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
@@ -724,7 +645,7 @@
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -738,15 +659,14 @@
 						There are three categories of error: request errors, application errors, and system errors. Request and application errors are often caused by passing invalid data in the request. System errors are primarily caused by application failures and cannot be corrected by changing request values.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System"></xs:enumeration>
-					<xs:enumeration value="Application"></xs:enumeration>
-					<xs:enumeration value="Request"></xs:enumeration>
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 
 			</xs:simpleType>
@@ -755,8 +675,7 @@
 					<xs:documentation>A container for error details. </xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 
@@ -772,10 +691,10 @@
 					<xs:element name="domain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
-								Name of the domain in which the error occurred.<br></br>
+								Name of the domain in which the error occurred.<br/>
 								
-								domain values:<br></br>
-								1)Marketplace - A business or validation error occurred in the service.<br></br>
+								domain values:<br/>
+								1)Marketplace - A business or validation error occurred in the service.<br/>
 								2)SOA - An exception occurred in the Service Oriented Architecture (SOA) framework.
 							</xs:documentation>
 						</xs:annotation>
@@ -827,8 +746,7 @@
 							<xs:documentation>Unique identifier for an exception associated with an error.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"
-						type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Various warning and error messages return one or more variables 
@@ -849,8 +767,7 @@
 				</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 
@@ -860,8 +777,7 @@
 				-->
 
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"
-						type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
@@ -878,8 +794,7 @@
 					</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 
@@ -910,14 +825,13 @@
 						Indicates whether the error is a fatal error (causing the request to fail) or a less severe error (a warning) that should be communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error"></xs:enumeration>
-					<xs:enumeration value="Warning"></xs:enumeration>
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 
 			</xs:simpleType>
@@ -928,8 +842,7 @@
 						operations.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -938,10 +851,9 @@
 			</xs:complexType>
 			<xs:complexType abstract="true" name="Key">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -949,23 +861,20 @@
 			</xs:complexType>
 			<xs:complexType name="BaseServiceContext">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="globalId"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="globalId" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The id of the site against which the search is performed. The id is defined in SOA platform e.g. EBAY-US.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="partnerId"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="0" name="partnerId" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Cobrand id against which the search is performed. The partner id is defined in PartnerEnum. In most cases its value
@@ -981,7 +890,7 @@
 				Properties are grouped by dataset(s) 
 				(associated with Catalog and usecase for a site and partner). 
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="1" name="dataset" type="xs:token">
 				<xs:annotation>
@@ -1005,7 +914,7 @@
 				Properties are grouped by dataset(s) 
 				(associated with Catalog and usecase for a site and partner). 				
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="1" name="catalogId" type="xs:long">
 				<xs:annotation>
@@ -1027,7 +936,7 @@
 			<xs:documentation>
 				Catalog property information.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="1" name="id" type="xs:long">
 				<xs:annotation>
@@ -1094,41 +1003,41 @@
 	</wsdl:types>
 
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part element="tns:getVersionRequest" name="params" />
+		<wsdl:part element="tns:getVersionRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part element="tns:getVersionResponse" name="params" />
+		<wsdl:part element="tns:getVersionResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getProductTypesByNamesRequest">
-		<wsdl:part name="params" element="tns:getProductTypesByNamesRequest">
+		<wsdl:part element="tns:getProductTypesByNamesRequest" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getProductTypesByNamesResponse">
-		<wsdl:part name="params" element="tns:getProductTypesByNamesResponse">
+		<wsdl:part element="tns:getProductTypesByNamesResponse" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getCategoryPropertiesRequest">
-		<wsdl:part name="params" element="tns:getCategoryPropertiesRequest">
+		<wsdl:part element="tns:getCategoryPropertiesRequest" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getCategoryPropertiesResponse">
-		<wsdl:part name="params" element="tns:getCategoryPropertiesResponse">
+		<wsdl:part element="tns:getCategoryPropertiesResponse" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getCatalogPropertiesRequest">
-		<wsdl:part name="params" element="tns:getCatalogPropertiesRequest">
+		<wsdl:part element="tns:getCatalogPropertiesRequest" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getCatalogPropertiesResponse">
-		<wsdl:part name="params" element="tns:getCatalogPropertiesResponse">
+		<wsdl:part element="tns:getCatalogPropertiesResponse" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getGlobalDomainRequest">
-		<wsdl:part name="params" element="tns:getGlobalDomainRequest">
+		<wsdl:part element="tns:getGlobalDomainRequest" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getGlobalDomainResponse">
-		<wsdl:part name="params" element="tns:getGlobalDomainResponse">
+		<wsdl:part element="tns:getGlobalDomainResponse" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:portType name="FindingMetadataServicePort">
@@ -1137,8 +1046,8 @@
 				Returns the current version of
 				the service.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getVersionRequest" />
-			<wsdl:output message="tns:getVersionResponse" />
+			<wsdl:input message="tns:getVersionRequest"/>
+			<wsdl:output message="tns:getVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getProductTypesByNames">
 			<wsdl:documentation>
@@ -1146,8 +1055,8 @@
 				each with their aspects, aspect values and properties,
 				based on input list of product type names.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getProductTypesByNamesRequest"></wsdl:input>
-			<wsdl:output message="tns:getProductTypesByNamesResponse"></wsdl:output>
+			<wsdl:input message="tns:getProductTypesByNamesRequest"/>
+			<wsdl:output message="tns:getProductTypesByNamesResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getCategoryProperties">
 			<wsdl:documentation>
@@ -1155,8 +1064,8 @@
 				property collections, based on input list of category
 				keys.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getCategoryPropertiesRequest"></wsdl:input>
-			<wsdl:output message="tns:getCategoryPropertiesResponse"></wsdl:output>
+			<wsdl:input message="tns:getCategoryPropertiesRequest"/>
+			<wsdl:output message="tns:getCategoryPropertiesResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getCatalogProperties">
 			<wsdl:documentation>
@@ -1164,8 +1073,8 @@
 				property collections, based on input list of catalog / product
 				keys.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getCatalogPropertiesRequest"></wsdl:input>
-			<wsdl:output message="tns:getCatalogPropertiesResponse"></wsdl:output>
+			<wsdl:input message="tns:getCatalogPropertiesRequest"/>
+			<wsdl:output message="tns:getCatalogPropertiesResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getGlobalDomain">
 			<wsdl:documentation>
@@ -1173,69 +1082,61 @@
 				its global aspects/filters and properties, based on the input 
 				site id and partner id.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getGlobalDomainRequest"></wsdl:input>
-			<wsdl:output message="tns:getGlobalDomainResponse"></wsdl:output>
+			<wsdl:input message="tns:getGlobalDomainRequest"/>
+			<wsdl:output message="tns:getGlobalDomainResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="FindingMetadataServiceHttpBinding"
-		type="tns:FindingMetadataServicePort">
-		<http:binding verb="POST" />
+	<wsdl:binding name="FindingMetadataServiceHttpBinding" type="tns:FindingMetadataServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="FindingMetadataServiceSOAPBinding"
-		type="tns:FindingMetadataServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="FindingMetadataServiceSOAPBinding" type="tns:FindingMetadataServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/getVersion"/>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getProductTypesByNames">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getProductTypesByNames" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/getProductTypesByNames"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getCategoryProperties">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getCategoryProperties" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/getCategoryProperties"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getCatalogProperties">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getCatalogProperties" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/getCatalogProperties"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getGlobalDomain">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getGlobalDomain" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/getGlobalDomain"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -1252,15 +1153,12 @@
 			Product properties from
 			LH as well.
 		</wsdl:documentation>
-		<wsdl:port name="FindingMetadataServiceHttpPort" binding="tns:FindingMetadataServiceHttpBinding">
-			<http:address
-				location="https://svcs.ebay.com/services/search/FindingMetadataService/v1" />
+		<wsdl:port binding="tns:FindingMetadataServiceHttpBinding" name="FindingMetadataServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/search/FindingMetadataService/v1"/>
 		</wsdl:port>
-		<wsdl:port name="FindingMetadataServiceSOAPPort" binding="tns:FindingMetadataServiceSOAPBinding">
-			<soap12:address xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-				location="https://svcs.ebay.com/services/search/FindingMetadataService/v1" />
+		<wsdl:port binding="tns:FindingMetadataServiceSOAPBinding" name="FindingMetadataServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/search/FindingMetadataService/v1"/>
 		</wsdl:port>
 	</wsdl:service>
 
 </wsdl:definitions>
-

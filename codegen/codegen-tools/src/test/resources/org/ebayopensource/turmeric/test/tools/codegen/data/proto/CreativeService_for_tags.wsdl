@@ -1,20 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="CreativeService"
-                  targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services"
-                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:tns="http://www.ebaypartnernetwork.com/adcommerce/v1/services"
-                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-                  xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebaypartnernetwork.com/adcommerce/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CreativeService" targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified"
-               elementFormDefault="qualified"
-               targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services"
-               xmlns:tns="http://www.ebaypartnernetwork.com/adcommerce/v1/services"
-               xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services">
       <xs:complexType name="BaseCreativeResponse">
         <xs:complexContent>
           <xs:extension base="tns:BaseAdCommerceResponse"/>
@@ -33,16 +19,14 @@
         <xs:complexContent>
           <xs:extension base="tns:BaseCreativeResponse">
             <xs:sequence>
-              <xs:element name="creativeList"
-								type="tns:CreativeList" maxOccurs="1" minOccurs="0"/>
+              <xs:element maxOccurs="1" minOccurs="0" name="creativeList" type="tns:CreativeList"/>
             </xs:sequence>
           </xs:extension>
         </xs:complexContent>
       </xs:complexType>
       <xs:complexType name="CreativeList">
         <xs:sequence>
-          <xs:element name="creative" type="tns:Creative"
-						maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="creative" type="tns:Creative"/>
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="Creative">
@@ -99,7 +83,7 @@
       </xs:element>
       <xs:element name="getCreativeResponse" type="tns:CreativeResponse"/>
       <!--  common types  -->
-      <xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+      <xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
       <xs:complexType name="GetVersionResponse">
         <xs:complexContent>
           <xs:extension base="tns:BaseServiceResponse"/>
@@ -263,7 +247,7 @@
 						</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
             <xs:annotation>
               <xs:documentation>
 									Details about a single error.
@@ -469,7 +453,7 @@
               </xs:appinfo>
             </xs:annotation>
           </xs:element>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
             <xs:annotation>
               <xs:documentation>
 									Some warning and error messages
@@ -625,41 +609,41 @@
     </xs:schema>
   </wsdl:types>
   <wsdl:message name="getCreativeResponse">
-    <wsdl:part name="messageParameters" element="tns:getCreativeResponse"/>
+    <wsdl:part element="tns:getCreativeResponse" name="messageParameters"/>
   </wsdl:message>
   <wsdl:message name="updateCreativeRequest">
-    <wsdl:part name="messageParameters" element="tns:updateCreativeRequest"/>
+    <wsdl:part element="tns:updateCreativeRequest" name="messageParameters"/>
   </wsdl:message>
   <wsdl:message name="deleteCreativeRequest">
-    <wsdl:part name="messageParameters" element="tns:deleteCreativeRequest"/>
+    <wsdl:part element="tns:deleteCreativeRequest" name="messageParameters"/>
   </wsdl:message>
   <wsdl:message name="getVersionResponse">
-    <wsdl:part name="messageParameters" element="tns:getVersionResponse"/>
+    <wsdl:part element="tns:getVersionResponse" name="messageParameters"/>
   </wsdl:message>
   <wsdl:message name="addCreativeResponse">
-    <wsdl:part name="messageParameters" element="tns:addCreativeResponse"/>
+    <wsdl:part element="tns:addCreativeResponse" name="messageParameters"/>
   </wsdl:message>
   <wsdl:message name="addCreativeRequest">
-    <wsdl:part name="messageParameters" element="tns:addCreativeRequest"/>
+    <wsdl:part element="tns:addCreativeRequest" name="messageParameters"/>
   </wsdl:message>
   <wsdl:message name="getCreativeRequest">
-    <wsdl:part name="messageParameters" element="tns:getCreativeRequest"/>
+    <wsdl:part element="tns:getCreativeRequest" name="messageParameters"/>
   </wsdl:message>
   <wsdl:message name="deleteCreativeResponse">
-    <wsdl:part name="messageParameters" element="tns:deleteCreativeResponse"/>
+    <wsdl:part element="tns:deleteCreativeResponse" name="messageParameters"/>
   </wsdl:message>
   <wsdl:message name="updateCreativeResponse">
-    <wsdl:part name="messageParameters" element="tns:updateCreativeResponse"/>
+    <wsdl:part element="tns:updateCreativeResponse" name="messageParameters"/>
   </wsdl:message>
   <wsdl:message name="getAdGroupCreativesRequest">
-    <wsdl:part name="parameters" element="tns:getAdGroupCreativesRequest"/>
+    <wsdl:part element="tns:getAdGroupCreativesRequest" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getAdGroupCreativesResponse">
-    <wsdl:part name="parameters" element="tns:getAdGroupCreativesResponse"/>
+    <wsdl:part element="tns:getAdGroupCreativesResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:portType name="CreativeServicePortType">
     <wsdl:operation name="getVersion">
-      <wsdl:output name="getVersion" message="tns:getVersionResponse"/>
+      <wsdl:output message="tns:getVersionResponse" name="getVersion"/>
     </wsdl:operation>
     <wsdl:operation name="addCreative">
       <wsdl:input message="tns:addCreativeRequest"/>
@@ -740,11 +724,8 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="CreativeService">
-    <wsdl:port name="CreativeServiceSOAP12port_http" binding="tns:CreativeServiceSOAP12Binding">
+    <wsdl:port binding="tns:CreativeServiceSOAP12Binding" name="CreativeServiceSOAP12port_http">
       <soap12:address location="https://svcs.ebaypartnernetwork.com/adcommerce/v1/CreativeService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
-
-
-

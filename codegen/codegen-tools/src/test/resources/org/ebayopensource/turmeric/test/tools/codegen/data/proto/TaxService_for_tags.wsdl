@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions targetNamespace="http://www.ebay.com/marketplace/checkout/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://www.ebay.com/marketplace/checkout/v1/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/checkout/v1/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/checkout/v1/services">
   <types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/checkout/v1/services" xmlns:tns="http://www.ebay.com/marketplace/checkout/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/checkout/v1/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/checkout/v1/services">
 			
-<xs:element name="calculateTaxRequest"  type="tns:CalculateTaxRequest"/>
-<xs:element name="calculateTaxResponse"  type="tns:CalculateTaxResponse"/>
-<xs:element name="recordTaxRequest"  type="tns:RecordTaxRequest"/>
-<xs:element name="recordTaxResponse"  type="tns:RecordTaxResponse"/>
-<xs:element name="getVersionRequest"  type="tns:GetVersionRequest"/>
-<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+<xs:element name="calculateTaxRequest" type="tns:CalculateTaxRequest"/>
+<xs:element name="calculateTaxResponse" type="tns:CalculateTaxResponse"/>
+<xs:element name="recordTaxRequest" type="tns:RecordTaxRequest"/>
+<xs:element name="recordTaxResponse" type="tns:RecordTaxResponse"/>
+<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 
 <!-- Order Line Item ID -->
 <xs:complexType name="ItemTransactionID">
@@ -649,7 +648,7 @@
 <xs:complexType name="Amount">
 <xs:annotation>
     <xs:appinfo>
-	<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+	<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 	</typeLibrarySource>
     </xs:appinfo>
 </xs:annotation>
@@ -665,7 +664,7 @@
 <xs:annotation>
     <xs:documentation>Indicates whether the error is a severe error (causing the request to fail) or an informational error (a warning) that should be communicated to the user.</xs:documentation>
     <xs:appinfo>
-	<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+	<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 	</typeLibrarySource>
     </xs:appinfo>
 </xs:annotation>
@@ -697,7 +696,7 @@
 <xs:annotation>
     <xs:documentation>This is the base class for request container for all service operations.</xs:documentation>
     <xs:appinfo>
-	<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+	<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 	</typeLibrarySource>
     </xs:appinfo>
 </xs:annotation>
@@ -711,7 +710,7 @@
 <xs:annotation>
     <xs:documentation>Base response container for all service operations. Contains error information associated with the request.</xs:documentation>
     <xs:appinfo>
-	<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+	<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 	</typeLibrarySource>
     </xs:appinfo>
 </xs:annotation>
@@ -776,7 +775,7 @@
 <xs:annotation>
     <xs:documentation>Documentation goes here.</xs:documentation>
     <xs:appinfo>
-	<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+	<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 	</typeLibrarySource>
     </xs:appinfo>
 </xs:annotation>
@@ -793,7 +792,7 @@
 <xs:annotation>
     <xs:documentation>Documentation goes here</xs:documentation>
     <xs:appinfo>
-	<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+	<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 	</typeLibrarySource>
     </xs:appinfo>
 </xs:annotation>
@@ -821,7 +820,7 @@
 <xs:annotation>
     <xs:documentation>Documentation goes here</xs:documentation>
     <xs:appinfo>
-	<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+	<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 	</typeLibrarySource>
     </xs:appinfo>
 </xs:annotation>
@@ -840,7 +839,7 @@ processContents="lax" />
 <xs:annotation>
     <xs:documentation>Documentation goes here</xs:documentation>
     <xs:appinfo>
-	<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+	<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 	</typeLibrarySource>
     </xs:appinfo>
 </xs:annotation>
@@ -855,7 +854,7 @@ processContents="lax" />
 <xs:annotation>
     <xs:documentation>Documentation goes here.</xs:documentation>
     <xs:appinfo>
-	<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+	<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 	</typeLibrarySource>
     </xs:appinfo>
 </xs:annotation>
@@ -871,7 +870,7 @@ processContents="lax" />
 <xs:annotation>
     <xs:documentation>Documentation goes here</xs:documentation>
     <xs:appinfo>
-	<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+	<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 	</typeLibrarySource>
     </xs:appinfo>
 </xs:annotation>
@@ -895,25 +894,25 @@ processContents="lax" />
   </types>
 
 <message name="getVersionRequest">
-  <part name="messageParameters" element="ns0:getVersionRequest"/>
+  <part element="ns0:getVersionRequest" name="messageParameters"/>
 </message>
  <message name="getVersionResponse">
-  <wsdl:part name="messageParameters" element="ns0:getVersionResponse"/>
+  <wsdl:part element="ns0:getVersionResponse" name="messageParameters"/>
 </message>
   <message name="recordTaxResponse">
-    <part name="params" element="ns0:recordTaxResponse">
+    <part element="ns0:recordTaxResponse" name="params">
     </part>
   </message>
   <message name="calculateTaxRequest">
-    <part name="params" element="ns0:calculateTaxRequest">
+    <part element="ns0:calculateTaxRequest" name="params">
     </part>
   </message>
   <message name="calculateTaxResponse">
-    <part name="params" element="ns0:calculateTaxResponse">
+    <part element="ns0:calculateTaxResponse" name="params">
     </part>
   </message>
   <message name="recordTaxRequest">
-    <part name="params" element="ns0:recordTaxRequest">
+    <part element="ns0:recordTaxRequest" name="params">
     </part>
   </message>
   <portType name="TaxServicePort">
@@ -930,8 +929,8 @@ processContents="lax" />
     </output>
     </operation>
 	  <operation name="getVersion">
-	    <input name="getVersionRequest" message="ns0:getVersionRequest"/>
-	    <output name="getVersionResponse" message="ns0:getVersionResponse"/>
+	    <input message="ns0:getVersionRequest" name="getVersionRequest"/>
+	    <output message="ns0:getVersionResponse" name="getVersionResponse"/>
 	  </operation>
   </portType>
   <binding name="TaxServiceHttpBinding" type="ns0:TaxServicePort">
@@ -955,12 +954,12 @@ processContents="lax" />
       </output>
     </operation>
   <operation name="getVersion">
-   <http:operation location="getVersion" />
+   <http:operation location="getVersion"/>
    <input>
-         <mime:content type="application/x-www-form-urlencoded" />
+         <mime:content type="application/x-www-form-urlencoded"/>
    </input>
    <output>
-        <mime:content type="text/xml" />
+        <mime:content type="text/xml"/>
    </output>
   </operation>
 </binding>
@@ -998,10 +997,10 @@ processContents="lax" />
 <wsdl:documentation>
 	<Version>1.0.0</Version>
     </wsdl:documentation>
-    <port name="TaxServiceHttpPort" binding="ns0:TaxServiceHttpBinding">
+    <port binding="ns0:TaxServiceHttpBinding" name="TaxServiceHttpPort">
       <http:address location="https://svcs.ebay.com/services/checkout/TaxService/v1"/>
     </port>
-    <port name="TaxServiceSOAPPort" binding="ns0:TaxServiceSOAPBinding">
+    <port binding="ns0:TaxServiceSOAPBinding" name="TaxServiceSOAPPort">
       <soap12:address location="https://svcs.ebay.com/services/checkout/TaxService/v1"/>
     </port>
   </service>

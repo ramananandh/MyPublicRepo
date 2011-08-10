@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<service-config service-name="{http://www.ebay.com/marketplace/advertising/v1/services}AdvertisingUniqueIDServiceV2" xmlns="http://www.ebay.com/soaframework/common/config">
+<service-config service-name="{http://www.ebay.com/marketplace/advertising/v1/services}AdvertisingUniqueIDServiceV2" xmlns="http://www.ebayopensource.org/turmeric/common/config">
     <service-impl-class-name>com.ebay.marketplace.services.advertisinguniqueidservicev2.impl.AdvertisingUniqueIDServiceV2Impl</service-impl-class-name>
     <service-interface-class-name>com.ebay.marketplace.services.advertisinguniqueidservicev2.AdvertisingUniqueIDServiceV2</service-interface-class-name>
     <service-instance-config>

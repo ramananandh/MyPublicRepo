@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="ContactInfoUtilityService" targetNamespace="http://www.ebay.com/marketplace/registration/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/marketplace/registration/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/registration/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ContactInfoUtilityService" targetNamespace="http://www.ebayopensource.org/tumeric/registration/v1/services">
   <types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/registration/v1/services">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/registration/v1/services">
 	<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -11,7 +10,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -62,7 +61,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -77,7 +76,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -138,7 +137,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -153,7 +152,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -173,7 +172,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				
@@ -187,7 +186,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -202,7 +201,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -216,7 +215,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -324,20 +323,17 @@
 			<xs:complexType name="PersonName">
 					<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 		        <xs:sequence>
-		              <xs:element name="firstName" type="xs:string" maxOccurs="1" minOccurs="1">
+		              <xs:element maxOccurs="1" minOccurs="1" name="firstName" type="xs:string">
 		              </xs:element>
-		              <xs:element name="middleName"
-		                    type="xs:string" maxOccurs="1" minOccurs="0">
+		              <xs:element maxOccurs="1" minOccurs="0" name="middleName" type="xs:string">
 		              </xs:element>
-		              <xs:element name="lastName" type="xs:string" maxOccurs="1" minOccurs="1">
+		              <xs:element maxOccurs="1" minOccurs="1" name="lastName" type="xs:string">
 		              </xs:element>
-		              <xs:element name="salutation"
-		                    type="xs:token" maxOccurs="1" minOccurs="0">
+		              <xs:element maxOccurs="1" minOccurs="0" name="salutation" type="xs:token">
 		              </xs:element>
 		        </xs:sequence>
 			</xs:complexType>			
@@ -430,21 +426,15 @@
 		<xs:complexType name="PhoneNumber">
 			<xs:annotation>
 				<xs:appinfo>
-					<typeLibrarySource library="UserServiceCommonTypeLibrary"
-						namespace="http://www.ebay.com/marketplace/user/v1/types" />
+					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/user/v1/types"/>
 				</xs:appinfo>
 			</xs:annotation>
 			<xs:sequence>
-				<xs:element name="CountryPrefix" type="xs:string"
-					maxOccurs="1" minOccurs="0"></xs:element>
-				<xs:element name="AreaCode" type="xs:string" maxOccurs="1"
-					minOccurs="0"></xs:element>
-				<xs:element name="LocalNumberPart1" type="xs:string"
-					maxOccurs="1" minOccurs="1"></xs:element>
-				<xs:element name="LocalNumberPart2" type="xs:string"
-					maxOccurs="1" minOccurs="0"></xs:element>
-				<xs:element name="Extension" type="xs:string" maxOccurs="1"
-					minOccurs="0"></xs:element>
+				<xs:element maxOccurs="1" minOccurs="0" name="CountryPrefix" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="AreaCode" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="1" name="LocalNumberPart1" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="LocalNumberPart2" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="Extension" type="xs:string"/>
 			</xs:sequence>
 		</xs:complexType>			
 			<xs:element name="validateRegistrationPhoneNumberResponse" type="tns:ValidateRegistrationPhoneNumberResponse"/>
@@ -477,7 +467,7 @@
 			<xs:complexType name="Address">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -494,67 +484,67 @@
 		</xs:schema>
   </types>
   <message name="validateOwnerMiddleNameResponse">
-    <part name="params" element="tns:validateOwnerMiddleNameResponse">
+    <part element="tns:validateOwnerMiddleNameResponse" name="params">
     </part>
   </message>
   <message name="validateOwnerFirstNameResponse">
-    <part name="params" element="tns:validateOwnerFirstNameResponse">
+    <part element="tns:validateOwnerFirstNameResponse" name="params">
     </part>
   </message>
   <message name="validateOwnerLastNameResponse">
-    <part name="params" element="tns:validateOwnerLastNameResponse">
+    <part element="tns:validateOwnerLastNameResponse" name="params">
     </part>
   </message>
   <message name="validateOwnerMiddleNameRequest">
-    <part name="params" element="tns:validateOwnerMiddleNameRequest">
+    <part element="tns:validateOwnerMiddleNameRequest" name="params">
     </part>
   </message>
   <message name="validateOwnerFirstNameRequest">
-    <part name="params" element="tns:validateOwnerFirstNameRequest">
+    <part element="tns:validateOwnerFirstNameRequest" name="params">
     </part>
   </message>
   <message name="validateOwnerLastNameRequest">
-    <part name="params" element="tns:validateOwnerLastNameRequest">
+    <part element="tns:validateOwnerLastNameRequest" name="params">
     </part>
   </message>
   <message name="getVersionRequest">
-    <part name="params" element="tns:getVersionRequest">
+    <part element="tns:getVersionRequest" name="params">
     </part>
   </message>
   <message name="validateRegistrationAddressRequest">
-    <part name="params" element="tns:validateRegistrationAddressRequest">
+    <part element="tns:validateRegistrationAddressRequest" name="params">
     </part>
   </message>
   <message name="validateRegistrationEmailAddressRequest">
-    <part name="params" element="tns:validateRegistrationEmailAddressRequest">
+    <part element="tns:validateRegistrationEmailAddressRequest" name="params">
     </part>
   </message>
   <message name="validateRegistrationEmailAddressResponse">
-    <part name="params" element="tns:validateRegistrationEmailAddressResponse">
+    <part element="tns:validateRegistrationEmailAddressResponse" name="params">
     </part>
   </message>
   <message name="validateRegistrationPhoneNumberResponse">
-    <part name="params" element="tns:validateRegistrationPhoneNumberResponse">
+    <part element="tns:validateRegistrationPhoneNumberResponse" name="params">
     </part>
   </message>
   <message name="validateOwnerNameResponse">
-    <part name="params" element="tns:validateOwnerNameResponse">
+    <part element="tns:validateOwnerNameResponse" name="params">
     </part>
   </message>
   <message name="validateRegistrationAddressResponse">
-    <part name="params" element="tns:validateRegistrationAddressResponse">
+    <part element="tns:validateRegistrationAddressResponse" name="params">
     </part>
   </message>
   <message name="validateRegistrationPhoneNumberRequest">
-    <part name="params" element="tns:validateRegistrationPhoneNumberRequest">
+    <part element="tns:validateRegistrationPhoneNumberRequest" name="params">
     </part>
   </message>
   <message name="validateOwnerNameRequest">
-    <part name="params" element="tns:validateOwnerNameRequest">
+    <part element="tns:validateOwnerNameRequest" name="params">
     </part>
   </message>
   <message name="getVersionResponse">
-    <part name="params" element="tns:getVersionResponse">
+    <part element="tns:getVersionResponse" name="params">
     </part>
   </message>
   <portType name="ContactInfoUtilityServicePort">
@@ -706,7 +696,7 @@
   <binding name="ContactInfoUtilityServiceSOAPBinding" type="tns:ContactInfoUtilityServicePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="getVersion">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/registration/v1/services/getVersion"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/registration/v1/services/getVersion"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -715,7 +705,7 @@
       </output>
     </operation>
     <operation name="validateRegistrationEmailAddress">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/registration/v1/services/validateRegistrationEmailAddress"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/registration/v1/services/validateRegistrationEmailAddress"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -724,7 +714,7 @@
       </output>
     </operation>
     <operation name="validateOwnerName">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/registration/v1/services/validateOwnerName"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/registration/v1/services/validateOwnerName"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -733,7 +723,7 @@
       </output>
     </operation>
     <operation name="validateOwnerFirstName">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/registration/v1/services/validateOwnerFirstName"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/registration/v1/services/validateOwnerFirstName"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -742,7 +732,7 @@
       </output>
     </operation>
     <operation name="validateOwnerLastName">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/registration/v1/services/validateOwnerLastName"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/registration/v1/services/validateOwnerLastName"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -751,7 +741,7 @@
       </output>
     </operation>
     <operation name="validateOwnerMiddleName">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/registration/v1/services/validateOwnerMiddleName"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/registration/v1/services/validateOwnerMiddleName"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -760,7 +750,7 @@
       </output>
     </operation>
     <operation name="validateRegistrationPhoneNumber">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/registration/v1/services/validateRegistrationPhoneNumber"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/registration/v1/services/validateRegistrationPhoneNumber"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -769,7 +759,7 @@
       </output>
     </operation>
     <operation name="validateRegistrationAddress">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/registration/v1/services/validateRegistrationAddress"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/registration/v1/services/validateRegistrationAddress"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -783,10 +773,10 @@
 			<Version>1.0.0</Version>
 			This service provides ability to validate user personal as well as businees inputs.
 		</documentation>
-    <port name="ContactInfoUtilityServiceHttpPort" binding="tns:ContactInfoUtilityServiceHttpBinding">
+    <port binding="tns:ContactInfoUtilityServiceHttpBinding" name="ContactInfoUtilityServiceHttpPort">
       <http:address location="http://svcs.ebay.com/services/registration/v1/ContactInfoUtilityService"/>
     </port>
-    <port name="ContactInfoUtilityServiceSOAPPort" binding="tns:ContactInfoUtilityServiceSOAPBinding">
+    <port binding="tns:ContactInfoUtilityServiceSOAPBinding" name="ContactInfoUtilityServiceSOAPPort">
       <soap12:address location="http://svcs.ebay.com/services/registration/v1/ContactInfoUtilityService"/>
     </port>
   </service>

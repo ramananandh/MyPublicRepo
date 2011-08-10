@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="urn:ebay:apis:eBLBaseComponents" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns="urn:ebay:apis:eBLBaseComponents" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="urn:ebay:apis:eBLBaseComponents">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="urn:ebay:apis:eBLBaseComponents" xmlns:ns="urn:ebay:apis:eBLBaseComponents" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:ebay:apis:eBLBaseComponents">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:ebay:apis:eBLBaseComponents" xmlns="urn:ebay:apis:eBLBaseComponents" xmlns:ns="urn:ebay:apis:eBLBaseComponents" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:ebay:apis:eBLBaseComponents">
 
 
 	<!-- ##### SHARED_TYPES ##### -->
@@ -16,7 +15,7 @@
 				of payload content plus optional versioning information and detail level requirements.
 				All concrete request types are derived from the abstract request type.
 				The naming convention we use for the concrete type names is the name of the service
-				(the verb or call name) followed by &quot;RequestType&quot;: VerbNameRequestType
+				(the verb or call name) followed by "RequestType": VerbNameRequestType
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -26,7 +25,7 @@
 					<xs:documentation>
 						Another way of specifying the detail level.  Value of each OutputSelector is x-path.
 						It's additive - to see more than one detail level, specify all of them:
-						&quot;User.PayPalInfo.* User.FeedbackInfo&quot; etc.
+						"User.PayPalInfo.* User.FeedbackInfo" etc.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -88,10 +87,10 @@
 				<xs:annotation>
 					<xs:documentation>
 						This value represents the date and time when eBay processed the
-						request. The time zone of this value is &lt;a href=&quot;types/simpleTypes.html#dateTime&quot;&gt;GMT&lt;/a&gt;
+						request. The time zone of this value is &lt;a href="types/simpleTypes.html#dateTime"&gt;GMT&lt;/a&gt;
 						and the format is the
 						ISO 8601 date and time format (YYYY-MM-DDTHH:MM:SS.SSSZ).
-						See the &quot;dateTime&quot; type for information about this
+						See the "dateTime" type for information about this
 						time format and converting to and from the GMT time zone.
 					</xs:documentation>
 					<xs:appinfo>
@@ -162,12 +161,12 @@
 						The release version that eBay used to process the request.
 						&lt;br&gt;
 						&lt;br&gt;
-						&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt;
+						&lt;span class="tablenote"&gt;&lt;b&gt;Note:&lt;/b&gt;
 						This is usually the latest release version, as specified in the
 						release notes. (eBay releases the API to international sites
 						about a week after we release it to the US site.) &lt;/span&gt;&lt;br&gt;
 						&lt;br&gt;
-						If a field in the response returns the token &quot;CustomCode&quot;, it usually
+						If a field in the response returns the token "CustomCode", it usually
 						means that the field is a code type (a token or enumeration),
 						and that in your request URL (or HTTP header) you specified a
 						version that is older than the version in which the token was added
@@ -498,7 +497,7 @@ application-level acknowledgement element.
 						contain contextual information about the error. This is often the
 						field or value that triggered the error.
 						You can usually predict where these will
-						occur by looking at the &quot;replaceable_value&quot; indicators in our
+						occur by looking at the "replaceable_value" indicators in our
 						Errors by Number page.
 					</xs:documentation>
 					<xs:appinfo>
@@ -858,10 +857,10 @@ communicated to the client.
 		</xs:schema>
   </wsdl:types>
   <wsdl:message name="PortletResponse">
-    <wsdl:part name="PortletResponse" element="ns:PortletResponse"/>
+    <wsdl:part element="ns:PortletResponse" name="PortletResponse"/>
   </wsdl:message>
   <wsdl:message name="PortletRequest">
-    <wsdl:part name="PortletRequest" element="ns:PortletRequest"/>
+    <wsdl:part element="ns:PortletRequest" name="PortletRequest"/>
   </wsdl:message>
   <wsdl:portType name="RemotePortletInterface">
     <wsdl:operation name="portlet">
@@ -882,7 +881,7 @@ communicated to the client.
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="RemotePortletSoa">
-    <wsdl:port name="RemotePortletSoa" binding="ns:RemotePortletBinding">
+    <wsdl:port binding="ns:RemotePortletBinding" name="RemotePortletSoa">
       <wsdlsoap:address location="http://open.api.ebay.com/remoteportlet"/>
     </wsdl:port>
   </wsdl:service>

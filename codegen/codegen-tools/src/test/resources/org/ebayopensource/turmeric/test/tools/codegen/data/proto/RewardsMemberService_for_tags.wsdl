@@ -1,18 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions
-  name="RewardsMemberService"
-  targetNamespace="http://www.ebay.com/marketplace/services"
-  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-  xmlns:tns="http://www.ebay.com/marketplace/services"
-  xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RewardsMemberService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 <wsdl:types>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 <xs:complexType abstract="true" name="BaseServiceRequest">
 	<xs:annotation>
@@ -44,14 +33,13 @@
 				</xs:documentation>
 				<xs:appinfo>
 					<CallInfo>
-						<AllCalls />
+						<AllCalls/>
 						<Returned>Always</Returned>
 					</CallInfo>
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element minOccurs="0" name="errorMessage"
-			type="tns:ErrorMessage">
+		<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 			<xs:annotation>
 				<xs:documentation>
 					Information for an error or warning that occurred
@@ -59,41 +47,39 @@
 				</xs:documentation>
 				<xs:appinfo>
 					<CallInfo>
-						<AllCalls />
+						<AllCalls/>
 						<Returned>Conditionally</Returned>
 					</CallInfo>
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
 
-			processContents="lax" />
+			processContents="lax" /&gt;
 
-										<xs:element name="version" type="xs:string"
-						minOccurs="0">
+										<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 								
-		<xs:element name="ack" type="tns:AckValue"></xs:element>
+		<xs:element name="ack" type="tns:AckValue"/>
 	</xs:sequence>
 </xs:complexType>
 
@@ -128,7 +114,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					Details about a single error.
@@ -295,7 +281,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -464,17 +450,15 @@
     </xs:restriction>
    </xs:simpleType>
 
-            <xs:element name="addMemberResponse"
-            	type="tns:AddMemberResponseType">
+            <xs:element name="addMemberResponse" type="tns:AddMemberResponseType">
             </xs:element>
-            <xs:element name="addMemberRequest" type="tns:AddMemberRequestType"></xs:element>
+            <xs:element name="addMemberRequest" type="tns:AddMemberRequestType"/>
         
             <xs:complexType name="AddMemberRequestType">
             	<xs:complexContent>
             		<xs:extension base="tns:BaseRewardsServiceRequest">
             			<xs:sequence>
-            				<xs:element name="member"
-            					type="tns:RewardsMemberType">
+            				<xs:element name="member" type="tns:RewardsMemberType">
             				</xs:element>
             			</xs:sequence>
             		</xs:extension>
@@ -485,8 +469,7 @@
             	<xs:complexContent>
             		<xs:extension base="tns:BaseRewardsServiceResponse">
             			<xs:sequence>
-            				<xs:element name="memberId"
-            					type="xs:long">
+            				<xs:element name="memberId" type="xs:long">
             				</xs:element>
             			</xs:sequence>
             		</xs:extension>
@@ -495,43 +478,41 @@
 
             <xs:complexType name="RewardsMemberType">
             	<xs:sequence>
-            		<xs:element name="memberId" type="xs:long"></xs:element>
-            		<xs:element name="clientName" type="xs:string"></xs:element>
-            		<xs:element name="clientUserId" type="xs:string"></xs:element>
-            		<xs:element name="programName" type="xs:string"></xs:element>
-            		<xs:element name="enrollmentStatus"
-            			type="tns:RewardsEnrollmentType">
+            		<xs:element name="memberId" type="xs:long"/>
+            		<xs:element name="clientName" type="xs:string"/>
+            		<xs:element name="clientUserId" type="xs:string"/>
+            		<xs:element name="programName" type="xs:string"/>
+            		<xs:element name="enrollmentStatus" type="tns:RewardsEnrollmentType">
             		</xs:element>
-            		<xs:element name="membershipType" minOccurs = "0" type="tns:RewardsMembershipType"></xs:element>
+            		<xs:element minOccurs="0" name="membershipType" type="tns:RewardsMembershipType"/>
             	</xs:sequence>
             </xs:complexType>
             
             <xs:complexType name="RewardsMembershipType">
             	<xs:sequence>
-            		<xs:element name="membershipTypeId" type="xs:long"></xs:element>
-            		<xs:element name="programName" type="xs:string"></xs:element>
-            		<xs:element name="membershipName" type="xs:string"></xs:element>
+            		<xs:element name="membershipTypeId" type="xs:long"/>
+            		<xs:element name="programName" type="xs:string"/>
+            		<xs:element name="membershipName" type="xs:string"/>
             	</xs:sequence>
             </xs:complexType>            
 
             <xs:simpleType name="RewardsEnrollmentType">
             	<xs:restriction base="xs:string">
-            		<xs:enumeration value="Active"></xs:enumeration>
-            		<xs:enumeration value="Suspended"></xs:enumeration>
-            		<xs:enumeration value="Banned"></xs:enumeration>            		
-            		<xs:enumeration value="Closed"></xs:enumeration>
+            		<xs:enumeration value="Active"/>
+            		<xs:enumeration value="Suspended"/>
+            		<xs:enumeration value="Banned"/>            		
+            		<xs:enumeration value="Closed"/>
             	</xs:restriction>
             </xs:simpleType>
             <xs:element name="setMemberResponse" type="tns:SetMemberResponseType">
             </xs:element>
-            <xs:element name="setMemberRequest" type="tns:SetMemberRequestType"></xs:element>
+            <xs:element name="setMemberRequest" type="tns:SetMemberRequestType"/>
         
             <xs:complexType name="SetMemberRequestType">
             	<xs:complexContent>
             		<xs:extension base="tns:BaseRewardsServiceRequest">
             			<xs:sequence>
-            				<xs:element name="member"
-            					type="tns:RewardsMemberType">
+            				<xs:element name="member" type="tns:RewardsMemberType">
             				</xs:element>
             			</xs:sequence>
             		</xs:extension>
@@ -540,19 +521,18 @@
 
             <xs:complexType name="SetMemberResponseType">
             	<xs:complexContent>
-            		<xs:extension base="tns:BaseRewardsServiceResponse"></xs:extension>
+            		<xs:extension base="tns:BaseRewardsServiceResponse"/>
             	</xs:complexContent>
             </xs:complexType>
             <xs:element name="getMemberResponse" type="tns:GetMemberResponseType">
             </xs:element>
-            <xs:element name="getMemberRequest" type="tns:GetMemberRequestType"></xs:element>
+            <xs:element name="getMemberRequest" type="tns:GetMemberRequestType"/>
         
             <xs:complexType name="GetMemberRequestType">
             	<xs:complexContent>
             		<xs:extension base="tns:BaseRewardsServiceRequest">
             			<xs:sequence>
-            				<xs:element name="memberId"
-            					type="xs:long">
+            				<xs:element name="memberId" type="xs:long">
             				</xs:element>
             			</xs:sequence>
             		</xs:extension>
@@ -563,8 +543,7 @@
             	<xs:complexContent>
             		<xs:extension base="tns:BaseRewardsServiceResponse">
             			<xs:sequence>
-            				<xs:element name="member"
-            					type="tns:RewardsMemberType">
+            				<xs:element name="member" type="tns:RewardsMemberType">
             				</xs:element>
             			</xs:sequence>
             		</xs:extension>
@@ -578,47 +557,43 @@
 
   
   <wsdl:message name="addMemberRequest">
-  	<wsdl:part name="addMemberRequest" 	
-  		element="tns:addMemberRequest">
+  	<wsdl:part element="tns:addMemberRequest" name="addMemberRequest">
   	</wsdl:part>
   </wsdl:message>  
   <wsdl:message name="addMemberResponse">
-  	<wsdl:part name="addMemberResponse"
-  		element="tns:addMemberResponse">
+  	<wsdl:part element="tns:addMemberResponse" name="addMemberResponse">
   	</wsdl:part>
   </wsdl:message>
   
   <wsdl:message name="setMemberRequest">
-  	<wsdl:part name="setMemberRequest"
-  		element="tns:setMemberRequest">
+  	<wsdl:part element="tns:setMemberRequest" name="setMemberRequest">
   	</wsdl:part>
   </wsdl:message>  
   <wsdl:message name="setMemberResponse">
-  	<wsdl:part name="setMemberResponse" element="tns:setMemberResponse"></wsdl:part>
+  	<wsdl:part element="tns:setMemberResponse" name="setMemberResponse"/>
   </wsdl:message>
   
   <wsdl:message name="getMemberRequest">
-  	<wsdl:part name="getMemberRequest"
-  		element="tns:getMemberRequest">
+  	<wsdl:part element="tns:getMemberRequest" name="getMemberRequest">
   	</wsdl:part>
   </wsdl:message>
   <wsdl:message name="getMemberResponse">
-  	<wsdl:part name="getMemberResponse" element="tns:getMemberResponse"></wsdl:part>
+  	<wsdl:part element="tns:getMemberResponse" name="getMemberResponse"/>
   </wsdl:message>
   
   <wsdl:portType name="RewardsMemberServicePort">
 
     <wsdl:operation name="addMember">
-    	<wsdl:input message="tns:addMemberRequest"></wsdl:input>
-    	<wsdl:output message="tns:addMemberResponse"></wsdl:output>
+    	<wsdl:input message="tns:addMemberRequest"/>
+    	<wsdl:output message="tns:addMemberResponse"/>
     </wsdl:operation>
     <wsdl:operation name="setMember">
-    	<wsdl:input message="tns:setMemberRequest"></wsdl:input>
-    	<wsdl:output message="tns:setMemberResponse"></wsdl:output>
+    	<wsdl:input message="tns:setMemberRequest"/>
+    	<wsdl:output message="tns:setMemberResponse"/>
     </wsdl:operation>
     <wsdl:operation name="getMember">
-    	<wsdl:input message="tns:getMemberRequest"></wsdl:input>
-    	<wsdl:output message="tns:getMemberResponse" name="getMemberResponse"></wsdl:output>
+    	<wsdl:input message="tns:getMemberRequest"/>
+    	<wsdl:output message="tns:getMemberResponse" name="getMemberResponse"/>
     </wsdl:operation>
 
 
@@ -629,35 +604,32 @@
 		<http:binding verb="POST"/>
 		
 		<wsdl:operation name="addMember">
-			<http:operation
-				location="RewardsMemberService/addMember" />
+			<http:operation location="RewardsMemberService/addMember"/>
 			<wsdl:input>
-				<mime:content part="addMembreRequest" type="text/xml" />
+				<mime:content part="addMembreRequest" type="text/xml"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="addMemberResponse" type="text/xml" />
+				<mime:content part="addMemberResponse" type="text/xml"/>
 			</wsdl:output>			
 		</wsdl:operation>
 
 		<wsdl:operation name="setMember">
-			<http:operation
-				location="RewardsMemberService/addMember" />
+			<http:operation location="RewardsMemberService/addMember"/>
 			<wsdl:input>
-				<mime:content part="addMembreRequest" type="text/xml" />
+				<mime:content part="addMembreRequest" type="text/xml"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="addMemberResponse" type="text/xml" />
+				<mime:content part="addMemberResponse" type="text/xml"/>
 			</wsdl:output>			
 		</wsdl:operation>
 
 		<wsdl:operation name="getMember">
-			<http:operation
-				location="RewardsMemberService/getMember" />
+			<http:operation location="RewardsMemberService/getMember"/>
 			<wsdl:input>
-				<mime:content part="getMembreRequest" type="text/xml" />
+				<mime:content part="getMembreRequest" type="text/xml"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="getMemberResponse" type="text/xml" />
+				<mime:content part="getMemberResponse" type="text/xml"/>
 			</wsdl:output>			
 		</wsdl:operation>
 
@@ -666,64 +638,46 @@
 	
   <wsdl:binding name="RewardsMemberServiceSOAPBinding" type="tns:RewardsMemberServicePort">
   
-		<soap12:binding xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		
 		<wsdl:operation name="addMember">
-			<soap12:operation
-				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-				soapAction="urn:addMember" style="document" />
+			<soap12:operation soapAction="urn:addMember" style="document"/>
 			<wsdl:input>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>		
 
 		<wsdl:operation name="setMember">
-			<soap12:operation
-				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-				soapAction="urn:setMember" style="document" />
+			<soap12:operation soapAction="urn:setMember" style="document"/>
 			<wsdl:input>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>		
 
 		<wsdl:operation name="getMember">
-			<soap12:operation
-				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-				soapAction="urn:getMember" style="document" />
+			<soap12:operation soapAction="urn:getMember" style="document"/>
 			<wsdl:input>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body
-					xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-					use="literal" />
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>		
 
   </wsdl:binding>
   
 	<wsdl:service name="RewardsMemberService">
-		<wsdl:port name="RewardsMemberServiceHttp" binding="tns:RewardsMemberServiceHttpBinding">
+		<wsdl:port binding="tns:RewardsMemberServiceHttpBinding" name="RewardsMemberServiceHttp">
 			<http:address location="http://svcs.ebay.com/RewardsMemberService"/>
 		</wsdl:port>
-		<wsdl:port name="RewardsMemberServiceSOAP" binding="tns:RewardsMemberServiceSOAPBinding">
-			<soap12:address xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" location="http://svcs.ebay.com/RewardsMemberService"/>
+		<wsdl:port binding="tns:RewardsMemberServiceSOAPBinding" name="RewardsMemberServiceSOAP">
+			<soap12:address location="http://svcs.ebay.com/RewardsMemberService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

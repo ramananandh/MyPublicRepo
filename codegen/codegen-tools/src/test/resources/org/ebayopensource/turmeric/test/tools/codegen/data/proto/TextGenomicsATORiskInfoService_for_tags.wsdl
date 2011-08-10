@@ -1,9 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="TextGenomicsATORiskInfoService" targetNamespace="http://www.ebay.com/marketplace/security/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/marketplace/security/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/security/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TextGenomicsATORiskInfoService" targetNamespace="http://www.ebayopensource.org/tumeric/security/v1/services">
   <types>
-    <xs:schema attributeFormDefault="unqualified"
-    	elementFormDefault="qualified"
-    	targetNamespace="http://www.ebay.com/marketplace/security/v1/services">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/security/v1/services">
     	<xs:simpleType name="AckValue">
     		<xs:annotation>
     			<xs:documentation>
@@ -13,9 +10,7 @@
     				user.
     			</xs:documentation>
     			<xs:appinfo>
-    				<typeLibrarySource
-    					library="MarketPlaceServiceCommonTypeLibrary"
-    					namespace="http://www.ebay.com/marketplace/services" />
+    				<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
     			</xs:appinfo>
     		</xs:annotation>
     		<xs:restriction base="xs:string">
@@ -65,14 +60,11 @@
     				service operations.
     			</xs:documentation>
     			<xs:appinfo>
-    				<typeLibrarySource
-    					library="MarketPlaceServiceCommonTypeLibrary"
-    					namespace="http://www.ebay.com/marketplace/services" />
+    				<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
     			</xs:appinfo>
     		</xs:annotation>
     		<xs:sequence>
-    			<xs:element name="extension" type="tns:ExtensionType"  
-    			minOccurs="0" maxOccurs="unbounded"/>
+    			<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
     		</xs:sequence>
     	</xs:complexType>
     	<xs:complexType abstract="true" name="BaseResponse">
@@ -83,24 +75,22 @@
     				request.
     			</xs:documentation>
     			<xs:appinfo>
-    				<typeLibrarySource
-    					library="MarketPlaceServiceCommonTypeLibrary"
-    					namespace="http://www.ebay.com/marketplace/services" />
+    				<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
     			</xs:appinfo>
     		</xs:annotation>
     		<xs:sequence>
     			<xs:element name="ack" type="tns:AckValue">
     				<xs:annotation>
-    					<xs:documentation />
+    					<xs:documentation/>
     					<xs:appinfo>
     						<CallInfo>
-    							<AllCalls />
+    							<AllCalls/>
     							<Returned>Always</Returned>
     						</CallInfo>
     					</xs:appinfo>
     				</xs:annotation>
     			</xs:element>
-    			<xs:element name="errorMessage"	type="tns:ErrorMessage" minOccurs="0">
+    			<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
     				<xs:annotation>
     					<xs:documentation>
     						Information for an error or warning that
@@ -108,36 +98,35 @@
     					</xs:documentation>
     					<xs:appinfo>
     						<CallInfo>
-    							<AllCalls />
+    							<AllCalls/>
     							<Returned>Conditionally</Returned>
     						</CallInfo>
     					</xs:appinfo>
     				</xs:annotation>
     			</xs:element>
-    			<xs:element name="version" type="xs:string"  minOccurs="0">
+    			<xs:element minOccurs="0" name="version" type="xs:string">
     				<xs:annotation>
-    					<xs:documentation />
+    					<xs:documentation/>
     					<xs:appinfo>
     						<CallInfo>
-    							<AllCalls />
+    							<AllCalls/>
     							<Returned>Always</Returned>
     						</CallInfo>
     					</xs:appinfo>
     				</xs:annotation>
     			</xs:element>
-    			<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+    			<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
     				<xs:annotation>
-    					<xs:documentation />
+    					<xs:documentation/>
     					<xs:appinfo>
     						<CallInfo>
-    							<AllCalls />
+    							<AllCalls/>
     							<Returned>Always</Returned>
     						</CallInfo>
     					</xs:appinfo>
     				</xs:annotation>
     			</xs:element>
-    			<xs:element name="extension" type="tns:ExtensionType"
-    			  minOccurs="0" maxOccurs="unbounded"/>
+    			<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
     		</xs:sequence>
     	</xs:complexType>
     	<xs:simpleType name="ErrorCategory">
@@ -146,14 +135,13 @@
     				Documentation goes here.
     			</xs:documentation>
     			<xs:appinfo>
-    				<typeLibrarySource library="SOACommonTypeLibrary"
-    					namespace="http://www.ebay.com/marketplace/services" />
+    				<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
     			</xs:appinfo>
     		</xs:annotation>
     		<xs:restriction base="xs:token">
-    			<xs:enumeration value="System" />
-    			<xs:enumeration value="Application" />
-    			<xs:enumeration value="Request" />
+    			<xs:enumeration value="System"/>
+    			<xs:enumeration value="Application"/>
+    			<xs:enumeration value="Request"/>
     		</xs:restriction>
     	</xs:simpleType>
     	<xs:complexType name="ErrorData">
@@ -162,19 +150,18 @@
     				Documentation goes here
     			</xs:documentation>
     			<xs:appinfo>
-    				<typeLibrarySource library="SOACommonTypeLibrary"
-    					namespace="http://www.ebay.com/marketplace/services" />
+    				<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
     			</xs:appinfo>
     		</xs:annotation>
     		<xs:sequence>
-    			<xs:element name="errorId" type="xs:long" />
-    			<xs:element name="domain" type="xs:string" />
-    			<xs:element name="subdomain" type="xs:string" minOccurs="0"/>
-    			<xs:element name="severity" type="tns:ErrorSeverity" />
-    			<xs:element name="category" type="tns:ErrorCategory" />
-    			<xs:element name="message" type="xs:string" />
-    			<xs:element name="exceptionId" type="xs:token" minOccurs="0"/>
-    			<xs:element	name="parameter" type="tns:ErrorParameter"  minOccurs="0" maxOccurs="unbounded"/>
+    			<xs:element name="errorId" type="xs:long"/>
+    			<xs:element name="domain" type="xs:string"/>
+    			<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+    			<xs:element name="severity" type="tns:ErrorSeverity"/>
+    			<xs:element name="category" type="tns:ErrorCategory"/>
+    			<xs:element name="message" type="xs:string"/>
+    			<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+    			<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
     		</xs:sequence>
     	</xs:complexType>
     	<xs:complexType name="ErrorMessage">
@@ -183,8 +170,7 @@
     				Documentation goes here
     			</xs:documentation>
     			<xs:appinfo>
-    				<typeLibrarySource library="SOACommonTypeLibrary"
-    					namespace="http://www.ebay.com/marketplace/services" />
+    				<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
     			</xs:appinfo>
     		</xs:annotation>
     		<!-- 
@@ -194,7 +180,7 @@
     			</xs:sequence>
     		-->
     		<xs:sequence>
-    			<xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded"/>
+    			<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
     		</xs:sequence>
     	</xs:complexType>
     	<xs:complexType name="ErrorParameter">
@@ -203,14 +189,12 @@
     				Documentation goes here
     			</xs:documentation>
     			<xs:appinfo>
-    				<typeLibrarySource library="SOACommonTypeLibrary"
-    					namespace="http://www.ebay.com/marketplace/services" />
+    				<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
     			</xs:appinfo>
     		</xs:annotation>
     		<xs:simpleContent>
     			<xs:extension base="xs:string">
-    				<xs:attribute name="name" type="xs:string"
-    					use="optional" />
+    				<xs:attribute name="name" type="xs:string" use="optional"/>
     			</xs:extension>
     		</xs:simpleContent>
     	</xs:complexType>
@@ -220,13 +204,12 @@
     				Documentation goes here.
     			</xs:documentation>
     			<xs:appinfo>
-    				<typeLibrarySource library="SOACommonTypeLibrary"
-    					namespace="http://www.ebay.com/marketplace/services" />
+    				<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
     			</xs:appinfo>
     		</xs:annotation>
     		<xs:restriction base="xs:token">
-    			<xs:enumeration value="Error" />
-    			<xs:enumeration value="Warning" />
+    			<xs:enumeration value="Error"/>
+    			<xs:enumeration value="Warning"/>
     		</xs:restriction>
     	</xs:simpleType>
     	<xs:complexType name="ExtensionType">
@@ -235,28 +218,25 @@
     				Documentation goes here
     			</xs:documentation>
     			<xs:appinfo>
-    				<typeLibrarySource
-    					library="MarketPlaceServiceCommonTypeLibrary"
-    					namespace="http://www.ebay.com/marketplace/services" />
+    				<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
     			</xs:appinfo>
     		</xs:annotation>
     		<xs:sequence>
-    			<xs:element name="id" type="xs:positiveInteger" />
-    			<xs:element name="version" type="xs:string" />
-    			<xs:element name="contentType" type="xs:string" />
-    			<xs:element name="value" type="xs:string" />
+    			<xs:element name="id" type="xs:positiveInteger"/>
+    			<xs:element name="version" type="xs:string"/>
+    			<xs:element name="contentType" type="xs:string"/>
+    			<xs:element name="value" type="xs:string"/>
 
-    				processContents="lax" />
+    				processContents="lax" /&gt;
     		</xs:sequence>
     	</xs:complexType>
     	<xs:complexType name="TextGenomicsATORiskInfo">
     		<xs:sequence>
-    			<xs:element name="matchingItemId" type="xs:long"  minOccurs="1"/>
-    			<xs:element name="textGenomicsRiskScore" type="xs:int"  minOccurs="1" />
+    			<xs:element minOccurs="1" name="matchingItemId" type="xs:long"/>
+    			<xs:element minOccurs="1" name="textGenomicsRiskScore" type="xs:int"/>
     		</xs:sequence>
     	</xs:complexType>
-    	<xs:element name="getVersionRequest"
-    		type="tns:GetVersionRequest" />
+    	<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
     	<xs:complexType name="GetVersionRequest">
     		<xs:annotation>
     			<xs:documentation>
@@ -265,12 +245,11 @@
     		</xs:annotation>
     		<xs:complexContent>
     			<xs:extension base="tns:BaseRequest">
-    				<xs:sequence />
+    				<xs:sequence/>
     			</xs:extension>
     		</xs:complexContent>
     	</xs:complexType>
-    	<xs:element name="getVersionResponse"
-    		type="tns:GetVersionResponse" />
+    	<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
     	<xs:complexType name="GetVersionResponse">
     		<xs:annotation>
     			<xs:documentation>
@@ -284,8 +263,7 @@
     			</xs:extension>
     		</xs:complexContent>
     	</xs:complexType>
-    	<xs:element name="getTextGenomicsATORiskInfoRequest"
-    		type="tns:GetTextGenomicsATORiskInfoRequest" />
+    	<xs:element name="getTextGenomicsATORiskInfoRequest" type="tns:GetTextGenomicsATORiskInfoRequest"/>
     	<xs:complexType name="GetTextGenomicsATORiskInfoRequest">
     		<xs:annotation>
     			<xs:documentation>
@@ -295,16 +273,13 @@
     		<xs:complexContent>
     			<xs:extension base="tns:BaseRequest">
     				<xs:sequence>
-    					<xs:element name="itemTitle" type="xs:string" 
-    						 minOccurs="1"/>
-    					<xs:element name="itemDescription" type="xs:string" 
-    						 minOccurs="1"/>
+    					<xs:element minOccurs="1" name="itemTitle" type="xs:string"/>
+    					<xs:element minOccurs="1" name="itemDescription" type="xs:string"/>
     				</xs:sequence>
     			</xs:extension>
     		</xs:complexContent>
     	</xs:complexType>
-    	<xs:element name="getTextGenomicsATORiskInfoResponse"
-    		type="tns:GetTextGenomicsATORiskInfoResponse" />
+    	<xs:element name="getTextGenomicsATORiskInfoResponse" type="tns:GetTextGenomicsATORiskInfoResponse"/>
     	<xs:complexType name="GetTextGenomicsATORiskInfoResponse">
     		<xs:annotation>
     			<xs:documentation>
@@ -314,8 +289,7 @@
     		<xs:complexContent>
     			<xs:extension base="tns:BaseResponse">
     				<xs:sequence>
-    					<xs:element name="textGenomicsATORiskInfoResponse"
-    						type="tns:TextGenomicsATORiskInfo" minOccurs="1" />
+    					<xs:element minOccurs="1" name="textGenomicsATORiskInfoResponse" type="tns:TextGenomicsATORiskInfo"/>
     				</xs:sequence>
     			</xs:extension>
     		</xs:complexContent>
@@ -323,19 +297,19 @@
     </xs:schema>
   </types>
   <message name="getTextGenomicsATORiskInfoRequest">
-    <part name="params" element="tns:getTextGenomicsATORiskInfoRequest">
+    <part element="tns:getTextGenomicsATORiskInfoRequest" name="params">
     </part>
   </message>
   <message name="getVersionResponse">
-    <part name="params" element="tns:getVersionResponse">
+    <part element="tns:getVersionResponse" name="params">
     </part>
   </message>
   <message name="getVersionRequest">
-    <part name="params" element="tns:getVersionRequest">
+    <part element="tns:getVersionRequest" name="params">
     </part>
   </message>
   <message name="getTextGenomicsATORiskInfoResponse">
-    <part name="params" element="tns:getTextGenomicsATORiskInfoResponse">
+    <part element="tns:getTextGenomicsATORiskInfoResponse" name="params">
     </part>
   </message>
   
@@ -344,8 +318,8 @@
 		<wsdl:documentation>
     		Returns the version number of the service. 
 		</wsdl:documentation>
-       <wsdl:input message="tns:getVersionRequest"></wsdl:input>
-       <output message="tns:getVersionResponse"></output>
+       <wsdl:input message="tns:getVersionRequest"/>
+       <output message="tns:getVersionResponse"/>
     </operation>
     <operation name="getTextGenomicsATORiskInfo">
 <wsdl:documentation>
@@ -360,7 +334,7 @@
   <binding name="TextGenomicsATORiskInfoServiceSOAPBinding" type="tns:TextGenomicsATORiskInfoServicePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="getVersion">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/security/v1/services/getVersion"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/security/v1/services/getVersion"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -369,7 +343,7 @@
       </output>
     </operation>
     <operation name="getTextGenomicsATORiskInfo">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/security/v1/services/getTextGenomicsATORiskInfo"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/security/v1/services/getTextGenomicsATORiskInfo"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -404,10 +378,10 @@
 		<Version>1.0</Version>
 			The TextGenomics ATO Risk Service provides the ATO risk information for a given item.
 	</wsdl:documentation>
-    <port name="TextGenomicsATORiskInfoServiceHttpPort" binding="tns:TextGenomicsATORiskInfoServiceHttpBinding">
+    <port binding="tns:TextGenomicsATORiskInfoServiceHttpBinding" name="TextGenomicsATORiskInfoServiceHttpPort">
       <http:address location="http://svcs.ebay.com/services/security/v1/TextGenomicsATORiskInfoService"/>
     </port>
-    <port name="TextGenomicsATORiskInfoServiceSOAPPort" binding="tns:TextGenomicsATORiskInfoServiceSOAPBinding">
+    <port binding="tns:TextGenomicsATORiskInfoServiceSOAPBinding" name="TextGenomicsATORiskInfoServiceSOAPPort">
       <soap12:address location="http://svcs.ebay.com/services/security/v1/TextGenomicsATORiskInfoService"/>
     </port>
   </service>

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="ProductBundleService" targetNamespace="http://www.ebay.com/marketplace/selling/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/marketplace/selling/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/selling/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProductBundleService" targetNamespace="http://www.ebayopensource.org/tumeric/selling/v1/services">
 	<types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/selling/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/selling/v1/services">
 			<!-- Start New Types -->
 			<xs:element name="createProductBundlesRequest" type="tns:CreateProductBundlesRequest"/>
 			<xs:complexType name="CreateProductBundlesRequest">
@@ -265,7 +264,7 @@
 						<xs:sequence>
 							<xs:element minOccurs="0" name="bundleDetailSelector" type="tns:BundleDetailEnum"/>
 							<xs:element minOccurs="0" name="getAllByStatus" type="tns:BundleStatusEnum"/>
-							<xs:element minOccurs="0" maxOccurs="unbounded" name="bundleFilter" type="tns:BundleFilter"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="bundleFilter" type="tns:BundleFilter"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -294,7 +293,7 @@
 				user.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -333,7 +332,7 @@
 			<xs:complexType name="Amount">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -349,7 +348,7 @@
 				service operations.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -363,7 +362,7 @@
 				Contains error information associated with the request.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -421,7 +420,7 @@
 			</xs:complexType>
 			<xs:complexType name="ProductBundleList">
 				<xs:sequence>
-					<xs:element minOccurs="1" maxOccurs="unbounded" name="productBundle" type="tns:ProductBundle">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="productBundle" type="tns:ProductBundle">
 						<xs:annotation>
 							<xs:documentation>
 						List of Product Bundles. 
@@ -535,7 +534,7 @@
 				Documentation goes here.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -548,7 +547,7 @@
 				<xs:annotation>
 					<xs:documentation>Documentation goes here</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -566,7 +565,7 @@
 				<xs:annotation>
 					<xs:documentation>Documentation goes here</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -584,7 +583,7 @@
 				<xs:annotation>
 					<xs:documentation>Documentation goes here</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -599,7 +598,7 @@
 				Documentation goes here.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -611,7 +610,7 @@
 				<xs:annotation>
 					<xs:documentation>Documentation goes here</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -833,8 +832,8 @@
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="getVersionRequest"  type="tns:GetVersionRequest"/>
-			<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest"/>
@@ -848,42 +847,42 @@
 		</xs:schema>
 	</types>
 	<message name="createProductBundlesRequest">
-		<part name="params" element="tns:createProductBundlesRequest">
+		<part element="tns:createProductBundlesRequest" name="params">
     </part>
 	</message>
 	<message name="createProductBundlesResponse">
-		<part name="params" element="tns:createProductBundlesResponse">
+		<part element="tns:createProductBundlesResponse" name="params">
     </part>
 	</message>
 	<message name="updateProductBundlesRequest">
-		<part name="params" element="tns:updateProductBundlesRequest">
+		<part element="tns:updateProductBundlesRequest" name="params">
     </part>
 	</message>
 	<message name="updateProductBundlesResponse">
-		<part name="params" element="tns:updateProductBundlesResponse">
+		<part element="tns:updateProductBundlesResponse" name="params">
     </part>
 	</message>
 	<message name="getProductBundlesRequest">
-		<part name="params" element="tns:getProductBundlesRequest">
+		<part element="tns:getProductBundlesRequest" name="params">
     </part>
 	</message>
 	<message name="getProductBundlesResponse">
-		<part name="params" element="tns:getProductBundlesResponse">
+		<part element="tns:getProductBundlesResponse" name="params">
     </part>
 	</message>
 	<message name="deleteProductBundlesRequest">
-		<part name="params" element="tns:deleteProductBundlesRequest">
+		<part element="tns:deleteProductBundlesRequest" name="params">
     </part>
 	</message>
 	<message name="deleteProductBundlesResponse">
-		<part name="params" element="tns:deleteProductBundlesResponse">
+		<part element="tns:deleteProductBundlesResponse" name="params">
     </part>
 	</message>
 	<message name="getVersionRequest">
-		<part name="messageParameters" element="tns:getVersionRequest"/>
+		<part element="tns:getVersionRequest" name="messageParameters"/>
 	</message>
 	<message name="getVersionResponse">
-		<part name="messageParameters" element="tns:getVersionResponse"/>
+		<part element="tns:getVersionResponse" name="messageParameters"/>
 	</message>
 	<portType name="ProductBundleServicePort">
 		<operation name="createProductBundles">
@@ -911,14 +910,14 @@
     </output>
 		</operation>
 		<operation name="getVersion">
-			<input name="getVersionRequest" message="tns:getVersionRequest"/>
-			<output name="getVersionResponse" message="tns:getVersionResponse"/>
+			<input message="tns:getVersionRequest" name="getVersionRequest"/>
+			<output message="tns:getVersionResponse" name="getVersionResponse"/>
 		</operation>
 	</portType>
 	<binding name="ProductBundleServiceSOAPBinding" type="tns:ProductBundleServicePort">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<operation name="createProductBundles">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/selling/v1/services/createProductBundles"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/selling/v1/services/createProductBundles"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -927,7 +926,7 @@
 			</output>
 		</operation>
 		<operation name="getProductBundles">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/selling/v1/services/getProductBundles"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/selling/v1/services/getProductBundles"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -936,7 +935,7 @@
 			</output>
 		</operation>
 		<operation name="updateProductBundles">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/selling/v1/services/updateProductBundles"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/selling/v1/services/updateProductBundles"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -945,7 +944,7 @@
 			</output>
 		</operation>
 		<operation name="deleteProductBundles">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/selling/v1/services/deleteProductBundles"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/selling/v1/services/deleteProductBundles"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -1015,10 +1014,10 @@
 		<wsdl:documentation>
 			<Version>1.0.0</Version>
 		</wsdl:documentation>
-		<port name="ProductBundleServiceSOAPPort" binding="tns:ProductBundleServiceSOAPBinding">
+		<port binding="tns:ProductBundleServiceSOAPBinding" name="ProductBundleServiceSOAPPort">
 			<soap12:address location="https://svcs.ebay.com/services/selling/v1/ProductBundleService"/>
 		</port>
-		<port name="ProductBundleServiceHttpPort" binding="tns:ProductBundleServiceHttpBinding">
+		<port binding="tns:ProductBundleServiceHttpBinding" name="ProductBundleServiceHttpPort">
 			<http:address location="https://svcs.ebay.com/services/selling/v1/ProductBundleService"/>
 		</port>
 	</service>

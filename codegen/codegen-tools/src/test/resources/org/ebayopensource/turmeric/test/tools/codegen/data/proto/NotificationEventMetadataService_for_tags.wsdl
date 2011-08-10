@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="NotificationEventMetadataService" targetNamespace="http://www.ebay.com/marketplace/notification/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/marketplace/notification/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/notification/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NotificationEventMetadataService" targetNamespace="http://www.ebayopensource.org/tumeric/notification/v1/services">
   <types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/notification/v1/services">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/notification/v1/services">
 
 			<xs:complexType abstract="true" name="BaseRequest">
 				<xs:annotation>
@@ -10,7 +9,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -28,7 +27,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -80,7 +79,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -101,7 +100,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -173,7 +172,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -188,7 +187,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -208,7 +207,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -227,7 +226,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -242,7 +241,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -255,12 +254,12 @@
 				<xs:annotation>
 					<xs:documentation>GetVersion request</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
@@ -269,7 +268,7 @@
 				<xs:annotation>
 					<xs:documentation>GetVersion response</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
@@ -284,7 +283,7 @@
 				<xs:annotation>
 					<xs:documentation>Add a new notification event type, set the event type metadata.</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
@@ -302,7 +301,7 @@
 						The response type of addEventMetadata operation.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
@@ -320,7 +319,7 @@
 						Update the event metadata.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
@@ -338,7 +337,7 @@
 						The response type of setEventMetadata operation.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
@@ -356,7 +355,7 @@
 						Get event metadata by event type name.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
@@ -374,7 +373,7 @@
 						The response type of getEventMetadata.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
@@ -393,7 +392,7 @@
 						Get all event type metadata.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
@@ -408,7 +407,7 @@
 						The response type of getAllEventMetadata.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
@@ -424,68 +423,60 @@
 				<xs:annotation>
 					<xs:documentation>The container to hold the notification event type metadata and properties.</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0" name="eventTypeId"
-						type="xs:long">
+					<xs:element maxOccurs="1" minOccurs="0" name="eventTypeId" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 									Notification Event Type Id. It's unique in system.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="eventTypeName"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="eventTypeName" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 									Notification Event Type name. It's unique in system.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="apiCallName"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="apiCallName" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 									Trading API Call Name. The field indicates which API call will be used to populate the real payload of the platform notification event.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="trainNumber"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="trainNumber" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 									The Train number of the event type be added.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="payloadFormat"
-						type="tns:PayloadFormat">
+					<xs:element maxOccurs="1" minOccurs="0" name="payloadFormat" type="tns:PayloadFormat">
 						<xs:annotation>
 							<xs:documentation>
 									The payload format of the notification event.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="priority"
-						type="tns:EventPriority">
+					<xs:element maxOccurs="1" minOccurs="1" name="priority" type="tns:EventPriority">
 						<xs:annotation>
 							<xs:documentation>
 									The priority of the notification event type.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="description"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="description" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 									The description of the notification event type.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="eventTypeProperty"
-						type="tns:EventTypeProperty">
+					<xs:element maxOccurs="1" minOccurs="0" name="eventTypeProperty" type="tns:EventTypeProperty">
 						<xs:annotation>
 							<xs:documentation>
 								Data pertaining to event type
@@ -504,7 +495,7 @@
 						List of event type properties container.Include a list of name-value pair properties.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -524,7 +515,7 @@
 						Event Type Property defined as name-value pair(EVENT_LIFETIME_HOURS,DEVICE_SUPPORT,API_CALL_DETAIL_LEVEL).
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -538,7 +529,7 @@
 				<xs:annotation>
 					<xs:documentation>Event priority.</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -579,7 +570,7 @@
 						The schema options for event payload format.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="NotificationEventMetadataTypeLibrary" namespace="http://www.ebay.com/marketplace/notification/v1/types"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/notification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -616,43 +607,43 @@
 		</xs:schema>
   </types>
   <message name="getVersionResponse">
-    <part name="params" element="tns:getVersionResponse">
+    <part element="tns:getVersionResponse" name="params">
     </part>
   </message>
   <message name="getEventMetadataResponse">
-    <part name="params" element="tns:getEventMetadataResponse">
+    <part element="tns:getEventMetadataResponse" name="params">
     </part>
   </message>
   <message name="addEventMetadataRequest">
-    <part name="params" element="tns:addEventMetadataRequest">
+    <part element="tns:addEventMetadataRequest" name="params">
     </part>
   </message>
   <message name="setEventMetadataResponse">
-    <part name="params" element="tns:setEventMetadataResponse">
+    <part element="tns:setEventMetadataResponse" name="params">
     </part>
   </message>
   <message name="setEventMetadataRequest">
-    <part name="params" element="tns:setEventMetadataRequest">
+    <part element="tns:setEventMetadataRequest" name="params">
     </part>
   </message>
   <message name="addEventMetadataResponse">
-    <part name="params" element="tns:addEventMetadataResponse">
+    <part element="tns:addEventMetadataResponse" name="params">
     </part>
   </message>
   <message name="getEventMetadataRequest">
-    <part name="params" element="tns:getEventMetadataRequest">
+    <part element="tns:getEventMetadataRequest" name="params">
     </part>
   </message>
   <message name="getAllEventMetadataRequest">
-    <part name="params" element="tns:getAllEventMetadataRequest">
+    <part element="tns:getAllEventMetadataRequest" name="params">
     </part>
   </message>
    <message name="getAllEventMetadataResponse">
-    <part name="params" element="tns:getAllEventMetadataResponse">
+    <part element="tns:getAllEventMetadataResponse" name="params">
     </part>
   </message>
   <message name="getVersionRequest">
-    <part name="params" element="tns:getVersionRequest">
+    <part element="tns:getVersionRequest" name="params">
     </part>
   </message>
   <portType name="NotificationEventMetadataServicePort">
@@ -690,7 +681,7 @@
   <binding name="NotificationEventMetadataServiceSOAPBinding" type="tns:NotificationEventMetadataServicePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="getVersion">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/notification/v1/services/getVersion"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/notification/v1/services/getVersion"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -699,7 +690,7 @@
       </output>
     </operation>
     <operation name="addEventMetadata">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/notification/v1/services/addEventMetadata"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/notification/v1/services/addEventMetadata"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -708,7 +699,7 @@
       </output>
     </operation>
     <operation name="setEventMetadata">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/notification/v1/services/setEventMetadata"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/notification/v1/services/setEventMetadata"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -717,7 +708,7 @@
       </output>
     </operation>
     <operation name="getEventMetadata">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/notification/v1/services/getEventMetadata"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/notification/v1/services/getEventMetadata"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -726,7 +717,7 @@
       </output>
     </operation>
 	<operation name="getAllEventMetadata">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/notification/v1/services/getEventMetadata"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/notification/v1/services/getEventMetadata"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -787,10 +778,10 @@
 <wsdl:documentation>
 			<Version>1.0.0</Version>
 		</wsdl:documentation>
-    <port name="NotificationEventMetadataServiceHttpPort" binding="tns:NotificationEventMetadataServiceHttpBinding">
+    <port binding="tns:NotificationEventMetadataServiceHttpBinding" name="NotificationEventMetadataServiceHttpPort">
       <http:address location="https://svcs.ebay.com/services/notification/v1/NotificationEventMetadataService"/>
     </port>
-    <port name="NotificationEventMetadataServiceSOAPPort" binding="tns:NotificationEventMetadataServiceSOAPBinding">
+    <port binding="tns:NotificationEventMetadataServiceSOAPBinding" name="NotificationEventMetadataServiceSOAPPort">
       <soap12:address location="https://svcs.ebay.com/services/notification/v1/NotificationEventMetadataService"/>
     </port>
   </service>

@@ -1,45 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="CSPolicyDetailsService"
-	targetNamespace="http://www.ebay.com/marketplace/cs/v1/services"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:tns="http://www.ebay.com/marketplace/cs/v1/services"
-	xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/cs/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CSPolicyDetailsService" targetNamespace="http://www.ebayopensource.org/tumeric/cs/v1/services">
 	<wsdl:types>
-		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			attributeFormDefault="unqualified" elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/cs/v1/services"
-			xmlns:tns="http://www.ebay.com/marketplace/cs/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/cs/v1/services">
 
-			<xs:element name="getVersionRequest" 
-				type="tns:GetVersionRequest" />
-			<xs:element name="getVersionResponse" 
-				type="tns:GetVersionResponse" />
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 
 			<xs:complexType name="GetVersionRequest">
 				<xs:complexContent>
-					<xs:extension base="tns:BaseServiceRequest" />
+					<xs:extension base="tns:BaseServiceRequest"/>
 				</xs:complexContent>
 			</xs:complexType>
 
 			<xs:complexType name="GetVersionResponse">
 				<xs:complexContent>
-					<xs:extension base="tns:BaseServiceResponse" />
+					<xs:extension base="tns:BaseServiceResponse"/>
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:element name="getPoliciesRequest" 
-				type="tns:GetPoliciesRequest" />
-			<xs:element name="getPoliciesResponse" 
-				type="tns:GetPoliciesResponse" />
-			<xs:element name="setPoliciesRequest" 
-				type="tns:SetPoliciesRequest" />
-			<xs:element name="setPoliciesResponse" 
-				type="tns:SetPoliciesResponse" />
+			<xs:element name="getPoliciesRequest" type="tns:GetPoliciesRequest"/>
+			<xs:element name="getPoliciesResponse" type="tns:GetPoliciesResponse"/>
+			<xs:element name="setPoliciesRequest" type="tns:SetPoliciesRequest"/>
+			<xs:element name="setPoliciesResponse" type="tns:SetPoliciesResponse"/>
 
 			<xs:complexType abstract="true" name="BaseServiceRequest">
 				<xs:annotation>
@@ -48,20 +29,17 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
-			<xs:complexType abstract="true"
-				name="BaseServiceResponse">
+			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -69,9 +47,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -83,14 +59,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="errorMessage"
-						type="tns:ErrorMessage" minOccurs="0">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -99,14 +74,14 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -118,22 +93,19 @@
 						reported aspart of soap fault.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData"
-						minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -148,9 +120,7 @@
 						This represents error details.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -159,7 +129,7 @@
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -181,14 +151,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates whether the error caused the
@@ -227,14 +196,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 						<xs:annotation>
 							<xs:documentation>
 								There are three categories of errors:
@@ -243,7 +211,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -257,14 +225,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="subdomain" type="xs:string"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain upon which the
@@ -280,14 +247,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="exceptionId" type="xs:token"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for an exception
@@ -295,14 +261,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="parameter"
-						type="tns:ErrorParameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -313,7 +278,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -328,15 +293,13 @@
 						Contextual information associated with an error.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="name" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="name" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -349,9 +312,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -406,9 +367,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -452,9 +411,7 @@
 						changing request values.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -517,8 +474,8 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="ADD" />
-					<xs:enumeration value="MODIFY" />
+					<xs:enumeration value="ADD"/>
+					<xs:enumeration value="MODIFY"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -532,11 +489,9 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="policyType" type="tns:PolicyType"
-						minOccurs="1">
+					<xs:element minOccurs="1" name="policyType" type="tns:PolicyType">
 					</xs:element>
-					<xs:element name="sitePolicyID" type="xs:long"
-						minOccurs="1">
+					<xs:element minOccurs="1" name="sitePolicyID" type="xs:long">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -551,11 +506,9 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="policyIdentifier"
-						type="tns:PolicyIdentifier" minOccurs="1">
+					<xs:element minOccurs="1" name="policyIdentifier" type="tns:PolicyIdentifier">
 					</xs:element>
-					<xs:element name="policyDetails"
-						type="tns:PolicyDetailsType" minOccurs="1">
+					<xs:element minOccurs="1" name="policyDetails" type="tns:PolicyDetailsType">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -571,31 +524,22 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="policyName" type="xs:string"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="policyName" type="xs:string">
 					</xs:element>
-					<xs:element name="policyLevel" type="xs:int"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="policyLevel" type="xs:int">
 					</xs:element>
-					<xs:element name="active" type="xs:boolean"
-						minOccurs="0" maxOccurs="1" />
-					<xs:element name="violationActiveInTimeFrame"
-						type="xs:long" minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="active" type="xs:boolean"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="violationActiveInTimeFrame" type="xs:long">
 					</xs:element>
-					<xs:element name="ignoreViolationWindowInDays"
-						type="xs:long" minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="ignoreViolationWindowInDays" type="xs:long">
 					</xs:element>
-					<xs:element name="offenseIntensity" type="xs:long"
-						minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="offenseIntensity" type="xs:long">
 					</xs:element>
-					<xs:element name="modifiedBy" type="xs:string"
-						minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="modifiedBy" type="xs:string">
 					</xs:element>
-					<xs:element name="lastModifiedDate"
-						type="xs:dateTime" minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="lastModifiedDate" type="xs:dateTime">
 					</xs:element>
-					<xs:element name="creationDate" type="xs:dateTime"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="creationDate" type="xs:dateTime">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -614,11 +558,9 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="policyId" type="xs:long"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="policyId" type="xs:long">
 					</xs:element>
-					<xs:element name="siteId" type="xs:int"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="siteId" type="xs:int">
 					</xs:element>
 				</xs:sequence>
 
@@ -635,11 +577,9 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="status" type="tns:AckValue"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="status" type="tns:AckValue">
 					</xs:element>
-					<xs:element name="policyIdentifier"
-						type="tns:PolicyIdentifier" minOccurs="1">
+					<xs:element minOccurs="1" name="policyIdentifier" type="tns:PolicyIdentifier">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -657,8 +597,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="policyIdentifier"
-								type="tns:PolicyIdentifier" minOccurs="1" maxOccurs="unbounded" />
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="policyIdentifier" type="tns:PolicyIdentifier"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -681,8 +620,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="sitePolicyType"
-								type="tns:SitePolicyType" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="sitePolicyType" type="tns:SitePolicyType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -704,13 +642,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="action" type="tns:Action"
-								minOccurs="1" />
-							<xs:element
-								name="returnAddedOrModifiedPolicies" type="xs:boolean"
-								minOccurs="0" />
-							<xs:element name="policyType"
-								type="tns:PolicyType" minOccurs="1" maxOccurs="unbounded" />
+							<xs:element minOccurs="1" name="action" type="tns:Action"/>
+							<xs:element minOccurs="0" name="returnAddedOrModifiedPolicies" type="xs:boolean"/>
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="policyType" type="tns:PolicyType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -730,13 +664,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element
-								name="numberOfPoliciesAffected" type="xs:int" minOccurs="1"
-								maxOccurs="1" />
-							<xs:element name="setPoliciesAck"
-								type="tns:SetPolicyAckType" minOccurs="0" maxOccurs="unbounded" />
-							<xs:element name="sitePolicyType"
-								type="tns:SitePolicyType" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element maxOccurs="1" minOccurs="1" name="numberOfPoliciesAffected" type="xs:int"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="setPoliciesAck" type="tns:SetPolicyAckType"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="sitePolicyType" type="tns:SitePolicyType"/>
 
 						</xs:sequence>
 					</xs:extension>
@@ -746,66 +676,62 @@
 	</wsdl:types>
 
 	<wsdl:message name="getPoliciesRequest">
-		<wsdl:part name="parameters" element="tns:getPoliciesRequest"></wsdl:part>
+		<wsdl:part element="tns:getPoliciesRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getPoliciesResponse">
-		<wsdl:part name="parameters"
-			element="tns:getPoliciesResponse">
+		<wsdl:part element="tns:getPoliciesResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="setPoliciesRequest">
-		<wsdl:part name="parameters" element="tns:setPoliciesRequest"></wsdl:part>
+		<wsdl:part element="tns:setPoliciesRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="setPoliciesResponse">
-		<wsdl:part name="parameters"
-			element="tns:setPoliciesResponse">
+		<wsdl:part element="tns:setPoliciesResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 
 
 
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part name="messageParameters" element="tns:getVersionRequest" />
+		<wsdl:part element="tns:getVersionRequest" name="messageParameters"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part name="messageParameters" element="tns:getVersionResponse" />
+		<wsdl:part element="tns:getVersionResponse" name="messageParameters"/>
 	</wsdl:message>
 
 	<wsdl:portType name="CSPolicyDetailsServicePort">
 		<wsdl:operation name="getVersion">
 			<wsdl:documentation>Version Details</wsdl:documentation>
-			<wsdl:input name="getVersionRequest" message="tns:getVersionRequest"></wsdl:input>
-			<wsdl:output name="getVersionResponse" message="tns:getVersionResponse" />
+			<wsdl:input message="tns:getVersionRequest" name="getVersionRequest"/>
+			<wsdl:output message="tns:getVersionResponse" name="getVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getPolicies">
 			<wsdl:documentation>
 				Fetch the Policy data from the Policy Details
 				Repository
 			</wsdl:documentation>
-			<wsdl:input message="tns:getPoliciesRequest"></wsdl:input>
-			<wsdl:output message="tns:getPoliciesResponse"></wsdl:output>
+			<wsdl:input message="tns:getPoliciesRequest"/>
+			<wsdl:output message="tns:getPoliciesResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="setPolicies">
 			<wsdl:documentation>
 				Add/Modify the given Policy data to the Policy
 				Details Repository
 			</wsdl:documentation>
-			<wsdl:input message="tns:setPoliciesRequest"></wsdl:input>
-			<wsdl:output message="tns:setPoliciesResponse"></wsdl:output>
+			<wsdl:input message="tns:setPoliciesRequest"/>
+			<wsdl:output message="tns:setPoliciesResponse"/>
 		</wsdl:operation>
 
 	</wsdl:portType>
-	<wsdl:binding name="CSPolicyDetailsServiceHttpBinding"
-		type="tns:CSPolicyDetailsServicePort">
+	<wsdl:binding name="CSPolicyDetailsServiceHttpBinding" type="tns:CSPolicyDetailsServicePort">
 
 
-		<http:binding verb="POST" />
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getVersion">
 
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 
 
 
@@ -815,7 +741,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 
 
 
@@ -831,10 +757,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="getPolicies">
 
-			<http:operation location="/getPolicies" />
+			<http:operation location="/getPolicies"/>
 			<wsdl:input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 
 
 
@@ -849,7 +774,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 
 
 
@@ -866,10 +791,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="setPolicies">
 
-			<http:operation location="/setPolicies" />
+			<http:operation location="/setPolicies"/>
 			<wsdl:input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 
 
 
@@ -884,7 +808,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 
 
 
@@ -903,50 +827,45 @@
 
 	</wsdl:binding>
 
-	<wsdl:binding name="CSPolicyDetailsServiceSOAPBinding"
-		type="tns:CSPolicyDetailsServicePort">
+	<wsdl:binding name="CSPolicyDetailsServiceSOAPBinding" type="tns:CSPolicyDetailsServicePort">
 
 
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
 
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/cs/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/cs/v1/services/getVersion"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getPolicies">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/cs/v1/services/getPolicies" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/cs/v1/services/getPolicies"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="setPolicies">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/cs/v1/services/setPolicies" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/cs/v1/services/setPolicies"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 
@@ -956,16 +875,11 @@
 			<Version>1.0.0</Version>
 			This Service will Fetch,Add/Modify the Policy data
 		</wsdl:documentation>
-		<wsdl:port name="CSPolicyDetailsServiceHttpPort"
-			binding="tns:CSPolicyDetailsServiceHttpBinding">
-			<http:address
-				location="https://svcs.ebay.com/services/cs/v1/CSPolicyDetailsService" />
+		<wsdl:port binding="tns:CSPolicyDetailsServiceHttpBinding" name="CSPolicyDetailsServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/cs/v1/CSPolicyDetailsService"/>
 		</wsdl:port>
-		<wsdl:port name="CSPolicyDetailsServiceSOAPPort"
-			binding="tns:CSPolicyDetailsServiceSOAPBinding">
-			<soap12:address
-				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-				location="https://svcs.ebay.com/services/cs/v1/CSPolicyDetailsService" />
+		<wsdl:port binding="tns:CSPolicyDetailsServiceSOAPBinding" name="CSPolicyDetailsServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/cs/v1/CSPolicyDetailsService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

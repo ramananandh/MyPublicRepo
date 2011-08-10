@@ -1,6 +1,6 @@
-<wsdl:definitions name="ItemClassificationService" targetNamespace="http://www.ebay.com/marketplace/classification/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebay.com/marketplace/classification/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/classification/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ItemClassificationService" targetNamespace="http://www.ebayopensource.org/tumeric/classification/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/classification/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/classification/v1/services">
             <xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -12,7 +12,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -66,7 +66,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -81,7 +81,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -142,7 +142,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -157,7 +157,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -177,7 +177,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!--
@@ -194,7 +194,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -209,7 +209,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -223,7 +223,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -396,7 +396,7 @@
 				<xs:annotation>
 					<xs:documentation>A list of NameValuePair</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="ClassificationTypeLibrary" namespace="http://www.ebay.com/marketplace/classification/v1/types"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/classification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -413,7 +413,7 @@
 						An entity to hold a name and its value(s)
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="ClassificationTypeLibrary" namespace="http://www.ebay.com/marketplace/classification/v1/types"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/classification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -436,7 +436,7 @@
 						The classification result from a classifier
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="ClassificationDomainTypeLibrary" namespace="http://www.ebay.com/marketplace/classification/v1/types"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/classification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -460,7 +460,7 @@
 						A list of ClassifierResult
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="ClassificationDomainTypeLibrary" namespace="http://www.ebay.com/marketplace/classification/v1/types"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/classification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -477,7 +477,7 @@
 						A list of classifier names
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="ClassificationDomainTypeLibrary" namespace="http://www.ebay.com/marketplace/classification/v1/types"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/classification/v1/types"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -548,7 +548,7 @@
 
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="classifyItemsByItemIds">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/classification/v1/services/classifyItemsByItemIds"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/classification/v1/services/classifyItemsByItemIds"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
@@ -557,7 +557,7 @@
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getVersion">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/classification/v1/services/getVersion"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/classification/v1/services/getVersion"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>

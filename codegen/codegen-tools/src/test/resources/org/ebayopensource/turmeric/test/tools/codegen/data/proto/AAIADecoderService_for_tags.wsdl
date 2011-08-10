@@ -1,27 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<wsdl:definitions name="AAIADecoderService"
-	targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services"
-	xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/catalog/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AAIADecoderService" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
 
 	<wsdl:types>
-		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" 
-			targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services"
-			xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
 
 
-			<xs:element name="getFitmentDetailsRequest"
-				type="tns:GetFitmentDetailsRequest" >
+			<xs:element name="getFitmentDetailsRequest" type="tns:GetFitmentDetailsRequest">
 			</xs:element>
-			<xs:element name="getFitmentDetailsResponse"
-				type="tns:GetFitmentDetailsResponse" >
+			<xs:element name="getFitmentDetailsResponse" type="tns:GetFitmentDetailsResponse">
 			</xs:element>
 
 			<xs:complexType name="GetFitmentDetailsRequest">
@@ -44,8 +29,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="Fitments"
-								type="tns:Fitments">
+							<xs:element name="Fitments" type="tns:Fitments">
 								<xs:annotation>
 									<xs:documentation>
 										Contains all the various
@@ -61,8 +45,7 @@
 
 			<xs:complexType name="Fitments">
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="1"
-						name="Fitment" type="tns:Fitment">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="Fitment" type="tns:Fitment">
 						<xs:annotation>
 							<xs:documentation>
 								Unique Fitment combination
@@ -76,8 +59,7 @@
 
 			<xs:complexType name="Fitment">
 				<xs:sequence>
-					<xs:element minOccurs="1" maxOccurs="unbounded"
-						name="NameValuePair" type="tns:NameValuePair">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="NameValuePair" type="tns:NameValuePair">
 						<xs:annotation>
 							<xs:documentation>
 								Contains a Name-Value Pair
@@ -87,7 +69,7 @@
 				</xs:sequence>
 				<xs:attribute name="action" type="xs:string">
 				</xs:attribute>
-				<xs:attribute name="id" type="xs:string" />
+				<xs:attribute name="id" type="xs:string"/>
 			</xs:complexType>
 
 			<xs:complexType name="NameValuePair">
@@ -118,8 +100,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="extension"
-						type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -129,15 +110,15 @@
 					<xs:documentation>
 						Documentation goes here
 					</xs:documentation>
-					<xs:appinfo></xs:appinfo>
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
@@ -158,15 +139,14 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -176,41 +156,38 @@
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="version" type="xs:string"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="extension"
-						type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -226,15 +203,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -263,7 +239,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -285,14 +261,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates whether the error caused the
@@ -331,14 +306,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 						<xs:annotation>
 							<xs:documentation>
 								There are three categories of errors:
@@ -347,7 +321,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -361,14 +335,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain upon which the
@@ -384,14 +357,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for an exception
@@ -399,14 +371,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -417,7 +388,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -444,7 +415,7 @@
 								</xs:documentation>
 								<xs:appinfo>
 									<CallInfo>
-										<AllCalls />
+										<AllCalls/>
 										<Returned>
 											Conditionally
 										</Returned>
@@ -615,13 +586,11 @@
 
 
 	<wsdl:message name="getFitmentDetailsRequest">
-		<wsdl:part name="parameters"
-			element="tns:getFitmentDetailsRequest">
+		<wsdl:part element="tns:getFitmentDetailsRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getFitmentDetailsResponse">
-		<wsdl:part name="parameters"
-			element="tns:getFitmentDetailsResponse">
+		<wsdl:part element="tns:getFitmentDetailsResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 
@@ -631,40 +600,34 @@
 				Retrieves the fitment Information from the Vehicle
 				Configuration Database.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getFitmentDetailsRequest"></wsdl:input>
-			<wsdl:output message="tns:getFitmentDetailsResponse"></wsdl:output>
+			<wsdl:input message="tns:getFitmentDetailsRequest"/>
+			<wsdl:output message="tns:getFitmentDetailsResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
 
 
-	<wsdl:binding name="AAIADecoderServiceSOAPBinding"
-		type="tns:AAIADecoderServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="AAIADecoderServiceSOAPBinding" type="tns:AAIADecoderServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getFitmentDetails">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 
-	<wsdl:binding name="AAIADecoderServiceHttpBinding"
-		type="tns:AAIADecoderServicePort">
-		<http:binding verb="POST" />
+	<wsdl:binding name="AAIADecoderServiceHttpBinding" type="tns:AAIADecoderServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getFitmentDetails">
-			<http:operation location="/getFitmentDetails" />
+			<http:operation location="/getFitmentDetails"/>
 			<wsdl:input>
-				<mime:content part="getFitmentDetails"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="getFitmentDetails" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="getFitmentDetailsResponse"
-					type="text/xml" />
+				<mime:content part="getFitmentDetailsResponse" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -677,15 +640,11 @@
 			information in ACES format from Sellers and provide Fitment
 			Information in Name-Value pairs
 		</wsdl:documentation>
-		<wsdl:port name="AAIADecoderServiceHttpPort"
-			binding="tns:AAIADecoderServiceHttpBinding">
-			<http:address
-				location="https://svcs.ebay.com/services/catalog/AAIADecoderService/v1" />
+		<wsdl:port binding="tns:AAIADecoderServiceHttpBinding" name="AAIADecoderServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/catalog/AAIADecoderService/v1"/>
 		</wsdl:port>
-		<wsdl:port name="AAIADecoderServiceSOAPPort"
-			binding="tns:AAIADecoderServiceSOAPBinding">
-			<soap12:address
-				location="https://svcs.ebay.com/services/catalog/AAIADecoderService/v1" />
+		<wsdl:port binding="tns:AAIADecoderServiceSOAPBinding" name="AAIADecoderServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/catalog/AAIADecoderService/v1"/>
 		</wsdl:port>
 	</wsdl:service>
 

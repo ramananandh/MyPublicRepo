@@ -1,19 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:tns="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	name="ItemToProductSuggestionService"
-	targetNamespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"
-	xmlns:coretype="http://www.ebay.com/marketplace/marketplacecatalog/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:coretype="http://www.ebayopensource.org/tumeric/tumeric/v1/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/tumeric/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ItemToProductSuggestionService" targetNamespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -23,9 +10,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -76,18 +61,15 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
-			<xs:complexType abstract="true"
-				name="BaseResponse">
+			<xs:complexType abstract="true" name="BaseResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -95,25 +77,22 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -122,38 +101,36 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="version"
-						type="xs:string">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="timestamp"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="ErrorCategory">
@@ -163,15 +140,13 @@
 						errors, application errors, and system errors.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
@@ -180,25 +155,18 @@
 						This represents error details
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long" />
-					<xs:element name="domain" type="xs:string" />
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string" />
-					<xs:element name="severity"
-						type="tns:ErrorSeverity" />
-					<xs:element name="category"
-						type="tns:ErrorCategory" />
-					<xs:element name="message" type="xs:string" />
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token" />
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter" type="tns:ErrorParameter" />
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+					<xs:element name="severity" type="tns:ErrorSeverity"/>
+					<xs:element name="category" type="tns:ErrorCategory"/>
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -210,15 +178,12 @@
 						reported as part of soap fault.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error" type="tns:ErrorData" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -230,15 +195,12 @@
 						field or value that triggered the error.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string"
-							use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -275,24 +237,20 @@
 						reoccurring in the future.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
-			<xs:element name="getVersionResponse"
-				type="tns:GetVersionResponse" />
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionResponse">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="output" type="xs:string" />
+							<xs:element maxOccurs="1" minOccurs="1" name="output" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -300,7 +258,7 @@
 			<xs:element name="getVersionRequest">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="in" type="xs:string"></xs:element>
+						<xs:element name="in" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -341,7 +299,7 @@
     			</xs:element>
     		</xs:sequence>
     	</xs:complexType>
-		<xs:element name="getSuggestedProductsByItemIdsResponse"  type="tns:GetSuggestedProductByItemIdsResponse"/>
+		<xs:element name="getSuggestedProductsByItemIdsResponse" type="tns:GetSuggestedProductByItemIdsResponse"/>
     	<xs:complexType name="GetSuggestedProductByItemIdsResponse">
             <xs:annotation>
                <xs:documentation>
@@ -539,7 +497,7 @@
     	<xs:complexType name="Money">
         	<xs:simpleContent>
             	<xs:extension base="xs:decimal">
-                	<xs:attribute name="currencyCode" type="coretype:IsoCurrencyCode" use="required" />
+                	<xs:attribute name="currencyCode" type="coretype:IsoCurrencyCode" use="required"/>
 				</xs:extension>
 			</xs:simpleContent>
         </xs:complexType>
@@ -550,70 +508,70 @@
                     </xs:documentation>
                 </xs:annotation>
 				<xs:restriction base="xs:token">
-                	<xs:enumeration value="USD"></xs:enumeration>
-                    <xs:enumeration value="CAD"></xs:enumeration>
-                    <xs:enumeration value="GBP"></xs:enumeration>
-                    <xs:enumeration value="DEM"></xs:enumeration>
-                    <xs:enumeration value="AUD"></xs:enumeration>
-                    <xs:enumeration value="FRF"></xs:enumeration>
-                    <xs:enumeration value="SEK"></xs:enumeration>
-                    <xs:enumeration value="CNY"></xs:enumeration>
-                    <xs:enumeration value="ESP"></xs:enumeration>
-                    <xs:enumeration value="NOK"></xs:enumeration>
-                    <xs:enumeration value="JPY"></xs:enumeration>
-                    <xs:enumeration value="EUR"></xs:enumeration>
-                    <xs:enumeration value="DKK"></xs:enumeration>
-                    <xs:enumeration value="FIM"></xs:enumeration>
-                    <xs:enumeration value="ITL"></xs:enumeration>
-                    <xs:enumeration value="ATS"></xs:enumeration>
-                    <xs:enumeration value="HKD"></xs:enumeration>
-                    <xs:enumeration value="NLG"></xs:enumeration>
-                    <xs:enumeration value="CHF"></xs:enumeration>
-                    <xs:enumeration value="TWD"></xs:enumeration>
-                    <xs:enumeration value="SGD"></xs:enumeration>
-                    <xs:enumeration value="BEF"></xs:enumeration>
-                    <xs:enumeration value="IEP"></xs:enumeration>
-                    <xs:enumeration value="PTE"></xs:enumeration>
-                    <xs:enumeration value="CZK"></xs:enumeration>
-                    <xs:enumeration value="GRD"></xs:enumeration>
-                    <xs:enumeration value="HUF"></xs:enumeration>
-                    <xs:enumeration value="IDR"></xs:enumeration>
-                    <xs:enumeration value="ILS"></xs:enumeration>
-                    <xs:enumeration value="NZD"></xs:enumeration>
-                    <xs:enumeration value="PHP"></xs:enumeration>
-                    <xs:enumeration value="PLN"></xs:enumeration>
-                    <xs:enumeration value="RUR"></xs:enumeration>
-                    <xs:enumeration value="THB"></xs:enumeration>
-                    <xs:enumeration value="ZAR"></xs:enumeration>
-                    <xs:enumeration value="INR"></xs:enumeration>
-                    <xs:enumeration value="PEN"></xs:enumeration>
-                    <xs:enumeration value="MYR"></xs:enumeration>
-                    <xs:enumeration value="VND"></xs:enumeration>
-                    <xs:enumeration value="KRW"></xs:enumeration>
-                    <xs:enumeration value="TRY"></xs:enumeration>
-                    <xs:enumeration value="ANG"></xs:enumeration>
-                    <xs:enumeration value="AWG"></xs:enumeration>
-                    <xs:enumeration value="BMD"></xs:enumeration>
-                    <xs:enumeration value="CRC"></xs:enumeration>
-                    <xs:enumeration value="RON"></xs:enumeration>
-                    <xs:enumeration value="VEF"></xs:enumeration>
-                    <xs:enumeration value="BBD"></xs:enumeration>
-                    <xs:enumeration value="BGN"></xs:enumeration>
-                    <xs:enumeration value="BND"></xs:enumeration>
-                    <xs:enumeration value="BSD"></xs:enumeration>
-                    <xs:enumeration value="COP"></xs:enumeration>
-                    <xs:enumeration value="DOP"></xs:enumeration>
-                    <xs:enumeration value="GTQ"></xs:enumeration>
-                    <xs:enumeration value="KYD"></xs:enumeration>
-                    <xs:enumeration value="MVR"></xs:enumeration>
-                    <xs:enumeration value="QAR"></xs:enumeration>
-                    <xs:enumeration value="SAR"></xs:enumeration>
-                    <xs:enumeration value="TTD"></xs:enumeration>
-                    <xs:enumeration value="UAH"></xs:enumeration>
-                    <xs:enumeration value="UYU"></xs:enumeration>
-                    <xs:enumeration value="XCD"></xs:enumeration>
-                    <xs:enumeration value="XPF"></xs:enumeration>
-                    <xs:enumeration value="JMD"></xs:enumeration>
+                	<xs:enumeration value="USD"/>
+                    <xs:enumeration value="CAD"/>
+                    <xs:enumeration value="GBP"/>
+                    <xs:enumeration value="DEM"/>
+                    <xs:enumeration value="AUD"/>
+                    <xs:enumeration value="FRF"/>
+                    <xs:enumeration value="SEK"/>
+                    <xs:enumeration value="CNY"/>
+                    <xs:enumeration value="ESP"/>
+                    <xs:enumeration value="NOK"/>
+                    <xs:enumeration value="JPY"/>
+                    <xs:enumeration value="EUR"/>
+                    <xs:enumeration value="DKK"/>
+                    <xs:enumeration value="FIM"/>
+                    <xs:enumeration value="ITL"/>
+                    <xs:enumeration value="ATS"/>
+                    <xs:enumeration value="HKD"/>
+                    <xs:enumeration value="NLG"/>
+                    <xs:enumeration value="CHF"/>
+                    <xs:enumeration value="TWD"/>
+                    <xs:enumeration value="SGD"/>
+                    <xs:enumeration value="BEF"/>
+                    <xs:enumeration value="IEP"/>
+                    <xs:enumeration value="PTE"/>
+                    <xs:enumeration value="CZK"/>
+                    <xs:enumeration value="GRD"/>
+                    <xs:enumeration value="HUF"/>
+                    <xs:enumeration value="IDR"/>
+                    <xs:enumeration value="ILS"/>
+                    <xs:enumeration value="NZD"/>
+                    <xs:enumeration value="PHP"/>
+                    <xs:enumeration value="PLN"/>
+                    <xs:enumeration value="RUR"/>
+                    <xs:enumeration value="THB"/>
+                    <xs:enumeration value="ZAR"/>
+                    <xs:enumeration value="INR"/>
+                    <xs:enumeration value="PEN"/>
+                    <xs:enumeration value="MYR"/>
+                    <xs:enumeration value="VND"/>
+                    <xs:enumeration value="KRW"/>
+                    <xs:enumeration value="TRY"/>
+                    <xs:enumeration value="ANG"/>
+                    <xs:enumeration value="AWG"/>
+                    <xs:enumeration value="BMD"/>
+                    <xs:enumeration value="CRC"/>
+                    <xs:enumeration value="RON"/>
+                    <xs:enumeration value="VEF"/>
+                    <xs:enumeration value="BBD"/>
+                    <xs:enumeration value="BGN"/>
+                    <xs:enumeration value="BND"/>
+                    <xs:enumeration value="BSD"/>
+                    <xs:enumeration value="COP"/>
+                    <xs:enumeration value="DOP"/>
+                    <xs:enumeration value="GTQ"/>
+                    <xs:enumeration value="KYD"/>
+                    <xs:enumeration value="MVR"/>
+                    <xs:enumeration value="QAR"/>
+                    <xs:enumeration value="SAR"/>
+                    <xs:enumeration value="TTD"/>
+                    <xs:enumeration value="UAH"/>
+                    <xs:enumeration value="UYU"/>
+                    <xs:enumeration value="XCD"/>
+                    <xs:enumeration value="XPF"/>
+                    <xs:enumeration value="JMD"/>
 			</xs:restriction>
         </xs:simpleType>
     	<xs:complexType name="ProductReferenceIdWithScoreInfo">
@@ -642,22 +600,22 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part element="tns:getVersionResponse" name="params" />
+		<wsdl:part element="tns:getVersionResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part name="parameters" element="tns:getVersionRequest"></wsdl:part>
+		<wsdl:part element="tns:getVersionRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getSuggestedProductsByItemIdsRequest">
-		<wsdl:part name="parameters" element="tns:getSuggestedProductsByItemIdsRequest"></wsdl:part>
+		<wsdl:part element="tns:getSuggestedProductsByItemIdsRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getSuggestedProductsByItemIdsResponse">
-		<wsdl:part name="parameters" element="tns:getSuggestedProductsByItemIdsResponse"></wsdl:part>
+		<wsdl:part element="tns:getSuggestedProductsByItemIdsResponse" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getSuggestedProductsByItemDetailsRequest">
-		<wsdl:part name="parameters" element="tns:getSuggestedProductsByItemDetailsRequest"></wsdl:part>
+		<wsdl:part element="tns:getSuggestedProductsByItemDetailsRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getSuggestedProductsByItemDetailsResponse">
-		<wsdl:part name="parameters" element="tns:getSuggestedProductsByItemDetailsResponse"></wsdl:part>
+		<wsdl:part element="tns:getSuggestedProductsByItemDetailsResponse" name="parameters"/>
 	</wsdl:message>
 	<wsdl:portType name="ItemToProductSuggestionServicePort">
 		<wsdl:operation name="getVersion">
@@ -666,8 +624,8 @@
 				Used for ensuring that a service is available (availability monitoring), and
 				ensuring that the metrics relating to a service can be accessed for monitoring.
 			</wsdl:documentation>
-            <wsdl:input message="tns:getVersionRequest"></wsdl:input>
-            <wsdl:output message="tns:getVersionResponse" />
+            <wsdl:input message="tns:getVersionRequest"/>
+            <wsdl:output message="tns:getVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getSuggestedProductsByItemIds">
 			<wsdl:documentation>
@@ -677,8 +635,8 @@
 				current price, and buy it now price, and use these item details
 				as inputs to the ItemToProductSuggestion algorithm.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getSuggestedProductsByItemIdsRequest"></wsdl:input>
-			<wsdl:output message="tns:getSuggestedProductsByItemIdsResponse"></wsdl:output>
+			<wsdl:input message="tns:getSuggestedProductsByItemIdsRequest"/>
+			<wsdl:output message="tns:getSuggestedProductsByItemIdsResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getSuggestedProductsByItemDetails">
 			<wsdl:documentation>
@@ -687,77 +645,67 @@
 				and buy it now price.  Additionally, a debug flag and environment type can also
 				be specified.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getSuggestedProductsByItemDetailsRequest"></wsdl:input>
-			<wsdl:output message="tns:getSuggestedProductsByItemDetailsResponse"></wsdl:output>
+			<wsdl:input message="tns:getSuggestedProductsByItemDetailsRequest"/>
+			<wsdl:output message="tns:getSuggestedProductsByItemDetailsResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="ItemToProductSuggestionServiceHttpBinding"
-		type="tns:ItemToProductSuggestionServicePort">
-		<http:binding verb="POST" />
+	<wsdl:binding name="ItemToProductSuggestionServiceHttpBinding" type="tns:ItemToProductSuggestionServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getSuggestedProductsByItemIds">
-			<http:operation location="/getSuggestedProductByItemIds" />
+			<http:operation location="/getSuggestedProductByItemIds"/>
 			<wsdl:input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getSuggestedProductsByItemDetails">
-			<http:operation
-				location="/getSuggestedProductByItemDetails" />
+			<http:operation location="/getSuggestedProductByItemDetails"/>
 			<wsdl:input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="ItemToProductSuggestionServiceSOAPBinding"
-		type="tns:ItemToProductSuggestionServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="ItemToProductSuggestionServiceSOAPBinding" type="tns:ItemToProductSuggestionServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/marketplacecatalog/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/tumeric/v1/services/getVersion"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getSuggestedProductsByItemIds">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/marketplacecatalog/v1/services/getSuggestedProductByItemIds" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/tumeric/v1/services/getSuggestedProductByItemIds"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getSuggestedProductsByItemDetails">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/marketplacecatalog/v1/services/getSuggestedProductByItemDetails" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/tumeric/v1/services/getSuggestedProductByItemDetails"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -767,17 +715,11 @@
 		    based on a set of item details, such as item title, category id, start price, current price,
 		    and buy it now price.  The implementation of this service is based on a machine learning algorithm.  
 		</wsdl:documentation>
-		<wsdl:port
-			binding="tns:ItemToProductSuggestionServiceHttpBinding"
-			name="ItemToProductSuggestionServiceHttp">
-			<http:address
-				location="http://svcs.ebay.com/services/marketplacecatalog/v1/ItemToProductSuggestionService" />
+		<wsdl:port binding="tns:ItemToProductSuggestionServiceHttpBinding" name="ItemToProductSuggestionServiceHttp">
+			<http:address location="http://svcs.ebay.com/services/marketplacecatalog/v1/ItemToProductSuggestionService"/>
 		</wsdl:port>
-		<wsdl:port
-			binding="tns:ItemToProductSuggestionServiceSOAPBinding"
-			name="ItemToProductSuggestionServiceSOAP">
-			<soap12:address
-				location="http://svcs.ebay.com/services/marketplacecatalog/v1/ItemToProductSuggestionService" />
+		<wsdl:port binding="tns:ItemToProductSuggestionServiceSOAPBinding" name="ItemToProductSuggestionServiceSOAP">
+			<soap12:address location="http://svcs.ebay.com/services/marketplacecatalog/v1/ItemToProductSuggestionService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

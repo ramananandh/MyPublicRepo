@@ -1,11 +1,11 @@
-<definitions name="BuyingListService" targetNamespace="http://www.ebay.com/marketplace/buying/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebay.com/marketplace/buying/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/buying/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BuyingListService" targetNamespace="http://www.ebayopensource.org/tumeric/buying/v1/services">
   <types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/buying/v1/services">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/buying/v1/services">
       <xs:complexType name="ExtensionType">
         <xs:annotation>
           <xs:documentation>Reserved for future use.</xs:documentation>
           <xs:appinfo>
-            <typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
           </xs:appinfo>
         </xs:annotation>
         <xs:sequence>
@@ -48,7 +48,7 @@
             communicated to the user.
           </xs:documentation>
           <xs:appinfo>
-            <typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
           </xs:appinfo>
         </xs:annotation>
         <xs:restriction base="xs:string">
@@ -99,7 +99,7 @@
             all service operations.
           </xs:documentation>
           <xs:appinfo>
-            <typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
           </xs:appinfo>
         </xs:annotation>
         <xs:sequence>
@@ -120,7 +120,7 @@
             associated with the request.
           </xs:documentation>
           <xs:appinfo>
-            <typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
           </xs:appinfo>
         </xs:annotation>
         <xs:sequence>
@@ -172,7 +172,7 @@
               <xs:documentation>
 			   This value represents the date and time when eBay processed the request.
 			   This value is returned in GMT, the ISO 8601 date and time format (YYYY-
-			   MM-DDTHH:MM:SS.SSSZ). See the &quot;dateTime&quot; type for information about the
+			   MM-DDTHH:MM:SS.SSSZ). See the "dateTime" type for information about the
 			   time format, and for details on converting to and from the GMT time zone.
 			  </xs:documentation>
               <xs:appinfo>
@@ -199,7 +199,7 @@
 			errors, and System errors.
           </xs:documentation>
           <xs:appinfo>
-            <typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
           </xs:appinfo>
         </xs:annotation>
         <xs:restriction base="xs:token">
@@ -232,11 +232,11 @@
             A container for error details.
           </xs:documentation>
           <xs:appinfo>
-            <typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
           </xs:appinfo>
         </xs:annotation>
         <xs:sequence>
-          <xs:element name="errorId" type="xs:long" >
+          <xs:element name="errorId" type="xs:long">
 		  <xs:annotation>
 			<xs:documentation>
 			A unique code that identifies the particular error condition that
@@ -245,7 +245,7 @@
 			</xs:documentation>
            </xs:annotation>
         </xs:element>
-          <xs:element name="domain" type="xs:string" >
+          <xs:element name="domain" type="xs:string">
 		  <xs:annotation>
 			<xs:documentation>
 			Name of the domain in which the error occurred.
@@ -270,7 +270,7 @@
 			</xs:documentation>
            </xs:annotation>
         </xs:element>
-          <xs:element minOccurs="0" name="subdomain" type="xs:string" >
+          <xs:element minOccurs="0" name="subdomain" type="xs:string">
 		  <xs:annotation>
 			<xs:documentation>
 			Name of the subdomain in which the error occurred:
@@ -284,7 +284,7 @@
 			</xs:documentation>
            </xs:annotation>
         </xs:element>
-          <xs:element name="severity" type="tns:ErrorSeverity" >
+          <xs:element name="severity" type="tns:ErrorSeverity">
 		  <xs:annotation>
 			<xs:documentation>
 			Indicates whether the reported problem is fatal (an error) or is less-
@@ -308,7 +308,7 @@
 			</xs:documentation>
            </xs:annotation>
         </xs:element>
-          <xs:element name="category" type="tns:ErrorCategory" >
+          <xs:element name="category" type="tns:ErrorCategory">
 		  <xs:annotation>
 			<xs:documentation>
 			There are three categories of errors: Request errors, Application 
@@ -316,21 +316,21 @@
 			</xs:documentation>
            </xs:annotation>
         </xs:element>
-          <xs:element name="message" type="xs:string" >
+          <xs:element name="message" type="xs:string">
 		  <xs:annotation>
 			<xs:documentation>
 			A detailed description of the condition that caused the error.
 			</xs:documentation>
            </xs:annotation>
         </xs:element>
-          <xs:element minOccurs="0" name="exceptionId" type="xs:token" >
+          <xs:element minOccurs="0" name="exceptionId" type="xs:token">
 		  <xs:annotation>
 			<xs:documentation>
 			Unique identifier for an exception associated with an error.
 			</xs:documentation>
            </xs:annotation>
         </xs:element>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter" >
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 		  <xs:annotation>
 			<xs:documentation>
 			Various warning and error messages that return one or more variables that 
@@ -349,7 +349,7 @@
             not reported here, but are instead reported as part of a SOAP fault.
           </xs:documentation>
           <xs:appinfo>
-            <typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
           </xs:appinfo>
         </xs:annotation>
         <xs:sequence>
@@ -368,7 +368,7 @@
             Contextual data associated with an error.
           </xs:documentation>
           <xs:appinfo>
-            <typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
           </xs:appinfo>
         </xs:annotation>
         <xs:simpleContent>
@@ -390,7 +390,7 @@
             or a less severe error (a warning) that should be communicated to the user.
           </xs:documentation>
           <xs:appinfo>
-            <typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+            <typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
           </xs:appinfo>
         </xs:annotation>
 				<xs:restriction base="xs:token">
@@ -420,13 +420,13 @@
   	  </xs:annotation>
       
         <xs:sequence>
-          <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+          <xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
             <xs:annotation>
               <xs:documentation>Specifies the name of a user or system created list.</xs:documentation>
             </xs:annotation>
           </xs:element>
           
-          <xs:element name="id" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:string">
 		           <xs:annotation>
 		              <xs:documentation> 
 		               Specifies the ID of a user or system created list.
@@ -434,8 +434,7 @@
 		            </xs:annotation>
 		  </xs:element>
 		  
-		<xs:element minOccurs="0"
-			name="creationDate" type="xs:dateTime">
+		<xs:element minOccurs="0" name="creationDate" type="xs:dateTime">
 			<xs:annotation>
 				<xs:documentation>
 					The creation date of a user list.
@@ -443,8 +442,7 @@
 			</xs:annotation>
 		</xs:element>
 		
-		<xs:element minOccurs="0"
-			name="modificationDate" type="xs:dateTime">
+		<xs:element minOccurs="0" name="modificationDate" type="xs:dateTime">
 			<xs:annotation>
 				<xs:documentation>
 					The modification date of a list.
@@ -460,7 +458,7 @@
             </xs:annotation>
           </xs:element> 
           
-          <xs:element name="listType" type="tns:ListType" minOccurs="1" maxOccurs="1">
+          <xs:element maxOccurs="1" minOccurs="1" name="listType" type="tns:ListType">
            <xs:annotation>
               <xs:documentation>
                 List type.
@@ -495,49 +493,49 @@
           </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-        <xs:element name="creationDate" type="xs:dateTime" minOccurs="0" maxOccurs="1" >
+        <xs:element maxOccurs="1" minOccurs="0" name="creationDate" type="xs:dateTime">
 		  <xs:annotation>
 			<xs:documentation>
 			Creation date.
 			</xs:documentation>
            </xs:annotation>
         </xs:element>
-        <xs:element name="modificationDate" type="xs:dateTime" minOccurs="0" maxOccurs="1" >
+        <xs:element maxOccurs="1" minOccurs="0" name="modificationDate" type="xs:dateTime">
 		  <xs:annotation>
 			<xs:documentation>
 			Modification date.
 			</xs:documentation>
            </xs:annotation>
         </xs:element>        
-        <xs:element name="entryType" type="tns:ListEntryType" minOccurs="1" maxOccurs="1" >
+        <xs:element maxOccurs="1" minOccurs="1" name="entryType" type="tns:ListEntryType">
 		  <xs:annotation>
 			<xs:documentation>
 			Entry type.
 			</xs:documentation>
            </xs:annotation>
         </xs:element>
-        <xs:element name="item" type="tns:Item" minOccurs="0" maxOccurs="1" >
+        <xs:element maxOccurs="1" minOccurs="0" name="item" type="tns:Item">
 		  <xs:annotation>
 			<xs:documentation>
 			Item.
 			</xs:documentation>
            </xs:annotation>
         </xs:element>
-		<xs:element name="endTime" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+		<xs:element maxOccurs="1" minOccurs="1" name="endTime" type="xs:dateTime">
            <xs:annotation>
              <xs:documentation>
                End time.
              </xs:documentation>		              
            </xs:annotation>
          </xs:element>        
-        <xs:element name="savedSearch" type="tns:SavedSearch" minOccurs="0" maxOccurs="1" >
+        <xs:element maxOccurs="1" minOccurs="0" name="savedSearch" type="tns:SavedSearch">
 		  <xs:annotation>
 			<xs:documentation>
 			Saved search.
 			</xs:documentation>
            </xs:annotation>
         </xs:element>
-        <xs:element name="savedSeller" type="tns:SavedSeller" minOccurs="0" maxOccurs="1" >
+        <xs:element maxOccurs="1" minOccurs="0" name="savedSeller" type="tns:SavedSeller">
 		  <xs:annotation>
 			<xs:documentation>
 			Saved seller.
@@ -580,7 +578,7 @@
       
       <xs:complexType name="Item">
 	        <xs:sequence>
-	          <xs:element name="itemId" type="xs:string" minOccurs="1" maxOccurs="1">
+	          <xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:string">
 	            <xs:annotation>
 	              <xs:documentation>
 	                Item ID.
@@ -588,7 +586,7 @@
 	            </xs:annotation>
 	          </xs:element>
 	          
-			<xs:element name="variationId" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element maxOccurs="1" minOccurs="0" name="variationId" type="xs:string">
 	            <xs:annotation>
 	              <xs:documentation>
 	                Variation ID.
@@ -596,7 +594,7 @@
 	            </xs:annotation>
 	          </xs:element>
 	          	          	          
-	          <xs:element name="siteId" type="xs:long" minOccurs="0" maxOccurs="1">
+	          <xs:element maxOccurs="1" minOccurs="0" name="siteId" type="xs:long">
 	            <xs:annotation>
 	              <xs:documentation>
 	                Item listed site ID.
@@ -604,7 +602,7 @@
 	            </xs:annotation>
 	          </xs:element>
 
-	          <xs:element name="saleType" type="xs:long" minOccurs="0" maxOccurs="1">
+	          <xs:element maxOccurs="1" minOccurs="0" name="saleType" type="xs:long">
 	            <xs:annotation>
 	              <xs:documentation>
 	                Sale type.
@@ -613,7 +611,7 @@
 	          </xs:element>
 	          
 
-	          <xs:element name="productRefId" type="xs:string" minOccurs="0" maxOccurs="1">
+	          <xs:element maxOccurs="1" minOccurs="0" name="productRefId" type="xs:string">
 	            <xs:annotation>
 	              <xs:documentation>
 	                Product reference ID for an product.
@@ -621,7 +619,7 @@
 	            </xs:annotation>
 	          </xs:element>
 	          
-	          <xs:element name="sellerId" type="xs:string" minOccurs="0" maxOccurs="1">
+	          <xs:element maxOccurs="1" minOccurs="0" name="sellerId" type="xs:string">
 	            <xs:annotation>
 	              <xs:documentation>
 	                Seller Id encoded with EIAS.
@@ -635,7 +633,7 @@
 
       <xs:complexType name="SavedSeller">
         <xs:sequence>
-          <xs:element name="sellerId" type="xs:string" minOccurs="1" maxOccurs="1">
+          <xs:element maxOccurs="1" minOccurs="1" name="sellerId" type="xs:string">
             <xs:annotation>
               <xs:documentation>
                 Seller ID encode or decode with EIAS.
@@ -647,7 +645,7 @@
       
       <xs:complexType name="SavedSearch">
         <xs:sequence>
-          <xs:element name="savedSearchId" type="xs:string" minOccurs="1" maxOccurs="1">
+          <xs:element maxOccurs="1" minOccurs="1" name="savedSearchId" type="xs:string">
             <xs:annotation>
               <xs:documentation>
                 Saved search ID encode or decode with EIAS.
@@ -660,14 +658,14 @@
 
       <xs:complexType name="ListEntrySet">
         <xs:sequence>
-        <xs:element name="listId" type="xs:string" minOccurs="1" maxOccurs="1" >
+        <xs:element maxOccurs="1" minOccurs="1" name="listId" type="xs:string">
 		  <xs:annotation>
 			<xs:documentation>
 			List ID.
 			</xs:documentation>
            </xs:annotation>
         </xs:element>        
-        <xs:element name="listEntry" type="tns:ListEntry" minOccurs="1" maxOccurs="unbounded" >
+        <xs:element maxOccurs="unbounded" minOccurs="1" name="listEntry" type="tns:ListEntry">
 		  <xs:annotation>
 			<xs:documentation>
 			List entry.
@@ -695,14 +693,14 @@
           </xs:appinfo>
         </xs:annotation>
             <xs:sequence>
-				<xs:element name="list" type="tns:List" minOccurs="1" maxOccurs="unbounded" >
+				<xs:element maxOccurs="unbounded" minOccurs="1" name="list" type="tns:List">
 		  <xs:annotation>
 			<xs:documentation>
 			List.
 			</xs:documentation>
            </xs:annotation>
         </xs:element>
-				<xs:element minOccurs="0" name="includeListsWithEntries" type="xs:boolean" maxOccurs="1" >
+				<xs:element maxOccurs="1" minOccurs="0" name="includeListsWithEntries" type="xs:boolean">
 		  <xs:annotation>
 			<xs:documentation>
 			Flag to include lists with entries.
@@ -721,7 +719,7 @@
         <xs:complexContent>
           <xs:extension base="tns:BaseResponse">
             <xs:sequence>
-              <xs:element name="list" type="tns:List" minOccurs="1" maxOccurs="unbounded">
+              <xs:element maxOccurs="unbounded" minOccurs="1" name="list" type="tns:List">
                 <xs:annotation>
                   <xs:documentation>
                     Contains a list that was created that includes name, ID, creation date, and modification date.
@@ -751,7 +749,7 @@
           <xs:extension base="tns:BaseRequest">
             <xs:sequence>                            
             
-              <xs:element name="listEntrySet" type="tns:ListEntrySet" minOccurs="1" maxOccurs="unbounded" >
+              <xs:element maxOccurs="unbounded" minOccurs="1" name="listEntrySet" type="tns:ListEntrySet">
 		  <xs:annotation>
 			<xs:documentation>
 			List entry.
@@ -759,7 +757,7 @@
            </xs:annotation>
         </xs:element>
               
-              <xs:element minOccurs="0" name="includeListsWithEntries" type="xs:boolean" maxOccurs="1" >
+              <xs:element maxOccurs="1" minOccurs="0" name="includeListsWithEntries" type="xs:boolean">
 		  <xs:annotation>
 			<xs:documentation>
 			Flag to include lists with entries.
@@ -781,7 +779,7 @@
         <xs:complexContent>
           <xs:extension base="tns:BaseResponse">
             <xs:sequence>
-               <xs:element name="list" type="tns:List" minOccurs="1" maxOccurs="unbounded">
+               <xs:element maxOccurs="unbounded" minOccurs="1" name="list" type="tns:List">
                 <xs:annotation>
                   <xs:documentation>
                     Contains name, ID, creation date, modification date, and entries for one or more lists.
@@ -810,7 +808,7 @@
        <xs:complexContent>
           <xs:extension base="tns:BaseRequest">
           <xs:sequence>
-          	<xs:element name="listName" type="xs:string" minOccurs="1" maxOccurs="1">
+          	<xs:element maxOccurs="1" minOccurs="1" name="listName" type="xs:string">
 		            <xs:annotation>
 		              <xs:documentation>
 		                List name to replace.
@@ -827,7 +825,7 @@
 		            </xs:annotation>
 		          </xs:element>
 
-          	<xs:element name="listId" type="xs:string" minOccurs="1" maxOccurs="1">
+          	<xs:element maxOccurs="1" minOccurs="1" name="listId" type="xs:string">
 		            <xs:annotation>
 		              <xs:documentation>
 		                ID of a list to rename.
@@ -848,7 +846,7 @@
         </xs:complexContent>       
       </xs:complexType>
       
-      <xs:complexType  name="UpdateListResponse">
+      <xs:complexType name="UpdateListResponse">
         <xs:annotation>
           <xs:documentation>
             Base response container for all service operations in the Buying List Service.
@@ -872,7 +870,7 @@
        <xs:complexContent>
           <xs:extension base="tns:BaseRequest">
            <xs:sequence>	          	
-				<xs:element name="listId" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="listId" type="xs:string">
 		            <xs:annotation>
 		              <xs:documentation>
 		                One or more list IDs to find.
@@ -887,7 +885,7 @@
 		            </xs:annotation>
 		          </xs:element>	          	
 	          	
-	          	<xs:element minOccurs="0" name="includeListsWithEntries" type="xs:boolean" maxOccurs="1">
+	          	<xs:element maxOccurs="1" minOccurs="0" name="includeListsWithEntries" type="xs:boolean">
 					<xs:annotation>
 						<xs:documentation>
 							A flag to identify whether to return list entries.
@@ -910,7 +908,7 @@
         </xs:complexContent>       
       </xs:complexType>
       
-    <xs:complexType  name="GetListsResponse">
+    <xs:complexType name="GetListsResponse">
 		<xs:complexContent>
 	        <xs:annotation>
 	          <xs:documentation>
@@ -921,14 +919,14 @@
 			<xs:extension base="tns:BaseResponse">
 			
 	        <xs:sequence>
-	          	<xs:element minOccurs="0" name="list" type="tns:List" maxOccurs="unbounded" />
+	          	<xs:element maxOccurs="unbounded" minOccurs="0" name="list" type="tns:List"/>
 	        </xs:sequence> 
 			
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
       
-      <xs:element name="deleteListsRequest"  type="tns:DeleteListsRequest"/>
+      <xs:element name="deleteListsRequest" type="tns:DeleteListsRequest"/>
       <xs:element name="deleteListsResponse" type="tns:DeleteListsResponse"/>  
       
       <xs:complexType name="DeleteListsRequest">
@@ -940,11 +938,11 @@
           </xs:documentation>
         </xs:annotation>       
        <xs:sequence>
-          	<xs:element minOccurs="1" name="listId" type="xs:string" maxOccurs="unbounded" />
+          	<xs:element maxOccurs="unbounded" minOccurs="1" name="listId" type="xs:string"/>
         </xs:sequence>       
       </xs:complexType>
       
-      <xs:complexType  name="DeleteListsResponse">
+      <xs:complexType name="DeleteListsResponse">
         <xs:annotation>
           <xs:documentation>
             Deletes one or more collections.
@@ -968,7 +966,7 @@
           </xs:documentation>
         </xs:annotation>       
        <xs:sequence>
-	        <xs:element name="listEntrySet" type="tns:ListEntrySet" minOccurs="1" maxOccurs="unbounded" >
+	        <xs:element maxOccurs="unbounded" minOccurs="1" name="listEntrySet" type="tns:ListEntrySet">
 		  <xs:annotation>
 			<xs:documentation>
 			Delete a list entry.
@@ -978,7 +976,7 @@
         </xs:sequence>
       </xs:complexType>
       
-      <xs:complexType  name="DeleteListEntriesResponse">
+      <xs:complexType name="DeleteListEntriesResponse">
         <xs:annotation>
           <xs:documentation>
             Base response container for all service
@@ -991,8 +989,8 @@
         </xs:complexContent>
       </xs:complexType>      
      
-      <xs:element name="getVersionRequest"  type="tns:GetVersionRequest"/>
-      <xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+      <xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+      <xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
       
       <xs:complexType name="GetVersionRequest">
               <xs:annotation>
@@ -1072,11 +1070,11 @@
   </wsdl:message>
 
   <wsdl:message name="getVersionRequest">
-    <wsdl:part name="messageParameters" element="tns:getVersionRequest">
+    <wsdl:part element="tns:getVersionRequest" name="messageParameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getVersionResponse">
-    <wsdl:part name="messageParameters" element="tns:getVersionResponse">
+    <wsdl:part element="tns:getVersionResponse" name="messageParameters">
     </wsdl:part>
   </wsdl:message>
   
@@ -1225,7 +1223,7 @@
   <binding name="BuyingListServiceSOAPBinding" type="tns:BuyingListServicePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="createLists">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/buying/v1/services/createLists"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/createLists"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -1234,7 +1232,7 @@
       </output>
     </operation>    
     <operation name="getLists">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/buying/v1/services/getLists"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/getLists"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -1243,7 +1241,7 @@
       </output>
     </operation>
     <operation name="deleteLists">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/buying/v1/services/deleteLists"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/deleteLists"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -1252,7 +1250,7 @@
       </output>
     </operation>
     <operation name="updateList">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/buying/v1/services/updateList"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/updateList"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -1261,7 +1259,7 @@
       </output>
     </operation>
     <operation name="addListEntries">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/buying/v1/services/addListEntries"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/addListEntries"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -1270,7 +1268,7 @@
       </output>
     </operation>
     <operation name="deleteListEntries">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/buying/v1/services/deleteListEntries"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/deleteListEntries"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -1279,7 +1277,7 @@
       </output>
     </operation> 
     <wsdl:operation name="getVersion">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/buying/v1/services/getVersion"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/getVersion"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>

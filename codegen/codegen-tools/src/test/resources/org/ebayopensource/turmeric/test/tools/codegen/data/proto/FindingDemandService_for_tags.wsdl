@@ -1,13 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebay.com/marketplace/search/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FindingDemandService"
-	targetNamespace="http://www.ebay.com/marketplace/search/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/search/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FindingDemandService" targetNamespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/search/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -19,8 +12,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -80,13 +72,11 @@
 						service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension"
-						type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType abstract="true" name="BaseResponse">
@@ -98,17 +88,16 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -124,7 +113,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -132,10 +121,10 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -143,17 +132,16 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension"
-						type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="ErrorCategory">
@@ -162,14 +150,13 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
@@ -178,20 +165,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long" />
-					<xs:element name="domain" type="xs:string" />
-					<xs:element minOccurs="0" name="subdomain" type="xs:string" />
-					<xs:element name="severity" type="tns:ErrorSeverity" />
-					<xs:element name="category" type="tns:ErrorCategory" />
-					<xs:element name="message" type="xs:string" />
-					<xs:element minOccurs="0" name="exceptionId" type="xs:token" />
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"
-						type="tns:ErrorParameter" />
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+					<xs:element name="severity" type="tns:ErrorSeverity"/>
+					<xs:element name="category" type="tns:ErrorCategory"/>
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -200,8 +185,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!--
@@ -209,8 +193,7 @@
 					processContents="lax" /> </xs:sequence>
 				-->
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"
-						type="tns:ErrorData" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -219,13 +202,12 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string" use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -235,13 +217,12 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ExtensionType">
@@ -250,19 +231,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="getVersionRequest" type="tns:GetVersionRequest" />
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
 			<xs:complexType name="GetVersionRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -271,11 +251,11 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getVersionResponse" type="tns:GetVersionResponse" />
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -284,7 +264,7 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
@@ -297,12 +277,10 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="serviceContext" type="tns:ServiceContext"
-								minOccurs="1">
+							<xs:element minOccurs="1" name="serviceContext" type="tns:ServiceContext">
 							</xs:element>
 
-							<xs:element name="request" type="tns:DemandRequest" minOccurs="1"
-								maxOccurs="unbounded"></xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="request" type="tns:DemandRequest"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -313,12 +291,10 @@
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
 
-							<xs:element name="response"
-								type="tns:DemandResponse" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="response" type="tns:DemandResponse">
 							</xs:element>
 
-							<xs:element name="executionTimeMillis"
-								type="xs:long" minOccurs="0">
+							<xs:element minOccurs="0" name="executionTimeMillis" type="xs:long">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -330,7 +306,7 @@
 					<xs:documentation>
 						Contextual information used by Search Services.
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="SharedSearchServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v2/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary"/></xs:appinfo></xs:annotation>
 				<xs:sequence>
 					<xs:element maxOccurs="1" minOccurs="1" name="globalId" type="xs:string">
 						<xs:annotation>
@@ -349,14 +325,14 @@
 					<xs:element maxOccurs="1" minOccurs="0" name="locale" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
-								Locale in the format of &quot;language,country,variant&quot;. Check java.util.Locale
+								Locale in the format of "language,country,variant". Check java.util.Locale
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element maxOccurs="1" minOccurs="0" name="timeZone" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
-								Time zone in the format of &quot;GMT+/-hh:mm&quot;
+								Time zone in the format of "GMT+/-hh:mm"
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -374,7 +350,7 @@
 					<xs:documentation>
 						This type holds the logs returned from Voyager. 
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/></xs:appinfo></xs:annotation>
 				<xs:sequence>
 					<xs:element maxOccurs="1" minOccurs="0" name="sender" type="xs:string">
 						<xs:annotation>
@@ -402,9 +378,8 @@
 		
             <xs:complexType name="DemandRequest">
             	<xs:sequence>
-            		<xs:element name="includeDiagnosticInfo" type="xs:boolean" minOccurs="0"></xs:element>
-            		<xs:element name="dimension" type="tns:Member"
-            			minOccurs="1">
+            		<xs:element minOccurs="0" name="includeDiagnosticInfo" type="xs:boolean"/>
+            		<xs:element minOccurs="1" name="dimension" type="tns:Member">
             			<xs:annotation>
             				<xs:documentation>
             					The dimension or entity in DSBE. For available
@@ -415,8 +390,7 @@
             				</xs:documentation>
             			</xs:annotation>
             		</xs:element>
-            		<xs:element name="measure" type="tns:Member" minOccurs="1"
-            			maxOccurs="unbounded">
+            		<xs:element maxOccurs="unbounded" minOccurs="1" name="measure" type="tns:Member">
             			<xs:annotation>
             				<xs:documentation>
             					The measures or attributes in DSBE. For
@@ -429,24 +403,20 @@
             				</xs:documentation>
             			</xs:annotation>
             		</xs:element>
-            		<xs:element name="constraint" type="tns:Constraint"
-            			minOccurs="0" maxOccurs="unbounded">
+            		<xs:element maxOccurs="unbounded" minOccurs="0" name="constraint" type="tns:Constraint">
             		</xs:element>
-            		<xs:element name="sortBy" type="tns:SortBy" minOccurs="0"
-            			maxOccurs="unbounded">
+            		<xs:element maxOccurs="unbounded" minOccurs="0" name="sortBy" type="tns:SortBy">
             		</xs:element>
-            		<xs:element name="fetchSize" type="xs:int" minOccurs="0"></xs:element>
+            		<xs:element minOccurs="0" name="fetchSize" type="xs:int"/>
             	</xs:sequence>
             </xs:complexType>
             
             <xs:complexType name="DemandResponse">
             	<xs:sequence>
-            		<xs:element name="diagnosticInfo" type="tns:DiagnosticInfo" minOccurs="0" maxOccurs="unbounded"></xs:element>
-            		<xs:element name="resultSummary"
-            			type="tns:ResultSummaryInfo" minOccurs="1">
+            		<xs:element maxOccurs="unbounded" minOccurs="0" name="diagnosticInfo" type="tns:DiagnosticInfo"/>
+            		<xs:element minOccurs="1" name="resultSummary" type="tns:ResultSummaryInfo">
             		</xs:element>
-            		<xs:element name="demandResult" type="tns:SearchResult"
-            			minOccurs="0" maxOccurs="unbounded">
+            		<xs:element maxOccurs="unbounded" minOccurs="0" name="demandResult" type="tns:SearchResult">
             		</xs:element>
             	</xs:sequence>
             </xs:complexType>
@@ -455,7 +425,7 @@
 					<xs:documentation> 
 						Name value pair for defining properties associated with entities.
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="SharedSearchServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v2/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary"/></xs:appinfo></xs:annotation>
 				<xs:sequence>
 					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 						<xs:annotation>
@@ -478,7 +448,7 @@
 					<xs:documentation>
 						SortBy is used to define the order of result entries.
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="SharedSearchServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v2/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary"/></xs:appinfo></xs:annotation>
 				<xs:sequence>
 					<xs:choice>
 						<xs:element maxOccurs="1" minOccurs="0" name="sortField" type="tns:Field">
@@ -503,7 +473,7 @@
 					<xs:documentation>
 						This type defines sort order.
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="SharedSearchServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v2/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary"/></xs:appinfo></xs:annotation>
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="INCREASING">
 						<xs:annotation>
@@ -524,7 +494,7 @@
 						Field can be an item attribute, aspect, or function. 
 						It could be Member or Expression.
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="SharedSearchServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v2/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary"/></xs:appinfo></xs:annotation>
 				<xs:choice>
 					<xs:element name="member" type="tns:Member">
 						<xs:annotation>
@@ -546,8 +516,7 @@
 						such as Distance(), ShippingCost(). A Member can be uniquely identified by its namespace and name.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SharedSearchServiceTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/search/v2/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -585,8 +554,7 @@
 						It has two sub types: LogicalExpression and NumericExpression.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SharedSearchServiceTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/search/v2/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -629,8 +597,7 @@
 						The operator type
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SharedSearchServiceTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/search/v2/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -676,76 +643,75 @@
 		              The enumeration represents the Alphabetic Code. Comments are included for quick reference.
 		            </xs:documentation>
 		        	<xs:appinfo>
-		        		<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" 
-		        			namespace="http://www.ebay.com/marketplace/services">
+		        		<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 		        		</typeLibrarySource>
 		        	</xs:appinfo>
 		        </xs:annotation>
 		        <xs:restriction base="xs:token">   <!-- Currency,                         Entity                          ISO Currency Code -->
-		            <xs:enumeration value="USD"></xs:enumeration> <!-- U.S. Dollar                       United States                   840               -->
-		            <xs:enumeration value="CAD"></xs:enumeration> <!-- Canadian Dollar                   Canada                          124               -->
-		            <xs:enumeration value="GBP"></xs:enumeration> <!-- Pound Sterling                    United Kingdom                  826               -->
-		            <xs:enumeration value="DEM"></xs:enumeration> <!-- German Mark                       Germany                         276               -->
-		            <xs:enumeration value="AUD"></xs:enumeration> <!-- Australian Dollar                 Australia                       036               -->
-		            <xs:enumeration value="JPY"></xs:enumeration> <!-- Japanese Yen                      Japanese Yen                    392               -->
-		            <xs:enumeration value="EUR"></xs:enumeration> <!-- Euro                              European Union                  978               -->
-		            <xs:enumeration value="FRF"></xs:enumeration> <!-- French Franc                      France                          250               -->
-		            <xs:enumeration value="ATS"></xs:enumeration> <!-- Austrian Schilling                Austria                         040               -->
-		            <xs:enumeration value="BEF"></xs:enumeration> <!-- Belgian Franc                     Belgium                         056               -->
-		            <xs:enumeration value="CHF"></xs:enumeration> <!-- Swiss Franc                       Switzerland                     756               -->
-		            <xs:enumeration value="CNY"></xs:enumeration> <!-- Chinese Yuan Renminbi             China                           156               -->
-		            <xs:enumeration value="CZK"></xs:enumeration> <!-- Czech Koruna                      Czech Republic                  203               -->
-		            <xs:enumeration value="DKK"></xs:enumeration> <!-- Danish Krone                      Denmark                         208               -->
-		            <xs:enumeration value="ESP"></xs:enumeration> <!-- Spanish Peseta                    Spain                           724               -->
-		            <xs:enumeration value="FIM"></xs:enumeration> <!-- Finnish Markka                    Finland                         246               -->
-		            <xs:enumeration value="GRD"></xs:enumeration> <!-- Greek Drachma                     Greece                          300               -->
-		            <xs:enumeration value="HKD"></xs:enumeration> <!-- Hong Kong Dollar                  Hong Kong                       344               -->
-		            <xs:enumeration value="HUF"></xs:enumeration> <!-- Hungarian Forint                  Hungary                         348               -->
-		            <xs:enumeration value="IDR"></xs:enumeration> <!-- Indonesian Rupiah                 Indonesia                       360               -->
-		            <xs:enumeration value="IEP"></xs:enumeration> <!-- Irish Pound                       Ireland                         372               -->
-		            <xs:enumeration value="ILS"></xs:enumeration> <!-- Israeli new Shekel                Israel                          376               -->
-		            <xs:enumeration value="ITL"></xs:enumeration> <!-- Italian Lira                      Italy                           380               -->
-		            <xs:enumeration value="NLG"></xs:enumeration> <!-- Dutch Guilder                     Netherlands                     528               -->
-		            <xs:enumeration value="NOK"></xs:enumeration> <!-- Norwegian Krone                   Norway                          578               -->
-		            <xs:enumeration value="NZD"></xs:enumeration> <!-- New Zealand Dollar                New Zealand                     554               -->
-		            <xs:enumeration value="PHP"></xs:enumeration> <!-- Philippine Peso                   Philippines                     608               -->
-		            <xs:enumeration value="PLN"></xs:enumeration> <!-- Polish New Zloty                  Poland                          985               -->
-		            <xs:enumeration value="PTE"></xs:enumeration> <!-- Portuguese Escudo                 Portugal                        620               -->
-		            <xs:enumeration value="RUR"></xs:enumeration> <!-- Russian Ruble                     Russian Federation              810               -->
-		            <xs:enumeration value="SEK"></xs:enumeration> <!-- Swedish Krona                     Sweden                          752               -->
-		            <xs:enumeration value="SGD"></xs:enumeration> <!-- Singapore Dollar                  Singapore                       702               -->
-		            <xs:enumeration value="THB"></xs:enumeration> <!-- Thai Baht                         Thailand                        764               -->
-		            <xs:enumeration value="TWD"></xs:enumeration> <!-- New Taiwan dollar                 Taiwan                          901               -->
-		            <xs:enumeration value="ZAR"></xs:enumeration> <!-- South African Rand                South Africa                    710               -->
-		            <xs:enumeration value="INR"></xs:enumeration> <!-- Indian Rupee                      India                           356               -->
-		            <xs:enumeration value="PEN"></xs:enumeration> <!-- Peruvian New Sol                  Peru                            604               -->
-		            <xs:enumeration value="MYR"></xs:enumeration> <!-- Malaysian Ringgit                 Malaysia                        458               -->
-		            <xs:enumeration value="VND"></xs:enumeration> <!-- Vietnamese New Dong               Vietnam                         704               -->
-		            <xs:enumeration value="KRW"></xs:enumeration> <!-- South Korean Won                  South Korea                     410               -->
-		            <xs:enumeration value="TRY"></xs:enumeration> <!-- New Turkish Lira                  Turkey                          949               -->
-		            <xs:enumeration value="ANG"></xs:enumeration> <!-- Antillian Guilder                 Netherlands Antilles            532               -->
-		            <xs:enumeration value="AWG"></xs:enumeration> <!-- Aruban Guilder                    Aruba                           533               -->
-		            <xs:enumeration value="BMD"></xs:enumeration> <!-- Bermudan Dollar                   Bermudan Dollar                 060               -->
-		            <xs:enumeration value="CRC"></xs:enumeration> <!-- Costa Rican Colon                 Costa Rica                      188               -->
-		            <xs:enumeration value="RON"></xs:enumeration> <!-- Romanian New Leu                  Romania                         946               -->
-		            <xs:enumeration value="VEF"></xs:enumeration> <!-- Venezuelan Bolivar Fuerte         Venezuela                       937               -->
-		            <xs:enumeration value="BBD"></xs:enumeration> <!-- Barbados Dollar                   Barbados                        052               -->
-		            <xs:enumeration value="BGN"></xs:enumeration> <!-- Bulgarian Lev                     Bulgaria                        975               -->
-		            <xs:enumeration value="BND"></xs:enumeration> <!-- Brunei Dollar                     Brunei                          096               -->
-		            <xs:enumeration value="BSD"></xs:enumeration> <!-- Bahamian Dollar                   Bahamas                         044               -->
-		            <xs:enumeration value="COP"></xs:enumeration> <!-- Colombian Peso                    Columbia                        170               -->
-		            <xs:enumeration value="DOP"></xs:enumeration> <!-- Dominican Peso                    Dominican Republic              214               -->
-		            <xs:enumeration value="GTQ"></xs:enumeration> <!-- Guatemalan Quetzal                Guatemala                       320               -->
-		            <xs:enumeration value="KYD"></xs:enumeration> <!-- Cayman Isles Dollar               Cayman Islands                  136               -->
-		            <xs:enumeration value="MVR"></xs:enumeration> <!-- Maldivian Rufiyaa                 Maldives                        462               -->
-		            <xs:enumeration value="QAR"></xs:enumeration> <!-- Qatari Rial                       Qatar                           634               -->
-		            <xs:enumeration value="SAR"></xs:enumeration> <!-- Saudi Riyal                       Saudi Arabia                    682               -->
-		            <xs:enumeration value="TTD"></xs:enumeration> <!-- Trinidadian and Tobagonian Dollar Trinidad and Tobago             780               -->
-		            <xs:enumeration value="UAH"></xs:enumeration> <!-- Ukrainian hryvnia                 Ukraine                         980               -->
-		            <xs:enumeration value="UYU"></xs:enumeration> <!-- Peso Uruguayo                     Uruguay                         858               -->
-		            <xs:enumeration value="XCD"></xs:enumeration> <!-- East Caribbean Dollar             East Caribbean Currency Area    951               -->
-		            <xs:enumeration value="XPF"></xs:enumeration> <!-- French Polynesian Franc           French Polynesia                953               -->
-		            <xs:enumeration value="JMD"></xs:enumeration> <!-- Jamaican Dollar                   Jamaica                         388               -->
+		            <xs:enumeration value="USD"/> <!-- U.S. Dollar                       United States                   840               -->
+		            <xs:enumeration value="CAD"/> <!-- Canadian Dollar                   Canada                          124               -->
+		            <xs:enumeration value="GBP"/> <!-- Pound Sterling                    United Kingdom                  826               -->
+		            <xs:enumeration value="DEM"/> <!-- German Mark                       Germany                         276               -->
+		            <xs:enumeration value="AUD"/> <!-- Australian Dollar                 Australia                       036               -->
+		            <xs:enumeration value="JPY"/> <!-- Japanese Yen                      Japanese Yen                    392               -->
+		            <xs:enumeration value="EUR"/> <!-- Euro                              European Union                  978               -->
+		            <xs:enumeration value="FRF"/> <!-- French Franc                      France                          250               -->
+		            <xs:enumeration value="ATS"/> <!-- Austrian Schilling                Austria                         040               -->
+		            <xs:enumeration value="BEF"/> <!-- Belgian Franc                     Belgium                         056               -->
+		            <xs:enumeration value="CHF"/> <!-- Swiss Franc                       Switzerland                     756               -->
+		            <xs:enumeration value="CNY"/> <!-- Chinese Yuan Renminbi             China                           156               -->
+		            <xs:enumeration value="CZK"/> <!-- Czech Koruna                      Czech Republic                  203               -->
+		            <xs:enumeration value="DKK"/> <!-- Danish Krone                      Denmark                         208               -->
+		            <xs:enumeration value="ESP"/> <!-- Spanish Peseta                    Spain                           724               -->
+		            <xs:enumeration value="FIM"/> <!-- Finnish Markka                    Finland                         246               -->
+		            <xs:enumeration value="GRD"/> <!-- Greek Drachma                     Greece                          300               -->
+		            <xs:enumeration value="HKD"/> <!-- Hong Kong Dollar                  Hong Kong                       344               -->
+		            <xs:enumeration value="HUF"/> <!-- Hungarian Forint                  Hungary                         348               -->
+		            <xs:enumeration value="IDR"/> <!-- Indonesian Rupiah                 Indonesia                       360               -->
+		            <xs:enumeration value="IEP"/> <!-- Irish Pound                       Ireland                         372               -->
+		            <xs:enumeration value="ILS"/> <!-- Israeli new Shekel                Israel                          376               -->
+		            <xs:enumeration value="ITL"/> <!-- Italian Lira                      Italy                           380               -->
+		            <xs:enumeration value="NLG"/> <!-- Dutch Guilder                     Netherlands                     528               -->
+		            <xs:enumeration value="NOK"/> <!-- Norwegian Krone                   Norway                          578               -->
+		            <xs:enumeration value="NZD"/> <!-- New Zealand Dollar                New Zealand                     554               -->
+		            <xs:enumeration value="PHP"/> <!-- Philippine Peso                   Philippines                     608               -->
+		            <xs:enumeration value="PLN"/> <!-- Polish New Zloty                  Poland                          985               -->
+		            <xs:enumeration value="PTE"/> <!-- Portuguese Escudo                 Portugal                        620               -->
+		            <xs:enumeration value="RUR"/> <!-- Russian Ruble                     Russian Federation              810               -->
+		            <xs:enumeration value="SEK"/> <!-- Swedish Krona                     Sweden                          752               -->
+		            <xs:enumeration value="SGD"/> <!-- Singapore Dollar                  Singapore                       702               -->
+		            <xs:enumeration value="THB"/> <!-- Thai Baht                         Thailand                        764               -->
+		            <xs:enumeration value="TWD"/> <!-- New Taiwan dollar                 Taiwan                          901               -->
+		            <xs:enumeration value="ZAR"/> <!-- South African Rand                South Africa                    710               -->
+		            <xs:enumeration value="INR"/> <!-- Indian Rupee                      India                           356               -->
+		            <xs:enumeration value="PEN"/> <!-- Peruvian New Sol                  Peru                            604               -->
+		            <xs:enumeration value="MYR"/> <!-- Malaysian Ringgit                 Malaysia                        458               -->
+		            <xs:enumeration value="VND"/> <!-- Vietnamese New Dong               Vietnam                         704               -->
+		            <xs:enumeration value="KRW"/> <!-- South Korean Won                  South Korea                     410               -->
+		            <xs:enumeration value="TRY"/> <!-- New Turkish Lira                  Turkey                          949               -->
+		            <xs:enumeration value="ANG"/> <!-- Antillian Guilder                 Netherlands Antilles            532               -->
+		            <xs:enumeration value="AWG"/> <!-- Aruban Guilder                    Aruba                           533               -->
+		            <xs:enumeration value="BMD"/> <!-- Bermudan Dollar                   Bermudan Dollar                 060               -->
+		            <xs:enumeration value="CRC"/> <!-- Costa Rican Colon                 Costa Rica                      188               -->
+		            <xs:enumeration value="RON"/> <!-- Romanian New Leu                  Romania                         946               -->
+		            <xs:enumeration value="VEF"/> <!-- Venezuelan Bolivar Fuerte         Venezuela                       937               -->
+		            <xs:enumeration value="BBD"/> <!-- Barbados Dollar                   Barbados                        052               -->
+		            <xs:enumeration value="BGN"/> <!-- Bulgarian Lev                     Bulgaria                        975               -->
+		            <xs:enumeration value="BND"/> <!-- Brunei Dollar                     Brunei                          096               -->
+		            <xs:enumeration value="BSD"/> <!-- Bahamian Dollar                   Bahamas                         044               -->
+		            <xs:enumeration value="COP"/> <!-- Colombian Peso                    Columbia                        170               -->
+		            <xs:enumeration value="DOP"/> <!-- Dominican Peso                    Dominican Republic              214               -->
+		            <xs:enumeration value="GTQ"/> <!-- Guatemalan Quetzal                Guatemala                       320               -->
+		            <xs:enumeration value="KYD"/> <!-- Cayman Isles Dollar               Cayman Islands                  136               -->
+		            <xs:enumeration value="MVR"/> <!-- Maldivian Rufiyaa                 Maldives                        462               -->
+		            <xs:enumeration value="QAR"/> <!-- Qatari Rial                       Qatar                           634               -->
+		            <xs:enumeration value="SAR"/> <!-- Saudi Riyal                       Saudi Arabia                    682               -->
+		            <xs:enumeration value="TTD"/> <!-- Trinidadian and Tobagonian Dollar Trinidad and Tobago             780               -->
+		            <xs:enumeration value="UAH"/> <!-- Ukrainian hryvnia                 Ukraine                         980               -->
+		            <xs:enumeration value="UYU"/> <!-- Peso Uruguayo                     Uruguay                         858               -->
+		            <xs:enumeration value="XCD"/> <!-- East Caribbean Dollar             East Caribbean Currency Area    951               -->
+		            <xs:enumeration value="XPF"/> <!-- French Polynesian Franc           French Polynesia                953               -->
+		            <xs:enumeration value="JMD"/> <!-- Jamaican Dollar                   Jamaica                         388               -->
 		        </xs:restriction>
 		    </xs:simpleType>
 		   	<xs:complexType name="Money">
@@ -756,14 +722,13 @@
 						information.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:decimal">
-						<xs:attribute name="currencyCode" type="tns:IsoCurrencyCode" use="required"></xs:attribute>
+						<xs:attribute name="currencyCode" type="tns:IsoCurrencyCode" use="required"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -773,8 +738,7 @@
 						This type defines all the operands available		
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SharedSearchServiceTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/search/v2/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>		
@@ -817,8 +781,7 @@
 						This enumeration defines all the expression that this service supports.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SharedSearchServiceTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/search/v2/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -862,8 +825,7 @@
 						requests to get distribution data.		
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SharedSearchServiceTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/search/v2/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -919,8 +881,7 @@
 						form composite constraints or functions. 		
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SharedSearchServiceTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/search/v2/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -958,15 +919,15 @@
 					</xs:enumeration>
 					<xs:enumeration value="SET_FIND">
 						<xs:annotation>
-							<xs:documentation>SetFindSetFind(AND(EQUAL(Make,&quot;Honda,fit&quot;),EQUAL(Model,&quot;Civic,fit&quot;))))</xs:documentation>
+							<xs:documentation>SetFindSetFind(AND(EQUAL(Make,"Honda,fit"),EQUAL(Model,"Civic,fit"))))</xs:documentation>
 						</xs:annotation>
 					</xs:enumeration>				
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:simpleType name="KeywordLogicalOperator">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
-				<xs:appinfo><typeLibrarySource library="SharedSearchServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v2/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+					<xs:documentation/>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary"/></xs:appinfo></xs:annotation>
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="CONTAINS">
 						<xs:annotation>
@@ -985,7 +946,7 @@
 					<xs:documentation>	
 						This type defines the basic relation operators.		
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="SharedSearchServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v2/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>			
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary"/></xs:appinfo></xs:annotation>			
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="EQ">
 						<xs:annotation>
@@ -1030,7 +991,7 @@
 						This type defines the mathematical operators and other operators that
 						yields a numeric result on operands.		
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="SharedSearchServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v2/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary"/></xs:appinfo></xs:annotation>
 				
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="ADD">
@@ -1085,7 +1046,7 @@
 					<xs:documentation>	
 						This type defines the voyager constraint.
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="SharedSearchServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v2/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>			
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary"/></xs:appinfo></xs:annotation>			
 				<xs:sequence>
 					<xs:element maxOccurs="1" minOccurs="1" name="expression" type="tns:Expression">
 						<xs:annotation>
@@ -1102,7 +1063,7 @@
 					</xs:documentation>
 					
 				<xs:appinfo>
-					<typeLibrarySource library="SharedSearchServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v2/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary"/></xs:appinfo></xs:annotation>
 				<xs:sequence>				
 					<xs:element maxOccurs="1" minOccurs="1" name="matchCount" type="xs:int">
 						<xs:annotation>
@@ -1125,7 +1086,7 @@
 					<xs:documentation>
 						Defines the type which contains all the search records.
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="SharedSearchServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v2/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary"/></xs:appinfo></xs:annotation>
 				<xs:sequence>
 					<xs:element maxOccurs="unbounded" minOccurs="0" name="field" type="tns:Field">
 						<xs:annotation>
@@ -1148,7 +1109,7 @@
 					<xs:documentation>
 						Defines a single row or record as in the search results.
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="SharedSearchServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v2/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary"/></xs:appinfo></xs:annotation>
 				<xs:sequence>
 					<xs:element maxOccurs="unbounded" minOccurs="0" name="value" type="tns:FieldValue">
 						<xs:annotation>
@@ -1164,7 +1125,7 @@
 					<xs:documentation>	
 						This is the type for field value.			
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="SharedSearchServiceTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v2/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>	
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v2/typelibrary"/></xs:appinfo></xs:annotation>	
 				<xs:choice>
 					<xs:element name="stringValue" type="xs:string">
 						<xs:annotation>
@@ -1197,74 +1158,69 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part element="tns:getVersionRequest" name="params" />
+		<wsdl:part element="tns:getVersionRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part element="tns:getVersionResponse" name="params" />
+		<wsdl:part element="tns:getVersionResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getDemandDataRequest">
-		<wsdl:part name="params" element="tns:getDemandDataRequest"></wsdl:part>
+		<wsdl:part element="tns:getDemandDataRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getDemandDataResponse">
-		<wsdl:part name="params" element="tns:getDemandDataResponse"></wsdl:part>
+		<wsdl:part element="tns:getDemandDataResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:portType name="FindingDemandServicePort">
 		<wsdl:operation name="getVersion">
 			<wsdl:documentation>
 				Documentation goes here.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getVersionRequest" />
-			<wsdl:output message="tns:getVersionResponse" />
+			<wsdl:input message="tns:getVersionRequest"/>
+			<wsdl:output message="tns:getVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getDemandData">
-			<wsdl:input message="tns:getDemandDataRequest"></wsdl:input>
-			<wsdl:output message="tns:getDemandDataResponse"></wsdl:output>
+			<wsdl:input message="tns:getDemandDataRequest"/>
+			<wsdl:output message="tns:getDemandDataResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="FindingDemandServiceHttpBinding"
-		type="tns:FindingDemandServicePort">
-		<http:binding verb="POST" />
+	<wsdl:binding name="FindingDemandServiceHttpBinding" type="tns:FindingDemandServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getDemandData">
-			<http:operation location="/getDemand" />
+			<http:operation location="/getDemand"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="FindingDemandServiceSOAPBinding"
-		type="tns:FindingDemandServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="FindingDemandServiceSOAPBinding" type="tns:FindingDemandServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/getVersion"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getDemandData">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getDemand" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/getDemand"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -1273,12 +1229,10 @@
 			<version>1.0.0</version>
 		</wsdl:documentation>
 		<wsdl:port binding="tns:FindingDemandServiceHttpBinding" name="FindingDemandServiceHttpPort">
-			<http:address location="https://svcs.ebay.com/services/search/v1/FindingDemandService" />
+			<http:address location="https://svcs.ebay.com/services/search/v1/FindingDemandService"/>
 		</wsdl:port>
 		<wsdl:port binding="tns:FindingDemandServiceSOAPBinding" name="FindingDemandServiceSOAPPort">
-			<soap12:address
-				location="https://svcs.ebay.com/services/search/v1/FindingDemandService" />
+			<soap12:address location="https://svcs.ebay.com/services/search/v1/FindingDemandService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
-

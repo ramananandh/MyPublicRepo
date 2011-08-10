@@ -1,23 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions
-  name="FeatureContingencyService"
-  targetNamespace="http://www.ebay.com/marketplace/services"
-  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-  xmlns:tns="http://www.ebay.com/marketplace/services"
-  xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FeatureContingencyService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 <wsdl:types>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
-<xs:element name="createFeatureContingencyRequest"  type="tns:CreateFeatureContingencyRequest"/>
-<xs:element name="createFeatureContingencyResponse"  type="tns:CreateFeatureContingencyResponse"/>
-<xs:element name="removeFeatureContingencyRequest"  type="tns:RemoveFeatureContingencyRequest"/>
-<xs:element name="removeFeatureContingencyResponse"  type="tns:RemoveFeatureContingencyResponse"/>
+<xs:element name="createFeatureContingencyRequest" type="tns:CreateFeatureContingencyRequest"/>
+<xs:element name="createFeatureContingencyResponse" type="tns:CreateFeatureContingencyResponse"/>
+<xs:element name="removeFeatureContingencyRequest" type="tns:RemoveFeatureContingencyRequest"/>
+<xs:element name="removeFeatureContingencyResponse" type="tns:RemoveFeatureContingencyResponse"/>
 
 <xs:complexType name="RemoveFeatureContingencyRequest">
 	<xs:annotation>
@@ -109,7 +98,7 @@
        						</xs:annotation>
        				</xs:element>
     				
-    				<xs:element name="featureContingencyType" type="tns:FeatureContingencyType" minOccurs="0">
+    				<xs:element minOccurs="0" name="featureContingencyType" type="tns:FeatureContingencyType">
     					<xs:annotation>
     						<xs:documentation>
     						 provides the partner contingency types either V3 or V4
@@ -124,14 +113,14 @@
     						</xs:documentation>
     					</xs:annotation>
     				 </xs:element>
-    				<xs:element name="creationDate" type="xs:date"  minOccurs="0" >
+    				<xs:element minOccurs="0" name="creationDate" type="xs:date">
     					<xs:annotation>
     						<xs:documentation>
     						specifies the creation date
     						</xs:documentation>
     					</xs:annotation>
     				</xs:element>
-    				<xs:element name="expiryDate" type="xs:date" minOccurs="0">
+    				<xs:element minOccurs="0" name="expiryDate" type="xs:date">
     					<xs:annotation>
     						<xs:documentation>
     						specifies the expired date
@@ -155,14 +144,14 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseServiceResponse">
 			<xs:sequence>
-				<xs:element name="featureContingencyID" type="xs:string" >
+				<xs:element name="featureContingencyID" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>
 						  Returns the feature contingency ID genereted in DB	
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element  name="featureContingencyName" type="xs:string">
+				<xs:element name="featureContingencyName" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>
 						  Returns the feature contingency name 	
@@ -259,7 +248,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					Details about a single error.
@@ -427,7 +416,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -600,16 +589,16 @@
 </xs:schema>
 </wsdl:types>
  <wsdl:message name="createFeatureContingencyRequest">
-    <wsdl:part name="parameters" element="tns:createFeatureContingencyRequest"/>
+    <wsdl:part element="tns:createFeatureContingencyRequest" name="parameters"/>
  </wsdl:message>
  <wsdl:message name="createFeatureContingencyResponse">
-    <wsdl:part name="parameters" element="tns:createFeatureContingencyResponse"/>
+    <wsdl:part element="tns:createFeatureContingencyResponse" name="parameters"/>
  </wsdl:message>
  <wsdl:message name="removeFeatureContingencyRequest">
- 	<wsdl:part name="parameters" element="tns:removeFeatureContingencyRequest"/>
+ 	<wsdl:part element="tns:removeFeatureContingencyRequest" name="parameters"/>
  </wsdl:message>
  <wsdl:message name="removeFeatureContingencyResponse">
- 	<wsdl:part name="parameters" element="tns:removeFeatureContingencyResponse"/>
+ 	<wsdl:part element="tns:removeFeatureContingencyResponse" name="parameters"/>
  </wsdl:message>
  <wsdl:portType name="FeatureContingencyServicePort">
     <wsdl:operation name="createFeatureContingency">
@@ -644,23 +633,23 @@
 		</wsdl:operation>
 </wsdl:binding>
  <wsdl:binding name="FeatureContingencyServiceSoapBinding" type="tns:FeatureContingencyServicePort">
-		<soap12:binding xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="createFeatureContingency">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:createFeatureContingency" style="document"/>
+			<soap12:operation soapAction="urn:createFeatureContingency" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>  
 		<wsdl:operation name="removeFeatureContingency">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:removeFeatureContingency" style="document"/>
+			<soap12:operation soapAction="urn:removeFeatureContingency" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>   
 </wsdl:binding>
@@ -668,11 +657,11 @@
 		<wsdl:documentation>
 			This service is used to add or remove the Feature Contingency.
 		</wsdl:documentation>
-		<wsdl:port name="FeatureContingencyServiceHttp" binding="tns:FeatureContingencyServiceHttpBinding">
+		<wsdl:port binding="tns:FeatureContingencyServiceHttpBinding" name="FeatureContingencyServiceHttp">
 			<http:address location="http://svcs.ebay.com/FeatureContingencyService"/>
 		</wsdl:port>
-		<wsdl:port name="FeatureContingencyServiceSOAP" binding="tns:FeatureContingencyServiceSoapBinding">
-			<soap12:address xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" location="http://svcs.ebay.com/FeatureContingencyService"/>
+		<wsdl:port binding="tns:FeatureContingencyServiceSoapBinding" name="FeatureContingencyServiceSOAP">
+			<soap12:address location="http://svcs.ebay.com/FeatureContingencyService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="DealsService" targetNamespace="http://www.ebay.com/marketplace/mobileor/v1/dealsservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/marketplace/mobileor/v1/dealsservice" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/mobileor/v1/dealsservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DealsService" targetNamespace="http://www.ebayopensource.org/tumeric/mobileor/v1/dealsservice">
   <types>
-    <schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/mobileor/v1/dealsservice" xmlns="http://www.w3.org/2001/XMLSchema">
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/mobileor/v1/dealsservice">
 
 			<xs:complexType abstract="true" name="BaseResponse">
 				<xs:annotation>
@@ -11,7 +10,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 
@@ -81,7 +80,7 @@
 			<xs:complexType name="ErrorMessage">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						ErrorMessage to indicate any Error/Warning
@@ -113,7 +112,7 @@
 			<xs:complexType name="ErrorData">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						This represents error details.
@@ -317,7 +316,7 @@
 			<xs:complexType name="ErrorParameter">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Contextual information associated with an error.
@@ -347,7 +346,7 @@
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Indicates whether the error is a severe error
@@ -400,7 +399,7 @@
 			<xs:simpleType name="ErrorSeverity">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Indicates whether the error is a severe error
@@ -442,7 +441,7 @@
 			<xs:simpleType name="ErrorCategory">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						There are three categories of error: request
@@ -521,7 +520,7 @@
 						service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -535,7 +534,7 @@
 					</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -563,7 +562,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element minOccurs="0" name="itemLevel" type="xs:int" default="1"/>
+							<xs:element default="1" minOccurs="0" name="itemLevel" type="xs:int"/>
 							<xs:element name="affiliate" type="tns:AffiliateDetails"/>
 						</xs:sequence>
 					</xs:extension>
@@ -574,7 +573,7 @@
 			<xs:complexContent>
 					<xs:extension base="tns:Affiliate">
 						<sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="trackGeoLocation" type="xs:boolean" default="true"/>
+							<xs:element default="true" maxOccurs="1" minOccurs="1" name="trackGeoLocation" type="xs:boolean"/>
 						</sequence>
 					</xs:extension>
 				</xs:complexContent>				
@@ -588,7 +587,7 @@
 						service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>	
 				<sequence>
@@ -631,7 +630,7 @@
 				<!--
 					deal id, this is the type of the deals (e.g. daily deals etc...)
 				-->
-				<xs:attribute name="dealId" type="xs:short" />
+				<xs:attribute name="dealId" type="xs:short"/>
 					
 
 				<!--
@@ -666,7 +665,7 @@
 						<xs:sequence>
 							<xs:element name="dealDetails" type="tns:DealDetails"/>
 							<xs:element name="dealsItem" type="tns:DealsItem"/>
-							<xs:element name="extraDetails"  minOccurs="0" maxOccurs="unbounded" type="tns:ExtraDetails"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="extraDetails" type="tns:ExtraDetails"/>
 						</xs:sequence>
 						<xs:attribute name="itemId" type="xs:long"/>
 						<xs:attribute name="dateAdded" type="xs:dateTime"/>
@@ -684,7 +683,7 @@
 							<xs:element name="title" type="xs:string"/>
 							<xs:element name="dealDetails" type="tns:DealDetails"/>
 							<xs:element name="dealsItem" type="tns:DealsItem"/>
-							<xs:element name="extraDetails"  minOccurs="0" maxOccurs="unbounded" type="tns:ExtraDetails"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="extraDetails" type="tns:ExtraDetails"/>
 						</xs:sequence>
 						<xs:attribute name="itemId" type="xs:long"/>
 						<xs:attribute name="dateAdded" type="xs:dateTime"/>
@@ -720,7 +719,7 @@
 			<!-- item details -->
 
 			<xs:complexType name="DealsItem">
-				<xs:sequence >
+				<xs:sequence>
 
 					<xs:element name="pictureURL" type="xs:string"/>
 
@@ -801,19 +800,19 @@
 		</schema>
   </types>
   <message name="getDealsRequest">
-    <part name="payload" element="tns:getDealsRequest">
+    <part element="tns:getDealsRequest" name="payload">
     </part>
   </message>
   <message name="getVersionRequest">
-    <part name="messageParameters" element="tns:getVersionRequest">
+    <part element="tns:getVersionRequest" name="messageParameters">
     </part>
   </message>
   <message name="getDealsResponse">
-    <part name="payload" element="tns:getDealsResponse">
+    <part element="tns:getDealsResponse" name="payload">
     </part>
   </message>
   <message name="getVersionResponse">
-    <part name="messageParameters" element="tns:getVersionResponse">
+    <part element="tns:getVersionResponse" name="messageParameters">
     </part>
   </message>
   <portType name="DealsServicePort">
@@ -857,7 +856,7 @@
   <binding name="DealsServiceSOAPBinding" type="tns:DealsServicePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="getDeals">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/mobileor/v1/DealsService/services/getDeals"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/mobileor/v1/DealsService/services/getDeals"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -866,7 +865,7 @@
       </output>
     </operation>
     <operation name="getVersion">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/mobileor/v1/DealsService/services/getVersion"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/mobileor/v1/DealsService/services/getVersion"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -879,10 +878,10 @@
 <wsdl:documentation>
 			<Version>1.0.0</Version>
 		</wsdl:documentation>
-    <port name="DealsServiceHttpPort" binding="tns:DealsServiceHttpBinding">
+    <port binding="tns:DealsServiceHttpBinding" name="DealsServiceHttpPort">
       <http:address location="https://svcs.ebay.com/services/deals/v1/DealsService"/>
     </port>
-    <port name="DealsServiceSOAPPort" binding="tns:DealsServiceSOAPBinding">
+    <port binding="tns:DealsServiceSOAPBinding" name="DealsServiceSOAPPort">
       <soap:address location="https://svcs.ebay.com/services/mobileor/v1/DealsService"/>
     </port>
   </service>

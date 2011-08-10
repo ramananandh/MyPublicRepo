@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="ItemService" targetNamespace="http://www.ebay.com/marketplace/buying/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebay.com/marketplace/buying/v1/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/buying/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ItemService" targetNamespace="http://www.ebayopensource.org/tumeric/buying/v1/services">
 	<types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/buying/v1/services" xmlns:tns="http://www.ebay.com/marketplace/buying/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/buying/v1/services">
 
 			<xs:complexType name="ListingType">
 				<xs:annotation>
@@ -39,7 +38,7 @@
 					<xs:element name="itemLocation" type="xs:string"/>
 					<xs:element name="leafCategoryId" type="xs:string"/>
 					<xs:element name="productRefId" type="xs:string"/>
-					<xs:element name="shipToLocation" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>					
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="shipToLocation" type="xs:string"/>					
 					<xs:element name="itemSpecifics" type="tns:ItemSpecificsType"/>
 					<xs:element name="pictureDetails" type="tns:PicturesType"/>
 					<xs:element name="variations" type="tns:VariationsType"/>
@@ -65,13 +64,13 @@
 					<xs:element name="startPrice" type="tns:Money"/>
 					<xs:element name="convertedStartPrice" type="tns:Money"/>
 					<xs:element name="currentPrice" type="tns:Money"/>
-					<xs:element name="convertedCurrentPrice" type="tns:Money" minOccurs="0"/>
+					<xs:element minOccurs="0" name="convertedCurrentPrice" type="tns:Money"/>
 					<xs:element name="BINPrice" type="tns:Money"/>
-					<xs:element name="convertedBINPrice" type="tns:Money" minOccurs="0"/>
-					<xs:element name="bestOfferPrice" type="tns:Money" minOccurs="0"/>
-					<xs:element name="convertedBestOfferPrice" type="tns:Money" minOccurs="0"/>
-					<xs:element name="discountedPrice" type="tns:Money" minOccurs="0"/>
-					<xs:element name="originalPrice" type="tns:Money" minOccurs="0"/>
+					<xs:element minOccurs="0" name="convertedBINPrice" type="tns:Money"/>
+					<xs:element minOccurs="0" name="bestOfferPrice" type="tns:Money"/>
+					<xs:element minOccurs="0" name="convertedBestOfferPrice" type="tns:Money"/>
+					<xs:element minOccurs="0" name="discountedPrice" type="tns:Money"/>
+					<xs:element minOccurs="0" name="originalPrice" type="tns:Money"/>
 					<xs:element name="bidIncrement" type="tns:Money"/>
 					<xs:element name="bidCount" type="xs:int"/>
 					<xs:element name="minBidPrice" type="tns:Money"/>
@@ -99,7 +98,7 @@
 					<!--  an enumerated type -->
 					<xs:element name="listingFormat" type="tns:ListingFormatType"/>
 					<xs:element name="returnPolicy" type="tns:ReturnPolicyType"/>
-					<xs:element name="paymentMethodsCode" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>	
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="paymentMethodsCode" type="xs:string"/>	
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -156,7 +155,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="itemSpecificGroup" type="tns:ItemSpecificGroupType" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" name="itemSpecificGroup" type="tns:ItemSpecificGroupType"/>
 					<xs:element name="name" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
@@ -168,7 +167,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="itemSpecificSection" type="tns:ItemSpecificSectionType" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" name="itemSpecificSection" type="tns:ItemSpecificSectionType"/>
 					<xs:element name="name" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
@@ -182,7 +181,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="itemSpecificNameValue" type="tns:ItemSpecificNameValueType" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" name="itemSpecificNameValue" type="tns:ItemSpecificNameValueType"/>
 					<xs:element name="title" type="xs:string"/>
 					<xs:element name="valueOnly" type="xs:boolean"/>
 				</xs:sequence>
@@ -209,19 +208,19 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="email" type="xs:string" minOccurs="0"/>
-					<xs:element name="feedbackScore" type="xs:int" minOccurs="0"/>
-					<xs:element name="positiveFeedbackPercent" type="xs:float" minOccurs="0"/>
-					<xs:element name="feedbackPrivate" type="xs:boolean" minOccurs="0"/>
-					<xs:element name="traderLevel" type="xs:int" minOccurs="0"/>
-					<xs:element name="userID" type="xs:long" minOccurs="0"/>	
-					<xs:element name="memberName" type="xs:string" minOccurs="0"/>
-					<xs:element name="memberDisplayName" type="xs:string" minOccurs="0"/>					
-					 <xs:element name="powerSellerOptIn" type="xs:boolean" minOccurs="0"/>
-					<xs:element name="powerSeller" type="xs:boolean" minOccurs="0"/>
-					<xs:element name="topRatedSeller" type="xs:boolean" minOccurs="0"/>
-					<xs:element name="brandedSeller" type="xs:boolean" minOccurs="0"/>
-					<xs:element name="brandedSellerLogoUrl" type="xs:string" minOccurs="0"/>
+					<xs:element minOccurs="0" name="email" type="xs:string"/>
+					<xs:element minOccurs="0" name="feedbackScore" type="xs:int"/>
+					<xs:element minOccurs="0" name="positiveFeedbackPercent" type="xs:float"/>
+					<xs:element minOccurs="0" name="feedbackPrivate" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="traderLevel" type="xs:int"/>
+					<xs:element minOccurs="0" name="userID" type="xs:long"/>	
+					<xs:element minOccurs="0" name="memberName" type="xs:string"/>
+					<xs:element minOccurs="0" name="memberDisplayName" type="xs:string"/>					
+					 <xs:element minOccurs="0" name="powerSellerOptIn" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="powerSeller" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="topRatedSeller" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="brandedSeller" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="brandedSellerLogoUrl" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -232,7 +231,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="pictureDetail" type="tns:PictureDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="pictureDetail" type="tns:PictureDetailsType"/>
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -248,7 +247,7 @@
 
 
 
-					<xs:element name="galleryImageSource" type="tns:GalleryImageSourceCodeType" minOccurs="0"/>
+					<xs:element minOccurs="0" name="galleryImageSource" type="tns:GalleryImageSourceCodeType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="GalleryImageSourceCodeType">
@@ -261,9 +260,9 @@
 			
 			<xs:complexType name="VariationsType">
 				<xs:sequence>
-					<xs:element name="variation" type="tns:VariationType" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="pictures" type="tns:VariationPicturesType" minOccurs="0"/>
-					<xs:element name="variationSpecificsSet" type="tns:NameValueListArrayType" minOccurs="0"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="variation" type="tns:VariationType"/>
+					<xs:element minOccurs="0" name="pictures" type="tns:VariationPicturesType"/>
+					<xs:element minOccurs="0" name="variationSpecificsSet" type="tns:NameValueListArrayType"/>
 					<xs:element name="variationPriceIdentical" type="xs:boolean"/>
 				</xs:sequence>
 			</xs:complexType>
@@ -276,8 +275,8 @@
 				<xs:sequence>
 					<xs:element name="variationId" type="xs:long"/>
 					<xs:element name="price" type="tns:Money"/>
-					<xs:element name="convertedPrice" type="tns:Money" minOccurs="0"/>
-					<xs:element name="originalPrice" type="tns:Money" minOccurs="0"/>
+					<xs:element minOccurs="0" name="convertedPrice" type="tns:Money"/>
+					<xs:element minOccurs="0" name="originalPrice" type="tns:Money"/>
 					<xs:element name="quantity" type="xs:int"/>
 					<xs:element name="quantitySold" type="xs:int"/>					
 					<xs:element name="variationSpecifics" type="tns:NameValueListArrayType">
@@ -291,7 +290,7 @@
 			</xs:complexType>
 			<xs:complexType name="VariationPicturesType">
 				<xs:sequence>
-					<xs:element name="variationSpecificName" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="variationSpecificName" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Variation specific name for the
@@ -299,19 +298,19 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="variationSpecificPictureSet" type="tns:VariationSpecificPictureSetType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="variationSpecificPictureSet" type="tns:VariationSpecificPictureSetType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="VariationSpecificPictureSetType">
 				<xs:sequence>
-					<xs:element name="variationSpecificValue" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="variationSpecificValue" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Variation specific picture set value.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="pictureDetail" type="tns:PicturesType" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="pictureDetail" type="tns:PicturesType">
 						<xs:annotation>
 							<xs:documentation>
 								Variation specific picture details.
@@ -323,7 +322,7 @@
 
 			<xs:complexType name="NameValueListArrayType">
 				<xs:sequence>
-					<xs:element name="nameValueList" type="tns:NameValueList" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="nameValueList" type="tns:NameValueList">
 						<xs:annotation>
 							<xs:documentation>
 								List of Name-Value pairs.
@@ -334,14 +333,14 @@
 			</xs:complexType>
 			<xs:complexType name="NameValueList">
 				<xs:sequence>
-					<xs:element name="name" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="name" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the property.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="value" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="value" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Value of the property.
@@ -352,7 +351,7 @@
 			</xs:complexType>
 			<xs:complexType name="ReturnPolicyType">
 				<xs:sequence>
-					<xs:element name="returnsWithinInDays" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="returnsWithinInDays" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Specifies the length of time in which
@@ -361,14 +360,14 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="details" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="details" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Description of the return policy.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="returnType" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="returnType" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Specifies how a refund will be made,
@@ -377,37 +376,37 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="returnsAccepted" type="xs:boolean" minOccurs="0">
+					<xs:element minOccurs="0" name="returnsAccepted" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								Whether returns are accepted or not.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="returnsPaidBy" type="xs:string" minOccurs="0"/>
-					<xs:element name="returnsNotSpecified" type="xs:boolean" minOccurs="0"/>
-					<xs:element name="warrantyOffered" type="xs:boolean" minOccurs="0">
+					<xs:element minOccurs="0" name="returnsPaidBy" type="xs:string"/>
+					<xs:element minOccurs="0" name="returnsNotSpecified" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="warrantyOffered" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								Is warranty offered.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="warrantyType" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="warrantyType" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The length of the warranty offered.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="warrantyDuration" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="warrantyDuration" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The length of the warranty offered.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="returnShippingCostPaidBy" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="returnShippingCostPaidBy" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The party who pays the cost of shipping
@@ -427,9 +426,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseItemServiceRequest">
 						<xs:sequence>
-							<xs:element name="itemId" type="xs:string" minOccurs="1" maxOccurs="1"/>
-							<xs:element name="itemDestinationCountryId" type="xs:string" minOccurs="0" maxOccurs="1"/>
-							<xs:element name="itemDestinationZipCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="itemDestinationCountryId" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="itemDestinationZipCode" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -452,8 +451,8 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getVersionRequest" type="tns:GetVersionRequest" />
-			<xs:element name="getVersionResponse" type="tns:GetVersionResponse" />
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest"/>
@@ -473,7 +472,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -524,7 +523,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -532,8 +531,7 @@
 				</xs:sequence>
 			</xs:complexType>
 			
-			<xs:complexType abstract="true"
-				name="BaseItemServiceRequest">
+			<xs:complexType abstract="true" name="BaseItemServiceRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This is the base class for request container for
@@ -558,7 +556,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -573,7 +571,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="errorMessage" type="tns:ErrorMessage" minOccurs="0">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -588,7 +586,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation/>
 							<xs:appinfo>
@@ -599,7 +597,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation/>
 							<xs:appinfo>
@@ -614,8 +612,7 @@
 				</xs:sequence>
 			</xs:complexType>
 			
-			<xs:complexType abstract="true"
-				name="BaseItemServiceResponse">
+			<xs:complexType abstract="true" name="BaseItemServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -638,7 +635,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -653,18 +650,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="errorId" type="xs:long"/>
 					<xs:element name="domain" type="xs:string"/>
-					<xs:element name="subdomain" type="xs:string" minOccurs="0"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
 					<xs:element name="severity" type="tns:ErrorSeverity"/>
 					<xs:element name="category" type="tns:ErrorCategory"/>
 					<xs:element name="message" type="xs:string"/>
-					<xs:element name="exceptionId" type="xs:token" minOccurs="0"/>
-					<xs:element name="parameter" type="tns:ErrorParameter" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -673,7 +670,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -683,7 +680,7 @@
 					</xs:sequence>
 				-->
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="ErrorSeverity">
@@ -692,7 +689,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -706,7 +703,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -743,7 +740,7 @@
 						Comments are included for quick reference.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -897,16 +894,16 @@
 		</xs:schema>
 	</types>
 	<message name="getItemRequest">
-		<part name="params" element="tns:getItemRequest"/>
+		<part element="tns:getItemRequest" name="params"/>
 	</message>
 	<message name="getItemResponse">
-		<part name="params" element="tns:getItemResponse"/>
+		<part element="tns:getItemResponse" name="params"/>
 	</message>
 	<message name="getVersionRequest">
-		<part name="params" element="tns:getVersionRequest"/>
+		<part element="tns:getVersionRequest" name="params"/>
 	</message>
 	<message name="getVersionResponse">
-		<part name="params" element="tns:getVersionResponse"/>
+		<part element="tns:getVersionResponse" name="params"/>
 	</message>
 	<portType name="ItemServicePort">
 		<operation name="getItem">
@@ -927,7 +924,7 @@
 	<binding name="ItemServiceSOAPBinding" type="tns:ItemServicePort">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<operation name="getItem">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/v1/services/getItem"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/v1/services/getItem"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -936,7 +933,7 @@
 			</output>
 		</operation>
 		<operation name="getVersion">
-			<soap:operation soapAction="http://www.ebay.com/marketplace/v1/services/getVersion"/>
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/v1/services/getVersion"/>
 			<input>
 				<soap:body use="literal"/>
 			</input>
@@ -971,10 +968,10 @@
 			<Version>1.0</Version>
                  Has read only operations on a listed Item. Currently, it supports a getItem operation that retrieves details of the item.
 		</documentation>
-		<port name="ItemServiceHttpPort" binding="tns:ItemServiceHttpBinding">
+		<port binding="tns:ItemServiceHttpBinding" name="ItemServiceHttpPort">
 			<http:address location="https://svcs.ebay.com/services/buying/ItemService/v1"/>
 		</port>
-		<port name="ItemServiceSOAPPort" binding="tns:ItemServiceSOAPBinding">
+		<port binding="tns:ItemServiceSOAPBinding" name="ItemServiceSOAPPort">
 			<soap12:address location="https://svcs.ebay.com/services/buying/ItemService/v1"/>
 		</port>
 	</service>

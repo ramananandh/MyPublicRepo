@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="ShippingEngineService" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ShippingEngineService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 			<xs:element name="calculateShippingCostRequest" type="tns:ShippingEngineServiceRequest">
 			</xs:element>
 			<xs:element name="calculateShippingCostResponse" type="tns:ShippingEngineServiceResponse">
@@ -11,7 +10,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="unbounded" name="orders" type="tns:ShippingOrder">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="orders" type="tns:ShippingOrder">
 								<xs:annotation/>
 							</xs:element>
 							<xs:element minOccurs="1" name="version" type="xs:string">
@@ -21,7 +20,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:complexType name="BaseServiceRequest" abstract="true">
+			<xs:complexType abstract="true" name="BaseServiceRequest">
 				<xs:annotation/>
 				<xs:sequence>
 
@@ -59,7 +58,7 @@
 
 				</xs:sequence>
 			</xs:complexType>
-			<xs:complexType name="DiscountRule" abstract="true">
+			<xs:complexType abstract="true" name="DiscountRule">
 				<xs:annotation>
 					<xs:appinfo/>
 					<xs:documentation>Discount Rule</xs:documentation>
@@ -144,7 +143,7 @@
 				<xs:sequence>
 
 
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="flatDiscountRules" type="tns:FlatAdditionalAmountRule">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="flatDiscountRules" type="tns:FlatAdditionalAmountRule">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -162,7 +161,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="mqDiscountRules" type="tns:MQAdditionalAmountRule">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="mqDiscountRules" type="tns:MQAdditionalAmountRule">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -179,7 +178,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="itemCountPromoRules" type="tns:ItemCountPromoRule">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="itemCountPromoRules" type="tns:ItemCountPromoRule">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -199,7 +198,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="givenTotalPromoRules" type="tns:GivenTotalPromoRule">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="givenTotalPromoRules" type="tns:GivenTotalPromoRule">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -219,7 +218,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="packageHandlingRules" type="tns:PackageHandlingRule">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="packageHandlingRules" type="tns:PackageHandlingRule">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -236,7 +235,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="itemAddlCostHandlingRules" type="tns:ItemAddlCostHandlingRule">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="itemAddlCostHandlingRules" type="tns:ItemAddlCostHandlingRule">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -1237,7 +1236,7 @@
 				<xs:annotation/>
 				<xs:simpleContent>
 					<xs:extension base="xs:double">
-						<xs:attribute use="required" name="unit" type="tns:linearMeasurementUnit">
+						<xs:attribute name="unit" type="tns:linearMeasurementUnit" use="required">
 						</xs:attribute>
 					</xs:extension>
 				</xs:simpleContent>
@@ -1275,7 +1274,7 @@
 					</xs:enumeration>
 				</xs:restriction>
 			</xs:simpleType>
-			<xs:complexType name="BaseServiceResponse" abstract="true">
+			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -1381,7 +1380,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="unbounded" name="discountOutputs" type="tns:DiscountOutput">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="discountOutputs" type="tns:DiscountOutput">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -1551,7 +1550,7 @@
 					<xs:element name="message" type="xs:string"/>
 					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="parameter" type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -1563,7 +1562,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="error" type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -1576,7 +1575,7 @@
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute use="optional" name="name" type="xs:string">
+						<xs:attribute name="name" type="xs:string" use="optional">
 						</xs:attribute>
 					</xs:extension>
 				</xs:simpleContent>
@@ -1627,7 +1626,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="unbounded" name="txns" type="tns:TransactionResult">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="txns" type="tns:TransactionResult">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -1639,7 +1638,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="unbounded" name="packageResult" type="tns:Packaging">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="packageResult" type="tns:Packaging">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -1722,7 +1721,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="unbounded" name="packageTransactionInfo" type="tns:PackageTransactionInfo">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="packageTransactionInfo" type="tns:PackageTransactionInfo">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -2053,7 +2052,7 @@
 				<xs:sequence>
 
 
-					<xs:element minOccurs="1" maxOccurs="unbounded" name="packages" type="tns:Package">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="packages" type="tns:Package">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -2074,7 +2073,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="hasPromoPackage" type="xs:boolean" minOccurs="0">
+					<xs:element minOccurs="0" name="hasPromoPackage" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>Default - False. If promo is triggered, will be TRUE and one of the packages will be using promo shipping service.</xs:documentation>
 							<xs:appinfo>
@@ -2085,7 +2084,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="insuranceOption" type="tns:InsuranceOption" minOccurs="0">
+					<xs:element minOccurs="0" name="insuranceOption" type="tns:InsuranceOption">
 						<xs:annotation>
 							<xs:documentation>Package Level Insurance Option, calculated only.</xs:documentation>
 							<xs:appinfo>
@@ -2096,7 +2095,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="insuranceCost" type="xs:double" minOccurs="0">
+					<xs:element minOccurs="0" name="insuranceCost" type="xs:double">
 						<xs:annotation>
 							<xs:documentation>Package level insurance cost, calculated only.</xs:documentation>
 							<xs:appinfo>
@@ -2140,7 +2139,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="promoTriggered" type="xs:boolean" minOccurs="0">
+					<xs:element minOccurs="0" name="promoTriggered" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>Default - False. promoTriggered (yes implies the promo rule was satisfied but the actual output may or may not use the promo cost, no implies we give the delta)</xs:documentation>
 							<xs:appinfo>
@@ -2151,7 +2150,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="promoApplied" type="xs:boolean" minOccurs="0">
+					<xs:element minOccurs="0" name="promoApplied" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>Default - False. We actually used the promo rule for the output.</xs:documentation>
 							<xs:appinfo>
@@ -2162,7 +2161,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="promoDeltaCost" type="xs:double" minOccurs="0">
+					<xs:element minOccurs="0" name="promoDeltaCost" type="xs:double">
 						<xs:annotation>
 							<xs:documentation>Applicable only if the following - promoEligible is TRUE, promoTriggered is FALSE and promo rule is 'buy $x item subtotal' rule. If promo shipping cost is expensive than cheapest service cost, then this tag will not emitted.</xs:documentation>
 							<xs:appinfo>
@@ -2173,7 +2172,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-								<xs:element name="promoDeltaItems" type="xs:integer" minOccurs="0">
+								<xs:element minOccurs="0" name="promoDeltaItems" type="xs:integer">
 				<xs:annotation>
 					<xs:documentation>Applicable only if the following - promoEligible is TRUE, promoTriggered is FALSE and promo rule is 'N item' rule. If promo shipping cost is expensive than cheapest service cost, then this tag will not emitted.</xs:documentation>
 					<xs:appinfo>
@@ -2196,7 +2195,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="unbounded" name="orderShippingCosts" type="tns:OrderShippingCostResult">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="orderShippingCosts" type="tns:OrderShippingCostResult">
 								<xs:annotation>
 									<xs:appinfo>
 										<CallInfo>
@@ -2339,7 +2338,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="unbounded" name="shippingServiceResult" type="tns:TransactionShippingServiceResult">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="shippingServiceResult" type="tns:TransactionShippingServiceResult">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
@@ -2462,7 +2461,7 @@
 				<xs:annotation/>
 				<xs:simpleContent>
 					<xs:extension base="xs:double">
-						<xs:attribute use="required" name="unit" type="tns:weightMeasurementUnit">
+						<xs:attribute name="unit" type="tns:weightMeasurementUnit" use="required">
 						</xs:attribute>
 					</xs:extension>
 				</xs:simpleContent>
@@ -2479,11 +2478,11 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="calculateShippingCostRequest">
-		<wsdl:part name="parameters" element="tns:calculateShippingCostRequest">
+		<wsdl:part element="tns:calculateShippingCostRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="calculateShippingCostResponse">
-		<wsdl:part name="parameters" element="tns:calculateShippingCostResponse">
+		<wsdl:part element="tns:calculateShippingCostResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:portType name="ShippingEngineServicePort">
@@ -2519,10 +2518,10 @@
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="ShippingEngineService">
-		<wsdl:port name="ShippingEngineServiceHttp" binding="tns:ShippingEngineServiceHttpBinding">
+		<wsdl:port binding="tns:ShippingEngineServiceHttpBinding" name="ShippingEngineServiceHttp">
 			<http:address location="http://webservices.ebay.com/ShippingEngineService"/>
 		</wsdl:port>
-		<wsdl:port name="ShippingEngineServiceSOAP" binding="tns:ShippingEngineServiceSOAPBinding">
+		<wsdl:port binding="tns:ShippingEngineServiceSOAPBinding" name="ShippingEngineServiceSOAP">
 			<soap12:address location="http://webservices.ebay.com/ShippingEngineService"/>
 		</wsdl:port>
 	</wsdl:service>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://codegen.tools.soaframework.test.ebay.com" xmlns:xs ="http://www.w3.org/2001/XMLSchema" targetNamespace="http://codegen.tools.soaframework.test.ebay.com">
+<xs:schema xmlns="http://codegen.tools.soaframework.test.ebayopensource.org" xmlns:xs ="http://www.w3.org/2001/XMLSchema" targetNamespace="http://codegen.tools.soaframework.test.ebayopensource.org">
 
     						<xs:complexType name="pname">
 							  <xs:sequence>

@@ -1,55 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:tns="http://www.ebay.com/marketplace/buying/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ViewItemService"
-	targetNamespace="http://www.ebay.com/marketplace/buying/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/buying/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ViewItemService" targetNamespace="http://www.ebayopensource.org/tumeric/buying/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/buying/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/buying/v1/services">
 			
 			<xs:complexType name="ItemSummary">
 	 			<xs:sequence>
-	 				<xs:element minOccurs="0" maxOccurs="1" name="startTime" type="xs:dateTime" />
-	 				<xs:element minOccurs="0" maxOccurs="1" name="endTime" type="xs:dateTime" />
-	 				<xs:element minOccurs="0" maxOccurs="1" name="timeLeftInSeconds" type="xs:long" />
-					<xs:element minOccurs="0" maxOccurs="1" name="conditionDisplayName" type="xs:string" /> 
-					<xs:element minOccurs="0" maxOccurs="1" name="format" type="tns:ListingFormat" />					
-					<xs:element minOccurs="0" maxOccurs="1" name="quantity" type="xs:int" />
-					<xs:element minOccurs="0" maxOccurs="1" name="lotSize" type="xs:int" />
-					<xs:element minOccurs="0" maxOccurs="1" name="title" type="xs:string" /> 
-					<xs:element minOccurs="0" maxOccurs="1" name="description" type="xs:string" /> 
-					<xs:element minOccurs="0" maxOccurs="1" name="subTitle" type="xs:string" />
-					<xs:element minOccurs="0" maxOccurs="1" name="itemId" type="xs:long" /> 
-  					<xs:element minOccurs="0" maxOccurs="1" name="listingSiteId" type="xs:int" />
-  					<xs:element minOccurs="0" maxOccurs="1" name="sellerComment" type="xs:string" />
-					<xs:element minOccurs="0" maxOccurs="1" name="startPrice" type="tns:Amount" />	
-					<xs:element minOccurs="0" maxOccurs="1" name="binPrice" type="tns:Amount" />
-					<xs:element minOccurs="0" maxOccurs="1" name="convertedBINPrice" type="tns:Amount" />
-					<xs:element minOccurs="0" maxOccurs="1" name="convertedStartPrice" type="tns:Amount" />					
-					<xs:element minOccurs="0" maxOccurs="1" name="netBINPrice" type="tns:Amount" />
-					<xs:element minOccurs="0" maxOccurs="1" name="convertedNetBINPrice" type="tns:Amount" />
-					<xs:element minOccurs="0" maxOccurs="1" name="netStartPrice" type="tns:Amount" />
-					<xs:element minOccurs="0" maxOccurs="1" name="convertedNetStartPrice" type="tns:Amount" />					
-					<xs:element minOccurs="0" maxOccurs="1" name="netPriceAvailable" type="xs:boolean" />
-					<xs:element minOccurs="0" maxOccurs="1" name="vatApplicable" type="xs:boolean" />												 
-					<xs:element minOccurs="0" maxOccurs="1" name="netSalePrice" type="tns:Amount" />
-					<xs:element minOccurs="0" maxOccurs="1" name="vatRate" type="xs:double" ></xs:element>
-					<xs:element minOccurs="0" maxOccurs="1" name="convertedNetSalePrice" type="tns:Amount" />
-					<xs:element minOccurs="0" maxOccurs="1" name="scheduledListing" type="xs:boolean" />
-					<xs:element minOccurs="0" maxOccurs="1" name="privateListing" type="xs:boolean" ></xs:element>
-					<xs:element minOccurs="0" maxOccurs="1" name="goodTillCancelled" type="xs:boolean" />
-					<xs:element minOccurs="0" maxOccurs="1" name="bestOfferEnabled" type="xs:boolean" />
-					<xs:element minOccurs="0" maxOccurs="1" name="giftIcon" type="xs:string" ></xs:element>
-					<xs:element minOccurs="0" maxOccurs="1" name="counterStyle" type="tns:HitCounterCodeType" />
-					<xs:element minOccurs="0" maxOccurs="1" name="promotionalDetails" type="tns:PromotionDetail" />
-					<xs:element minOccurs="0" maxOccurs="1" name="charity" type="tns:Charity" />
-					<xs:element minOccurs="0" maxOccurs="1" name="autoVehicle" type="xs:boolean" >
+	 				<xs:element maxOccurs="1" minOccurs="0" name="startTime" type="xs:dateTime"/>
+	 				<xs:element maxOccurs="1" minOccurs="0" name="endTime" type="xs:dateTime"/>
+	 				<xs:element maxOccurs="1" minOccurs="0" name="timeLeftInSeconds" type="xs:long"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="conditionDisplayName" type="xs:string"/> 
+					<xs:element maxOccurs="1" minOccurs="0" name="format" type="tns:ListingFormat"/>					
+					<xs:element maxOccurs="1" minOccurs="0" name="quantity" type="xs:int"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="lotSize" type="xs:int"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="title" type="xs:string"/> 
+					<xs:element maxOccurs="1" minOccurs="0" name="description" type="xs:string"/> 
+					<xs:element maxOccurs="1" minOccurs="0" name="subTitle" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="itemId" type="xs:long"/> 
+  					<xs:element maxOccurs="1" minOccurs="0" name="listingSiteId" type="xs:int"/>
+  					<xs:element maxOccurs="1" minOccurs="0" name="sellerComment" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="startPrice" type="tns:Amount"/>	
+					<xs:element maxOccurs="1" minOccurs="0" name="binPrice" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="convertedBINPrice" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="convertedStartPrice" type="tns:Amount"/>					
+					<xs:element maxOccurs="1" minOccurs="0" name="netBINPrice" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="convertedNetBINPrice" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="netStartPrice" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="convertedNetStartPrice" type="tns:Amount"/>					
+					<xs:element maxOccurs="1" minOccurs="0" name="netPriceAvailable" type="xs:boolean"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="vatApplicable" type="xs:boolean"/>												 
+					<xs:element maxOccurs="1" minOccurs="0" name="netSalePrice" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="vatRate" type="xs:double"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="convertedNetSalePrice" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="scheduledListing" type="xs:boolean"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="privateListing" type="xs:boolean"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="goodTillCancelled" type="xs:boolean"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="bestOfferEnabled" type="xs:boolean"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="giftIcon" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="counterStyle" type="tns:HitCounterCodeType"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="promotionalDetails" type="tns:PromotionDetail"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="charity" type="tns:Charity"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="autoVehicle" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								Return true if item is auto vehicle such as 
@@ -58,7 +47,7 @@
 						</xs:annotation>
 					</xs:element> 																					
 					<!-- SELLER ONLY start --> 
-					<xs:element minOccurs="0" name="auctionReservePrice" type="tns:Amount" >
+					<xs:element minOccurs="0" name="auctionReservePrice" type="tns:Amount">
 						<xs:annotation>
 							<xs:documentation>
 								This field will return for seller only.								
@@ -67,25 +56,25 @@
 					</xs:element>												
 					<!-- SELLER ONLY end -->
 					
-  					<xs:element minOccurs="0" maxOccurs="1" name="itemLocation" type="tns:ItemLocation" />
-					<xs:element minOccurs="0" maxOccurs="1" name="paymentInfo" type="tns:PaymentInfo" />
-					<xs:element minOccurs="0" maxOccurs="1" name="shippingdetail" type="tns:ShippingDetail" />
-					<xs:element minOccurs="0" maxOccurs="1" name="returnPolicy" type="tns:ReturnPolicy" />
-					<xs:element minOccurs="0" maxOccurs="1" name="buyerProtection" type="tns:BuyerProtection" />										
-					<xs:element minOccurs="0" maxOccurs="1" name="itemVariation" type="tns:ItemVariation" />
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="salesTax" type="tns:SalesTaxInfo"	/>
-					<xs:element minOccurs="0" maxOccurs="1" name="pictures" type="tns:ViewItemPicture"/>							
-					<xs:element minOccurs="0" maxOccurs="1" name="paymentAdditionalDetails" type="tns:PaymentAdditionalDetail" />
-					<xs:element minOccurs="0" maxOccurs="1" name="itemAttributes" type="tns:ItemAttribute" />
-					<xs:element minOccurs="0" maxOccurs="1" name="itemData" type="tns:ViewItemData" />
-					<xs:element minOccurs="0" maxOccurs="1" name="primary" type="tns:Category">
+  					<xs:element maxOccurs="1" minOccurs="0" name="itemLocation" type="tns:ItemLocation"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="paymentInfo" type="tns:PaymentInfo"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="shippingdetail" type="tns:ShippingDetail"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="returnPolicy" type="tns:ReturnPolicy"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="buyerProtection" type="tns:BuyerProtection"/>										
+					<xs:element maxOccurs="1" minOccurs="0" name="itemVariation" type="tns:ItemVariation"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="salesTax" type="tns:SalesTaxInfo"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="pictures" type="tns:ViewItemPicture"/>							
+					<xs:element maxOccurs="1" minOccurs="0" name="paymentAdditionalDetails" type="tns:PaymentAdditionalDetail"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="itemAttributes" type="tns:ItemAttribute"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="itemData" type="tns:ViewItemData"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="primary" type="tns:Category">
 						<xs:annotation>
 							<xs:documentation>
 								Primary (leaf) category    								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>						
-					<xs:element minOccurs="0" maxOccurs="1" name="secondary" type="tns:Category" >
+					<xs:element maxOccurs="1" minOccurs="0" name="secondary" type="tns:Category">
 						<xs:annotation>
 							<xs:documentation>
 								Secondary(leaf) category   								
@@ -162,21 +151,21 @@
 					<xs:element minOccurs="0" maxOccurs="1" name="acceleratingRefreshIntervalRatio" type="xs:double" />
 					<xs:element minOccurs="0" maxOccurs="1" name="acceleratingRefreshIntervalBase" type="xs:double" />
 					-->
-					<xs:element minOccurs="0" maxOccurs="1" name="maxAllowedQuantity" type="xs:int" >
+					<xs:element maxOccurs="1" minOccurs="0" name="maxAllowedQuantity" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Max allowed quantity can be purchased for Daily Deal items.   								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>					 
-					<xs:element minOccurs="0" maxOccurs="1" name="shouldSuppressQty" type="xs:boolean" >
+					<xs:element maxOccurs="1" minOccurs="0" name="shouldSuppressQty" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								Indicate this is Daily Deal or CSA item and we should suppress the quantity to be displayed.    								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>	
-					<xs:element minOccurs="0" maxOccurs="1" name="quantityAvailableThreshold" type="xs:int" >
+					<xs:element maxOccurs="1" minOccurs="0" name="quantityAvailableThreshold" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Indicate what quantity to be displayed if this is Daily Deal or CSA item 
@@ -194,14 +183,14 @@
 					</xs:documentation>					
 				</xs:annotation>			
 	 			<xs:sequence>	 				
-	 				<xs:element minOccurs="0" name="showBrandedSellerLogo" type="xs:boolean" >
+	 				<xs:element minOccurs="0" name="showBrandedSellerLogo" type="xs:boolean">
 	 					<xs:annotation>
 							<xs:documentation>
 								Only display branded seller logo when PC is on.    								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-	 				<xs:element minOccurs="0" name="showContextualInfo" type="xs:boolean" >
+	 				<xs:element minOccurs="0" name="showContextualInfo" type="xs:boolean">
 	 					<xs:annotation>
 							<xs:documentation>
 								Show contextual text in ViewItem if the category flag is enabled
@@ -209,65 +198,65 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-	 				<xs:element minOccurs="0" name="showContextualHelp" type="xs:boolean" >
+	 				<xs:element minOccurs="0" name="showContextualHelp" type="xs:boolean">
 	 					<xs:annotation>
 							<xs:documentation>
 								Show contextual help in ViewItem.    								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>	 				
-	 				<xs:element minOccurs="0" name="showVatIncluded" type="xs:boolean" >
+	 				<xs:element minOccurs="0" name="showVatIncluded" type="xs:boolean">
 	 					<xs:annotation>
 							<xs:documentation>
 								Show included VAT value for DE, AT, CH site when Net price is available.   								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-	 				<xs:element minOccurs="0" name="showVatExcluded" type="xs:boolean" >
+	 				<xs:element minOccurs="0" name="showVatExcluded" type="xs:boolean">
 	 					<xs:annotation>
 							<xs:documentation>
 								Show excluded VAT value for DE, AT, CH site when Net price is available.   								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-	 				<xs:element minOccurs="0" name="showQuantityPurchased" type="xs:boolean" >
+	 				<xs:element minOccurs="0" name="showQuantityPurchased" type="xs:boolean">
 	 					<xs:annotation>
 							<xs:documentation>
 								Only show quanaity purchased for Seller View or Flash sale and PC is on.   								
 							</xs:documentation>					
 						</xs:annotation>	
 					</xs:element>		 				
-					<xs:element minOccurs="0" name="bidModuleEnabled" type="xs:boolean" >
+					<xs:element minOccurs="0" name="bidModuleEnabled" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								Bidding Module is enabled when auction is NOT ended.  								
 							</xs:documentation>					
 						</xs:annotation>	 
 					</xs:element>	
-					<xs:element minOccurs="0" name="oneClickEnabled" type="xs:boolean" /> 
-					<xs:element minOccurs="0" name="autoRefreshEnabled" type="xs:boolean" />
-					<xs:element minOccurs="0" name="manualRefreshEnabled" type="xs:boolean" />
-					<xs:element minOccurs="0" name="biddingAvailable" type="xs:boolean" />							
-					<xs:element minOccurs="0" name="showBidMore" type="xs:boolean" />
-					<xs:element minOccurs="0" name="showFeedbackToolbar" type="xs:boolean" />					
-					<xs:element minOccurs="0" name="buyAnother" type="xs:boolean" />					
-					<xs:element minOccurs="0" name="showBusinessSellerFramework" type="xs:boolean" />
-					<xs:element minOccurs="0" name="hideSIFItemsForStoreVacationHold" type="xs:boolean" />
-					<xs:element minOccurs="0" name="showStoreVacationHoldMessage" type="xs:boolean" />		
-					<xs:element minOccurs="0" name="showStockPhotoLabel" type="xs:boolean" />								
+					<xs:element minOccurs="0" name="oneClickEnabled" type="xs:boolean"/> 
+					<xs:element minOccurs="0" name="autoRefreshEnabled" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="manualRefreshEnabled" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="biddingAvailable" type="xs:boolean"/>							
+					<xs:element minOccurs="0" name="showBidMore" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="showFeedbackToolbar" type="xs:boolean"/>					
+					<xs:element minOccurs="0" name="buyAnother" type="xs:boolean"/>					
+					<xs:element minOccurs="0" name="showBusinessSellerFramework" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="hideSIFItemsForStoreVacationHold" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="showStoreVacationHoldMessage" type="xs:boolean"/>		
+					<xs:element minOccurs="0" name="showStockPhotoLabel" type="xs:boolean"/>								
 				</xs:sequence>						
 			</xs:complexType>
 			
 			 <xs:complexType name="PaymentAdditionalDetail">            	
 				<xs:sequence>
-					<xs:element minOccurs="0" name="depositAmount" type="tns:Amount" />
-					<xs:element minOccurs="0" name="immediatePaymentAmount" type="tns:Amount" />					
-					<xs:element minOccurs="0" name="paisaPayOnlyNoOtherPayments" type="xs:boolean" />										
-					<xs:element minOccurs="0" name="paymentPaisaPayEscrow" type="xs:boolean" />
-					<xs:element minOccurs="0" name="paisaPay" type="xs:boolean" />
-					<xs:element minOccurs="0" name="depositDuration" type="xs:int" />
-					<xs:element minOccurs="0" name="fullPaymentDuration" type="xs:int" />					
-					<xs:element minOccurs="0" name="paypalPrefered" type="xs:boolean" />
+					<xs:element minOccurs="0" name="depositAmount" type="tns:Amount"/>
+					<xs:element minOccurs="0" name="immediatePaymentAmount" type="tns:Amount"/>					
+					<xs:element minOccurs="0" name="paisaPayOnlyNoOtherPayments" type="xs:boolean"/>										
+					<xs:element minOccurs="0" name="paymentPaisaPayEscrow" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="paisaPay" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="depositDuration" type="xs:int"/>
+					<xs:element minOccurs="0" name="fullPaymentDuration" type="xs:int"/>					
+					<xs:element minOccurs="0" name="paypalPrefered" type="xs:boolean"/>
 				</xs:sequence>
             </xs:complexType>
             
@@ -280,8 +269,8 @@
 					</xs:documentation>					
 				</xs:annotation>			
 				<xs:sequence>
-					<xs:element minOccurs="0" name="charityName" type="xs:string" />
-					<xs:element minOccurs="0" name="charityID" type="xs:string" >
+					<xs:element minOccurs="0" name="charityName" type="xs:string"/>
+					<xs:element minOccurs="0" name="charityID" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 							    A unique identification number assigned by eBay to registered nonprofit charity organizations. 
@@ -289,7 +278,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="charityNumber" type="xs:string" >
+					<xs:element minOccurs="0" name="charityNumber" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 							     A unique identification number assigned to a nonprofit charity organization by the dedicated provider of eBay Giving Works. 
@@ -297,14 +286,14 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>					
-					<xs:element minOccurs="0" name="status" type="xs:string" >
+					<xs:element minOccurs="0" name="status" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 							     The status of the nonprofit charity organization.							
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="mission" type="xs:string" >
+					<xs:element minOccurs="0" name="mission" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 							     The stated mission of the nonprofit charity organization. 
@@ -312,8 +301,8 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>			
-					<xs:element minOccurs="0" name="logoURL" type="xs:string" />					
-					<xs:element minOccurs="0" name="donationPercentage" type="xs:float" >
+					<xs:element minOccurs="0" name="logoURL" type="xs:string"/>					
+					<xs:element minOccurs="0" name="donationPercentage" type="xs:float">
 						<xs:annotation>
 							<xs:documentation>
 							     The percentage of the purchase price that the seller chooses to donate to the selected nonprofit organization. 
@@ -329,37 +318,37 @@
 			
 			<xs:complexType name="StoreInfo">
 				<xs:sequence>				
-					<xs:element minOccurs="0" name="storeName" type="xs:string" />
-					<xs:element minOccurs="0" name="storeId" type="xs:long" />
-					<xs:element minOccurs="0" name="customLogo" type="xs:string" />
-					<xs:element minOccurs="0" name="colorSchemeId" type="xs:int" />
-					<xs:element minOccurs="0" name="storeGraphic" type="xs:int" />					
-					<xs:element minOccurs="0" name="subscriptionLevel" type="xs:int" />
-					<xs:element minOccurs="0" name="lightColor" type="xs:string" />
-					<xs:element minOccurs="0" name="darkColor" type="xs:string" />
-					<xs:element minOccurs="0" name="colorId" type="xs:int" />
-					<xs:element minOccurs="0" name="colorForeGround" type="xs:string" />
-					<xs:element minOccurs="0" name="colorBackGround" type="xs:string" />
-					<xs:element minOccurs="0" name="colorText" type="xs:string" />
-					<xs:element minOccurs="0" name="vacationReturnDate" type="xs:dateTime" />
-					<xs:element minOccurs="0" name="onVacation" type="xs:boolean" />
-					<xs:element minOccurs="0" name="displayType" type="xs:int" />
-					<xs:element minOccurs="0" name="includeLogo" type="xs:boolean" />
-					<xs:element minOccurs="0" name="includeSearch" type="xs:boolean" />
-					<xs:element minOccurs="0" name="includeFavoriteStore" type="xs:boolean" />
-					<xs:element minOccurs="0" name="includeNewsletterSignup" type="xs:boolean" />
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="categoryLinks" type="tns:StoreCustomListingHeaderLink" />
-					<xs:element minOccurs="0" name="marketingMessageType" type="xs:token" />
-					<xs:element minOccurs="0" name="customMessage" type="xs:string" />					
-					<xs:element minOccurs="0" name="includeLeftNav" type="xs:boolean" />
-					<xs:element minOccurs="0" name="includeItemsOnSale" type="xs:boolean" />										
-					<xs:element minOccurs="0" name="primaryColor" type="xs:string" />
-					<xs:element minOccurs="0" name="secondaryColor" type="xs:string" />
-					<xs:element minOccurs="0" name="storeNameFontFace" type="xs:string" />
-					<xs:element minOccurs="0" name="storeNameFontSize" type="xs:string" />
-					<xs:element minOccurs="0" name="storeNameFontColor" type="xs:string" />									
-					<xs:element minOccurs="0" name="oldPreferenceComaptible" type="xs:boolean" />
-					<xs:element minOccurs="0" name="storeHeaderCustomLinks" type="xs:boolean" />					
+					<xs:element minOccurs="0" name="storeName" type="xs:string"/>
+					<xs:element minOccurs="0" name="storeId" type="xs:long"/>
+					<xs:element minOccurs="0" name="customLogo" type="xs:string"/>
+					<xs:element minOccurs="0" name="colorSchemeId" type="xs:int"/>
+					<xs:element minOccurs="0" name="storeGraphic" type="xs:int"/>					
+					<xs:element minOccurs="0" name="subscriptionLevel" type="xs:int"/>
+					<xs:element minOccurs="0" name="lightColor" type="xs:string"/>
+					<xs:element minOccurs="0" name="darkColor" type="xs:string"/>
+					<xs:element minOccurs="0" name="colorId" type="xs:int"/>
+					<xs:element minOccurs="0" name="colorForeGround" type="xs:string"/>
+					<xs:element minOccurs="0" name="colorBackGround" type="xs:string"/>
+					<xs:element minOccurs="0" name="colorText" type="xs:string"/>
+					<xs:element minOccurs="0" name="vacationReturnDate" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="onVacation" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="displayType" type="xs:int"/>
+					<xs:element minOccurs="0" name="includeLogo" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="includeSearch" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="includeFavoriteStore" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="includeNewsletterSignup" type="xs:boolean"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="categoryLinks" type="tns:StoreCustomListingHeaderLink"/>
+					<xs:element minOccurs="0" name="marketingMessageType" type="xs:token"/>
+					<xs:element minOccurs="0" name="customMessage" type="xs:string"/>					
+					<xs:element minOccurs="0" name="includeLeftNav" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="includeItemsOnSale" type="xs:boolean"/>										
+					<xs:element minOccurs="0" name="primaryColor" type="xs:string"/>
+					<xs:element minOccurs="0" name="secondaryColor" type="xs:string"/>
+					<xs:element minOccurs="0" name="storeNameFontFace" type="xs:string"/>
+					<xs:element minOccurs="0" name="storeNameFontSize" type="xs:string"/>
+					<xs:element minOccurs="0" name="storeNameFontColor" type="xs:string"/>									
+					<xs:element minOccurs="0" name="oldPreferenceComaptible" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="storeHeaderCustomLinks" type="xs:boolean"/>					
 
 
 
@@ -369,21 +358,21 @@
 			</xs:complexType>
 			<xs:complexType name="StoreCustomListingHeaderLink">
 				<xs:sequence>				
-					<xs:element minOccurs="0" name="id" type="xs:long" />
-					<xs:element minOccurs="0" name="text" type="xs:string" />
+					<xs:element minOccurs="0" name="id" type="xs:long"/>
+					<xs:element minOccurs="0" name="text" type="xs:string"/>
 
-					<xs:element minOccurs="0" name="position" type="xs:int" />
-					<xs:element minOccurs="0" name="count" type="xs:int" />
-					<xs:element minOccurs="0" name="dropDown" type="xs:boolean" />
-					<xs:element minOccurs="0" name="storeCustomListingHeaderLinkEnumId" type="xs:int" />
+					<xs:element minOccurs="0" name="position" type="xs:int"/>
+					<xs:element minOccurs="0" name="count" type="xs:int"/>
+					<xs:element minOccurs="0" name="dropDown" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="storeCustomListingHeaderLinkEnumId" type="xs:int"/>
 				</xs:sequence>
 			</xs:complexType>
 						
 			<xs:complexType name="BottomToolBar">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="bottomActionLegalText" type="xs:boolean" />
-					<xs:element minOccurs="0" name="bottomActionPrivateListing" type="xs:boolean" />
-					<xs:element minOccurs="0" name="truncatedProductTitle" type="xs:string" />						
+					<xs:element minOccurs="0" name="bottomActionLegalText" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="bottomActionPrivateListing" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="truncatedProductTitle" type="xs:string"/>						
 
 
 
@@ -398,8 +387,8 @@
 					<xs:element minOccurs="0" name="metaKwds" type="xs:string"/>
 					<xs:element minOccurs="0" name="editableLinks" type="xs:string"/>
 					<xs:element minOccurs="0" name="titleTag" type="xs:string"/>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="externalFooterLinks" type="tns:FooterLink" />
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="internalFooterLinks" type="tns:FooterLink" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="externalFooterLinks" type="tns:FooterLink"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="internalFooterLinks" type="tns:FooterLink"/>
 					<xs:element minOccurs="0" name="metaGoogleVerificationCode" type="xs:string"/>
 					<xs:element minOccurs="0" name="metaYahooVerificationCode" type="xs:string"/>
 					<xs:element minOccurs="0" name="metaMSNVerificationCode" type="xs:string"/>					
@@ -428,10 +417,10 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>			
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="itemAttributeGroup" type="tns:ItemSpecificGroupType" />
-					<xs:element minOccurs="0" name="name" type="xs:string" />				
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="itemAttributeGroup" type="tns:ItemSpecificGroupType"/>
+					<xs:element minOccurs="0" name="name" type="xs:string"/>				
 
-					<xs:element minOccurs="0" name="itemConditionDefinition" type="xs:string" />
+					<xs:element minOccurs="0" name="itemConditionDefinition" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -442,8 +431,8 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" name="itemSpecificSection" type="tns:ItemSpecificSectionType" />
-					<xs:element name="name" type="xs:string" />
+					<xs:element maxOccurs="unbounded" name="itemSpecificSection" type="tns:ItemSpecificSectionType"/>
+					<xs:element name="name" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ItemSpecificSectionType">
@@ -457,9 +446,9 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" name="itemSpecificNameValue"	type="tns:ItemSpecificNameValueType" />
-					<xs:element name="title" type="xs:string" />
-					<xs:element name="valueOnly" type="xs:boolean" />
+					<xs:element maxOccurs="unbounded" name="itemSpecificNameValue" type="tns:ItemSpecificNameValueType"/>
+					<xs:element name="title" type="xs:string"/>
+					<xs:element name="valueOnly" type="xs:boolean"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ItemSpecificNameValueType">
@@ -472,46 +461,46 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="nameAvailable" type="xs:boolean" />
-					<xs:element name="name" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="nameAvailable" type="xs:boolean"/>
+					<xs:element name="name" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			
 			<xs:complexType name="QuestionAnswerType">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="question"	type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="1" name="questionId"	type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="1" name="questionTruncated" type="xs:boolean" />
-					<xs:element maxOccurs="1" minOccurs="1" name="answer" type="xs:string" />					
-					<xs:element maxOccurs="1" minOccurs="1" name="answerId" type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="1" name="answerDate" type="xs:dateTime" />
-					<xs:element maxOccurs="1" minOccurs="1" name="answerTruncated"	type="xs:boolean" />
+					<xs:element maxOccurs="1" minOccurs="1" name="question" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="questionId" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="questionTruncated" type="xs:boolean"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="answer" type="xs:string"/>					
+					<xs:element maxOccurs="1" minOccurs="1" name="answerId" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="answerDate" type="xs:dateTime"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="answerTruncated" type="xs:boolean"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="QuestionAnswersType">
 				<xs:sequence>					
 
-					<xs:element maxOccurs="unbounded" minOccurs="0"	name="questionAnswersSet" type="tns:QuestionAnswerType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="questionAnswersSet" type="tns:QuestionAnswerType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="PromotionDetail">				
 				<xs:sequence>
-					<xs:element minOccurs="0" name="promotionalSaleOn" type="xs:boolean" />
-					<xs:element minOccurs="0" name="promotionalSaleTimeLeftInSeconds" type="xs:long" />
-					<xs:element minOccurs="0" name="discountedPrice" type="tns:Amount" />
-					<xs:element minOccurs="0" name="originalPrice" type="tns:Amount" />
-					<xs:element minOccurs="0" name="discountPercentage" type="xs:int" />			
+					<xs:element minOccurs="0" name="promotionalSaleOn" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="promotionalSaleTimeLeftInSeconds" type="xs:long"/>
+					<xs:element minOccurs="0" name="discountedPrice" type="tns:Amount"/>
+					<xs:element minOccurs="0" name="originalPrice" type="tns:Amount"/>
+					<xs:element minOccurs="0" name="discountPercentage" type="xs:int"/>			
 				</xs:sequence>
 			</xs:complexType>
 						
 			<xs:complexType name="StatusMessageContainer">
 				<xs:sequence>					
-					<xs:element minOccurs="0" name="viewerStatusMessage" type="tns:StatusMessage" />					
-					<xs:element minOccurs="0" name="privateListingMessage" type="tns:StatusMessage" />
-					<xs:element minOccurs="0" name="preApprovedListingMessage" type="tns:StatusMessage" />
-					<xs:element minOccurs="0" name="vacationSettingMessage" type="tns:StatusMessage" />
-					<xs:element minOccurs="0" name="infoMessage" type="tns:StatusMessage" />
+					<xs:element minOccurs="0" name="viewerStatusMessage" type="tns:StatusMessage"/>					
+					<xs:element minOccurs="0" name="privateListingMessage" type="tns:StatusMessage"/>
+					<xs:element minOccurs="0" name="preApprovedListingMessage" type="tns:StatusMessage"/>
+					<xs:element minOccurs="0" name="vacationSettingMessage" type="tns:StatusMessage"/>
+					<xs:element minOccurs="0" name="infoMessage" type="tns:StatusMessage"/>
 					
 					<!-- e713 commented out    
 					xs:element minOccurs="0" name="addToCartMessage" type="tns:StatusMessage" />
@@ -530,168 +519,168 @@
 					<xs:element minOccurs="0" name="PCCEOrderStatusMessageEnum" type="xs:string" />
 					<xs:element minOccurs="0" name="urls" type="tns:StatusMessageURL" />
 					-->					
-					<xs:element minOccurs="0" name="status" type="tns:Status" />										
-					<xs:element minOccurs="0" name="bestOfferFormat" type="tns:BestOfferFormatStatusMessage" />
-					<xs:element minOccurs="0" name="secondChanceOfferexpiration" type="xs:dateTime" />
-					<xs:element minOccurs="0" name="buyerUserLoginName" type="xs:string" />
-					<xs:element minOccurs="0" name="itemVariation" type="tns:StatusMessageItemVariation" />
+					<xs:element minOccurs="0" name="status" type="tns:Status"/>										
+					<xs:element minOccurs="0" name="bestOfferFormat" type="tns:BestOfferFormatStatusMessage"/>
+					<xs:element minOccurs="0" name="secondChanceOfferexpiration" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="buyerUserLoginName" type="xs:string"/>
+					<xs:element minOccurs="0" name="itemVariation" type="tns:StatusMessageItemVariation"/>
 				</xs:sequence>
 			</xs:complexType>
 			
 			<xs:simpleType name="Status">				
-				<xs:restriction base="xs:string" >
-					<xs:enumeration value="CHINESE_BUYER_FIRST_BID" >
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="CHINESE_BUYER_FIRST_BID">
 						<xs:annotation>
 							<xs:documentation>
 								Chinese Auction first bidder, current high bidder.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="CHINESE_BUYER_HIGH_BIDDER" >
+					<xs:enumeration value="CHINESE_BUYER_HIGH_BIDDER">
 						<xs:annotation>
 							<xs:documentation>
 								Chinese Auction current high bidder.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="CHINESE_BUYER_HIGH_BIDDER_ONE_MAX_BID_AWAY" >
+					<xs:enumeration value="CHINESE_BUYER_HIGH_BIDDER_ONE_MAX_BID_AWAY">
 						<xs:annotation>
 							<xs:documentation>
 								Chinese Auction High bidder, 1 max bid away.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>					
-					<xs:enumeration value="CHINESE_BUYER_HIGH_BIDDER_LESSTHAN_60_MIN_LEFT" >
+					<xs:enumeration value="CHINESE_BUYER_HIGH_BIDDER_LESSTHAN_60_MIN_LEFT">
 						<xs:annotation>
 							<xs:documentation>
 								Chinese Auction High bidder, less than 60 minutes to end of auction							
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="CHINESE_BUYER_HIGH_BIDDER_RESERVE_NOT_MET_CLOSED" >
+					<xs:enumeration value="CHINESE_BUYER_HIGH_BIDDER_RESERVE_NOT_MET_CLOSED">
 						<xs:annotation>
 							<xs:documentation>
 								Chinese Auction High bidder but reserve is not met, item is ended.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="CHINESE_BUYER_OUTBIDDER" >
+					<xs:enumeration value="CHINESE_BUYER_OUTBIDDER">
 						<xs:annotation>
 							<xs:documentation>
 								Chinese Auction buyer Outbid on an item.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="CHINESE_BUYER_WINNER" >
+					<xs:enumeration value="CHINESE_BUYER_WINNER">
 						<xs:annotation>
 							<xs:documentation>
 								Chinese Auction Winner, item ended.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="CHINESE_BUYER_WINNER_IN_LAST_FEW_MINUTES" >
+					<xs:enumeration value="CHINESE_BUYER_WINNER_IN_LAST_FEW_MINUTES">
 						<xs:annotation>
 							<xs:documentation>
 								Chinese Auction Winner in the last few minutes.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="CHINESE_BUYER_WINNER_WITH_ONE_BID" >
+					<xs:enumeration value="CHINESE_BUYER_WINNER_WITH_ONE_BID">
 						<xs:annotation>
 							<xs:documentation>
 								Chinese Auction Winner with an early and only bid.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="CHINESE_BUYER_DID_NOT_WIN" >
+					<xs:enumeration value="CHINESE_BUYER_DID_NOT_WIN">
 						<xs:annotation>
 							<xs:documentation>
 								Chinese Auction item ended but didn't win.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="CHINESE_SELLER_HAS_BIDS_AND_NO_RESERVE_OR_RESERVE_MET" >
+					<xs:enumeration value="CHINESE_SELLER_HAS_BIDS_AND_NO_RESERVE_OR_RESERVE_MET">
 						<xs:annotation>
 							<xs:documentation>
 								For Seller login, Chinese Auction Item has bids. Reserve is not met.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="CHINESE_SELLER_HAS_BIDS_AND_RESERVE_NOT_MET" >
+					<xs:enumeration value="CHINESE_SELLER_HAS_BIDS_AND_RESERVE_NOT_MET">
 						<xs:annotation>
 							<xs:documentation>
 								For Seller login, Item has bids. Reserve is not met.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="CHINESE_SELLER_WINNING_BIDDER_AND_NO_RESERVE_OR_RESERVE_MET" >
+					<xs:enumeration value="CHINESE_SELLER_WINNING_BIDDER_AND_NO_RESERVE_OR_RESERVE_MET">
 						<xs:annotation>
 							<xs:documentation>
 								For Seller login, Winning bidder. No reserve or reserve is met.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="CHINESE_SELLER_NO_BIDS_AND_DID_NOT_SELL" >
+					<xs:enumeration value="CHINESE_SELLER_NO_BIDS_AND_DID_NOT_SELL">
 						<xs:annotation>
 							<xs:documentation>
 								For Seller login, No bids received. Item did not sell.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="AUCTION_SELLER_NO_BIDS_AND_NO_RESEVRE_OR_RESERVE_NOT_MET" >
+					<xs:enumeration value="AUCTION_SELLER_NO_BIDS_AND_NO_RESEVRE_OR_RESERVE_NOT_MET">
 						<xs:annotation>
 							<xs:documentation>
 								For Seller login, No bids. Reserve not met or item has no reserve.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="CHINESE_SELLER_HAS_BIDS_AND_RESERVE_NOT_MET_CLOSED" >
+					<xs:enumeration value="CHINESE_SELLER_HAS_BIDS_AND_RESERVE_NOT_MET_CLOSED">
 						<xs:annotation>
 							<xs:documentation>
 								For Seller login, Bids received, but reserve is not met, item ended.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="CHINESE_BUYER_HIGH_BIDDER_RESERVE_NOT_MET" >
+					<xs:enumeration value="CHINESE_BUYER_HIGH_BIDDER_RESERVE_NOT_MET">
 						<xs:annotation>
 							<xs:documentation>
 								Current Highbidder but reserve not met.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="AUCTION_NO_RELATION_CLOSED" />
-					<xs:enumeration value="FIXED_PRICE_NO_RELATION_CLOSED" />						
-					<xs:enumeration value="AUCTION_NO_RELATION_CLOSED_THROUGH_FIXED_PRICE" >
+					<xs:enumeration value="AUCTION_NO_RELATION_CLOSED"/>
+					<xs:enumeration value="FIXED_PRICE_NO_RELATION_CLOSED"/>						
+					<xs:enumeration value="AUCTION_NO_RELATION_CLOSED_THROUGH_FIXED_PRICE">
 						<xs:annotation>
 							<xs:documentation>
 								Chinese Auction sold as BIN.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>					 
-					<xs:enumeration value="FIXED_PRICE_BUYER_MULTI_TRANSACTIONS" >
+					<xs:enumeration value="FIXED_PRICE_BUYER_MULTI_TRANSACTIONS">
 						<xs:annotation>
 							<xs:documentation>
 								This login user bought multi quantity of this item already.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="SELLER_ACTIVE_ITEM_DEFAULT_MESSAGE" />						
+					<xs:enumeration value="SELLER_ACTIVE_ITEM_DEFAULT_MESSAGE"/>						
 					
-					<xs:enumeration value="CHINESE_BIN_BUYER" >
+					<xs:enumeration value="CHINESE_BIN_BUYER">
 						<xs:annotation>
 							<xs:documentation>
 								Chinese Auction Highbidder bought the item as Buy It Now. Item is ended.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="BESTOFFER_BUYER_SELLER_REFUSED_FIRST_OFFER" >
+					<xs:enumeration value="BESTOFFER_BUYER_SELLER_REFUSED_FIRST_OFFER">
 						<xs:annotation>
 							<xs:documentation>
 								Seller refused 1st offer.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="BESTOFFER_BUYER_SELLER_REFUSED_OFFER_AND_NO_MORE_OFFERS" >
+					<xs:enumeration value="BESTOFFER_BUYER_SELLER_REFUSED_OFFER_AND_NO_MORE_OFFERS">
 						<xs:annotation>
 							<xs:documentation>
 								Seller refused offer. No more offers can be sent because buyer has exceeded the
@@ -699,80 +688,80 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="BESTOFFER_BUYER_OFFER_SENT_TO_SELLER_AND_PENDING" >
+					<xs:enumeration value="BESTOFFER_BUYER_OFFER_SENT_TO_SELLER_AND_PENDING">
 						<xs:annotation>
 							<xs:documentation>
 								Offer sent to the seller. Answer pending.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="BESTOFFER_BUYER_SELLER_SENT_COUNTEROFFER" >
+					<xs:enumeration value="BESTOFFER_BUYER_SELLER_SENT_COUNTEROFFER">
 						<xs:annotation>
 							<xs:documentation>
 								Seller sent a counteroffer.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="BESTOFFER_BUYER_OFFER_ACCEPTED_BY_SELLER_CLOSED" >
+					<xs:enumeration value="BESTOFFER_BUYER_OFFER_ACCEPTED_BY_SELLER_CLOSED">
 						<xs:annotation>
 							<xs:documentation>
 								Seller accepted buyer's offer.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="BESTOFFER_BUYER_OFFER_REJECTED_BY_SELLER_AND_CLOSED" >
+					<xs:enumeration value="BESTOFFER_BUYER_OFFER_REJECTED_BY_SELLER_AND_CLOSED">
 						<xs:annotation>
 							<xs:documentation>
 								Seller rejected buyer's offer. Item is closed.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="BESTOFFER_BUYER_REJECTED_SELLER_OFFER_AND_CLOSED" >
+					<xs:enumeration value="BESTOFFER_BUYER_REJECTED_SELLER_OFFER_AND_CLOSED">
 						<xs:annotation>
 							<xs:documentation>
 								Buyer rejected seller's offer. Item is closed.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="BESTOFFER_SELLER_NO_OFFER_RECEIVED_SINGLE" >
+					<xs:enumeration value="BESTOFFER_SELLER_NO_OFFER_RECEIVED_SINGLE">
 						<xs:annotation>
 							<xs:documentation>
 								Seller login, no offers received.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>	
-					<xs:enumeration value="BESTOFFER_SELLER_ACCEPTED_BUYER_OFFER_AND_SOLD_SINGLE" >
+					<xs:enumeration value="BESTOFFER_SELLER_ACCEPTED_BUYER_OFFER_AND_SOLD_SINGLE">
 						<xs:annotation>
 							<xs:documentation>
 								Seller login, Accepted buyer's best offer. Single quantity sold.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>	
-					<xs:enumeration value="BESTOFFER_SELLER_ACCEPTED_BUYER_OFFER_AND_SOLD_PARTIAL" >
+					<xs:enumeration value="BESTOFFER_SELLER_ACCEPTED_BUYER_OFFER_AND_SOLD_PARTIAL">
 						<xs:annotation>
 							<xs:documentation>
 								Seller login, Accepted buyer's best offer. Partial quantity sold.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>					
-					<xs:enumeration value="BESTOFFER_SELLER_ACCEPTED_BUYER_OFFER_AND_SOLD_ALL" >
+					<xs:enumeration value="BESTOFFER_SELLER_ACCEPTED_BUYER_OFFER_AND_SOLD_ALL">
 						<xs:annotation>
 							<xs:documentation>
 								Seller login, Accepted buyer's best offer. Full quantity sold.								
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>					
-					<xs:enumeration value="BESTOFFER_SELLER_BESTOFFER_ACTIVITY" />
-					<xs:enumeration value="BESTOFFER_BUYER_BUYER_SENT_COUNTEROFFER" />
-					<xs:enumeration value="BESTOFFER_BUYER_BUYER_DECLINED_COUNTEROFFER" />										
-					<xs:enumeration value="BESTOFFER_BUYER_SELLER_REFUSED_OFFER_AND_NO_MORE_OFFERS_WITH_QTY" />					 
-					<xs:enumeration value="BESTOFFER_BUYER_OFFER_ACCEPTED_BY_SELLER" />
-					<xs:enumeration value="BESTOFFER_BUYER_OFFER_ACCEPTED_BY_BUYER" />
-					<xs:enumeration value="BESTOFFER_BUYER_BUYER_REFUSED_OFFER_AND_NO_MORE_OFFERS" />
-					<xs:enumeration value="BESTOFFER_BUYER_BUYER_REFUSED_OFFER_AND_NO_MORE_OFFERS_WITH_QTY" />					
-					<xs:enumeration value="BESTOFFER_BUYER_OFFER_REJECTED_CLOSED_BY_BIN" />
-					<xs:enumeration value="BESTOFFER_SELLER_BESTOFFER_ACTIVITY_SOLD" />						
-					<xs:enumeration value="SCO_BUYER_RECEIVED_SECOND_CHANCE_OFFER" >
+					<xs:enumeration value="BESTOFFER_SELLER_BESTOFFER_ACTIVITY"/>
+					<xs:enumeration value="BESTOFFER_BUYER_BUYER_SENT_COUNTEROFFER"/>
+					<xs:enumeration value="BESTOFFER_BUYER_BUYER_DECLINED_COUNTEROFFER"/>										
+					<xs:enumeration value="BESTOFFER_BUYER_SELLER_REFUSED_OFFER_AND_NO_MORE_OFFERS_WITH_QTY"/>					 
+					<xs:enumeration value="BESTOFFER_BUYER_OFFER_ACCEPTED_BY_SELLER"/>
+					<xs:enumeration value="BESTOFFER_BUYER_OFFER_ACCEPTED_BY_BUYER"/>
+					<xs:enumeration value="BESTOFFER_BUYER_BUYER_REFUSED_OFFER_AND_NO_MORE_OFFERS"/>
+					<xs:enumeration value="BESTOFFER_BUYER_BUYER_REFUSED_OFFER_AND_NO_MORE_OFFERS_WITH_QTY"/>					
+					<xs:enumeration value="BESTOFFER_BUYER_OFFER_REJECTED_CLOSED_BY_BIN"/>
+					<xs:enumeration value="BESTOFFER_SELLER_BESTOFFER_ACTIVITY_SOLD"/>						
+					<xs:enumeration value="SCO_BUYER_RECEIVED_SECOND_CHANCE_OFFER">
 						<xs:annotation>
 							<xs:documentation>
 								Buyer received a second chance offer.																
@@ -787,56 +776,56 @@
 						</xs:annotation>
 					</xs:enumeration>
 					
-					<xs:enumeration value="SCO_BUYER_SECOND_CHANCE_OFFER_EXPIRED" >
+					<xs:enumeration value="SCO_BUYER_SECOND_CHANCE_OFFER_EXPIRED">
 					<xs:annotation>
 							<xs:documentation>
 								Second chance offer expired.																
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="SCO_SELLER_SENT_SECOND_CHANCE_OFFER_SINGLE" >
+					<xs:enumeration value="SCO_SELLER_SENT_SECOND_CHANCE_OFFER_SINGLE">
 						<xs:annotation>
 							<xs:documentation>
 								Seller login, second chance offer sent.																
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="SCO_SELLER_BUYER_ACCEPTED_SECOND_CHANCE_OFFER_CLOSED" >
+					<xs:enumeration value="SCO_SELLER_BUYER_ACCEPTED_SECOND_CHANCE_OFFER_CLOSED">
 						<xs:annotation>
 							<xs:documentation>
 								Seller login, second chance offer accepted by buyer. Item ended.																
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="SCO_SELLER_BUYER_NOT_ACCEPTED_SECOND_CHANCE_OFFER_OR_EXPIRED" >
+					<xs:enumeration value="SCO_SELLER_BUYER_NOT_ACCEPTED_SECOND_CHANCE_OFFER_OR_EXPIRED">
 						<xs:annotation>
 							<xs:documentation>
 								Seller login, second chance offer not accepted by buyer or SCO expired.																
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="BIN_BUYER_CLOSED_SINGLE" >
+					<xs:enumeration value="BIN_BUYER_CLOSED_SINGLE">
 						<xs:annotation>
 							<xs:documentation>
 								Buying bought a single item.																
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="BIN_SELLER_SOLD_SINGLE" >
+					<xs:enumeration value="BIN_SELLER_SOLD_SINGLE">
 						<xs:annotation>
 							<xs:documentation>
 								Seller sold a single BIN item.																
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="BIN_SELLER_SOLD_MULTI" >
+					<xs:enumeration value="BIN_SELLER_SOLD_MULTI">
 						<xs:annotation>
 							<xs:documentation>
 								Seller sold multiple BIN items.																
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="BIN_SELLER_NOT_SOLD" >
+					<xs:enumeration value="BIN_SELLER_NOT_SOLD">
 						<xs:annotation>
 							<xs:documentation>
 								Seller login, items not sold. Item ended.																
@@ -844,58 +833,58 @@
 						</xs:annotation>
 					</xs:enumeration>
 					 
-					<xs:enumeration value="ANY_FORMAT_LISTING_SCHEDULED" />
-					<xs:enumeration value="BUYER_PURCHASE_MORE_THAN_ONE_ITEMS" />
-					<xs:enumeration value="ANY_FORMAT_GALLERY_FAILURE" >
+					<xs:enumeration value="ANY_FORMAT_LISTING_SCHEDULED"/>
+					<xs:enumeration value="BUYER_PURCHASE_MORE_THAN_ONE_ITEMS"/>
+					<xs:enumeration value="ANY_FORMAT_GALLERY_FAILURE">
 						<xs:annotation>
 							<xs:documentation>
 								Seller login, gallery pics failure.																
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>																	 
-					<xs:enumeration value="BESTOFFER_BUYER_OFFER_EXPIRED_CLOSED" >
+					<xs:enumeration value="BESTOFFER_BUYER_OFFER_EXPIRED_CLOSED">
 						<xs:annotation>
 							<xs:documentation>
 								Best offer buyer login, offer expired, item ended.																
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="BESTOFFER_BUYER_OFFER_PENDING_CLOSED" >
+					<xs:enumeration value="BESTOFFER_BUYER_OFFER_PENDING_CLOSED">
 						<xs:annotation>
 							<xs:documentation>
 								Best offer buyer login, pending offer expired, item ended.																
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="VACATION_MESSAGE_SHOWSIF" >
+					<xs:enumeration value="VACATION_MESSAGE_SHOWSIF">
 						<xs:annotation>
 							<xs:documentation>
 								Seller is on vacation. Show Store Inventory items in search results.																
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration> 
-					<xs:enumeration value="VACATION_MESSAGE_SHOWSIF_RETURNDATE" >
+					<xs:enumeration value="VACATION_MESSAGE_SHOWSIF_RETURNDATE">
 						<xs:annotation>
 							<xs:documentation>
 								Seller is on vacation. Show Store Inventory in search results and return date.																
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>				
-					<xs:enumeration value="VACATION_MESSAGE_HIDESIF" >
+					<xs:enumeration value="VACATION_MESSAGE_HIDESIF">
 						<xs:annotation>
 							<xs:documentation>
 								Seller is on vacation. Hide Store Inventory items from search results.																
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration> 
-					<xs:enumeration value="VACATION_MESSAGE_HIDESIF_RETURNDATE" >
+					<xs:enumeration value="VACATION_MESSAGE_HIDESIF_RETURNDATE">
 						<xs:annotation>
 							<xs:documentation>
 								Seller is on vacation. Hide Store Inventory from search results and show return date.																
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:enumeration>
-					<xs:enumeration value="ANY" />				
+					<xs:enumeration value="ANY"/>				
 				</xs:restriction>
 			</xs:simpleType>
 			
@@ -936,30 +925,30 @@
 			-->
 			<xs:complexType name="BestOfferFormatStatusMessage">
 				<xs:sequence>				
-					<xs:element minOccurs="0" name="acceptedOfferAmount" type="tns:Amount" />
-					<xs:element minOccurs="0" name="counterOfferAmount" type="tns:Amount" />
-					<xs:element minOccurs="0" name="daysLeftForOffer" type="xs:int" />
-					<xs:element minOccurs="0" name="expiration" type="xs:dateTime" />
-					<xs:element minOccurs="0" name="hoursLeftForOffer" type="xs:int" />
-					<xs:element minOccurs="0" name="minsLeftForOffer" type="xs:int" />
-					<xs:element minOccurs="0" name="offerAmount" type="tns:Amount" />
-					<xs:element minOccurs="0" name="numberOfItemsSold" type="xs:int" />
-					<xs:element minOccurs="0" name="numberOfOffersReceived" type="xs:int" />
-					<xs:element minOccurs="0" name="numberOfOffersSent" type="xs:int" />
-					<xs:element minOccurs="0" name="offerQuantity" type="xs:int" />
-					<xs:element minOccurs="0" name="offerUnitAmount" type="tns:Amount" />
-					<xs:element minOccurs="0" name="binUnitAmount" type="tns:Amount" />
-					<xs:element minOccurs="0" name="savingsPercentage" type="xs:double" />
-					<xs:element minOccurs="0" name="hoursLeftToRespondToOffer" type="xs:int" />
-					<xs:element minOccurs="0" name="showWinnerBOActivity" type="xs:boolean" />
+					<xs:element minOccurs="0" name="acceptedOfferAmount" type="tns:Amount"/>
+					<xs:element minOccurs="0" name="counterOfferAmount" type="tns:Amount"/>
+					<xs:element minOccurs="0" name="daysLeftForOffer" type="xs:int"/>
+					<xs:element minOccurs="0" name="expiration" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="hoursLeftForOffer" type="xs:int"/>
+					<xs:element minOccurs="0" name="minsLeftForOffer" type="xs:int"/>
+					<xs:element minOccurs="0" name="offerAmount" type="tns:Amount"/>
+					<xs:element minOccurs="0" name="numberOfItemsSold" type="xs:int"/>
+					<xs:element minOccurs="0" name="numberOfOffersReceived" type="xs:int"/>
+					<xs:element minOccurs="0" name="numberOfOffersSent" type="xs:int"/>
+					<xs:element minOccurs="0" name="offerQuantity" type="xs:int"/>
+					<xs:element minOccurs="0" name="offerUnitAmount" type="tns:Amount"/>
+					<xs:element minOccurs="0" name="binUnitAmount" type="tns:Amount"/>
+					<xs:element minOccurs="0" name="savingsPercentage" type="xs:double"/>
+					<xs:element minOccurs="0" name="hoursLeftToRespondToOffer" type="xs:int"/>
+					<xs:element minOccurs="0" name="showWinnerBOActivity" type="xs:boolean"/>
 				</xs:sequence>
 			</xs:complexType>
 						
 			<xs:complexType name="StatusMessageItemVariation">
 				<xs:sequence>				
-					<xs:element minOccurs="0" name="price" type="tns:Amount" />
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="traitNameValuePairs" type="xs:string" />					
-					<xs:element minOccurs="0" name="quantity" type="xs:int" />
+					<xs:element minOccurs="0" name="price" type="tns:Amount"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="traitNameValuePairs" type="xs:string"/>					
+					<xs:element minOccurs="0" name="quantity" type="xs:int"/>
 				</xs:sequence>
 			</xs:complexType>			
 			
@@ -1006,82 +995,82 @@
 					</xs:documentation>					
 				</xs:annotation>
 				<xs:sequence>				
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="availableVariations" type="tns:ItemVariationTraitCombination" />
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="traits" type="tns:ItemVariationTrait" />
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="unAvailableVariations" type="tns:TraitCombination" />
-					<xs:element minOccurs="0" name="variationPriceIdentical" type="xs:boolean" />
-					<xs:element minOccurs="0" name="selectedVariationId" type="xs:long" />					
-					<xs:element minOccurs="0" name="preSelOutOfStockTraitValues" type="xs:string" />					
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="traitPictureIndex" type="tns:TraitPictureIndexMap" />
-					<xs:element minOccurs="0" name="buyerOfSelectedVariation" type="xs:boolean" />
-					<xs:element minOccurs="0" name="titleId" type="xs:string" />					 
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="availableVariations" type="tns:ItemVariationTraitCombination"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="traits" type="tns:ItemVariationTrait"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="unAvailableVariations" type="tns:TraitCombination"/>
+					<xs:element minOccurs="0" name="variationPriceIdentical" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="selectedVariationId" type="xs:long"/>					
+					<xs:element minOccurs="0" name="preSelOutOfStockTraitValues" type="xs:string"/>					
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="traitPictureIndex" type="tns:TraitPictureIndexMap"/>
+					<xs:element minOccurs="0" name="buyerOfSelectedVariation" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="titleId" type="xs:string"/>					 
 				</xs:sequence>
 			</xs:complexType>
 
 			<xs:complexType name="ItemVariationTraitCombination">
 				<xs:sequence>				
-					<xs:element minOccurs="0" name="originalPrice" type="tns:Amount" />
-					<xs:element minOccurs="0" name="price" type="tns:Amount" />			
-					<xs:element minOccurs="0" name="convertedPrice" type="tns:Amount" />		
-					<xs:element minOccurs="0" name="vatPrice" type="tns:Amount" />
-					<xs:element minOccurs="0" name="convertedVatPrice" type="tns:Amount" />					
-					<xs:element minOccurs="0" name="quantity" type="xs:int" />
-					<xs:element minOccurs="0" name="quantitySold" type="xs:int" />
-					<xs:element minOccurs="0" name="quantityAvailable" type="xs:int" />
-					<xs:element minOccurs="0" name="traitCombination" type="tns:TraitCombination" />
-					<xs:element minOccurs="0" name="variationId" type="xs:long" />
-					<xs:element minOccurs="0" name="maxQuantity" type="xs:int" />
+					<xs:element minOccurs="0" name="originalPrice" type="tns:Amount"/>
+					<xs:element minOccurs="0" name="price" type="tns:Amount"/>			
+					<xs:element minOccurs="0" name="convertedPrice" type="tns:Amount"/>		
+					<xs:element minOccurs="0" name="vatPrice" type="tns:Amount"/>
+					<xs:element minOccurs="0" name="convertedVatPrice" type="tns:Amount"/>					
+					<xs:element minOccurs="0" name="quantity" type="xs:int"/>
+					<xs:element minOccurs="0" name="quantitySold" type="xs:int"/>
+					<xs:element minOccurs="0" name="quantityAvailable" type="xs:int"/>
+					<xs:element minOccurs="0" name="traitCombination" type="tns:TraitCombination"/>
+					<xs:element minOccurs="0" name="variationId" type="xs:long"/>
+					<xs:element minOccurs="0" name="maxQuantity" type="xs:int"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="TraitCombination">
 				<xs:sequence>				
-					<xs:element minOccurs="0" name="matchingValue" type="xs:int" />
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="traitValues" type="tns:ItemVariationTraitValue" />
+					<xs:element minOccurs="0" name="matchingValue" type="xs:int"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="traitValues" type="tns:ItemVariationTraitValue"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ItemVariationTraitValue">
 				<xs:sequence>				
-					<xs:element minOccurs="0" name="traitValueName" type="xs:string" />
-					<xs:element minOccurs="0" name="matchingValue" type="xs:int" />
+					<xs:element minOccurs="0" name="traitValueName" type="xs:string"/>
+					<xs:element minOccurs="0" name="matchingValue" type="xs:int"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ItemVariationTrait">
 				<xs:sequence>				
-					<xs:element minOccurs="0" name="traitName" type="xs:string" />
-					<xs:element minOccurs="0" name="matchingMask" type="xs:int" />
-					<xs:element minOccurs="0" name="selectedValue" type="xs:int" />
-					<xs:element minOccurs="0" name="primaryTrait" type="xs:boolean" />
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="traitValues" type="tns:ItemVariationTraitValue" />
+					<xs:element minOccurs="0" name="traitName" type="xs:string"/>
+					<xs:element minOccurs="0" name="matchingMask" type="xs:int"/>
+					<xs:element minOccurs="0" name="selectedValue" type="xs:int"/>
+					<xs:element minOccurs="0" name="primaryTrait" type="xs:boolean"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="traitValues" type="tns:ItemVariationTraitValue"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="TraitPictureIndexMap">
 				<xs:sequence>				
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="varTraitMatchingValue" type="xs:int" />
-					<xs:element minOccurs="0" name="index" type="xs:int" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="varTraitMatchingValue" type="xs:int"/>
+					<xs:element minOccurs="0" name="index" type="xs:int"/>
 				</xs:sequence>
 			</xs:complexType>
 			
 			
 			<xs:simpleType name="CompatibilityType">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="PROD_BY_APPLICATION" />
-					<xs:enumeration value="MANUAL_BY_APPLICATION" />
-					<xs:enumeration value="PROD_BY_SPECIFICATION" />
-					<xs:enumeration value="MANUAL_BY_SPECIFICATION" />
-					<xs:enumeration value="MDDS_CALL" />					
-					<xs:enumeration value="INVALID" />
+					<xs:enumeration value="PROD_BY_APPLICATION"/>
+					<xs:enumeration value="MANUAL_BY_APPLICATION"/>
+					<xs:enumeration value="PROD_BY_SPECIFICATION"/>
+					<xs:enumeration value="MANUAL_BY_SPECIFICATION"/>
+					<xs:enumeration value="MDDS_CALL"/>					
+					<xs:enumeration value="INVALID"/>
 				</xs:restriction>
 			</xs:simpleType>
 						
 			<xs:complexType name="Breadcrumb">
 				<xs:sequence>				
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="category" type="tns:Category" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="category" type="tns:Category"/>
 				</xs:sequence>
 			</xs:complexType>			
 			<xs:complexType name="Category">
 				<xs:sequence>				
-					<xs:element minOccurs="0" name="name" type="xs:string" />
-					<xs:element minOccurs="0" name="id" type="xs:int" />
+					<xs:element minOccurs="0" name="name" type="xs:string"/>
+					<xs:element minOccurs="0" name="id" type="xs:int"/>
 
 				</xs:sequence>
 			</xs:complexType>
@@ -1129,31 +1118,31 @@
 						
 			<xs:complexType name="ViewItemProductInfo">				
 				<xs:sequence>					
-					<xs:element name="productId" type="xs:token"></xs:element>
-					<xs:element name="productReferenceId" type="xs:token"></xs:element>	
-					<xs:element minOccurs="0" name="productDescription" type="xs:string" />
-					<xs:element minOccurs="0" name="copyright" type="xs:string" />				
+					<xs:element name="productId" type="xs:token"/>
+					<xs:element name="productReferenceId" type="xs:token"/>	
+					<xs:element minOccurs="0" name="productDescription" type="xs:string"/>
+					<xs:element minOccurs="0" name="copyright" type="xs:string"/>				
 				</xs:sequence>
 			</xs:complexType>
 						
 			<xs:complexType name="ViewItemData">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="currentPrice" type="tns:Amount" />
-					<xs:element minOccurs="0" name="convertedCurrentPrice" type="tns:Amount" />
-					<xs:element minOccurs="0" name="bidIncrement" type="tns:Amount" />
-					<xs:element minOccurs="0" name="ended" type="xs:boolean" />
-					<xs:element minOccurs="0" name="bidCount" type="xs:int" />																				
-					<xs:element minOccurs="0" name="minBidPrice" type="tns:Amount" />					
-					<xs:element minOccurs="0" name="quantitySold" type="xs:int" />
-					<xs:element minOccurs="0" name="reserveMet" type="xs:boolean" />
-					<xs:element minOccurs="0" name="bestOfferCount" type="xs:int" />
-					<xs:element minOccurs="0" name="remainingQuantity" type="xs:int" />
-					<xs:element minOccurs="0" name="uniqueBidCount" type="xs:int" />					
-					<xs:element minOccurs="0" name="BINAvailable" type="xs:boolean" />
-					<xs:element minOccurs="0" name="auctionSuccessful" type="xs:boolean" />					
-					<xs:element minOccurs="0" name="publicQuestionAnswerSetCount" type="xs:int" />
-					<xs:element minOccurs="0" name="soldAsBIN" type="xs:boolean" />					
-					<xs:element minOccurs="0" name="adminEnded" type="xs:boolean" />
+					<xs:element minOccurs="0" name="currentPrice" type="tns:Amount"/>
+					<xs:element minOccurs="0" name="convertedCurrentPrice" type="tns:Amount"/>
+					<xs:element minOccurs="0" name="bidIncrement" type="tns:Amount"/>
+					<xs:element minOccurs="0" name="ended" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="bidCount" type="xs:int"/>																				
+					<xs:element minOccurs="0" name="minBidPrice" type="tns:Amount"/>					
+					<xs:element minOccurs="0" name="quantitySold" type="xs:int"/>
+					<xs:element minOccurs="0" name="reserveMet" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="bestOfferCount" type="xs:int"/>
+					<xs:element minOccurs="0" name="remainingQuantity" type="xs:int"/>
+					<xs:element minOccurs="0" name="uniqueBidCount" type="xs:int"/>					
+					<xs:element minOccurs="0" name="BINAvailable" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="auctionSuccessful" type="xs:boolean"/>					
+					<xs:element minOccurs="0" name="publicQuestionAnswerSetCount" type="xs:int"/>
+					<xs:element minOccurs="0" name="soldAsBIN" type="xs:boolean"/>					
+					<xs:element minOccurs="0" name="adminEnded" type="xs:boolean"/>
 					<xs:element minOccurs="0" name="viewCount" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
@@ -1161,46 +1150,46 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element> 			
-					<xs:element minOccurs="0" name="revisionDate"	type="xs:dateTime" />					
+					<xs:element minOccurs="0" name="revisionDate" type="xs:dateTime"/>					
 					<!-- xs:element minOccurs="0" name="lastAccessedDate" type="xs:dateTime" /-->						
 				</xs:sequence>
 			</xs:complexType>
 						
 			<xs:complexType name="BuyerItemData">
 				<xs:sequence>			
-					<xs:element minOccurs="0" name="maxBidPrice" type="tns:Amount" />										
+					<xs:element minOccurs="0" name="maxBidPrice" type="tns:Amount"/>										
 				</xs:sequence>
 			</xs:complexType>
 			
 <!-- incentive start --> 
    			<xs:complexType name="IncentiveDetail">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0" name="rewards" type="tns:Rewards" /> 
-					<xs:element maxOccurs="1" minOccurs="0" name="billMeLater" type="tns:BillMeLater" /> 
-					<xs:element maxOccurs="1" minOccurs="0" name="coupon" type="tns:Coupon" /> 
+					<xs:element maxOccurs="1" minOccurs="0" name="rewards" type="tns:Rewards"/> 
+					<xs:element maxOccurs="1" minOccurs="0" name="billMeLater" type="tns:BillMeLater"/> 
+					<xs:element maxOccurs="1" minOccurs="0" name="coupon" type="tns:Coupon"/> 
 				</xs:sequence>
             </xs:complexType>
             
             <xs:complexType name="Coupon">
 				<xs:sequence>					
-					<xs:element maxOccurs="1" minOccurs="0" name="incentiveDiscountMessage" type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="savedAmount" type="tns:Amount" />					
-					<xs:element maxOccurs="1" minOccurs="0" name="maxRedemptionValue" type="tns:Amount" />
-					<xs:element maxOccurs="1" minOccurs="0" name="incentiveDiscountPercent" type="xs:double" />
-					<xs:element maxOccurs="1" minOccurs="0" name="incentiveDiscountAmount" type="tns:Amount" />
+					<xs:element maxOccurs="1" minOccurs="0" name="incentiveDiscountMessage" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="savedAmount" type="tns:Amount"/>					
+					<xs:element maxOccurs="1" minOccurs="0" name="maxRedemptionValue" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="incentiveDiscountPercent" type="xs:double"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="incentiveDiscountAmount" type="tns:Amount"/>
 				</xs:sequence>
 			</xs:complexType>
             
 			<xs:complexType name="BillMeLater">
 				<xs:sequence>					 
-					<xs:element maxOccurs="1" minOccurs="0" name="displayMessage" type="xs:string" /> 
+					<xs:element maxOccurs="1" minOccurs="0" name="displayMessage" type="xs:string"/> 
 
 				</xs:sequence>
 			</xs:complexType>
            
             <xs:complexType name="Rewards">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0" name="rewardsAmount" type="xs:double" />
+					<xs:element maxOccurs="1" minOccurs="0" name="rewardsAmount" type="xs:double"/>
 				</xs:sequence>
 			</xs:complexType>
 						
@@ -1209,7 +1198,7 @@
             <xs:complexType name="BuyerProtection">            	
 				<xs:sequence>
 					<!-- RTM -->
-					<xs:element minOccurs="0" name="qualifiedElectronicPaymentMethodForBuyerProtection" type="xs:boolean" />					
+					<xs:element minOccurs="0" name="qualifiedElectronicPaymentMethodForBuyerProtection" type="xs:boolean"/>					
 					<!-- 
 
 
@@ -1218,16 +1207,16 @@
 
 
 					-->
-					<xs:element minOccurs="0" name="buyerProtectionStaticContent" type="xs:string" />
-					<xs:element minOccurs="0" name="payPalBuyerProtectionEligible" type="xs:boolean" />
+					<xs:element minOccurs="0" name="buyerProtectionStaticContent" type="xs:string"/>
+					<xs:element minOccurs="0" name="payPalBuyerProtectionEligible" type="xs:boolean"/>
 					<!-- buyer guarantee -->
-					<xs:element minOccurs="0" name="buyerGuaranteeAvailable" type="xs:boolean" />
-					<xs:element minOccurs="0" name="buyerGuaranteeUnavailabilityReason" type="xs:string" />
+					<xs:element minOccurs="0" name="buyerGuaranteeAvailable" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="buyerGuaranteeUnavailabilityReason" type="xs:string"/>
 															
 					<!-- TODO to support motors -->										
 					<!-- dispalying vehicle protection info -->
 					<!--  xs:element minOccurs="0" name="sellerGuarantee" type="xs:long" /-->
-					<xs:element minOccurs="0" name="vehicleProtectionProgramAvailable" type="xs:boolean" />	
+					<xs:element minOccurs="0" name="vehicleProtectionProgramAvailable" type="xs:boolean"/>	
 				</xs:sequence>
             </xs:complexType>
         	
@@ -1235,16 +1224,16 @@
 		<xs:complexType name="SalesTaxInfo">
 			<xs:annotation>					
 				<xs:appinfo>
- 					<typeLibrarySource library="ListingTypeLibrary" namespace="http://www.ebay.com/marketplace/listing/services" /> 
+ 					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/listing/services"/> 
  				</xs:appinfo>					
 			</xs:annotation>
 			<xs:sequence>
-				<xs:element name="taxRate" type="xs:double" maxOccurs="1" minOccurs="0" />
-				<xs:element name="state" type="xs:token" maxOccurs="1" minOccurs="0" />
-				<xs:element name="taxRegion" type="xs:token" maxOccurs="1" minOccurs="0" />
-				<xs:element name="applySalesTaxToShipping" type="xs:boolean" maxOccurs="1" minOccurs="0" />
-				<xs:element name="useSalesTaxTable" type="xs:boolean" maxOccurs="1" minOccurs="0" />
-				<xs:element name="salesTaxCategoryCode" type="xs:token" maxOccurs="1" minOccurs="0" />				
+				<xs:element maxOccurs="1" minOccurs="0" name="taxRate" type="xs:double"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="state" type="xs:token"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="taxRegion" type="xs:token"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="applySalesTaxToShipping" type="xs:boolean"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="useSalesTaxTable" type="xs:boolean"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="salesTaxCategoryCode" type="xs:token"/>				
 			</xs:sequence>
 		</xs:complexType>
         <xs:simpleType name="HitCounterCodeType">
@@ -1255,63 +1244,48 @@
 				</xs:documentation>								
 			</xs:annotation>        
 			<xs:restriction base="xs:string">
-				<xs:enumeration value="NoHitCounter" />
-				<xs:enumeration value="HonestyStyle" />
-				<xs:enumeration value="GreenLED" />
-				<xs:enumeration value="Hidden" />
-				<xs:enumeration value="BasicStyle" />					
-				<xs:enumeration value="RetroStyle" />
-				<xs:enumeration value="HiddenStyle" />
+				<xs:enumeration value="NoHitCounter"/>
+				<xs:enumeration value="HonestyStyle"/>
+				<xs:enumeration value="GreenLED"/>
+				<xs:enumeration value="Hidden"/>
+				<xs:enumeration value="BasicStyle"/>					
+				<xs:enumeration value="RetroStyle"/>
+				<xs:enumeration value="HiddenStyle"/>
 			</xs:restriction>
 		</xs:simpleType>    
 
 			<xs:complexType name="ItemShippingCostDetail">
 				<xs:annotation>					
 					<xs:appinfo>
-						<typeLibrarySource library="ShippingDomainTypeLibrary" namespace="http://www.ebay.com/marketplace/shipping/v1/services" /> 
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/shipping/v1/services"/> 
 							</xs:appinfo>					
 				</xs:annotation>	
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0" name="shippingFee" type="tns:Amount" />
-					<xs:element maxOccurs="1" minOccurs="0" name="insuranceFee"
-						type="tns:Amount" />
-					<xs:element maxOccurs="1" minOccurs="0" name="xFeeInsuranceCost"
-						type="tns:Amount" />
-					<xs:element maxOccurs="1" minOccurs="0" name="shippingXFee"
-						type="tns:Amount" />
-					<xs:element maxOccurs="1" minOccurs="0" name="packageHandlingCost"
-						type="tns:Amount" />
-					<xs:element maxOccurs="1" minOccurs="0" name="surchargeFee"
-						type="tns:Amount" />
-					<xs:element maxOccurs="1" minOccurs="0" name="overrideFee"
-						type="tns:Amount" />
-					<xs:element maxOccurs="1" minOccurs="0" name="additionalFee"
-						type="tns:Amount" />
-					<xs:element name="codFee" type="tns:Amount" minOccurs="0" maxOccurs="1"/>
-					<xs:element maxOccurs="1" minOccurs="0" name="eBayAPISoapServiceCode"
-						type="xs:string" />
-					<xs:element name="getItFast" type="xs:boolean" minOccurs="0" maxOccurs="1"/>											
-					<xs:element maxOccurs="1" minOccurs="0" name="promoShipping"
-						type="xs:boolean" />
-					<xs:element maxOccurs="1" minOccurs="0" name="insuranceError"
-						type="xs:boolean" />
-					<xs:element maxOccurs="1" minOccurs="0" name="insuranceOption"
-						type="xs:token" />
-					<xs:element maxOccurs="1" minOccurs="0" name="insuranceStatus"
-						type="xs:token" />
-					<xs:element maxOccurs="1" minOccurs="0" name="freightShipping"
-						type="xs:boolean" />
-					<xs:element maxOccurs="1" minOccurs="0" name="sortOrderId"
-						type="xs:int" />
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="domestic" type="xs:boolean" />
-					<xs:element name="shipToLocation" type="xs:token" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="1" minOccurs="0" name="shippingFee" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="insuranceFee" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="xFeeInsuranceCost" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="shippingXFee" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="packageHandlingCost" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="surchargeFee" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="overrideFee" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="additionalFee" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="codFee" type="tns:Amount"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="eBayAPISoapServiceCode" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="getItFast" type="xs:boolean"/>											
+					<xs:element maxOccurs="1" minOccurs="0" name="promoShipping" type="xs:boolean"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="insuranceError" type="xs:boolean"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="insuranceOption" type="xs:token"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="insuranceStatus" type="xs:token"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="freightShipping" type="xs:boolean"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="sortOrderId" type="xs:int"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="domestic" type="xs:boolean"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="shipToLocation" type="xs:token">
 					</xs:element>
-					<xs:element name="standardizedServiceName" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="standardizedServiceName" type="xs:string">
 					</xs:element>
 					<xs:element maxOccurs="1" minOccurs="0" name="genericType" type="xs:token">
 					</xs:element>
-					<xs:element name="deliveryEstimate" type="tns:DeliveryEstimate" minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="deliveryEstimate" type="tns:DeliveryEstimate">
 						<xs:annotation>
 							<xs:documentation>
 								This carries Shipping information related to the order and would ideally present 
@@ -1325,36 +1299,32 @@
 		<xs:complexType name="DeliveryEstimate">				
 			<xs:annotation>
 				<xs:appinfo>
-						<typeLibrarySource library="ShippingDomainTypeLibrary" namespace="http://www.ebay.com/marketplace/shipping/v1/services" /> 
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/shipping/v1/services"/> 
 				</xs:appinfo>
 			</xs:annotation>
 			<xs:sequence>
-				<xs:element name="maxDelivery" type="xs:int"
-							minOccurs="0" maxOccurs="1">
+				<xs:element maxOccurs="1" minOccurs="0" name="maxDelivery" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Max business days that will be taken to deliver item. 
 							</xs:documentation>
 						</xs:annotation>
 			</xs:element>
-			<xs:element name="minDelivery" type="xs:int"
-						minOccurs="0" maxOccurs="1">
+			<xs:element maxOccurs="1" minOccurs="0" name="minDelivery" type="xs:int">
 					<xs:annotation>
 							<xs:documentation>
 								Min business days that will be taken to deliver item. 
 							</xs:documentation>
 						</xs:annotation>
 			</xs:element>
-			<xs:element name="maxDeliveryDate" type="xs:dateTime"
-						minOccurs="0" maxOccurs="1">
+			<xs:element maxOccurs="1" minOccurs="0" name="maxDeliveryDate" type="xs:dateTime">
 					<xs:annotation>
 							<xs:documentation>
 								Max estimated delivery date[considering site holidays/week ends]. 
 							</xs:documentation>
 						</xs:annotation>
 			</xs:element>
-			<xs:element name="minDeliveryDate" type="xs:dateTime"
-						minOccurs="0" maxOccurs="1">
+			<xs:element maxOccurs="1" minOccurs="0" name="minDeliveryDate" type="xs:dateTime">
 					<xs:annotation>
 							<xs:documentation>
 								Min estimated delivery date[considering site holidays/week ends]. 
@@ -1370,9 +1340,9 @@
 					</xs:documentation>
 				</xs:annotation>							
 				<xs:sequence>
-					<xs:element name="shippingCostInfo" type="tns:ItemShippingCostDetail"	maxOccurs="unbounded" minOccurs="0" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="shippingCostInfo" type="tns:ItemShippingCostDetail"/>
 					
-					<xs:element maxOccurs="1" minOccurs="0"	name="shippingServiceType" type="xs:string" >
+					<xs:element maxOccurs="1" minOccurs="0" name="shippingServiceType" type="xs:string">
 						<xs:annotation>
 								<xs:documentation>
 									Display name of shipping service type.
@@ -1380,22 +1350,22 @@
 								</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="localPickUp" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="localPickUp" type="xs:boolean">
 						<xs:annotation>
 								<xs:documentation>
 									This will be set if the item was listed with local pick up option.
 								</xs:documentation>
 						</xs:annotation>
 					</xs:element>		
-					<xs:element name="shippingTo" type="xs:string" maxOccurs="unbounded" minOccurs="0" >
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="shippingTo" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Ship to locations that seller specified on Item level. 
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="excludeShipTo" type="xs:string" maxOccurs="unbounded" minOccurs="0" />
-					<xs:element minOccurs="0" name="handlingTime" type="xs:int" >
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="excludeShipTo" type="xs:string"/>
+					<xs:element minOccurs="0" name="handlingTime" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Handling time in days. 
@@ -1413,71 +1383,71 @@
 						Location of the item.
 					</xs:documentation>				
 					<xs:appinfo>
-						<typeLibrarySource library="ListingTypeLibrary" namespace="http://www.ebay.com/marketplace/listing/services" />  
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/listing/services"/>  
   					</xs:appinfo>  										
 				</xs:annotation>							
 				<xs:sequence>
-		            <xs:element maxOccurs="1" minOccurs="0" name="cityState" type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="zipCode" type="xs:token" />
-					<xs:element maxOccurs="1" minOccurs="0" name="countryCode" type="xs:token" />
+		            <xs:element maxOccurs="1" minOccurs="0" name="cityState" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="zipCode" type="xs:token"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="countryCode" type="xs:token"/>
 		        </xs:sequence>
 			</xs:complexType>
 			
 			<xs:complexType name="ViewItemUserInfo">
 				<xs:sequence>					
-					<xs:element minOccurs="0" name="username" type="xs:string" />					
+					<xs:element minOccurs="0" name="username" type="xs:string"/>					
 
 
-					<xs:element minOccurs="0" name="feedbackScore" type="xs:int" /> 
-					<xs:element minOccurs="0" name="traderLevel" type="xs:int" />
-					<xs:element minOccurs="0" name="powerSeller" type="xs:boolean" />					
-					<xs:element minOccurs="0" name="feedbackPrivate" type="xs:boolean" /> 
-					<xs:element minOccurs="0" name="hasAboutMe" type="xs:boolean" /> 
-					<xs:element minOccurs="0" name="motorsSeller" type="xs:boolean" />					
-					<xs:element minOccurs="0" name="topRatedSeller" type="xs:boolean" />
-					<xs:element minOccurs="0" name="storeOwner" type="xs:boolean" />					
-					<xs:element minOccurs="0" name="storeName" type="xs:string" /> 
+					<xs:element minOccurs="0" name="feedbackScore" type="xs:int"/> 
+					<xs:element minOccurs="0" name="traderLevel" type="xs:int"/>
+					<xs:element minOccurs="0" name="powerSeller" type="xs:boolean"/>					
+					<xs:element minOccurs="0" name="feedbackPrivate" type="xs:boolean"/> 
+					<xs:element minOccurs="0" name="hasAboutMe" type="xs:boolean"/> 
+					<xs:element minOccurs="0" name="motorsSeller" type="xs:boolean"/>					
+					<xs:element minOccurs="0" name="topRatedSeller" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="storeOwner" type="xs:boolean"/>					
+					<xs:element minOccurs="0" name="storeName" type="xs:string"/> 
 
-					<xs:element minOccurs="0" name="businessSeller" type="xs:boolean" />
-					<xs:element minOccurs="0" name="privateSeller" type="xs:boolean" />
-					<xs:element minOccurs="0" name="brandedSeller" type="xs:boolean" />
+					<xs:element minOccurs="0" name="businessSeller" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="privateSeller" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="brandedSeller" type="xs:boolean"/>
 
-					<xs:element minOccurs="0" name="positiveFeedbackPercent" type="xs:double" />
-					<xs:element minOccurs="0" name="businessSellerInfoDetails" type="tns:ViewItemBusinessSellerInfoDetails" />										
-					<xs:element minOccurs="0" name="paisaPayEscrowRegistered" type="xs:boolean" />
-					<xs:element minOccurs="0" name="halfSellerOnVacation" type="xs:boolean" />
+					<xs:element minOccurs="0" name="positiveFeedbackPercent" type="xs:double"/>
+					<xs:element minOccurs="0" name="businessSellerInfoDetails" type="tns:ViewItemBusinessSellerInfoDetails"/>										
+					<xs:element minOccurs="0" name="paisaPayEscrowRegistered" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="halfSellerOnVacation" type="xs:boolean"/>
 				</xs:sequence>
 			</xs:complexType>
 			
 			<xs:complexType name="ViewItemBusinessSellerInfoDetails">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="businessName" type="xs:string" />
-					<xs:element minOccurs="0" name="businessfirstName" type="xs:string" />
-					<xs:element minOccurs="0" name="businesslastName" type="xs:string" />
-					<xs:element minOccurs="0" name="businessAddress1" type="xs:string" />
-					<xs:element minOccurs="0" name="businessAddress2" type="xs:string" />
-					<xs:element minOccurs="0" name="zipCode" type="xs:string" />
-					<xs:element minOccurs="0" name="city" type="xs:string" />
-					<xs:element minOccurs="0" name="state" type="xs:string" />
-					<xs:element minOccurs="0" name="country" type="xs:string" />
-					<xs:element minOccurs="0" name="phone" type="xs:string" />
-					<xs:element minOccurs="0" name="fax" type="xs:string" />
-					<xs:element minOccurs="0" name="emailAddress" type="xs:string" />
-					<xs:element minOccurs="0" name="additionalContactInformation" type="xs:string" />
-					<xs:element minOccurs="0" name="tradeRegistrationNumber" type="xs:string" />
-					<xs:element minOccurs="0" name="vatSiteId" type="xs:string" />
-					<xs:element minOccurs="0" name="vatId" type="xs:string" />
-					<xs:element minOccurs="0" name="hasLegalInvoice" type="xs:boolean" />
-					<xs:element minOccurs="0" name="termsAndConditions" type="xs:string" />					
-					<xs:element minOccurs="0" name="userItemPropertyKey" type="xs:long" />
+					<xs:element minOccurs="0" name="businessName" type="xs:string"/>
+					<xs:element minOccurs="0" name="businessfirstName" type="xs:string"/>
+					<xs:element minOccurs="0" name="businesslastName" type="xs:string"/>
+					<xs:element minOccurs="0" name="businessAddress1" type="xs:string"/>
+					<xs:element minOccurs="0" name="businessAddress2" type="xs:string"/>
+					<xs:element minOccurs="0" name="zipCode" type="xs:string"/>
+					<xs:element minOccurs="0" name="city" type="xs:string"/>
+					<xs:element minOccurs="0" name="state" type="xs:string"/>
+					<xs:element minOccurs="0" name="country" type="xs:string"/>
+					<xs:element minOccurs="0" name="phone" type="xs:string"/>
+					<xs:element minOccurs="0" name="fax" type="xs:string"/>
+					<xs:element minOccurs="0" name="emailAddress" type="xs:string"/>
+					<xs:element minOccurs="0" name="additionalContactInformation" type="xs:string"/>
+					<xs:element minOccurs="0" name="tradeRegistrationNumber" type="xs:string"/>
+					<xs:element minOccurs="0" name="vatSiteId" type="xs:string"/>
+					<xs:element minOccurs="0" name="vatId" type="xs:string"/>
+					<xs:element minOccurs="0" name="hasLegalInvoice" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="termsAndConditions" type="xs:string"/>					
+					<xs:element minOccurs="0" name="userItemPropertyKey" type="xs:long"/>
 				</xs:sequence>
 			</xs:complexType>			
 			
 			<xs:complexType name="PaymentInfo">
 				<xs:annotation>
-					<xs:documentation />				
+					<xs:documentation/>				
 					<xs:appinfo>
-	  					<typeLibrarySource library="ListingTypeLibrary" namespace="http://www.ebay.com/marketplace/listing/services" /> 
+	  					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/listing/services"/> 
 	  				</xs:appinfo>
   				</xs:annotation>
 				<xs:sequence>
@@ -1488,22 +1458,22 @@
 						</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="paypalEmailAddress" type="xs:token" />
-					<xs:element maxOccurs="1" minOccurs="0"	name="paymentInstructions" type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0"	name="immediatePay" type="xs:boolean" />					
+					<xs:element maxOccurs="1" minOccurs="0" name="paypalEmailAddress" type="xs:token"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="paymentInstructions" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="immediatePay" type="xs:boolean"/>					
 				</xs:sequence>
 			</xs:complexType>
 			
 			<xs:complexType name="ViewItemPicture">
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"	name="pictureDetail" type="tns:ViewItemPictureDetailsType" />
-					<xs:element minOccurs="0" name="enlargePicture" type="xs:boolean" />
-					<xs:element minOccurs="0" name="superSize" type="xs:boolean" />
-					<xs:element minOccurs="0" name="resizeImage" type="xs:boolean" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="pictureDetail" type="tns:ViewItemPictureDetailsType"/>
+					<xs:element minOccurs="0" name="enlargePicture" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="superSize" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="resizeImage" type="xs:boolean"/>
 
-					<xs:element minOccurs="0" name="selfHosted" type="xs:boolean" />					
-					<xs:element minOccurs="0" name="zoomEnabled" type="xs:boolean" />
-					<xs:element minOccurs="0" name="stockPhoto" type="xs:boolean" />					
+					<xs:element minOccurs="0" name="selfHosted" type="xs:boolean"/>					
+					<xs:element minOccurs="0" name="zoomEnabled" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="stockPhoto" type="xs:boolean"/>					
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ViewItemPictureDetailsType">
@@ -1517,8 +1487,8 @@
 
 
 
-					<xs:element minOccurs="0" name="imageAlt" type="xs:string" />
-					<xs:element minOccurs="0" name="zoomable" type="xs:boolean" />															
+					<xs:element minOccurs="0" name="imageAlt" type="xs:string"/>
+					<xs:element minOccurs="0" name="zoomable" type="xs:boolean"/>															
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -1544,52 +1514,52 @@
 			<xs:complexType name="ReturnPolicy">	
 				<xs:annotation>					
 					<xs:appinfo>
-  						<typeLibrarySource library="ListingTypeLibrary" namespace="http://www.ebay.com/marketplace/listing/services" /> 
+  						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/listing/services"/> 
   					</xs:appinfo>					
 				</xs:annotation>			
 				<xs:sequence>
-		            <xs:element maxOccurs="1" minOccurs="0" name="policyDetails" type="xs:string" />
-		            <xs:element maxOccurs="1" minOccurs="0" name="returnsAccepted" type="xs:token" />
-		            <xs:element maxOccurs="1" minOccurs="0" name="refundMethod" type="xs:token" />
-		            <xs:element maxOccurs="1" minOccurs="0" name="refundBy" type="xs:token" />
-		            <xs:element maxOccurs="1" minOccurs="0" name="refundShipmentPayee" type="xs:token" />
-		            <xs:element maxOccurs="1" minOccurs="0" name="returnPeriod" type="xs:token" />
-		            <xs:element maxOccurs="1" minOccurs="0" name="warrantyDurationOption" type="xs:token" />
-					<xs:element maxOccurs="1" minOccurs="0" name="warrantyTypeOption" type="xs:token" />
-					<xs:element maxOccurs="1" minOccurs="0"	name="warrantyOfferedOption" type="xs:token" />
+		            <xs:element maxOccurs="1" minOccurs="0" name="policyDetails" type="xs:string"/>
+		            <xs:element maxOccurs="1" minOccurs="0" name="returnsAccepted" type="xs:token"/>
+		            <xs:element maxOccurs="1" minOccurs="0" name="refundMethod" type="xs:token"/>
+		            <xs:element maxOccurs="1" minOccurs="0" name="refundBy" type="xs:token"/>
+		            <xs:element maxOccurs="1" minOccurs="0" name="refundShipmentPayee" type="xs:token"/>
+		            <xs:element maxOccurs="1" minOccurs="0" name="returnPeriod" type="xs:token"/>
+		            <xs:element maxOccurs="1" minOccurs="0" name="warrantyDurationOption" type="xs:token"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="warrantyTypeOption" type="xs:token"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="warrantyOfferedOption" type="xs:token"/>
 				</xs:sequence>
 			</xs:complexType>
 			
 			<xs:simpleType name="ListingFormat">
 				<xs:annotation>					
 					<xs:appinfo>
-  						<typeLibrarySource library="ListingTypeLibrary" namespace="http://www.ebay.com/marketplace/listing/services" /> 
+  						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/listing/services"/> 
   					</xs:appinfo>					
 				</xs:annotation>
-				<xs:restriction base="xs:token" >
-					<xs:enumeration value="Advertisement" />
-					<xs:enumeration value="ChineseAuction" />
-					<xs:enumeration value="FixedPrice" />
-					<xs:enumeration value="Half" />
-					<xs:enumeration value="ClassfiedAd" />					
-					<xs:enumeration value="PersonalOffer" />
-					<xs:enumeration value="StoresFixedPrice" />
+				<xs:restriction base="xs:token">
+					<xs:enumeration value="Advertisement"/>
+					<xs:enumeration value="ChineseAuction"/>
+					<xs:enumeration value="FixedPrice"/>
+					<xs:enumeration value="Half"/>
+					<xs:enumeration value="ClassfiedAd"/>					
+					<xs:enumeration value="PersonalOffer"/>
+					<xs:enumeration value="StoresFixedPrice"/>
 				</xs:restriction>
 			</xs:simpleType>
 			
 			<xs:complexType name="ItemCompatibilityListType">
 				<xs:sequence>					
-					<xs:element name="compatibility" type="tns:ItemCompatibilityType" minOccurs="0" maxOccurs="unbounded" />
-					<xs:element minOccurs="0" name="totalCount" type="xs:int" />
-					<xs:element minOccurs="0" name="requestType" type="tns:CompatibilityType" />
-					<xs:element minOccurs="0" name="recordsPerPage" type="xs:int" />							
-					<xs:element minOccurs="0" name="showAllThreshold"	type="xs:int" />	
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="compatibility" type="tns:ItemCompatibilityType"/>
+					<xs:element minOccurs="0" name="totalCount" type="xs:int"/>
+					<xs:element minOccurs="0" name="requestType" type="tns:CompatibilityType"/>
+					<xs:element minOccurs="0" name="recordsPerPage" type="xs:int"/>							
+					<xs:element minOccurs="0" name="showAllThreshold" type="xs:int"/>	
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ItemCompatibilityType">
 				<xs:sequence>					
-					<xs:element name="nameValuePair" type="tns:NameValuePair" minOccurs="0" maxOccurs="unbounded" />				
-					<xs:element name="compatibilityNotes" type="xs:string" minOccurs="0" />					
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="nameValuePair" type="tns:NameValuePair"/>				
+					<xs:element minOccurs="0" name="compatibilityNotes" type="xs:string"/>					
 				</xs:sequence>
 			</xs:complexType>		
 	
@@ -1618,8 +1588,7 @@
 						Comments are included for quick reference.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -1627,259 +1596,259 @@
 					<!--
 						Currency, Entity ISO Currency Code
 					-->
-					<xs:enumeration value="USD" />
+					<xs:enumeration value="USD"/>
 					<!--
 						U.S. Dollar United States 840
 					-->
-					<xs:enumeration value="CAD" />
+					<xs:enumeration value="CAD"/>
 					<!--
 						Canadian Dollar Canada 124
 					-->
-					<xs:enumeration value="GBP" />
+					<xs:enumeration value="GBP"/>
 					<!--
 						Pound Sterling United Kingdom 826
 					-->
-					<xs:enumeration value="DEM" />
+					<xs:enumeration value="DEM"/>
 					<!--
 						German Mark Germany 276
 					-->
-					<xs:enumeration value="AUD" />
+					<xs:enumeration value="AUD"/>
 					<!--
 						Australian Dollar Australia 036
 					-->
-					<xs:enumeration value="JPY" />
+					<xs:enumeration value="JPY"/>
 					<!--
 						Japanese Yen Japanese Yen 392
 					-->
-					<xs:enumeration value="EUR" />
+					<xs:enumeration value="EUR"/>
 					<!--
 						Euro European Union 978
 					-->
-					<xs:enumeration value="FRF" />
+					<xs:enumeration value="FRF"/>
 					<!--
 						French Franc France 250
 					-->
-					<xs:enumeration value="ATS" />
+					<xs:enumeration value="ATS"/>
 					<!--
 						Austrian Schilling Austria 040
 					-->
-					<xs:enumeration value="BEF" />
+					<xs:enumeration value="BEF"/>
 					<!--
 						Belgian Franc Belgium 056
 					-->
-					<xs:enumeration value="CHF" />
+					<xs:enumeration value="CHF"/>
 					<!--
 						Swiss Franc Switzerland 756
 					-->
-					<xs:enumeration value="CNY" />
+					<xs:enumeration value="CNY"/>
 					<!--
 						Chinese Yuan Renminbi China 156
 					-->
-					<xs:enumeration value="CZK" />
+					<xs:enumeration value="CZK"/>
 					<!--
 						Czech Koruna Czech Republic 203
 					-->
-					<xs:enumeration value="DKK" />
+					<xs:enumeration value="DKK"/>
 					<!--
 						Danish Krone Denmark 208
 					-->
-					<xs:enumeration value="ESP" />
+					<xs:enumeration value="ESP"/>
 					<!--
 						Spanish Peseta Spain 724
 					-->
-					<xs:enumeration value="FIM" />
+					<xs:enumeration value="FIM"/>
 					<!--
 						Finnish Markka Finland 246
 					-->
-					<xs:enumeration value="GRD" />
+					<xs:enumeration value="GRD"/>
 					<!--
 						Greek Drachma Greece 300
 					-->
-					<xs:enumeration value="HKD" />
+					<xs:enumeration value="HKD"/>
 					<!--
 						Hong Kong Dollar Hong Kong 344
 					-->
-					<xs:enumeration value="HUF" />
+					<xs:enumeration value="HUF"/>
 					<!--
 						Hungarian Forint Hungary 348
 					-->
-					<xs:enumeration value="IDR" />
+					<xs:enumeration value="IDR"/>
 					<!--
 						Indonesian Rupiah Indonesia 360
 					-->
-					<xs:enumeration value="IEP" />
+					<xs:enumeration value="IEP"/>
 					<!--
 						Irish Pound Ireland 372
 					-->
-					<xs:enumeration value="ILS" />
+					<xs:enumeration value="ILS"/>
 					<!--
 						Israeli new Shekel Israel 376
 					-->
-					<xs:enumeration value="ITL" />
+					<xs:enumeration value="ITL"/>
 					<!--
 						Italian Lira Italy 380
 					-->
-					<xs:enumeration value="NLG" />
+					<xs:enumeration value="NLG"/>
 					<!--
 						Dutch Guilder Netherlands 528
 					-->
-					<xs:enumeration value="NOK" />
+					<xs:enumeration value="NOK"/>
 					<!--
 						Norwegian Krone Norway 578
 					-->
-					<xs:enumeration value="NZD" />
+					<xs:enumeration value="NZD"/>
 					<!--
 						New Zealand Dollar New Zealand 554
 					-->
-					<xs:enumeration value="PHP" />
+					<xs:enumeration value="PHP"/>
 					<!--
 						Philippine Peso Philippines 608
 					-->
-					<xs:enumeration value="PLN" />
+					<xs:enumeration value="PLN"/>
 					<!--
 						Polish New Zloty Poland 985
 					-->
-					<xs:enumeration value="PTE" />
+					<xs:enumeration value="PTE"/>
 					<!--
 						Portuguese Escudo Portugal 620
 					-->
-					<xs:enumeration value="RUR" />
+					<xs:enumeration value="RUR"/>
 					<!--
 						Russian Ruble Russian Federation 810
 					-->
-					<xs:enumeration value="SEK" />
+					<xs:enumeration value="SEK"/>
 					<!--
 						Swedish Krona Sweden 752
 					-->
-					<xs:enumeration value="SGD" />
+					<xs:enumeration value="SGD"/>
 					<!--
 						Singapore Dollar Singapore 702
 					-->
-					<xs:enumeration value="THB" />
+					<xs:enumeration value="THB"/>
 					<!--
 						Thai Baht Thailand 764
 					-->
-					<xs:enumeration value="TWD" />
+					<xs:enumeration value="TWD"/>
 					<!--
 						New Taiwan dollar Taiwan 901
 					-->
-					<xs:enumeration value="ZAR" />
+					<xs:enumeration value="ZAR"/>
 					<!--
 						South African Rand South Africa 710
 					-->
-					<xs:enumeration value="INR" />
+					<xs:enumeration value="INR"/>
 					<!--
 						Indian Rupee India 356
 					-->
-					<xs:enumeration value="PEN" />
+					<xs:enumeration value="PEN"/>
 					<!--
 						Peruvian New Sol Peru 604
 					-->
-					<xs:enumeration value="MYR" />
+					<xs:enumeration value="MYR"/>
 					<!--
 						Malaysian Ringgit Malaysia 458
 					-->
-					<xs:enumeration value="VND" />
+					<xs:enumeration value="VND"/>
 					<!--
 						Vietnamese New Dong Vietnam 704
 					-->
-					<xs:enumeration value="KRW" />
+					<xs:enumeration value="KRW"/>
 					<!--
 						South Korean Won South Korea 410
 					-->
-					<xs:enumeration value="TRY" />
+					<xs:enumeration value="TRY"/>
 					<!--
 						New Turkish Lira Turkey 949
 					-->
-					<xs:enumeration value="ANG" />
+					<xs:enumeration value="ANG"/>
 					<!--
 						Antillian Guilder Netherlands Antilles 532
 					-->
-					<xs:enumeration value="AWG" />
+					<xs:enumeration value="AWG"/>
 					<!--
 						Aruban Guilder Aruba 533
 					-->
-					<xs:enumeration value="BMD" />
+					<xs:enumeration value="BMD"/>
 					<!--
 						Bermudan Dollar Bermudan Dollar 060
 					-->
-					<xs:enumeration value="CRC" />
+					<xs:enumeration value="CRC"/>
 					<!--
 						Costa Rican Colon Costa Rica 188
 					-->
-					<xs:enumeration value="RON" />
+					<xs:enumeration value="RON"/>
 					<!--
 						Romanian New Leu Romania 946
 					-->
-					<xs:enumeration value="VEF" />
+					<xs:enumeration value="VEF"/>
 					<!--
 						Venezuelan Bolivar Fuerte Venezuela 937
 					-->
-					<xs:enumeration value="BBD" />
+					<xs:enumeration value="BBD"/>
 					<!--
 						Barbados Dollar Barbados 052
 					-->
-					<xs:enumeration value="BGN" />
+					<xs:enumeration value="BGN"/>
 					<!--
 						Bulgarian Lev Bulgaria 975
 					-->
-					<xs:enumeration value="BND" />
+					<xs:enumeration value="BND"/>
 					<!--
 						Brunei Dollar Brunei 096
 					-->
-					<xs:enumeration value="BSD" />
+					<xs:enumeration value="BSD"/>
 					<!--
 						Bahamian Dollar Bahamas 044
 					-->
-					<xs:enumeration value="COP" />
+					<xs:enumeration value="COP"/>
 					<!--
 						Colombian Peso Columbia 170
 					-->
-					<xs:enumeration value="DOP" />
+					<xs:enumeration value="DOP"/>
 					<!--
 						Dominican Peso Dominican Republic 214
 					-->
-					<xs:enumeration value="GTQ" />
+					<xs:enumeration value="GTQ"/>
 					<!--
 						Guatemalan Quetzal Guatemala 320
 					-->
-					<xs:enumeration value="KYD" />
+					<xs:enumeration value="KYD"/>
 					<!--
 						Cayman Isles Dollar Cayman Islands 136
 					-->
-					<xs:enumeration value="MVR" />
+					<xs:enumeration value="MVR"/>
 					<!--
 						Maldivian Rufiyaa Maldives 462
 					-->
-					<xs:enumeration value="QAR" />
+					<xs:enumeration value="QAR"/>
 					<!--
 						Qatari Rial Qatar 634
 					-->
-					<xs:enumeration value="SAR" />
+					<xs:enumeration value="SAR"/>
 					<!--
 						Saudi Riyal Saudi Arabia 682
 					-->
-					<xs:enumeration value="TTD" />
+					<xs:enumeration value="TTD"/>
 					<!--
 						Trinidadian and Tobagonian Dollar Trinidad and Tobago 780
 					-->
-					<xs:enumeration value="UAH" />
+					<xs:enumeration value="UAH"/>
 					<!--
 						Ukrainian hryvnia Ukraine 980
 					-->
-					<xs:enumeration value="UYU" />
+					<xs:enumeration value="UYU"/>
 					<!--
 						Peso Uruguayo Uruguay 858
 					-->
-					<xs:enumeration value="XCD" />
+					<xs:enumeration value="XCD"/>
 					<!--
 						East Caribbean Dollar East Caribbean Currency Area 951
 					-->
-					<xs:enumeration value="XPF" />
+					<xs:enumeration value="XPF"/>
 					<!--
 						French Polynesian Franc French Polynesia 953
 					-->
-					<xs:enumeration value="JMD" />
+					<xs:enumeration value="JMD"/>
 					<!--
 						Jamaican Dollar Jamaica 388
 					-->
@@ -1888,7 +1857,7 @@
 			<xs:complexType name="Amount">
 				<xs:annotation>					
 					<xs:appinfo>
-  						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services" />
+  						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
   					</xs:appinfo>					
 				</xs:annotation>
           		<xs:simpleContent>
@@ -1908,9 +1877,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -1996,14 +1963,11 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="extension" type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ExtensionType">
@@ -2012,18 +1976,16 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -2035,25 +1997,22 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -2062,38 +2021,35 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="version"
-						type="xs:string">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="timestamp"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="extension" type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -2103,15 +2059,13 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
@@ -2120,25 +2074,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long" />
-					<xs:element name="domain" type="xs:string" />
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string" />
-					<xs:element name="severity"
-						type="tns:ErrorSeverity" />
-					<xs:element name="category"
-						type="tns:ErrorCategory" />
-					<xs:element name="message" type="xs:string" />
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token" />
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter" type="tns:ErrorParameter" />
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+					<xs:element name="severity" type="tns:ErrorSeverity"/>
+					<xs:element name="category" type="tns:ErrorCategory"/>
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -2147,9 +2094,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -2159,8 +2104,7 @@
 					</xs:sequence>
 				-->
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error" type="tns:ErrorData" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -2169,15 +2113,12 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string"
-							use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -2187,18 +2128,16 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
 			
-			<xs:element name="getVersionRequest" type="tns:GetVersionRequest" />
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
 			<xs:complexType name="GetVersionRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -2207,12 +2146,12 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			
-			<xs:element name="getVersionResponse" type="tns:GetVersionResponse" />
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -2221,14 +2160,14 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			
 			<xs:complexType name="IncludeSelector"> 
 				<xs:sequence>			
-					<xs:element maxOccurs="1" minOccurs="0" name="shippingInfo" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="shippingInfo" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field helps to optimize the response time of this service call.
@@ -2236,7 +2175,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>	
-					<xs:element maxOccurs="1" minOccurs="0" name="incentiveDetails" type="xs:boolean" default="false" >
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="incentiveDetails" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to get incentive data for an user.
@@ -2245,7 +2184,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>						
-					<xs:element maxOccurs="1" minOccurs="0" name="description" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="description" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to retrieve item description.
@@ -2253,7 +2192,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>	
-					<xs:element maxOccurs="1" minOccurs="0" name="textDescription" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="textDescription" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to return text version of item description.
@@ -2261,7 +2200,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="itemSpecific" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="itemSpecific" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to retrieve item specific.
@@ -2269,7 +2208,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="itemCompatibilityInfo" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="itemCompatibilityInfo" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to retrieve Parts Compatiblity information.
@@ -2277,7 +2216,7 @@
 								This IncludeSelector applies to getViewItem. 					
 						</xs:annotation>
 					</xs:element> 
-					<xs:element maxOccurs="1" minOccurs="0" name="statusMessage" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="statusMessage" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to retrieve Status Message 
@@ -2286,7 +2225,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="productInfo" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="productInfo" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to retrieve 
@@ -2295,7 +2234,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="viewItemCount" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="viewItemCount" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to return
@@ -2304,7 +2243,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="charity" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="charity" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to return
@@ -2313,7 +2252,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="buyerProtection" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="buyerProtection" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to return
@@ -2322,7 +2261,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="itemPicture" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="itemPicture" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to return
@@ -2331,7 +2270,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="sellerInfo" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="sellerInfo" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to return selelrInfo								
@@ -2339,7 +2278,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>      		  			 					
-					<xs:element maxOccurs="1" minOccurs="0" name="siteConfig" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="siteConfig" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to return siteConfig								
@@ -2347,7 +2286,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="controlData" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="controlData" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to return controlData								
@@ -2355,7 +2294,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="epseo" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="epseo" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to return epseo								
@@ -2363,7 +2302,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="breadcrumbs" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="breadcrumbs" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to return breadcrumbs.								
@@ -2371,7 +2310,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="urls" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="urls" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to return urls								
@@ -2379,7 +2318,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="questionAnswer" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="questionAnswer" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to return questionAnswer								
@@ -2387,7 +2326,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="storeInfo" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="storeInfo" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to return storeInfo								
@@ -2395,7 +2334,7 @@
 							</xs:documentation>					
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="bottomToolbar" type="xs:boolean" default="false">
+					<xs:element default="false" maxOccurs="1" minOccurs="0" name="bottomToolbar" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								An optional field is used to specify whether or not to return bottomtoolbar								
@@ -2407,7 +2346,7 @@
 			</xs:complexType>
 			
 			<!-- getViewItem -->
-			<xs:element name="getViewItemRequest" type="tns:GetViewItemRequest" />
+			<xs:element name="getViewItemRequest" type="tns:GetViewItemRequest"/>
 			<xs:complexType name="GetViewItemRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -2418,14 +2357,14 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseViewItemServiceRequest">
 						<xs:sequence>							
-							<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:string" >
+							<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										Item ID is the required field. 										
 									</xs:documentation>					
 								</xs:annotation>
 							</xs:element>							
-							<xs:element maxOccurs="1" minOccurs="0" name="quantity" type="xs:int" default="1">
+							<xs:element default="1" maxOccurs="1" minOccurs="0" name="quantity" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										An optional field that used for calculated shipping.
@@ -2433,7 +2372,7 @@
 									</xs:documentation>					
 								</xs:annotation>	
 							</xs:element>	
-							<xs:element maxOccurs="1" minOccurs="0" name="itemDestinationCountryId" type="xs:string" >
+							<xs:element maxOccurs="1" minOccurs="0" name="itemDestinationCountryId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										An optional field that used for calculated shipping.
@@ -2443,14 +2382,14 @@
 									</xs:documentation>					
 								</xs:annotation>	
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0"	name="itemDestinationZipCode" type="xs:string" >
+							<xs:element maxOccurs="1" minOccurs="0" name="itemDestinationZipCode" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										An optional field that used for calculated shipping.										
 									</xs:documentation>					
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0"	name="includeSelector" type="tns:IncludeSelector" >
+							<xs:element maxOccurs="1" minOccurs="0" name="includeSelector" type="tns:IncludeSelector">
 								<xs:annotation>
 									<xs:documentation>
 										An optional field is used to specify whether or not to retrieve additional information about the item. 										
@@ -2466,8 +2405,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getViewItemResponse"
-				type="tns:GetViewItemResponse" />
+			<xs:element name="getViewItemResponse" type="tns:GetViewItemResponse"/>
 			<xs:complexType name="GetViewItemResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -2477,14 +2415,14 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseViewItemServiceResponse">
 						<xs:sequence>
-							<xs:element name="viewItem" type="tns:ViewItem" maxOccurs="1" minOccurs="0" />							
+							<xs:element maxOccurs="1" minOccurs="0" name="viewItem" type="tns:ViewItem"/>							
 						</xs:sequence>						
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			
 			<!-- getItemSummary -->
-			<xs:element name="getItemSummaryRequest" type="tns:GetItemSummaryRequest" />
+			<xs:element name="getItemSummaryRequest" type="tns:GetItemSummaryRequest"/>
 			<xs:complexType name="GetItemSummaryRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -2495,14 +2433,14 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseViewItemServiceRequest">
 						<xs:sequence>							
-							<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:string" >
+							<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										Item ID is the required field. 										
 									</xs:documentation>					
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="quantity" type="xs:int" >
+							<xs:element maxOccurs="1" minOccurs="0" name="quantity" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										An optional field that used for calculated shipping.
@@ -2510,7 +2448,7 @@
 									</xs:documentation>					
 								</xs:annotation>	
 							</xs:element>	
-							<xs:element maxOccurs="1" minOccurs="0" name="itemDestinationCountryId" type="xs:string" >
+							<xs:element maxOccurs="1" minOccurs="0" name="itemDestinationCountryId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										An optional field that used for calculated shipping.
@@ -2520,14 +2458,14 @@
 									</xs:documentation>					
 								</xs:annotation>	
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0"	name="itemDestinationZipCode" type="xs:string" >
+							<xs:element maxOccurs="1" minOccurs="0" name="itemDestinationZipCode" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										An optional field that used for calculated shipping.										
 									</xs:documentation>					
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0"	name="includeSelector" type="tns:IncludeSelector" >
+							<xs:element maxOccurs="1" minOccurs="0" name="includeSelector" type="tns:IncludeSelector">
 								<xs:annotation>
 									<xs:documentation>
 										An optional field is used to specify whether or not to retrieve additional information about the item. 										
@@ -2538,7 +2476,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getItemSummaryResponse" type="tns:GetItemSummaryResponse" />
+			<xs:element name="getItemSummaryResponse" type="tns:GetItemSummaryResponse"/>
 			<xs:complexType name="GetItemSummaryResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -2548,14 +2486,14 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseViewItemServiceResponse">
 						<xs:sequence>
-							<xs:element name="itemSummary" type="tns:ItemSummary" maxOccurs="1" minOccurs="0" />							
+							<xs:element maxOccurs="1" minOccurs="0" name="itemSummary" type="tns:ItemSummary"/>							
 						</xs:sequence>						
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>			
 			
 			<!-- getStatusMessage -->
-			<xs:element name="getStatusMessageRequest" type="tns:GetStatusMessageRequest" />
+			<xs:element name="getStatusMessageRequest" type="tns:GetStatusMessageRequest"/>
 			<xs:complexType name="GetStatusMessageRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -2565,7 +2503,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseViewItemServiceRequest">
 						<xs:sequence>							
-							<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:string" >
+							<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										Item ID is the required field. 										
@@ -2585,7 +2523,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getStatusMessageResponse" type="tns:GetStatusMessageResponse" />
+			<xs:element name="getStatusMessageResponse" type="tns:GetStatusMessageResponse"/>
 			<xs:complexType name="GetStatusMessageResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -2595,14 +2533,14 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseViewItemServiceResponse">
 						<xs:sequence>
-							<xs:element name="statusMessageContainer" type="tns:StatusMessageContainer" maxOccurs="1" minOccurs="0" />							
+							<xs:element maxOccurs="1" minOccurs="0" name="statusMessageContainer" type="tns:StatusMessageContainer"/>							
 						</xs:sequence>						
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			
 			<!-- getQuestionAnswer -->
-			<xs:element name="getQuestionAnswerRequest" type="tns:GetQuestionAnswerRequest" />
+			<xs:element name="getQuestionAnswerRequest" type="tns:GetQuestionAnswerRequest"/>
 			<xs:complexType name="GetQuestionAnswerRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -2612,14 +2550,14 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseViewItemServiceRequest">
 						<xs:sequence>							
-							<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:string" >
+							<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										Item ID is the required field. 										
 									</xs:documentation>					
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="sellerId" type="xs:string" >
+							<xs:element maxOccurs="1" minOccurs="0" name="sellerId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										Provide Seller ID for better optimization. 										
@@ -2630,7 +2568,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getQuestionAnswerResponse" type="tns:GetQuestionAnswerResponse" />
+			<xs:element name="getQuestionAnswerResponse" type="tns:GetQuestionAnswerResponse"/>
 			<xs:complexType name="GetQuestionAnswerResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -2640,14 +2578,14 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseViewItemServiceResponse">
 						<xs:sequence>
-							<xs:element name="questionAnswer" type="tns:QuestionAnswersType" maxOccurs="1" minOccurs="0" />							
+							<xs:element maxOccurs="1" minOccurs="0" name="questionAnswer" type="tns:QuestionAnswersType"/>							
 						</xs:sequence>						
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 														
 			<!-- getShippingInfo -->
-			<xs:element name="getShippingInfoRequest" type="tns:GetShippingInfoRequest" />
+			<xs:element name="getShippingInfoRequest" type="tns:GetShippingInfoRequest"/>
 			<xs:complexType name="GetShippingInfoRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -2657,14 +2595,14 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseViewItemServiceRequest">
 						<xs:sequence>							
-							<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:string" >
+							<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										Item ID is the required field. 										
 									</xs:documentation>					
 								</xs:annotation>
 							</xs:element>	
-							<xs:element maxOccurs="1" minOccurs="0" name="quantity" type="xs:int" >
+							<xs:element maxOccurs="1" minOccurs="0" name="quantity" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										An optional field that used for calculated shipping.
@@ -2672,7 +2610,7 @@
 									</xs:documentation>					
 								</xs:annotation>	
 							</xs:element>	
-							<xs:element maxOccurs="1" minOccurs="0" name="itemDestinationCountryId" type="xs:string" >
+							<xs:element maxOccurs="1" minOccurs="0" name="itemDestinationCountryId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										An optional field that used for calculated shipping.
@@ -2682,7 +2620,7 @@
 									</xs:documentation>					
 								</xs:annotation>	
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0"	name="itemDestinationZipCode" type="xs:string" >
+							<xs:element maxOccurs="1" minOccurs="0" name="itemDestinationZipCode" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										An optional field that used for calculated shipping.										
@@ -2693,7 +2631,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getShippingInfoResponse" type="tns:GetShippingInfoResponse" />
+			<xs:element name="getShippingInfoResponse" type="tns:GetShippingInfoResponse"/>
 			<xs:complexType name="GetShippingInfoResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -2703,7 +2641,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseViewItemServiceResponse">
 						<xs:sequence>
-							<xs:element name="shippingDetail" type="tns:ShippingDetail" maxOccurs="1" minOccurs="0" />							
+							<xs:element maxOccurs="1" minOccurs="0" name="shippingDetail" type="tns:ShippingDetail"/>							
 						</xs:sequence>						
 					</xs:extension>
 				</xs:complexContent>
@@ -2711,226 +2649,217 @@
 						
 			<xs:complexType name="ViewItem">
 				<xs:sequence>										
-					<xs:element name="itemSummary" type="tns:ItemSummary" maxOccurs="1" minOccurs="0"	/>
-					<xs:element name="sellerInfo" type="tns:ViewItemUserInfo" maxOccurs="1" minOccurs="0"	/>							
-					<xs:element name="siteConfig" type="tns:ViewItemSitePolicy" maxOccurs="1" minOccurs="0"	/>
-					<xs:element name="controlData" type="tns:ViewItemControlData" maxOccurs="1" minOccurs="0"	/>
-					<xs:element name="buyerItemData" type="tns:BuyerItemData" maxOccurs="1" minOccurs="0"	/>																																	
-					<xs:element name="storeInfo" type="tns:StoreInfo" maxOccurs="1" minOccurs="0"	/>														
-					<xs:element name="bottomToolBar" type="tns:BottomToolBar" maxOccurs="1" minOccurs="0"	/>														
-					<xs:element name="epseo" type="tns:Epseo" maxOccurs="1" minOccurs="0"	/>
-					<xs:element name="questionAnswers" type="tns:QuestionAnswersType" maxOccurs="1" minOccurs="0"	/>
-					<xs:element name="statusMessageContainer" type="tns:StatusMessageContainer" maxOccurs="1" minOccurs="0"	/>
-					<xs:element name="urls" type="tns:ViewItemURL" maxOccurs="1" minOccurs="0"	/>
-					<xs:element name="breadcrumbs" type="tns:Breadcrumb" minOccurs="0" maxOccurs="unbounded"  />							
-					<xs:element name="incentiveDetails"	type="tns:IncentiveDetail" maxOccurs="1" minOccurs="0"	/>
-					<xs:element name="itemCompatibilityInfo" type="tns:ItemCompatibilityListType" maxOccurs="1" minOccurs="0" />
-					<xs:element name="productInfo" minOccurs="0" maxOccurs="1" type="tns:ViewItemProductInfo" />																																
+					<xs:element maxOccurs="1" minOccurs="0" name="itemSummary" type="tns:ItemSummary"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="sellerInfo" type="tns:ViewItemUserInfo"/>							
+					<xs:element maxOccurs="1" minOccurs="0" name="siteConfig" type="tns:ViewItemSitePolicy"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="controlData" type="tns:ViewItemControlData"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="buyerItemData" type="tns:BuyerItemData"/>																																	
+					<xs:element maxOccurs="1" minOccurs="0" name="storeInfo" type="tns:StoreInfo"/>														
+					<xs:element maxOccurs="1" minOccurs="0" name="bottomToolBar" type="tns:BottomToolBar"/>														
+					<xs:element maxOccurs="1" minOccurs="0" name="epseo" type="tns:Epseo"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="questionAnswers" type="tns:QuestionAnswersType"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="statusMessageContainer" type="tns:StatusMessageContainer"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="urls" type="tns:ViewItemURL"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="breadcrumbs" type="tns:Breadcrumb"/>							
+					<xs:element maxOccurs="1" minOccurs="0" name="incentiveDetails" type="tns:IncentiveDetail"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="itemCompatibilityInfo" type="tns:ItemCompatibilityListType"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="productInfo" type="tns:ViewItemProductInfo"/>																																
 				</xs:sequence>
 			</xs:complexType>	
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part element="tns:getVersionRequest" name="params" />
+		<wsdl:part element="tns:getVersionRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part element="tns:getVersionResponse" name="params" />
+		<wsdl:part element="tns:getVersionResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getViewItemRequest">
-		<wsdl:part name="params" element="tns:getViewItemRequest"></wsdl:part>
+		<wsdl:part element="tns:getViewItemRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getViewItemResponse">
-		<wsdl:part name="params" element="tns:getViewItemResponse"></wsdl:part>
+		<wsdl:part element="tns:getViewItemResponse" name="params"/>
 	</wsdl:message>	
 	<wsdl:message name="getItemSummaryRequest">
-		<wsdl:part name="params" element="tns:getItemSummaryRequest"></wsdl:part>
+		<wsdl:part element="tns:getItemSummaryRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getItemSummaryResponse">
-		<wsdl:part name="params" element="tns:getItemSummaryResponse"></wsdl:part>
+		<wsdl:part element="tns:getItemSummaryResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getStatusMessageRequest">
-		<wsdl:part name="params" element="tns:getStatusMessageRequest"></wsdl:part>
+		<wsdl:part element="tns:getStatusMessageRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getStatusMessageResponse">
-		<wsdl:part name="params" element="tns:getStatusMessageResponse"></wsdl:part>
+		<wsdl:part element="tns:getStatusMessageResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getQuestionAnswerRequest">
-		<wsdl:part name="params" element="tns:getQuestionAnswerRequest"></wsdl:part>
+		<wsdl:part element="tns:getQuestionAnswerRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getQuestionAnswerResponse">
-		<wsdl:part name="params" element="tns:getQuestionAnswerResponse"></wsdl:part>
+		<wsdl:part element="tns:getQuestionAnswerResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getShippingInfoRequest">
-		<wsdl:part name="params" element="tns:getShippingInfoRequest"></wsdl:part>
+		<wsdl:part element="tns:getShippingInfoRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getShippingInfoResponse">
-		<wsdl:part name="params" element="tns:getShippingInfoResponse"></wsdl:part>
+		<wsdl:part element="tns:getShippingInfoResponse" name="params"/>
 	</wsdl:message>	
 	<wsdl:portType name="ViewItemServicePort">
 		<wsdl:operation name="getVersion">
 			<wsdl:documentation>
 				Documentation goes here.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getVersionRequest" />
-			<wsdl:output message="tns:getVersionResponse" />
+			<wsdl:input message="tns:getVersionRequest"/>
+			<wsdl:output message="tns:getVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getViewItem">
 			<wsdl:documentation>
 				Full version of ViewItem
 			</wsdl:documentation>
-			<wsdl:input message="tns:getViewItemRequest" />
-			<wsdl:output message="tns:getViewItemResponse" />
+			<wsdl:input message="tns:getViewItemRequest"/>
+			<wsdl:output message="tns:getViewItemResponse"/>
 		</wsdl:operation>		
 		<wsdl:operation name="getItemSummary">
 			<wsdl:documentation>
 				Item Summary of ViewItem
 			</wsdl:documentation>
-			<wsdl:input message="tns:getItemSummaryRequest" />
-			<wsdl:output message="tns:getItemSummaryResponse" />
+			<wsdl:input message="tns:getItemSummaryRequest"/>
+			<wsdl:output message="tns:getItemSummaryResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getStatusMessage">
 			<wsdl:documentation>
 				Status Message of ViewItem
 			</wsdl:documentation>
-			<wsdl:input message="tns:getStatusMessageRequest" />
-			<wsdl:output message="tns:getStatusMessageResponse" />
+			<wsdl:input message="tns:getStatusMessageRequest"/>
+			<wsdl:output message="tns:getStatusMessageResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getQuestionAnswer">
 			<wsdl:documentation>
 				QuestionAnswer of ViewItem
 			</wsdl:documentation>
-			<wsdl:input message="tns:getQuestionAnswerRequest" />
-			<wsdl:output message="tns:getQuestionAnswerResponse" />
+			<wsdl:input message="tns:getQuestionAnswerRequest"/>
+			<wsdl:output message="tns:getQuestionAnswerResponse"/>
 		</wsdl:operation>		
 		<wsdl:operation name="getShippingInfo">
 			<wsdl:documentation>
 				Stores Info of ViewItem
 			</wsdl:documentation>
-			<wsdl:input message="tns:getShippingInfoRequest" />
-			<wsdl:output message="tns:getShippingInfoResponse" />
+			<wsdl:input message="tns:getShippingInfoRequest"/>
+			<wsdl:output message="tns:getShippingInfoResponse"/>
 		</wsdl:operation>				
 	</wsdl:portType>
-	<wsdl:binding name="ViewItemServiceHttpBinding"
-		type="tns:ViewItemServicePort">
-		<http:binding verb="POST" />
+	<wsdl:binding name="ViewItemServiceHttpBinding" type="tns:ViewItemServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getViewItem">
-			<http:operation location="/getViewItem" />
+			<http:operation location="/getViewItem"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>	
 		<wsdl:operation name="getItemSummary">
-			<http:operation location="/getItemSummary" />
+			<http:operation location="/getItemSummary"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>	
 		<wsdl:operation name="getStatusMessage">
-			<http:operation location="/getStatusMessage" />
+			<http:operation location="/getStatusMessage"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getQuestionAnswer">
-			<http:operation location="/getQuestionAnswer" />
+			<http:operation location="/getQuestionAnswer"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>		
 		<wsdl:operation name="getShippingInfo">
-			<http:operation location="/getShippingInfo" />
+			<http:operation location="/getShippingInfo"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		
 	</wsdl:binding>
-	<wsdl:binding name="ViewItemServiceSOAPBinding"
-		type="tns:ViewItemServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="ViewItemServiceSOAPBinding" type="tns:ViewItemServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/buying/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/getVersion"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getViewItem">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/buying/v1/services/getViewItem" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/getViewItem"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>		
 		<wsdl:operation name="getItemSummary">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/buying/v1/services/getItemSummary" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/getItemSummary"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getStatusMessage">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/buying/v1/services/getStatusMessage" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/getStatusMessage"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getQuestionAnswer">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/buying/v1/services/getQuestionAnswer" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/getQuestionAnswer"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>		
 		<wsdl:operation name="getShippingInfo">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/buying/v1/services/getShippingInfo" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/buying/v1/services/getShippingInfo"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		
@@ -2939,16 +2868,11 @@
 		<wsdl:documentation>
 			<Version>1.1.1</Version>
 		</wsdl:documentation>
-		<wsdl:port binding="tns:ViewItemServiceHttpBinding"
-			name="ViewItemServiceHttpPort">
-			<http:address
-				location="http://svcs.ebay.com/services/buying/v1/ViewItemService" />
+		<wsdl:port binding="tns:ViewItemServiceHttpBinding" name="ViewItemServiceHttpPort">
+			<http:address location="http://svcs.ebay.com/services/buying/v1/ViewItemService"/>
 		</wsdl:port>
-		<wsdl:port binding="tns:ViewItemServiceSOAPBinding"
-			name="ViewItemServiceSOAPPort">
-			<soap12:address
-				location="http://svcs.ebay.com/services/buying/v1/ViewItemService" />
+		<wsdl:port binding="tns:ViewItemServiceSOAPBinding" name="ViewItemServiceSOAPPort">
+			<soap12:address location="http://svcs.ebay.com/services/buying/v1/ViewItemService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
-

@@ -1,50 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="BulkDataExchangeService" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BulkDataExchangeService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 
-<xs:element name="createUploadJobRequest"  type="tns:CreateUploadJobRequest"/>
-<xs:element name="createUploadJobResponse"  type="tns:CreateUploadJobResponse"/>
+<xs:element name="createUploadJobRequest" type="tns:CreateUploadJobRequest"/>
+<xs:element name="createUploadJobResponse" type="tns:CreateUploadJobResponse"/>
 
-<xs:element name="startUploadJobRequest"  type="tns:StartUploadJobRequest"/>
-<xs:element name="startUploadJobResponse"  type="tns:StartUploadJobResponse"/>
+<xs:element name="startUploadJobRequest" type="tns:StartUploadJobRequest"/>
+<xs:element name="startUploadJobResponse" type="tns:StartUploadJobResponse"/>
 
-<xs:element name="abortJobRequest"  type="tns:AbortJobRequest"/>
-<xs:element name="abortJobResponse"  type="tns:AbortJobResponse"/>
+<xs:element name="abortJobRequest" type="tns:AbortJobRequest"/>
+<xs:element name="abortJobResponse" type="tns:AbortJobResponse"/>
 
-<xs:element name="getJobsRequest"  type="tns:GetJobsRequest"/>
-<xs:element name="getJobsResponse"  type="tns:GetJobsResponse"/>
+<xs:element name="getJobsRequest" type="tns:GetJobsRequest"/>
+<xs:element name="getJobsResponse" type="tns:GetJobsResponse"/>
 
-<xs:element name="getJobStatusRequest"  type="tns:GetJobStatusRequest"/>
-<xs:element name="getJobStatusResponse"  type="tns:GetJobStatusResponse"/>
+<xs:element name="getJobStatusRequest" type="tns:GetJobStatusRequest"/>
+<xs:element name="getJobStatusResponse" type="tns:GetJobStatusResponse"/>
 
-<xs:element name="startDownloadJobRequest"  type="tns:StartDownloadJobRequest"/>
-<xs:element name="startDownloadJobResponse"  type="tns:StartDownloadJobResponse"/>
+<xs:element name="startDownloadJobRequest" type="tns:StartDownloadJobRequest"/>
+<xs:element name="startDownloadJobResponse" type="tns:StartDownloadJobResponse"/>
 
-<xs:element name="createRecurringJobRequest"  type="tns:CreateRecurringJobRequest"/>
-<xs:element name="createRecurringJobResponse"  type="tns:CreateRecurringJobResponse"/>
+<xs:element name="createRecurringJobRequest" type="tns:CreateRecurringJobRequest"/>
+<xs:element name="createRecurringJobResponse" type="tns:CreateRecurringJobResponse"/>
 
-<xs:element name="deleteRecurringJobRequest"  type="tns:DeleteRecurringJobRequest"/>
-<xs:element name="deleteRecurringJobResponse"  type="tns:DeleteRecurringJobResponse"/>
+<xs:element name="deleteRecurringJobRequest" type="tns:DeleteRecurringJobRequest"/>
+<xs:element name="deleteRecurringJobResponse" type="tns:DeleteRecurringJobResponse"/>
 
-<xs:element name="getRecurringJobsRequest"  type="tns:GetRecurringJobsRequest"/>
-<xs:element name="getRecurringJobsResponse"  type="tns:GetRecurringJobsResponse"/>
+<xs:element name="getRecurringJobsRequest" type="tns:GetRecurringJobsRequest"/>
+<xs:element name="getRecurringJobsResponse" type="tns:GetRecurringJobsResponse"/>
 
-<xs:element name="getRecurringJobExecutionStatusRequest"  type="tns:GetRecurringJobExecutionStatusRequest"/>
-<xs:element name="getRecurringJobExecutionStatusResponse"  type="tns:GetRecurringJobExecutionStatusResponse"/>
+<xs:element name="getRecurringJobExecutionStatusRequest" type="tns:GetRecurringJobExecutionStatusRequest"/>
+<xs:element name="getRecurringJobExecutionStatusResponse" type="tns:GetRecurringJobExecutionStatusResponse"/>
 
-<xs:element name="getRecurringJobExecutionHistoryRequest"  type="tns:GetRecurringJobExecutionHistoryRequest"/>
-<xs:element name="getRecurringJobExecutionHistoryResponse"  type="tns:GetRecurringJobExecutionHistoryResponse"/>
+<xs:element name="getRecurringJobExecutionHistoryRequest" type="tns:GetRecurringJobExecutionHistoryRequest"/>
+<xs:element name="getRecurringJobExecutionHistoryResponse" type="tns:GetRecurringJobExecutionHistoryResponse"/>
 
-<xs:element name="activateRecurringJobRequest"  type="tns:ActivateRecurringJobRequest"/>
-<xs:element name="activateRecurringJobResponse"  type="tns:ActivateRecurringJobResponse"/>
+<xs:element name="activateRecurringJobRequest" type="tns:ActivateRecurringJobRequest"/>
+<xs:element name="activateRecurringJobResponse" type="tns:ActivateRecurringJobResponse"/>
 
-<xs:element name="suspendRecurringJobRequest"  type="tns:SuspendRecurringJobRequest"/>
-<xs:element name="suspendRecurringJobResponse"  type="tns:SuspendRecurringJobResponse"/>
+<xs:element name="suspendRecurringJobRequest" type="tns:SuspendRecurringJobRequest"/>
+<xs:element name="suspendRecurringJobResponse" type="tns:SuspendRecurringJobResponse"/>
 
-<xs:element name="abortRecurringJobExecutionRequest"  type="tns:AbortRecurringJobExecutionRequest"/>
-<xs:element name="abortRecurringJobExecutionResponse"  type="tns:AbortRecurringJobExecutionResponse"/>
+<xs:element name="abortRecurringJobExecutionRequest" type="tns:AbortRecurringJobExecutionRequest"/>
+<xs:element name="abortRecurringJobExecutionResponse" type="tns:AbortRecurringJobExecutionResponse"/>
 
 <xs:complexType name="CreateUploadJobRequest">
 	<xs:annotation>
@@ -963,7 +962,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="version" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="version" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 				  The version of the schema that your WSDL is based on.
@@ -976,7 +975,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+		<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 			<xs:annotation>
 				<xs:documentation>
 				  The data and time of the response.
@@ -1160,7 +1159,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseServiceResponse">
 			<xs:sequence>
-				<xs:element minOccurs="0"  maxOccurs="unbounded" name="jobProfile" type="tns:JobProfile">
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="jobProfile" type="tns:JobProfile">
 					<xs:annotation>
 						<xs:documentation>
 						  The job profile is a collection of data about a job that includes:
@@ -1908,7 +1907,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 				Details about a single error.
@@ -2075,7 +2074,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 				Some warning and error messages return one or more variables that contain
@@ -2286,115 +2285,115 @@
 </xs:schema>
   </wsdl:types>
   <wsdl:message name="getRecurringJobsResponse">
-    <wsdl:part name="params" element="ns0:getRecurringJobsResponse">
+    <wsdl:part element="ns0:getRecurringJobsResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="startDownloadJobRequest">
-    <wsdl:part name="params" element="ns0:startDownloadJobRequest">
+    <wsdl:part element="ns0:startDownloadJobRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getRecurringJobExecutionStatusRequest">
-    <wsdl:part name="params" element="ns0:getRecurringJobExecutionStatusRequest">
+    <wsdl:part element="ns0:getRecurringJobExecutionStatusRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getJobStatusResponse">
-    <wsdl:part name="params" element="ns0:getJobStatusResponse">
+    <wsdl:part element="ns0:getJobStatusResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getJobStatusRequest">
-    <wsdl:part name="params" element="ns0:getJobStatusRequest">
+    <wsdl:part element="ns0:getJobStatusRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="startUploadJobRequest">
-    <wsdl:part name="params" element="ns0:startUploadJobRequest">
+    <wsdl:part element="ns0:startUploadJobRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="startDownloadJobResponse">
-    <wsdl:part name="params" element="ns0:startDownloadJobResponse">
+    <wsdl:part element="ns0:startDownloadJobResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="suspendRecurringJobRequest">
-    <wsdl:part name="params" element="ns0:suspendRecurringJobRequest">
+    <wsdl:part element="ns0:suspendRecurringJobRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getRecurringJobExecutionHistoryResponse">
-    <wsdl:part name="params" element="ns0:getRecurringJobExecutionHistoryResponse">
+    <wsdl:part element="ns0:getRecurringJobExecutionHistoryResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="createRecurringJobRequest">
-    <wsdl:part name="params" element="ns0:createRecurringJobRequest">
+    <wsdl:part element="ns0:createRecurringJobRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getRecurringJobsRequest">
-    <wsdl:part name="params" element="ns0:getRecurringJobsRequest">
+    <wsdl:part element="ns0:getRecurringJobsRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getJobsResponse">
-    <wsdl:part name="params" element="ns0:getJobsResponse">
+    <wsdl:part element="ns0:getJobsResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="abortRecurringJobExecutionResponse">
-    <wsdl:part name="params" element="ns0:abortRecurringJobExecutionResponse">
+    <wsdl:part element="ns0:abortRecurringJobExecutionResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="abortRecurringJobExecutionRequest">
-    <wsdl:part name="params" element="ns0:abortRecurringJobExecutionRequest">
+    <wsdl:part element="ns0:abortRecurringJobExecutionRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="deleteRecurringJobRequest">
-    <wsdl:part name="params" element="ns0:deleteRecurringJobRequest">
+    <wsdl:part element="ns0:deleteRecurringJobRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getJobsRequest">
-    <wsdl:part name="params" element="ns0:getJobsRequest">
+    <wsdl:part element="ns0:getJobsRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="abortJobRequest">
-    <wsdl:part name="params" element="ns0:abortJobRequest">
+    <wsdl:part element="ns0:abortJobRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="suspendRecurringJobResponse">
-    <wsdl:part name="params" element="ns0:suspendRecurringJobResponse">
+    <wsdl:part element="ns0:suspendRecurringJobResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="createRecurringJobResponse">
-    <wsdl:part name="params" element="ns0:createRecurringJobResponse">
+    <wsdl:part element="ns0:createRecurringJobResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getRecurringJobExecutionHistoryRequest">
-    <wsdl:part name="params" element="ns0:getRecurringJobExecutionHistoryRequest">
+    <wsdl:part element="ns0:getRecurringJobExecutionHistoryRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="activateRecurringJobRequest">
-    <wsdl:part name="params" element="ns0:activateRecurringJobRequest">
+    <wsdl:part element="ns0:activateRecurringJobRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="startUploadJobResponse">
-    <wsdl:part name="params" element="ns0:startUploadJobResponse">
+    <wsdl:part element="ns0:startUploadJobResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getRecurringJobExecutionStatusResponse">
-    <wsdl:part name="params" element="ns0:getRecurringJobExecutionStatusResponse">
+    <wsdl:part element="ns0:getRecurringJobExecutionStatusResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="activateRecurringJobResponse">
-    <wsdl:part name="params" element="ns0:activateRecurringJobResponse">
+    <wsdl:part element="ns0:activateRecurringJobResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="createUploadJobRequest">
-    <wsdl:part name="params" element="ns0:createUploadJobRequest">
+    <wsdl:part element="ns0:createUploadJobRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="abortJobResponse">
-    <wsdl:part name="params" element="ns0:abortJobResponse">
+    <wsdl:part element="ns0:abortJobResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="deleteRecurringJobResponse">
-    <wsdl:part name="params" element="ns0:deleteRecurringJobResponse">
+    <wsdl:part element="ns0:deleteRecurringJobResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="createUploadJobResponse">
-    <wsdl:part name="params" element="ns0:createUploadJobResponse">
+    <wsdl:part element="ns0:createUploadJobResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="BulkDataExchangeServicePort">
@@ -2745,10 +2744,10 @@
 		<wsdl:documentation>
 			<Version>1.0.0</Version>
 		</wsdl:documentation>
-    <wsdl:port name="BulkDataExchangeServiceHttp" binding="ns0:BulkDataExchangeServiceHttpBinding">
+    <wsdl:port binding="ns0:BulkDataExchangeServiceHttpBinding" name="BulkDataExchangeServiceHttp">
       <http:address location="http://webservices.ebay.com/BulkDataExchangeService"/>
     </wsdl:port>
-    <wsdl:port name="BulkDataExchangeServiceSOAP" binding="ns0:BulkDataExchangeServiceSOAPBinding">
+    <wsdl:port binding="ns0:BulkDataExchangeServiceSOAPBinding" name="BulkDataExchangeServiceSOAP">
       <soap12:address location="http://webservices.ebay.com/BulkDataExchangeService"/>
     </wsdl:port>
   </wsdl:service>

@@ -1,24 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by eBay, Inc. (eBay, Inc.) -->
-<wsdl:definitions name="OpeneBaySubscriptionService" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ebay.com/marketplace/openebay/v1/services" targetNamespace="http://www.ebay.com/marketplace/openebay/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by eBay, Inc. (eBay, Inc.) --><wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/openebay/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OpeneBaySubscriptionService" targetNamespace="http://www.ebayopensource.org/tumeric/openebay/v1/services">
 	<wsdl:types>
-		<xs:schema targetNamespace="http://www.ebay.com/marketplace/openebay/v1/services" attributeFormDefault="unqualified" elementFormDefault="qualified">
-			<xs:element name="addUsageRequest"  type="tns:AddUsageRequest"/>
-			<xs:element name="addUsageResponse"  type="tns:AddUsageResponse"/>
-			<xs:element name="getBillingStatementsRequest"  type="tns:GetBillingStatementsRequest"/>
-			<xs:element name="getBillingStatementsResponse"  type="tns:GetBillingStatementsResponse"/>
-			<xs:element name="getBillingRecordsRequest"  type="tns:GetBillingRecordsRequest"/>
-			<xs:element name="getBillingRecordsResponse"  type="tns:GetBillingRecordsResponse"/>
-			<xs:element name="setBillingStartDateRequest"  type="tns:SetBillingStartDateRequest"/>
-			<xs:element name="setBillingStartDateResponse"  type="tns:SetBillingStartDateResponse"/>
-			<xs:element name="setSubscriptionStateRequest"  type="tns:SetSubscriptionStateRequest"/>
-			<xs:element name="setSubscriptionStateResponse"  type="tns:SetSubscriptionStateResponse"/>
-			<xs:element name="getSubscriptionPlansRequest"  type="tns:GetSubscriptionPlansRequest"/>
-			<xs:element name="getSubscriptionPlansResponse"  type="tns:GetSubscriptionPlansResponse"/>
-			<xs:element name="getSubscribersRequest"  type="tns:GetSubscribersRequest"/>
-			<xs:element name="getSubscribersResponse"  type="tns:GetSubscribersResponse"/>
-			<xs:element name="getVersionRequest"  type="tns:GetVersionRequest"/>
-			<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/openebay/v1/services">
+			<xs:element name="addUsageRequest" type="tns:AddUsageRequest"/>
+			<xs:element name="addUsageResponse" type="tns:AddUsageResponse"/>
+			<xs:element name="getBillingStatementsRequest" type="tns:GetBillingStatementsRequest"/>
+			<xs:element name="getBillingStatementsResponse" type="tns:GetBillingStatementsResponse"/>
+			<xs:element name="getBillingRecordsRequest" type="tns:GetBillingRecordsRequest"/>
+			<xs:element name="getBillingRecordsResponse" type="tns:GetBillingRecordsResponse"/>
+			<xs:element name="setBillingStartDateRequest" type="tns:SetBillingStartDateRequest"/>
+			<xs:element name="setBillingStartDateResponse" type="tns:SetBillingStartDateResponse"/>
+			<xs:element name="setSubscriptionStateRequest" type="tns:SetSubscriptionStateRequest"/>
+			<xs:element name="setSubscriptionStateResponse" type="tns:SetSubscriptionStateResponse"/>
+			<xs:element name="getSubscriptionPlansRequest" type="tns:GetSubscriptionPlansRequest"/>
+			<xs:element name="getSubscriptionPlansResponse" type="tns:GetSubscriptionPlansResponse"/>
+			<xs:element name="getSubscribersRequest" type="tns:GetSubscribersRequest"/>
+			<xs:element name="getSubscribersResponse" type="tns:GetSubscribersResponse"/>
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -374,7 +372,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="closedTime" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="closedTime" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 					Time at which full payment was made.
@@ -474,7 +472,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="statementImage" type="tns:StatementImage" minOccurs="0">
+					<xs:element minOccurs="0" name="statementImage" type="tns:StatementImage">
 						<xs:annotation>
 							<xs:documentation>
 								Billing Statement Image
@@ -487,7 +485,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="statementImageMessage" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="statementImageMessage" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Message for Billing Statement Image
@@ -511,7 +509,7 @@
 		</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="subscriptionId" type="xs:long" minOccurs="1" >
+					<xs:element minOccurs="1" name="subscriptionId" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 							For a particular application, the subscriptionId
@@ -525,7 +523,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="userName" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="userName" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 							Reserved for future use.
@@ -602,7 +600,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="immediatePayment" type="xs:boolean" default="false" minOccurs="0">
+					<xs:element default="false" minOccurs="0" name="immediatePayment" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 							Set to true when you require immediate payment for the charge type.
@@ -667,7 +665,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="chargeId" type="xs:long" minOccurs="0">
+							<xs:element minOccurs="0" name="chargeId" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 							An ID assigned to the transaction.
@@ -705,7 +703,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="subscriptionId" type="xs:long" minOccurs="1" >
+							<xs:element minOccurs="1" name="subscriptionId" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 										For a particular application, the subscriptionId
@@ -719,7 +717,7 @@
 									</xs:appinfo>
 									</xs:annotation>
 							</xs:element>
-							<xs:element name="includeStatementImage" type="xs:boolean" minOccurs="0" default="false">
+							<xs:element default="false" minOccurs="0" name="includeStatementImage" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>
 										Setting this field to true would return the StatementImage in the response.
@@ -745,7 +743,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="statement" type="tns:BillingStatement" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="statement" type="tns:BillingStatement">
 								<xs:annotation>
 									<xs:documentation>
 							Billing statement details.
@@ -782,7 +780,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="subscriptionId" type="xs:long" minOccurs="1" >
+							<xs:element minOccurs="1" name="subscriptionId" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 							For a particular application, the subscriptionId
@@ -796,7 +794,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="recordType" minOccurs="0" type="tns:BillingRecordType">
+							<xs:element minOccurs="0" name="recordType" type="tns:BillingRecordType">
 								<xs:annotation>
 									<xs:documentation>
 							Specifies whether the record is a one-time charge, a statement, a
@@ -810,7 +808,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="statementId" type="xs:string" minOccurs="0">
+							<xs:element minOccurs="0" name="statementId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 							Unique identifier for a billing statement, created by eBay at statement time. Obtain this value from
@@ -825,7 +823,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="recordTimeRange" type="tns:TimeRange" minOccurs="0">
+							<xs:element minOccurs="0" name="recordTimeRange" type="tns:TimeRange">
 								<xs:annotation>
 									<xs:documentation>
 							Requested time range for records.
@@ -851,7 +849,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="record" type="tns:BillingRecord" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="record" type="tns:BillingRecord">
 								<xs:annotation>
 									<xs:documentation>
 							Transaction record for a billing account.
@@ -888,7 +886,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="subscriptionId" type="xs:long" minOccurs="1" >
+							<xs:element minOccurs="1" name="subscriptionId" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 							For a particular application, the subscriptionId
@@ -945,7 +943,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="subscriptionId" type="xs:long" minOccurs="1" >
+							<xs:element minOccurs="1" name="subscriptionId" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 							For a particular application, the subscriptionId uniquely identifies a
@@ -986,7 +984,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="immediateCancellation" type="xs:boolean" minOccurs="0">
+							<xs:element minOccurs="0" name="immediateCancellation" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>
 							Whether the subscription should immediately be cancelled.
@@ -1032,7 +1030,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="planState" minOccurs="0" type="tns:SubscriptionPlanState">
+							<xs:element minOccurs="0" name="planState" type="tns:SubscriptionPlanState">
 								<xs:annotation>
 									<xs:documentation>
 							Filters response by specifying the state of plans to be returned.
@@ -1091,7 +1089,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="userName" minOccurs="0" type="xs:string">
+							<xs:element minOccurs="0" name="userName" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 							The eBay user ID of the subscriber. If the output selector
@@ -1105,7 +1103,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="subscriptionState" minOccurs="0" type="tns:SubscriptionState">
+							<xs:element minOccurs="0" name="subscriptionState" type="tns:SubscriptionState">
 								<xs:annotation>
 									<xs:documentation>
 							Specifies the subscription state of the subscribers to be returned.
@@ -1118,7 +1116,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="subscriptionStartTimeRange" minOccurs="0" type="tns:TimeRange">
+							<xs:element minOccurs="0" name="subscriptionStartTimeRange" type="tns:TimeRange">
 								<xs:annotation>
 									<xs:documentation>
 							Specifies the start of a time range for filtering the subscribers to be returned.
@@ -1131,7 +1129,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="subscriptionEndTimeRange" minOccurs="0" type="tns:TimeRange">
+							<xs:element minOccurs="0" name="subscriptionEndTimeRange" type="tns:TimeRange">
 								<xs:annotation>
 									<xs:documentation>
 							Specifies the end of a time range for filtering the subscribers to be returned.
@@ -1144,7 +1142,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="outputSelector" minOccurs="0" type="tns:SubscriberOutputSelector">
+							<xs:element minOccurs="0" name="outputSelector" type="tns:SubscriberOutputSelector">
 								<xs:annotation>
 									<xs:documentation>
 							Specify a value of SubscriberCount in this field if you want to get a count of subscribers.
@@ -1159,7 +1157,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="paginationInput" minOccurs="0" type="tns:PaginationInput">
+							<xs:element minOccurs="0" name="paginationInput" type="tns:PaginationInput">
 								<xs:annotation>
 									<xs:documentation>
 							Controls the pagination of the result set.
@@ -1185,7 +1183,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="subscriberCount" type="xs:int" minOccurs="0">
+							<xs:element minOccurs="0" name="subscriberCount" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										Not returned if the output selector is set to SubscriptionHistory.
@@ -1488,7 +1486,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="planId" type="xs:long" minOccurs="0">
+					<xs:element minOccurs="0" name="planId" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								ID assigned to the subscription plan by eBay.
@@ -1501,7 +1499,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="externalPlanId" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="externalPlanId" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								A developer-assigned value identifying the plan.
@@ -1530,7 +1528,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="globalId" type="tns:GlobalId" minOccurs="0">
+					<xs:element minOccurs="0" name="globalId" type="tns:GlobalId">
 						<xs:annotation>
 							<xs:documentation>
 									Corresponds to the site ID. For example, EBAY-US.
@@ -1543,7 +1541,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="billable" type="xs:boolean" minOccurs="0">
+					<xs:element minOccurs="0" name="billable" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 									Specifies whether the plan is free to subscribers, or must be paid for.
@@ -1556,7 +1554,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="visible" type="xs:boolean" minOccurs="0">
+					<xs:element minOccurs="0" name="visible" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								If true, the plan is visible to all users,
@@ -1572,7 +1570,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="planVersion" type="tns:SubscriptionPlanVersion" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="planVersion" type="tns:SubscriptionPlanVersion">
 						<xs:annotation>
 							<xs:documentation>
 								Information about the version
@@ -1670,7 +1668,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="property" type="tns:SubscriptionPropertyCode">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:SubscriptionPropertyCode">
 						<xs:annotation>
 							<xs:documentation>
 								Information about a subscriber's eligibility for a free trial.
@@ -1751,7 +1749,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="planVersionId" type="xs:long" minOccurs="0">
+					<xs:element minOccurs="0" name="planVersionId" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								The ID of the entire version of the plan, at the plan level.
@@ -1764,7 +1762,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="planVersion" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="planVersion" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								The version number of the plan.
@@ -1779,7 +1777,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="planDescription" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="planDescription" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Information about the plan that is displayed
@@ -1793,7 +1791,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="planState" type="tns:SubscriptionPlanState" minOccurs="0">
+					<xs:element minOccurs="0" name="planState" type="tns:SubscriptionPlanState">
 						<xs:annotation>
 							<xs:documentation>
 								State of the plan, e.g. Active.
@@ -1806,7 +1804,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="planVersionStartTime" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="planVersionStartTime" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								Start time of the plan version.
@@ -1819,7 +1817,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="planVersionEndTime" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="planVersionEndTime" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								End time of the plan version.
@@ -1832,7 +1830,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="planVersionDetail" type="tns:SubscriptionPlanVersionDetail" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="planVersionDetail" type="tns:SubscriptionPlanVersionDetail">
 						<xs:annotation>
 							<xs:documentation>
 								Details about this version of the plan.
@@ -1984,7 +1982,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="planVersionDetailId" type="xs:long" minOccurs="0">
+					<xs:element minOccurs="0" name="planVersionDetailId" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								ID for the charge type (there is a charge type of each version of the plan).
@@ -1997,7 +1995,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="chargeType" type="tns:SubscriptionChargeType" minOccurs="0">
+					<xs:element minOccurs="0" name="chargeType" type="tns:SubscriptionChargeType">
 						<xs:annotation>
 							<xs:documentation>
 								The type of charge the plan utilizes. Examples include recurring fee, usage fee, and
@@ -2011,7 +2009,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="chargeTerm" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="chargeTerm" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Length of the term in charge term units (specifically, see the chargeTermUnit field).
@@ -2027,7 +2025,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="chargeTermUnit" type="tns:SubscriptionChargeTermUnit" minOccurs="0">
+					<xs:element minOccurs="0" name="chargeTermUnit" type="tns:SubscriptionChargeTermUnit">
 						<xs:annotation>
 							<xs:documentation>
 								The term unit. Multiply the chargeTerm value by the chargeTermUnit value
@@ -2041,7 +2039,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="chargeAmount" type="xs:double" minOccurs="0">
+					<xs:element minOccurs="0" name="chargeAmount" type="xs:double">
 						<xs:annotation>
 							<xs:documentation>
 								The amount of money charged for the plan, as set by the third party developer,
@@ -2055,7 +2053,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="extendedDescription" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="extendedDescription" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Additional plan information that is displayed on the page
@@ -2071,7 +2069,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="usageBilled" type="xs:boolean" minOccurs="0">
+					<xs:element minOccurs="0" name="usageBilled" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								Applied with addUsage, for the charge type.
@@ -2392,7 +2390,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="recordTime" type="tns:RecordTime" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" name="recordTime" type="tns:RecordTime">
 						<xs:annotation>
 							<xs:documentation>
 					The recordType determines what this value signifies.
@@ -2413,7 +2411,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="recordAmount" type="tns:RecordAmount" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" name="recordAmount" type="tns:RecordAmount">
 						<xs:annotation>
 							<xs:documentation>
 					The recordType determines what this value signifies.
@@ -2439,7 +2437,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="recordDescription" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="recordDescription" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 					The recordType determines what this value signifies.
@@ -2461,7 +2459,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="recordAdditionalDescription" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="recordAdditionalDescription" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								This provides additional description for the record.
@@ -2505,7 +2503,7 @@
 			and payments are specified as amount types.
 		</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -2538,7 +2536,7 @@
 				Container for time ranges.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						<CallInfo>
 							<CallName>getSubscribers</CallName>
 							<CallName>getBillingRecords</CallName>
@@ -2547,7 +2545,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="timeFrom" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timeFrom" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 				Specifies the earliest (oldest) date to be used in a date range.
@@ -2561,7 +2559,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timeTo" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timeTo" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 				Specifies the latest (most recent) date to be used in a date range.
@@ -2586,7 +2584,7 @@
 			<xs:complexType abstract="true" name="BaseRequest">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 				This is the base class for request container for all
@@ -2594,15 +2592,15 @@
 			</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			<!-- Base response types -->
-			<xs:complexType name="BaseResponse" abstract="true">
+			<xs:complexType abstract="true" name="BaseResponse">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 				Base response container for all service operations.
@@ -2638,7 +2636,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 						The release version that eBay used to process the request. Developer
@@ -2658,7 +2656,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 						This value represents the date and time when eBay processed the request.
@@ -2674,13 +2672,13 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ExtensionType">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>Documentation goes here</xs:documentation>
 					<xs:appinfo/>
@@ -2700,7 +2698,7 @@
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			Indicates whether the error is a severe error (causing the request to fail)
@@ -2745,7 +2743,7 @@
 			<xs:complexType name="ErrorMessage">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			ErrorMessage to indicate any Error/Warning occured as part of service call.
@@ -2754,7 +2752,7 @@
 		</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData"  minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 					ActivityProfile about a single error.
@@ -2772,7 +2770,7 @@
 			<xs:complexType name="ErrorData">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			This represents error details.
@@ -2881,7 +2879,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="subdomain" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 					Name of the subdomain upon which the error occurred. Subdomains include the
@@ -2898,7 +2896,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="exceptionId" type="xs:token" minOccurs="0">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 					Unique identifier for an exception associated with an error.
@@ -2911,7 +2909,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="parameter" type="tns:ErrorParameter"  minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -2931,7 +2929,7 @@
 			<xs:complexType name="ErrorParameter">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			Contextual information associated with an error.
@@ -2959,7 +2957,7 @@
 			<xs:simpleType name="ErrorSeverity">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			Indicates whether the error is a severe error (causing the request to fail)
@@ -2992,7 +2990,7 @@
 			<xs:simpleType name="ErrorCategory">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 			There are three categories of error: request errors, application errors,
@@ -3042,7 +3040,7 @@
 			<xs:simpleType name="GlobalId">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 					This type is used to represent a combination of site and Locale. Locales are combination of language and territory.
@@ -3065,7 +3063,7 @@
 				The page number and the entries per page.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						<CallInfo>
 							<CallName>getSubscribers</CallName>
 							<RequiredInput>No</RequiredInput>
@@ -3112,7 +3110,7 @@
 				The pagination response data.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -3204,52 +3202,52 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="addUsageRequest">
-		<wsdl:part name="addUsageRequest" element="tns:addUsageRequest"/>
+		<wsdl:part element="tns:addUsageRequest" name="addUsageRequest"/>
 	</wsdl:message>
 	<wsdl:message name="addUsageResponse">
-		<wsdl:part name="addUsageResponse" element="tns:addUsageResponse"/>
+		<wsdl:part element="tns:addUsageResponse" name="addUsageResponse"/>
 	</wsdl:message>
 	<wsdl:message name="getBillingStatementsRequest">
-		<wsdl:part name="getBillingStatementsRequest" element="tns:getBillingStatementsRequest"/>
+		<wsdl:part element="tns:getBillingStatementsRequest" name="getBillingStatementsRequest"/>
 	</wsdl:message>
 	<wsdl:message name="getBillingStatementsResponse">
-		<wsdl:part name="getBillingStatementsResponse" element="tns:getBillingStatementsResponse"/>
+		<wsdl:part element="tns:getBillingStatementsResponse" name="getBillingStatementsResponse"/>
 	</wsdl:message>
 	<wsdl:message name="getBillingRecordsRequest">
-		<wsdl:part name="getBillingRecordsRequest" element="tns:getBillingRecordsRequest"/>
+		<wsdl:part element="tns:getBillingRecordsRequest" name="getBillingRecordsRequest"/>
 	</wsdl:message>
 	<wsdl:message name="getBillingRecordsResponse">
-		<wsdl:part name="getBillingRecordsResponse" element="tns:getBillingRecordsResponse"/>
+		<wsdl:part element="tns:getBillingRecordsResponse" name="getBillingRecordsResponse"/>
 	</wsdl:message>
 	<wsdl:message name="setBillingStartDateRequest">
-		<wsdl:part name="setBillingStartDateRequest" element="tns:setBillingStartDateRequest"/>
+		<wsdl:part element="tns:setBillingStartDateRequest" name="setBillingStartDateRequest"/>
 	</wsdl:message>
 	<wsdl:message name="setBillingStartDateResponse">
-		<wsdl:part name="setBillingStartDateResponse" element="tns:setBillingStartDateResponse"/>
+		<wsdl:part element="tns:setBillingStartDateResponse" name="setBillingStartDateResponse"/>
 	</wsdl:message>
 	<wsdl:message name="setSubscriptionStateRequest">
-		<wsdl:part name="setSubscriptionStateRequest" element="tns:setSubscriptionStateRequest"/>
+		<wsdl:part element="tns:setSubscriptionStateRequest" name="setSubscriptionStateRequest"/>
 	</wsdl:message>
 	<wsdl:message name="setSubscriptionStateResponse">
-		<wsdl:part name="setSubscriptionStateResponse" element="tns:setSubscriptionStateResponse"/>
+		<wsdl:part element="tns:setSubscriptionStateResponse" name="setSubscriptionStateResponse"/>
 	</wsdl:message>
 	<wsdl:message name="getSubscriptionPlansRequest">
-		<wsdl:part name="getSubscriptionPlansRequest" element="tns:getSubscriptionPlansRequest"/>
+		<wsdl:part element="tns:getSubscriptionPlansRequest" name="getSubscriptionPlansRequest"/>
 	</wsdl:message>
 	<wsdl:message name="getSubscriptionPlansResponse">
-		<wsdl:part name="getSubscriptionPlansResponse" element="tns:getSubscriptionPlansResponse"/>
+		<wsdl:part element="tns:getSubscriptionPlansResponse" name="getSubscriptionPlansResponse"/>
 	</wsdl:message>
 	<wsdl:message name="getSubscribersRequest">
-		<wsdl:part name="getSubscribersRequest" element="tns:getSubscribersRequest"/>
+		<wsdl:part element="tns:getSubscribersRequest" name="getSubscribersRequest"/>
 	</wsdl:message>
 	<wsdl:message name="getSubscribersResponse">
-		<wsdl:part name="getSubscribersResponse" element="tns:getSubscribersResponse"/>
+		<wsdl:part element="tns:getSubscribersResponse" name="getSubscribersResponse"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part name="getVersionRequest" element="tns:getVersionRequest"/>
+		<wsdl:part element="tns:getVersionRequest" name="getVersionRequest"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part name="getVersionResponse" element="tns:getVersionResponse"/>
+		<wsdl:part element="tns:getVersionResponse" name="getVersionResponse"/>
 	</wsdl:message>
 	<wsdl:portType name="OpeneBaySubscriptionServicePort">
 		<wsdl:operation name="addUsage">
@@ -3439,10 +3437,10 @@
 		<wsdl:documentation>
 			<Version>1.1.0</Version>
 		</wsdl:documentation>
-		<wsdl:port name="OpeneBaySubscriptionServiceSOAP" binding="tns:OpeneBaySubscriptionServiceSOAPBinding">
+		<wsdl:port binding="tns:OpeneBaySubscriptionServiceSOAPBinding" name="OpeneBaySubscriptionServiceSOAP">
 			<soap12:address location="https://svcs.ebay.com/services/openebay/v1/OpeneBaySubscriptionService"/>
 		</wsdl:port>
-		<wsdl:port name="OpeneBaySubscriptionServiceHttp" binding="tns:OpeneBaySubscriptionServiceHttpBinding">
+		<wsdl:port binding="tns:OpeneBaySubscriptionServiceHttpBinding" name="OpeneBaySubscriptionServiceHttp">
 			<http:address location="https://svcs.ebay.com/services/openebay/v1/OpeneBaySubscriptionService"/>
 		</wsdl:port>
 	</wsdl:service>

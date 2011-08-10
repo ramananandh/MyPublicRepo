@@ -5,13 +5,13 @@
 	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
 	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
 	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:tns="http://www.ebay.com/marketplace/advertising/v1/services"
+	xmlns:tns="http://www.ebayopensource.org/turmeric/advertising/v2/services"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UniqueIDService"
-	targetNamespace="http://www.ebay.com/marketplace/advertising/v1/services">
+	targetNamespace="http://www.ebayopensource.org/turmeric/advertising/v2/services">
 	<wsdl:types>
 		<xs:schema attributeFormDefault="unqualified"
 			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/advertising/v1/services">
+			targetNamespace="http://www.ebayopensource.org/turmeric/advertising/v2/services">
 
 			<xs:element name="getVersionResponse"
 				type="tns:GetVersionResponse" />
@@ -49,8 +49,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types" >
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -107,8 +107,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -128,8 +128,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types" >
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -206,8 +206,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types" >
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -227,8 +227,8 @@
 
 					<xs:appinfo>
 						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -264,8 +264,8 @@
 
 					<xs:appinfo>
 						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -292,8 +292,8 @@
 
 					<xs:appinfo>
 						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -313,8 +313,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -374,8 +374,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -394,8 +394,8 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -473,8 +473,8 @@
 
 					<xs:appinfo>
 						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+							library="common-type-library"
+							namespace="http://www.ebayopensource.org/turmeric/common/v1/types">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -712,7 +712,7 @@
 		<wsdl:operation name="getVersion">
 
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/advertising/v1/services/getVersion" />
+				soapAction="http://www.ebayopensource.org/turmeric/advertising/v1/services/getVersion" />
 			<wsdl:output>
 
 				<soap:body use="literal" />
@@ -720,14 +720,14 @@
 		</wsdl:operation>
 		<wsdl:operation name="getNestedServiceRequestID">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/advertising/v1/services/getNestedServiceRequestID" />
+				soapAction="http://www.ebayopensource.org/turmericadvertising/v1/services/getNestedServiceRequestID" />
 			<wsdl:output>
 				<soap:body use="literal" />
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getNestedGenericClientInfo">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/advertising/v1/services/getNestedGenericClientInfo" />
+				soapAction="http://www.ebayopensource.org/turmeric/advertising/v1/services/getNestedGenericClientInfo" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -737,7 +737,7 @@
 		</wsdl:operation>
 		<wsdl:operation name="getNestedTransportHeaders">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/advertising/v1/services/getNestedTransportHeaders" />
+				soapAction="http://www.ebayopensource.org/turmeric/advertising/v1/services/getNestedTransportHeaders" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
@@ -757,7 +757,7 @@
 		</wsdl:operation>
 		<wsdl:operation name="testSchemaValidationWithoutUPA">
 			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/advertising/v1/services/testSchemaValidationWithoutUPA" />
+				soapAction="http://www.ebayopensource.org/turmeric/advertising/v1/services/testSchemaValidationWithoutUPA" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>

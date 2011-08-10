@@ -1,13 +1,13 @@
-<definitions name="CollectionsService" targetNamespace="http://www.ebay.com/marketplace/utility/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebay.com/marketplace/utility/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/utility/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CollectionsService" targetNamespace="http://www.ebayopensource.org/tumeric/utility/v1/services">
   <types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/utility/v1/services">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/utility/v1/services">
 
 
 			<xs:complexType name="ExtensionType">
 				<xs:annotation>
 					<xs:documentation>Documentation goes here</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -28,7 +28,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -79,7 +79,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 
@@ -96,7 +96,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -162,7 +162,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -177,7 +177,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -197,7 +197,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -216,7 +216,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -231,7 +231,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -261,12 +261,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceRequest">
 						<xs:sequence>
-							<xs:element name="newCollection"
-								type="tns:CollectionDataType" minOccurs="1"
-								maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="newCollection" type="tns:CollectionDataType">
 							</xs:element>
-							<xs:element name="containmentType"
-								type="tns:CollectionContainmentType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="containmentType" type="tns:CollectionContainmentType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -281,7 +278,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0" name="collectionId" type="tns:CollectionIdType" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="collectionId" type="tns:CollectionIdType">
 							<xs:annotation>
       							<xs:documentation>
        								This is the id of the collection that is automatically generated once the collection is created.
@@ -406,7 +403,7 @@
 						</xs:annotation>
 					</xs:enumeration>
 
-					<xs:enumeration value="entry_position"></xs:enumeration>
+					<xs:enumeration value="entry_position"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -440,8 +437,8 @@
 						</xs:annotation>
 					</xs:enumeration>
 
-					<xs:enumeration value="double"></xs:enumeration>
-					<xs:enumeration value="binary"></xs:enumeration>
+					<xs:enumeration value="double"/>
+					<xs:enumeration value="binary"/>
 
 				</xs:restriction>
 			</xs:simpleType>
@@ -453,11 +450,10 @@
 				</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="position" type="xs:long"
-						minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="position" type="xs:long">
 					</xs:element>
-					<xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
-					<xs:element name="appEntryType" type="xs:long" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="value" type="xs:string"/>
+					<xs:element minOccurs="1" name="appEntryType" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								Application-provided type of the entry. 
@@ -472,7 +468,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="attribute" type="tns:AttributeType" maxOccurs="unbounded" minOccurs="0"	>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="tns:AttributeType">
 						<xs:annotation>
 							<xs:documentation>
 								The attributes of the entry
@@ -487,8 +483,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="expiryDate"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="expiryDate" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								The expiry date of the entry
@@ -515,8 +510,7 @@
 				<xs:sequence>
 					<!-- entryId is required in setEntry operation -->
 
-					<xs:element name="entryKey"
-						type="tns:EntryKeyType" minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="entryKey" type="tns:EntryKeyType">
 						<xs:annotation>
 							<xs:documentation>
 								The key of the entry
@@ -536,7 +530,7 @@
 
 
 
-					<xs:element name="entryData" type="tns:EntryDataType" minOccurs="1" maxOccurs="1"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="1" name="entryData" type="tns:EntryDataType"/>
 				</xs:sequence>
 			</xs:complexType>			
 			
@@ -602,7 +596,7 @@
 			
 			<xs:complexType name="EntryKeyType">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element minOccurs="1" name="collectionId" type="tns:CollectionIdType">
@@ -682,8 +676,7 @@
 			
             <xs:complexType name="CollectionDataType">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="collectionName"
-						type="xs:string">
+					<xs:element minOccurs="0" name="collectionName" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The name of the collection
@@ -699,11 +692,9 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="locale" type="xs:string"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="locale" type="xs:string">
 					</xs:element>
-					<xs:element minOccurs="1" name="appCollectionType"
-						type="xs:long">
+					<xs:element minOccurs="1" name="appCollectionType" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								The category of the entry
@@ -718,9 +709,8 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="visibilityType" type="tns:VisibilityType" minOccurs="1" maxOccurs="1"></xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="collectionEntry" type="tns:EntryType">
+					<xs:element maxOccurs="1" minOccurs="1" name="visibilityType" type="tns:VisibilityType"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="collectionEntry" type="tns:EntryType">
 						<xs:annotation>
 							<xs:documentation>
 								Entries of the collection to be added.
@@ -736,8 +726,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="collectionAttribute" type="tns:AttributeType">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="collectionAttribute" type="tns:AttributeType">
 						<xs:annotation>
 							<xs:documentation>
 								The attributes of the collection.
@@ -752,8 +741,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0"
-						name="collectionExpiryDate" type="xs:dateTime">
+					<xs:element minOccurs="0" name="collectionExpiryDate" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								The expiry date of the collection
@@ -773,8 +761,7 @@
 			
 			<xs:complexType name="CollectionType">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="collectionId"
-						type="tns:CollectionIdType">
+					<xs:element minOccurs="0" name="collectionId" type="tns:CollectionIdType">
 						<xs:annotation>
 							<xs:documentation>
 								This is the id of the collection that is
@@ -792,7 +779,7 @@
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="data" type="tns:CollectionDataType" minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="data" type="tns:CollectionDataType">
 						<xs:annotation>
 							<xs:documentation>
 								Mutable data of the collection
@@ -807,9 +794,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="1"
-						name="collectionContainmentType"
-						type="tns:CollectionContainmentType">
+					<xs:element minOccurs="1" name="collectionContainmentType" type="tns:CollectionContainmentType">
 						<xs:annotation>
 							<xs:documentation>
 								The type of the collection which is
@@ -825,8 +810,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0"
-						name="collectionCreationDate" type="xs:dateTime">
+					<xs:element minOccurs="0" name="collectionCreationDate" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								The creation date of the collection
@@ -841,8 +825,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0"
-						name="collectionModificationDate" type="xs:dateTime">
+					<xs:element minOccurs="0" name="collectionModificationDate" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								The modification date of the collection
@@ -876,9 +859,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="1"
-						name="includeCollectionEntries" type="xs:boolean"
-						maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="includeCollectionEntries" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								A flag to identify whether
@@ -903,12 +884,9 @@
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element
-						name="includeCollectionAttributes" type="xs:boolean"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="includeCollectionAttributes" type="xs:boolean">
 					</xs:element>
-					<xs:element name="includeEntryAttributes"
-						type="xs:boolean" minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="includeEntryAttributes" type="xs:boolean">
 					</xs:element>
 
 					
@@ -947,8 +925,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="1" name="collectionId" type="tns:CollectionIdType">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="collectionId" type="tns:CollectionIdType">
 								<xs:annotation>
 									<xs:documentation>
 										The id of the collection that is
@@ -974,8 +951,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element name="collectionView"
-								type="tns:CollectionViewDescriptorType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="collectionView" type="tns:CollectionViewDescriptorType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1107,8 +1083,7 @@
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
 
-							<xs:element name="collectionId"
-								type="tns:CollectionIdType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="collectionId" type="tns:CollectionIdType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1229,7 +1204,7 @@
 							</xs:annotation>
 							</xs:element>
 
-							<xs:element minOccurs="1" name="includeEntryAttributes" type="xs:boolean" maxOccurs="1"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="includeEntryAttributes" type="xs:boolean"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -1245,10 +1220,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
-                            <xs:element name="collectionId" type="tns:CollectionIdType" minOccurs="1" maxOccurs="1">
+                            <xs:element maxOccurs="1" minOccurs="1" name="collectionId" type="tns:CollectionIdType">
 							</xs:element>
-                            <xs:element maxOccurs="unbounded"
-								minOccurs="0" name="entry" type="tns:EntryType">
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry" type="tns:EntryType">
 								<xs:annotation>
 									<xs:documentation>
 										Entries of the collection to be
@@ -1321,8 +1295,7 @@
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
 
-							<xs:element name="updatedEntryKey"
-								type="tns:EntryKeyType" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="updatedEntryKey" type="tns:EntryKeyType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1383,8 +1356,7 @@
 			<!-- start putCollectionAttributeValues -->
 			<xs:element name="putCollectionAttributeValuesRequest" type="tns:PutCollectionAttributeValuesRequest"/>
 			<xs:element name="putCollectionAttributeValuesResponse" type="tns:PutCollectionAttributeValuesResponse"/>
-			<xs:complexType
-				name="PutCollectionAttributeValuesRequest">
+			<xs:complexType name="PutCollectionAttributeValuesRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This is used to edit the specified collection
@@ -1399,12 +1371,10 @@
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCollectionServiceRequest">
+					<xs:extension base="tns:BaseCollectionServiceRequest">
 						<xs:sequence>
 
-							<xs:element minOccurs="1"
-								name="collectionId" type="tns:CollectionIdType">
+							<xs:element minOccurs="1" name="collectionId" type="tns:CollectionIdType">
 								<xs:annotation>
 									<xs:documentation>
 										The id of the collection that is
@@ -1430,8 +1400,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element minOccurs="1"
-								name="attribute" type="tns:AttributeType">
+							<xs:element minOccurs="1" name="attribute" type="tns:AttributeType">
 								<xs:annotation>
 									<xs:documentation>
 										The id of the collection
@@ -1473,11 +1442,9 @@
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
 							<!-- add more per required -->
-							<xs:element name="collectionId"
-								type="tns:CollectionIdType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="collectionId" type="tns:CollectionIdType">
 							</xs:element>
-							<xs:element name="existedAttributeValues"
-								type="tns:AttributeType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="existedAttributeValues" type="tns:AttributeType">
 							</xs:element>
 
 						</xs:sequence>
@@ -1566,11 +1533,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
-							<xs:element name="collectionId"
-								type="tns:CollectionIdType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="collectionId" type="tns:CollectionIdType">
 							</xs:element>
-							<xs:element maxOccurs="1"
-								minOccurs="1" name="removedAttributeValues" type="tns:AttributeType" />
+							<xs:element maxOccurs="1" minOccurs="1" name="removedAttributeValues" type="tns:AttributeType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -1642,11 +1607,9 @@
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
 							<!-- add more per required -->
-							<xs:element name="entryKey"
-								type="tns:EntryKeyType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="entryKey" type="tns:EntryKeyType">
 							</xs:element>
-							<xs:element name="existedAttributeValues"
-								type="tns:AttributeType" minOccurs="1">
+							<xs:element minOccurs="1" name="existedAttributeValues" type="tns:AttributeType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1735,11 +1698,9 @@
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
 
-							<xs:element name="entryKey"
-								type="tns:EntryKeyType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="entryKey" type="tns:EntryKeyType">
 							</xs:element>
-							<xs:element name="removedAttributeValues"
-								type="tns:AttributeType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="removedAttributeValues" type="tns:AttributeType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1813,11 +1774,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
-							<xs:element name="entryKey"
-								type="tns:EntryKeyType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="entryKey" type="tns:EntryKeyType">
 							</xs:element>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="removedAttributeName" type="xs:string" />
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="removedAttributeName" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -1868,8 +1827,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
-							<xs:element name="entryKey"
-								type="tns:EntryKeyType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="entryKey" type="tns:EntryKeyType">
 							</xs:element>
 
 						</xs:sequence>
@@ -1933,17 +1891,14 @@
 			</xs:complexType>
 			<xs:complexType name="PutEntryAttributesResponse">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCollectionServiceResponse">
+					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
-							<xs:element name="entryKey"
-								type="tns:EntryKeyType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="entryKey" type="tns:EntryKeyType">
 							</xs:element>
-							<xs:element name="replacedAttributeName"
-								type="xs:string" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="replacedAttributeName" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1970,8 +1925,7 @@
 
 
 
-							<xs:element minOccurs="1" name="entryKey"
-								type="tns:EntryKeyType">
+							<xs:element minOccurs="1" name="entryKey" type="tns:EntryKeyType">
 								<xs:annotation>
 									<xs:documentation>
 										This has the id's of the entries
@@ -1998,8 +1952,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="includeAttributeValues"
-								type="xs:boolean" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="includeAttributeValues" type="xs:boolean">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -2015,11 +1968,9 @@
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
 
-							<xs:element name="entryKey"
-								type="tns:EntryKeyType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="entryKey" type="tns:EntryKeyType">
 							</xs:element>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="attribute" type="tns:AttributeType">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="tns:AttributeType">
 								<xs:annotation>
 									<xs:documentation>
 										The attribute is returned here
@@ -2057,8 +2008,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1"
-								name="collectionId" type="tns:CollectionIdType">
+							<xs:element minOccurs="1" name="collectionId" type="tns:CollectionIdType">
 								<xs:annotation>
 									<xs:documentation>
 										The id of the collection that is
@@ -2083,8 +2033,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="includeAttributeValues"
-								type="xs:boolean" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="includeAttributeValues" type="xs:boolean">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -2099,11 +2048,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
-							<xs:element name="collectionId"
-								type="tns:CollectionIdType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="collectionId" type="tns:CollectionIdType">
 							</xs:element>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="attribute" type="tns:AttributeType">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="tns:AttributeType">
 								<xs:annotation>
 									<xs:documentation>
 										The attributes of the collection
@@ -2142,8 +2089,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" name="entryKey"
-								type="tns:EntryKeyType">
+							<xs:element minOccurs="1" name="entryKey" type="tns:EntryKeyType">
 								<xs:annotation>
 									<xs:documentation>
 										This has the id's of the entries
@@ -2170,8 +2116,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="attributeName"
-								type="xs:string" minOccurs="1" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="attributeName" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -2187,11 +2132,9 @@
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
 
-							<xs:element name="entryKey"
-								type="tns:EntryKeyType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="entryKey" type="tns:EntryKeyType">
 							</xs:element>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="attribute" type="tns:AttributeType">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="tns:AttributeType">
 								<xs:annotation>
 									<xs:documentation>
 										The attribute is returned here
@@ -2230,8 +2173,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1"
-								name="collectionId" type="tns:CollectionIdType">
+							<xs:element minOccurs="1" name="collectionId" type="tns:CollectionIdType">
 								<xs:annotation>
 									<xs:documentation>
 										The id of the collection that is
@@ -2256,8 +2198,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="attributeName"
-								type="xs:string" minOccurs="1" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="attributeName" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -2272,11 +2213,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
-							<xs:element name="collectionId"
-								type="tns:CollectionIdType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="collectionId" type="tns:CollectionIdType">
 							</xs:element>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="attribute" type="tns:AttributeType">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="tns:AttributeType">
 								<xs:annotation>
 									<xs:documentation>
 										The attributes of the collection
@@ -2361,11 +2300,9 @@
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
 							<!-- add more per required -->
-							<xs:element name="collectionId"
-								type="tns:CollectionIdType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="collectionId" type="tns:CollectionIdType">
 							</xs:element>
-							<xs:element name="replacedAttributeName"
-								type="xs:string" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="replacedAttributeName" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -2433,11 +2370,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
-							<xs:element name="collectionId"
-								type="tns:CollectionIdType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="collectionId" type="tns:CollectionIdType">
 							</xs:element>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="removedAttributeName" type="xs:string" />
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="removedAttributeName" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -2522,8 +2457,7 @@
 
 
 
-							<xs:element name="collectionIdWithData"
-								type="tns:CollectionIdWithDataType" minOccurs="1" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="collectionIdWithData" type="tns:CollectionIdWithDataType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -2538,8 +2472,7 @@
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
 
-							<xs:element name="updatedCollectionId"
-								type="tns:CollectionIdType" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="updatedCollectionId" type="tns:CollectionIdType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -2831,8 +2764,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" name="entryValue"
-								type="xs:string">
+							<xs:element minOccurs="1" name="entryValue" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										The entry value of an entry.
@@ -2857,8 +2789,7 @@
 
 
 
-							<xs:element name="collectionView"
-								type="tns:CollectionViewDescriptorType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="collectionView" type="tns:CollectionViewDescriptorType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -2872,11 +2803,10 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
-							<xs:element name="requestedEntryValue" type="xs:string" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="requestedEntryValue" type="xs:string">
 
 							</xs:element>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="collection" type="tns:CollectionType">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="collection" type="tns:CollectionType">
 								<xs:annotation>
 									<xs:documentation>
 										The collection along with
@@ -2918,8 +2848,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" name="ownerId"
-								type="xs:string">
+							<xs:element minOccurs="1" name="ownerId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										The owner of list.
@@ -2940,8 +2869,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element maxOccurs="unbounded"
-								minOccurs="1" name="collectionType" type="xs:long">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="collectionType" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 										Application managed list type.
@@ -2967,8 +2895,7 @@
 
 
 
-							<xs:element name="collectionView"
-								type="tns:CollectionViewDescriptorType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="collectionView" type="tns:CollectionViewDescriptorType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -2984,12 +2911,10 @@
 						<xs:sequence>
 
 
-							<xs:element name="ownerId" type="xs:string"
-								minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="ownerId" type="xs:string">
 							</xs:element>
 
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="collection" type="tns:CollectionType">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="collection" type="tns:CollectionType">
 								<xs:annotation>
 									<xs:documentation>
 										The collection along with other
@@ -3031,8 +2956,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" name="ownerId"
-								type="xs:string">
+							<xs:element minOccurs="1" name="ownerId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										The owner of list.
@@ -3053,8 +2977,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element maxOccurs="unbounded"
-								minOccurs="1" name="entryType" type="xs:long">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="entryType" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 										Application managed entry type.
@@ -3080,8 +3003,7 @@
 
 
 
-							<xs:element name="includeAttributes"
-								type="xs:boolean" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="includeAttributes" type="xs:boolean">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -3097,11 +3019,9 @@
 						<xs:sequence>
 
 
-							<xs:element name="ownerId"
-								type="xs:string" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="ownerId" type="xs:string">
 							</xs:element>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="entry" type="tns:EntryType">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="entry" type="tns:EntryType">
 								<xs:annotation>
 									<xs:documentation>
 										The entries
@@ -3194,11 +3114,9 @@
 						<xs:sequence>
 
 
-							<xs:element name="ownerId" type="xs:string"
-								minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="ownerId" type="xs:string">
 							</xs:element>
-							<xs:element name="deletedEntryKey"
-								type="tns:EntryKeyType" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="deletedEntryKey" type="tns:EntryKeyType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -3226,8 +3144,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" name="ownerId"
-								type="xs:string">
+							<xs:element minOccurs="1" name="ownerId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										CS can create a collection for a
@@ -3256,8 +3173,7 @@
 
 
 
-							<xs:element name="collectionView"
-								type="tns:CollectionViewDescriptorType" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="collectionView" type="tns:CollectionViewDescriptorType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -3276,8 +3192,7 @@
 
                             <xs:element name="ownerId" type="xs:string">
 							</xs:element>
-                            <xs:element maxOccurs="unbounded"
-								minOccurs="0" name="collection" type="tns:CollectionType">
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="collection" type="tns:CollectionType">
 								<xs:annotation>
 									<xs:documentation>
 										The returned collection
@@ -3362,8 +3277,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="unbounded" name="entry"
-								type="tns:EntryType">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="entry" type="tns:EntryType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -3378,11 +3292,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="unbounded"
-								name="entryKey" type="tns:EntryKeyType">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="entryKey" type="tns:EntryKeyType">
 							</xs:element>
-							<xs:element name="includeEntryAttributes"
-								type="xs:boolean" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="includeEntryAttributes" type="xs:boolean">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -3394,7 +3306,7 @@
 			<xs:element name="lookupCollectionIdByNameResponse" type="tns:LookupCollectionIdByNameResponse">
 
 			</xs:element>
-			<xs:complexType	name="LookupCollectionIdByNameRequest">
+			<xs:complexType name="LookupCollectionIdByNameRequest">
 				<xs:annotation>
 					<xs:documentation>	
 						Returns collection ID given its name and owner id 												
@@ -3403,21 +3315,19 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceRequest">
 						<xs:sequence>
-							<xs:element name="collectionName"
-								type="xs:string">
+							<xs:element name="collectionName" type="xs:string">
 							</xs:element>
-							<xs:element name="ownerId"
-								type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="ownerId" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:complexType	name="LookupCollectionIdByNameResponse">
+			<xs:complexType name="LookupCollectionIdByNameResponse">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCollectionServiceResponse">
 						<xs:sequence>
-							<xs:element name="collectionId" type="tns:CollectionIdType" minOccurs="0" maxOccurs="1"></xs:element>
+							<xs:element maxOccurs="1" minOccurs="0" name="collectionId" type="tns:CollectionIdType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -3428,7 +3338,7 @@
 				<xs:sequence>
                     <xs:element name="collectionId" type="tns:CollectionIdType">
 					</xs:element>
-                    <xs:element name="collectionData" type="tns:CollectionDataType"></xs:element>
+                    <xs:element name="collectionData" type="tns:CollectionDataType"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -3470,8 +3380,8 @@
 				</xs:restriction>
 			</xs:simpleType>
 
-			<xs:element name="getVersionRequest"  type="tns:GetVersionRequest"/>
-			<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 		    <xs:complexType name="GetVersionRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest"/>
@@ -3742,24 +3652,24 @@
     </part>
   </message>
   <wsdl:message name="getEntriesRequest">
-  	<wsdl:part name="messageParameters" element="tns:getEntriesRequest"></wsdl:part>
+  	<wsdl:part element="tns:getEntriesRequest" name="messageParameters"/>
   </wsdl:message>
   <wsdl:message name="getEntriesResponse">
-  	<wsdl:part name="messageParameters" element="tns:getEntriesResponse"></wsdl:part>
+  	<wsdl:part element="tns:getEntriesResponse" name="messageParameters"/>
   </wsdl:message>
   <wsdl:message name="lookupCollectionIdByNameRequest">
-  	<wsdl:part name="messageParameters" element="tns:lookupCollectionIdByNameRequest"></wsdl:part>
+  	<wsdl:part element="tns:lookupCollectionIdByNameRequest" name="messageParameters"/>
   </wsdl:message>
   <wsdl:message name="lookupCollectionIdByNameResponse">
-  	<wsdl:part name="messageParameters" element="tns:lookupCollectionIdByNameResponse"></wsdl:part>
+  	<wsdl:part element="tns:lookupCollectionIdByNameResponse" name="messageParameters"/>
   </wsdl:message>
 
   <wsdl:message name="getVersionRequest">
-    <wsdl:part name="messageParameters" element="tns:getVersionRequest">
+    <wsdl:part element="tns:getVersionRequest" name="messageParameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getVersionResponse">
-    <wsdl:part name="messageParameters" element="tns:getVersionResponse">
+    <wsdl:part element="tns:getVersionResponse" name="messageParameters">
     </wsdl:part>
   </wsdl:message>
   
@@ -3775,8 +3685,8 @@
     </output>
     </operation>
     <wsdl:operation name="lookupCollectionIdByName">
-    	<wsdl:input message="tns:lookupCollectionIdByNameRequest"></wsdl:input>
-    	<wsdl:output message="tns:lookupCollectionIdByNameResponse"></wsdl:output>
+    	<wsdl:input message="tns:lookupCollectionIdByNameRequest"/>
+    	<wsdl:output message="tns:lookupCollectionIdByNameResponse"/>
     </wsdl:operation>
 
     <operation name="readCollections">
@@ -3886,8 +3796,8 @@
 			<wsdl:documentation>
 				Look up a single entry by its key 
 			</wsdl:documentation>
-    	<wsdl:input message="tns:getEntriesRequest"></wsdl:input>
-    	<wsdl:output message="tns:getEntriesResponse"></wsdl:output>
+    	<wsdl:input message="tns:getEntriesRequest"/>
+    	<wsdl:output message="tns:getEntriesResponse"/>
     </wsdl:operation>
     <operation name="getAllEntries">
 	<wsdl:documentation>
@@ -4084,15 +3994,14 @@
     </wsdl:operation>
     
   </portType>
-  <binding name="CollectionsServiceHttpBinding"
-  	type="tns:CollectionsServicePort">
+  <binding name="CollectionsServiceHttpBinding" type="tns:CollectionsServicePort">
 
-  	<http:binding verb="POST" />
+  	<http:binding verb="POST"/>
   	<operation name="removeEntryAttributes">
 
-  		<http:operation location="/removeEntryAttributes" />
+  		<http:operation location="/removeEntryAttributes"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4100,7 +4009,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4110,9 +4019,9 @@
   	</operation>
   	<operation name="getAllEntryAttributes">
 
-  		<http:operation location="/getAllEntryAttributes" />
+  		<http:operation location="/getAllEntryAttributes"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4120,7 +4029,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4130,9 +4039,9 @@
   	</operation>
   	<operation name="createCollections">
 
-  		<http:operation location="/createCollections" />
+  		<http:operation location="/createCollections"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4140,7 +4049,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4151,9 +4060,9 @@
 
   	<operation name="readCollections">
 
-  		<http:operation location="/readCollections" />
+  		<http:operation location="/readCollections"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4161,7 +4070,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4171,9 +4080,9 @@
   	</operation>
   	<operation name="deleteCollections">
 
-  		<http:operation location="/deleteCollections" />
+  		<http:operation location="/deleteCollections"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4181,7 +4090,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4191,9 +4100,9 @@
   	</operation>
   	<operation name="deleteAllEntries">
 
-  		<http:operation location="/deleteAllEntries" />
+  		<http:operation location="/deleteAllEntries"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4201,7 +4110,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4211,9 +4120,9 @@
   	</operation>
   	<operation name="deleteEntries">
 
-  		<http:operation location="/deleteEntries" />
+  		<http:operation location="/deleteEntries"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4221,7 +4130,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4231,9 +4140,9 @@
   	</operation>
   	<operation name="addEntries">
 
-  		<http:operation location="/addEntries" />
+  		<http:operation location="/addEntries"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4241,7 +4150,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4251,9 +4160,9 @@
   	</operation>
   	<operation name="getAllEntries">
 
-  		<http:operation location="/getAllEntries" />
+  		<http:operation location="/getAllEntries"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4261,7 +4170,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4271,9 +4180,9 @@
   	</operation>
   	<operation name="updateEntries">
 
-  		<http:operation location="/updateEntries" />
+  		<http:operation location="/updateEntries"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4281,7 +4190,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4292,9 +4201,9 @@
 
   	<operation name="getAllCollectionAttributes">
 
-  		<http:operation location="/getAllCollectionAttributes" />
+  		<http:operation location="/getAllCollectionAttributes"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4302,7 +4211,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4312,9 +4221,9 @@
   	</operation>
   	<operation name="putCollectionAttributes">
 
-  		<http:operation location="/putCollectionAttributes" />
+  		<http:operation location="/putCollectionAttributes"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4322,7 +4231,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4332,9 +4241,9 @@
   	</operation>
   	<operation name="removeCollectionAttributes">
 
-  		<http:operation location="/removeCollectionAttributes" />
+  		<http:operation location="/removeCollectionAttributes"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4342,7 +4251,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4353,9 +4262,9 @@
 
   	<operation name="putCollectionAttributeValues">
 
-  		<http:operation location="/putCollectionAttributeValues" />
+  		<http:operation location="/putCollectionAttributeValues"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4363,7 +4272,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4373,9 +4282,9 @@
   	</operation>
   	<operation name="removeCollectionAttributeValues">
 
-  		<http:operation location="/removeCollectionAttributeValues" />
+  		<http:operation location="/removeCollectionAttributeValues"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4383,7 +4292,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4394,9 +4303,9 @@
 
   	<operation name="putEntryAttributeValues">
 
-  		<http:operation location="/putEntryAttributeValues" />
+  		<http:operation location="/putEntryAttributeValues"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4404,7 +4313,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4414,9 +4323,9 @@
   	</operation>
   	<operation name="removeEntryAttributeValues">
 
-  		<http:operation location="/removeEntryAttributeValues" />
+  		<http:operation location="/removeEntryAttributeValues"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4424,7 +4333,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4436,9 +4345,9 @@
 
   	<operation name="findCollectionsByOwnerId">
 
-  		<http:operation location="/findCollectionsByOwnerId" />
+  		<http:operation location="/findCollectionsByOwnerId"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4446,7 +4355,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4456,9 +4365,9 @@
   	</operation>
   	<operation name="updateCollections">
 
-  		<http:operation location="/updateCollections" />
+  		<http:operation location="/updateCollections"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4466,7 +4375,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4476,9 +4385,9 @@
   	</operation>
   	<operation name="moveEntryToTop">
 
-  		<http:operation location="/moveEntryToTop" />
+  		<http:operation location="/moveEntryToTop"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4486,7 +4395,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4496,9 +4405,9 @@
   	</operation>
   	<operation name="moveEntryToBottom">
 
-  		<http:operation location="/moveEntryToBottom" />
+  		<http:operation location="/moveEntryToBottom"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4506,7 +4415,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4516,9 +4425,9 @@
   	</operation>
   	<operation name="moveEntryAfter">
 
-  		<http:operation location="/moveEntryAfter" />
+  		<http:operation location="/moveEntryAfter"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4526,7 +4435,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4536,9 +4445,9 @@
   	</operation>
   	<operation name="moveEntryBefore">
 
-  		<http:operation location="/moveEntryBefore" />
+  		<http:operation location="/moveEntryBefore"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4546,7 +4455,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4556,9 +4465,9 @@
   	</operation>
   	<operation name="findCollectionsWithEntryValue">
 
-  		<http:operation location="/findCollectionsWithEntryValue" />
+  		<http:operation location="/findCollectionsWithEntryValue"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4566,7 +4475,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4576,10 +4485,9 @@
   	</operation>
   	<operation name="findCollectionsByOwnerIdAndCollectionTypes">
 
-  		<http:operation
-  			location="/findCollectionsByOwnerIdAndCollectionTypes" />
+  		<http:operation location="/findCollectionsByOwnerIdAndCollectionTypes"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4587,7 +4495,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4597,10 +4505,9 @@
   	</operation>
   	<operation name="findCollectionEntriesByOwnerIdAndEntryTypes">
 
-  		<http:operation
-  			location="/findCollectionEntriesByOwnerIdAndEntryTypes" />
+  		<http:operation location="/findCollectionEntriesByOwnerIdAndEntryTypes"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4608,7 +4515,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4616,13 +4523,11 @@
 
   		</output>
   	</operation>
-  	<operation
-  		name="deleteCollectionEntriesByOwnerIdAndEntryValues">
+  	<operation name="deleteCollectionEntriesByOwnerIdAndEntryValues">
 
-  		<http:operation
-  			location="/deleteCollectionEntriesByOwnerIdAndEntryValues" />
+  		<http:operation location="/deleteCollectionEntriesByOwnerIdAndEntryValues"/>
   		<input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -4630,7 +4535,7 @@
 
   		</input>
   		<output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4640,16 +4545,16 @@
   	</operation>
   	<wsdl:operation name="lookupCollectionIdByName">
 
-  		<http:operation location="/lookupCollectionIdByName" />
+  		<http:operation location="/lookupCollectionIdByName"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
 
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4658,16 +4563,16 @@
   	</wsdl:operation>
   	<wsdl:operation name="getEntries">
 
-  		<http:operation location="/getEntries" />
+  		<http:operation location="/getEntries"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
 
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4676,16 +4581,16 @@
   	</wsdl:operation>
   	<wsdl:operation name="getCollectionAttributes">
 
-  		<http:operation location="/getCollectionAttributes" />
+  		<http:operation location="/getCollectionAttributes"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
 
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4694,16 +4599,16 @@
   	</wsdl:operation>
   	<wsdl:operation name="removeAllCollectionAttributes">
 
-  		<http:operation location="/removeAllCollectionAttributes" />
+  		<http:operation location="/removeAllCollectionAttributes"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
 
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4712,16 +4617,16 @@
   	</wsdl:operation>
   	<wsdl:operation name="getEntryAttributes">
 
-  		<http:operation location="/getEntryAttributes" />
+  		<http:operation location="/getEntryAttributes"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
 
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
@@ -4730,499 +4635,461 @@
   	</wsdl:operation>
   	<wsdl:operation name="putEntryAttributes">
 
-  		<http:operation location="/putEntryAttributes" />
+  		<http:operation location="/putEntryAttributes"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
 
 
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="removeAllEntryAttributes">
-  		<http:operation location="/removeAllEntryAttributes" />
+  		<http:operation location="/removeAllEntryAttributes"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="getVersion">
-  		<http:operation location="/getVersion" />
+  		<http:operation location="/getVersion"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
   		</wsdl:output>
   	</wsdl:operation>
   </binding>
-  <binding name="CollectionsServiceSOAPBinding"
-  	type="tns:CollectionsServicePort">
+  <binding name="CollectionsServiceSOAPBinding" type="tns:CollectionsServicePort">
 
-  	<soap:binding style="document"
-  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
   	<operation name="createCollections">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/createCollections" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/createCollections"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
 
   	<operation name="readCollections">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/readCollections" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/readCollections"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="deleteCollections">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/deleteCollections" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/deleteCollections"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="deleteAllEntries">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/deleteAllEntries" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/deleteAllEntries"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="deleteEntries">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/deleteEntries" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/deleteEntries"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="addEntries">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/addEntries" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/addEntries"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="getAllEntries">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/getAllEntries" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/getAllEntries"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="updateEntries">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/updateEntries" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/updateEntries"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
 
   	<operation name="getAllCollectionAttributes">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/getAllCollectionAttributes" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/getAllCollectionAttributes"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="putCollectionAttributes">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/putCollectionAttributes" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/putCollectionAttributes"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="removeCollectionAttributes">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/removeCollectionAttributes" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/removeCollectionAttributes"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
 
   	<operation name="putEntryAttributeValues">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/putEntryAttributeValues" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/putEntryAttributeValues"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="removeEntryAttributeValues">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/removeEntryAttributeValues" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/removeEntryAttributeValues"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
 
 
   	<operation name="findCollectionsByOwnerId">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/findCollectionsByOwnerId" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/findCollectionsByOwnerId"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
 
   	<operation name="putCollectionAttributeValues">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/putCollectionAttributeValues" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/putCollectionAttributeValues"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="removeCollectionAttributeValues">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/removeCollectionAttributeValues" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/removeCollectionAttributeValues"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
 
   	<operation name="removeEntryAttributes">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/removeEntryAttributes" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/removeEntryAttributes"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="getAllEntryAttributes">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/getAllEntryAttributes" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/getAllEntryAttributes"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="updateCollections">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/updateCollections" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/updateCollections"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="moveEntryToTop">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/moveEntryToTop" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/moveEntryToTop"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="moveEntryToBottom">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/moveEntryToBottom" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/moveEntryToBottom"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="moveEntryAfter">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/moveEntryAfter" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/moveEntryAfter"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="moveEntryBefore">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/moveEntryBefore" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/moveEntryBefore"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="findCollectionsWithEntryValue">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/findCollectionsWithEntryValue" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/findCollectionsWithEntryValue"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="findCollectionsByOwnerIdAndCollectionTypes">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/findCollectionsByOwnerIdAndCollectionTypes" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/findCollectionsByOwnerIdAndCollectionTypes"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<operation name="findCollectionEntriesByOwnerIdAndEntryTypes">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/findCollectionEntriesByOwnerIdAndEntryTypes" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/findCollectionEntriesByOwnerIdAndEntryTypes"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
-  	<operation
-  		name="deleteCollectionEntriesByOwnerIdAndEntryValues">
+  	<operation name="deleteCollectionEntriesByOwnerIdAndEntryValues">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/deleteCollectionEntriesByOwnerIdAndEntryValues" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/deleteCollectionEntriesByOwnerIdAndEntryValues"/>
   		<input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</input>
   		<output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</output>
   	</operation>
   	<wsdl:operation name="lookupCollectionIdByName">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/lookupCollectionIdByName" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/lookupCollectionIdByName"/>
   		<wsdl:input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="getEntries">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/getEntries" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/getEntries"/>
   		<wsdl:input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="getCollectionAttributes">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/getCollectionAttributes" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/getCollectionAttributes"/>
   		<wsdl:input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="removeAllCollectionAttributes">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/removeAllCollectionAttributes" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/removeAllCollectionAttributes"/>
   		<wsdl:input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="getEntryAttributes">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/getEntryAttributes" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/getEntryAttributes"/>
   		<wsdl:input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="putEntryAttributes">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/putEntryAttributes" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/putEntryAttributes"/>
   		<wsdl:input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="removeAllEntryAttributes">
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/removeAllEntryAttributes" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/removeAllEntryAttributes"/>
   		<wsdl:input>
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="getVersion">
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/utility/v1/services/getVersion" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/utility/v1/services/getVersion"/>
   		<wsdl:input>
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   </binding>
@@ -5235,8 +5102,7 @@
       <http:address location="http://svcs.ebay.com/services/utility/v1/CollectionsService"/>
     </port>
     <port binding="tns:CollectionsServiceSOAPBinding" name="CollectionsServiceSOAPPort">
-      <soap12:address 
-      	location="http://svcs.ebay.com/services/utility/v1/CollectionsService"/>
+      <soap12:address location="http://svcs.ebay.com/services/utility/v1/CollectionsService"/>
     </port>
   </service>
 </definitions>

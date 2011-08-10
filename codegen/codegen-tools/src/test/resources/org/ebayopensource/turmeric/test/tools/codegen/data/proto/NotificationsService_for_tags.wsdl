@@ -1,33 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions 
-targetNamespace="http://www.ebay.com/marketplace/notification/v1/services" 
-xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
-xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
-xmlns:ns0="http://www.ebay.com/marketplace/notification/v1/services" 
-xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
-xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
-xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/notification/v1/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/notification/v1/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" 
-    elementFormDefault="qualified" 
-    targetNamespace="http://www.ebay.com/marketplace/notification/v1/services" 
-    xmlns:tns="http://www.ebay.com/marketplace/notification/v1/services" 
-    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/notification/v1/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/notification/v1/services">
 
-<xs:element name="sendNotificationsRequest"  type="tns:SendNotificationsRequest"/>
-<xs:element name="sendNotificationsResponse"  type="tns:SendNotificationsResponse"/>
-<xs:element name="getVersionRequest"  type="tns:GetVersionRequest"/>
-<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
-<xs:element name="getSupportedEventTypesRequest"  type="tns:GetSupportedEventTypesRequest"/>
-<xs:element name="getSupportedEventTypesResponse"  type="tns:GetSupportedEventTypesResponse"/>
+<xs:element name="sendNotificationsRequest" type="tns:SendNotificationsRequest"/>
+<xs:element name="sendNotificationsResponse" type="tns:SendNotificationsResponse"/>
+<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
+<xs:element name="getSupportedEventTypesRequest" type="tns:GetSupportedEventTypesRequest"/>
+<xs:element name="getSupportedEventTypesResponse" type="tns:GetSupportedEventTypesResponse"/>
 <!-- Type definitions -->   
     <xs:complexType name="GetSupportedEventTypesRequest">
 	<xs:annotation>
 		<xs:documentation>Return a list of event types supported by the
 			service</xs:documentation>
-		<xs:appinfo></xs:appinfo>
+		<xs:appinfo/>
 	</xs:annotation>
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
@@ -40,7 +26,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 
     <xs:complexType name="GetVersionRequest">
 	<xs:complexContent>
-		<xs:extension base="tns:BaseRequest" />
+		<xs:extension base="tns:BaseRequest"/>
 	</xs:complexContent>
 </xs:complexType>
     <xs:complexType name="SendNotificationsRequest">
@@ -49,13 +35,12 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 			The
 			recipient should enable their interest by calling
 			SetNotificationPreferences API</xs:documentation>
-		<xs:appinfo></xs:appinfo>
+		<xs:appinfo/>
 	</xs:annotation>
 	<xs:complexContent>
 		<xs:extension base="tns:BaseRequest">
 			<xs:sequence>
-				<xs:element minOccurs="1" name="eventDetail" type="ns0:EventDetail"
-					maxOccurs="unbounded">
+				<xs:element maxOccurs="unbounded" minOccurs="1" name="eventDetail" type="ns0:EventDetail">
 					<xs:annotation>
 						<xs:documentation>
 							The event detail such as intended recipient,
@@ -63,7 +48,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 						</xs:documentation>
 						<xs:appinfo>
 							<CallInfo>
-								<CallName />
+								<CallName/>
 								<RequiredInput>Yes</RequiredInput>
 							</CallInfo>
 						</xs:appinfo>
@@ -81,7 +66,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 			The response type of GetSupportedEventTypes
 			operation.
 		</xs:documentation>
-		<xs:appinfo></xs:appinfo>
+		<xs:appinfo/>
 	</xs:annotation>
 	<xs:complexContent>
 		<xs:extension base="tns:BaseResponse">
@@ -98,7 +83,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 
     <xs:complexType name="GetVersionResponse">
 	<xs:complexContent>
-		<xs:extension base="tns:BaseResponse" />
+		<xs:extension base="tns:BaseResponse"/>
 	</xs:complexContent>
 </xs:complexType>
 
@@ -107,7 +92,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 		<xs:documentation>
 			The response of SendNotifications operation.
 		</xs:documentation>
-		<xs:appinfo></xs:appinfo>
+		<xs:appinfo/>
 	</xs:annotation>
 	<xs:complexContent>
 		<xs:extension base="tns:BaseResponse">
@@ -123,14 +108,13 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 			name</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element minOccurs="0" maxOccurs="unbounded" name="property"
-			type="ns0:PropertyType">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="ns0:PropertyType">
 			<xs:annotation>
 				<xs:documentation>Key-value pair</xs:documentation>
 			</xs:annotation>
 		</xs:element>
 	</xs:sequence>
-	<xs:attribute name="propertyGroup" type="xs:string" />
+	<xs:attribute name="propertyGroup" type="xs:string"/>
 </xs:complexType>
 
     <xs:complexType name="EventDetail">
@@ -146,7 +130,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 						</xs:documentation>
 				<xs:appinfo>
 					<CallInfo>
-						<CallName />
+						<CallName/>
 						<RequiredInput>Yes</RequiredInput>
 					</CallInfo>
 				</xs:appinfo>
@@ -160,7 +144,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 						</xs:documentation>
 				<xs:appinfo>
 					<CallInfo>
-						<CallName />
+						<CallName/>
 						<RequiredInput>Yes</RequiredInput>
 					</CallInfo>
 				</xs:appinfo>
@@ -190,8 +174,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 				<xs:documentation>The event payload</xs:documentation>
 			</xs:annotation>
 		</xs:element>
-		<xs:element minOccurs="0" maxOccurs="unbounded" name="contextData"
-			type="ns0:ContextDataType">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="contextData" type="ns0:ContextDataType">
 			<xs:annotation>
 				<xs:documentation>Data pertaining to event as name-value pair array</xs:documentation>
 			</xs:annotation>
@@ -205,7 +188,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 	</xs:annotation>
 	<xs:simpleContent>
 		<xs:extension base="xs:string">
-			<xs:attribute name="name" type="xs:string"></xs:attribute>
+			<xs:attribute name="name" type="xs:string"/>
 		</xs:extension>
 	</xs:simpleContent>
 </xs:complexType>
@@ -214,15 +197,15 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 <xs:complexType name="ExtensionType">
 	<xs:annotation>
 		<xs:documentation>Documentation goes here</xs:documentation>
-		<xs:appinfo></xs:appinfo>
+		<xs:appinfo/>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="id" type="xs:positiveInteger" />
-		<xs:element name="version" type="xs:string" />
-		<xs:element name="contentType" type="xs:string" />
-		<xs:element name="value" type="xs:string" />
+		<xs:element name="id" type="xs:positiveInteger"/>
+		<xs:element name="version" type="xs:string"/>
+		<xs:element name="contentType" type="xs:string"/>
+		<xs:element name="value" type="xs:string"/>
 
-			processContents="lax" />
+			processContents="lax" /&gt;
 	</xs:sequence>
 </xs:complexType>
 
@@ -234,8 +217,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="extension" type="tns:ExtensionType"
-			minOccurs="0" maxOccurs="unbounded" />
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 	</xs:sequence>
 </xs:complexType>
 
@@ -255,15 +237,14 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 				</xs:documentation>
 				<xs:appinfo>
 					<CallInfo>
-						<AllCalls />
+						<AllCalls/>
 						<Returned>Always</Returned>
 
 					</CallInfo>
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element minOccurs="0" name="errorMessage"
-			type="tns:ErrorMessage">
+		<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 			<xs:annotation>
 				<xs:documentation>
 					Information for an error or warning that
@@ -272,19 +253,19 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 
 				<xs:appinfo>
 					<CallInfo>
-						<AllCalls />
+						<AllCalls/>
 						<Returned>Conditionally</Returned>
 					</CallInfo>
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
 
-		<xs:element name="version" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="version" type="xs:string">
 			<xs:annotation>
-				<xs:documentation></xs:documentation>
+				<xs:documentation/>
 				<xs:appinfo>
 					<CallInfo>
-						<AllCalls />
+						<AllCalls/>
 						<Returned>Always</Returned>
 
 					</CallInfo>
@@ -292,21 +273,19 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 			</xs:annotation>
 
 		</xs:element>
-		<xs:element name="timestamp" type="xs:dateTime"
-			minOccurs="0">
+		<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 			<xs:annotation>
-				<xs:documentation></xs:documentation>
+				<xs:documentation/>
 
 				<xs:appinfo>
 					<CallInfo>
-						<AllCalls />
+						<AllCalls/>
 						<Returned>Always</Returned>
 					</CallInfo>
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="extension" type="tns:ExtensionType"
-			minOccurs="0" maxOccurs="unbounded" />
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 	</xs:sequence>
 </xs:complexType>
 
@@ -362,7 +341,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					Details about a single error.
@@ -496,7 +475,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 			</xs:annotation>
 
 		</xs:element>
-		<xs:element name="subdomain" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="subdomain" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Name of the subdomain upon which the error occurred. 
@@ -527,7 +506,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="exceptionId" type="xs:token" minOccurs="0">
+		<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 
 			<xs:annotation>
 				<xs:documentation>
@@ -542,7 +521,7 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="parameter" type="tns:ErrorParameter" minOccurs="0" maxOccurs="unbounded">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -678,27 +657,27 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 </wsdl:types>
 
   <wsdl:message name="sendNotificationsRequest">
-    <wsdl:part name="params" element="ns0:sendNotificationsRequest">
+    <wsdl:part element="ns0:sendNotificationsRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="sendNotificationsResponse">
-    <wsdl:part name="params" element="ns0:sendNotificationsResponse">
+    <wsdl:part element="ns0:sendNotificationsResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getVersionRequest">
-    <wsdl:part name="params" element="ns0:getVersionRequest">
+    <wsdl:part element="ns0:getVersionRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getVersionResponse">
-    <wsdl:part name="params" element="ns0:getVersionResponse">
+    <wsdl:part element="ns0:getVersionResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getSupportedEventTypesRequest">
-    <wsdl:part name="params" element="ns0:getSupportedEventTypesRequest">
+    <wsdl:part element="ns0:getSupportedEventTypesRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getSupportedEventTypesResponse">
-    <wsdl:part name="params" element="ns0:getSupportedEventTypesResponse">
+    <wsdl:part element="ns0:getSupportedEventTypesResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   
@@ -796,10 +775,10 @@ xmlns="http://schemas.xmlsoap.org/wsdl/">
 	<wsdl:documentation>
 		<Version>1.0.0</Version> 
 	</wsdl:documentation>
-    <wsdl:port name="NotificationsServiceHttpPort" binding="ns0:NotificationsServiceHttpBinding">
+    <wsdl:port binding="ns0:NotificationsServiceHttpBinding" name="NotificationsServiceHttpPort">
       <http:address location="http://svcs.ebay.com/services/notification/NotificationsService/v1"/>
     </wsdl:port>
-    <wsdl:port name="NotificationsServiceSOAPPort" binding="ns0:NotificationsServiceSOAPBinding">
+    <wsdl:port binding="ns0:NotificationsServiceSOAPBinding" name="NotificationsServiceSOAPPort">
       <soap12:address location="http://svcs.ebay.com/services/notification/NotificationsService/v1"/>
     </wsdl:port>
   </wsdl:service>

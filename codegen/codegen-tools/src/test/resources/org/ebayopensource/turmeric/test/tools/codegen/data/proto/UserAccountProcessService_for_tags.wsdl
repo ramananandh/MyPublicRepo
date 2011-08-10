@@ -1,22 +1,13 @@
-<wsdl:definitions name="UserAccountProcessService"
-	targetNamespace="http://www.ebay.com/marketplace/registration/v1/services"
-	xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebay.com/marketplace/registration/v1/services"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/registration/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UserAccountProcessService" targetNamespace="http://www.ebayopensource.org/tumeric/registration/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/registration/v1/services"
-			xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+		<xs:schema xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/registration/v1/services">
 			<xs:simpleType name="Gender">
 				<xs:annotation>
 					<xs:documentation>
 						Provides the values for Gender type
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -55,7 +46,7 @@
 									</xs:documentation>
 									<xs:appinfo>
 										<CallInfo>
-											<AllCalls />
+											<AllCalls/>
 											<Returned>Always</Returned>
 										</CallInfo>
 									</xs:appinfo>
@@ -69,8 +60,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="userLoginName"
-								type="xs:string" />
+							<xs:element maxOccurs="1" minOccurs="1" name="userLoginName" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -85,8 +75,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="emailAddress"
-								type="xs:string" />
+							<xs:element maxOccurs="1" minOccurs="1" name="emailAddress" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -111,22 +100,14 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="governmentIssuedIdDetail" type="tns:GovernmentIssuedPersonId" />
-							<xs:element maxOccurs="1" minOccurs="0" name="age"
-								type="xs:date" />
-							<xs:element maxOccurs="1" minOccurs="0" name="firstName"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="lastname"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="city"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="state"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="gender"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="1" name="countryCode"
-								type="xs:token" />
+							<xs:element maxOccurs="1" minOccurs="1" name="governmentIssuedIdDetail" type="tns:GovernmentIssuedPersonId"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="age" type="xs:date"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="firstName" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="lastname" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="city" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="state" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="gender" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="countryCode" type="xs:token"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -135,16 +116,13 @@
 			<xs:complexType name="GovernmentIssuedPersonId">
 					<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					</xs:annotation>
 			        <xs:sequence>
-			              <xs:element name="id"
-			                    type="xs:string" maxOccurs="1" minOccurs="1">
+			              <xs:element maxOccurs="1" minOccurs="1" name="id" type="xs:string">
 			              </xs:element>
-			              <xs:element name="type"
-			                    type="xs:token" maxOccurs="1" minOccurs="1">
+			              <xs:element maxOccurs="1" minOccurs="1" name="type" type="xs:token">
 			              </xs:element>
 			        </xs:sequence>
 			</xs:complexType>
@@ -164,16 +142,11 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="companyNameDetail" type="tns:CompanyNameDetail" />
-							<xs:element maxOccurs="1" minOccurs="0" name="companyIdDetail"
-								type="tns:CompanyIdDetail" />
-							<xs:element maxOccurs="1" minOccurs="0" name="companyType"
-								type="xs:token" />
-							<xs:element maxOccurs="1" minOccurs="0" name="legalForm"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="1" name="countryCode"
-								type="xs:token" />
+							<xs:element maxOccurs="1" minOccurs="0" name="companyNameDetail" type="tns:CompanyNameDetail"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="companyIdDetail" type="tns:CompanyIdDetail"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="companyType" type="xs:token"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="legalForm" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="countryCode" type="xs:token"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -181,18 +154,14 @@
 			<!--</xs:element>-->
 			<xs:complexType name="CompanyNameDetail">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="companyNamePart1"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="companyNamePart2"
-						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="1" name="companyNamePart1" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="companyNamePart2" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="CompanyIdDetail">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="companyNumberPart1"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="companyNumberPart2"
-						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="1" name="companyNumberPart1" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="companyNumberPart2" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ValidateCompanyDetailResponseType">
@@ -207,10 +176,8 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="age"
-								type="xs:date" />
-							<xs:element maxOccurs="1" minOccurs="1" name="countryCode"
-								type="xs:token" />
+							<xs:element maxOccurs="1" minOccurs="1" name="age" type="xs:date"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="countryCode" type="xs:token"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -224,20 +191,17 @@
 			<xs:complexType name="PersonName">
 					<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 		        <xs:sequence>
-		              <xs:element name="firstName" type="xs:string" maxOccurs="1" minOccurs="1">
+		              <xs:element maxOccurs="1" minOccurs="1" name="firstName" type="xs:string">
 		              </xs:element>
-		              <xs:element name="middleName"
-		                    type="xs:string" maxOccurs="1" minOccurs="0">
+		              <xs:element maxOccurs="1" minOccurs="0" name="middleName" type="xs:string">
 		              </xs:element>
-		              <xs:element name="lastName" type="xs:string" maxOccurs="1" minOccurs="1">
+		              <xs:element maxOccurs="1" minOccurs="1" name="lastName" type="xs:string">
 		              </xs:element>
-		              <xs:element name="salutation"
-		                    type="xs:token" maxOccurs="1" minOccurs="0">
+		              <xs:element maxOccurs="1" minOccurs="0" name="salutation" type="xs:token">
 		              </xs:element>
 		        </xs:sequence>
 			</xs:complexType>				
@@ -247,10 +211,8 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="phoneNumber"
-								type="tns:PhoneNumber" />
-							<xs:element maxOccurs="1" minOccurs="1" name="countryCode"
-								type="xs:token" />
+							<xs:element maxOccurs="1" minOccurs="1" name="phoneNumber" type="tns:PhoneNumber"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="countryCode" type="xs:token"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -258,21 +220,15 @@
 			<xs:complexType name="PhoneNumber">
 			<xs:annotation>
 				<xs:appinfo>
-					<typeLibrarySource library="UserServiceCommonTypeLibrary"
-						namespace="http://www.ebay.com/marketplace/user/v1/types" />
+					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/user/v1/types"/>
 				</xs:appinfo>
 			</xs:annotation>
 			<xs:sequence>
-				<xs:element name="CountryPrefix" type="xs:string"
-					maxOccurs="1" minOccurs="0"></xs:element>
-				<xs:element name="AreaCode" type="xs:string" maxOccurs="1"
-					minOccurs="0"></xs:element>
-				<xs:element name="LocalNumberPart1" type="xs:string"
-					maxOccurs="1" minOccurs="1"></xs:element>
-				<xs:element name="LocalNumberPart2" type="xs:string"
-					maxOccurs="1" minOccurs="0"></xs:element>
-				<xs:element name="Extension" type="xs:string" maxOccurs="1"
-					minOccurs="0"></xs:element>
+				<xs:element maxOccurs="1" minOccurs="0" name="CountryPrefix" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="AreaCode" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="1" name="LocalNumberPart1" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="LocalNumberPart2" type="xs:string"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="Extension" type="xs:string"/>
 			</xs:sequence>
 		</xs:complexType>
 			<xs:complexType name="ValidateRegistrationPhoneNumberResponseType">
@@ -285,17 +241,17 @@
 			<!-- User Account type defines different user accounts available -->
 			<xs:simpleType name="UserAccountTypeEnum">
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="UNKNOWN" />
-					<xs:enumeration value="PRIVATE" />
-					<xs:enumeration value="BUSINESS" />
+					<xs:enumeration value="UNKNOWN"/>
+					<xs:enumeration value="PRIVATE"/>
+					<xs:enumeration value="BUSINESS"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<!-- User Profile State defines different user accounts available -->
 			<xs:simpleType name="UserProfileStateEnum">
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="FPA" />
-					<xs:enumeration value="PPA" />
-					<xs:enumeration value="FULL_MP_PARTICIPANT" />
+					<xs:enumeration value="FPA"/>
+					<xs:enumeration value="PPA"/>
+					<xs:enumeration value="FULL_MP_PARTICIPANT"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<!--
@@ -303,8 +259,8 @@
 			-->
 			<xs:simpleType name="IdentityProviderTypeEnum">
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="FaceBook" />
-					<xs:enumeration value="EBAY" />
+					<xs:enumeration value="FaceBook"/>
+					<xs:enumeration value="EBAY"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:simpleType name="InvokerType">
@@ -315,68 +271,41 @@
 						</xs:restriction>
 			</xs:simpleType>
 			<!--  start Request Response for upgradeUserProfile -->
-			<xs:element name="upgradeUserProfileRequest" type="tns:UpgradeUserProfileRequest" />
+			<xs:element name="upgradeUserProfileRequest" type="tns:UpgradeUserProfileRequest"/>
 			<xs:complexType name="UpgradeUserProfileRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0" name="userProfileState"
-								type="tns:UserProfileStateEnum" />
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="identityProviderType" type="tns:IdentityProviderTypeEnum" />
-							<xs:element maxOccurs="1" minOccurs="0" name="accountType"
-								type="xs:token" />
-							<xs:element maxOccurs="1" minOccurs="0" name="ownerName"
-								type="tns:PersonName" />
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="RegistrationAddress" type="tns:Address" />
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="PrimaryPhoneNumber" type="tns:PhoneNumber" />
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="SecondaryPhoneNumber" type="tns:PhoneNumber" />
+							<xs:element maxOccurs="1" minOccurs="0" name="userProfileState" type="tns:UserProfileStateEnum"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="identityProviderType" type="tns:IdentityProviderTypeEnum"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="accountType" type="xs:token"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="ownerName" type="tns:PersonName"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="RegistrationAddress" type="tns:Address"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="PrimaryPhoneNumber" type="tns:PhoneNumber"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="SecondaryPhoneNumber" type="tns:PhoneNumber"/>
 
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="GovernmentIssuedIdDetail" type="tns:GovernmentIssuedPersonId" />
+							<xs:element maxOccurs="1" minOccurs="0" name="GovernmentIssuedIdDetail" type="tns:GovernmentIssuedPersonId"/>
 
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="companyNameDetail" type="tns:CompanyNameDetail" />
-							<xs:element maxOccurs="1" minOccurs="0" name="companyIdDetail"
-								type="tns:CompanyIdDetail" />
-							<xs:element maxOccurs="1" minOccurs="0" name="companyType"
-								type="xs:token" />
-							<xs:element maxOccurs="1" minOccurs="0" name="legalForm"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="age"
-								type="xs:date" />
-							<xs:element maxOccurs="1" minOccurs="0" name="stateOfBirth"
-								type="xs:token" />
-							<xs:element maxOccurs="1" minOccurs="0" name="cityOfBirth"
-								type="xs:token" />
-							<xs:element maxOccurs="1" minOccurs="0" name="gender"
-								type="tns:Gender" />
-							<xs:element maxOccurs="1" minOccurs="0" name="userLoginName"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="emailAddress"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="password"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="secretQuestion"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="secretAnswer"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="language"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="agreementGroup"
-								type="tns:AgreementGroup" />
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="countryOfResidenceCode" type="xs:token" />
-							<xs:element name="registrationSite" type="xs:token"
-								maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="companyNameDetail" type="tns:CompanyNameDetail"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="companyIdDetail" type="tns:CompanyIdDetail"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="companyType" type="xs:token"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="legalForm" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="age" type="xs:date"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="stateOfBirth" type="xs:token"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="cityOfBirth" type="xs:token"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="gender" type="tns:Gender"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="userLoginName" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="emailAddress" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="password" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="secretQuestion" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="secretAnswer" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="language" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="agreementGroup" type="tns:AgreementGroup"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="countryOfResidenceCode" type="xs:token"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="registrationSite" type="xs:token">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="auditData"
-								type="tns:AuditData" />
-							<xs:element maxOccurs="1" minOccurs="0" name="continueOnError"
-								type="xs:boolean" />
+							<xs:element maxOccurs="1" minOccurs="0" name="auditData" type="tns:AuditData"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="continueOnError" type="xs:boolean"/>
 							<xs:element maxOccurs="1" minOccurs="1" name="invoker" type="tns:InvokerType"/>
 							<!--
 								Do we need site of registration? Do we need Local? Do we need
@@ -386,90 +315,59 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="upgradeUserProfileResponse" type="tns:UpgradeUserProfileResponse" />
+			<xs:element name="upgradeUserProfileResponse" type="tns:UpgradeUserProfileResponse"/>
 			<xs:complexType name="UpgradeUserProfileResponse">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0" name="ruvToken" type="xs:string" />
-							<xs:element minOccurs="0" name="verificationProcessType"
-								type="xs:token" />
-							<xs:element minOccurs="0" name="riskLevel"
-								type="xs:token" />								
+							<xs:element minOccurs="0" name="ruvToken" type="xs:string"/>
+							<xs:element minOccurs="0" name="verificationProcessType" type="xs:token"/>
+							<xs:element minOccurs="0" name="riskLevel" type="xs:token"/>								
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			<!--End Request Response for registerAccount-->
 			<!--start Request Response for registerAccount-->
-			<xs:element name="registerAccountRequest" type="tns:RegisterAccountRequest" />
+			<xs:element name="registerAccountRequest" type="tns:RegisterAccountRequest"/>
 			<xs:complexType name="RegisterAccountRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0" name="userProfileState"
-								type="tns:UserProfileStateEnum" />
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="identityProviderType" type="tns:IdentityProviderTypeEnum" />
+							<xs:element maxOccurs="1" minOccurs="0" name="userProfileState" type="tns:UserProfileStateEnum"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="identityProviderType" type="tns:IdentityProviderTypeEnum"/>
 							<!-- There should not be any business logic based on leadSource. If not provided the default will be WEB_REG -->
-							<xs:element name="leadSource"
-								type="xs:token" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="leadSource" type="xs:token">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="accountType"
-								type="xs:token" />
-							<xs:element maxOccurs="1" minOccurs="0" name="ownerName"
-								type="tns:PersonName" />
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="RegistrationAddress" type="tns:Address" />
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="PrimaryPhoneNumber" type="tns:PhoneNumber" />
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="SecondaryPhoneNumber" type="tns:PhoneNumber" />
+							<xs:element maxOccurs="1" minOccurs="0" name="accountType" type="xs:token"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="ownerName" type="tns:PersonName"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="RegistrationAddress" type="tns:Address"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="PrimaryPhoneNumber" type="tns:PhoneNumber"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="SecondaryPhoneNumber" type="tns:PhoneNumber"/>
 
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="GovernmentIssuedIdDetail" type="tns:GovernmentIssuedPersonId" />
+							<xs:element maxOccurs="1" minOccurs="0" name="GovernmentIssuedIdDetail" type="tns:GovernmentIssuedPersonId"/>
 
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="companyNameDetail" type="tns:CompanyNameDetail" />
-							<xs:element maxOccurs="1" minOccurs="0" name="companyIdDetail"
-								type="tns:CompanyIdDetail" />
-							<xs:element maxOccurs="1" minOccurs="0" name="companyType"
-								type="xs:token" />
-							<xs:element maxOccurs="1" minOccurs="0" name="legalForm"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="age"
-								type="xs:date" />
-							<xs:element maxOccurs="1" minOccurs="0" name="stateOfBirth"
-								type="xs:token" />
-							<xs:element maxOccurs="1" minOccurs="0" name="cityOfBirth"
-								type="xs:token" />
-							<xs:element maxOccurs="1" minOccurs="0" name="gender"
-								type="tns:Gender" />
-							<xs:element maxOccurs="1" minOccurs="0" name="userLoginName"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="emailAddress"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="password"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="secretQuestion"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="secretAnswer"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="language"
-								type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0" name="agreementGroup"
-								type="tns:AgreementGroup" />
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="countryOfResidenceCode" type="xs:token" />
-							<xs:element name="registrationSite" type="xs:token"
-								maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="companyNameDetail" type="tns:CompanyNameDetail"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="companyIdDetail" type="tns:CompanyIdDetail"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="companyType" type="xs:token"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="legalForm" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="age" type="xs:date"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="stateOfBirth" type="xs:token"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="cityOfBirth" type="xs:token"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="gender" type="tns:Gender"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="userLoginName" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="emailAddress" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="password" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="secretQuestion" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="secretAnswer" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="language" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="agreementGroup" type="tns:AgreementGroup"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="countryOfResidenceCode" type="xs:token"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="registrationSite" type="xs:token">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="auditData"
-								type="tns:AuditData" />
-							<xs:element maxOccurs="1" minOccurs="0" name="continueOnError"
-								type="xs:boolean" />
-							<xs:element maxOccurs="1" minOccurs="0" name="idpImmutableId"
-								type="xs:long" />
+							<xs:element maxOccurs="1" minOccurs="0" name="auditData" type="tns:AuditData"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="continueOnError" type="xs:boolean"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="idpImmutableId" type="xs:long"/>
 							<!--
 								Do we need site of registration? Do we need Local? Do we need
 								user state?
@@ -480,14 +378,10 @@
 			</xs:complexType>
 			<xs:complexType name="AuditData">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0" name="cobrandId"
-						type="xs:token" />
-					<xs:element maxOccurs="1" minOccurs="0" name="consumerHostName"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="deviceProperty"
-						type="xs:string" />
-						<xs:element maxOccurs="1" minOccurs="0" name="environment"
-						type="tns:Environment" />
+					<xs:element maxOccurs="1" minOccurs="0" name="cobrandId" type="xs:token"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="consumerHostName" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="deviceProperty" type="xs:string"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="environment" type="tns:Environment"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="BrowserHeader">
@@ -536,45 +430,41 @@
 			<xs:complexType name="Address">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="0" name="name" type="xs:string" />
-					<xs:element minOccurs="0" name="street1" type="xs:string" />
-					<xs:element minOccurs="0" name="street2" type="xs:string" />
-					<xs:element minOccurs="0" name="city" type="xs:string" />
-					<xs:element minOccurs="0" name="county" type="xs:string" />
-					<xs:element minOccurs="0" name="stateOrProvince" type="xs:string" />
-					<xs:element minOccurs="0" name="country" type="xs:string" />
-					<xs:element minOccurs="0" name="postalCode" type="xs:string" />
+					<xs:element minOccurs="0" name="name" type="xs:string"/>
+					<xs:element minOccurs="0" name="street1" type="xs:string"/>
+					<xs:element minOccurs="0" name="street2" type="xs:string"/>
+					<xs:element minOccurs="0" name="city" type="xs:string"/>
+					<xs:element minOccurs="0" name="county" type="xs:string"/>
+					<xs:element minOccurs="0" name="stateOrProvince" type="xs:string"/>
+					<xs:element minOccurs="0" name="country" type="xs:string"/>
+					<xs:element minOccurs="0" name="postalCode" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="AgreementGroup">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element minOccurs="0" name="agreement1" type="xs:boolean" />
-					<xs:element minOccurs="0" name="agreement2" type="xs:boolean" />
-					<xs:element minOccurs="0" name="agreement3" type="xs:boolean" />
-					<xs:element minOccurs="0" name="agreement4" type="xs:boolean" />
+					<xs:element minOccurs="0" name="agreement1" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="agreement2" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="agreement3" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="agreement4" type="xs:boolean"/>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="registerAccountResponse" type="tns:RegisterAccountResponse" />
+			<xs:element name="registerAccountResponse" type="tns:RegisterAccountResponse"/>
 			<xs:complexType name="RegisterAccountResponse">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0" name="ruvToken" type="xs:string" />
-							<xs:element minOccurs="0" name="verificationProcessType"
-								type="xs:token" />
-							<xs:element minOccurs="0" name="riskLevel"
-								type="xs:token" />	
+							<xs:element minOccurs="0" name="ruvToken" type="xs:string"/>
+							<xs:element minOccurs="0" name="verificationProcessType" type="xs:token"/>
+							<xs:element minOccurs="0" name="riskLevel" type="xs:token"/>	
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -582,50 +472,29 @@
 			<!--End Request Response for registerAccount-->
 			<xs:complexType name="RegistrationDataType">
 				<xs:sequence>
-				<xs:element maxOccurs="unbounded" minOccurs="0" name="fieldName"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="firstName"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="middleName"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="lastName"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="salutation"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="RegistrationAddress" type="tns:Address" />
-					<xs:element maxOccurs="1" minOccurs="0" name="PrimaryPhoneNumber"
-						type="tns:PhoneNumber" />
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="GovernmentIssuedIdDetail" type="tns:GovernmentIssuedPersonId" />
-					<xs:element maxOccurs="1" minOccurs="0" name="companyNameDetail"
-						type="tns:CompanyNameDetail" />
-					<xs:element maxOccurs="1" minOccurs="0" name="companyIdDetail"
-						type="tns:CompanyIdDetail" />
-					<xs:element maxOccurs="1" minOccurs="0" name="companyType"
-						type="xs:token" />
-					<xs:element maxOccurs="1" minOccurs="0" name="legalForm"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="age" type="xs:date" />
-					<xs:element maxOccurs="1" minOccurs="0" name="gender"
-						type="tns:Gender" />
-					<xs:element maxOccurs="1" minOccurs="0" name="userLoginName"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="emailAddress"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="password"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="secretQuestion"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="secretAnswer"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="countryOfResidenceCode" type="xs:token" />
-					<xs:element name="registrationSite" type="xs:token"
-						maxOccurs="1" minOccurs="0">
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="fieldName" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="firstName" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="middleName" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="lastName" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="salutation" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="RegistrationAddress" type="tns:Address"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="PrimaryPhoneNumber" type="tns:PhoneNumber"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="GovernmentIssuedIdDetail" type="tns:GovernmentIssuedPersonId"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="companyNameDetail" type="tns:CompanyNameDetail"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="companyIdDetail" type="tns:CompanyIdDetail"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="companyType" type="xs:token"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="legalForm" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="age" type="xs:date"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="gender" type="tns:Gender"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="userLoginName" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="emailAddress" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="password" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="secretQuestion" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="secretAnswer" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="countryOfResidenceCode" type="xs:token"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="registrationSite" type="xs:token">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="continueOnError"
-						type="xs:boolean" />
+					<xs:element maxOccurs="1" minOccurs="0" name="continueOnError" type="xs:boolean"/>
 					<!--
 						Do we need site of registration? Do we need Local? Do we need user
 						state?
@@ -634,18 +503,17 @@
 
 			</xs:complexType>
 			<!--Start Request Response for validateRegistrationData-->
-			<xs:element name="validateRegistrationDataRequest" type="tns:ValidateRegistrationDataRequest" />
+			<xs:element name="validateRegistrationDataRequest" type="tns:ValidateRegistrationDataRequest"/>
 			<xs:complexType name="ValidateRegistrationDataRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="RegistrationData" type="tns:RegistrationDataType" />
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="RegistrationData" type="tns:RegistrationDataType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="validateRegistrationDataResponse" type="tns:ValidateRegistrationDataResponse" />
+			<xs:element name="validateRegistrationDataResponse" type="tns:ValidateRegistrationDataResponse"/>
 			<xs:complexType name="ValidateRegistrationDataResponse">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseValidationResponse">						
@@ -653,124 +521,95 @@
 				</xs:complexContent>
 			</xs:complexType>
 			<!--End Request Response for validateRegistrationData-->
-			<xs:element name="validateSecretQuestionAndAnswerRequest"
-				type="tns:ValidateSecretQuestionAndAnswerRequest" />
+			<xs:element name="validateSecretQuestionAndAnswerRequest" type="tns:ValidateSecretQuestionAndAnswerRequest"/>
 			<xs:complexType name="ValidateSecretQuestionAndAnswerRequest">
 				<xs:sequence>
 
-					<xs:element minOccurs="1" maxOccurs="1" name="question"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="question" type="xs:string">
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="1" name="answer"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="answer" type="xs:string">
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="1" name="userId"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="userId" type="xs:string">
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="1" name="password"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="password" type="xs:string">
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="1" name="siteId"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="1" name="siteId" type="xs:int">
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="1" name="mobileDevice"
-						type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="1" name="mobileDevice" type="xs:boolean">
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="1" name="existingUser"
-						type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="1" name="existingUser" type="xs:boolean">
 					</xs:element>
-					<xs:element name="customSecretQuestion" type="xs:boolean"
-						maxOccurs="1" minOccurs="1"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="1" name="customSecretQuestion" type="xs:boolean"/>
 
 
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="validateSecretQuestionAndAnswerResponse"
-				type="tns:ValidateSecretQuestionAndAnswerResponse" />
+			<xs:element name="validateSecretQuestionAndAnswerResponse" type="tns:ValidateSecretQuestionAndAnswerResponse"/>
 			<xs:complexType name="ValidateSecretQuestionAndAnswerResponse">
 				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="errors"
-						type="tns:ErrorMessage">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="errors" type="tns:ErrorMessage">
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="1"
-						name="validSecertQuestionAndAnswer" type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="1" name="validSecertQuestionAndAnswer" type="xs:boolean">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:element name="validatePasswordRequest" type="tns:ValidatePasswordRequest" />
+			<xs:element name="validatePasswordRequest" type="tns:ValidatePasswordRequest"/>
 			<xs:complexType name="ValidatePasswordRequest">
 				<xs:sequence>
 					<xs:sequence>
-						<xs:element minOccurs="1" maxOccurs="1" name="password"
-							type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="1" name="password" type="xs:string">
 						</xs:element>
-						<xs:element minOccurs="1" maxOccurs="1" name="userId"
-							type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="1" name="userId" type="xs:string">
 						</xs:element>
-						<xs:element minOccurs="1" maxOccurs="1" name="emailId"
-							type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="1" name="emailId" type="xs:string">
 						</xs:element>
 
 					</xs:sequence>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="validatePasswordResponse" type="tns:ValidatePasswordResponse" />
+			<xs:element name="validatePasswordResponse" type="tns:ValidatePasswordResponse"/>
 			<xs:complexType name="ValidatePasswordResponse">
 				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="1" name="weakPassword"
-						type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="0" name="weakPassword" type="xs:boolean">
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="1" name="errors"
-						type="tns:ErrorMessage">
+					<xs:element maxOccurs="1" minOccurs="0" name="errors" type="tns:ErrorMessage">
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="1" name="validPassword"
-						type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="1" name="validPassword" type="xs:boolean">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			<!-- suggestUserLoginName request response -->
-			<xs:element name="suggestUserLoginNameRequest" type="tns:SuggestUserLoginNameRequest" />
+			<xs:element name="suggestUserLoginNameRequest" type="tns:SuggestUserLoginNameRequest"/>
 			<xs:complexType name="SuggestUserLoginNameRequest">
 				<xs:sequence>
 					<xs:sequence>
-						<xs:element minOccurs="0" maxOccurs="1" name="emailAddress"
-							type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="0" name="emailAddress" type="xs:string">
 						</xs:element>
-						<xs:element minOccurs="0" maxOccurs="1" name="dateOfBirth"
-							type="xs:date">
+						<xs:element maxOccurs="1" minOccurs="0" name="dateOfBirth" type="xs:date">
 						</xs:element>
-						<xs:element minOccurs="0" maxOccurs="1" name="phoneNumber"
-							type="tns:PhoneNumber">
+						<xs:element maxOccurs="1" minOccurs="0" name="phoneNumber" type="tns:PhoneNumber">
 						</xs:element>
-						<xs:element minOccurs="0" maxOccurs="1" name="ownerFirstName"
-							type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="0" name="ownerFirstName" type="xs:string">
 						</xs:element>
-						<xs:element minOccurs="0" maxOccurs="1" name="ownerLastName"
-							type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="0" name="ownerLastName" type="xs:string">
 						</xs:element>
-						<xs:element minOccurs="0" maxOccurs="1" name="postalCode"
-							type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="0" name="postalCode" type="xs:string">
 						</xs:element>
-						<xs:element minOccurs="0" maxOccurs="1"
-							name="userEnteredLoginName" type="xs:string">
+						<xs:element maxOccurs="1" minOccurs="0" name="userEnteredLoginName" type="xs:string">
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0"
-							name="countryOfResidenceCode" type="xs:token" />
-						<xs:element name="registrationSite" type="xs:token"
-							maxOccurs="1" minOccurs="1"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="countryOfResidenceCode" type="xs:token"/>
+						<xs:element maxOccurs="1" minOccurs="1" name="registrationSite" type="xs:token"/>
 					</xs:sequence>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="suggestUserLoginNameResponse" type="tns:SuggestUserLoginNameResponse" />
+			<xs:element name="suggestUserLoginNameResponse" type="tns:SuggestUserLoginNameResponse"/>
 			<xs:complexType name="SuggestUserLoginNameResponse">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseValidationResponse">
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="unbounded"
-								name="suggestedUserLoginName" type="xs:string" />
-							<xs:element minOccurs="0" name="isUserLoginNameAvailable"
-								type="xs:boolean" />
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="suggestedUserLoginName" type="xs:string"/>
+							<xs:element minOccurs="0" name="isUserLoginNameAvailable" type="xs:boolean"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -785,8 +624,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -840,13 +678,11 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension"
-						type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType abstract="true" name="BaseResponse">
@@ -857,17 +693,16 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -882,7 +717,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -890,10 +725,10 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -901,17 +736,16 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension"
-						type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="ErrorCategory">
@@ -920,14 +754,13 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
@@ -936,20 +769,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long" />
-					<xs:element name="domain" type="xs:string" />
-					<xs:element minOccurs="0" name="subdomain" type="xs:string" />
-					<xs:element name="severity" type="tns:ErrorSeverity" />
-					<xs:element name="category" type="tns:ErrorCategory" />
-					<xs:element name="message" type="xs:string" />
-					<xs:element minOccurs="0" name="exceptionId" type="xs:token" />
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"
-						type="tns:ErrorParameter" />
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+					<xs:element name="severity" type="tns:ErrorSeverity"/>
+					<xs:element name="category" type="tns:ErrorCategory"/>
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -958,8 +789,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!--
@@ -967,8 +797,7 @@
 					processContents="lax" /> </xs:sequence>
 				-->
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"
-						type="tns:ErrorData" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -977,13 +806,12 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string" use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -993,13 +821,12 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ExtensionType">
@@ -1008,19 +835,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="getVersionRequest" type="tns:GetVersionRequest" />
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
 			<xs:complexType name="GetVersionRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -1029,11 +855,11 @@
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getVersionResponse" type="tns:GetVersionResponse" />
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -1050,175 +876,165 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part element="tns:getVersionRequest" name="params" />
+		<wsdl:part element="tns:getVersionRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part element="tns:getVersionResponse" name="params" />
+		<wsdl:part element="tns:getVersionResponse" name="params"/>
 	</wsdl:message>
 	<message name="registerAccountRequest">
-		<wsdl:part name="params" element="tns:registerAccountRequest" />
+		<wsdl:part element="tns:registerAccountRequest" name="params"/>
 	</message>
 	<message name="registerAccountResponse">
-		<wsdl:part name="params" element="tns:registerAccountResponse" />
+		<wsdl:part element="tns:registerAccountResponse" name="params"/>
 	</message>
 	<wsdl:message name="validatePasswordRequest">
-		<wsdl:part name="validatePasswordRequest" element="tns:validatePasswordRequest"></wsdl:part>
+		<wsdl:part element="tns:validatePasswordRequest" name="validatePasswordRequest"/>
 	</wsdl:message>
 	<wsdl:message name="validatePasswordResponse">
-		<wsdl:part name="validatePasswordResponse" element="tns:validatePasswordResponse"></wsdl:part>
+		<wsdl:part element="tns:validatePasswordResponse" name="validatePasswordResponse"/>
 	</wsdl:message>
 	<wsdl:message name="validateSecretQuestionAndAnswerRequest">
-		<wsdl:part name="validateSecretQuestionAndAnswerRequest"
-			element="tns:validateSecretQuestionAndAnswerRequest"></wsdl:part>
+		<wsdl:part element="tns:validateSecretQuestionAndAnswerRequest" name="validateSecretQuestionAndAnswerRequest"/>
 	</wsdl:message>
 	<wsdl:message name="validateSecretQuestionAndAnswerResponse">
-		<wsdl:part name="validateSecretQuestionAndAnswerResponse"
-			element="tns:validateSecretQuestionAndAnswerResponse"></wsdl:part>
+		<wsdl:part element="tns:validateSecretQuestionAndAnswerResponse" name="validateSecretQuestionAndAnswerResponse"/>
 	</wsdl:message>
 	<wsdl:message name="suggestUserLoginNameRequest">
-		<wsdl:part name="suggestUserLoginNameRequest" element="tns:suggestUserLoginNameRequest"></wsdl:part>
+		<wsdl:part element="tns:suggestUserLoginNameRequest" name="suggestUserLoginNameRequest"/>
 	</wsdl:message>
 	<wsdl:message name="suggestUserLoginNameResponse">
-		<wsdl:part name="suggestUserLoginNameResponse" element="tns:suggestUserLoginNameResponse"></wsdl:part>
+		<wsdl:part element="tns:suggestUserLoginNameResponse" name="suggestUserLoginNameResponse"/>
 	</wsdl:message>
 	<wsdl:message name="upgradeUserProfileRequest">
-		<wsdl:part name="upgradeUserProfileRequest" element="tns:upgradeUserProfileRequest"></wsdl:part>
+		<wsdl:part element="tns:upgradeUserProfileRequest" name="upgradeUserProfileRequest"/>
 	</wsdl:message>
 	<wsdl:message name="upgradeUserProfileResponse">
-		<wsdl:part name="upgradeUserProfileResponse" element="tns:upgradeUserProfileResponse"></wsdl:part>
+		<wsdl:part element="tns:upgradeUserProfileResponse" name="upgradeUserProfileResponse"/>
 	</wsdl:message>
 	<wsdl:message name="validateRegistrationDataRequest">
-		<wsdl:part name="validateRegistrationDataRequest" element="tns:validateRegistrationDataRequest"></wsdl:part>
+		<wsdl:part element="tns:validateRegistrationDataRequest" name="validateRegistrationDataRequest"/>
 	</wsdl:message>
 	<wsdl:message name="validateRegistrationDataResponse">
-		<wsdl:part name="validateRegistrationDataResponse" element="tns:validateRegistrationDataResponse"></wsdl:part>
+		<wsdl:part element="tns:validateRegistrationDataResponse" name="validateRegistrationDataResponse"/>
 	</wsdl:message>
 	<wsdl:portType name="UserAccountProcessServicePort">
 		<wsdl:operation name="getVersion">
-			<wsdl:input message="tns:getVersionRequest" />
-			<wsdl:output message="tns:getVersionResponse" />
+			<wsdl:input message="tns:getVersionRequest"/>
+			<wsdl:output message="tns:getVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="registerAccount">
-			<wsdl:input message="tns:registerAccountRequest" />
-			<wsdl:output message="tns:registerAccountResponse" />
+			<wsdl:input message="tns:registerAccountRequest"/>
+			<wsdl:output message="tns:registerAccountResponse"/>
 		</wsdl:operation>
 
 
 		<wsdl:operation name="suggestUserLoginName">
-			<wsdl:input message="tns:suggestUserLoginNameRequest"></wsdl:input>
-			<wsdl:output message="tns:suggestUserLoginNameResponse"></wsdl:output>
+			<wsdl:input message="tns:suggestUserLoginNameRequest"/>
+			<wsdl:output message="tns:suggestUserLoginNameResponse"/>
 		</wsdl:operation>
 
 		<wsdl:operation name="upgradeUserProfile">
-			<wsdl:input message="tns:upgradeUserProfileRequest"></wsdl:input>
-			<wsdl:output message="tns:upgradeUserProfileResponse"></wsdl:output>
+			<wsdl:input message="tns:upgradeUserProfileRequest"/>
+			<wsdl:output message="tns:upgradeUserProfileResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="validateRegistrationData">
-			<wsdl:input message="tns:validateRegistrationDataRequest"></wsdl:input>
-			<wsdl:output message="tns:validateRegistrationDataResponse"></wsdl:output>
+			<wsdl:input message="tns:validateRegistrationDataRequest"/>
+			<wsdl:output message="tns:validateRegistrationDataResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="UserAccountProcessServiceHttpBinding"
-		type="tns:UserAccountProcessServicePort">
-		<http:binding verb="POST" />
+	<wsdl:binding name="UserAccountProcessServiceHttpBinding" type="tns:UserAccountProcessServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:input>
-				<mime:content part="params" type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="registerAccount">
-			<http:operation location="/registerAccount" />
+			<http:operation location="/registerAccount"/>
 			<wsdl:input>
-				<mime:content part="params" type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>		
 		<wsdl:operation name="suggestUserLoginName">
-			<http:operation location="/suggestUserLoginName" />
+			<http:operation location="/suggestUserLoginName"/>
 			<wsdl:input>
-				<mime:content part="parameters" type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>	
 		<wsdl:operation name="upgradeUserProfile">
-			<http:operation location="/upgradeUserProfile" />
+			<http:operation location="/upgradeUserProfile"/>
 			<wsdl:input>
-				<mime:content part="parameters" type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="validateRegistrationData">
-			<http:operation location="/validateRegistrationData" />
+			<http:operation location="/validateRegistrationData"/>
 			<wsdl:input>
-				<mime:content part="parameters" type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="UserAccountProcessServiceSOAPBinding"
-		type="tns:UserAccountProcessServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="UserAccountProcessServiceSOAPBinding" type="tns:UserAccountProcessServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/registration/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/registration/v1/services/getVersion"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="registerAccount">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/registration/v1/services/registerAccount" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/registration/v1/services/registerAccount"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>		
 		<wsdl:operation name="suggestUserLoginName">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/registration/v1/services/suggestUserLoginName" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/registration/v1/services/suggestUserLoginName"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>		
 		<wsdl:operation name="upgradeUserProfile">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/registration/v1/services/upgradeUserProfile" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/registration/v1/services/upgradeUserProfile"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="validateRegistrationData">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/registration/v1/services/validateRegistrationData" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/registration/v1/services/validateRegistrationData"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -1226,15 +1042,11 @@
 		<wsdl:documentation>
 			<Version>1.0.0</Version>
 		</wsdl:documentation>
-		<wsdl:port binding="tns:UserAccountProcessServiceHttpBinding"
-			name="UserAccountProcessServiceHttpPort">
-			<http:address
-				location="https://svcs.ebay.com/services/registration/v1/UserAccountProcessService" />
+		<wsdl:port binding="tns:UserAccountProcessServiceHttpBinding" name="UserAccountProcessServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/registration/v1/UserAccountProcessService"/>
 		</wsdl:port>
-		<wsdl:port binding="tns:UserAccountProcessServiceSOAPBinding"
-			name="UserAccountProcessServiceSOAPPort">
-			<soap12:address
-				location="https://svcs.ebay.com/services/registration/v1/UserAccountProcessService" />
+		<wsdl:port binding="tns:UserAccountProcessServiceSOAPBinding" name="UserAccountProcessServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/registration/v1/UserAccountProcessService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

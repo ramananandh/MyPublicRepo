@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="ItemToProductAssociationService" targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/catalog/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ItemToProductAssociationService" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
 
 
 
@@ -66,7 +65,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					Details about a single error.
@@ -234,7 +233,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -567,19 +566,19 @@
     </xs:schema>
   </wsdl:types>
   <wsdl:message name="applyProductTagToItemResponse">
-    <wsdl:part name="parameters" element="tns:applyProductTagToItemResponse">
+    <wsdl:part element="tns:applyProductTagToItemResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="applyProductTagToItemRequest">
-    <wsdl:part name="parameters" element="tns:applyProductTagToItem">
+    <wsdl:part element="tns:applyProductTagToItem" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="removeProductTagFromItemResponse">
-    <wsdl:part name="parameters" element="tns:removeProductTagFromItemResponse">
+    <wsdl:part element="tns:removeProductTagFromItemResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="removeProductTagFromItemRequest">
-    <wsdl:part name="parameters" element="tns:removeProductTagFromItem">
+    <wsdl:part element="tns:removeProductTagFromItem" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="ItemToProductAssociationServicePort">
@@ -622,7 +621,7 @@
   <wsdl:binding name="ItemToProductAssociationServiceSOAPBinding" type="tns:ItemToProductAssociationServicePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="applyProductTagToItem">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/catalog/v1/services/applyProductTagToItem"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/applyProductTagToItem"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -631,7 +630,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="removeProductTagFromItem">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/catalog/v1/services/removeProductTagFromItem"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/removeProductTagFromItem"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -641,10 +640,10 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ItemToProductAssociationService">
-    <wsdl:port name="ItemToProductAssociationServiceHttp" binding="tns:ItemToProductAssociationServiceHttpBinding">
+    <wsdl:port binding="tns:ItemToProductAssociationServiceHttpBinding" name="ItemToProductAssociationServiceHttp">
       <http:address location="http://svcs.ebay.com/ItemToProductAssociationService"/>
     </wsdl:port>
-    <wsdl:port name="ItemToProductAssociationServiceSOAP" binding="tns:ItemToProductAssociationServiceSOAPBinding">
+    <wsdl:port binding="tns:ItemToProductAssociationServiceSOAPBinding" name="ItemToProductAssociationServiceSOAP">
       <soap12:address location="http://svcs.ebay.com/ItemToProductAssociationService"/>
     </wsdl:port>
   </wsdl:service>

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="DemoServiceChanService3" targetNamespace="http://www.ebay.com/marketplace/inframgmt/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/marketplace/inframgmt/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/inframgmt/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DemoServiceChanService3" targetNamespace="http://www.ebayopensource.org/tumeric/inframgmt/v1/services">
   <types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/inframgmt/v1/services">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/inframgmt/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -12,7 +11,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -66,7 +65,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -81,7 +80,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -142,7 +141,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -157,7 +156,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -177,7 +176,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!--
@@ -194,7 +193,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -209,7 +208,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -223,7 +222,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -328,27 +327,27 @@
 		</xs:schema>
   </types>
   <message name="findFibonacciRequest">
-    <part name="parameters" element="tns:findFibonacciRequest">
+    <part element="tns:findFibonacciRequest" name="parameters">
     </part>
   </message>
   <message name="addResponse">
-    <part name="params" element="tns:addResponse">
+    <part element="tns:addResponse" name="params">
     </part>
   </message>
   <message name="getVersionResponse">
-    <part name="params" element="tns:getVersionResponse">
+    <part element="tns:getVersionResponse" name="params">
     </part>
   </message>
   <message name="findFibonacciResponse">
-    <part name="parameters" element="tns:findFibonacciResponse">
+    <part element="tns:findFibonacciResponse" name="parameters">
     </part>
   </message>
   <message name="addRequest">
-    <part name="params" element="tns:addRequest">
+    <part element="tns:addRequest" name="params">
     </part>
   </message>
   <message name="getVersionRequest">
-    <part name="params" element="tns:getVersionRequest">
+    <part element="tns:getVersionRequest" name="params">
     </part>
   </message>
   <portType name="DemoServiceChanService3Port">
@@ -401,7 +400,7 @@
   <binding name="DemoServiceChanService3SOAPBinding" type="tns:DemoServiceChanService3Port">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="getVersion">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/inframgmt/v1/services/getVersion"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/inframgmt/v1/services/getVersion"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -410,7 +409,7 @@
       </output>
     </operation>
     <operation name="add">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/inframgmt/v1/services/add"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/inframgmt/v1/services/add"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -423,10 +422,10 @@
 <wsdl:documentation>
 			<version>1.0.0</version>
 		</wsdl:documentation>
-    <port name="DemoServiceChanService3HttpPort" binding="tns:DemoServiceChanService3HttpBinding">
+    <port binding="tns:DemoServiceChanService3HttpBinding" name="DemoServiceChanService3HttpPort">
       <http:address location="https://svcs.ebay.com/services/utility/v1/DemoServiceChanService3"/>
     </port>
-    <port name="DemoServiceChanService3SOAPPort" binding="tns:DemoServiceChanService3SOAPBinding">
+    <port binding="tns:DemoServiceChanService3SOAPBinding" name="DemoServiceChanService3SOAPPort">
       <soap12:address location="https://svcs.ebay.com/services/utility/v1/DemoServiceChanService3"/>
     </port>
   </service>

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="UserService" targetNamespace="http://www.ebay.com/marketplace/user/v1/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.ebay.com/marketplace/user/v1/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/user/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UserService" targetNamespace="http://www.ebayopensource.org/tumeric/user/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/user/v1/services" xmlns:tns="http://www.ebay.com/marketplace/user/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/user/v1/services">
 			<xs:element name="getUserContactInfoRequest" type="tns:GetUserContactInfoRequest"/>
 			<xs:element name="getUserContactInfoResponse" type="tns:GetUserContactInfoResponse"/>
 			<xs:element name="getMemberBadgeDataRequest" type="tns:GetMemberBadgeDataRequest"/>
@@ -19,17 +18,17 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="unbounded" name="principalUniqueReference" type="tns:PrincipalUniqueReferenceType"/>
-							<xs:element minOccurs="0" maxOccurs="unbounded" name="viewerContextParameter" type="tns:ViewerContextParameterType"/>
-							<xs:element minOccurs="0" maxOccurs="1" name="globalId" type="xs:string"/>
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="principalUniqueReference" type="tns:PrincipalUniqueReferenceType"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="viewerContextParameter" type="tns:ViewerContextParameterType"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="globalId" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="PrincipalUniqueReferenceType">
 				<xs:sequence>
-					<xs:element minOccurs="1" maxOccurs="1" name="referenceType" type="tns:PrincipalUniqueReferenceTypeEnum"/>
-					<xs:element minOccurs="1" maxOccurs="1" name="referenceValue" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="referenceType" type="tns:PrincipalUniqueReferenceTypeEnum"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="referenceValue" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="PrincipalUniqueReferenceTypeEnum">
@@ -41,8 +40,8 @@
 			</xs:simpleType>
 			<xs:complexType name="ViewerContextParameterType">
 				<xs:sequence>
-					<xs:element minOccurs="1" maxOccurs="1" name="parameterName" type="xs:token"/>
-					<xs:element minOccurs="1" maxOccurs="1" name="parameterValue" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="parameterName" type="xs:token"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="parameterValue" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="GetMemberBadgeDataResponse">
@@ -60,7 +59,7 @@
 					</xs:documentation>
 						</xs:annotation>
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="unbounded" name="memberBadgeData" type="tns:MemberBadgeDataType"/>
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="memberBadgeData" type="tns:MemberBadgeDataType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -97,7 +96,7 @@
 					<xs:element name="storeName" type="xs:string"/>
 					<xs:element name="storeOwner" type="xs:boolean"/>
 					<xs:element name="storeUrl" type="xs:string"/>
-					<xs:element minOccurs="0" maxOccurs="1" name="userState" type="tns:UserEnum"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="userState" type="tns:UserEnum"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="UserEnum">
@@ -118,7 +117,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="principalUniqueReference" type="tns:PrincipalUniqueReferenceType"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="principalUniqueReference" type="tns:PrincipalUniqueReferenceType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -138,9 +137,9 @@
 					</xs:documentation>
 						</xs:annotation>
 						<xs:sequence>
-							<xs:element minOccurs="1" maxOccurs="1" name="canSellOnRegistrationSite" type="xs:boolean"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="canSellCrossBorder" type="xs:boolean"/>
-							<xs:element minOccurs="1" maxOccurs="1" name="registrationSite" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="canSellOnRegistrationSite" type="xs:boolean"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="canSellCrossBorder" type="xs:boolean"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="registrationSite" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -159,7 +158,7 @@
 					</xs:documentation>
 						</xs:annotation>
 						<xs:sequence>
-							<xs:element name="User" type="tns:UserType" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" name="User" type="tns:UserType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -172,7 +171,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="PrincipalId" type="tns:PrincipalType" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" name="PrincipalId" type="tns:PrincipalType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -238,7 +237,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
@@ -409,7 +408,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -628,7 +627,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="UserAddress" type="tns:UserContactInfoType" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="UserAddress" type="tns:UserContactInfoType">
 						<xs:annotation>
 							<xs:documentation>
 								User Contact details
@@ -745,7 +744,7 @@
 						based on respective client, typically its Ebay
 					</xs:documentation>
 				</xs:annotation>
-				<xs:sequence >
+				<xs:sequence>
 					<xs:element minOccurs="1" name="principalId" type="xs:string"/>
 					<xs:element minOccurs="1" name="principalRealm" type="xs:token"/>
 				</xs:sequence>
@@ -810,27 +809,27 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getUserContactInfoResponse">
-		<wsdl:part name="parameters" element="tns:getUserContactInfoResponse">
+		<wsdl:part element="tns:getUserContactInfoResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getUserContactInfoRequest">
-		<wsdl:part name="parameters" element="tns:getUserContactInfoRequest">
+		<wsdl:part element="tns:getUserContactInfoRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getMemberBadgeDataRequest">
-		<wsdl:part name="parameters" element="tns:getMemberBadgeDataRequest">
+		<wsdl:part element="tns:getMemberBadgeDataRequest" name="parameters">
     	</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getMemberBadgeDataResponse">
-		<wsdl:part name="parameters" element="tns:getMemberBadgeDataResponse">
+		<wsdl:part element="tns:getMemberBadgeDataResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getSellerProfileRequest">
-		<wsdl:part name="parameters" element="tns:getSellerProfileRequest">
+		<wsdl:part element="tns:getSellerProfileRequest" name="parameters">
     	</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getSellerProfileResponse">
-		<wsdl:part name="parameters" element="tns:getSellerProfileResponse">
+		<wsdl:part element="tns:getSellerProfileResponse" name="parameters">
     </wsdl:part>
 	</wsdl:message>
 	
@@ -841,7 +840,7 @@
 			<wsdl:output message="tns:getUserContactInfoResponse">
 			</wsdl:output>
 		</wsdl:operation>
-		<wsdl:operation name="getMemberBadgeData" >
+		<wsdl:operation name="getMemberBadgeData">
 			<wsdl:input message="tns:getMemberBadgeDataRequest">
 		    </wsdl:input>
 			<wsdl:output message="tns:getMemberBadgeDataResponse">
@@ -912,10 +911,10 @@
 			<Version>1.1.1</Version>
 		</wsdl:documentation>
 	
-		<wsdl:port name="UserServiceSOAPPort" binding="tns:UserServiceSOAPBinding">
+		<wsdl:port binding="tns:UserServiceSOAPBinding" name="UserServiceSOAPPort">
 			<soap12:address location="http://svcs.ebay.com/services/user/UserService/v1"/>
 		</wsdl:port>
-		<wsdl:port name="UserServiceHttpPort" binding="tns:UserServiceHttpBinding">
+		<wsdl:port binding="tns:UserServiceHttpBinding" name="UserServiceHttpPort">
 			<http:address location="http://svcs.ebay.com/services/user/UserService/v1"/>
 		</wsdl:port>
 	</wsdl:service>

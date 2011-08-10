@@ -1,39 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="UserAuthenticationService"
-	targetNamespace="http://www.ebay.com/marketplace/security/v1/services"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:tns="http://www.ebay.com/marketplace/security/v1/services"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/security/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UserAuthenticationService" targetNamespace="http://www.ebayopensource.org/tumeric/security/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/security/v1/services"
-			xmlns:tns="http://www.ebay.com/marketplace/security/v1/services"
-			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/security/v1/services">
 
-			<xs:element name="authenticateRequest"
-				type="tns:AuthenticateRequest">
+			<xs:element name="authenticateRequest" type="tns:AuthenticateRequest">
 			</xs:element>
-			<xs:element name="authenticateResponse"
-				type="tns:AuthenticateResponse">
+			<xs:element name="authenticateResponse" type="tns:AuthenticateResponse">
 			</xs:element>
 			<xs:element name="logoutRequest" type="tns:LogoutRequest">
 			</xs:element>
-			<xs:element name="logoutResponse"
-				type="tns:LogoutResponse">
+			<xs:element name="logoutResponse" type="tns:LogoutResponse">
 			</xs:element>
 
 			<xs:complexType name="AuthenticateRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="credentials"
-								type="tns:Credentials" minOccurs="1">
+							<xs:element minOccurs="1" name="credentials" type="tns:Credentials">
 								<xs:annotation>
 									<xs:documentation>
 										The credentials of the client or
@@ -41,8 +23,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="options"
-								type="tns:Options">
+							<xs:element name="options" type="tns:Options">
 								<xs:annotation>
 									<xs:documentation>
 										The additional options to be
@@ -59,14 +40,13 @@
 
 			<xs:complexType name="Credentials">
 				<xs:annotation>
-					<xs:appinfo />
+					<xs:appinfo/>
 					<xs:documentation>
 						Represents the requirements to verify the user
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="userId" type="xs:string"
-						minOccurs="1">
+					<xs:element minOccurs="1" name="userId" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								This is the userid of the client or
@@ -74,8 +54,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="domain" type="xs:string"
-						minOccurs="1">
+					<xs:element minOccurs="1" name="domain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								the domain of the application for whom
@@ -84,8 +63,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="password" type="xs:string"
-						minOccurs="1">
+					<xs:element minOccurs="1" name="password" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								This is password of the client or
@@ -93,8 +71,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="type" type="tns:SecretType"
-						minOccurs="1">
+					<xs:element minOccurs="1" name="type" type="tns:SecretType">
 						<xs:annotation>
 							<xs:documentation>
 								This indicates the password type like if
@@ -109,8 +86,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="token" type="xs:string"
-								minOccurs="1">
+							<xs:element minOccurs="1" name="token" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										This is token returned after
@@ -130,8 +106,7 @@
 						<xs:sequence>
 
 
-							<xs:element name="userId" type="xs:string"
-								minOccurs="1">
+							<xs:element minOccurs="1" name="userId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										This is the userid of the client
@@ -139,8 +114,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="domain" type="xs:string"
-								minOccurs="1">
+							<xs:element minOccurs="1" name="domain" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										the domain of the application
@@ -170,12 +144,11 @@
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:complexType abstract="true"
-				name="BaseServiceResponse">
+			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -184,12 +157,11 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="ack" type="tns:AckValue"
-						minOccurs="1">
+					<xs:element minOccurs="1" name="ack" type="tns:AckValue">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -202,12 +174,11 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="errorMessage"
-						type="tns:ErrorMessage" minOccurs="0">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -218,12 +189,11 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string"
-						minOccurs="1">
+					<xs:element minOccurs="1" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -240,12 +210,11 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime"
-						minOccurs="1">
+					<xs:element minOccurs="1" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -263,7 +232,7 @@
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
@@ -320,20 +289,19 @@
 
 			<xs:complexType name="ErrorMessage">
 				<xs:annotation>
-					<xs:appinfo />
+					<xs:appinfo/>
 					<xs:documentation>
 						Represents the error message obtained during
 						logging.
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData"
-						minOccurs="0" maxOccurs="unbounded" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
 				<xs:annotation>
-					<xs:appinfo />
+					<xs:appinfo/>
 					<xs:documentation>
 						Represents the error message obtained while
 						processing the request.
@@ -341,14 +309,13 @@
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string"
-							use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
 			<xs:complexType name="ErrorData">
 				<xs:annotation>
-					<xs:appinfo />
+					<xs:appinfo/>
 					<xs:documentation>
 						Represents the error message contents.
 					</xs:documentation>
@@ -370,8 +337,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="subdomain" type="xs:string"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Denotes the sub-domain to which this
@@ -379,16 +345,14 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 						<xs:annotation>
 							<xs:documentation>
 								Denotes the severity of this error.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 						<xs:annotation>
 							<xs:documentation>
 								Denotes the category to which this error
@@ -404,8 +368,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="exceptionId" type="xs:token"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								In case of exceptions, this denotes the
@@ -414,8 +377,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="parameter"
-						type="tns:ErrorParameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Denotes a list of string values which
@@ -473,8 +435,8 @@
 						<xs:documentation>
 							Indicates the error category of an error.
 							Typical values are
-							&quot;System&quot;,&quot;Application&quot;,
-							and &quot;Request&quot;
+							"System","Application",
+							and "Request"
 						</xs:documentation>
 					</xs:annotation>
 					<xs:enumeration value="System">
@@ -568,14 +530,12 @@
 					</xs:enumeration>
 				</xs:restriction>
 			</xs:simpleType>
-			<xs:element name="getVersionRequest"
-				type="tns:GetVersionRequest" />
-			<xs:element name="getVersionResponse"
-				type="tns:GetVersionResponse" />
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 
 			<xs:complexType name="GetVersionRequest">
 				<xs:complexContent>
-					<xs:extension base="tns:BaseServiceRequest" />
+					<xs:extension base="tns:BaseServiceRequest"/>
 				</xs:complexContent>
 			</xs:complexType>
 
@@ -587,10 +547,8 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="isValidForRequest"
-				type="tns:IsValidForRequest" />
-			<xs:element name="isValidForResponse"
-				type="tns:IsValidForResponse" />
+			<xs:element name="isValidForRequest" type="tns:IsValidForRequest"/>
+			<xs:element name="isValidForResponse" type="tns:IsValidForResponse"/>
 
 
 
@@ -606,8 +564,7 @@
 
 						<xs:sequence>
 
-							<xs:element name="hours" type="xs:int"
-								minOccurs="1">
+							<xs:element minOccurs="1" name="hours" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										Indicates input given to know if
@@ -627,14 +584,14 @@
 
 			<xs:simpleType name="SecretType">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="HASHED" />
-					<xs:enumeration value="HASHED-SIGNED" />
-					<xs:enumeration value="PLAINTEXT" />
-					<xs:enumeration value="PIN" />
-					<xs:enumeration value="PASSWORD" />
-					<xs:enumeration value="APPID" />
-					<xs:enumeration value="DEVID" />
-					<xs:enumeration value="CERTID" />
+					<xs:enumeration value="HASHED"/>
+					<xs:enumeration value="HASHED-SIGNED"/>
+					<xs:enumeration value="PLAINTEXT"/>
+					<xs:enumeration value="PIN"/>
+					<xs:enumeration value="PASSWORD"/>
+					<xs:enumeration value="APPID"/>
+					<xs:enumeration value="DEVID"/>
+					<xs:enumeration value="CERTID"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -642,8 +599,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="status"
-								type="xs:boolean">
+							<xs:element name="status" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>
 										Returns true if token is valid
@@ -658,37 +614,35 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="authenticateRequest">
-		<wsdl:part name="parameters"
-			element="tns:authenticateRequest">
+		<wsdl:part element="tns:authenticateRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="logoutResponse">
-		<wsdl:part name="parameters" element="tns:logoutResponse">
+		<wsdl:part element="tns:logoutResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="isValidForResponse">
-		<wsdl:part name="parameters" element="tns:isValidForResponse">
+		<wsdl:part element="tns:isValidForResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="isValidForRequest">
-		<wsdl:part name="parameters" element="tns:isValidForRequest">
+		<wsdl:part element="tns:isValidForRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part name="parameters" element="tns:getVersionRequest">
+		<wsdl:part element="tns:getVersionRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part name="parameters" element="tns:getVersionResponse">
+		<wsdl:part element="tns:getVersionResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="authenticateResponse">
-		<wsdl:part name="parameters"
-			element="tns:authenticateResponse">
+		<wsdl:part element="tns:authenticateResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="logoutRequest">
-		<wsdl:part name="parameters" element="tns:logoutRequest">
+		<wsdl:part element="tns:logoutRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:portType name="UserAuthenticationServicePort">
@@ -700,7 +654,7 @@
 				This returns a token as requested per the authenticate
 				options.
 			</wsdl:documentation>
-			<wsdl:input message="tns:authenticateRequest"></wsdl:input>
+			<wsdl:input message="tns:authenticateRequest"/>
 			<wsdl:output message="tns:authenticateResponse">
 			</wsdl:output>
 		</wsdl:operation>
@@ -709,95 +663,88 @@
 				This invalidate the token corresponding to the token
 				provided by the caller.
 			</wsdl:documentation>
-			<wsdl:input message="tns:logoutRequest"></wsdl:input>
-			<wsdl:output message="tns:logoutResponse"></wsdl:output>
+			<wsdl:input message="tns:logoutRequest"/>
+			<wsdl:output message="tns:logoutResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getVersion">
 			<wsdl:documentation>
 				This returns the version of the application.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getVersionRequest"></wsdl:input>
-			<wsdl:output message="tns:getVersionResponse"></wsdl:output>
+			<wsdl:input message="tns:getVersionRequest"/>
+			<wsdl:output message="tns:getVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="isValidFor">
 			<wsdl:documentation>
 				Returns if token will be still valid for the given hours
 			</wsdl:documentation>
-			<wsdl:input message="tns:isValidForRequest"></wsdl:input>
-			<wsdl:output message="tns:isValidForResponse"></wsdl:output>
+			<wsdl:input message="tns:isValidForRequest"/>
+			<wsdl:output message="tns:isValidForResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="UserAuthenticationServiceHttpBinding"
-		type="tns:UserAuthenticationServicePort">
-		<http:binding verb="POST" />
+	<wsdl:binding name="UserAuthenticationServiceHttpBinding" type="tns:UserAuthenticationServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="authenticate">
-			<http:operation location="/authenticate" />
+			<http:operation location="/authenticate"/>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="logout">
-			<http:operation location="/logout" />
+			<http:operation location="/logout"/>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="isValidFor">
-			<http:operation location="/validateToken" />
+			<http:operation location="/validateToken"/>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="UserAuthenticationServiceSOAPBinding"
-		type="tns:UserAuthenticationServicePort">
-		<wsdl:documentation />
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="UserAuthenticationServiceSOAPBinding" type="tns:UserAuthenticationServicePort">
+		<wsdl:documentation/>
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="authenticate">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/security/v1/services/authenticate" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/security/v1/services/authenticate"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="logout">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/security/v1/services/logout" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/security/v1/services/logout"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/security/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/security/v1/services/getVersion"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="isValidFor">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/security/v1/services/validateToken" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/security/v1/services/validateToken"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -808,15 +755,11 @@
 			to authenticate. This service in turn calls IAF to provide
 			the credentials.
 		</wsdl:documentation>
-		<wsdl:port name="UserAuthenticationServiceSOAPPort"
-			binding="tns:UserAuthenticationServiceSOAPBinding">
-			<soap12:address
-				location="https://svcs.ebay.com/services/security/UserAuthenticationService/v1" />
+		<wsdl:port binding="tns:UserAuthenticationServiceSOAPBinding" name="UserAuthenticationServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/security/UserAuthenticationService/v1"/>
 		</wsdl:port>
-		<wsdl:port name="UserAuthenticationServiceHttpPort"
-			binding="tns:UserAuthenticationServiceHttpBinding">
-			<http:address
-				location="https://svcs.ebay.com/services/security/UserAuthenticationService/v1" />
+		<wsdl:port binding="tns:UserAuthenticationServiceHttpBinding" name="UserAuthenticationServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/security/UserAuthenticationService/v1"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://xml.apache.org/axis/wsdd/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://xml.apache.org/axis/wsdd/" xmlns:intf="http://xml.apache.org/axis/wsdd/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://xml.apache.org/axis/wsdd/" xmlns:intf="http://xml.apache.org/axis/wsdd/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.apache.org/axis/wsdd/">
 <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
-  <schema targetNamespace="http://xml.apache.org/axis/wsdd/" xmlns="http://www.w3.org/2001/XMLSchema">
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.apache.org/axis/wsdd/">
   </schema>
  </wsdl:types>
 

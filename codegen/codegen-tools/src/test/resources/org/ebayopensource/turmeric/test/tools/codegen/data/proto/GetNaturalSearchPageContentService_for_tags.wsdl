@@ -1,24 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions 
-	targetNamespace="http://www.ebay.com/marketplace/naturalsearch/v1/services" 
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-	xmlns:tns="http://www.ebay.com/marketplace/naturalsearch/v1/services" 
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
-	xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/naturalsearch/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/naturalsearch/v1/services">
 	<wsdl:types>
-		<xs:schema 
-			targetNamespace="http://www.ebay.com/marketplace/naturalsearch/v1/services" 
-			elementFormDefault="qualified" 
-			attributeFormDefault="unqualified" 
-			xmlns:tns="http://www.ebay.com/marketplace/naturalsearch/v1/services" 
-			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/naturalsearch/v1/services">
 		
-			<xs:element name="getNaturalSearchPageContentRequest" type="tns:GetNaturalSearchPageContentRequest" />
-			<xs:element name="getNaturalSearchPageContentResponse" type="tns:GetNaturalSearchPageContentResponse" />
+			<xs:element name="getNaturalSearchPageContentRequest" type="tns:GetNaturalSearchPageContentRequest"/>
+			<xs:element name="getNaturalSearchPageContentResponse" type="tns:GetNaturalSearchPageContentResponse"/>
 
 			<xs:complexType name="Locale">
 				<xs:annotation>
@@ -27,14 +12,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="language" type="xs:token" minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="language" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								ISO 639 language code
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="country" type="xs:token" minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="country" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								ISO 3166 country code
@@ -53,7 +38,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="spaceId" type="xs:token" minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="spaceId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 							    Space ID is an extension of Global ID in that it supports the same concept beyond Marketplace. Global ID
@@ -61,7 +46,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="categoryId" type="xs:token" minOccurs="1" maxOccurs="1"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="categoryId" type="xs:token"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -72,8 +57,8 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="anchorText" type="xs:string" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="destinationURL" type="xs:string" minOccurs="1" maxOccurs="1"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="anchorText" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="destinationURL" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -84,8 +69,8 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="hyperlink" type="tns:Hyperlink" maxOccurs="unbounded" minOccurs="0"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="hyperlink" type="tns:Hyperlink"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -96,7 +81,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="hyperlinkGroup" type="tns:HyperlinkGroup" maxOccurs="unbounded" minOccurs="0"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="hyperlinkGroup" type="tns:HyperlinkGroup"/>
 
 				</xs:sequence>
 			</xs:complexType>
@@ -110,14 +95,14 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 					<xs:sequence>
-						<xs:element name="url" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="url" type="xs:string">
 							<xs:annotation>
 								<xs:documentation>
 									URL of the page instance
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="canonicalUrl" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="0" name="canonicalUrl" type="xs:string">
 							<xs:annotation>
 								<xs:documentation>
 									Canonical URL of the page is the URL that is fixed for a page. The URL of the page instance
@@ -125,21 +110,21 @@
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="keyword" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="0" name="keyword" type="xs:string">
 							<xs:annotation>
 								<xs:documentation>
 									Keyword, exactly as entered by the user
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="locale" type="tns:Locale" minOccurs="0" maxOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="0" name="locale" type="tns:Locale">
 							<xs:annotation>
 								<xs:documentation>
 									The locale in which the page content needs to be returned
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="category" type="tns:Category" minOccurs="0" maxOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="0" name="category" type="tns:Category">
 							<xs:annotation>
 								<xs:documentation>
 									The category associated with the URL
@@ -165,7 +150,7 @@
 								The page content, which when included on the page, improves the page rank of the page on search engines
 							</xs:documentation>
 						</xs:annotation>
-						<xs:element name="pagecontent" type="tns:PageContent" minOccurs="0" maxOccurs="1"/>
+						<xs:element maxOccurs="1" minOccurs="0" name="pagecontent" type="tns:PageContent"/>
 					</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -173,7 +158,7 @@
 
 			<!-- inherited ones from the marketplace svc definitions -->
 	
-			<xs:complexType name="BaseServiceRequest" abstract="true">
+			<xs:complexType abstract="true" name="BaseServiceRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This is the base class for request container for all service operations.
@@ -184,7 +169,7 @@
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:complexType name="BaseServiceResponse" abstract="true">
+			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service operations. Contains error information
@@ -205,7 +190,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="errorMessage" type="tns:ErrorMessage" minOccurs="0">
+			<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 				<xs:annotation>
 					<xs:documentation>
 						Information for an error or warning that occurred when eBay processed the
@@ -219,7 +204,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="version" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="version" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>
 					</xs:documentation>
@@ -231,7 +216,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+			<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 				<xs:annotation>
 					<xs:documentation>
 					</xs:documentation>
@@ -296,7 +281,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="error" type="tns:ErrorData" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" name="error" type="tns:ErrorData">
 				<xs:annotation>
 					<xs:documentation>
 						Details about a single error.
@@ -420,7 +405,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="subdomain" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="subdomain" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>
 						Name of the subdomain upon which the error occurred. 
@@ -448,7 +433,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="exceptionId" type="xs:token" minOccurs="0">
+			<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for an exception associated with an error.
@@ -461,7 +446,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="parameter" type="tns:ErrorParameter" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" name="parameter" type="tns:ErrorParameter">
 				<xs:annotation>
 					<xs:documentation>
 						Some warning and error messages return one or more variables that contain
@@ -588,11 +573,11 @@
 	</wsdl:types>
 	
 	<wsdl:message name="getNaturalSearchPageContentRequest">
-		<wsdl:part name="parameters" element="tns:getNaturalSearchPageContentRequest"/>
+		<wsdl:part element="tns:getNaturalSearchPageContentRequest" name="parameters"/>
 	</wsdl:message>
 
 	<wsdl:message name="getNaturalSearchPageContentResponse">
-		<wsdl:part name="parameters" element="tns:getNaturalSearchPageContentResponse"/>
+		<wsdl:part element="tns:getNaturalSearchPageContentResponse" name="parameters"/>
 	</wsdl:message>
 	
 	<wsdl:portType name="GetNaturalSearchPageContentServicePort">
@@ -639,17 +624,17 @@
 	</wsdl:binding>
 	
 	<wsdl:binding name="GetNaturalSearchPageContentServiceSOAPBinding" type="tns:GetNaturalSearchPageContentServicePort">
-		<soap12:binding xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getNaturalSearchPageContent">
 			<wsdl:documentation>
 				Get page content
 			</wsdl:documentation>
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:getNaturalSearchPageContent" style="document"/>
+			<soap12:operation soapAction="urn:getNaturalSearchPageContent" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -660,14 +645,14 @@
 			This service returns content which when included, improves the page rank of the page in search engines.
 		</wsdl:documentation>
 
-		<wsdl:port name="GetNaturalSearchPageContentServiceSOAP11port_http" binding="tns:GetNaturalSearchPageContentServiceSOAP11Binding">
+		<wsdl:port binding="tns:GetNaturalSearchPageContentServiceSOAP11Binding" name="GetNaturalSearchPageContentServiceSOAP11port_http">
 			<soap:address location="http://svcs.ebay.com/services/naturalsearch/v1/GetNaturalSearchPageContentService"/>
 		</wsdl:port>
-		<wsdl:port name="GetNaturalSearchPageContentServiceHttp" binding="tns:GetNaturalSearchPageContentServiceHttpBinding">
+		<wsdl:port binding="tns:GetNaturalSearchPageContentServiceHttpBinding" name="GetNaturalSearchPageContentServiceHttp">
 			<http:address location="http://svcs.ebay.com/services/naturalsearch/v1/GetNaturalSearchPageContentService"/>
 		</wsdl:port>
-		<wsdl:port name="GetNaturalSearchPageContentServiceSOAP12" binding="tns:GetNaturalSearchPageContentServiceSOAPBinding">
-			<soap12:address xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" location="http://svcs.ebay.com/services/naturalsearch/v1/GetNaturalSearchPageContentService"/>
+		<wsdl:port binding="tns:GetNaturalSearchPageContentServiceSOAPBinding" name="GetNaturalSearchPageContentServiceSOAP12">
+			<soap12:address location="http://svcs.ebay.com/services/naturalsearch/v1/GetNaturalSearchPageContentService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

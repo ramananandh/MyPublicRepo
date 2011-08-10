@@ -1,19 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions 
-	name="FundStatusService" 
-	targetNamespace="http://www.ebay.com/marketplace/fundstatus/v1/services" 
-	xmlns="http://schemas.xmlsoap.org/wsdl/" 
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
-	xmlns:tns="http://www.ebay.com/marketplace/fundstatus/v1/services" 
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/fundstatus/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FundStatusService" targetNamespace="http://www.ebayopensource.org/tumeric/fundstatus/v1/services">
 	
   <types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
-    	targetNamespace="http://www.ebay.com/marketplace/fundstatus/v1/services" xmlns:tns="http://www.ebay.com/marketplace/fundstatus/v1/services">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/fundstatus/v1/services">
 		<!-- addOrderDecisionRequest -->
 		<xs:element name="addOrderDecisionRequest" type="tns:AddOrderDecisionRequest"/>
 		<xs:complexType name="AddOrderDecisionRequest">
@@ -115,7 +103,7 @@
 		<xs:element name="addOrderDecisionResponse" type="tns:AddOrderDecisionResponse"/>
 		<xs:complexType name="AddOrderDecisionResponse">
 			<xs:complexContent>
-				<xs:extension base="tns:BaseResponse" />
+				<xs:extension base="tns:BaseResponse"/>
 			</xs:complexContent>
 		</xs:complexType>
 		
@@ -238,13 +226,13 @@
 		</xs:complexType>
 		
 		<!--  getVersionRequest/Response -->
-		<xs:element name="getVersionRequest"  type="tns:GetVersionRequest"/>
+		<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
 		<xs:complexType name="GetVersionRequest">
 			<xs:complexContent>
 				<xs:extension base="tns:BaseRequest"/>
 			</xs:complexContent>
 		</xs:complexType>
-		<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+		<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 		<xs:complexType name="GetVersionResponse">
 			<xs:complexContent>
 				<xs:extension base="tns:BaseResponse"/>
@@ -259,7 +247,7 @@
 					 informational error (a warning) that should be communicated to the user.
 				 </xs:documentation>
 				<xs:appinfo>
-					<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 				</xs:appinfo>
 			</xs:annotation>
 			<xs:restriction base="xs:string">
@@ -301,7 +289,7 @@
 				   This is the base class for request container for all service operations.
 				</xs:documentation>
 				<xs:appinfo>
-					<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 				</xs:appinfo>
 			</xs:annotation>
 			<xs:sequence>
@@ -315,7 +303,7 @@
 					Documentation goes here
 				</xs:documentation>
 				<xs:appinfo>
-					<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 				</xs:appinfo>
 			</xs:annotation>
 			<xs:sequence>
@@ -333,7 +321,7 @@
 					Base response container for all service operations. Contains error information associated with the request.
 				</xs:documentation>
 				<xs:appinfo>
-					<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 				</xs:appinfo>
 			</xs:annotation>
 			<xs:sequence>
@@ -391,7 +379,7 @@
 			<xs:annotation>
 				<xs:documentation/>
 				<xs:appinfo>
-					<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 				</xs:appinfo>
 			</xs:annotation>
 			<xs:restriction base="xs:token">
@@ -405,7 +393,7 @@
 			<xs:annotation>
 				<xs:documentation/>
 				<xs:appinfo>
-					<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 				</xs:appinfo>
 			</xs:annotation>
 			<xs:sequence>
@@ -424,7 +412,7 @@
 			<xs:annotation>
 				<xs:documentation/>
 				<xs:appinfo>
-					<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 				</xs:appinfo>
 			</xs:annotation>
 			<xs:sequence>
@@ -436,7 +424,7 @@
 			<xs:annotation>
 				<xs:documentation/>
 				<xs:appinfo>
-					<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 				</xs:appinfo>
 			</xs:annotation>
 			<xs:simpleContent>
@@ -450,7 +438,7 @@
 			<xs:annotation>
 				<xs:documentation/>
 				<xs:appinfo>
-					<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+					<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 				</xs:appinfo>
 			</xs:annotation>
 			<xs:restriction base="xs:token">
@@ -462,64 +450,64 @@
   </types>
   
   <message name="getVersionRequest">
-    <part name="messageParameters" element="tns:getVersionRequest">
+    <part element="tns:getVersionRequest" name="messageParameters">
     </part>
   </message>
   <message name="getLineItemDecisionResponse">
-    <part name="params" element="tns:getLineItemDecisionResponse">
+    <part element="tns:getLineItemDecisionResponse" name="params">
     </part>
   </message>
   <message name="addOrderDecisionResponse">
-    <part name="params" element="tns:addOrderDecisionResponse">
+    <part element="tns:addOrderDecisionResponse" name="params">
     </part>
   </message>
   <message name="getOrderDecisionRequest">
-    <part name="params" element="tns:getOrderDecisionRequest">
+    <part element="tns:getOrderDecisionRequest" name="params">
     </part>
   </message>
   <message name="getOrderDecisionResponse">
-    <part name="params" element="tns:getOrderDecisionResponse">
+    <part element="tns:getOrderDecisionResponse" name="params">
     </part>
   </message>
   <message name="getLineItemDecisionRequest">
-    <part name="params" element="tns:getLineItemDecisionRequest">
+    <part element="tns:getLineItemDecisionRequest" name="params">
     </part>
   </message>
   <message name="addOrderDecisionRequest">
-    <part name="params" element="tns:addOrderDecisionRequest">
+    <part element="tns:addOrderDecisionRequest" name="params">
     </part>
   </message>
   <message name="getVersionResponse">
-    <part name="messageParameters" element="tns:getVersionResponse">
+    <part element="tns:getVersionResponse" name="messageParameters">
     </part>
   </message>
   
   <portType name="FundStatusServicePort">
     <operation name="addOrderDecision">
 		<wsdl:documentation>Adds data pertaining to the hold or release decision of one or more orders.</wsdl:documentation>
-      		<input name="addOrderDecisionRequest" message="tns:addOrderDecisionRequest"/>
-      		<output name="addOrderDecisionResponse" message="tns:addOrderDecisionResponse"/>
+      		<input message="tns:addOrderDecisionRequest" name="addOrderDecisionRequest"/>
+      		<output message="tns:addOrderDecisionResponse" name="addOrderDecisionResponse"/>
     </operation>
     <operation name="getLineItemDecision">
 		<wsdl:documentation>
 			Retrieves data pertaining to the hold or release decision of one or more line items given
 			transaction ids, item ids and optionally estimated release dates
 		</wsdl:documentation>
-     	<input name="getLineItemDecisionRequest" message="tns:getLineItemDecisionRequest"/>
-     	<output name="getLineItemDecisionResponse" message="tns:getLineItemDecisionResponse"/>
+     	<input message="tns:getLineItemDecisionRequest" name="getLineItemDecisionRequest"/>
+     	<output message="tns:getLineItemDecisionResponse" name="getLineItemDecisionResponse"/>
     </operation>
     <operation name="getOrderDecision">
 		<wsdl:documentation>
 			Retrieves data pertaining to the hold or release decision of one or more orders given
 			order ids and optionally estimated release dates
 		</wsdl:documentation>
-      	<input name="getOrderDecisionRequest" message="tns:getOrderDecisionRequest"/>
-      	<output name="getOrderDecisionResponse" message="tns:getOrderDecisionResponse"/>
+      	<input message="tns:getOrderDecisionRequest" name="getOrderDecisionRequest"/>
+      	<output message="tns:getOrderDecisionResponse" name="getOrderDecisionResponse"/>
     </operation>
     <operation name="getVersion">
 		<wsdl:documentation>Returns the current version of the service.</wsdl:documentation>
-      	<input name="getVersionRequest" message="tns:getVersionRequest"/>
-      	<output name="getVersionResponse" message="tns:getVersionResponse"/>
+      	<input message="tns:getVersionRequest" name="getVersionRequest"/>
+      	<output message="tns:getVersionResponse" name="getVersionResponse"/>
     </operation>
   </portType>
   
@@ -528,37 +516,37 @@
     <operation name="addOrderDecision">
       <soap12:operation soapAction="urn:addOrderDecision" style="document"/>
       <input>
-        <soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+        <soap12:body use="literal"/>
       </input>
       <output>
-        <soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+        <soap12:body use="literal"/>
       </output>
     </operation>
     <operation name="getLineItemDecision">
       <soap12:operation soapAction="urn:getLineItemDecision" style="document"/>
       <input>
-        <soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+        <soap12:body use="literal"/>
       </input>
       <output>
-        <soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+        <soap12:body use="literal"/>
       </output>
     </operation>
     <operation name="getOrderDecision">
       <soap12:operation soapAction="urn:getOrderDecision" style="document"/>
       <input>
-        <soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+        <soap12:body use="literal"/>
       </input>
       <output>
-        <soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+        <soap12:body use="literal"/>
       </output>
     </operation>
     <operation name="getVersion">
       <soap12:operation soapAction="urn:getVersion" style="document"/>
       <input>
-        <soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+        <soap12:body use="literal"/>
       </input>
       <output>
-        <soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+        <soap12:body use="literal"/>
       </output>
     </operation>
   </binding>
@@ -609,10 +597,10 @@
 		This service provides functionality to add and retrieve information pertaining to the decision to 
 		hold or release fund of given orders or line items.
 	</wsdl:documentation>
-    <port name="FundStatusServiceHttpPort" binding="tns:FundStatusServiceHttpBinding">
+    <port binding="tns:FundStatusServiceHttpBinding" name="FundStatusServiceHttpPort">
       <http:address location="http://svcs.ebay.com/services/fundstatus/v1/FundStatusService"/>
     </port>
-    <port name="FundStatusServiceSOAPPort" binding="tns:FundStatusServiceSOAPBinding">
+    <port binding="tns:FundStatusServiceSOAPBinding" name="FundStatusServiceSOAPPort">
       <soap12:address location="http://svcs.ebay.com/services/fundstatus/v1/FundStatusService"/>
     </port>
   </service>

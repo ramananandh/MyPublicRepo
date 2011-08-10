@@ -1,9 +1,4 @@
-<?xml version="1.0"?>
-<definitions name="RIMApplicationProcessService"
-	targetNamespace="http://www.ebay.com/marketplace/mobile/v1/services"
-	xmlns:tns="http://www.ebay.com/marketplace/mobile/v1/services"
-	xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebayopensource.org/tumeric/mobile/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RIMApplicationProcessService" targetNamespace="http://www.ebayopensource.org/tumeric/mobile/v1/services">
 
 	<!--
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -18,15 +13,11 @@
 	plural to single
 	 -->
 	<types>
-		<schema attributeFormDefault="unqualified" elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/mobile/v1/services"
-			xmlns="http://www.w3.org/2001/XMLSchema">
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/mobile/v1/services">
 			<xs:complexType abstract="true" name="BaseResponse">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Base response container for all service operations. Contains error information
@@ -47,7 +38,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="errorMessage" type="tns:ErrorMessage" minOccurs="0">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that occurred when eBay processed the
@@ -61,7 +52,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -69,9 +60,7 @@
 			<xs:complexType name="ErrorMessage">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						ErrorMessage to indicate any Error/Warning occured as part of service call.
@@ -80,7 +69,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
@@ -101,9 +90,7 @@
 			<xs:complexType name="ErrorData">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						This represents error details.
@@ -212,7 +199,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="subdomain" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain upon which the error occurred. 
@@ -240,7 +227,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="exceptionId" type="xs:token" minOccurs="0">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for an exception associated with an error.
@@ -253,7 +240,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="parameter" type="tns:ErrorParameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return one or more variables that contain
@@ -275,9 +262,7 @@
 			<xs:complexType name="ErrorParameter">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Contextual information associated with an error.
@@ -308,9 +293,7 @@
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Indicates whether the error is a severe error (causing the request to fail)
@@ -356,9 +339,7 @@
 			<xs:simpleType name="ErrorSeverity">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 						Indicates whether the error is a severe error (causing the request to fail)
@@ -392,9 +373,7 @@
 			<xs:simpleType name="ErrorCategory">
 				<xs:annotation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketplaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 					<xs:documentation>
 							There are three categories of error: request errors, application errors,
@@ -448,21 +427,21 @@
 						This is the base class for request container for all
 						service operations.
 					</xs:documentation>
-				<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"></xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ExtensionType">
 				<xs:annotation>
 					<xs:documentation>ExperimentationExecutionService uses extension id 2(Request Opt-in Cookie) and 3(Response Tracking Data) </xs:documentation>
 					
-				<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+				<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger"></xs:element>
-					<xs:element name="version" type="xs:string"></xs:element>
-					<xs:element name="contentType" type="xs:string"></xs:element>
-					<xs:element name="value" type="xs:string"></xs:element>
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
 				</xs:sequence>
 			</xs:complexType>
@@ -601,7 +580,7 @@
 		<xs:complexType name="AmountType">
 				<xs:simpleContent>
 					<xs:extension base="xs:double">
-						<xs:attribute name="currencyID" type="xs:token" >
+						<xs:attribute name="currencyID" type="xs:token">
 						</xs:attribute>
 						</xs:extension>
 						</xs:simpleContent>
@@ -684,14 +663,14 @@
 	  
 	  <xs:complexType name="ListingDetailsType">
 		<xs:sequence>
-			<xs:element name="convertedBuyItNowPrice" type="tns:AmountType" minOccurs="1">
+			<xs:element minOccurs="1" name="convertedBuyItNowPrice" type="tns:AmountType">
 			</xs:element>
-			<xs:element name="reservePrice" type="xs:boolean" minOccurs="1">
+			<xs:element minOccurs="1" name="reservePrice" type="xs:boolean">
 			</xs:element>
-			<xs:element name="startTime" type="xs:dateTime" minOccurs="1">
+			<xs:element minOccurs="1" name="startTime" type="xs:dateTime">
 			</xs:element>
-			<xs:element name="endTime" type="xs:dateTime" minOccurs="1"></xs:element>
-			<xs:element name="buyItNowAvailable" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="1" name="endTime" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="buyItNowAvailable" type="xs:boolean">
 			</xs:element>
 
 		</xs:sequence>
@@ -713,49 +692,48 @@
 
 	 <xs:complexType name="ItemType">
 		<xs:sequence>
-			<xs:element name="autoPay" type="xs:boolean" minOccurs="1"></xs:element>
-			<xs:element name="buyItNowPrice" type="tns:AmountType" minOccurs="1">
+			<xs:element minOccurs="1" name="autoPay" type="xs:boolean"/>
+			<xs:element minOccurs="1" name="buyItNowPrice" type="tns:AmountType">
 			</xs:element>
-			<xs:element name="country" type="xs:token" minOccurs="1"></xs:element>
-			<xs:element name="itemID" type="tns:ItemIDType" minOccurs="1">
+			<xs:element minOccurs="1" name="country" type="xs:token"/>
+			<xs:element minOccurs="1" name="itemID" type="tns:ItemIDType">
 			</xs:element>
-			<xs:element name="itemWatched" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="itemWatched" type="xs:boolean">
 			</xs:element>
-			<xs:element name="listingDetails" type="tns:ListingDetailsType" minOccurs="1">
+			<xs:element minOccurs="1" name="listingDetails" type="tns:ListingDetailsType">
 			</xs:element>
-			<xs:element name="listingDuration" type="xs:token" minOccurs="0"></xs:element>
-			<xs:element name="listingType" type="tns:ListingTypeCodeType" minOccurs="1">
+			<xs:element minOccurs="0" name="listingDuration" type="xs:token"/>
+			<xs:element minOccurs="1" name="listingType" type="tns:ListingTypeCodeType">
 			</xs:element>
 
-			<xs:element name="location" type="xs:string" minOccurs="1"></xs:element>
-			<xs:element name="myMaxBid" type="tns:AmountType" minOccurs="0"/>
-			<element name="paymentDetails"
-            			type="tns:PaymentDetailsType" minOccurs="0" maxOccurs="1">
+			<xs:element minOccurs="1" name="location" type="xs:string"/>
+			<xs:element minOccurs="0" name="myMaxBid" type="tns:AmountType"/>
+			<element maxOccurs="1" minOccurs="0" name="paymentDetails" type="tns:PaymentDetailsType">
             </element>
-			<xs:element name="paymentMethod" type="xs:token" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="paymentMethod" type="xs:token">
 			</xs:element>
-			<xs:element name="pictureDetails" type="tns:PictureDetailsType" minOccurs="0"></xs:element>
+			<xs:element minOccurs="0" name="pictureDetails" type="tns:PictureDetailsType"/>
 			
-			<xs:element name="primaryCategory" type="tns:CategoryType" minOccurs="1">
+			<xs:element minOccurs="1" name="primaryCategory" type="tns:CategoryType">
 			</xs:element>
-			<xs:element name="quantity" type="xs:int" minOccurs="1"></xs:element>
-			<xs:element name="seller" type="tns:UserType" minOccurs="1"></xs:element>
-			<xs:element name="sellingStatus" type="tns:SellingStatusType" minOccurs="1"></xs:element>
-			<xs:element name="shippingDetails" type="tns:ShippingDetailsType" minOccurs="0"></xs:element>
-			<xs:element name="shipToLocation" type="xs:string" minOccurs="1" maxOccurs="unbounded"></xs:element>		
-			<xs:element name="site" type="xs:token" minOccurs="1">
+			<xs:element minOccurs="1" name="quantity" type="xs:int"/>
+			<xs:element minOccurs="1" name="seller" type="tns:UserType"/>
+			<xs:element minOccurs="1" name="sellingStatus" type="tns:SellingStatusType"/>
+			<xs:element minOccurs="0" name="shippingDetails" type="tns:ShippingDetailsType"/>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="shipToLocation" type="xs:string"/>		
+			<xs:element minOccurs="1" name="site" type="xs:token">
 			</xs:element>
-			<xs:element name="startPrice" type="tns:AmountType" minOccurs="1">
+			<xs:element minOccurs="1" name="startPrice" type="tns:AmountType">
 			</xs:element>
-			<xs:element name="subTitle" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="subTitle" type="xs:string">
 			</xs:element>
-			<xs:element name="timeLeft" type="xs:duration" minOccurs="1">
+			<xs:element minOccurs="1" name="timeLeft" type="xs:duration">
 			</xs:element>
-			<xs:element name="title" type="xs:string" minOccurs="1"></xs:element>
+			<xs:element minOccurs="1" name="title" type="xs:string"/>
 
 
-			<xs:element name="maxBid" type="tns:AmountType" minOccurs="0"/>
-			<xs:element name="convertedMaxBid" type="tns:AmountType" minOccurs="0"/>
+			<xs:element minOccurs="0" name="maxBid" type="tns:AmountType"/>
+			<xs:element minOccurs="0" name="convertedMaxBid" type="tns:AmountType"/>
 
 		</xs:sequence>
 	</xs:complexType>
@@ -769,42 +747,42 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-				<xs:element name="thirdPartyCheckout" type="xs:boolean" minOccurs="0"></xs:element>
-				<xs:element name="shippingType" type="tns:ShippingTypeCodeType" minOccurs="0"></xs:element>
-				<xs:element name="shippingServiceOption" type="tns:ShippingServiceOptionsType" minOccurs="1" maxOccurs="unbounded"></xs:element>
-				<xs:element name="internationalShippingServiceOption" type="tns:InternationalShippingServiceOptionsType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+				<xs:element minOccurs="0" name="thirdPartyCheckout" type="xs:boolean"/>
+				<xs:element minOccurs="0" name="shippingType" type="tns:ShippingTypeCodeType"/>
+				<xs:element maxOccurs="unbounded" minOccurs="1" name="shippingServiceOption" type="tns:ShippingServiceOptionsType"/>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="internationalShippingServiceOption" type="tns:InternationalShippingServiceOptionsType"/>
 			</xs:sequence>
 			</xs:complexType>
 			
 	<xs:complexType name="ShippingServiceOptionsType">
 
 		<xs:sequence>
-			<xs:element name="shippingInsuranceCost" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="shippingInsuranceCost" type="tns:AmountType">
 
 			</xs:element>
-			<xs:element name="shippingService" type="xs:token" minOccurs="0">
+			<xs:element minOccurs="0" name="shippingService" type="xs:token">
 			</xs:element>
-			<xs:element name="shippingServiceCost" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="shippingServiceCost" type="tns:AmountType">
 
 			</xs:element>
-			<xs:element name="shippingServiceAdditionalCost" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="shippingServiceAdditionalCost" type="tns:AmountType">
 
 			</xs:element>
-			<xs:element name="shippingServicePriority" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="shippingServicePriority" type="xs:int">
 
 			</xs:element>
-			<xs:element name="expeditedService" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="expeditedService" type="xs:boolean">
 
 			</xs:element>
-			<xs:element name="shippingTimeMin" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="shippingTimeMin" type="xs:int">
 
 			</xs:element>
-			<xs:element name="shippingTimeMax" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="shippingTimeMax" type="xs:int">
 
 			</xs:element>
-			<xs:element name="shippingSurcharge" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="shippingSurcharge" type="tns:AmountType">
 			</xs:element>
-			<xs:element name="freeShipping" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="freeShipping" type="xs:boolean">
 			</xs:element>
 
 		</xs:sequence>
@@ -813,18 +791,18 @@
 	<xs:complexType name="InternationalShippingServiceOptionsType">
 
 		<xs:sequence>
-			<xs:element name="shippingService" type="xs:token" minOccurs="0">
+			<xs:element minOccurs="0" name="shippingService" type="xs:token">
 
 			</xs:element>
-			<xs:element name="shippingServiceCost" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="shippingServiceCost" type="tns:AmountType">
 			</xs:element>
-			<xs:element name="shippingServiceAdditionalCost" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="shippingServiceAdditionalCost" type="tns:AmountType">
 			</xs:element>
-			<xs:element name="shippingServicePriority" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="shippingServicePriority" type="xs:int">
 			</xs:element>
-			<xs:element name="shipToLocation" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="shipToLocation" type="xs:string">
 			</xs:element>
-			<xs:element name="shippingInsuranceCost" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="shippingInsuranceCost" type="tns:AmountType">
 			</xs:element>
 
 		</xs:sequence>
@@ -924,45 +902,45 @@
 	<xs:complexType name="CategoryType">
 	
 		<xs:sequence>
-			<xs:element name="bestOfferEnabled" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="bestOfferEnabled" type="xs:boolean">
 			</xs:element>
-			<xs:element name="autoPayEnabled" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="autoPayEnabled" type="xs:boolean">
 			</xs:element>
-			<xs:element name="b2BVATEnabled" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="b2BVATEnabled" type="xs:boolean">
 			</xs:element>
-			<xs:element name="catalogEnabled" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="catalogEnabled" type="xs:boolean">
 			</xs:element>
-			<xs:element name="categoryID" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="categoryID" type="xs:string">
 			</xs:element>
-			<xs:element name="categoryLevel" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="categoryLevel" type="xs:int">
 			</xs:element>
-			<xs:element name="categoryName" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="categoryName" type="xs:string">
 			</xs:element>
-			<xs:element name="categoryParentID" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="categoryParentID" type="xs:string">
 			</xs:element>
-			<xs:element name="categoryParentName" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="categoryParentName" type="xs:string">
 			</xs:element>
-			<xs:element name="productSearchPageAvailable" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="productSearchPageAvailable" type="xs:boolean">
 			</xs:element>
-			<xs:element name="expired" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="expired" type="xs:boolean">
 			</xs:element>
-			<xs:element name="intlAutosFixedCat" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="intlAutosFixedCat" type="xs:boolean">
 			</xs:element>
-			<xs:element name="leafCategory" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="leafCategory" type="xs:boolean">
 			</xs:element>
-			<xs:element name="virtual" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="virtual" type="xs:boolean">
 			</xs:element>
-			<xs:element name="numOfItems" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="numOfItems" type="xs:int">
 			</xs:element>
-			<xs:element name="sellerGuaranteeEligible" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="sellerGuaranteeEligible" type="xs:boolean">
 			</xs:element>
-			<xs:element name="ORPA" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="ORPA" type="xs:boolean">
 			</xs:element>
-			<xs:element name="ORRA" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="ORRA" type="xs:boolean">
 			</xs:element>
-			<xs:element name="LSD" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="LSD" type="xs:boolean">
 			</xs:element>
-			<xs:element name="keywords" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="keywords" type="xs:string">
 			</xs:element>
 
 		</xs:sequence>
@@ -970,15 +948,15 @@
 	
 	<xs:complexType name="BusinessSellerDetailsType">
 		<xs:sequence>
-			<xs:element name="address" type="tns:AddressType" minOccurs="0">
+			<xs:element minOccurs="0" name="address" type="tns:AddressType">
 			</xs:element>
-			<xs:element name="fax" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="fax" type="xs:string">
 			</xs:element>
-			<xs:element name="email" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="email" type="xs:string">
 			</xs:element>
-			<xs:element name="tradeRegistrationNumber" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="tradeRegistrationNumber" type="xs:string">
 			</xs:element>
-			<xs:element name="VATDetails" type="tns:VATDetailsType" minOccurs="0">
+			<xs:element minOccurs="0" name="VATDetails" type="tns:VATDetailsType">
 			</xs:element>
 
 		</xs:sequence>
@@ -986,15 +964,15 @@
 	
 	<xs:complexType name="VATDetailsType">
 		<xs:sequence>
-			<xs:element name="businessSeller" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="businessSeller" type="xs:boolean">
 			</xs:element>
-			<xs:element name="restrictedToBusiness" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="restrictedToBusiness" type="xs:boolean">
 			</xs:element>
-			<xs:element name="VATPercent" type="xs:float" minOccurs="0">
+			<xs:element minOccurs="0" name="VATPercent" type="xs:float">
 			</xs:element>
-			<xs:element name="VATSite" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="VATSite" type="xs:string">
 			</xs:element>
-			<xs:element name="VATID" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="VATID" type="xs:string">
 			</xs:element>
 
 		</xs:sequence>
@@ -1018,75 +996,75 @@
 	
 	<xs:complexType name="AddressType">
 	  <xs:sequence>
-		<xs:element name="name" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="name" type="xs:string">
 
 		</xs:element>
-		<xs:element name="street" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="street" type="xs:string">
 
 		</xs:element>
-		<xs:element name="street1" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="street1" type="xs:string">
 
 		</xs:element>
-		<xs:element name="street2" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="street2" type="xs:string">
 
 		</xs:element>
-		<xs:element name="cityName" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="cityName" type="xs:string">
 
 		</xs:element>
-		<xs:element name="county" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="county" type="xs:string">
 
 		</xs:element>
-		<xs:element name="stateOrProvince" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="stateOrProvince" type="xs:string">
 		</xs:element>
-		<xs:element name="country" type="xs:token" minOccurs="0">
+		<xs:element minOccurs="0" name="country" type="xs:token">
 		</xs:element>
-		<xs:element name="countryName" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="countryName" type="xs:string">
 		</xs:element>
-		<xs:element name="phone" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="phone" type="xs:string">
 		</xs:element>
-		<xs:element name="phoneCountryCode" type="xs:token" minOccurs="0">
+		<xs:element minOccurs="0" name="phoneCountryCode" type="xs:token">
 
 		</xs:element>
-		<xs:element name="phoneCountryPrefix" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="phoneCountryPrefix" type="xs:string">
 		</xs:element>
-		<xs:element name="phoneAreaOrCityCode" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="phoneAreaOrCityCode" type="xs:string">
 		</xs:element>
-		<xs:element name="phoneLocalNumber" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="phoneLocalNumber" type="xs:string">
 		</xs:element>
 		<!-- phone number set 2 -->
-		<xs:element name="phone2CountryCode" type="xs:token" minOccurs="0">
+		<xs:element minOccurs="0" name="phone2CountryCode" type="xs:token">
 		</xs:element>
-		<xs:element name="phone2CountryPrefix" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="phone2CountryPrefix" type="xs:string">
 		</xs:element>
-		<xs:element name="phone2AreaOrCityCode" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="phone2AreaOrCityCode" type="xs:string">
 		</xs:element>
-		<xs:element name="phone2LocalNumber" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="phone2LocalNumber" type="xs:string">
 		</xs:element>
-		<xs:element name="postalCode" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="postalCode" type="xs:string">
 		</xs:element>
-		<xs:element name="addressID" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="addressID" type="xs:string">
 		</xs:element>
-		<xs:element name="addressOwner" type="tns:AddressOwnerCodeType" minOccurs="0">
+		<xs:element minOccurs="0" name="addressOwner" type="tns:AddressOwnerCodeType">
 		</xs:element>
-		<xs:element name="addressStatus" type="tns:AddressStatusCodeType" minOccurs="0">
+		<xs:element minOccurs="0" name="addressStatus" type="tns:AddressStatusCodeType">
 		</xs:element>
-		<xs:element name="externalAddressID" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="externalAddressID" type="xs:string">
 		</xs:element>
-		<xs:element name="internationalName" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="internationalName" type="xs:string">
 		</xs:element>
-		<xs:element name="internationalStateAndCity" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="internationalStateAndCity" type="xs:string">
 		</xs:element>
-		<xs:element name="internationalStreet" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="internationalStreet" type="xs:string">
 		</xs:element>
-		<xs:element name="companyName" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="companyName" type="xs:string">
 		</xs:element>
-		<xs:element name="addressRecordType" type="tns:AddressRecordTypeCodeType" minOccurs="0">
+		<xs:element minOccurs="0" name="addressRecordType" type="tns:AddressRecordTypeCodeType">
 		</xs:element>
-		<xs:element name="firstName" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="firstName" type="xs:string">
 		</xs:element>
-		<xs:element name="lastName" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="lastName" type="xs:string">
 		</xs:element>
-		<xs:element name="phone2" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="phone2" type="xs:string">
 		</xs:element>
 
 	</xs:sequence>
@@ -1175,31 +1153,31 @@
 	<xs:complexType name="SellingStatusType">
 
 		<xs:sequence>
-			<xs:element name="bidCount" type="xs:int" minOccurs="1">
+			<xs:element minOccurs="1" name="bidCount" type="xs:int">
 
 			</xs:element>
-			<xs:element name="bidIncrement" type="tns:AmountType" minOccurs="1">
+			<xs:element minOccurs="1" name="bidIncrement" type="tns:AmountType">
 
 			</xs:element>
-			<xs:element name="convertedCurrentPrice" type="tns:AmountType" minOccurs="0">
+			<xs:element minOccurs="0" name="convertedCurrentPrice" type="tns:AmountType">
 
 			</xs:element>
-			<xs:element name="currentPrice" type="tns:AmountType" minOccurs="1">
+			<xs:element minOccurs="1" name="currentPrice" type="tns:AmountType">
 			
 			</xs:element>
-			<xs:element name="highBidder" type="tns:UserType" minOccurs="0">
+			<xs:element minOccurs="0" name="highBidder" type="tns:UserType">
 			</xs:element>
 	
-			<xs:element name="minimumToBid" type="tns:AmountType" minOccurs="1">
+			<xs:element minOccurs="1" name="minimumToBid" type="tns:AmountType">
 		
 			</xs:element>
-			<xs:element name="quantitySold" type="xs:int" minOccurs="1">
+			<xs:element minOccurs="1" name="quantitySold" type="xs:int">
 			</xs:element>
-			<xs:element name="reserveMet" type="xs:boolean" minOccurs="1">
+			<xs:element minOccurs="1" name="reserveMet" type="xs:boolean">
 			</xs:element>
-			<xs:element name="bidderCount" type="xs:long" minOccurs="1">
+			<xs:element minOccurs="1" name="bidderCount" type="xs:long">
 			</xs:element>
-			<xs:element name="listingStatus" type="tns:ListingStatusCodeType" minOccurs="0">
+			<xs:element minOccurs="0" name="listingStatus" type="tns:ListingStatusCodeType">
 			</xs:element>
 		
 
@@ -1237,40 +1215,40 @@
 		</xs:annotation>
 		<xs:sequence>
 		
-			<xs:element name="email" type="xs:string" minOccurs="0">
+			<xs:element minOccurs="0" name="email" type="xs:string">
 			
 			</xs:element>
-			<xs:element name="feedbackScore" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="feedbackScore" type="xs:int">
 			
 			</xs:element>
-			<xs:element name="uniqueNegativeFeedbackCount" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="uniqueNegativeFeedbackCount" type="xs:int">
 				
 			</xs:element>
-			<xs:element name="uniquePositiveFeedbackCount" type="xs:int" minOccurs="0">
+			<xs:element minOccurs="0" name="uniquePositiveFeedbackCount" type="xs:int">
 				
 			</xs:element>
-			<xs:element name="positiveFeedbackPercent" type="xs:float" minOccurs="0">
+			<xs:element minOccurs="0" name="positiveFeedbackPercent" type="xs:float">
 				
 			</xs:element>
-			<xs:element name="feedbackPrivate" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="feedbackPrivate" type="xs:boolean">
 				
 			</xs:element>
-			<xs:element name="feedbackRatingStar" type="tns:FeedbackRatingStarCodeType" minOccurs="0">
+			<xs:element minOccurs="0" name="feedbackRatingStar" type="tns:FeedbackRatingStarCodeType">
 				
 			</xs:element>
-			<xs:element name="idVerified" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="idVerified" type="xs:boolean">
 				
 			</xs:element>
-			<xs:element name="eBayGoodStanding" type="xs:boolean" minOccurs="0">
+			<xs:element minOccurs="0" name="eBayGoodStanding" type="xs:boolean">
 			</xs:element>
 		
-			<xs:element name="site" type="xs:token" minOccurs="0">
+			<xs:element minOccurs="0" name="site" type="xs:token">
 				
 			</xs:element>
-			<xs:element name="status" type="tns:UserStatusCodeType" minOccurs="0">
+			<xs:element minOccurs="0" name="status" type="tns:UserStatusCodeType">
 				
 			</xs:element>
-			<xs:element name="userID" type="tns:UserIDType" minOccurs="0">
+			<xs:element minOccurs="0" name="userID" type="tns:UserIDType">
 			
 			</xs:element>
 		</xs:sequence>
@@ -1412,10 +1390,10 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<DeprecationVersion>415</DeprecationVersion>
-						<DeletionVersion />
-						<EndOfLifeVersion />
+						<DeletionVersion/>
+						<EndOfLifeVersion/>
 						<DeprecationDetails>NotReturned</DeprecationDetails>
-						<UseInstead />
+						<UseInstead/>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:enumeration>
@@ -1426,10 +1404,10 @@
 					</xs:documentation>
 					<xs:appinfo>
 						<DeprecationVersion>415</DeprecationVersion>
-						<DeletionVersion />
-						<EndOfLifeVersion />
+						<DeletionVersion/>
+						<EndOfLifeVersion/>
 						<DeprecationDetails>NotReturned</DeprecationDetails>
-						<UseInstead />
+						<UseInstead/>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:enumeration>
@@ -1477,9 +1455,9 @@
 	  <xs:complexContent>
 			<xs:extension base="tns:BaseRequest">
 		<sequence>
-			<element name="itemID" type="string" maxOccurs="1">
+			<element maxOccurs="1" name="itemID" type="string">
 			</element>
-			<element name="errorLanguage" type="string" minOccurs="0" maxOccurs="1">
+			<element maxOccurs="1" minOccurs="0" name="errorLanguage" type="string">
 			</element>
 		</sequence>
 		</xs:extension>
@@ -1489,7 +1467,7 @@
 		<xs:complexContent>
 			<xs:extension base="tns:BaseResponse">
 				<sequence>
-					<element name="item" type="tns:ItemType" minOccurs="0" maxOccurs="1">
+					<element maxOccurs="1" minOccurs="0" name="item" type="tns:ItemType">
 					</element>
 				</sequence>
 			</xs:extension>
@@ -1499,11 +1477,9 @@
         
             <complexType name="PaymentDetailsType">
             	<sequence>
-            		<element name="daysToFullPayment" type="int"
-            			minOccurs="0" maxOccurs="1" >
+            		<element maxOccurs="1" minOccurs="0" name="daysToFullPayment" type="int">
             		</element>
-            		<element name="hoursToDeposit" type="int"
-            			minOccurs="0" maxOccurs="1" >
+            		<element maxOccurs="1" minOccurs="0" name="hoursToDeposit" type="int">
             		</element>
             	</sequence>
             </complexType>
@@ -1517,11 +1493,11 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
     
     <message name="itemDetailRequest">
-    	<part name="payload" element="tns:itemDetailRequest"></part>
+    	<part element="tns:itemDetailRequest" name="payload"/>
     </message>
     
     <message name="itemDetailResponse">
-    	<part name="payload" element="tns:itemDetailResponse"></part>
+    	<part element="tns:itemDetailResponse" name="payload"/>
     </message>
 
 
@@ -1532,23 +1508,21 @@
     <!-- portType implemented by the AggService BPEL process -->
     <portType name="RIMApplicationProcessServicePort">
         <operation name="getItemDetail">
-        	<input message="tns:itemDetailRequest"></input>
-        	<output message="tns:itemDetailResponse"></output>
+        	<input message="tns:itemDetailRequest"/>
+        	<output message="tns:itemDetailResponse"/>
         </operation>
     </portType>
 
 
    <binding name="RIMApplicationProcessServiceSOAPBinding" type="tns:RIMApplicationProcessServicePort">
-    	<soap:binding style="document"
-    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     	<operation name="getItemDetail">
-    		<soap:operation
-    			soapAction="http://www.ebay.com/marketplace/mobile/v1/services/getItemDetail" />
+    		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/mobile/v1/services/getItemDetail"/>
     		<input>
-    			<soap:body use="literal" />
+    			<soap:body use="literal"/>
     		</input>
     		<output>
-    			<soap:body use="literal" />
+    			<soap:body use="literal"/>
     		</output>
     	</operation>
     </binding>
@@ -1562,8 +1536,8 @@
     </plnk:partnerLinkType>   
       
      <service name="RIMApplicationProcessService">
-    	<port name="RIMApplicationProcessServiceSOAPPort" binding="tns:RIMApplicationProcessServiceSOAPBinding">
-    		<soap:address location="https://svcs.ebay.com/services/mobile/v1/RIMApplicationProcessService" />
+    	<port binding="tns:RIMApplicationProcessServiceSOAPBinding" name="RIMApplicationProcessServiceSOAPPort">
+    		<soap:address location="https://svcs.ebay.com/services/mobile/v1/RIMApplicationProcessService"/>
     	</port>
     </service>
 

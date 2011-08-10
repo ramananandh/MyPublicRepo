@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2010 (http://www.altova.com) by Snezana Sahter (ebay) -->
-<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ebay.com/marketplace/verification/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" name="UserVerificationService" targetNamespace="http://www.ebay.com/marketplace/verification/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><!-- edited with XMLSpy v2010 (http://www.altova.com) by Snezana Sahter (ebay) --><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/verification/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UserVerificationService" targetNamespace="http://www.ebayopensource.org/tumeric/verification/v1/services">
 	<wsdl:types>
-		<xs:schema xmlns:tns="http://www.ebay.com/marketplace/verification/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www.ebay.com/marketplace/verification/v1/services" elementFormDefault="qualified" attributeFormDefault="unqualified">
+		<xs:schema xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/verification/v1/services">
 			<xs:complexType name="ExtensionType">
 				<xs:annotation>
 					<xs:documentation>
@@ -18,7 +16,7 @@
 
 				</xs:sequence>
 			</xs:complexType>
-			<xs:complexType name="BaseRequest" abstract="true">
+			<xs:complexType abstract="true" name="BaseRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This is the base class for request container for
@@ -26,10 +24,10 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:complexType name="BaseResponse" abstract="true">
+			<xs:complexType abstract="true" name="BaseResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -51,7 +49,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="errorMessage" type="tns:ErrorMessage" minOccurs="0">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -66,7 +64,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation/>
 							<xs:appinfo>
@@ -77,7 +75,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation/>
 							<xs:appinfo>
@@ -88,7 +86,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -101,7 +99,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData"  minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
@@ -241,7 +239,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="subdomain" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain upon which the
@@ -265,7 +263,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="exceptionId" type="xs:token" minOccurs="0">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for an exception
@@ -279,7 +277,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="parameter" type="tns:ErrorParameter"  minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -485,7 +483,7 @@
 					<xs:extension base="tns:BaseResponse"/>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:complexType name="BaseVerificationDataRequest" abstract="true">
+			<xs:complexType abstract="true" name="BaseVerificationDataRequest">
 				<xs:annotation>
 					<xs:documentation>
 						Base request type with common request elements
@@ -526,7 +524,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:complexType name="BaseVerificationDataResponse" abstract="true">
+			<xs:complexType abstract="true" name="BaseVerificationDataResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base class for response container for all
@@ -595,7 +593,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="methodSpecificData" type="tns:VerificationData" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="methodSpecificData" type="tns:VerificationData">
 						<xs:annotation>
 							<xs:documentation>
 								A list of user data that has been used
@@ -605,7 +603,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="methodCaseTransitionRequest" type="tns:MethodCaseTransitionRequest" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="methodCaseTransitionRequest" type="tns:MethodCaseTransitionRequest">
 						<xs:annotation>
 							<xs:documentation>
 								Represents all requests to perform an
@@ -709,7 +707,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="methodTransitionData" type="tns:VerificationData" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="methodTransitionData" type="tns:VerificationData">
 						<xs:annotation>
 							<xs:documentation>
 								List of the user data involved in the
@@ -737,7 +735,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="siteID" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="siteID" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								The Id referring to on of the eBay
@@ -746,7 +744,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="coBrandID" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="coBrandID" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								eBay coBrandId related to the site.
@@ -763,7 +761,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="XFFIP" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="XFFIP" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								List of the forwarding IP addresses
@@ -779,7 +777,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="resultingMethodCaseTransition" type="tns:MethodCaseTransition" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="resultingMethodCaseTransition" type="tns:MethodCaseTransition">
 						<xs:annotation>
 							<xs:documentation>
 								Represents a history of all method state
@@ -828,7 +826,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="RUVToken" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="RUVToken" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Required User Verification token Id,
@@ -859,7 +857,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="processSpecificData" type="tns:VerificationData" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="processSpecificData" type="tns:VerificationData">
 						<xs:annotation>
 							<xs:documentation>
 								A list of user data that has been used
@@ -869,7 +867,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="referencedMethodCase" type="tns:MethodCaseReference" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="referencedMethodCase" type="tns:MethodCaseReference">
 						<xs:annotation>
 							<xs:documentation>
 							A list of method cases initiated as part of the process case (for example Cece process which is new buyer high risk verification process in US will typically reference an email method case and credit card method case)
@@ -908,7 +906,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="methodType" type="xs:token" minOccurs="0">
+					<xs:element minOccurs="0" name="methodType" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Type of the method instance that has
@@ -931,7 +929,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="referenceSpecificData" type="tns:VerificationData" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="referenceSpecificData" type="tns:VerificationData">
 						<xs:annotation>
 							<xs:documentation>
 								A list of user data that has been used
@@ -1004,7 +1002,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="RUVToken" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="RUVToken" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Unique token ID of the required
@@ -1013,7 +1011,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="currentModuleType" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="currentModuleType" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Type of the application module, the user
@@ -1021,7 +1019,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="currentModuleState" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="currentModuleState" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								The application module specific state
@@ -1039,7 +1037,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="appSpecificData" type="tns:VerificationData" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="appSpecificData" type="tns:VerificationData">
 						<xs:annotation>
 							<xs:documentation>
 								A list of user data that has been used
@@ -1108,7 +1106,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="riskLevel" type="xs:token" minOccurs="0">
+					<xs:element minOccurs="0" name="riskLevel" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								The risk level of the user. Along with
@@ -1120,21 +1118,21 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="siteID" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="siteID" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Site id of the eBay global sites.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="coBrandID" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="coBrandID" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								CoBrand id assosciated with the site id.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="machineGroupID" type="xs:long" minOccurs="0">
+					<xs:element minOccurs="0" name="machineGroupID" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								User's known good machine Id, used for
@@ -1168,7 +1166,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="RUVTransition" type="tns:RUVTransition" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="RUVTransition" type="tns:RUVTransition">
 						<xs:annotation>
 							<xs:documentation>
 								Represents all RUV state transitions
@@ -1178,7 +1176,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="privilegeAuthorityLog" type="tns:PrivilegeAuthorityLog" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="privilegeAuthorityLog" type="tns:PrivilegeAuthorityLog">
 						<xs:annotation>
 							<xs:documentation>
 								When user completes verification, privilege authority attempts to grant a privilege; this represents the status of attempts (there can be multiple if first attempt fails but next attempt succeeds)
@@ -1274,7 +1272,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="numberAttempted" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="numberAttempted" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Number of attempts at next level.
@@ -1282,7 +1280,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ANPTransactionID" type="xs:long" minOccurs="0">
+					<xs:element minOccurs="0" name="ANPTransactionID" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								Auth transaction ID that verified user’s
@@ -1290,7 +1288,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="latestTuvTransactionID" type="xs:long" minOccurs="0">
+					<xs:element minOccurs="0" name="latestTuvTransactionID" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								last attempted authentication ID above
@@ -1299,7 +1297,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="overrideLevel" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="overrideLevel" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								CS overrided user privilege level for
@@ -1307,7 +1305,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="overrideExpireTime" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="overrideExpireTime" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								Date and time after which the CS
@@ -1316,7 +1314,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="CSTUVTransactionID" type="xs:long" minOccurs="0">
+					<xs:element minOccurs="0" name="CSTUVTransactionID" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								TUV Transaction id, used to track the
@@ -1325,7 +1323,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="forceVerifyLevel" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="forceVerifyLevel" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Prvilege level the user is forced to get
@@ -1333,7 +1331,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="forcePassLevel" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="forcePassLevel" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Privilege level the user is force
@@ -1341,7 +1339,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="lastListingDeniedTime" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="lastListingDeniedTime" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								Date and time when the user was last
@@ -1423,7 +1421,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="eBayVerifyStatusCode" type="xs:token" minOccurs="0">
+					<xs:element minOccurs="0" name="eBayVerifyStatusCode" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Current status of the verification
@@ -1433,7 +1431,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="prevEffectiveTUVTransactionID" type="xs:long" minOccurs="0">
+					<xs:element minOccurs="0" name="prevEffectiveTUVTransactionID" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								In case of the CS overrided/ forced
@@ -1443,7 +1441,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="retryCount" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="retryCount" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Count of the number of the retries
@@ -1451,7 +1449,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="userAttempts" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="userAttempts" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Count of the number of attempts the user
@@ -1460,7 +1458,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="cellPhone" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="cellPhone" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Cell phone number of the user being
@@ -1468,7 +1466,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="cellPhonePrimaryPhone" type="xs:boolean" minOccurs="0">
+					<xs:element minOccurs="0" name="cellPhonePrimaryPhone" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								Flag to indicate whether the cellphone
@@ -1478,21 +1476,21 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="siteID" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="siteID" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Site id of the eBay global sites.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="coPartnerID" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="coPartnerID" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Cobrand id of the assosciated site.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="remedyType" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="remedyType" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Type of the remedy flow the user has to
@@ -1544,21 +1542,21 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="entityType" type="tns:Code" minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="entityType" type="tns:Code">
 						<xs:annotation>
 							<xs:documentation>
 								Represents a code which includes the
 								numeric ID &amp; the token name for the
-								given &quot;type&quot;
+								given "type"
 					</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="entityState" type="tns:Code" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="entityState" type="tns:Code">
 						<xs:annotation>
 							<xs:documentation>
 								Represents a code which includes the
 								numeric ID &amp; the token name for the
-								given &quot;state&quot;
+								given "state"
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -1643,7 +1641,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="RUVToken" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="RUVToken" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Required User Verification token Id,
@@ -1674,7 +1672,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="siteID" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="siteID" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Id of the eBay global site on which the
@@ -1682,7 +1680,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="coBrandID" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="coBrandID" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								eBay coBrand id related to the site id.
@@ -1709,7 +1707,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="actionSpecificData" type="tns:VerificationData" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="actionSpecificData" type="tns:VerificationData">
 						<xs:annotation>
 							<xs:documentation>
 								Further details of PA action - for example, TUV transaction ID will be returned here;
@@ -1740,8 +1738,8 @@
 					<xs:documentation>
 						Request type for getMetadata operation.
 						Verification codes for all specified
-						&quot;codeType&quot; will be retrieved. If no
-						&quot;codeType&quot; is specified verification
+						"codeType" will be retrieved. If no
+						"codeType" is specified verification
 						codes for all code types will be retrieved.
 					</xs:documentation>
 					<xs:appinfo>
@@ -1751,7 +1749,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="entity" type="tns:VerificationEntityEnum" minOccurs="1" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="entity" type="tns:VerificationEntityEnum">
 								<xs:annotation>
 									<xs:documentation>
 										the entity for which the
@@ -1778,7 +1776,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element name="verificationEntityMetadata" type="tns:VerificationEntityMetadata" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="verificationEntityMetadata" type="tns:VerificationEntityMetadata"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -1801,7 +1799,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseVerificationDataRequest">
 						<xs:sequence>
-							<xs:element name="methodType" type="xs:int" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="methodType" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										methodType for which the Method
@@ -1826,7 +1824,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseVerificationDataResponse">
 						<xs:sequence>
-							<xs:element name="method" type="tns:MethodCase" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="method" type="tns:MethodCase">
 								<xs:annotation>
 									<xs:documentation>
 										Represents all verification
@@ -1857,7 +1855,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseVerificationDataRequest">
 						<xs:sequence>
-							<xs:element name="processType" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="processType" type="xs:int"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -1875,7 +1873,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseVerificationDataResponse">
 						<xs:sequence>
-							<xs:element name="process" type="tns:ProcessCase" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="process" type="tns:ProcessCase">
 								<xs:annotation>
 									<xs:documentation>
 										Represents all process layer
@@ -1912,8 +1910,8 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseVerificationDataRequest">
 						<xs:sequence>
-							<xs:choice >
-								<xs:element name="processCaseID" type="xs:long" minOccurs="0" maxOccurs="unbounded">
+							<xs:choice>
+								<xs:element maxOccurs="unbounded" minOccurs="0" name="processCaseID" type="xs:long">
 									<xs:annotation>
 										<xs:documentation>
 											processCaseID for which the
@@ -1922,7 +1920,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="methodCaseID" type="xs:long" minOccurs="0" maxOccurs="unbounded">
+								<xs:element maxOccurs="unbounded" minOccurs="0" name="methodCaseID" type="xs:long">
 									<xs:annotation>
 										<xs:documentation>
 											methodCaseID for which the
@@ -1954,7 +1952,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseVerificationDataRequest">
 						<xs:sequence>
-							<xs:element name="appType" type="xs:int" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="appType" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										appType for which the
@@ -1981,7 +1979,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseVerificationDataResponse">
 						<xs:sequence>
-							<xs:element name="app" type="tns:AppCase" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="app" type="tns:AppCase">
 								<xs:annotation>
 									<xs:documentation>
 										Represents all Application level
@@ -2011,7 +2009,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseVerificationDataRequest">
 						<xs:sequence>
-							<xs:element name="processType" type="xs:int" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="processType" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										processType for which RUV have
@@ -2036,7 +2034,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseVerificationDataResponse">
 						<xs:sequence>
-							<xs:element name="ruv" type="tns:InitiatedVerification" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="ruv" type="tns:InitiatedVerification">
 								<xs:annotation>
 									<xs:documentation>
 										Represents all RUV data for the
@@ -2077,7 +2075,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseVerificationDataResponse">
 						<xs:sequence>
-							<xs:element name="TUVLevel" type="tns:TUVLevel" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="TUVLevel" type="tns:TUVLevel">
 								<xs:annotation>
 									<xs:documentation>
 										Represents all TUV levels and
@@ -2120,7 +2118,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseVerificationDataResponse">
 						<xs:sequence>
-							<xs:element name="TUVTransaction" type="tns:TUVTransaction" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="TUVTransaction" type="tns:TUVTransaction">
 								<xs:annotation>
 									<xs:documentation>
 										Represents information about
@@ -2250,7 +2248,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseVerificationDataRequest">
 						<xs:sequence>
-							<xs:element name="phoneNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="phoneNumber" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										phoneNumber for which the
@@ -2274,7 +2272,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseVerificationDataResponse">
 						<xs:sequence>
-							<xs:element name="authentifyMethodCase" type="tns:MethodCase" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="authentifyMethodCase" type="tns:MethodCase">
 								<xs:annotation>
 									<xs:documentation>
 										Represents all Authentify
@@ -2283,7 +2281,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="authentifyLegacyTransaction" type="tns:AuthentifyLegacyTransaction" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="authentifyLegacyTransaction" type="tns:AuthentifyLegacyTransaction">
 								<xs:annotation>
 									<xs:documentation>
 										Represents all Authentify
@@ -2339,7 +2337,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="PIN" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="PIN" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 
@@ -2348,7 +2346,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="providerTransactionID" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="providerTransactionID" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 
@@ -2357,7 +2355,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="status" type="xs:token" minOccurs="0">
+					<xs:element minOccurs="0" name="status" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Represents current state of transaction
@@ -2365,7 +2363,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="failedPinVerificationCount" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="failedPinVerificationCount" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								How many time a user has entered
@@ -2373,7 +2371,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="authentifyServerURL" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="authentifyServerURL" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The URL where requests should be sent
@@ -2381,14 +2379,14 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="callingAppID" type="xs:token" minOccurs="0">
+					<xs:element minOccurs="0" name="callingAppID" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								APP_ID identifies which application/flow
 								is using Authentify PIN delivery
 								service. Since the existing
 								implementation doesn't have the concept
-								of &quot;Application&quot;, all the
+								of "Application", all the
 								transaction will be inserted without the
 								knowledge of which application created
 								them. We want to identify the calling
@@ -2405,11 +2403,11 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="callingAppFlow" type="xs:token" minOccurs="0">
+					<xs:element minOccurs="0" name="callingAppFlow" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
-								APP_FLOW will be used to track &quot;how
-								Authentify transaction was created&quot;
+								APP_FLOW will be used to track "how
+								Authentify transaction was created"
 								to re-direct user when Authentify user
 								verification is completed. Due to the
 								possibility of modem based internet
@@ -2417,8 +2415,8 @@
 								chance that a user may terminate a the
 								verification session when they need to
 								get PIN via phone line. APP_ID only
-								tracks &quot;which application created
-								transaction&quot;. But it can't tell how
+								tracks "which application created
+								transaction". But it can't tell how
 								user reached it. Was it reached via My
 								eBay? Was it invoked from SYI? New
 								requirement specifies that based on how
@@ -2434,14 +2432,14 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="firstName" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="firstName" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								First name used in the transaction.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="lastName" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="lastName" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 
@@ -2449,7 +2447,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="streetAddress" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="streetAddress" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Street address used in the transaction.
@@ -2457,7 +2455,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="postalCode" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="postalCode" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 
@@ -2465,7 +2463,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="firstNameMatch" type="xs:boolean" minOccurs="0">
+					<xs:element minOccurs="0" name="firstNameMatch" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 
@@ -2473,7 +2471,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="lastNameMatch" type="xs:boolean" minOccurs="0">
+					<xs:element minOccurs="0" name="lastNameMatch" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 
@@ -2481,7 +2479,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="streetAddressMatch" type="xs:boolean" minOccurs="0">
+					<xs:element minOccurs="0" name="streetAddressMatch" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 
@@ -2489,7 +2487,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="postalCodeMatch" type="xs:boolean" minOccurs="0">
+					<xs:element minOccurs="0" name="postalCodeMatch" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 
@@ -2497,14 +2495,14 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="phoneLookupResult" type="xs:token" minOccurs="0">
+					<xs:element minOccurs="0" name="phoneLookupResult" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Result of phone lookup verification.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="siteID" type="xs:int" minOccurs="0">
+					<xs:element minOccurs="0" name="siteID" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								This is Site ID from where the user
@@ -2512,7 +2510,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="phoneNumberNew" type="xs:boolean" minOccurs="0">
+					<xs:element minOccurs="0" name="phoneNumberNew" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								This column will be used to identify
@@ -2522,7 +2520,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="thirdPartyStatusInitial" type="xs:long" minOccurs="0">
+					<xs:element minOccurs="0" name="thirdPartyStatusInitial" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								status return from the authentify in
@@ -2530,7 +2528,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="thirdPartyStatusFinal" type="xs:long" minOccurs="0">
+					<xs:element minOccurs="0" name="thirdPartyStatusFinal" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								status return from the authentify in
@@ -2538,7 +2536,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="thirdPartyPollTimeInitial" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="thirdPartyPollTimeInitial" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								Time when the THIRDPARTY_STATUS_INITIAL
@@ -2546,7 +2544,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="thirdPartyPollTimeFinal" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="thirdPartyPollTimeFinal" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								Time when the THIRDPARTY_STATUS_FINAL
@@ -2554,7 +2552,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="callType" type="xs:token" minOccurs="0"/>
+					<xs:element minOccurs="0" name="callType" type="xs:token"/>
 					<xs:element name="creationTime" type="xs:dateTime"/>
 					<xs:element name="lastModifiedTime" type="xs:dateTime"/>
 				</xs:sequence>
@@ -2565,70 +2563,70 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getMetadataRequest">
-		<wsdl:part name="params" element="tns:getMetadataRequest">
+		<wsdl:part element="tns:getMetadataRequest" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getMetadataResponse">
-		<wsdl:part name="params" element="tns:getMetadataResponse">
+		<wsdl:part element="tns:getMetadataResponse" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getMethodCaseRequest">
-		<wsdl:part name="params" element="tns:getMethodCaseRequest">
+		<wsdl:part element="tns:getMethodCaseRequest" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getMethodCaseResponse">
-		<wsdl:part name="params" element="tns:getMethodCaseResponse">
+		<wsdl:part element="tns:getMethodCaseResponse" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getProcessCaseRequest">
-		<wsdl:part name="params" element="tns:getProcessCaseRequest">
+		<wsdl:part element="tns:getProcessCaseRequest" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getProcessCaseResponse">
-		<wsdl:part name="params" element="tns:getProcessCaseResponse">
+		<wsdl:part element="tns:getProcessCaseResponse" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getAppCaseRequest">
-		<wsdl:part name="params" element="tns:getAppCaseRequest"/>
+		<wsdl:part element="tns:getAppCaseRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getAppCaseResponse">
-		<wsdl:part name="params" element="tns:getAppCaseResponse"/>
+		<wsdl:part element="tns:getAppCaseResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getInitiatedVerificationRequest">
-		<wsdl:part name="params" element="tns:getInitiatedVerificationRequest"/>
+		<wsdl:part element="tns:getInitiatedVerificationRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getInitiatedVerificationResponse">
-		<wsdl:part name="params" element="tns:getInitiatedVerificationResponse"/>
+		<wsdl:part element="tns:getInitiatedVerificationResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getTUVLevelRequest">
-		<wsdl:part name="params" element="tns:getTUVLevelRequest">
+		<wsdl:part element="tns:getTUVLevelRequest" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getTUVLevelResponse">
-		<wsdl:part name="params" element="tns:getTUVLevelResponse">
+		<wsdl:part element="tns:getTUVLevelResponse" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getTUVTransactionRequest">
-		<wsdl:part name="params" element="tns:getTUVTransactionRequest">
+		<wsdl:part element="tns:getTUVTransactionRequest" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getTUVTransactionResponse">
-		<wsdl:part name="params" element="tns:getTUVTransactionResponse">
+		<wsdl:part element="tns:getTUVTransactionResponse" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part name="params" element="tns:getVersionRequest"/>
+		<wsdl:part element="tns:getVersionRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part name="params" element="tns:getVersionResponse">
+		<wsdl:part element="tns:getVersionResponse" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getAuthentifyMethodCaseRequest">
-		<wsdl:part name="params" element="tns:getAuthentifyMethodCaseRequest">
+		<wsdl:part element="tns:getAuthentifyMethodCaseRequest" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getAuthentifyMethodCaseResponse">
-		<wsdl:part name="params" element="tns:getAuthentifyMethodCaseResponse">
+		<wsdl:part element="tns:getAuthentifyMethodCaseResponse" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:portType name="UserVerificationServicePort">
@@ -2637,7 +2635,7 @@
 				Retrieves names of the various codes like Method Type,
 				Process Type etc used across verification domain. Codes
 				for all types eumerated by
-				&quot;VerificationCodeType&quot; enum will be returned.
+				"VerificationCodeType" enum will be returned.
 			</wsdl:documentation>
 			<wsdl:input message="tns:getMetadataRequest"/>
 			<wsdl:output message="tns:getMetadataResponse"/>
@@ -2683,7 +2681,7 @@
 			<wsdl:documentation>
 				Retrieves TUV (Tiered User Verification) Data for the
 				given user. TUV assigns one of a set of predefined tiers
-				or &quot;seller levels&quot; to each seller. Each tier
+				or "seller levels" to each seller. Each tier
 				has associated with it a periodic limit on selling
 				activity, and an identity verification procedure. Tiers
 				are ordered, with higher tier levels providing
@@ -2904,10 +2902,10 @@
 			different layers of eBay Verification platform of the given
 			user.
 		</wsdl:documentation>
-		<wsdl:port name="UserVerificationServiceSOAPPort" binding="tns:UserVerificationServiceSOAPBinding">
+		<wsdl:port binding="tns:UserVerificationServiceSOAPBinding" name="UserVerificationServiceSOAPPort">
 			<soap12:address location="http://svcs.ebay.com/services/verification/v1/UserVerificationService"/>
 		</wsdl:port>
-		<wsdl:port name="UserVerificationServiceHttpPort" binding="tns:UserVerificationServiceHttpBinding">
+		<wsdl:port binding="tns:UserVerificationServiceHttpBinding" name="UserVerificationServiceHttpPort">
 			<http:address location="http://svcs.ebay.com/services/verification/v1/UserVerificationService"/>
 		</wsdl:port>
 	</wsdl:service>

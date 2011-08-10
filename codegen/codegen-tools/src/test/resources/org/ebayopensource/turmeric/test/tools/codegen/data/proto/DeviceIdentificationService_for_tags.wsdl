@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="DeviceIdentificationService" targetNamespace="http://www.ebay.com/marketplace/security/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/marketplace/security/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/security/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DeviceIdentificationService" targetNamespace="http://www.ebayopensource.org/tumeric/security/v1/services">
   <types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/security/v1/services">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/security/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -11,7 +10,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -62,7 +61,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -77,7 +76,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -138,7 +137,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -153,7 +152,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -173,7 +172,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -192,7 +191,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -207,7 +206,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -221,7 +220,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -512,35 +511,35 @@
 		</xs:schema>
   </types>
   <message name="checkDevicePropertyResponse">
-    <part name="params" element="tns:checkDevicePropertyResponse">
+    <part element="tns:checkDevicePropertyResponse" name="params">
     </part>
   </message>
   <message name="getVersionResponse">
-    <part name="params" element="tns:getVersionResponse">
+    <part element="tns:getVersionResponse" name="params">
     </part>
   </message>
   <message name="createOrRefreshDeviceKeyRequest">
-    <part name="params" element="tns:createOrRefreshDeviceKeyRequest">
+    <part element="tns:createOrRefreshDeviceKeyRequest" name="params">
     </part>
   </message>
   <message name="retrieveDeviceKeyRequest">
-    <part name="paras" element="tns:retrieveDeviceKeyRequest">
+    <part element="tns:retrieveDeviceKeyRequest" name="paras">
     </part>
   </message>
   <message name="getVersionRequest">
-    <part name="params" element="tns:getVersionRequest">
+    <part element="tns:getVersionRequest" name="params">
     </part>
   </message>
   <message name="checkDevicePropertyRequest">
-    <part name="params" element="tns:checkDevicePropertyRequest">
+    <part element="tns:checkDevicePropertyRequest" name="params">
     </part>
   </message>
   <message name="createOrRefreshDeviceKeyResponse">
-    <part name="params" element="tns:createOrRefreshDeviceKeyResponse">
+    <part element="tns:createOrRefreshDeviceKeyResponse" name="params">
     </part>
   </message>
   <message name="retrieveDeviceKeyResponse">
-    <part name="params" element="tns:retrieveDeviceKeyResponse">
+    <part element="tns:retrieveDeviceKeyResponse" name="params">
     </part>
   </message>
   <portType name="DeviceIdentificationServicePort">
@@ -623,7 +622,7 @@
   <binding name="DeviceIdentificationServiceSOAPBinding" type="tns:DeviceIdentificationServicePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="getVersion">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/security/v1/services/getVersion"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/security/v1/services/getVersion"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -632,7 +631,7 @@
       </output>
     </operation>
     <operation name="checkDeviceProperty">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/security/v1/services/checkDeviceProperty"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/security/v1/services/checkDeviceProperty"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -641,7 +640,7 @@
       </output>
     </operation>
     <operation name="retrieveDeviceKey">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/security/v1/services/retrieveDeviceKey"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/security/v1/services/retrieveDeviceKey"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -650,7 +649,7 @@
       </output>
     </operation>
     <operation name="createOrRefreshDeviceKey">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/security/v1/services/createOrRefreshDeviceKey"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/security/v1/services/createOrRefreshDeviceKey"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -665,10 +664,10 @@
 			<Version>1.0.0</Version>
 			DeviceIdentityService will provide the machine tag validation and machine ID create/retrieve functionality.
 		</wsdl:documentation>
-    <port name="DeviceIdentificationServiceHttpPort" binding="tns:DeviceIdentificationServiceHttpBinding">
+    <port binding="tns:DeviceIdentificationServiceHttpBinding" name="DeviceIdentificationServiceHttpPort">
       <http:address location="https://svcs.ebay.com/services/security/v1/DeviceIdentificationService"/>
     </port>
-    <port name="DeviceIdentificationServiceSOAPPort" binding="tns:DeviceIdentificationServiceSOAPBinding">
+    <port binding="tns:DeviceIdentificationServiceSOAPBinding" name="DeviceIdentificationServiceSOAPPort">
       <soap12:address location="https://svcs.ebay.com/services/security/v1/DeviceIdentificationService"/>
     </port>
   </service>

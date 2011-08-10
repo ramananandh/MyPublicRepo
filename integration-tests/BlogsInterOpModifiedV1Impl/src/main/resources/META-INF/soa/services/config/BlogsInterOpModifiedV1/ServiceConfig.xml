@@ -11,7 +11,7 @@
         configure the custom response handlers     node pipeline-config/response-handlers
         configure the factory class for impl       node service-config/service-impl-factory-class-name
 -->
-<service-config group="MarketplaceServiceGroup" xmlns="http://www.ebay.com/soaframework/common/config">
+<service-config group="MarketplaceServiceGroup" xmlns="http://www.ebayopensource.org/turmeric/common/config">
 <!--
     service-impl-class-name          The service implementation class.
                                      This class implements the corresponding service interface.
@@ -38,8 +38,8 @@
     <supported-version></supported-version>
 -->
     
-    <service-impl-class-name>com.ebay.marketplace.services.interopmodified.impl.BlogsInterOpModifiedV1Impl</service-impl-class-name>
-    <service-interface-class-name>com.ebay.marketplace.services.interopmodified.BlogsInterOpModifiedV1</service-interface-class-name>
+    <service-impl-class-name>org.ebayopensource.turmeric.services.interopmodified.impl.BlogsInterOpModifiedV1Impl</service-impl-class-name>
+    <service-interface-class-name>org.ebayopensource.turmeric.services.interopmodified.BlogsInterOpModifiedV1</service-interface-class-name>
     <service-instance-config>
         <provider-options>
 <!--
@@ -316,7 +316,7 @@
                 <transport-header name="X-EBAY-SOA-MESSAGE-PROTOCOL">SOAP11</transport-header>
             </indicator>
             <class-name>
-                com.ebay.soaframework.spf.impl.protocolprocessor.soap.ServerSOAPProtocolProcessor
+                org.ebayopensource.turmeric.runtime.spf.impl.protocolprocessor.soap.ServerSOAPProtocolProcessor
             </class-name>
         </protocol-processor>
         <protocol-processor name="SOAP12" version="1.2">
@@ -324,7 +324,7 @@
                 <transport-header name="X-EBAY-SOA-MESSAGE-PROTOCOL">SOAP12</transport-header>
             </indicator>
             <class-name>
-                com.ebay.soaframework.spf.impl.protocolprocessor.soap.ServerSOAPProtocolProcessor
+                org.ebayopensource.turmeric.runtime.spf.impl.protocolprocessor.soap.ServerSOAPProtocolProcessor
             </class-name>
         </protocol-processor>
 
@@ -359,10 +359,10 @@
             <data-binding name="PROTOBUF">
                 <mime-type>application/plain</mime-type>
                 <serializer-factory-class-name>
-                    com.ebay.soaframework.common.impl.binding.protobuf.ProtobufSerializerFactory
+                  org.ebayopensource.turmeric.runtime.common.impl.binding.protobuf.ProtobufSerializerFactory
                 </serializer-factory-class-name>
                 <deserializer-factory-class-name>
-                    com.ebay.soaframework.common.impl.binding.protobuf.ProtobufDeserializerFactory
+                    org.ebayopensource.turmeric.runtime.common.impl.binding.protobuf.ProtobufDeserializerFactory
                 </deserializer-factory-class-name>
             </data-binding>
             <!--<data-binding name="XML">

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="BuyerProtectionService" targetNamespace="http://www.ebay.com/marketplace/resolution/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/marketplace/resolution/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/resolution/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BuyerProtectionService" targetNamespace="http://www.ebayopensource.org/tumeric/resolution/v1/services">
   <types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/resolution/v1/services">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/resolution/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -11,7 +10,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -62,7 +61,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -77,7 +76,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -138,7 +137,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -153,7 +152,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -173,7 +172,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -192,7 +191,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -207,7 +206,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -221,7 +220,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -264,20 +263,15 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0"
-							name="transactionReference" type="tns:ReferenceType">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="transactionReference" type="tns:ReferenceType">
 						</xs:element>
-						<xs:element name="claimReference"
-							type="tns:ReferenceType" maxOccurs="1" minOccurs="0">
+						<xs:element maxOccurs="1" minOccurs="0" name="claimReference" type="tns:ReferenceType">
 						</xs:element>
-                            <xs:element name="ODRClaimId" type="xs:string" maxOccurs="1" minOccurs="0">
+                            <xs:element maxOccurs="1" minOccurs="0" name="ODRClaimId" type="xs:string">
 						</xs:element>
-                            <xs:element maxOccurs="1" minOccurs="0"
-							name="activity" type="tns:Activity">
+                            <xs:element maxOccurs="1" minOccurs="0" name="activity" type="tns:Activity">
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0"
-							name="moneyMovementNotification"
-							type="tns:MoneyMovementNotificationType">
+						<xs:element maxOccurs="1" minOccurs="0" name="moneyMovementNotification" type="tns:MoneyMovementNotificationType">
 						</xs:element>
 
 					</xs:sequence>
@@ -366,20 +360,16 @@
 			</xs:complexType>
 			<xs:complexType name="MoneyMovementNotificationType">
             	<xs:sequence>
-            		<xs:element name="payout"
-            			type="tns:PayoutInfoType">
+            		<xs:element name="payout" type="tns:PayoutInfoType">
             		</xs:element>
 
 
 
-            		<xs:element name="paymentSystem"
-            			type="tns:PaymentSystemEnum" />
+            		<xs:element name="paymentSystem" type="tns:PaymentSystemEnum"/>
 
-            		<xs:element name="sellerProtectionProgram"
-            			type="tns:SellerProtectionProgramEnum" />
-            		<xs:element name="paymentType"
-            			type="tns:PaymentTypeEnum" />
-            		<xs:element name="paymentFailureReason" type="xs:string"></xs:element>
+            		<xs:element name="sellerProtectionProgram" type="tns:SellerProtectionProgramEnum"/>
+            		<xs:element name="paymentType" type="tns:PaymentTypeEnum"/>
+            		<xs:element name="paymentFailureReason" type="xs:string"/>
             	</xs:sequence>
 			</xs:complexType>
             <xs:simpleType name="PaymentTypeEnum">
@@ -674,26 +664,19 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="responseCode" type="tns:ResponseCode">
+							<xs:element maxOccurs="1" minOccurs="1" name="responseCode" type="tns:ResponseCode">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="firstFailedCheckID" type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="0" name="firstFailedCheckID" type="xs:string">
 							</xs:element>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="failedCheck"
-								type="tns:FailedCheckDetailType">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="failedCheck" type="tns:FailedCheckDetailType">
 							</xs:element>
-							<xs:element name="userInTargetSegment"
-								type="xs:boolean" minOccurs="0" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="userInTargetSegment" type="xs:boolean">
 							</xs:element>
-							<xs:element name="earliestClaimFileDate"
-								type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="earliestClaimFileDate" type="xs:string">
 							</xs:element>
 							<xs:element name="imageURL" type="xs:string">
 							</xs:element>
-							<xs:element name="itemClaim" 
-								type="tns:ItemClaimDetailType" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="itemClaim" type="tns:ItemClaimDetailType">
 							</xs:element>
 						<!--<xs:element maxOccurs="1" minOccurs="0"
 								name="claimInfo" type="tns:ClaimInfoType">
@@ -715,28 +698,28 @@
         </xs:schema>
   </types>
   <message name="getVersionResponse">
-    <part name="params" element="tns:getVersionResponse">
+    <part element="tns:getVersionResponse" name="params">
     </part>
   </message>
 
   <message name="closeClaimResponse">
-    <part name="params" element="tns:closeClaimResponse">
+    <part element="tns:closeClaimResponse" name="params">
     </part>
   </message>
   <message name="isClaimAllowedResponse">
-    <part name="params" element="tns:isClaimAllowedResponse">
+    <part element="tns:isClaimAllowedResponse" name="params">
     </part>
   </message>
   <message name="isClaimAllowedRequest">
-    <part name="params" element="tns:isClaimAllowedRequest">
+    <part element="tns:isClaimAllowedRequest" name="params">
     </part>
   </message>
   <message name="closeClaimRequest">
-    <part name="params" element="tns:closeClaimRequest">
+    <part element="tns:closeClaimRequest" name="params">
     </part>
   </message>
   <message name="getVersionRequest">
-    <part name="params" element="tns:getVersionRequest">
+    <part element="tns:getVersionRequest" name="params">
     </part>
   </message>
 
@@ -765,7 +748,7 @@
   <binding name="BuyerProtectionServiceSOAPBinding" type="tns:BuyerProtectionServicePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="getVersion">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/resolution/v1/services/getVersion"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/resolution/v1/services/getVersion"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -774,7 +757,7 @@
       </output>
     </operation>
     <operation name="closeClaim">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/resolution/v1/services/closeClaim"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/resolution/v1/services/closeClaim"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -783,7 +766,7 @@
       </output>
     </operation>
     <operation name="isClaimAllowed">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/resolution/v1/services/isClaimAllowed"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/resolution/v1/services/isClaimAllowed"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -829,10 +812,10 @@
 <wsdl:documentation>
 			<Version>1.0.0</Version>
 		</wsdl:documentation>
-    <port name="BuyerProtectionServiceHttpPort" binding="tns:BuyerProtectionServiceHttpBinding">
+    <port binding="tns:BuyerProtectionServiceHttpBinding" name="BuyerProtectionServiceHttpPort">
       <http:address location="https://svcs.ebay.com/services/resolution/v1/BuyerProtectionService"/>
     </port>
-    <port name="BuyerProtectionServiceSOAPPort" binding="tns:BuyerProtectionServiceSOAPBinding">
+    <port binding="tns:BuyerProtectionServiceSOAPBinding" name="BuyerProtectionServiceSOAPPort">
       <soap12:address location="https://svcs.ebay.com/services/resolution/v1/BuyerProtectionService"/>
     </port>
   </service>

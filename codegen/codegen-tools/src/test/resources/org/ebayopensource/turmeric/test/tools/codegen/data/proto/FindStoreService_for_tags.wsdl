@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="FindStoreService" targetNamespace="http://www.ebay.com/marketplace/search/v1/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebay.com/marketplace/search/v1/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/search/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FindStoreService" targetNamespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 <types>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/search/v1/services" xmlns:tns="http://www.ebay.com/marketplace/search/v1/services">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 <xs:element name="findStoresByIdsRequest" type="tns:FindStoresByIdsRequest"/>
 <xs:element name="findStoresByIdsResponse" type="tns:FindStoresByIdsResponse"/>
 <xs:element name="findStoresRequest" type="tns:FindStoresRequest"/>
 <xs:element name="findStoresResponse" type="tns:FindStoresResponse"/>
-<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 <xs:complexType name="GetVersionResponse">
 <xs:annotation>
 <xs:documentation>
@@ -109,7 +108,7 @@ Contains result store information.
 </xs:documentation>
 </xs:annotation>
 </xs:element>
-<xs:element name="diagnosticInfo" type="tns:DiagnosticInfo" maxOccurs="unbounded" minOccurs="0">
+<xs:element maxOccurs="unbounded" minOccurs="0" name="diagnosticInfo" type="tns:DiagnosticInfo">
 <xs:annotation>
 <xs:documentation>
 Contains diagnostic information for the invocation if the
@@ -270,7 +269,7 @@ Store sort type.
 <xs:element maxOccurs="1" minOccurs="1" name="sortTypeEnum" type="tns:StoreSortTypeEnum">
 <xs:annotation>
 <xs:documentation>
-  Sort type enum for sorting text or numerically. See &lt;a href=&quot;http:&#47;&#47;quicksearch.arch.ebay.com&#47;codeview&#63;query=sortTypeEnum&amp;path=&#47;v3core&#47;SearchDriver&#47;src&#47;com&#47;ebay&#47;searchdriver&#47;common/&#47;SortTypeEnum.java&quot;&gt;SortTypeEnum&lt;/a&gt;.
+  Sort type enum for sorting text or numerically. See &lt;a href="http://quicksearch.arch.ebay.com/codeview?query=sortTypeEnum&amp;path=/v3core/SearchDriver/src/com/ebay/searchdriver/common//SortTypeEnum.java"&gt;SortTypeEnum&lt;/a&gt;.
 </xs:documentation>
 </xs:annotation>
 </xs:element>
@@ -307,7 +306,7 @@ Contains result store information.
 </xs:documentation>
 </xs:annotation>
 </xs:element>
-<xs:element name="diagnosticInfo" type="tns:DiagnosticInfo" maxOccurs="unbounded" minOccurs="0">
+<xs:element maxOccurs="unbounded" minOccurs="0" name="diagnosticInfo" type="tns:DiagnosticInfo">
 <xs:annotation>
 <xs:documentation>
 Contains diagnostic information for the invocation if the
@@ -327,13 +326,13 @@ The execution time in milliseconds for the service side processing
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType  name="BaseServiceRequest">
+<xs:complexType name="BaseServiceRequest">
 <xs:annotation>
 <xs:documentation>
 The base class request container for all service operations.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -342,7 +341,7 @@ The base class request container for all service operations.
 
 </xs:sequence>
 </xs:complexType>
-<xs:complexType  name="BaseServiceResponse">
+<xs:complexType name="BaseServiceResponse">
 <xs:annotation>
 <xs:documentation>
 Base response container for all service
@@ -350,7 +349,7 @@ operations. Contains error information
 associated with the request.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -426,7 +425,7 @@ application failures and cannot be corrected by
 changing request values.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 </xs:appinfo>
 </xs:annotation>
 <xs:restriction base="xs:token">
@@ -482,7 +481,7 @@ with the corrected data.
 Error details.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 </xs:appinfo>
 </xs:annotation>
 <xs:sequence>
@@ -610,11 +609,11 @@ Run-time errors are not reported here, but are instead reported as
 part of a SOAP fault.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 </xs:appinfo>
 </xs:annotation>
 <xs:sequence>
-<xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded">
+<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 <xs:annotation>
 <xs:documentation>
 A container for error details.
@@ -631,7 +630,7 @@ contain contextual information about the error. This is often the field or
 value that triggered the error.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 </xs:appinfo>
 </xs:annotation>
 <xs:simpleContent>
@@ -665,7 +664,7 @@ informational error (a warning) that should be
 communicated to the user.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -683,7 +682,7 @@ informational error (a warning) that should be
 communicated to the user.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -732,7 +731,7 @@ processed successfully, but displayed warnings.
 This type defines the basic relation operators.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -792,7 +791,7 @@ Has an Attribute
 This type defines a field value of the Boolean type.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -815,10 +814,10 @@ This type defines a field value of the Boolean type.
 <xs:documentation>
 This type defines the composite expression used
 in Voyager, for example,
-AND(MACRO(SaleClass,1),LEQ(SafeStartTime,NOW)). For information, see &lt;a href=&#34;http:&#47;&#47;wiki2.arch.ebay.com&#47;display&#47;ERL&#47;Voyager+and+Catalog+nodes&#34;&gt;Voyager and Catalog Nodes&lt;&#47;a&gt;.
+AND(MACRO(SaleClass,1),LEQ(SafeStartTime,NOW)). For information, see &lt;a href="http://wiki2.arch.ebay.com/display/ERL/Voyager+and+Catalog+nodes"&gt;Voyager and Catalog Nodes&lt;/a&gt;.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -851,7 +850,7 @@ can be used to form composite constraints or
 functions.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -881,10 +880,10 @@ functions.
 <xs:complexType name="Constraint">
 <xs:annotation>
 <xs:documentation>
-This type defines a Voyager constraint (filter). For Voyager information, see &lt;a href=&#34;http:&#47;&#47;wiki2.arch.ebay.com&#47;display&#47;ERL&#47;Voyager+and+Catalog+nodes&#34;&gt;Voyager and Catalog Nodes&lt;&#47;a&gt;.
+This type defines a Voyager constraint (filter). For Voyager information, see &lt;a href="http://wiki2.arch.ebay.com/display/ERL/Voyager+and+Catalog+nodes"&gt;Voyager and Catalog Nodes&lt;/a&gt;.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -905,7 +904,7 @@ This type defines a Voyager constraint (filter). For Voyager information, see &l
 Defines the field value of the date type.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -929,7 +928,7 @@ Defines the field value of the date type.
 Defines the date operand. Set the now field to true to mean the current time.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -962,7 +961,7 @@ Defines the date operand. Set the now field to true to mean the current time.
 Defines a double operand.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -980,16 +979,16 @@ Defines a double operand.
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType  name="Expression">
+<xs:complexType name="Expression">
 <xs:annotation>
 <xs:documentation>
 Expression is an abstract type that defines the
 function used in voyager, for example,
-MACRO(ShowInSite5,0,0) and EQ(StartTime, NOW). For information, see &lt;a href=&#34;http:&#47;&#47;wiki2.arch.ebay.com&#47;display&#47;ERL&#47;Voyager+and+Catalog+nodes&#34;&gt;Voyager and Catalog Nodes&lt;&#47;a&gt;.
+MACRO(ShowInSite5,0,0) and EQ(StartTime, NOW). For information, see &lt;a href="http://wiki2.arch.ebay.com/display/ERL/Voyager+and+Catalog+nodes"&gt;Voyager and Catalog Nodes&lt;/a&gt;.
 Expression has two subtypes: LogicalExpression and NumericExpression.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1007,7 +1006,7 @@ Expression has two subtypes: LogicalExpression and NumericExpression.
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType  name="Field">
+<xs:complexType name="Field">
 <xs:annotation>
 <xs:documentation>
 The Field is defined as an abstract type. Field is the
@@ -1017,7 +1016,7 @@ aspect, or function. It has as subtypes
 Member and Expression.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1028,7 +1027,7 @@ Member and Expression.
 This type defines the Field operand.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1046,13 +1045,13 @@ This type defines the Field operand.
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType  name="FieldValue">
+<xs:complexType name="FieldValue">
 <xs:annotation>
 <xs:documentation>
 This is the abstract type for the Field value.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1064,7 +1063,7 @@ Defines a mapping between a Field and
 its value(s) in the search results.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1092,7 +1091,7 @@ Defines the keyword expression. Use
 this type to construct a query constraint.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1132,7 +1131,7 @@ operation is performed on the default title index.
 Keyword operator.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1153,7 +1152,7 @@ Contains a phrase keyword operator.
 </xs:enumeration>
 </xs:restriction>
 </xs:simpleType>
-<xs:complexType  name="LogicalExpression">
+<xs:complexType name="LogicalExpression">
 <xs:annotation>
 <xs:documentation>
 Defines the expression with a Boolean value. It has
@@ -1161,7 +1160,7 @@ StategyLogicalExpression, SimpleLogicalExpression,
 KeywordLogicalExpression and CompositeLogicalExpression
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1175,7 +1174,7 @@ KeywordLogicalExpression and CompositeLogicalExpression
 Defines the field value of a long type.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1199,7 +1198,7 @@ Defines the field value of a long type.
 Defines a long operand.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1223,7 +1222,7 @@ Defines a long operand.
 Defines a money operand.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1248,13 +1247,13 @@ Money currency.
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType  name="NumericExpression">
+<xs:complexType name="NumericExpression">
 <xs:annotation>
 <xs:documentation>
 The abstract type of a numeric expression.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1262,13 +1261,13 @@ The abstract type of a numeric expression.
 <xs:extension base="tns:Expression"/>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType  name="Operand">
+<xs:complexType name="Operand">
 <xs:annotation>
 <xs:documentation>
 The abstract operand.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1280,7 +1279,7 @@ Name value pair for defining properties
 associated with entities.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1307,7 +1306,7 @@ associated with entities.
 Contextual information used by Search Services.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1318,15 +1317,15 @@ Contextual information used by Search Services.
 <xs:annotation>
 <xs:documentation>
 Locale in the format of
-&quot;language,country,variant&quot;.
-Check &lt;a href=&quot;http:&#47;&#47;download.oracle.com&#47;javase&#47;6&#47;docs&#47;api&#47;java&#47;util&#47;class-use&#47;Locale.html&quot;&gt;java.util.Locale&lt;/a&gt;.
+"language,country,variant".
+Check &lt;a href="http://download.oracle.com/javase/6/docs/api/java/util/class-use/Locale.html"&gt;java.util.Locale&lt;/a&gt;.
 </xs:documentation>
 </xs:annotation>
 </xs:element>
 <xs:element maxOccurs="1" minOccurs="0" name="timeZone" type="xs:token">
 <xs:annotation>
 <xs:documentation>
-Time zone in the format of &quot;GMT+/-hh:mm&quot;.
+Time zone in the format of "GMT+/-hh:mm".
 </xs:documentation>
 </xs:annotation>
 </xs:element>
@@ -1334,7 +1333,7 @@ Time zone in the format of &quot;GMT+/-hh:mm&quot;.
 <xs:annotation>
 <xs:documentation>
 Money currency. Check
-&lt;a href=&quot;http:&#47;&#47;quicksearch.arch.ebay.com&#47;codeview&#63;query=com.ebay.af.common.types.Currency&amp;path=&#47;v3kernel&#47;uKernel&#47;src&#47;com&#47;ebay&#47;af&#47;common&#47;types&#47;Currency.java&quot;&gt;com.ebay.af.common.types.Currency&lt;/a&gt;
+&lt;a href="http://quicksearch.arch.ebay.com/codeview?query=com.ebay.af.common.types.Currency&amp;path=/v3kernel/uKernel/src/com/ebay/af/common/types/Currency.java"&gt;com.ebay.af.common.types.Currency&lt;/a&gt;
 for available values.
 </xs:documentation>
 </xs:annotation>
@@ -1347,10 +1346,10 @@ for available values.
 <xs:annotation>
 <xs:documentation>
 This type define the simple numeric expression
-in voyager, for example, ADD(NOW,10). For information, see &lt;a href=&#34;http:&#47;&#47;wiki2.arch.ebay.com&#47;display&#47;ERL&#47;Voyager+and+Catalog+nodes&#34;&gt;Voyager and Catalog Nodes&lt;&#47;a&gt;.
+in voyager, for example, ADD(NOW,10). For information, see &lt;a href="http://wiki2.arch.ebay.com/display/ERL/Voyager+and+Catalog+nodes"&gt;Voyager and Catalog Nodes&lt;/a&gt;.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1382,7 +1381,7 @@ Defines the mathematical and other operators
 that yield a numeric result on the operands.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1425,7 +1424,7 @@ that yield a numeric result on the operands.
 SortBy defines the order of the result entries.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1462,7 +1461,7 @@ The order of the sort.
 Defines the sort order.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1483,23 +1482,23 @@ Decreasing sort order.
 </xs:enumeration>
 </xs:restriction>
 </xs:simpleType>
-<xs:complexType  name="SortType">
+<xs:complexType name="SortType">
 <xs:annotation>
 <xs:documentation>
 The abstract type of the sortType.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
 </xs:complexType>
 <xs:complexType name="StrategyLogicalExpression">
 <xs:annotation>
-<xs:documentation>Defines the Macro function used in voyager query, for example, MACRO(ShowInSite5,0,0). In this type, there is only one element: Member. If there is a parameter, it's passed to the Member's property. For information, see &lt;a href=&#34;http:&#47;&#47;wiki2.arch.ebay.com&#47;display&#47;ERL&#47;Voyager+and+Catalog+nodes&#34;&gt;Voyager and Catalog Nodes&lt;&#47;a&gt;.
+<xs:documentation>Defines the Macro function used in voyager query, for example, MACRO(ShowInSite5,0,0). In this type, there is only one element: Member. If there is a parameter, it's passed to the Member's property. For information, see &lt;a href="http://wiki2.arch.ebay.com/display/ERL/Voyager+and+Catalog+nodes"&gt;Voyager and Catalog Nodes&lt;/a&gt;.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1523,7 +1522,7 @@ The abstract type of the sortType.
 Defines the field value of a string type.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1548,10 +1547,10 @@ A token operand is a string token with special
 meanings in the search system. Examples: 'Now'
 for current time, 'LiloSellRadius' used in 
 LISO (local inventory search option) search.
-For more information, see &lt;a href=&quot;http:&#47;&#47;wiki2.arch.ebay.com&#47;display&#47;Wiki1&#47;M2LM_Search&quot;&gt;Motors 2.0: Local Market&lt;&#47;a&gt;.
+For more information, see &lt;a href="http://wiki2.arch.ebay.com/display/Wiki1/M2LM_Search"&gt;Motors 2.0: Local Market&lt;/a&gt;.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1575,7 +1574,7 @@ For more information, see &lt;a href=&quot;http:&#47;&#47;wiki2.arch.ebay.com&#4
 Base service container.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1583,14 +1582,14 @@ Base service container.
 <xs:element maxOccurs="1" minOccurs="1" name="globalId" type="xs:string">
 <xs:annotation>
 <xs:documentation>
-       Global ID value, such as EBAY-US. View global ID values in &lt;a href=&quot;http:&#47;&#47;quicksearch.arch.ebay.com&#47;codeview&#63;query=GlobalIdConverter.java&#38;so=0&#38;path=&#37;2Fv3core&#37;2FMarketPlaceServiceCommon&#37;2Fsrc&#37;2Fcom&#37;2Febay&#37;2Fmarketplace&#37;2Fservices&#37;2Fcommon&#37;2Fconverter&#37;2FGlobalIdConverter.java&#35;m0&quot;&gt;GlobalIdConverter.java&lt;/a&gt;.
+       Global ID value, such as EBAY-US. View global ID values in &lt;a href="http://quicksearch.arch.ebay.com/codeview?query=GlobalIdConverter.java&amp;so=0&amp;path=%2Fv3core%2FMarketPlaceServiceCommon%2Fsrc%2Fcom%2Febay%2Fmarketplace%2Fservices%2Fcommon%2Fconverter%2FGlobalIdConverter.java#m0"&gt;GlobalIdConverter.java&lt;/a&gt;.
         </xs:documentation>
 </xs:annotation>
 </xs:element>
 <xs:element maxOccurs="1" minOccurs="0" name="partnerId" type="xs:int">
 <xs:annotation>
 <xs:documentation>
-       Partner ID value (integer). Normally this value is 2 for eBay. View partner Id values in &lt;a href=&quot;http:&#47;&#47;quicksearch.arch.ebay.com&#47;codeview&#63;query=PartnerEnum&amp;so=0&amp;path=&#37;2Fexperimentation&#37;2FApp&#37;2FExptShared&#37;2Fsrc&#37;2Fmain&#37;2Fjava&#37;2Fcom&#37;2Fexptshared&#37;2Fenv&#37;2FPartnerEnum.java#m0&quot;&gt;PartnerEnum&lt;&#47;a&gt;.
+       Partner ID value (integer). Normally this value is 2 for eBay. View partner Id values in &lt;a href="http://quicksearch.arch.ebay.com/codeview?query=PartnerEnum&amp;so=0&amp;path=%2Fexperimentation%2FApp%2FExptShared%2Fsrc%2Fmain%2Fjava%2Fcom%2Fexptshared%2Fenv%2FPartnerEnum.java#m0"&gt;PartnerEnum&lt;/a&gt;.
         </xs:documentation>
 </xs:annotation>
 </xs:element>
@@ -1599,10 +1598,10 @@ Base service container.
 <xs:complexType name="DiagnosticInfo">
 <xs:annotation>
 <xs:documentation>
-This type holds the logs returned from Voyager. For information, see &lt;a href=&#34;http:&#47;&#47;wiki2.arch.ebay.com&#47;display&#47;ERL&#47;Voyager+and+Catalog+nodes&#34;&gt;Voyager and Catalog Nodes&lt;&#47;a&gt;.
+This type holds the logs returned from Voyager. For information, see &lt;a href="http://wiki2.arch.ebay.com/display/ERL/Voyager+and+Catalog+nodes"&gt;Voyager and Catalog Nodes&lt;/a&gt;.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1636,7 +1635,7 @@ This type holds the logs returned from Voyager. For information, see &lt;a href=
 Defines the function with the format Member Operator Operand, for example, EQ(StartTime, NOW). 
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"/>
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/>
 </xs:appinfo>
 </xs:annotation>
 <xs:complexContent>
@@ -1712,7 +1711,7 @@ defined in the Dictionary such as Title, Category Id, or a built-in function def
 such as Distance(), ShippingCost(). A Member can be uniquely identified by its namespace and name.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"/>
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/>
 </xs:appinfo>
 </xs:annotation>
 <xs:complexContent>
@@ -1722,7 +1721,7 @@ such as Distance(), ShippingCost(). A Member can be uniquely identified by its n
 <xs:annotation>
 <xs:documentation>
 The Namespace of the member. For complete list of namespace definitions,
-check &lt;a href=&quot;http:&#47;&#47;quicksearch.arch.ebay.com&#47;codeview&#63;query=com.ebay.finding.metadata.namespace.NamespaceEnum&amp;path=&#47;v3search&#47;FindingMetadataFramework&#47;src&#47;com&#47;ebay&#47;finding&#47;metadata&#47;namespace&#47;NamespaceEnum.java&quot;&gt;com.ebay.finding.metadata.namespace.NamespaceEnum&lt;&#47;a&gt;.
+check &lt;a href="http://quicksearch.arch.ebay.com/codeview?query=com.ebay.finding.metadata.namespace.NamespaceEnum&amp;path=/v3search/FindingMetadataFramework/src/com/ebay/finding/metadata/namespace/NamespaceEnum.java"&gt;com.ebay.finding.metadata.namespace.NamespaceEnum&lt;/a&gt;.
 </xs:documentation>
 </xs:annotation>
 </xs:element>
@@ -1751,7 +1750,7 @@ function Members, such as the postal code for Location and ShippingCost.
 Defines a single row or record as in the search results.
 </xs:documentation>
 <xs:appinfo>
-<typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 </typeLibrarySource>
 </xs:appinfo>
 </xs:annotation>
@@ -1768,19 +1767,19 @@ A SearchRecord contains multiple mappings between a Field and its values.
 </xs:schema>
 </types>
 <wsdl:message name="getVersionResponse">
-<wsdl:part name="parameters" element="tns:getVersionResponse"/>
+<wsdl:part element="tns:getVersionResponse" name="parameters"/>
 </wsdl:message>
 <wsdl:message name="findStoresRequest">
-<part name="parameters" element="tns:findStoresRequest"/>
+<part element="tns:findStoresRequest" name="parameters"/>
 </wsdl:message>
 <wsdl:message name="findStoresResponse">
-<part name="parameters" element="tns:findStoresResponse"/>
+<part element="tns:findStoresResponse" name="parameters"/>
 </wsdl:message>
 <wsdl:message name="findStoresByIdsRequest">
-<part name="parameters" element="tns:findStoresByIdsRequest"/>
+<part element="tns:findStoresByIdsRequest" name="parameters"/>
 </wsdl:message>
 <wsdl:message name="findStoresByIdsResponse">
-<part name="parameters" element="tns:findStoresByIdsResponse"/>
+<part element="tns:findStoresByIdsResponse" name="parameters"/>
 </wsdl:message>
 <wsdl:portType name="FindStoreServiceSOAPPort">
 <wsdl:operation name="getVersion">
@@ -1893,10 +1892,10 @@ in the request.
 The FindStoreService provides a series of operations to
 fetch stores according to specific conditions.
 </wsdl:documentation>
-<wsdl:port name="FindStoreServiceHttpPort" binding="tns:FindStoreServiceHttpBinding">
+<wsdl:port binding="tns:FindStoreServiceHttpBinding" name="FindStoreServiceHttpPort">
 <http:address location="http://svcs.ebay.com/services/search/FindStoreService/v1"/>
 </wsdl:port>
-<wsdl:port name="FindStoreServiceSOAPPort" binding="tns:FindStoreServiceSOAPBinding">
+<wsdl:port binding="tns:FindStoreServiceSOAPBinding" name="FindStoreServiceSOAPPort">
 <soap12:address location="http://svcs.ebay.com/services/search/FindStoreService/v1"/>
 </wsdl:port>
 </wsdl:service>

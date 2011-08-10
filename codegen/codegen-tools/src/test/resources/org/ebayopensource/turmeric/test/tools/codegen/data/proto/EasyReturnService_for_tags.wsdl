@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.ebay.com/marketplace/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
-      <xs:element name="getReturnCaseInfoRequest"  type="tns:GetReturnCaseInfoRequest"/>
-      <xs:element name="getReturnCaseInfoResponse"  type="tns:GetReturnCaseInfoResponse"/>
-      <xs:element name="findReturnCaseInfoRequest"  type="tns:FindReturnCaseInfoRequest"/>
-      <xs:element name="findReturnCaseInfoResponse"  type="tns:FindReturnCaseInfoResponse"/>
+      <xs:element name="getReturnCaseInfoRequest" type="tns:GetReturnCaseInfoRequest"/>
+      <xs:element name="getReturnCaseInfoResponse" type="tns:GetReturnCaseInfoResponse"/>
+      <xs:element name="findReturnCaseInfoRequest" type="tns:FindReturnCaseInfoRequest"/>
+      <xs:element name="findReturnCaseInfoResponse" type="tns:FindReturnCaseInfoResponse"/>
 
-      <xs:element name="setReturnCaseInfoRequest"  type="tns:SetReturnCaseInfoRequest"/>
-      <xs:element name="setReturnCaseInfoResponse"  type="tns:SetReturnCaseInfoResponse"/>
+      <xs:element name="setReturnCaseInfoRequest" type="tns:SetReturnCaseInfoRequest"/>
+      <xs:element name="setReturnCaseInfoResponse" type="tns:SetReturnCaseInfoResponse"/>
 
 
       <xs:complexType abstract="true" name="BaseServiceRequest">
@@ -993,7 +992,7 @@
                   Currency in which the monetary amount is specified.
                   &lt;br&gt;&lt;br&gt;
                   For a list of possible enumeration values, see
-                  &lt;a href=&quot;Enums/currencyIdList.html.html&quot;&gt;currencyId Values&lt;/a&gt;.
+                  &lt;a href="Enums/currencyIdList.html.html"&gt;currencyId Values&lt;/a&gt;.
                 </xs:documentation>
                 <xs:appinfo>
                   <CallInfo>
@@ -1016,7 +1015,7 @@
           </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
             <xs:annotation>
               <xs:documentation>
                 Details about a single error.
@@ -1183,7 +1182,7 @@
               </xs:appinfo>
             </xs:annotation>
           </xs:element>
-          <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
             <xs:annotation>
               <xs:documentation>
                 Some warning and error messages return one or more variables that contain
@@ -1311,27 +1310,27 @@
     </xs:schema>
   </wsdl:types>
   <wsdl:message name="getReturnCaseInfoRequest">
-    <wsdl:part name="parameters" element="ns0:getReturnCaseInfoRequest">
+    <wsdl:part element="ns0:getReturnCaseInfoRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getReturnCaseInfoResponse">
-    <wsdl:part name="parameters" element="ns0:getReturnCaseInfoResponse">
+    <wsdl:part element="ns0:getReturnCaseInfoResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="findReturnCaseInfoRequest">
-    <wsdl:part name="parameters" element="ns0:findReturnCaseInfoRequest">
+    <wsdl:part element="ns0:findReturnCaseInfoRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="findReturnCaseInfoResponse">
-    <wsdl:part name="parameters" element="ns0:findReturnCaseInfoResponse">
+    <wsdl:part element="ns0:findReturnCaseInfoResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>  
   <wsdl:message name="setReturnCaseInfoRequest">
-    <wsdl:part name="parameters" element="ns0:setReturnCaseInfoRequest">
+    <wsdl:part element="ns0:setReturnCaseInfoRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="setReturnCaseInfoResponse">
-    <wsdl:part name="parameters" element="ns0:setReturnCaseInfoResponse">
+    <wsdl:part element="ns0:setReturnCaseInfoResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>  
   <wsdl:portType name="EasyReturnServicePort">
@@ -1419,10 +1418,10 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="EasyReturnService">
-    <wsdl:port name="EasyReturnServiceHttp" binding="ns0:EasyReturnServiceHttpBinding">
+    <wsdl:port binding="ns0:EasyReturnServiceHttpBinding" name="EasyReturnServiceHttp">
       <http:address location="http://svcs.ebay.com/EasyReturnService"/>
     </wsdl:port>
-    <wsdl:port name="EasyReturnServiceSOAP" binding="ns0:EasyReturnServiceSOAPBinding">
+    <wsdl:port binding="ns0:EasyReturnServiceSOAPBinding" name="EasyReturnServiceSOAP">
       <soap12:address location="http://svcs.ebay.com/EasyReturnService"/>
     </wsdl:port>
   </wsdl:service>

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="ClassifiedAdManagementPrivateService" targetNamespace="http://www.ebay.com/classifiedad/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/classifiedad/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/classifiedad/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ClassifiedAdManagementPrivateService" targetNamespace="http://www.ebayopensource.org/classifiedad/v1/services">
   <types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/classifiedad/v1/services" xmlns:Q1="http://www.ebay.com/classifiedad/v1/services">
+    <xs:schema xmlns:Q1="http://www.ebayopensource.org/classifiedad/v1/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/classifiedad/v1/services">
             <xs:complexType abstract="true" name="BaseServiceRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -9,7 +8,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -24,7 +23,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -85,7 +84,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -105,7 +104,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -129,15 +128,13 @@
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
 
-							<xs:element name="classifiedAd"
-								type="Q1:ClassifiedAdInternal" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="classifiedAd" type="Q1:ClassifiedAdInternal">
 								<xs:annotation>
 									<xs:documentation>Represents that the category is a parent category</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element name="guid" type="xs:string"
-								maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="guid" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>This is the machine id of the requester.</xs:documentation>
 								</xs:annotation>
@@ -157,20 +154,17 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="tokenId" type="xs:long">
+							<xs:element maxOccurs="1" minOccurs="0" name="tokenId" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>Represents the unique id given to the listed ad's activity.</xs:documentation>
             					</xs:annotation>
 							</xs:element>
-							<xs:element name="encryptedToken"
-								type="xs:string" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="encryptedToken" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>This is the encrypted form the Ad request.</xs:documentation>
 								</xs:annotation>  
 							</xs:element>
-							<xs:element name="blackListedKeywords"
-								type="xs:string" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="blackListedKeywords" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>This contains the black listed keywords for ad listing.</xs:documentation>
             					</xs:annotation>
@@ -182,7 +176,7 @@
 		<xs:simpleType name="AdCategoryType">
 		<xs:annotation>
 			<xs:documentation/>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="L1">
 				<xs:annotation>
@@ -201,7 +195,7 @@
 	</xs:simpleType><xs:simpleType name="AdLocationType">
 		<xs:annotation>
 			<xs:documentation/>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="COUNTRY">
 				<xs:annotation>
@@ -229,7 +223,7 @@
 			<xs:documentation>
 				This tells the origin of the Ad.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="TROY">
 				<xs:annotation>
@@ -254,7 +248,7 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType><xs:complexType name="Amount">
-        <xs:annotation><xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+        <xs:annotation><xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
         <xs:simpleContent>
                   <xs:extension base="xs:double">
                       <xs:attribute name="currencyId" type="xs:string" use="required"/>
@@ -341,16 +335,14 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="encryptedToken"
-								type="xs:string" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="encryptedToken" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>This is the encrypted form the Ad request.</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 
 
-							<xs:element name="guid"
-								type="xs:string" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="guid" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>This is the machine id of the requester.</xs:documentation>
 								</xs:annotation>
@@ -366,8 +358,7 @@
 						<xs:sequence>
 
 
-							<xs:element name="classifiedAd"
-								type="Q1:ClassifiedAdInternal" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="classifiedAd" type="Q1:ClassifiedAdInternal">
 								<xs:annotation>
 									<xs:documentation>Classified Ad object that has all the ad details</xs:documentation>
 								</xs:annotation>
@@ -383,22 +374,18 @@
             	<xs:complexContent>
             		<xs:extension base="tns:BaseServiceRequest">
             			<xs:sequence>
-            				<xs:element name="encryptedToken"
-            					type="xs:string" maxOccurs="1" minOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="1" name="encryptedToken" type="xs:string">
             					<xs:annotation>
 									<xs:documentation>This is the encrypted form the Ad request.</xs:documentation>
 								</xs:annotation>            					
             				</xs:element>
 
-            				<xs:element name="classifiedAd"
-            					type="Q1:ClassifiedAdInternal" maxOccurs="1"
-            					minOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="1" name="classifiedAd" type="Q1:ClassifiedAdInternal">
             					<xs:annotation>
 									<xs:documentation>Classified Ad object that has all the ad details</xs:documentation>
 								</xs:annotation>
             				</xs:element>
-            				<xs:element name="guid" type="xs:string"
-            					maxOccurs="1" minOccurs="1">
+            				<xs:element maxOccurs="1" minOccurs="1" name="guid" type="xs:string">
             					<xs:annotation>
 									<xs:documentation>This is the machine id of the requester.</xs:documentation>
 								</xs:annotation>
@@ -415,7 +402,7 @@
 				or an informational error (a warning) that should be communicated to the
 				user.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 		<xs:restriction base="xs:string">
 	
 			<xs:enumeration value="Success">
@@ -457,8 +444,7 @@
             	<xs:complexContent>
             		<xs:extension base="tns:BaseServiceResponse">
             			<xs:sequence>
-            				<xs:element name="blackListedKeywords"
-            					type="xs:string" maxOccurs="1" minOccurs="0">
+            				<xs:element maxOccurs="1" minOccurs="0" name="blackListedKeywords" type="xs:string">
             					<xs:annotation>
 									<xs:documentation>This contains the black listed keywords for ad listing.</xs:documentation>
             					</xs:annotation>
@@ -472,14 +458,12 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceRequest">
 					<xs:sequence>
-						<xs:element name="adId" type="xs:long"
-							maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="adId" type="xs:long">
 							<xs:annotation>
 									<xs:documentation>Unique Id given to the ad.</xs:documentation>
 								</xs:annotation>
 						</xs:element>
-						<xs:element name="includeExpiredAd"
-							type="xs:boolean" maxOccurs="1" minOccurs="0">
+						<xs:element maxOccurs="1" minOccurs="0" name="includeExpiredAd" type="xs:boolean">
 							<xs:annotation>
 									<xs:documentation>This is a flag to check if the expired ads are to be included or not .</xs:documentation>
 							</xs:annotation>
@@ -494,8 +478,7 @@
 				<xs:extension base="tns:BaseServiceResponse">
 					<xs:sequence>
 
-						<xs:element name="classifiedAd"
-							type="Q1:ClassifiedAdInternal" maxOccurs="1" minOccurs="0">
+						<xs:element maxOccurs="1" minOccurs="0" name="classifiedAd" type="Q1:ClassifiedAdInternal">
 								<xs:annotation>
 									<xs:documentation>Classified Ad object that has all the ad details</xs:documentation>
 								</xs:annotation>
@@ -509,20 +492,17 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceResponse">
 					<xs:sequence>
-						<xs:element name="encryptedToken"
-							type="xs:string" maxOccurs="1" minOccurs="0">
+						<xs:element maxOccurs="1" minOccurs="0" name="encryptedToken" type="xs:string">
 							<xs:annotation>
 									<xs:documentation>This is the encrypted form the Ad request.</xs:documentation>
 								</xs:annotation>       
 						</xs:element>
-						<xs:element name="blackListedKeyWords"
-							type="xs:string" maxOccurs="1" minOccurs="0">
+						<xs:element maxOccurs="1" minOccurs="0" name="blackListedKeyWords" type="xs:string">
 							<xs:annotation>
 									<xs:documentation>This contains the black listed keywords for ad listing.</xs:documentation>
             					</xs:annotation>
 						</xs:element>
-						<xs:element name="tokenId"
-							type="xs:long" maxOccurs="1" minOccurs="0">
+						<xs:element maxOccurs="1" minOccurs="0" name="tokenId" type="xs:long">
 							<xs:annotation>
 									<xs:documentation>Repesents the unique id given to the listed ad's activity..</xs:documentation>
             					</xs:annotation>
@@ -543,8 +523,7 @@
 				<xs:extension base="tns:BaseServiceResponse">
 					<xs:sequence>
 
-						<xs:element name="classifiedAd"
-							type="Q1:ClassifiedAdInternal" maxOccurs="1" minOccurs="0">
+						<xs:element maxOccurs="1" minOccurs="0" name="classifiedAd" type="Q1:ClassifiedAdInternal">
 								<xs:annotation>
 									<xs:documentation>Classified Ad object that has all the ad details</xs:documentation>
 								</xs:annotation>
@@ -570,8 +549,7 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceResponse">
 					<xs:sequence>
-						<xs:element name="classifiedAd"
-							type="Q1:ClassifiedAdInternal" maxOccurs="unbounded" minOccurs="0">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="classifiedAd" type="Q1:ClassifiedAdInternal">
 								<xs:annotation>
 									<xs:documentation>Classified Ad object that has all the ad details</xs:documentation>
 								</xs:annotation>
@@ -585,8 +563,7 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceResponse">
 					<xs:sequence>
-						<xs:element name="classifiedAd"
-							type="Q1:ClassifiedAdInternal" maxOccurs="unbounded" minOccurs="0">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="classifiedAd" type="Q1:ClassifiedAdInternal">
 								<xs:annotation>
 									<xs:documentation>Classified Ad object that has all the ad details</xs:documentation>
 								</xs:annotation>
@@ -600,8 +577,7 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceResponse">
 					<xs:sequence>
-						<xs:element name="classifiedAd"
-							type="Q1:ClassifiedAdInternal" maxOccurs="unbounded" minOccurs="0">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="classifiedAd" type="Q1:ClassifiedAdInternal">
 								<xs:annotation>
 									<xs:documentation>Classified Ad object that has all the ad details</xs:documentation>
 								</xs:annotation>
@@ -611,13 +587,11 @@
 			</xs:complexContent>
 		</xs:complexType>
 
-		<xs:complexType
-			name="GetUnconfirmAdsBySellerInternalResponse">
+		<xs:complexType name="GetUnconfirmAdsBySellerInternalResponse">
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceResponse">
 					<xs:sequence>
-						<xs:element name="classifiedAd"
-							type="Q1:ClassifiedAdInternal" maxOccurs="unbounded" minOccurs="0">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="classifiedAd" type="Q1:ClassifiedAdInternal">
 								<xs:annotation>
 									<xs:documentation>Classified Ad object that has all the ad details</xs:documentation>
 								</xs:annotation>
@@ -631,8 +605,7 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceResponse">
 					<xs:sequence>
-						<xs:element name="classifiedAd"
-							type="Q1:ClassifiedAdInternal" maxOccurs="unbounded" minOccurs="0">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="classifiedAd" type="Q1:ClassifiedAdInternal">
 								<xs:annotation>
 									<xs:documentation>Classified Ad object that has all the ad details</xs:documentation>
 								</xs:annotation>
@@ -646,8 +619,7 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceRequest">
 					<xs:sequence>
-						<xs:element name="sellerEmail"
-							type="xs:string" maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="sellerEmail" type="xs:string">
 							<xs:annotation>
 									<xs:documentation>Email id of the seller listing the ad</xs:documentation>
 								</xs:annotation>
@@ -661,8 +633,7 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceRequest">
 					<xs:sequence>
-						<xs:element name="sellerEmail"
-							type="xs:string" maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="sellerEmail" type="xs:string">
 							<xs:annotation>
 									<xs:documentation>Email id of the seller listing the ad</xs:documentation>
 								</xs:annotation>
@@ -676,8 +647,7 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceRequest">
 					<xs:sequence>
-						<xs:element name="sellerEmail"
-							type="xs:string" maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="sellerEmail" type="xs:string">
 							<xs:annotation>
 									<xs:documentation>Email id of the seller listing the ad</xs:documentation>
 								</xs:annotation>
@@ -691,8 +661,7 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceRequest">
 					<xs:sequence>
-						<xs:element name="sellerEmail"
-							type="xs:string" maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="sellerEmail" type="xs:string">
 							<xs:annotation>
 									<xs:documentation>Email id of the seller listing the ad</xs:documentation>
 								</xs:annotation>
@@ -706,8 +675,7 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceRequest">
 					<xs:sequence>
-						<xs:element name="sellerEmail"
-							type="xs:string" maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="sellerEmail" type="xs:string">
 							<xs:annotation>
 									<xs:documentation>Email id of the seller listing the ad</xs:documentation>
 								</xs:annotation>
@@ -721,32 +689,27 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceRequest">
 					<xs:sequence>
-						<xs:element name="buyerEmail" type="xs:string"
-							maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="buyerEmail" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>Email Id if the buyer trying to contact seller</xs:documentation>
 								</xs:annotation>
 						</xs:element>
-						<xs:element name="emailMessage" type="xs:string"
-							maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="emailMessage" type="xs:string">
 							<xs:annotation>
 									<xs:documentation>Message in the email body that buyer wants to send to seller</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="adId" type="xs:long"
-							maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="adId" type="xs:long">
 							<xs:annotation>
 									<xs:documentation>Unique id of the ad</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="copySelf" type="xs:boolean"
-							maxOccurs="1" minOccurs="0">
+						<xs:element maxOccurs="1" minOccurs="0" name="copySelf" type="xs:boolean">
 							<xs:annotation>
 									<xs:documentation>Flag to determine if buyer neeeds a copy of email</xs:documentation>
 								</xs:annotation>
 						</xs:element>
-						<xs:element name="guid" type="xs:string"
-							maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="guid" type="xs:string">
 							<xs:annotation>
 									<xs:documentation>This is the machine id of the requester.</xs:documentation>
 								</xs:annotation>
@@ -761,21 +724,18 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceRequest">
 					<xs:sequence>
-						<xs:element name="adId" type="xs:long"
-							maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="adId" type="xs:long">
 							<xs:annotation>
 									<xs:documentation>Unique id of the ad</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 
-						<xs:element name="guid" type="xs:string"
-							maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="guid" type="xs:string">
 							<xs:annotation>
 									<xs:documentation>This is the machine id of the requester.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="actionType"
-							type="xs:token" maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="actionType" type="xs:token">
 							<xs:annotation>
 									<xs:documentation>This is the reason for reporting the ad.</xs:documentation>
 								</xs:annotation>
@@ -789,15 +749,13 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceRequest">
 					<xs:sequence>
-						<xs:element name="tokenId" type="xs:long"
-							maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="tokenId" type="xs:long">
 							<xs:annotation>
 									<xs:documentation>Repesents the unique id given to the listed ad's activity..</xs:documentation>
             					</xs:annotation>
 						</xs:element>
 
-						<xs:element name="includeExpiredAd"
-							type="xs:boolean" maxOccurs="1" minOccurs="0">
+						<xs:element maxOccurs="1" minOccurs="0" name="includeExpiredAd" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>This is a flag to check if the expired ads are to be included or not .</xs:documentation>
 							</xs:annotation>
@@ -811,14 +769,13 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseServiceRequest">
 					<xs:sequence>
-						<xs:element name="encryptedToken" type="xs:string" maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="encryptedToken" type="xs:string">
 							<xs:annotation>
 									<xs:documentation>This is the encrypted form the Ad request.</xs:documentation>
 								</xs:annotation>       
 						</xs:element>
 
-						<xs:element name="actionType"
-							type="xs:token" maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="actionType" type="xs:token">
 							<xs:annotation>
 									<xs:documentation>This is the reason for reporting the ad.</xs:documentation>
 								</xs:annotation>
@@ -833,22 +790,19 @@
 				<xs:extension base="tns:BaseServiceRequest">
 					<xs:sequence>
 
-						<xs:element name="tokenId"
-							type="xs:long" maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="tokenId" type="xs:long">
 							<xs:annotation>
 									<xs:documentation>Repesents the unique id given to the listed ad's activity..</xs:documentation>
             					</xs:annotation>
 						</xs:element>
 
 
-						<xs:element name="classifiedAd"
-							type="Q1:ClassifiedAdInternal" maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="classifiedAd" type="Q1:ClassifiedAdInternal">
 							<xs:annotation>
 									<xs:documentation>Classified Ad object that has all the ad details</xs:documentation>
 								</xs:annotation>
 						</xs:element>
-						<xs:element name="guid"
-							type="xs:string" maxOccurs="1" minOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="guid" type="xs:string">
 							<xs:annotation>
 									<xs:documentation>This is the machine id of the requester.</xs:documentation>
 								</xs:annotation>
@@ -862,7 +816,7 @@
 			<xs:documentation>
 				Documentation goes here.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
       <xs:restriction base="xs:token">
         <xs:enumeration value="System"/>
@@ -875,7 +829,7 @@
 			<xs:documentation>
 				Documentation goes here.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
       <xs:restriction base="xs:token">
         <xs:enumeration value="Error"/>
@@ -886,7 +840,7 @@
 		<xs:annotation>
 			<xs:documentation>Documentation goes here</xs:documentation>
 			
-		<xs:appinfo><typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/></xs:appinfo></xs:annotation>
 
 		<xs:simpleContent>
 		  <xs:extension base="xs:string">
@@ -898,7 +852,7 @@
     <xs:complexType name="ClassifiedAd">
 		<xs:annotation>
 			<xs:documentation>Classified Ad</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="0" name="status" type="xs:token">
 				<xs:annotation>
@@ -971,8 +925,8 @@
 		</xs:sequence>
 	</xs:complexType><xs:complexType name="ClassifiedAdAttribute">
 		<xs:annotation>
-			<xs:documentation></xs:documentation>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+			<xs:documentation/>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:string">
 				<xs:annotation>
@@ -998,8 +952,8 @@
 		</xs:sequence>
 	</xs:complexType><xs:complexType name="ClassifiedAdCategory">
 		<xs:annotation>
-			<xs:documentation></xs:documentation>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+			<xs:documentation/>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
             <xs:element maxOccurs="1" minOccurs="1" name="id" type="xs:long">
             	<xs:annotation>
@@ -1025,8 +979,8 @@
 		</xs:sequence>
 	</xs:complexType><xs:complexType name="ClassifiedAdInternal">
 		<xs:annotation>
-			<xs:documentation></xs:documentation>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+			<xs:documentation/>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="tns:ClassifiedAd">
 				<xs:sequence>
@@ -1080,8 +1034,8 @@
 		</xs:complexContent>
 	</xs:complexType><xs:complexType name="ClassifiedAdLocation">
 		<xs:annotation>
-			<xs:documentation></xs:documentation>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+			<xs:documentation/>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="1" name="id" type="xs:long">
 				<xs:annotation>
@@ -1117,66 +1071,57 @@
 				This will hold the Ad level flag information. TO be used
 				for internal service only, donot expose outside wsdl
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="0" name="autoApproved"
-				type="xs:boolean">
+			<xs:element maxOccurs="1" minOccurs="0" name="autoApproved" type="xs:boolean">
 				<xs:annotation>
 							<xs:documentation>Flag to indicate if the ad is a auto approved .</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="phoneVisible"
-				type="xs:boolean">
+			<xs:element maxOccurs="1" minOccurs="0" name="phoneVisible" type="xs:boolean">
 				<xs:annotation>
 							<xs:documentation>Flag to indicate if the phone details is to be displayed .</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0"
-				name="optedMarketingEmail" type="xs:boolean">
+			<xs:element maxOccurs="1" minOccurs="0" name="optedMarketingEmail" type="xs:boolean">
 				<xs:annotation>
 							<xs:documentation>Flag to indicate if the marketing email is to be displayed .</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="nameVisible"
-				type="xs:boolean">
+			<xs:element maxOccurs="1" minOccurs="0" name="nameVisible" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>Flag to indicate if the name is to be displayed .</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0"
-				name="ReminderSent15Days" type="xs:boolean">
+			<xs:element maxOccurs="1" minOccurs="0" name="ReminderSent15Days" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>Flag to indicate if the reminder is to be sent for 15 days .</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0"
-				name="ReminderSent60Days" type="xs:boolean">
+			<xs:element maxOccurs="1" minOccurs="0" name="ReminderSent60Days" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>Flag to indicate if the reminder is to be sent for 60 days .</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="adChoice"
-				type="xs:boolean">
+			<xs:element maxOccurs="1" minOccurs="0" name="adChoice" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>Flag to indicate if it is a ad choice flow .</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="relisted"
-				type="xs:boolean">
+			<xs:element maxOccurs="1" minOccurs="0" name="relisted" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>Flag to indicate if the ad is relisted .</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="kijijiAd"
-				type="xs:boolean">
+			<xs:element maxOccurs="1" minOccurs="0" name="kijijiAd" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>Flag to indicate if the ad is listed from kijiji.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-				processContents="lax">
+				processContents="lax"&gt;
 
-			<xs:element name="resubmitted" type="xs:boolean" maxOccurs="1" minOccurs="0">
+			<xs:element maxOccurs="1" minOccurs="0" name="resubmitted" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>Flag to indicate if the ad is re submitted.</xs:documentation>
 				</xs:annotation>			
@@ -1184,8 +1129,8 @@
 		</xs:sequence>
 </xs:complexType><xs:complexType name="ClassifiedAdUser">
 		<xs:annotation>
-			<xs:documentation></xs:documentation>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+			<xs:documentation/>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 		<xs:element maxOccurs="1" minOccurs="0" name="name" type="xs:string">
 				<xs:annotation>
@@ -1206,7 +1151,7 @@
 				classified user. This is for internal services only, not
 				to be exposed outside eBay
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="tns:ClassifiedAdUser">
 				<xs:sequence>
@@ -1243,7 +1188,7 @@
 			<xs:documentation>
 				It hold the Ad user flags. Only for internal services use
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 			<xs:element maxOccurs="1" minOccurs="0" name="classicChoice" type="xs:boolean">
 				<xs:annotation>
@@ -1259,8 +1204,8 @@
 		</xs:sequence>
 	</xs:complexType><xs:simpleType name="UserDesignationType">
 		<xs:annotation>
-			<xs:documentation></xs:documentation>
-		<xs:appinfo><typeLibrarySource library="ClassifiedAdDomainTypeLibrary" namespace="http://www.ebay.com/classifiedad/v1/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+			<xs:documentation/>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/classifiedad/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="PRIVATE">
 				<xs:annotation>
@@ -1281,115 +1226,115 @@
 	</xs:simpleType></xs:schema>
   </types>
   <message name="getAllAdsBySellerInternalRequest">
-    <part name="params" element="tns:getAllAdsBySellerInternalRequest">
+    <part element="tns:getAllAdsBySellerInternalRequest" name="params">
     </part>
   </message>
   <message name="reportAdInternalResponse">
-    <part name="params" element="tns:reportAdInternalResponse">
+    <part element="tns:reportAdInternalResponse" name="params">
     </part>
   </message>
   <message name="getUnconfirmAdsBySellerInternalResponse">
-    <part name="params" element="tns:getUnconfirmAdsBySellerInternalResponse">
+    <part element="tns:getUnconfirmAdsBySellerInternalResponse" name="params">
     </part>
   </message>
   <message name="getRejectedAdsBySellerInternalResponse">
-    <part name="params" element="tns:getRejectedAdsBySellerInternalResponse">
+    <part element="tns:getRejectedAdsBySellerInternalResponse" name="params">
     </part>
   </message>
   <message name="createAdInternalResponse">
-    <part name="params" element="tns:createAdInternalResponse">
+    <part element="tns:createAdInternalResponse" name="params">
     </part>
   </message>
   <message name="contactSellerInternalResponse">
-    <part name="params" element="tns:contactSellerInternalResponse">
+    <part element="tns:contactSellerInternalResponse" name="params">
     </part>
   </message>
   <message name="reviseAdInternalResponse">
-    <part name="params" element="tns:reviseAdInternalResponse">
+    <part element="tns:reviseAdInternalResponse" name="params">
     </part>
   </message>
   <message name="getPendingAdsBySellerInternalResponse">
-    <part name="params" element="tns:getPendingAdsBySellerInternalResponse">
+    <part element="tns:getPendingAdsBySellerInternalResponse" name="params">
     </part>
   </message>
   <message name="getPendingAdsBySellerInternalRequest">
-    <part name="params" element="tns:getPendingAdsBySellerInternalRequest">
+    <part element="tns:getPendingAdsBySellerInternalRequest" name="params">
     </part>
   </message>
   <message name="deleteAdInternalResponse">
-    <part name="params" element="tns:deleteAdInternalResponse">
+    <part element="tns:deleteAdInternalResponse" name="params">
     </part>
   </message>
   <message name="getActiveAdsBySellerInternalResponse">
-    <part name="params" element="tns:getActiveAdsBySellerInternalResponse">
+    <part element="tns:getActiveAdsBySellerInternalResponse" name="params">
     </part>
   </message>
   <message name="reviseAdInternalRequest">
-    <part name="params" element="tns:reviseAdInternalRequest">
+    <part element="tns:reviseAdInternalRequest" name="params">
     </part>
   </message>
   <message name="createAdInternalRequest">
-    <part name="params" element="tns:createAdInternalRequest">
+    <part element="tns:createAdInternalRequest" name="params">
     </part>
   </message>
   <message name="contactSellerInternalRequest">
-    <part name="params" element="tns:contactSellerInternalRequest">
+    <part element="tns:contactSellerInternalRequest" name="params">
     </part>
   </message>
   <message name="relistAdInternalResponse">
-    <part name="params" element="tns:relistAdInternalResponse">
+    <part element="tns:relistAdInternalResponse" name="params">
     </part>
   </message>
   <message name="relistAdInternalRequest">
-    <part name="params" element="tns:relistAdInternalRequest">
+    <part element="tns:relistAdInternalRequest" name="params">
     </part>
   </message>
   <message name="getUnconfirmAdsBySellerInternalRequest">
-    <part name="params" element="tns:getUnconfirmAdsBySellerInternalRequest">
+    <part element="tns:getUnconfirmAdsBySellerInternalRequest" name="params">
     </part>
   </message>
   <message name="reportAdInternalRequest">
-    <part name="params" element="tns:reportAdInternalRequest">
+    <part element="tns:reportAdInternalRequest" name="params">
     </part>
   </message>
   <message name="getAllAdsBySellerInternalResponse">
-    <part name="params" element="tns:getAllAdsBySellerInternalResponse">
+    <part element="tns:getAllAdsBySellerInternalResponse" name="params">
     </part>
   </message>
   <message name="getAdByIdInternalRequest">
-    <part name="params" element="tns:getAdByIdInternalRequest">
+    <part element="tns:getAdByIdInternalRequest" name="params">
     </part>
   </message>
   <message name="getAdByTokenInternalResponse">
-    <part name="params" element="tns:getAdByTokenInternalResponse">
+    <part element="tns:getAdByTokenInternalResponse" name="params">
     </part>
   </message>
   <message name="deleteAdInternalRequest">
-    <part name="params" element="tns:deleteAdInternalRequest">
+    <part element="tns:deleteAdInternalRequest" name="params">
     </part>
   </message>
   <message name="confirmAdInternalResponse">
-    <part name="params" element="tns:confirmAdInternalResponse">
+    <part element="tns:confirmAdInternalResponse" name="params">
     </part>
   </message>
   <message name="getRejectedAdsBySellerInternalRequest">
-    <part name="params" element="tns:getRejectedAdsBySellerInternalRequest">
+    <part element="tns:getRejectedAdsBySellerInternalRequest" name="params">
     </part>
   </message>
   <message name="confirmAdInternalRequest">
-    <part name="params" element="tns:confirmAdInternalRequest">
+    <part element="tns:confirmAdInternalRequest" name="params">
     </part>
   </message>
   <message name="getAdByIdInternalResponse">
-    <part name="params" element="tns:getAdByIdInternalResponse">
+    <part element="tns:getAdByIdInternalResponse" name="params">
     </part>
   </message>
   <message name="getAdByTokenInternalRequest">
-    <part name="params" element="tns:getAdByTokenInternalRequest">
+    <part element="tns:getAdByTokenInternalRequest" name="params">
     </part>
   </message>
   <message name="getActiveAdsBySellerInternalRequest">
-    <part name="params" element="tns:getActiveAdsBySellerInternalRequest">
+    <part element="tns:getActiveAdsBySellerInternalRequest" name="params">
     </part>
   </message>
   <portType name="ClassifiedAdManagementPrivateServicePort">
@@ -1737,10 +1682,10 @@
     </operation>
   </binding>
   <service name="ClassifiedAdManagementPrivateService">
-    <port name="ClassifiedAdManagementPrivateServiceHttpPort" binding="tns:ClassifiedAdManagementPrivateServiceHttpBinding">
+    <port binding="tns:ClassifiedAdManagementPrivateServiceHttpBinding" name="ClassifiedAdManagementPrivateServiceHttpPort">
       <http:address location="http://svcs.ebay.com/services/classifiedad/ClassifiedAdManagementPrivateService/v1"/>
     </port>
-    <port name="ClassifiedAdManagementPrivateServiceSOAPPort" binding="tns:ClassifiedAdManagementPrivateServiceSOAPBinding">
+    <port binding="tns:ClassifiedAdManagementPrivateServiceSOAPBinding" name="ClassifiedAdManagementPrivateServiceSOAPPort">
       <soap12:address location="http://svcs.ebay.com/services/classifiedad/ClassifiedAdManagementPrivateService/v1"/>
     </port>
   </service>

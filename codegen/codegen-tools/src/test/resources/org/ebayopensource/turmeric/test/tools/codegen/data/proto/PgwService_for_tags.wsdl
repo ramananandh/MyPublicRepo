@@ -1,99 +1,87 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="PgwService"
-	xmlns:wsdl		= "http://schemas.xmlsoap.org/wsdl/"
-	xmlns			= "http://schemas.xmlsoap.org/wsdl/"
-	xmlns:http		= "http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:mime		= "http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:soap		= "http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12	= "http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:xs		= "http://www.w3.org/2001/XMLSchema"
-	xmlns:tns		= "http://www.ebay.com/marketplace/payment/v1/services"
-	targetNamespace	= "http://www.ebay.com/marketplace/payment/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/payment/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PgwService" targetNamespace="http://www.ebayopensource.org/tumeric/payment/v1/services">
 	<wsdl:types>
-		<xs:schema 	attributeFormDefault	= "unqualified"
-					elementFormDefault		= "qualified"
-					targetNamespace			= "http://www.ebay.com/marketplace/payment/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/payment/v1/services">
 
-			<xs:element name="getVersionRequest"					type="tns:GetVersionRequest"		/> 
-			<xs:element name="getVersionResponse"					type="tns:GetVersionResponse"		/> 
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/> 
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/> 
 
-			<xs:element name="helloPGWRequest"						type="tns:HelloPGWRequest"			/>			 
-			<xs:element name="helloPGWResponse"						type="tns:HelloPGWResponse"			/>						
+			<xs:element name="helloPGWRequest" type="tns:HelloPGWRequest"/>			 
+			<xs:element name="helloPGWResponse" type="tns:HelloPGWResponse"/>						
 
-			<xs:element name="createAccountRequest" 				type="tns:CreateAccountRequest"		/>
-			<xs:element name="createAccountResponse"				type="tns:CreateAccountResponse"	/>
-			<xs:element name="updateAccountRequest" 				type="tns:UpdateAccountRequest"		/>
-			<xs:element name="updateAccountResponse"				type="tns:UpdateAccountResponse"	/>
+			<xs:element name="createAccountRequest" type="tns:CreateAccountRequest"/>
+			<xs:element name="createAccountResponse" type="tns:CreateAccountResponse"/>
+			<xs:element name="updateAccountRequest" type="tns:UpdateAccountRequest"/>
+			<xs:element name="updateAccountResponse" type="tns:UpdateAccountResponse"/>
 
-			<xs:element name="addCreditCardRequest" 				type="tns:AddCreditCardRequest"/>
-			<xs:element name="addCreditCardResponse" 				type="tns:AddCreditCardResponse"/>
-			<xs:element name="updateCreditCardRequest" 				type="tns:UpdateCreditCardRequest"/>
-			<xs:element name="updateCreditCardResponse" 			type="tns:UpdateCreditCardResponse"/>
-			<xs:element name="deleteCreditCardRequest" 				type="tns:DeleteCreditCardRequest"/>																							
-			<xs:element name="deleteCreditCardResponse" 			type="tns:DeleteCreditCardResponse"/>
-			<xs:element name="cloneCreditCardRequest" 				type="tns:CloneCreditCardRequest"/>						
-			<xs:element name="cloneCreditCardResponse" 				type="tns:CloneCreditCardResponse"/>
-			<xs:element name="getCreditCardListRequest" 			type="tns:GetCreditCardListRequest"/>						
-			<xs:element name="getCreditCardListResponse" 			type="tns:GetCreditCardListResponse"/>			
+			<xs:element name="addCreditCardRequest" type="tns:AddCreditCardRequest"/>
+			<xs:element name="addCreditCardResponse" type="tns:AddCreditCardResponse"/>
+			<xs:element name="updateCreditCardRequest" type="tns:UpdateCreditCardRequest"/>
+			<xs:element name="updateCreditCardResponse" type="tns:UpdateCreditCardResponse"/>
+			<xs:element name="deleteCreditCardRequest" type="tns:DeleteCreditCardRequest"/>																							
+			<xs:element name="deleteCreditCardResponse" type="tns:DeleteCreditCardResponse"/>
+			<xs:element name="cloneCreditCardRequest" type="tns:CloneCreditCardRequest"/>						
+			<xs:element name="cloneCreditCardResponse" type="tns:CloneCreditCardResponse"/>
+			<xs:element name="getCreditCardListRequest" type="tns:GetCreditCardListRequest"/>						
+			<xs:element name="getCreditCardListResponse" type="tns:GetCreditCardListResponse"/>			
 
-			<xs:element name="verifyCreditCardRequest"				type="tns:VerifyCreditCardRequest"	/>			 
-			<xs:element name="verifyCreditCardResponse"				type="tns:VerifyCreditCardResponse"	/>
-			<xs:element name="makeCreditCardPaymentRequest"			type="tns:MakeCreditCardPaymentRequest"	/>			 
-			<xs:element name="makeCreditCardPaymentResponse"		type="tns:MakeCreditCardPaymentResponse"	/>			 						
-			<xs:element name="authorizeCreditCardPaymentRequest"	type="tns:AuthorizeCreditCardPaymentRequest"	/>			 
-			<xs:element name="authorizeCreditCardPaymentResponse"	type="tns:AuthorizeCreditCardPaymentResponse"	/>
-			<xs:element name="captureCreditCardPaymentRequest"		type="tns:CaptureCreditCardPaymentRequest"	/>			 
-			<xs:element name="captureCreditCardPaymentResponse"		type="tns:CaptureCreditCardPaymentResponse"	/>
-			<xs:element name="payWithCreditCardOnFileRequest" 		type="tns:PayWithCreditCardOnFileRequest"/>			 
-			<xs:element name="payWithCreditCardOnFileResponse" 		type="tns:PayWithCreditCardOnFileResponse"/>
+			<xs:element name="verifyCreditCardRequest" type="tns:VerifyCreditCardRequest"/>			 
+			<xs:element name="verifyCreditCardResponse" type="tns:VerifyCreditCardResponse"/>
+			<xs:element name="makeCreditCardPaymentRequest" type="tns:MakeCreditCardPaymentRequest"/>			 
+			<xs:element name="makeCreditCardPaymentResponse" type="tns:MakeCreditCardPaymentResponse"/>			 						
+			<xs:element name="authorizeCreditCardPaymentRequest" type="tns:AuthorizeCreditCardPaymentRequest"/>			 
+			<xs:element name="authorizeCreditCardPaymentResponse" type="tns:AuthorizeCreditCardPaymentResponse"/>
+			<xs:element name="captureCreditCardPaymentRequest" type="tns:CaptureCreditCardPaymentRequest"/>			 
+			<xs:element name="captureCreditCardPaymentResponse" type="tns:CaptureCreditCardPaymentResponse"/>
+			<xs:element name="payWithCreditCardOnFileRequest" type="tns:PayWithCreditCardOnFileRequest"/>			 
+			<xs:element name="payWithCreditCardOnFileResponse" type="tns:PayWithCreditCardOnFileResponse"/>
 
-			<xs:element name="addDirectDebitRequest" 				type="tns:AddDirectDebitRequest"/>
-			<xs:element name="addDirectDebitResponse" 				type="tns:AddDirectDebitResponse"/>
-			<xs:element name="updateDirectDebitRequest" 			type="tns:UpdateDirectDebitRequest"/>
-			<xs:element name="updateDirectDebitResponse" 			type="tns:UpdateDirectDebitResponse"/>
-			<xs:element name="deleteDirectDebitRequest" 			type="tns:DeleteDirectDebitRequest"/>																							
-			<xs:element name="deleteDirectDebitResponse" 			type="tns:DeleteDirectDebitResponse"/>
-			<xs:element name="getDirectDebitListRequest" 			type="tns:GetDirectDebitListRequest"/>						
-			<xs:element name="getDirectDebitListResponse" 			type="tns:GetDirectDebitListResponse"/>			
+			<xs:element name="addDirectDebitRequest" type="tns:AddDirectDebitRequest"/>
+			<xs:element name="addDirectDebitResponse" type="tns:AddDirectDebitResponse"/>
+			<xs:element name="updateDirectDebitRequest" type="tns:UpdateDirectDebitRequest"/>
+			<xs:element name="updateDirectDebitResponse" type="tns:UpdateDirectDebitResponse"/>
+			<xs:element name="deleteDirectDebitRequest" type="tns:DeleteDirectDebitRequest"/>																							
+			<xs:element name="deleteDirectDebitResponse" type="tns:DeleteDirectDebitResponse"/>
+			<xs:element name="getDirectDebitListRequest" type="tns:GetDirectDebitListRequest"/>						
+			<xs:element name="getDirectDebitListResponse" type="tns:GetDirectDebitListResponse"/>			
 
-			<xs:element name="makeDirectDebitPaymentRequest"		type="tns:MakeDirectDebitPaymentRequest"	/>			 
-			<xs:element name="makeDirectDebitPaymentResponse"		type="tns:MakeDirectDebitPaymentResponse"	/>			
-			<xs:element name="payWithDirectDebitOnFileRequest" 		type="tns:PayWithDirectDebitOnFileRequest"/>			 
-			<xs:element name="payWithDirectDebitOnFileResponse" 	type="tns:PayWithDirectDebitOnFileResponse"/>
+			<xs:element name="makeDirectDebitPaymentRequest" type="tns:MakeDirectDebitPaymentRequest"/>			 
+			<xs:element name="makeDirectDebitPaymentResponse" type="tns:MakeDirectDebitPaymentResponse"/>			
+			<xs:element name="payWithDirectDebitOnFileRequest" type="tns:PayWithDirectDebitOnFileRequest"/>			 
+			<xs:element name="payWithDirectDebitOnFileResponse" type="tns:PayWithDirectDebitOnFileResponse"/>
 
-			<xs:element name="setPaymentsWithPayPalExpressCheckoutRequest"		type="tns:SetPaymentsWithPayPalExpressCheckoutRequest"/>			 
-			<xs:element name="setPaymentsWithPayPalExpressCheckoutResponse"		type="tns:SetPaymentsWithPayPalExpressCheckoutResponse"/>			
-			<xs:element name="getPaymentsWithPayPalExpressCheckoutRequest" 		type="tns:GetPaymentsWithPayPalExpressCheckoutRequest"/>			 
-			<xs:element name="getPaymentsWithPayPalExpressCheckoutResponse" 	type="tns:GetPaymentsWithPayPalExpressCheckoutResponse"/>
-			<xs:element name="payPaymentsWithPayPalExpressCheckoutRequest" 		type="tns:PayPaymentsWithPayPalExpressCheckoutRequest"/>
-			<xs:element name="payPaymentsWithPayPalExpressCheckoutResponse" 	type="tns:PayPaymentsWithPayPalExpressCheckoutResponse"/>
-			<xs:element name="cancelTransactionWithPayPalExpressCheckoutRequest" 	type="tns:CancelTransactionWithPayPalExpressCheckoutRequest"/>
-			<xs:element name="cancelTransationWithPayPalExpressCheckoutResponse" 	type="tns:CancelTransactionWithPayPalExpressCheckoutResponse"/>
-			<xs:element name="getTransactionDetailsWithPayPalExpressCheckoutRequest" 	type="tns:GetTransactionDetailsWithPayPalExpressCheckoutRequest"/>
-			<xs:element name="getTransactionDetailsWithPayPalExpressCheckoutResponse" 	type="tns:GetTransactionDetailsWithPayPalExpressCheckoutResponse"/>
+			<xs:element name="setPaymentsWithPayPalExpressCheckoutRequest" type="tns:SetPaymentsWithPayPalExpressCheckoutRequest"/>			 
+			<xs:element name="setPaymentsWithPayPalExpressCheckoutResponse" type="tns:SetPaymentsWithPayPalExpressCheckoutResponse"/>			
+			<xs:element name="getPaymentsWithPayPalExpressCheckoutRequest" type="tns:GetPaymentsWithPayPalExpressCheckoutRequest"/>			 
+			<xs:element name="getPaymentsWithPayPalExpressCheckoutResponse" type="tns:GetPaymentsWithPayPalExpressCheckoutResponse"/>
+			<xs:element name="payPaymentsWithPayPalExpressCheckoutRequest" type="tns:PayPaymentsWithPayPalExpressCheckoutRequest"/>
+			<xs:element name="payPaymentsWithPayPalExpressCheckoutResponse" type="tns:PayPaymentsWithPayPalExpressCheckoutResponse"/>
+			<xs:element name="cancelTransactionWithPayPalExpressCheckoutRequest" type="tns:CancelTransactionWithPayPalExpressCheckoutRequest"/>
+			<xs:element name="cancelTransationWithPayPalExpressCheckoutResponse" type="tns:CancelTransactionWithPayPalExpressCheckoutResponse"/>
+			<xs:element name="getTransactionDetailsWithPayPalExpressCheckoutRequest" type="tns:GetTransactionDetailsWithPayPalExpressCheckoutRequest"/>
+			<xs:element name="getTransactionDetailsWithPayPalExpressCheckoutResponse" type="tns:GetTransactionDetailsWithPayPalExpressCheckoutResponse"/>
 			
 		
 			<xs:complexType name="GetVersionRequest">
 				<xs:complexContent>
-  					<xs:extension base="tns:BaseServiceRequest" /> 
+  					<xs:extension base="tns:BaseServiceRequest"/> 
   				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="GetVersionResponse">
 				<xs:complexContent>
-					<xs:extension base="tns:BaseServiceResponse" /> 
+					<xs:extension base="tns:BaseServiceResponse"/> 
 				</xs:complexContent>
 			</xs:complexType>
 
 			<xs:complexType name="HelloPGWRequest">
 				<xs:complexContent>
-  					<xs:extension base="tns:BaseServiceRequest" /> 
+  					<xs:extension base="tns:BaseServiceRequest"/> 
   				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="HelloPGWResponse">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="hello"					type="xs:string"								minOccurs="0"/>
+							<xs:element minOccurs="0" name="hello" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -103,7 +91,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">				
 						<xs:sequence>
-							<xs:element name="requestHeader" 		type="tns:RequestHeaderType"/>
+							<xs:element name="requestHeader" type="tns:RequestHeaderType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>				
@@ -113,7 +101,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">	 						
 						<xs:sequence>
-							<xs:element name="responseHeader" 		type="tns:ResponseHeaderType"/>
+							<xs:element name="responseHeader" type="tns:ResponseHeaderType"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>					
@@ -123,8 +111,8 @@
 				<xs:complexContent>
 					<xs:extension base="tns:CreditCardType">
 						<xs:sequence>
-							<xs:element name="cardNumberLastFour"	type="xs:string"/>	
-							<xs:element name="creditCardReference"	type="xs:string"/>												
+							<xs:element name="cardNumberLastFour" type="xs:string"/>	
+							<xs:element name="creditCardReference" type="xs:string"/>												
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -134,8 +122,8 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BankAccountType">
 						<xs:sequence>
-							<xs:element name="accountNumberLastFour"	type="xs:string"/>						
-							<xs:element name="directDebitReference"		type="xs:string"/>
+							<xs:element name="accountNumberLastFour" type="xs:string"/>						
+							<xs:element name="directDebitReference" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -146,10 +134,10 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="accountOwner"			type="tns:AccountType"/>
-							<xs:element name="residenceCountry"		type="tns:ISOCountryCodeType"				minOccurs="0"/>
-							<xs:element name="SSN"					type="xs:int"								minOccurs="0"/>
-							<xs:element name="taxID"				type="xs:int"								minOccurs="0"/>
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element minOccurs="0" name="residenceCountry" type="tns:ISOCountryCodeType"/>
+							<xs:element minOccurs="0" name="SSN" type="xs:int"/>
+							<xs:element minOccurs="0" name="taxID" type="xs:int"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -168,10 +156,10 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="accountOwner"			type="tns:AccountType"/>
-							<xs:element name="residenceCountry"		type="tns:ISOCountryCodeType"				minOccurs="0"/>
-							<xs:element name="SSN"					type="xs:int"								minOccurs="0"/>
-							<xs:element name="taxID"				type="xs:int"								minOccurs="0"/>
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element minOccurs="0" name="residenceCountry" type="tns:ISOCountryCodeType"/>
+							<xs:element minOccurs="0" name="SSN" type="xs:int"/>
+							<xs:element minOccurs="0" name="taxID" type="xs:int"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -190,11 +178,11 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="merchantAccountRefID"		type="tns:MerchantAccountReferenceIDType"/>
-							<xs:element name="creditCard"				type="tns:CreditCardType"/>
-							<xs:element name="amount"					type="tns:Money"								minOccurs="0"/>		
-							<xs:element name="avsCheckRequired"			type="xs:boolean"		default="false"			minOccurs="0"/>													
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element name="merchantAccountRefID" type="tns:MerchantAccountReferenceIDType"/>
+							<xs:element name="creditCard" type="tns:CreditCardType"/>
+							<xs:element minOccurs="0" name="amount" type="tns:Money"/>		
+							<xs:element default="false" minOccurs="0" name="avsCheckRequired" type="xs:boolean"/>													
 						</xs:sequence>  					
   					</xs:extension>
   				</xs:complexContent>
@@ -203,10 +191,10 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="transactionId"			type="xs:string"/>
-							<xs:element name="transactionResponseCode"	type="xs:string"								minOccurs="0"/>													
-							<xs:element name="avsCode"					type="xs:string"								minOccurs="0"/>
-							<xs:element name="cvv2ResCode"				type="xs:string"								minOccurs="0"/>																					
+							<xs:element name="transactionId" type="xs:string"/>
+							<xs:element minOccurs="0" name="transactionResponseCode" type="xs:string"/>													
+							<xs:element minOccurs="0" name="avsCode" type="xs:string"/>
+							<xs:element minOccurs="0" name="cvv2ResCode" type="xs:string"/>																					
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -216,11 +204,11 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="merchantAccountRefID"		type="tns:MerchantAccountReferenceIDType"/>
-							<xs:element name="creditCard"				type="tns:CreditCardType"/>
-							<xs:element name="amount"					type="tns:Money"/>
-							<xs:element name="avsCheckRequired"			type="xs:boolean"		default="false"			minOccurs="0"/>																					
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element name="merchantAccountRefID" type="tns:MerchantAccountReferenceIDType"/>
+							<xs:element name="creditCard" type="tns:CreditCardType"/>
+							<xs:element name="amount" type="tns:Money"/>
+							<xs:element default="false" minOccurs="0" name="avsCheckRequired" type="xs:boolean"/>																					
 						</xs:sequence>  					
   					</xs:extension>
   				</xs:complexContent>
@@ -229,10 +217,10 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="transactionId"			type="xs:string"/>
-							<xs:element name="transactionResponseCode"	type="xs:string"								minOccurs="0"/>							
-							<xs:element name="avsCode"					type="xs:string"								minOccurs="0"/>
-							<xs:element name="cvv2ResCode"				type="xs:string"								minOccurs="0"/>																					
+							<xs:element name="transactionId" type="xs:string"/>
+							<xs:element minOccurs="0" name="transactionResponseCode" type="xs:string"/>							
+							<xs:element minOccurs="0" name="avsCode" type="xs:string"/>
+							<xs:element minOccurs="0" name="cvv2ResCode" type="xs:string"/>																					
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -242,10 +230,10 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="merchantAccountRefID"		type="tns:MerchantAccountReferenceIDType"/>
-							<xs:element name="bankAccount"				type="tns:BankAccountType"/>
-							<xs:element name="amount"					type="tns:Money"/>
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element name="merchantAccountRefID" type="tns:MerchantAccountReferenceIDType"/>
+							<xs:element name="bankAccount" type="tns:BankAccountType"/>
+							<xs:element name="amount" type="tns:Money"/>
 							
 						</xs:sequence>  					
   					</xs:extension>
@@ -255,8 +243,8 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="transactionId"			type="xs:string"/>
-							<xs:element name="transactionResponseCode"	type="xs:string"								minOccurs="0"/>							
+							<xs:element name="transactionId" type="xs:string"/>
+							<xs:element minOccurs="0" name="transactionResponseCode" type="xs:string"/>							
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -267,11 +255,11 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="merchantAccountRefID"		type="tns:MerchantAccountReferenceIDType"/>
-							<xs:element name="creditCard"				type="tns:CreditCardType"/>
-							<xs:element name="amount"					type="tns:Money"/>												
-							<xs:element name="avsCheckRequired"			type="xs:boolean"		default="false"			minOccurs="0"/>									
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element name="merchantAccountRefID" type="tns:MerchantAccountReferenceIDType"/>
+							<xs:element name="creditCard" type="tns:CreditCardType"/>
+							<xs:element name="amount" type="tns:Money"/>												
+							<xs:element default="false" minOccurs="0" name="avsCheckRequired" type="xs:boolean"/>									
 						</xs:sequence>  					
   					</xs:extension>
   				</xs:complexContent>
@@ -280,10 +268,10 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="transactionId"			type="xs:string"/>
-							<xs:element name="transactionResponseCode"	type="xs:string"								minOccurs="0"/>							
-							<xs:element name="avsCode"					type="xs:string"								minOccurs="0"/>
-							<xs:element name="cvv2ResCode"				type="xs:string"								minOccurs="0"/>																					
+							<xs:element name="transactionId" type="xs:string"/>
+							<xs:element minOccurs="0" name="transactionResponseCode" type="xs:string"/>							
+							<xs:element minOccurs="0" name="avsCode" type="xs:string"/>
+							<xs:element minOccurs="0" name="cvv2ResCode" type="xs:string"/>																					
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -293,10 +281,10 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="merchantAccountRefID"		type="tns:MerchantAccountReferenceIDType"/>							
-							<xs:element name="transactionId"			type="xs:string"/>
-							<xs:element name="amount"					type="tns:Money"/>							
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element name="merchantAccountRefID" type="tns:MerchantAccountReferenceIDType"/>							
+							<xs:element name="transactionId" type="xs:string"/>
+							<xs:element name="amount" type="tns:Money"/>							
 						</xs:sequence>  					
   					</xs:extension>
   				</xs:complexContent>
@@ -305,8 +293,8 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="transactionId"			type="xs:string"/>							
-							<xs:element name="transactionResponseCode"	type="xs:string"								minOccurs="0"/>																					
+							<xs:element name="transactionId" type="xs:string"/>							
+							<xs:element minOccurs="0" name="transactionResponseCode" type="xs:string"/>																					
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -316,8 +304,8 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="creditCard"				type="tns:CreditCardType"/>
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element name="creditCard" type="tns:CreditCardType"/>
 						</xs:sequence>  					
   					</xs:extension>
   				</xs:complexContent>
@@ -326,7 +314,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="creditCardReference"		type="xs:string"/>
+							<xs:element name="creditCardReference" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -336,11 +324,11 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="creditCardReference"		type="xs:string"/>							
-							<xs:element name="expiryDate"				type="xs:dateTime"								minOccurs="0"/>
-							<xs:element name="accountHolderName"		type="xs:string"/>														
-							<xs:element name="billingAddress"			type="tns:AddressType"/>							
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element name="creditCardReference" type="xs:string"/>							
+							<xs:element minOccurs="0" name="expiryDate" type="xs:dateTime"/>
+							<xs:element name="accountHolderName" type="xs:string"/>														
+							<xs:element name="billingAddress" type="tns:AddressType"/>							
 						</xs:sequence>  					
   					</xs:extension>
   				</xs:complexContent>
@@ -357,8 +345,8 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="creditCardReference"		type="xs:string"/>							
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element name="creditCardReference" type="xs:string"/>							
 						</xs:sequence>  					
   					</xs:extension>
   				</xs:complexContent>
@@ -375,9 +363,9 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="creditCardReference"		type="xs:string"/>							
-							<xs:element name="targetAccountOwner"		type="tns:AccountType"/>					
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element name="creditCardReference" type="xs:string"/>							
+							<xs:element name="targetAccountOwner" type="tns:AccountType"/>					
 						</xs:sequence>  					
   					</xs:extension>
   				</xs:complexContent>
@@ -386,7 +374,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="creditCardReference"		type="xs:string"/>																																		
+							<xs:element name="creditCardReference" type="xs:string"/>																																		
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -396,8 +384,8 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>	
-							<xs:element name="creditCardReference"		type="xs:string"/>													
+							<xs:element name="accountOwner" type="tns:AccountType"/>	
+							<xs:element name="creditCardReference" type="xs:string"/>													
 						</xs:sequence>  					
   					</xs:extension>
   				</xs:complexContent>
@@ -405,7 +393,7 @@
 
 			<xs:complexType name="CreditCardDetailListType">
 				<xs:sequence>
-					<xs:element name="creditCardDetail" minOccurs="0" maxOccurs="unbounded" type="tns:CreditCardDetailType"/>									
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="creditCardDetail" type="tns:CreditCardDetailType"/>									
 				</xs:sequence>
 			</xs:complexType>
 
@@ -424,11 +412,11 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="merchantAccountRefID"		type="tns:MerchantAccountReferenceIDType"/>
-							<xs:element name="creditCardReference"		type="xs:string"/>
-							<xs:element name="amount"					type="tns:Money"/>
-							<xs:element name="avsCheckRequired"			type="xs:boolean"		default="false"			minOccurs="0"/>
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element name="merchantAccountRefID" type="tns:MerchantAccountReferenceIDType"/>
+							<xs:element name="creditCardReference" type="xs:string"/>
+							<xs:element name="amount" type="tns:Money"/>
+							<xs:element default="false" minOccurs="0" name="avsCheckRequired" type="xs:boolean"/>
 																																										
 						</xs:sequence>  					
   					</xs:extension>
@@ -438,8 +426,8 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="transactionId"			type="xs:string"/>							
-							<xs:element name="transactionResponseCode"	type="xs:string"								minOccurs="0"/>																				
+							<xs:element name="transactionId" type="xs:string"/>							
+							<xs:element minOccurs="0" name="transactionResponseCode" type="xs:string"/>																				
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -449,8 +437,8 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="bankAccount"				type="tns:BankAccountType"/>
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element name="bankAccount" type="tns:BankAccountType"/>
 						</xs:sequence>  					
   					</xs:extension>
   				</xs:complexContent>
@@ -459,7 +447,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="directDebitReference"		type="xs:string"/>
+							<xs:element name="directDebitReference" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -469,9 +457,9 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="directDebitReference"		type="xs:string"/>
-							<xs:element name="bankAccount"				type="tns:BankAccountType"/>
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element name="directDebitReference" type="xs:string"/>
+							<xs:element name="bankAccount" type="tns:BankAccountType"/>
 						</xs:sequence>  					
   					</xs:extension>
   				</xs:complexContent>
@@ -489,8 +477,8 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="directDebitReference"		type="xs:string"/>
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element name="directDebitReference" type="xs:string"/>
 						</xs:sequence>  					
   					</xs:extension>
   				</xs:complexContent>
@@ -508,8 +496,8 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="directDebitReference"		type="xs:string"		minOccurs="0"/>
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element minOccurs="0" name="directDebitReference" type="xs:string"/>
 						</xs:sequence>  					
   					</xs:extension>
   				</xs:complexContent>
@@ -517,7 +505,7 @@
 
 			<xs:complexType name="DirectDebitDetailListType">
 				<xs:sequence>
-					<xs:element name="directDebitDetail" minOccurs="0" maxOccurs="unbounded" type="tns:BankAccountDetailType"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="directDebitDetail" type="tns:BankAccountDetailType"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -535,9 +523,9 @@
 				<xs:complexContent>
   					<xs:extension base="tns:PgwBaseServiceRequest"> 
 						<xs:sequence>
-							<xs:element name="accountOwner"				type="tns:AccountType"/>
-							<xs:element name="directDebitReference"		type="xs:string"/>
-							<xs:element name="amount"					type="tns:Money"/>
+							<xs:element name="accountOwner" type="tns:AccountType"/>
+							<xs:element name="directDebitReference" type="xs:string"/>
+							<xs:element name="amount" type="tns:Money"/>
 						</xs:sequence>  					
   					</xs:extension>
   				</xs:complexContent>
@@ -546,8 +534,8 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="transactionId"			type="xs:string"/>
-							<xs:element name="transactionResponseCode"	type="xs:string"	minOccurs="0"/>
+							<xs:element name="transactionId" type="xs:string"/>
+							<xs:element minOccurs="0" name="transactionResponseCode" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -557,18 +545,17 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="accountOwner" type="tns:AccountType" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="accountOwner" type="tns:AccountType">
 							</xs:element>
-	                        <xs:element name="transactionId" type="xs:string" maxOccurs="1" minOccurs="0">
+	                        <xs:element maxOccurs="1" minOccurs="0" name="transactionId" type="xs:string">
 							</xs:element>
-	                        <xs:element name="clientReferenceId" type="xs:string" maxOccurs="1" minOccurs="0">
+	                        <xs:element maxOccurs="1" minOccurs="0" name="clientReferenceId" type="xs:string">
 							</xs:element>
-	                        <xs:element name="amount" type="tns:MoneyType" maxOccurs="1" minOccurs="1">
+	                        <xs:element maxOccurs="1" minOccurs="1" name="amount" type="tns:MoneyType">
 							</xs:element>
-	                        <xs:element name="PaymentRequests" type="tns:PaymentsRequestListType" maxOccurs="1" minOccurs="0">
+	                        <xs:element maxOccurs="1" minOccurs="0" name="PaymentRequests" type="tns:PaymentsRequestListType">
 							</xs:element>
-							<xs:element name="payPalExpressDetails"
-								type="tns:PaypalExtendedDataType" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="payPalExpressDetails" type="tns:PaypalExtendedDataType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -578,11 +565,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="transactionId"
-								type="xs:string">
+							<xs:element name="transactionId" type="xs:string">
 							</xs:element>
-							<xs:element name="payPalToken"
-								type="xs:string">
+							<xs:element name="payPalToken" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -592,10 +577,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceRequest"> 
 					  	<xs:sequence>
-							<xs:element name="accountOwner"
-								type="tns:AccountType" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="accountOwner" type="tns:AccountType">
 							</xs:element>
-                        	<xs:element name="transactionId" type="xs:string" maxOccurs="1" minOccurs="0">
+                        	<xs:element maxOccurs="1" minOccurs="0" name="transactionId" type="xs:string">
 							</xs:element>
                     	</xs:sequence>
 					</xs:extension>
@@ -605,37 +589,25 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceResponse"> 
 					    <xs:sequence>
-					    	<xs:element name="transactionId"
-					    		type="xs:string" maxOccurs="1" minOccurs="0">
+					    	<xs:element maxOccurs="1" minOccurs="0" name="transactionId" type="xs:string">
 					    	</xs:element>
-					    	<xs:element name="PaymentsRequest"
-					    		type="tns:PaymentsRequestListType" maxOccurs="1"
-					    		minOccurs="0">
+					    	<xs:element maxOccurs="1" minOccurs="0" name="PaymentsRequest" type="tns:PaymentsRequestListType">
 					    	</xs:element>
-					    	<xs:element name="userPaypalAccount"
-					    		type="tns:PaypalAccountType" maxOccurs="1" minOccurs="0">
+					    	<xs:element maxOccurs="1" minOccurs="0" name="userPaypalAccount" type="tns:PaypalAccountType">
 					    	</xs:element>
-					    	<xs:element name="incentives"
-					    		type="tns:PayPalIncentivesDetailsType" maxOccurs="unbounded" minOccurs="0">
+					    	<xs:element maxOccurs="unbounded" minOccurs="0" name="incentives" type="tns:PayPalIncentivesDetailsType">
 					    	</xs:element>
-					    	<xs:element name="paypalAdjustment"
-					    		type="tns:MoneyType" maxOccurs="1" minOccurs="0">
+					    	<xs:element maxOccurs="1" minOccurs="0" name="paypalAdjustment" type="tns:MoneyType">
 					    	</xs:element>
-					    	<xs:element name="redirectRequired"
-					    		type="xs:boolean" maxOccurs="1" minOccurs="0">
+					    	<xs:element maxOccurs="1" minOccurs="0" name="redirectRequired" type="xs:boolean">
 					    	</xs:element>
-					    	<xs:element
-					    		name="isSuccessPageRedirectionRequired" type="xs:boolean"
-					    		maxOccurs="1" minOccurs="0">
+					    	<xs:element maxOccurs="1" minOccurs="0" name="isSuccessPageRedirectionRequired" type="xs:boolean">
 					    	</xs:element>
-					    	<xs:element name="isSuccessPageRequest"
-					    		type="xs:boolean" maxOccurs="1" minOccurs="0">
+					    	<xs:element maxOccurs="1" minOccurs="0" name="isSuccessPageRequest" type="xs:boolean">
 					    	</xs:element>
-					    	<xs:element name="redirectUrl"
-					    		type="xs:string" maxOccurs="1" minOccurs="0">
+					    	<xs:element maxOccurs="1" minOccurs="0" name="redirectUrl" type="xs:string">
 					    	</xs:element>
-					    	<xs:element name="transactionAmount"
-					    		type="tns:MoneyType" maxOccurs="1" minOccurs="0">
+					    	<xs:element maxOccurs="1" minOccurs="0" name="transactionAmount" type="tns:MoneyType">
 					    	</xs:element>
 					    </xs:sequence>
 					</xs:extension>
@@ -651,16 +623,14 @@
 				<xs:annotation>
 					<xs:documentation>User identifier</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="PaymentDomainTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/payment/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/payment/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="AccountID" 		type="xs:string"/>
-					<xs:element name="AccountSuffixID"	type="xs:string"/>
-					<xs:element name="ClientID" 		type="xs:string"/>
+					<xs:element name="AccountID" type="xs:string"/>
+					<xs:element name="AccountSuffixID" type="xs:string"/>
+					<xs:element name="ClientID" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -670,15 +640,13 @@
 						Base request header
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="PaymentDomainTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/payment/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/payment/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="RequestID" 		type="xs:string"/>
-					<xs:element name="RequestDate" 		type="xs:dateTime"/>
+					<xs:element name="RequestID" type="xs:string"/>
+					<xs:element name="RequestDate" type="xs:dateTime"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -692,16 +660,14 @@
 						invocation by PGW. 
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="PaymentDomainTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/payment/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/payment/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="RequestID" 		type="xs:string"/>
-					<xs:element name="ResponseTime"		type="xs:dateTime"/>
-					<xs:element name="ResponseID"		type="xs:string" 	minOccurs="0" />
+					<xs:element name="RequestID" type="xs:string"/>
+					<xs:element name="ResponseTime" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="ResponseID" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -715,14 +681,12 @@
 						3) ISO 3166-1 numeric - three-degit country codes
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="PaymentDomainTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/payment/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/payment/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:pattern value="[a-zA-Z][a-zA-Z]"></xs:pattern>
+					<xs:pattern value="[a-zA-Z][a-zA-Z]"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -738,9 +702,7 @@
 						country of financial instrument, etc);
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="PaymentDomainTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/payment/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/payment/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -753,18 +715,16 @@
 						Defines all necessary elements of a credit card
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="PaymentDomainTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/payment/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/payment/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="CardNumber"			type="xs:string"	minOccurs="1" />
-					<xs:element name="ExpirationDate"		type="xs:dateTime"	minOccurs="1" />
-					<xs:element name="AccountHolderName"	type="xs:string"	minOccurs="0" />
-					<xs:element name="Cvv2Number"			type="xs:string"	minOccurs="0" />
-					<xs:element name="billingAddress"		type="tns:AddressType"	minOccurs="1" />
+					<xs:element minOccurs="1" name="CardNumber" type="xs:string"/>
+					<xs:element minOccurs="1" name="ExpirationDate" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="AccountHolderName" type="xs:string"/>
+					<xs:element minOccurs="0" name="Cvv2Number" type="xs:string"/>
+					<xs:element minOccurs="1" name="billingAddress" type="tns:AddressType"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -774,59 +734,53 @@
 						Defines all necessary elements of a direct debit
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="PaymentDomainTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/payment/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/payment/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="IBAN"					type="tns:IBANType" 	minOccurs="0"/>
-					<xs:element name="BBAN"					type="tns:BBANType"		minOccurs="0"/>
-					<xs:element name="AccountHolderName"	type="xs:string"/>
-					<xs:element name="CompanyName"			type="xs:string"		minOccurs="0"/>
-					<xs:element name="CompanyVatCode"		type="xs:string" 		minOccurs="0"/>
-					<xs:element name="RibCode"				type="xs:string" 		minOccurs="0"/>
-					<xs:element name="RidCode"				type="xs:string" 		minOccurs="0"/>
-					<xs:element name="VatCode"				type="xs:string" 		minOccurs="0"/>
-					<xs:element name="BankName"				type="xs:string" 		minOccurs="0"/>
-					<xs:element name="BillingAddress"		type="tns:AddressType"	minOccurs="0" />
-					<xs:element name="BusinessAccount"		type="xs:boolean"/>
+					<xs:element minOccurs="0" name="IBAN" type="tns:IBANType"/>
+					<xs:element minOccurs="0" name="BBAN" type="tns:BBANType"/>
+					<xs:element name="AccountHolderName" type="xs:string"/>
+					<xs:element minOccurs="0" name="CompanyName" type="xs:string"/>
+					<xs:element minOccurs="0" name="CompanyVatCode" type="xs:string"/>
+					<xs:element minOccurs="0" name="RibCode" type="xs:string"/>
+					<xs:element minOccurs="0" name="RidCode" type="xs:string"/>
+					<xs:element minOccurs="0" name="VatCode" type="xs:string"/>
+					<xs:element minOccurs="0" name="BankName" type="xs:string"/>
+					<xs:element minOccurs="0" name="BillingAddress" type="tns:AddressType"/>
+					<xs:element name="BusinessAccount" type="xs:boolean"/>
 				</xs:sequence>
 			</xs:complexType>
 			
 			<xs:complexType name="BBANType">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="PaymentDomainTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/payment/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/payment/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				
 				<xs:sequence>				
-					<xs:element name="RoutingNumber"		type="xs:string" />
-					<xs:element name="AccountNumber"		type="xs:string" />
-					<xs:element name="IsoDdCountryId"		type="tns:ISOCountryCodeType"/>			
+					<xs:element name="RoutingNumber" type="xs:string"/>
+					<xs:element name="AccountNumber" type="xs:string"/>
+					<xs:element name="IsoDdCountryId" type="tns:ISOCountryCodeType"/>			
 				</xs:sequence>
 			</xs:complexType>
 			
 			<xs:complexType name="IBANType">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="PaymentDomainTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/payment/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/payment/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				
 				<xs:sequence>
-					<xs:element name="BIC"					type="xs:string" />
-					<xs:element name="IBANAccountNumber"	type="xs:string" />
+					<xs:element name="BIC" type="xs:string"/>
+					<xs:element name="IBANAccountNumber" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			
@@ -838,137 +792,114 @@
 						different purposes such as billing address.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="PaymentDomainTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/payment/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/payment/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="StreetAddress"	type="xs:string"		minOccurs="0" />
-					<xs:element name="StreetAddress2"	type="xs:string"		minOccurs="0" />
-					<xs:element name="City"				type="xs:string"		minOccurs="0" />
-					<xs:element name="State"			type="xs:string"		minOccurs="0" />
-					<xs:element name="ZipCode"			type="xs:string"		minOccurs="0" />
-					<xs:element name="Country"			type="xs:string"		minOccurs="0" />
+					<xs:element minOccurs="0" name="StreetAddress" type="xs:string"/>
+					<xs:element minOccurs="0" name="StreetAddress2" type="xs:string"/>
+					<xs:element minOccurs="0" name="City" type="xs:string"/>
+					<xs:element minOccurs="0" name="State" type="xs:string"/>
+					<xs:element minOccurs="0" name="ZipCode" type="xs:string"/>
+					<xs:element minOccurs="0" name="Country" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			
 			
 			<xs:complexType name="PaypalExtendedDataType">
             	<xs:sequence>
-            		<xs:element name="payerDetails"
-            			type="tns:UserDetailsType">
+            		<xs:element name="payerDetails" type="tns:UserDetailsType">
             		</xs:element>
-            		<xs:element name="payerBillingAddress"
-            			type="tns:CompositeAddressType">
+            		<xs:element name="payerBillingAddress" type="tns:CompositeAddressType">
             		</xs:element>
-            		<xs:element name="payerPaypalAccount"
-            			type="tns:PaypalAccountType">
+            		<xs:element name="payerPaypalAccount" type="tns:PaypalAccountType">
             		</xs:element>
-            		<xs:element name="payerFeedbackData"
-            			type="tns:EbayUserFeedbackDataType">
+            		<xs:element name="payerFeedbackData" type="tns:EbayUserFeedbackDataType">
             		</xs:element>
-            		<xs:element name="fundingSourceDetails"
-            			type="xs:string">
+            		<xs:element name="fundingSourceDetails" type="xs:string">
             		</xs:element>
-            		<xs:element name="incentives"
-            			type="tns:PayPalIncentiveListType">
+            		<xs:element name="incentives" type="tns:PayPalIncentiveListType">
             		</xs:element>
-            		<xs:element name="returnURL" type="xs:string"></xs:element>
-            		<xs:element name="cancelURL" type="xs:string"></xs:element>
-            		<xs:element name="trackingImageURL"
-            			type="xs:string">
+            		<xs:element name="returnURL" type="xs:string"/>
+            		<xs:element name="cancelURL" type="xs:string"/>
+            		<xs:element name="trackingImageURL" type="xs:string">
             		</xs:element>
-            		<xs:element name="giropaySuccessURL"
-            			type="xs:string">
+            		<xs:element name="giropaySuccessURL" type="xs:string">
             		</xs:element>
-            		<xs:element name="giropayCancelURL"
-            			type="xs:string">
+            		<xs:element name="giropayCancelURL" type="xs:string">
             		</xs:element>
-            		<xs:element name="banktxnPendingURL"
-            			type="xs:string">
+            		<xs:element name="banktxnPendingURL" type="xs:string">
             		</xs:element>
-            		<xs:element name="cppHeaderImage"
-            			type="xs:string">
+            		<xs:element name="cppHeaderImage" type="xs:string">
             		</xs:element>
-            		<xs:element name="cppPayflowColor"
-            			type="xs:string">
+            		<xs:element name="cppPayflowColor" type="xs:string">
             		</xs:element>
-            		<xs:element name="cppLogoImage" type="xs:string"></xs:element>
-            		<xs:element name="brandName" type="xs:string"></xs:element>
-            		<xs:element name="localeCode" type="xs:string"></xs:element>
+            		<xs:element name="cppLogoImage" type="xs:string"/>
+            		<xs:element name="brandName" type="xs:string"/>
+            		<xs:element name="localeCode" type="xs:string"/>
             	</xs:sequence>
             </xs:complexType>
             <xs:complexType name="PayPalIncentiveListType">
             	<xs:sequence>
-            		<xs:element name="incentive" type="tns:PaypalIncentiveType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+            		<xs:element maxOccurs="unbounded" minOccurs="0" name="incentive" type="tns:PaypalIncentiveType"/>
             	</xs:sequence>
             </xs:complexType>
 		
             <xs:complexType name="PaypalIncentiveType">
             	<xs:sequence>
-            		<xs:element name="incentiveCode" type="xs:string"></xs:element>
-            		<xs:element name="applyIndications" type="tns:ApplyIndicationListType"></xs:element>
+            		<xs:element name="incentiveCode" type="xs:string"/>
+            		<xs:element name="applyIndications" type="tns:ApplyIndicationListType"/>
             	</xs:sequence>
             </xs:complexType>
 		
             <xs:complexType name="ApplyIndicationListType">
             	<xs:sequence>
-            		<xs:element name="applyIndication" type="tns:ApplyIndicationType"  minOccurs="0" maxOccurs="unbounded"></xs:element>
+            		<xs:element maxOccurs="unbounded" minOccurs="0" name="applyIndication" type="tns:ApplyIndicationType"/>
             	</xs:sequence>
             </xs:complexType>
 		
             <xs:complexType name="ApplyIndicationType">
             	<xs:sequence>
-            		<xs:element name="clientTransactionId"
-            			type="xs:string" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="clientTransactionId" type="xs:string">
             		</xs:element>
-            		<xs:element name="itemId" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+            		<xs:element maxOccurs="1" minOccurs="0" name="itemId" type="xs:string"/>
             	</xs:sequence>
             </xs:complexType>
 		
             <xs:complexType name="PayPalIncentivesDetailsType">
             	<xs:sequence>
-            		<xs:element name="paypalUniqueIdentifier"
-            			type="xs:string" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="paypalUniqueIdentifier" type="xs:string">
             		</xs:element>
-            		<xs:element name="siteAppliedOn"
-            			type="tns:PayPalIncentiveSiteAppliedOnType" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="siteAppliedOn" type="tns:PayPalIncentiveSiteAppliedOnType">
             		</xs:element>
-            		<xs:element name="totalDiscountAmount"
-            			type="tns:MoneyType" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="totalDiscountAmount" type="tns:MoneyType">
             		</xs:element>
-            		<xs:element name="incentiveStatus"
-            			type="tns:IncentiveAppliedStatusType" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="incentiveStatus" type="tns:IncentiveAppliedStatusType">
             		</xs:element>
-            		<xs:element name="paypalErrorCode" type="xs:int" maxOccurs="1" minOccurs="0"></xs:element>
-            		<xs:element name="incentiveAppliedDetails" type="tns:IncentiveDetailType" maxOccurs="unbounded" minOccurs="0"></xs:element>
+            		<xs:element maxOccurs="1" minOccurs="0" name="paypalErrorCode" type="xs:int"/>
+            		<xs:element maxOccurs="unbounded" minOccurs="0" name="incentiveAppliedDetails" type="tns:IncentiveDetailType"/>
             	</xs:sequence>
             </xs:complexType>
 		
             <xs:simpleType name="IncentiveAppliedStatusType">
             	<xs:restriction base="xs:token">
-            		<xs:enumeration value="INCENTIVE-APPLIED-STATUS-SUCCESS" />
-            		<xs:enumeration value="INCENTIVE-APPLIED-STATUS-ERROR" />
+            		<xs:enumeration value="INCENTIVE-APPLIED-STATUS-SUCCESS"/>
+            		<xs:enumeration value="INCENTIVE-APPLIED-STATUS-ERROR"/>
             	</xs:restriction>
             </xs:simpleType>
 		
             <xs:simpleType name="PayPalIncentiveSiteAppliedOnType">
             	<xs:restriction base="xs:token">
-            		<xs:enumeration
-            			value="INCENTIVE-SITE-APPLIED-ON-UNKNOWN" />
-            		<xs:enumeration
-            			value="INCENTIVE-SITE-APPLIED-ON-MERCHANT" />
-            		<xs:enumeration
-            			value="INCENTIVE-SITE-APPLIED-ON-PAYPAL" />
+            		<xs:enumeration value="INCENTIVE-SITE-APPLIED-ON-UNKNOWN"/>
+            		<xs:enumeration value="INCENTIVE-SITE-APPLIED-ON-MERCHANT"/>
+            		<xs:enumeration value="INCENTIVE-SITE-APPLIED-ON-PAYPAL"/>
             	</xs:restriction>
             </xs:simpleType>
 		
             <xs:complexType name="IncentiveAppliedDetailsListType">
             	<xs:sequence>
-            		<xs:element name="incentiveDetail"
-            			type="tns:IncentiveDetailType" minOccurs="0" maxOccurs="unbounded">
+            		<xs:element maxOccurs="unbounded" minOccurs="0" name="incentiveDetail" type="tns:IncentiveDetailType">
             		</xs:element>
 
             	</xs:sequence>
@@ -976,175 +907,139 @@
 		
             <xs:complexType name="IncentiveDetailType">
             	<xs:sequence>
-            		<xs:element name="PaymentOrderId"
-            			type="xs:string">
+            		<xs:element name="PaymentOrderId" type="xs:string">
             		</xs:element>
-            		<xs:element name="externalPaymentOrderId"
-            			type="xs:string">
+            		<xs:element name="externalPaymentOrderId" type="xs:string">
             		</xs:element>
-            		<xs:element name="externalTransactionId"
-            			type="xs:string">
+            		<xs:element name="externalTransactionId" type="xs:string">
             		</xs:element>
-            		<xs:element name="discountAmount"
-            			type="tns:MoneyType">
+            		<xs:element name="discountAmount" type="tns:MoneyType">
             		</xs:element>
-            		<xs:element name="itemId" type="xs:string"></xs:element>
+            		<xs:element name="itemId" type="xs:string"/>
             	</xs:sequence>
             </xs:complexType>
             
             <xs:complexType name="UserDetailsType">
             	<xs:sequence>
-            		<xs:element name="userName" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
-            		<xs:element name="emailAddress" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
-            		<xs:element name="registrationDate" type="xs:dateTime" maxOccurs="1" minOccurs="0"></xs:element>
+            		<xs:element maxOccurs="1" minOccurs="0" name="userName" type="xs:string"/>
+            		<xs:element maxOccurs="1" minOccurs="0" name="emailAddress" type="xs:string"/>
+            		<xs:element maxOccurs="1" minOccurs="0" name="registrationDate" type="xs:dateTime"/>
             	</xs:sequence>
             </xs:complexType>
             
             <xs:complexType name="EbayUserFeedbackDataType">
             	<xs:sequence>
-            		<xs:element name="totalPositiveCount"
-            			type="xs:string" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="totalPositiveCount" type="xs:string">
             		</xs:element>
-            		<xs:element name="totalNegativeCount"
-            			type="xs:string" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="totalNegativeCount" type="xs:string">
             		</xs:element>
-            		<xs:element name="overallPositiveCount"
-            			type="xs:string" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="overallPositiveCount" type="xs:string">
             		</xs:element>
-            		<xs:element name="overallNegativeCount"
-            			type="xs:string" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="overallNegativeCount" type="xs:string">
             		</xs:element>
-            		<xs:element name="recentPositiveCount"
-            			type="xs:string" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="recentPositiveCount" type="xs:string">
             		</xs:element>
-            		<xs:element name="recentNegativeCount"
-            			type="xs:string" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="recentNegativeCount" type="xs:string">
             		</xs:element>
-            		<xs:element name="trinityArtifact" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+            		<xs:element maxOccurs="1" minOccurs="0" name="trinityArtifact" type="xs:string"/>
             	</xs:sequence>
             </xs:complexType>
  
              <xs:complexType name="PaypalAccountType">
             	<xs:sequence>
-            		<xs:element name="emailAddress" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
-            		<xs:element name="accountId" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+            		<xs:element maxOccurs="1" minOccurs="0" name="emailAddress" type="xs:string"/>
+            		<xs:element maxOccurs="1" minOccurs="0" name="accountId" type="xs:string"/>
             	</xs:sequence>
             </xs:complexType>
             
             
             <xs:complexType name="PaymentsRequestListType">
             	<xs:sequence>
-            		<xs:element name="paymentRequest" type="tns:PaymentRequestType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+            		<xs:element maxOccurs="unbounded" minOccurs="0" name="paymentRequest" type="tns:PaymentRequestType"/>
             	</xs:sequence>
             </xs:complexType>
 		
             <xs:complexType name="PaymentRequestType">
             	<xs:sequence>
-            		<xs:element name="clientTransactionId"
-            			type="xs:string" maxOccurs="1" minOccurs="1">
+            		<xs:element maxOccurs="1" minOccurs="1" name="clientTransactionId" type="xs:string">
             		</xs:element>
-            		<xs:element name="orderDescription" type="xs:string"
-            			maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="orderDescription" type="xs:string">
             		</xs:element>
 
-                    <xs:element name="merchantId" type="xs:string" maxOccurs="1" minOccurs="0">
+                    <xs:element maxOccurs="1" minOccurs="0" name="merchantId" type="xs:string">
             		</xs:element>
-                    <xs:element name="paymentItems"
-            			type="tns:PaymentItemsListType" maxOccurs="1"
-            			minOccurs="0">
+                    <xs:element maxOccurs="1" minOccurs="0" name="paymentItems" type="tns:PaymentItemsListType">
             		</xs:element>
-            		<xs:element name="shippingTotal" type="tns:MoneyType"
-            			maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="shippingTotal" type="tns:MoneyType">
             		</xs:element>
-            		<xs:element name="handlingTotal" type="tns:MoneyType"
-            			maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="handlingTotal" type="tns:MoneyType">
             		</xs:element>
-            		<xs:element name="taxTotal" type="tns:MoneyType"
-            			maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="taxTotal" type="tns:MoneyType">
             		</xs:element>
-            		<xs:element name="adjustmentTotal" type="tns:MoneyType"
-            			maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="adjustmentTotal" type="tns:MoneyType">
             		</xs:element>
-            		<xs:element name="shippingDiscount" type="tns:MoneyType"
-            			maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="shippingDiscount" type="tns:MoneyType">
             		</xs:element>
-            		<xs:element name="itemTotal" type="tns:MoneyType"
-            			maxOccurs="1" minOccurs="1">
+            		<xs:element maxOccurs="1" minOccurs="1" name="itemTotal" type="tns:MoneyType">
             		</xs:element>
-            		<xs:element name="paymentTotal" type="tns:MoneyType"
-            			maxOccurs="1" minOccurs="1">
+            		<xs:element maxOccurs="1" minOccurs="1" name="paymentTotal" type="tns:MoneyType">
             		</xs:element>
-            		<xs:element name="shippingAddress"
-            			type="tns:CompositeAddressType" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="shippingAddress" type="tns:CompositeAddressType">
             		</xs:element>
-            		<xs:element name="merchantAccount"
-            			type="tns:MerchantAccountType" maxOccurs="1"
-            			minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="merchantAccount" type="tns:MerchantAccountType">
             		</xs:element>
-            		<xs:element name="merchantDetails"
-            			type="tns:UserDetailsType" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="merchantDetails" type="tns:UserDetailsType">
             		</xs:element>
-            		<xs:element name="merchantFeedbackData"
-            			type="tns:EbayUserFeedbackDataType" maxOccurs="1"
-            			minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="merchantFeedbackData" type="tns:EbayUserFeedbackDataType">
             		</xs:element>
-            		<xs:element name="paymentUrl" type="xs:string"
-            			maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="paymentUrl" type="xs:string">
             		</xs:element>
 
-            		<xs:element name="allowedPaymentMethod"
-            			type="xs:string" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="allowedPaymentMethod" type="xs:string">
             		</xs:element>
-            		<xs:element name="insuranceOptionOffered"
-            			type="xs:boolean" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="insuranceOptionOffered" type="xs:boolean">
             		</xs:element>
-            		<xs:element name="insuranceTotal"
-            			type="tns:MoneyType" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="insuranceTotal" type="tns:MoneyType">
             		</xs:element>
-            		<xs:element name="merchantReferenceId" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+            		<xs:element maxOccurs="1" minOccurs="0" name="merchantReferenceId" type="xs:string"/>
 
-            		<xs:element name="notes" 
-            			type="xs:string" maxOccurs="1" minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="notes" type="xs:string">
             		</xs:element>
             	</xs:sequence>
             </xs:complexType>
 		
             <xs:complexType name="PaymentItemsListType">
             	<xs:sequence>
-            		<xs:element name="paymentItem" type="tns:PaymentItemType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+            		<xs:element maxOccurs="unbounded" minOccurs="0" name="paymentItem" type="tns:PaymentItemType"/>
             	</xs:sequence>
             </xs:complexType>
             
                        <xs:complexType name="PaymentItemType">
             	<xs:sequence>
-            		<xs:element name="itemNumber" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
-            		<xs:element name="itemName" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
-            		<xs:element name="itemQuantity" type="xs:int" maxOccurs="1" minOccurs="0"></xs:element>
-            		<xs:element name="itemAmount" type="tns:MoneyType" maxOccurs="1" minOccurs="0"></xs:element>
-            		<xs:element name="eBayItemDetails" type="tns:EbayItemDetailsType" maxOccurs="1" minOccurs="0"></xs:element>
+            		<xs:element maxOccurs="1" minOccurs="0" name="itemNumber" type="xs:string"/>
+            		<xs:element maxOccurs="1" minOccurs="0" name="itemName" type="xs:string"/>
+            		<xs:element maxOccurs="1" minOccurs="0" name="itemQuantity" type="xs:int"/>
+            		<xs:element maxOccurs="1" minOccurs="0" name="itemAmount" type="tns:MoneyType"/>
+            		<xs:element maxOccurs="1" minOccurs="0" name="eBayItemDetails" type="tns:EbayItemDetailsType"/>
             	</xs:sequence>
             </xs:complexType>
 		
             <xs:complexType name="EbayItemDetailsType">
             	<xs:sequence>
-            		<xs:element name="cartId" type="xs:string"></xs:element>
-            		<xs:element name="itemListingSiteId"
-            			type="xs:string">
+            		<xs:element name="cartId" type="xs:string"/>
+            		<xs:element name="itemListingSiteId" type="xs:string">
             		</xs:element>
-            		<xs:element name="itemCategory1" type="xs:string"></xs:element>
-            		<xs:element name="itemCategory2" type="xs:string"></xs:element>
-            		<xs:element name="auctionTransactionId"
-            			type="xs:string">
+            		<xs:element name="itemCategory1" type="xs:string"/>
+            		<xs:element name="itemCategory2" type="xs:string"/>
+            		<xs:element name="auctionTransactionId" type="xs:string">
             		</xs:element>
-            		<xs:element name="itemTransactionDate"
-            			type="xs:dateTime">
+            		<xs:element name="itemTransactionDate" type="xs:dateTime">
             		</xs:element>
-            		<xs:element name="itemBuyerProtectionType"
-            			type="xs:string">
+            		<xs:element name="itemBuyerProtectionType" type="xs:string">
             		</xs:element>
-            		<xs:element name="itemPaymentHoldRisk" type="xs:string"></xs:element>
-            		<xs:element name="itemUrl" type="xs:string"></xs:element>
-            		<xs:element name="itemTax" type="tns:MoneyType"></xs:element>
+            		<xs:element name="itemPaymentHoldRisk" type="xs:string"/>
+            		<xs:element name="itemUrl" type="xs:string"/>
+            		<xs:element name="itemTax" type="tns:MoneyType"/>
             	</xs:sequence>
             </xs:complexType>
             
@@ -1159,19 +1054,16 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:complexType abstract="true"
-				name="BaseServiceResponse">
+			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -1179,24 +1071,22 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="errorMessage" type="tns:ErrorMessage" minOccurs="0">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -1205,36 +1095,36 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="AckValue">
@@ -1246,9 +1136,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -1298,15 +1186,13 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
@@ -1315,21 +1201,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="errorId" 		type="xs:long" />
-					<xs:element name="domain" 		type="xs:string" />
-					<xs:element name="subdomain"	type="xs:string" minOccurs="0" />
-					<xs:element name="severity"		type="tns:ErrorSeverity" />
-					<xs:element name="category"		type="tns:ErrorCategory" />
-					<xs:element name="message" 		type="xs:string" />
-					<xs:element name="exceptionId"	type="xs:token" minOccurs="0"/>
-					<xs:element name="parameter" 	type="tns:ErrorParameter" 
-								minOccurs="0" maxOccurs="unbounded" />
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+					<xs:element name="severity" type="tns:ErrorSeverity"/>
+					<xs:element name="category" type="tns:ErrorCategory"/>
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -1338,13 +1221,11 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -1353,15 +1234,12 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string"
-							use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -1371,14 +1249,12 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -1396,9 +1272,7 @@
 		              The enumeration represents the Alphabetic Code. Comments are included for quick reference.
 		            </xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>			            
 				</xs:annotation>
 				<xs:restriction base="xs:token">				
@@ -1413,9 +1287,7 @@
 						information.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>					
 				</xs:annotation>
 				<xs:simpleContent>
@@ -1429,11 +1301,11 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceRequest"> 
 					  	<xs:sequence>
-							 <xs:element name="accountOwner" type="tns:AccountType" maxOccurs="1" minOccurs="1">
+							 <xs:element maxOccurs="1" minOccurs="1" name="accountOwner" type="tns:AccountType">
 							</xs:element>
-	                        <xs:element name="transactionId" type="xs:string" maxOccurs="1" minOccurs="1">
+	                        <xs:element maxOccurs="1" minOccurs="1" name="transactionId" type="xs:string">
 							</xs:element>
-	                        <xs:element name="clientReferenceId" type="xs:string" maxOccurs="1" minOccurs="0">
+	                        <xs:element maxOccurs="1" minOccurs="0" name="clientReferenceId" type="xs:string">
 							</xs:element>
                     	</xs:sequence>
 					</xs:extension>
@@ -1443,8 +1315,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceResponse"> 
 					    <xs:sequence>
-						 <xs:element name="CancelPaymentsDetail"
-							type="tns:CancelPayPalPaymentTransactionDetailType" maxOccurs="1" minOccurs="0">
+						 <xs:element maxOccurs="1" minOccurs="0" name="CancelPaymentsDetail" type="tns:CancelPayPalPaymentTransactionDetailType">
 						</xs:element> 
 						</xs:sequence>
 					</xs:extension>
@@ -1453,9 +1324,9 @@
 
 			 <xs:complexType name="CancelPayPalPaymentTransactionDetailType">
 			    <xs:sequence>
-					 <xs:element name="voidTransactionId" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element> 
-					 <xs:element name="processorVoidTransactionId" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
-					 <xs:element name="clientTransactionId" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+					 <xs:element maxOccurs="1" minOccurs="0" name="voidTransactionId" type="xs:string"/> 
+					 <xs:element maxOccurs="1" minOccurs="0" name="processorVoidTransactionId" type="xs:string"/>
+					 <xs:element maxOccurs="1" minOccurs="0" name="clientTransactionId" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -1464,15 +1335,15 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceRequest"> 
 					  	<xs:sequence>
-							 <xs:element name="accountOwner" type="tns:AccountType" maxOccurs="1" minOccurs="1">
+							 <xs:element maxOccurs="1" minOccurs="1" name="accountOwner" type="tns:AccountType">
 							</xs:element>
-	                        <xs:element name="transactionId" type="xs:string" maxOccurs="1" minOccurs="0">
+	                        <xs:element maxOccurs="1" minOccurs="0" name="transactionId" type="xs:string">
 							</xs:element>
-	                        <xs:element name="clientReferenceId" type="xs:string" maxOccurs="1" minOccurs="0">
+	                        <xs:element maxOccurs="1" minOccurs="0" name="clientReferenceId" type="xs:string">
 							</xs:element>
-	                        <xs:element name="amount" type="tns:MoneyType" maxOccurs="1" minOccurs="1">
+	                        <xs:element maxOccurs="1" minOccurs="1" name="amount" type="tns:MoneyType">
 							</xs:element>
-	                        <xs:element name="PaymentRequests" type="tns:PaymentsRequestListType" maxOccurs="1" minOccurs="0">
+	                        <xs:element maxOccurs="1" minOccurs="0" name="PaymentRequests" type="tns:PaymentsRequestListType">
 							</xs:element>
 
                     	</xs:sequence>
@@ -1483,80 +1354,63 @@
 				<xs:complexContent>
 					<xs:extension base="tns:PgwBaseServiceResponse"> 
 					    <xs:sequence>
-	                       <!--  --><xs:element name="transactionId"
-							type="xs:string" maxOccurs="1" minOccurs="0">
+	                       <!--  --><xs:element maxOccurs="1" minOccurs="0" name="transactionId" type="xs:string">
 						</xs:element>
-	                    <xs:element name="paypalToken"
-							type="xs:string" maxOccurs="1" minOccurs="0">
+	                    <xs:element maxOccurs="1" minOccurs="0" name="paypalToken" type="xs:string">
 						</xs:element>
-	                    <xs:element name="redirectRequired"
-							type="xs:string" maxOccurs="1" minOccurs="0">
+	                    <xs:element maxOccurs="1" minOccurs="0" name="redirectRequired" type="xs:string">
 						</xs:element>
-	                    <xs:element name="successPageRedirectRequested"
-							type="xs:string" maxOccurs="1" minOccurs="0">
+	                    <xs:element maxOccurs="1" minOccurs="0" name="successPageRedirectRequested" type="xs:string">
 						</xs:element>
-	                    <xs:element name="note"
-							type="xs:string" maxOccurs="1" minOccurs="0">
+	                    <xs:element maxOccurs="1" minOccurs="0" name="note" type="xs:string">
 						</xs:element>
-						<xs:element name="paymentDetailsResults"
-							type="tns:PaymentDetailsResultsListType" maxOccurs="1" minOccurs="0">
-						</xs:element> -->
+						<xs:element maxOccurs="1" minOccurs="0" name="paymentDetailsResults" type="tns:PaymentDetailsResultsListType">
+						</xs:element> --&gt;
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="PaymentDetailsResultsListType">
 				<xs:sequence>
-					<xs:element name="paymentDetailsResult" type="tns:PaymentDetailsResultType" maxOccurs="1" minOccurs="0"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="paymentDetailsResult" type="tns:PaymentDetailsResultType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="PaymentDetailsResultType">
 				<xs:sequence>
-					<xs:element name="transactions" type="tns:TransactionsListType" maxOccurs="1" minOccurs="0"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="transactions" type="tns:TransactionsListType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="TransactionsListType">
 			<xs:sequence>
-				<xs:element name="transaction" type="tns:FinancialTransactionType" maxOccurs="unbounded" minOccurs="0"></xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="transaction" type="tns:FinancialTransactionType"/>
 			</xs:sequence>
 		</xs:complexType>
 					
 		
 			<xs:complexType name="FinancialTransactionType">
 				<xs:sequence>
-                    <xs:element name="transactionType" type="xs:string" maxOccurs="1" minOccurs="1"></xs:element>
-                    <xs:element name="transactionId" type="xs:string"
-						maxOccurs="1" minOccurs="1">
+                    <xs:element maxOccurs="1" minOccurs="1" name="transactionType" type="xs:string"/>
+                    <xs:element maxOccurs="1" minOccurs="1" name="transactionId" type="xs:string">
 					</xs:element>
-					<xs:element name="clientTransactionId"
-						type="xs:string" maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="clientTransactionId" type="xs:string">
 					</xs:element>
-					<xs:element name="transactionAmount"
-						type="tns:MoneyType" maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="transactionAmount" type="tns:MoneyType">
 					</xs:element>
-					<xs:element name="transactionStatus" type="xs:token"
-						maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="transactionStatus" type="xs:token">
 					</xs:element>
-					<xs:element name="transactionStatusResponseCode"
-						type="xs:token" maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="transactionStatusResponseCode" type="xs:token">
 					</xs:element>
-					<xs:element name="transactionStatusDescription"
-						type="xs:string" maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="transactionStatusDescription" type="xs:string">
 					</xs:element>
-					<xs:element name="transactionReason"
-						type="xs:string" maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="transactionReason" type="xs:string">
 					</xs:element>
-					<xs:element name="transactionProcessorId"
-						type="xs:string" maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="transactionProcessorId" type="xs:string">
 					</xs:element>
-					<xs:element name="transactionProcessorResponseCode"
-						type="xs:token" maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="transactionProcessorResponseCode" type="xs:token">
 					</xs:element>
-					<xs:element name="processorPaymentTransactionDate"
-						type="xs:dateTime" maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="processorPaymentTransactionDate" type="xs:dateTime">
 					</xs:element>
-					<xs:element name="processorseSettlementDate"
-						type="xs:dateTime" maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="processorseSettlementDate" type="xs:dateTime">
 					</xs:element>
 
 
@@ -1566,42 +1420,37 @@
 		
 			<xs:complexType name="MerchantAccountType">
 				<xs:sequence>
-					<xs:element name="merchantAccountReference"
-						type="tns:MerchantAccountReferenceType">
+					<xs:element name="merchantAccountReference" type="tns:MerchantAccountReferenceType">
 					</xs:element>
-					<xs:element name="merchantAccountReferenceValue" type="xs:string"></xs:element>
+					<xs:element name="merchantAccountReferenceValue" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 		
 			<xs:complexType name="MoneyType">
 				<xs:sequence>
-					<xs:element name="value" type="xs:string"></xs:element>
+					<xs:element name="value" type="xs:string"/>
 				</xs:sequence>
-				<xs:attribute name="currencyId" type="xs:string"></xs:attribute>
+				<xs:attribute name="currencyId" type="xs:string"/>
 			</xs:complexType>
 			<xs:element name="cancelTrackingIdWithPayPalExpressCheckoutRequest" type="tns:CancelTrackingIdWithPayPalExpressCheckoutRequest">
 
 			</xs:element>
 			<xs:simpleType name="MerchantAccountReferenceType">
             	<xs:restriction base="xs:token">
-            		<xs:enumeration value="PAYPAL-EMAIL-ADDRESS" />
-            		<xs:enumeration value="PAYPAL-ACCOUNT-ID" />
+            		<xs:enumeration value="PAYPAL-EMAIL-ADDRESS"/>
+            		<xs:enumeration value="PAYPAL-ACCOUNT-ID"/>
             	</xs:restriction>
             </xs:simpleType>
-		<xs:element
-			name="cancelTrackingIdWithPayPalExpressCheckoutResponse"
-			type="tns:CancelTrackingIdWithPayPalExpressCheckoutResponse">
+		<xs:element name="cancelTrackingIdWithPayPalExpressCheckoutResponse" type="tns:CancelTrackingIdWithPayPalExpressCheckoutResponse">
 
 		</xs:element>
 		
-		<xs:complexType
-			name="CancelTrackingIdWithPayPalExpressCheckoutResponse">
+		<xs:complexType name="CancelTrackingIdWithPayPalExpressCheckoutResponse">
 			<xs:complexContent>
 				<xs:extension base="tns:PgwBaseServiceResponse">
 					<xs:sequence>
 
-						<xs:element name="cancelPaymentTransactionDetailListType"
-							type="tns:CancelPaymentTransactionDetailListType" minOccurs="0" maxOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="0" name="cancelPaymentTransactionDetailListType" type="tns:CancelPaymentTransactionDetailListType">
 						</xs:element>
 					</xs:sequence>
 				</xs:extension>
@@ -1610,51 +1459,42 @@
 		
 		<xs:complexType name="CancelPaymentTransactionDetailListType">
 			<xs:sequence>
-				<xs:element name="cancelPaymentDetailType" type="tns:CancelPayPalPaymentTransactionDetailType" minOccurs="1" maxOccurs="unbounded"></xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="1" name="cancelPaymentDetailType" type="tns:CancelPayPalPaymentTransactionDetailType"/>
 			</xs:sequence>
 		</xs:complexType>
 		
-		<xs:complexType
-			name="CancelTrackingIdWithPayPalExpressCheckoutRequest">
+		<xs:complexType name="CancelTrackingIdWithPayPalExpressCheckoutRequest">
 			<xs:complexContent>
 				<xs:extension base="tns:PgwBaseServiceRequest">
 					<xs:sequence>
-						<xs:element name="accountOwner"
-							type="tns:AccountType" minOccurs="1" maxOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="accountOwner" type="tns:AccountType">
 						</xs:element>
-						<xs:element name="trackingId"
-							type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="trackingId" type="xs:string">
 						</xs:element>
-						<xs:element name="clientReferenceId"
-							type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="0" name="clientReferenceId" type="xs:string">
 						</xs:element>
 					</xs:sequence>
 				</xs:extension>
 			</xs:complexContent>
 		</xs:complexType>
-		<xs:complexType
-			name="GetTransactionDetailsWithPayPalExpressCheckoutRequest">
+		<xs:complexType name="GetTransactionDetailsWithPayPalExpressCheckoutRequest">
 			<xs:complexContent>
 			<xs:extension base="tns:PgwBaseServiceRequest">
 			
 				<xs:sequence>
-					<xs:element name="accountOwner"
-						type="tns:AccountType" minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="accountOwner" type="tns:AccountType">
 					</xs:element>
-					<xs:element name="financialTransactionId" type="xs:string"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="financialTransactionId" type="xs:string">
 					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 			</xs:complexContent>
 		</xs:complexType>
-		<xs:complexType
-			name="GetTransactionDetailsWithPayPalExpressCheckoutResponse">
+		<xs:complexType name="GetTransactionDetailsWithPayPalExpressCheckoutResponse">
 			<xs:complexContent>
 				<xs:extension base="tns:PgwBaseServiceResponse">
 					<xs:sequence>
-						<xs:element name="transactionDetailType"
-							type="tns:FinancialTransactionType" minOccurs="0" maxOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="0" name="transactionDetailType" type="tns:FinancialTransactionType">
 						</xs:element>
 					</xs:sequence>
 				</xs:extension>
@@ -1662,10 +1502,9 @@
 		</xs:complexType>
 		<xs:complexType name="CompositeAddressType">
 			<xs:sequence>
-				<xs:element name="Name" type="xs:string" minOccurs="0"
-					maxOccurs="1">
+				<xs:element maxOccurs="1" minOccurs="0" name="Name" type="xs:string">
 				</xs:element>
-				<xs:element name="Address" type="tns:AddressType" minOccurs="0" maxOccurs="1"></xs:element>
+				<xs:element maxOccurs="1" minOccurs="0" name="Address" type="tns:AddressType"/>
 			</xs:sequence>
 		</xs:complexType>
 
@@ -1676,295 +1515,294 @@
 	<!-- wsdl messages *************************** -->
 
 	<wsdl:message name="createAccountRequest">
-		<wsdl:part name="params" element="tns:createAccountRequest"	/>
+		<wsdl:part element="tns:createAccountRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="createAccountResponse">
-		<wsdl:part name="params" element="tns:createAccountResponse"	/>
+		<wsdl:part element="tns:createAccountResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="updateAccountRequest">
-		<wsdl:part name="params" element="tns:updateAccountRequest"	/>
+		<wsdl:part element="tns:updateAccountRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="updateAccountResponse">
-		<wsdl:part name="params" element="tns:updateAccountResponse"	/>
+		<wsdl:part element="tns:updateAccountResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part name="params" element="tns:getVersionRequest"	/> 
+		<wsdl:part element="tns:getVersionRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part name="params" element="tns:getVersionResponse"	/> 
+		<wsdl:part element="tns:getVersionResponse" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="helloPGWRequest">
-		<wsdl:part name="params" element="tns:helloPGWRequest"	/> 
+		<wsdl:part element="tns:helloPGWRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="helloPGWResponse">
-		<wsdl:part name="params" element="tns:helloPGWResponse"	/> 
+		<wsdl:part element="tns:helloPGWResponse" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="verifyCreditCardRequest">
-		<wsdl:part name="params" element="tns:verifyCreditCardRequest"	/> 
+		<wsdl:part element="tns:verifyCreditCardRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="verifyCreditCardResponse">
-		<wsdl:part name="params" element="tns:verifyCreditCardResponse"	/> 
+		<wsdl:part element="tns:verifyCreditCardResponse" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="makeCreditCardPaymentRequest">
-		<wsdl:part name="params" element="tns:makeCreditCardPaymentRequest"	/> 
+		<wsdl:part element="tns:makeCreditCardPaymentRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="makeCreditCardPaymentResponse">
-		<wsdl:part name="params" element="tns:makeCreditCardPaymentResponse"	/> 
+		<wsdl:part element="tns:makeCreditCardPaymentResponse" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="makeDirectDebitPaymentRequest">
-		<wsdl:part name="params" element="tns:makeDirectDebitPaymentRequest"	/> 
+		<wsdl:part element="tns:makeDirectDebitPaymentRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="makeDirectDebitPaymentResponse">
-		<wsdl:part name="params" element="tns:makeDirectDebitPaymentResponse"	/> 
+		<wsdl:part element="tns:makeDirectDebitPaymentResponse" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="authorizeCreditCardPaymentRequest">
-		<wsdl:part name="params" element="tns:authorizeCreditCardPaymentRequest"	/> 
+		<wsdl:part element="tns:authorizeCreditCardPaymentRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="authorizeCreditCardPaymentResponse">
-		<wsdl:part name="params" element="tns:authorizeCreditCardPaymentResponse"	/> 
+		<wsdl:part element="tns:authorizeCreditCardPaymentResponse" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="captureCreditCardPaymentRequest">
-		<wsdl:part name="params" element="tns:captureCreditCardPaymentRequest"	/> 
+		<wsdl:part element="tns:captureCreditCardPaymentRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="captureCreditCardPaymentResponse">
-		<wsdl:part name="params" element="tns:captureCreditCardPaymentResponse"	/> 
+		<wsdl:part element="tns:captureCreditCardPaymentResponse" name="params"/> 
 	</wsdl:message>	
 	<wsdl:message name="addCreditCardRequest">
-		<wsdl:part name="params" element="tns:addCreditCardRequest"	/> 
+		<wsdl:part element="tns:addCreditCardRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="addCreditCardResponse">
-		<wsdl:part name="params" element="tns:addCreditCardResponse"	/> 
+		<wsdl:part element="tns:addCreditCardResponse" name="params"/> 
 	</wsdl:message>		
 	<wsdl:message name="updateCreditCardRequest">
-		<wsdl:part name="params" element="tns:updateCreditCardRequest"	/> 
+		<wsdl:part element="tns:updateCreditCardRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="updateCreditCardResponse">
-		<wsdl:part name="params" element="tns:updateCreditCardResponse"	/> 
+		<wsdl:part element="tns:updateCreditCardResponse" name="params"/> 
 	</wsdl:message>		
 	<wsdl:message name="deleteCreditCardRequest">
-		<wsdl:part name="params" element="tns:deleteCreditCardRequest"	/> 
+		<wsdl:part element="tns:deleteCreditCardRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="deleteCreditCardResponse">
-		<wsdl:part name="params" element="tns:deleteCreditCardResponse"	/> 
+		<wsdl:part element="tns:deleteCreditCardResponse" name="params"/> 
 	</wsdl:message>	
 	<wsdl:message name="cloneCreditCardRequest">
-		<wsdl:part name="params" element="tns:cloneCreditCardRequest"	/> 
+		<wsdl:part element="tns:cloneCreditCardRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="cloneCreditCardResponse">
-		<wsdl:part name="params" element="tns:cloneCreditCardResponse"	/> 
+		<wsdl:part element="tns:cloneCreditCardResponse" name="params"/> 
 	</wsdl:message>		
 	<wsdl:message name="getCreditCardListRequest">
-		<wsdl:part name="params" element="tns:getCreditCardListRequest"	/> 
+		<wsdl:part element="tns:getCreditCardListRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="getCreditCardListResponse">
-		<wsdl:part name="params" element="tns:getCreditCardListResponse"	/> 
+		<wsdl:part element="tns:getCreditCardListResponse" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="payWithCreditCardOnFileRequest">
-		<wsdl:part name="params" element="tns:payWithCreditCardOnFileRequest"	/> 
+		<wsdl:part element="tns:payWithCreditCardOnFileRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="payWithCreditCardOnFileResponse">
-		<wsdl:part name="params" element="tns:payWithCreditCardOnFileResponse"	/> 
+		<wsdl:part element="tns:payWithCreditCardOnFileResponse" name="params"/> 
 	</wsdl:message>		
 	<wsdl:message name="addDirectDebitRequest">
-		<wsdl:part name="params" element="tns:addDirectDebitRequest"	/> 
+		<wsdl:part element="tns:addDirectDebitRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="addDirectDebitResponse">
-		<wsdl:part name="params" element="tns:addDirectDebitResponse"	/> 
+		<wsdl:part element="tns:addDirectDebitResponse" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="updateDirectDebitRequest">
-		<wsdl:part name="params" element="tns:updateDirectDebitRequest"	/> 
+		<wsdl:part element="tns:updateDirectDebitRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="updateDirectDebitResponse">
-		<wsdl:part name="params" element="tns:updateDirectDebitResponse"	/> 
+		<wsdl:part element="tns:updateDirectDebitResponse" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="deleteDirectDebitRequest">
-		<wsdl:part name="params" element="tns:deleteDirectDebitRequest"	/> 
+		<wsdl:part element="tns:deleteDirectDebitRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="deleteDirectDebitResponse">
-		<wsdl:part name="params" element="tns:deleteDirectDebitResponse"	/> 
+		<wsdl:part element="tns:deleteDirectDebitResponse" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="getDirectDebitListRequest">
-		<wsdl:part name="params" element="tns:getDirectDebitListRequest"	/> 
+		<wsdl:part element="tns:getDirectDebitListRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="getDirectDebitListResponse">
-		<wsdl:part name="params" element="tns:getDirectDebitListResponse"	/> 
+		<wsdl:part element="tns:getDirectDebitListResponse" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="payWithDirectDebitOnFileRequest">
-		<wsdl:part name="params" element="tns:payWithDirectDebitOnFileRequest"	/> 
+		<wsdl:part element="tns:payWithDirectDebitOnFileRequest" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="payWithDirectDebitOnFileResponse">
-		<wsdl:part name="params" element="tns:payWithDirectDebitOnFileResponse"	/> 
+		<wsdl:part element="tns:payWithDirectDebitOnFileResponse" name="params"/> 
 	</wsdl:message>
 	<wsdl:message name="setPaymentsWithPayPalExpressCheckoutRequest">
-		<wsdl:part name="params" element="tns:setPaymentsWithPayPalExpressCheckoutRequest"></wsdl:part>
+		<wsdl:part element="tns:setPaymentsWithPayPalExpressCheckoutRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="setPaymentsWithPayPalExpressCheckoutResponse">
-		<wsdl:part name="params" element="tns:setPaymentsWithPayPalExpressCheckoutResponse"></wsdl:part>
+		<wsdl:part element="tns:setPaymentsWithPayPalExpressCheckoutResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getPaymentsWithPayPalExpressCheckoutRequest">
-		<wsdl:part name="params" element="tns:getPaymentsWithPayPalExpressCheckoutRequest"></wsdl:part>
+		<wsdl:part element="tns:getPaymentsWithPayPalExpressCheckoutRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getPaymentsWithPayPalExpressCheckoutResponse">
-		<wsdl:part name="params" element="tns:getPaymentsWithPayPalExpressCheckoutResponse"></wsdl:part>
+		<wsdl:part element="tns:getPaymentsWithPayPalExpressCheckoutResponse" name="params"/>
 	</wsdl:message>
 		
 	<!-- ***************************************************************************** -->
 	<!-- wsdl operations ******************************* -->
 
 	<wsdl:message name="cancelTransactionWithPayPalExpressCheckoutRequest">
-		<wsdl:part name="params" element="tns:cancelTransactionWithPayPalExpressCheckoutRequest"></wsdl:part>
+		<wsdl:part element="tns:cancelTransactionWithPayPalExpressCheckoutRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="cancelTransactionWithPayPalExpressCheckoutResponse">
-		<wsdl:part name="params" element="tns:cancelTransationWithPayPalExpressCheckoutResponse"></wsdl:part>
+		<wsdl:part element="tns:cancelTransationWithPayPalExpressCheckoutResponse" name="params"/>
 	</wsdl:message>
 
 	<wsdl:message name="payPaymentsWithPayPalExpressCheckoutRequest">
-		<wsdl:part name="params" element="tns:payPaymentsWithPayPalExpressCheckoutRequest"></wsdl:part>
+		<wsdl:part element="tns:payPaymentsWithPayPalExpressCheckoutRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="payPaymentsWithPayPalExpressCheckoutResponse">
-		<wsdl:part name="params" element="tns:payPaymentsWithPayPalExpressCheckoutResponse"></wsdl:part>
+		<wsdl:part element="tns:payPaymentsWithPayPalExpressCheckoutResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="cancelTrackingIdWithPayPalExpressCheckoutRequest">
-		<wsdl:part name="params" element="tns:cancelTrackingIdWithPayPalExpressCheckoutRequest"></wsdl:part>
+		<wsdl:part element="tns:cancelTrackingIdWithPayPalExpressCheckoutRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="cancelTrackingIdWithPayPalExpressCheckoutResponse">
-		<wsdl:part name="params" element="tns:cancelTrackingIdWithPayPalExpressCheckoutResponse"></wsdl:part>
+		<wsdl:part element="tns:cancelTrackingIdWithPayPalExpressCheckoutResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getTransactionDetailsWithPayPalExpressCheckoutRequest">
-		<wsdl:part name="params" element="tns:getTransactionDetailsWithPayPalExpressCheckoutRequest"></wsdl:part>
+		<wsdl:part element="tns:getTransactionDetailsWithPayPalExpressCheckoutRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getTransactionDetailsWithPayPalExpressCheckoutResponse">
-		<wsdl:part name="params" element="tns:getTransactionDetailsWithPayPalExpressCheckoutResponse"></wsdl:part>
+		<wsdl:part element="tns:getTransactionDetailsWithPayPalExpressCheckoutResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:portType name="PgwServicePort">
 
 		<wsdl:operation name="createAccount">
-			<wsdl:input		message="tns:createAccountRequest"		/>
-			<wsdl:output	message="tns:createAccountResponse"		/>
+			<wsdl:input message="tns:createAccountRequest"/>
+			<wsdl:output message="tns:createAccountResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="updateAccount">
-			<wsdl:input		message="tns:updateAccountRequest"		/>
-			<wsdl:output	message="tns:updateAccountResponse"		/>
+			<wsdl:input message="tns:updateAccountRequest"/>
+			<wsdl:output message="tns:updateAccountResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getVersion">
-			<wsdl:input		message="tns:getVersionRequest"			/> 
-			<wsdl:output	message="tns:getVersionResponse"		/> 
+			<wsdl:input message="tns:getVersionRequest"/> 
+			<wsdl:output message="tns:getVersionResponse"/> 
 		</wsdl:operation>
 		<wsdl:operation name="helloPGW">
-			<wsdl:input		message="tns:helloPGWRequest"			/> 
-			<wsdl:output	message="tns:helloPGWResponse"			/> 
+			<wsdl:input message="tns:helloPGWRequest"/> 
+			<wsdl:output message="tns:helloPGWResponse"/> 
 		</wsdl:operation>	
 		<wsdl:operation name="verifyCreditCard">
-			<wsdl:input		message="tns:verifyCreditCardRequest"	/> 
-			<wsdl:output	message="tns:verifyCreditCardResponse"	/> 
+			<wsdl:input message="tns:verifyCreditCardRequest"/> 
+			<wsdl:output message="tns:verifyCreditCardResponse"/> 
 		</wsdl:operation>		
 		<wsdl:operation name="makeCreditCardPayment">
-			<wsdl:input		message="tns:makeCreditCardPaymentRequest"	/> 
-			<wsdl:output	message="tns:makeCreditCardPaymentResponse"	/> 
+			<wsdl:input message="tns:makeCreditCardPaymentRequest"/> 
+			<wsdl:output message="tns:makeCreditCardPaymentResponse"/> 
 		</wsdl:operation>
 		<wsdl:operation name="makeDirectDebitPayment">
-			<wsdl:input		message="tns:makeDirectDebitPaymentRequest"	/> 
-			<wsdl:output	message="tns:makeDirectDebitPaymentResponse"	/> 
+			<wsdl:input message="tns:makeDirectDebitPaymentRequest"/> 
+			<wsdl:output message="tns:makeDirectDebitPaymentResponse"/> 
 		</wsdl:operation>		
 		<wsdl:operation name="authorizeCreditCardPayment">
-			<wsdl:input		message="tns:authorizeCreditCardPaymentRequest"	/> 
-			<wsdl:output	message="tns:authorizeCreditCardPaymentResponse"	/> 
+			<wsdl:input message="tns:authorizeCreditCardPaymentRequest"/> 
+			<wsdl:output message="tns:authorizeCreditCardPaymentResponse"/> 
 		</wsdl:operation>	
 		<wsdl:operation name="captureCreditCardPayment">
-			<wsdl:input		message="tns:captureCreditCardPaymentRequest"	/> 
-			<wsdl:output	message="tns:captureCreditCardPaymentResponse"	/> 
+			<wsdl:input message="tns:captureCreditCardPaymentRequest"/> 
+			<wsdl:output message="tns:captureCreditCardPaymentResponse"/> 
 		</wsdl:operation>		
 		<wsdl:operation name="addCreditCard">
-			<wsdl:input		message="tns:addCreditCardRequest"	/> 
-			<wsdl:output	message="tns:addCreditCardResponse"	/> 
+			<wsdl:input message="tns:addCreditCardRequest"/> 
+			<wsdl:output message="tns:addCreditCardResponse"/> 
 		</wsdl:operation>
 		<wsdl:operation name="updateCreditCard">
-			<wsdl:input		message="tns:updateCreditCardRequest"	/> 
-			<wsdl:output	message="tns:updateCreditCardResponse"	/> 
+			<wsdl:input message="tns:updateCreditCardRequest"/> 
+			<wsdl:output message="tns:updateCreditCardResponse"/> 
 		</wsdl:operation>	
 		<wsdl:operation name="deleteCreditCard">
-			<wsdl:input		message="tns:deleteCreditCardRequest"	/> 
-			<wsdl:output	message="tns:deleteCreditCardResponse"	/> 
+			<wsdl:input message="tns:deleteCreditCardRequest"/> 
+			<wsdl:output message="tns:deleteCreditCardResponse"/> 
 		</wsdl:operation>	
 		<wsdl:operation name="cloneCreditCard">
-			<wsdl:input		message="tns:cloneCreditCardRequest"	/> 
-			<wsdl:output	message="tns:cloneCreditCardResponse"	/> 
+			<wsdl:input message="tns:cloneCreditCardRequest"/> 
+			<wsdl:output message="tns:cloneCreditCardResponse"/> 
 		</wsdl:operation>	
 		<wsdl:operation name="getCreditCardList">
-			<wsdl:input		message="tns:getCreditCardListRequest"	/> 
-			<wsdl:output	message="tns:getCreditCardListResponse"	/> 
+			<wsdl:input message="tns:getCreditCardListRequest"/> 
+			<wsdl:output message="tns:getCreditCardListResponse"/> 
 		</wsdl:operation>	
 		<wsdl:operation name="payWithCreditCardOnFile">
-			<wsdl:input		message="tns:payWithCreditCardOnFileRequest"	/> 
-			<wsdl:output	message="tns:payWithCreditCardOnFileResponse"	/> 
+			<wsdl:input message="tns:payWithCreditCardOnFileRequest"/> 
+			<wsdl:output message="tns:payWithCreditCardOnFileResponse"/> 
 		</wsdl:operation>				
 		<wsdl:operation name="addDirectDebit">
-			<wsdl:input		message="tns:addDirectDebitRequest"	/> 
-			<wsdl:output	message="tns:addDirectDebitResponse"	/> 
+			<wsdl:input message="tns:addDirectDebitRequest"/> 
+			<wsdl:output message="tns:addDirectDebitResponse"/> 
 		</wsdl:operation>
 		<wsdl:operation name="updateDirectDebit">
-			<wsdl:input		message="tns:updateDirectDebitRequest"	/> 
-			<wsdl:output	message="tns:updateDirectDebitResponse"	/> 
+			<wsdl:input message="tns:updateDirectDebitRequest"/> 
+			<wsdl:output message="tns:updateDirectDebitResponse"/> 
 		</wsdl:operation>
 		<wsdl:operation name="deleteDirectDebit">
-			<wsdl:input		message="tns:deleteDirectDebitRequest"	/> 
-			<wsdl:output	message="tns:deleteDirectDebitResponse"	/> 
+			<wsdl:input message="tns:deleteDirectDebitRequest"/> 
+			<wsdl:output message="tns:deleteDirectDebitResponse"/> 
 		</wsdl:operation>
 		<wsdl:operation name="getDirectDebitList">
-			<wsdl:input		message="tns:getDirectDebitListRequest"	/> 
-			<wsdl:output	message="tns:getDirectDebitListResponse"	/> 
+			<wsdl:input message="tns:getDirectDebitListRequest"/> 
+			<wsdl:output message="tns:getDirectDebitListResponse"/> 
 		</wsdl:operation>
 		<wsdl:operation name="payWithDirectDebitOnFile">
-			<wsdl:input		message="tns:payWithDirectDebitOnFileRequest"	/> 
-			<wsdl:output	message="tns:payWithDirectDebitOnFileResponse"	/> 
+			<wsdl:input message="tns:payWithDirectDebitOnFileRequest"/> 
+			<wsdl:output message="tns:payWithDirectDebitOnFileResponse"/> 
 		</wsdl:operation>
 		<wsdl:operation name="setPaymentsWithPayPalExpressCheckout">
-			<wsdl:input message="tns:setPaymentsWithPayPalExpressCheckoutRequest"></wsdl:input>
-			<wsdl:output message="tns:setPaymentsWithPayPalExpressCheckoutResponse"></wsdl:output>
+			<wsdl:input message="tns:setPaymentsWithPayPalExpressCheckoutRequest"/>
+			<wsdl:output message="tns:setPaymentsWithPayPalExpressCheckoutResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getPaymentsWithPayPalExpressCheckout">
-			<wsdl:input message="tns:getPaymentsWithPayPalExpressCheckoutRequest"></wsdl:input>
-			<wsdl:output message="tns:getPaymentsWithPayPalExpressCheckoutResponse"></wsdl:output>
+			<wsdl:input message="tns:getPaymentsWithPayPalExpressCheckoutRequest"/>
+			<wsdl:output message="tns:getPaymentsWithPayPalExpressCheckoutResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="payPaymentsWithPayPalExpressCheckout">
-			<wsdl:input message="tns:payPaymentsWithPayPalExpressCheckoutRequest"></wsdl:input>
-			<wsdl:output message="tns:payPaymentsWithPayPalExpressCheckoutResponse"></wsdl:output>
+			<wsdl:input message="tns:payPaymentsWithPayPalExpressCheckoutRequest"/>
+			<wsdl:output message="tns:payPaymentsWithPayPalExpressCheckoutResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="cancelTransactionWithPayPalExpressCheckout">
-			<wsdl:input message="tns:cancelTransactionWithPayPalExpressCheckoutRequest"></wsdl:input>
-			<wsdl:output message="tns:cancelTransactionWithPayPalExpressCheckoutResponse"></wsdl:output>
+			<wsdl:input message="tns:cancelTransactionWithPayPalExpressCheckoutRequest"/>
+			<wsdl:output message="tns:cancelTransactionWithPayPalExpressCheckoutResponse"/>
 		</wsdl:operation>
 
 		<wsdl:operation name="cancelTrackingIdWithPayPalExpressCheckout">
-			<wsdl:input message="tns:cancelTrackingIdWithPayPalExpressCheckoutRequest"></wsdl:input>
-			<wsdl:output message="tns:cancelTrackingIdWithPayPalExpressCheckoutResponse"></wsdl:output>
+			<wsdl:input message="tns:cancelTrackingIdWithPayPalExpressCheckoutRequest"/>
+			<wsdl:output message="tns:cancelTrackingIdWithPayPalExpressCheckoutResponse"/>
 		</wsdl:operation>
 
 		<wsdl:operation name="getTransactionDetailsWithPayPalExpressCheckout">
-			<wsdl:input message="tns:getTransactionDetailsWithPayPalExpressCheckoutRequest"></wsdl:input>
-			<wsdl:output message="tns:getTransactionDetailsWithPayPalExpressCheckoutResponse"></wsdl:output>
+			<wsdl:input message="tns:getTransactionDetailsWithPayPalExpressCheckoutRequest"/>
+			<wsdl:output message="tns:getTransactionDetailsWithPayPalExpressCheckoutResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
 
 	<!-- ***************************************************************************** -->
 	<!-- wsdl binding ******************************* -->
 
-	<wsdl:binding name="PgwServiceHttpBinding"
-		type="tns:PgwServicePort">
+	<wsdl:binding name="PgwServiceHttpBinding" type="tns:PgwServicePort">
 
 
-		<http:binding verb="POST" />
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getVersion">
 
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -1972,15 +1810,15 @@
 		</wsdl:operation>
 		<wsdl:operation name="createAccount">
 
-			<http:operation location="/createAccount" />
+			<http:operation location="/createAccount"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -1991,9 +1829,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="updateAccount">
 
-			<http:operation location="/updateAccount" />
+			<http:operation location="/updateAccount"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2001,7 +1839,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2011,9 +1849,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="helloPGW">
 
-			<http:operation location="/helloPGW" />
+			<http:operation location="/helloPGW"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2021,7 +1859,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2031,9 +1869,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="verifyCreditCard">
 
-			<http:operation location="/verifyCreditCard" />
+			<http:operation location="/verifyCreditCard"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2041,7 +1879,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2051,9 +1889,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="makeCreditCardPayment">
 
-			<http:operation location="/makeCreditCardPayment" />
+			<http:operation location="/makeCreditCardPayment"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2061,7 +1899,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2071,9 +1909,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="authorizeCreditCardPayment">
 
-			<http:operation location="/authorizeCreditCardPayment" />
+			<http:operation location="/authorizeCreditCardPayment"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2082,7 +1920,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2092,9 +1930,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="captureCreditCardPayment">
 
-			<http:operation location="/captureCreditCardPayment" />
+			<http:operation location="/captureCreditCardPayment"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2102,7 +1940,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2112,9 +1950,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="makeDirectDebitPayment">
 
-			<http:operation location="/makeDirectDebitPayment" />
+			<http:operation location="/makeDirectDebitPayment"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2122,7 +1960,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2132,9 +1970,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="addCreditCard">
 
-			<http:operation location="/addCreditCard" />
+			<http:operation location="/addCreditCard"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2142,7 +1980,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2152,9 +1990,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="updateCreditCard">
 
-			<http:operation location="/updateCreditCard" />
+			<http:operation location="/updateCreditCard"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2162,7 +2000,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2172,9 +2010,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="deleteCreditCard">
 
-			<http:operation location="/deleteCreditCard" />
+			<http:operation location="/deleteCreditCard"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2182,7 +2020,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2192,9 +2030,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="cloneCreditCard">
 
-			<http:operation location="/cloneCreditCard" />
+			<http:operation location="/cloneCreditCard"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2202,7 +2040,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2212,9 +2050,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="getCreditCardList">
 
-			<http:operation location="/getCreditCardList" />
+			<http:operation location="/getCreditCardList"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2222,7 +2060,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2232,9 +2070,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="payWithCreditCardOnFile">
 
-			<http:operation location="/payWithCreditCardOnFile" />
+			<http:operation location="/payWithCreditCardOnFile"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2242,7 +2080,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2252,9 +2090,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="addDirectDebit">
 
-			<http:operation location="/addDirectDebit" />
+			<http:operation location="/addDirectDebit"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2262,7 +2100,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2272,9 +2110,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="updateDirectDebit">
 
-			<http:operation location="/updateDirectDebit" />
+			<http:operation location="/updateDirectDebit"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2282,7 +2120,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2292,9 +2130,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="deleteDirectDebit">
 
-			<http:operation location="/deleteDirectDebit" />
+			<http:operation location="/deleteDirectDebit"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2302,7 +2140,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2312,9 +2150,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="getDirectDebitList">
 
-			<http:operation location="/getDirectDebitList" />
+			<http:operation location="/getDirectDebitList"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2322,7 +2160,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2332,9 +2170,9 @@
 		</wsdl:operation>
 		<wsdl:operation name="payWithDirectDebitOnFile">
 
-			<http:operation location="/payWithDirectDebitOnFile" />
+			<http:operation location="/payWithDirectDebitOnFile"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
@@ -2342,7 +2180,7 @@
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2352,17 +2190,16 @@
 		</wsdl:operation>
 		<wsdl:operation name="setPaymentsWithPayPalExpressCheckout">
 
-			<http:operation
-				location="/setPaymentsWithPayPalExpressCheckout" />
+			<http:operation location="/setPaymentsWithPayPalExpressCheckout"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2371,17 +2208,16 @@
 		</wsdl:operation>
 		<wsdl:operation name="getPaymentsWithPayPalExpressCheckout">
 
-			<http:operation
-				location="/getPaymentsWithPayPalExpressCheckout" />
+			<http:operation location="/getPaymentsWithPayPalExpressCheckout"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
@@ -2390,417 +2226,379 @@
 		</wsdl:operation>
 		<wsdl:operation name="payPaymentsWithPayPalExpressCheckout">
 
-			<http:operation
-				location="/payPaymentsWithPayPalExpressCheckout" />
+			<http:operation location="/payPaymentsWithPayPalExpressCheckout"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
 			</wsdl:output>
 		</wsdl:operation>
-		<wsdl:operation
-			name="cancelTransactionWithPayPalExpressCheckout">
+		<wsdl:operation name="cancelTransactionWithPayPalExpressCheckout">
 
-			<http:operation
-				location="/cancelTransactionWithPayPalExpressCheckout" />
+			<http:operation location="/cancelTransactionWithPayPalExpressCheckout"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 
 			</wsdl:output>
 		</wsdl:operation>
-		<wsdl:operation
-			name="cancelTrackingIdWithPayPalExpressCheckout">
+		<wsdl:operation name="cancelTrackingIdWithPayPalExpressCheckout">
 
-			<http:operation
-				location="/cancelTrackingIdWithPayPalExpressCheckout" />
+			<http:operation location="/cancelTrackingIdWithPayPalExpressCheckout"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 			</wsdl:output>
 		</wsdl:operation>
-		<wsdl:operation
-			name="getTransactionDetailsWithPayPalExpressCheckout">
+		<wsdl:operation name="getTransactionDetailsWithPayPalExpressCheckout">
 
-			<http:operation
-				location="/getTransactionDetailsWithPayPalExpressCheckout" />
+			<http:operation location="/getTransactionDetailsWithPayPalExpressCheckout"/>
 			<wsdl:input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="PgwServiceSOAPBinding"
-		type="tns:PgwServicePort">
+	<wsdl:binding name="PgwServiceSOAPBinding" type="tns:PgwServicePort">
 
 
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/getVersion"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="createAccount">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/createAccount" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/createAccount"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="updateAccount">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/updateAccount" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/updateAccount"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="helloPGW">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/helloPGW" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/helloPGW"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="verifyCreditCard">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/verifyCreditCard" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/verifyCreditCard"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="makeCreditCardPayment">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/makeCreditCardPayment" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/makeCreditCardPayment"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="authorizeCreditCardPayment">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/authorizeCreditCardPayment" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/authorizeCreditCardPayment"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="captureCreditCardPayment">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/captureCreditCardPayment" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/captureCreditCardPayment"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="makeDirectDebitPayment">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/makeDirectDebitPayment" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/makeDirectDebitPayment"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="addCreditCard">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/addCreditCard" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/addCreditCard"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="updateCreditCard">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/updateCreditCard" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/updateCreditCard"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="deleteCreditCard">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/deleteCreditCard" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/deleteCreditCard"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="cloneCreditCard">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/cloneCreditCard" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/cloneCreditCard"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getCreditCardList">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/getCreditCardList" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/getCreditCardList"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="payWithCreditCardOnFile">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/payWithCreditCardOnFile" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/payWithCreditCardOnFile"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="addDirectDebit">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/addDirectDebit" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/addDirectDebit"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="updateDirectDebit">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/updateDirectDebit" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/updateDirectDebit"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="deleteDirectDebit">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/deleteDirectDebit" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/deleteDirectDebit"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getDirectDebitList">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/getDirectDebitList" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/getDirectDebitList"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="payWithDirectDebitOnFile">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/payWithDirectDebitOnFile" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/payWithDirectDebitOnFile"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="setPaymentsWithPayPalExpressCheckout">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/setPaymentsWithPayPalExpressCheckout" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/setPaymentsWithPayPalExpressCheckout"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getPaymentsWithPayPalExpressCheckout">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/getPaymentsWithPayPalExpressCheckout" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/getPaymentsWithPayPalExpressCheckout"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="payPaymentsWithPayPalExpressCheckout">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/payPaymentsWithPayPalExpressCheckout" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/payPaymentsWithPayPalExpressCheckout"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
-		<wsdl:operation
-			name="cancelTransactionWithPayPalExpressCheckout">
+		<wsdl:operation name="cancelTransactionWithPayPalExpressCheckout">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/cancelTransactionWithPayPalExpressCheckout" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/cancelTransactionWithPayPalExpressCheckout"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
-		<wsdl:operation
-			name="cancelTrackingIdWithPayPalExpressCheckout">
+		<wsdl:operation name="cancelTrackingIdWithPayPalExpressCheckout">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/cancelTrackingIdWithPayPalExpressCheckout" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/cancelTrackingIdWithPayPalExpressCheckout"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
-		<wsdl:operation
-			name="getTransactionDetailsWithPayPalExpressCheckout">
+		<wsdl:operation name="getTransactionDetailsWithPayPalExpressCheckout">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/payment/v1/services/getTransactionDetailsWithPayPalExpressCheckout" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/payment/v1/services/getTransactionDetailsWithPayPalExpressCheckout"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -2811,14 +2609,11 @@
 			<version>1.0.0</version>
 		</wsdl:documentation>
 	
-		<wsdl:port binding="tns:PgwServiceHttpBinding"
-			name="PgwServiceHttpPort">
-			<http:address location="https://svcs.ebay.com/services/payment/PgwService/v1" />
+		<wsdl:port binding="tns:PgwServiceHttpBinding" name="PgwServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/payment/PgwService/v1"/>
 		</wsdl:port>
-		<wsdl:port binding="tns:PgwServiceSOAPBinding"
-			name="PgwServiceSOAPPort">
-			<soap12:address location="https://svcs.ebay.com/services/payment/PgwService/v1" />
+		<wsdl:port binding="tns:PgwServiceSOAPBinding" name="PgwServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/payment/PgwService/v1"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
-

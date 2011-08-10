@@ -16,9 +16,9 @@
         configure the custom response handlers         node pipeline-config/response-handlers
 
 -->
-<client-config-list xmlns="http://www.ebay.com/soaframework/common/config">
-  <client-config group="MarketplaceClientGroup">
-    <service-interface-class-name>com.ebay.marketplace.error.v1.services.testservice.ErrorTestServiceV1</service-interface-class-name>
+<client-config-list xmlns="http://www.ebayopensource.org/turmeric/common/config">
+  <client-config>
+    <service-interface-class-name>org.ebayopensource.turmeric.error.v1.services.testservice.ErrorTestServiceV1</service-interface-class-name>
     <service-location>http://localhost:8080/_soa_/services/error/ErrorTestServiceV1/v1/</service-location>
     <client-instance-config>
       <invocation-options>
@@ -449,7 +449,7 @@
         <indicator>
           <transport-header name="X-TURMERIC-MESSAGE-PROTOCOL">SOAP11</transport-header>
         </indicator>
-        <class-name>com.ebay.soaframework.sif.impl.protocolprocessor.soap.ClientSOAPProtocolProcessor</class-name>
+        <class-name>org.ebayopensource.turmeric.runtime.sif.impl.protocolprocessor.soap.ClientSOAPProtocolProcessor</class-name>
       </protocol-processor>
     </client-instance-config>
   </client-config>

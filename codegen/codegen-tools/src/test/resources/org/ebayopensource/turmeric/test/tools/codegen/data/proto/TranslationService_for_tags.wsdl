@@ -1,24 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="TranslationService" targetNamespace="http://www.ebay.com/marketplace/services" 
-	xmlns:xmime="http://www.w3.org/2005/05/xmlmime" 
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
-	xmlns:ns0="http://www.ebay.com/marketplace/services" 
-	xmlns:tns="http://www.ebay.com/marketplace/services" 
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
-	xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TranslationService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
-<xs:element name="syncTranslateRequest"  type="tns:SyncTranslateRequest"/>
-<xs:element name="syncTranslateResponse"  type="tns:SyncTranslateResponse"/>
-<xs:element name="getGenericProfileRequest"  type="tns:GetGenericProfileRequest"/>
-<xs:element name="getGenericProfileResponse"  type="tns:GetGenericProfileResponse"/>
-<xs:element name="getCustomProfileRequest"  type="tns:GetCustomProfileRequest"/>
-<xs:element name="getCustomProfileResponse"  type="tns:GetCustomProfileResponse"/>
+<xs:element name="syncTranslateRequest" type="tns:SyncTranslateRequest"/>
+<xs:element name="syncTranslateResponse" type="tns:SyncTranslateResponse"/>
+<xs:element name="getGenericProfileRequest" type="tns:GetGenericProfileRequest"/>
+<xs:element name="getGenericProfileResponse" type="tns:GetGenericProfileResponse"/>
+<xs:element name="getCustomProfileRequest" type="tns:GetCustomProfileRequest"/>
+<xs:element name="getCustomProfileResponse" type="tns:GetCustomProfileResponse"/>
 <!-- Type definitions -->   
     <xs:complexType name="GetCustomProfileRequest">
 	<xs:annotation>
@@ -28,48 +17,45 @@
 			profile ID to the translation engine. ProfileID returned by
 			this operation is used in subsequest calls to translate
 		</xs:documentation>
-		<xs:appinfo></xs:appinfo>
+		<xs:appinfo/>
 	</xs:annotation>
 	<xs:complexContent>
 		<xs:extension base="tns:BaseServiceRequest">
 			<xs:sequence>
-				<xs:element minOccurs="1" name="sourceLanguage"
-					type="tns:LanguageEnum">
+				<xs:element minOccurs="1" name="sourceLanguage" type="tns:LanguageEnum">
 					<xs:annotation>
 						<xs:documentation>
 							TThe language of the source text.
 						</xs:documentation>
 						<xs:appinfo>
 							<CallInfo>
-								<CallName />
+								<CallName/>
 								<RequiredInput>Yes</RequiredInput>
 							</CallInfo>
 						</xs:appinfo>
 					</xs:annotation>
 				</xs:element>
-				<xs:element minOccurs="1" name="targetLanguage"
-					type="tns:LanguageEnum">
+				<xs:element minOccurs="1" name="targetLanguage" type="tns:LanguageEnum">
 					<xs:annotation>
 						<xs:documentation>
 							The language to translate to.
 						</xs:documentation>
 						<xs:appinfo>
 							<CallInfo>
-								<CallName />
+								<CallName/>
 								<RequiredInput>Yes</RequiredInput>
 							</CallInfo>
 						</xs:appinfo>
 					</xs:annotation>
 				</xs:element>
-				<xs:element minOccurs="1" name="customProfileOptions"
-					type="tns:CustomProfileOption">
+				<xs:element minOccurs="1" name="customProfileOptions" type="tns:CustomProfileOption">
 					<xs:annotation>
 						<xs:documentation>
 							Custom profile options.
 						</xs:documentation>
 						<xs:appinfo>
 							<CallInfo>
-								<CallName />
+								<CallName/>
 								<RequiredInput>Yes</RequiredInput>
 							</CallInfo>
 						</xs:appinfo>
@@ -89,34 +75,32 @@
 			returned by this operation is used in subsequest calls to
 			translate
 		</xs:documentation>
-		<xs:appinfo></xs:appinfo>
+		<xs:appinfo/>
 	</xs:annotation>
 	<xs:complexContent>
 		<xs:extension base="tns:BaseServiceRequest">
 			<xs:sequence>
-				<xs:element minOccurs="1" name="sourceLanguage"
-					type="tns:LanguageEnum">
+				<xs:element minOccurs="1" name="sourceLanguage" type="tns:LanguageEnum">
 					<xs:annotation>
 						<xs:documentation>
 							TThe language of the source text.
 						</xs:documentation>
 						<xs:appinfo>
 							<CallInfo>
-								<CallName />
+								<CallName/>
 								<RequiredInput>Yes</RequiredInput>
 							</CallInfo>
 						</xs:appinfo>
 					</xs:annotation>
 				</xs:element>
-				<xs:element minOccurs="1" name="targetLanguage"
-					type="tns:LanguageEnum">
+				<xs:element minOccurs="1" name="targetLanguage" type="tns:LanguageEnum">
 					<xs:annotation>
 						<xs:documentation>
 							TThe language to translate to.
 						</xs:documentation>
 						<xs:appinfo>
 							<CallInfo>
-								<CallName />
+								<CallName/>
 								<RequiredInput>Yes</RequiredInput>
 							</CallInfo>
 						</xs:appinfo>
@@ -138,8 +122,7 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseServiceRequest">
 			<xs:sequence>
-				<xs:element minOccurs="1" maxOccurs="unbounded"
-					name="translationUnit" type="tns:TranslationUnit">
+				<xs:element maxOccurs="unbounded" minOccurs="1" name="translationUnit" type="tns:TranslationUnit">
 					<xs:annotation>
 						<xs:documentation>
 							The content to be translated along with the
@@ -147,7 +130,7 @@
 						</xs:documentation>
 						<xs:appinfo>
 							<CallInfo>
-								<CallName />
+								<CallName/>
 								<RequiredInput>Yes</RequiredInput>
 							</CallInfo>
 						</xs:appinfo>
@@ -162,7 +145,7 @@
 		<xs:documentation>
 			Get profile response.
 		</xs:documentation>
-		<xs:appinfo></xs:appinfo>
+		<xs:appinfo/>
 	</xs:annotation>
 	<xs:complexContent>
 		<xs:extension base="tns:BaseServiceResponse">
@@ -172,7 +155,7 @@
 						<xs:documentation>
 							The translation engine profile Identifier.
 						</xs:documentation>
-						<xs:appinfo></xs:appinfo>
+						<xs:appinfo/>
 					</xs:annotation>
 				</xs:element>
 			</xs:sequence>
@@ -185,7 +168,7 @@
 		<xs:documentation>
 			Get profile response.
 		</xs:documentation>
-		<xs:appinfo></xs:appinfo>
+		<xs:appinfo/>
 	</xs:annotation>
 	<xs:complexContent>
 		<xs:extension base="tns:BaseServiceResponse">
@@ -195,7 +178,7 @@
 						<xs:documentation>
 							The translation engine profile Identifier.
 						</xs:documentation>
-						<xs:appinfo></xs:appinfo>
+						<xs:appinfo/>
 					</xs:annotation>
 				</xs:element>
 			</xs:sequence>
@@ -213,14 +196,13 @@
 	<xs:complexContent>
 		<xs:extension base="tns:BaseServiceResponse">
 			<xs:sequence>
-				<xs:element maxOccurs="unbounded" name="translatedUnit"
-					type="tns:TranslatedUnit">
+				<xs:element maxOccurs="unbounded" name="translatedUnit" type="tns:TranslatedUnit">
 					<xs:annotation>
 						<xs:documentation>
 							The translated result - translated text
 							along with optional annotated source
 						</xs:documentation>
-						<xs:appinfo></xs:appinfo>
+						<xs:appinfo/>
 					</xs:annotation>
 				</xs:element>
 			</xs:sequence>
@@ -235,8 +217,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element minOccurs="1" name="categoryDomain"
-			type="xs:token">
+		<xs:element minOccurs="1" name="categoryDomain" type="xs:token">
 			<xs:annotation>
 				<xs:documentation>
 					Allowed values are 
@@ -244,8 +225,7 @@
 				</xs:documentation>
 			</xs:annotation>
 		</xs:element>
-		<xs:element minOccurs="0" name="category"
-			type="xs:token">
+		<xs:element minOccurs="0" name="category" type="xs:token">
 			<xs:annotation>
 				<xs:documentation>
 					AllCategories  
@@ -253,7 +233,7 @@
 			</xs:annotation>
 		</xs:element>
 
-			processContents="lax" />
+			processContents="lax" /&gt;
 	</xs:sequence>
 </xs:complexType>
 
@@ -265,16 +245,14 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element minOccurs="0" name="categoryOptions"
-			type="tns:CategoryOption">
+		<xs:element minOccurs="0" name="categoryOptions" type="tns:CategoryOption">
 			<xs:annotation>
 				<xs:documentation>
 					eBay category options
 				</xs:documentation>
 			</xs:annotation>
 		</xs:element>
-		<xs:element minOccurs="0" name="parseNonStrictHTML"
-			type="xs:boolean">
+		<xs:element minOccurs="0" name="parseNonStrictHTML" type="xs:boolean">
 			<xs:annotation>
 				<xs:documentation>
 					If set to true, the HTML will be parsed with a
@@ -282,8 +260,7 @@
 				</xs:documentation>
 			</xs:annotation>
 		</xs:element>
-		<xs:element minOccurs="0" name="terminologyTranslation"
-			type="xs:boolean">
+		<xs:element minOccurs="0" name="terminologyTranslation" type="xs:boolean">
 			<xs:annotation>
 				<xs:documentation>
 					If set to true, a matching profile that will treat
@@ -294,8 +271,7 @@
 				</xs:documentation>
 			</xs:annotation>
 		</xs:element>
-		<xs:element minOccurs="0" name="annotateTranslation"
-			type="xs:boolean">
+		<xs:element minOccurs="0" name="annotateTranslation" type="xs:boolean">
 			<xs:annotation>
 				<xs:documentation>
 					If set to true, the source and translated content
@@ -305,7 +281,7 @@
 			</xs:annotation>
 		</xs:element>
 
-			processContents="lax" />
+			processContents="lax" /&gt;
 	</xs:sequence>
 </xs:complexType>
 
@@ -363,8 +339,7 @@
 				</xs:documentation>
 			</xs:annotation>
 		</xs:element>
-		<xs:element minOccurs="1" name="annotatedSource"
-			type="xs:string">
+		<xs:element minOccurs="1" name="annotatedSource" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					The original source with extra annotation around
@@ -382,7 +357,7 @@
 		</xs:element>
 
 
-			processContents="lax" />
+			processContents="lax" /&gt;
 	</xs:sequence>
 </xs:complexType>
 
@@ -408,8 +383,7 @@
 				</xs:documentation>
 			</xs:annotation>
 		</xs:element>
-		<xs:element minOccurs="1" name="sourceFormat"
-			type="tns:SourceFormatEnum">
+		<xs:element minOccurs="1" name="sourceFormat" type="tns:SourceFormatEnum">
 			<xs:annotation>
 				<xs:documentation>
 					The format of the source to be translated - plain
@@ -427,7 +401,7 @@
 		</xs:element>
 
 
-			processContents="lax" />
+			processContents="lax" /&gt;
 	</xs:sequence>
 </xs:complexType>
 
@@ -476,7 +450,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="version" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="version" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 				  The version of the schema that your WSDL is based on.
@@ -489,7 +463,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+		<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 			<xs:annotation>
 				<xs:documentation>
 				  The data and time of the response.
@@ -556,7 +530,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 				Details about a single error.
@@ -723,7 +697,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 				Some warning and error messages return one or more variables that contain
@@ -850,27 +824,27 @@
 </wsdl:types>
 
   <wsdl:message name="syncTranslateRequest">
-    <wsdl:part name="params" element="ns0:syncTranslateRequest">
+    <wsdl:part element="ns0:syncTranslateRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="syncTranslateResponse">
-    <wsdl:part name="params" element="ns0:syncTranslateResponse">
+    <wsdl:part element="ns0:syncTranslateResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getGenericProfileRequest">
-    <wsdl:part name="params" element="ns0:getGenericProfileRequest">
+    <wsdl:part element="ns0:getGenericProfileRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getGenericProfileResponse">
-    <wsdl:part name="params" element="ns0:getGenericProfileResponse">
+    <wsdl:part element="ns0:getGenericProfileResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getCustomProfileRequest">
-    <wsdl:part name="params" element="ns0:getCustomProfileRequest">
+    <wsdl:part element="ns0:getCustomProfileRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getCustomProfileResponse">
-    <wsdl:part name="params" element="ns0:getCustomProfileResponse">
+    <wsdl:part element="ns0:getCustomProfileResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   
@@ -969,10 +943,10 @@
 		This interface provides operations to translate a document from one of the supported
 languages to another. The current implementation uses machine translation (MT).
 	</wsdl:documentation>
-    <wsdl:port name="TranslationServiceHttp" binding="ns0:TranslationServiceHttpBinding">
+    <wsdl:port binding="ns0:TranslationServiceHttpBinding" name="TranslationServiceHttp">
       <http:address location="http://webservices.ebay.com/TranslationService"/>
     </wsdl:port>
-    <wsdl:port name="TranslationServiceSOAP" binding="ns0:TranslationServiceSOAPBinding">
+    <wsdl:port binding="ns0:TranslationServiceSOAPBinding" name="TranslationServiceSOAP">
       <soap12:address location="http://webservices.ebay.com/TranslationService"/>
     </wsdl:port>
   </wsdl:service>

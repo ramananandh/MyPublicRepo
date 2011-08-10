@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="UserContentClassificationService" targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebayopensource.org/tumeric/catalog/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UserContentClassificationService" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:Q1="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:Q1="http://www.ebayopensource.org/tumeric/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
 
 		<xs:complexType abstract="true" name="BaseServiceRequest">
 			<xs:annotation>
@@ -66,7 +65,7 @@
 				</xs:documentation>
 			</xs:annotation>
 			<xs:sequence>
-				<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 					<xs:annotation>
 						<xs:documentation>
 							Details about a single error.
@@ -235,7 +234,7 @@
 						</xs:appinfo>
 					</xs:annotation>
 				</xs:element>
-				<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 					<xs:annotation>
 						<xs:documentation>
 							Some warning and error messages return one
@@ -462,16 +461,14 @@
 			<xs:complexContent>
 				<xs:extension base="tns:BaseBatchRequest">
 					<xs:sequence>
-						<xs:element maxOccurs="1" minOccurs="1"
-							name="application" type="xs:token">
+						<xs:element maxOccurs="1" minOccurs="1" name="application" type="xs:token">
 							<xs:annotation>
 								<xs:documentation>
 									identifies the client
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="1" minOccurs="0"
-							name="context" type="tns:Context">
+						<xs:element maxOccurs="1" minOccurs="0" name="context" type="tns:Context">
 							<xs:annotation>
 								<xs:documentation>
 									Context has one or more
@@ -486,8 +483,7 @@
 						</xs:element>
 
 
-						<xs:element maxOccurs="1" minOccurs="1"
-							name="userContent" type="tns:UserContent">
+						<xs:element maxOccurs="1" minOccurs="1" name="userContent" type="tns:UserContent">
 							<xs:annotation>
 								<xs:documentation>
 									represents the user content the
@@ -496,8 +492,7 @@
 							</xs:annotation>
 						</xs:element>
 
-						<xs:element maxOccurs="1" minOccurs="0"
-							name="creator" type="xs:string" />
+						<xs:element maxOccurs="1" minOccurs="0" name="creator" type="xs:string"/>
 					</xs:sequence>
 
 				</xs:extension>
@@ -527,7 +522,7 @@
             
             <xs:complexType name="BaseBatchResponse">
             	<xs:sequence>
-            		<xs:element name="invocationId" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+            		<xs:element maxOccurs="1" minOccurs="0" name="invocationId" type="xs:string"/>
             	</xs:sequence>
             </xs:complexType>
 
@@ -581,8 +576,7 @@
             	<xs:complexContent>
             		<xs:extension base="tns:BaseBatchResponse">
             			<xs:sequence>
-            				<xs:element maxOccurs="1" minOccurs="0"
-            					name="class" type="xs:token">
+            				<xs:element maxOccurs="1" minOccurs="0" name="class" type="xs:token">
             					<xs:annotation>
             						<xs:documentation>
             							classification result
@@ -590,8 +584,7 @@
             					</xs:annotation>
             				</xs:element>
 
-            				<xs:element maxOccurs="1" minOccurs="1"
-            					name="confidencePercent" type="xs:double">
+            				<xs:element maxOccurs="1" minOccurs="1" name="confidencePercent" type="xs:double">
             					<xs:annotation>
             						<xs:documentation>
             							confidence of the Classification
@@ -638,7 +631,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="in" type="xs:string"></xs:element>
+            			<xs:element name="in" type="xs:string"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -646,61 +639,56 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="out" type="xs:string"></xs:element>
+            			<xs:element name="out" type="xs:string"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
     </xs:schema>
   </wsdl:types>
   <wsdl:message name="classifyUserContentResponse">
-    <wsdl:part name="parameters" element="tns:userContentClassificationResponse">
+    <wsdl:part element="tns:userContentClassificationResponse" name="parameters">
 <wsdl:documentation>support batch response in one service call</wsdl:documentation>
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="classifyUserContentRequest">
-    <wsdl:part name="parameters" element="tns:userContentClassificationRequest">
+    <wsdl:part element="tns:userContentClassificationRequest" name="parameters">
 <wsdl:documentation>support batch request in one service call</wsdl:documentation>
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="UserContentClassificationServicePort">
 
     <wsdl:operation name="classifyUserContent">
-    	<wsdl:input message="tns:classifyUserContentRequest"></wsdl:input>
-    	<wsdl:output message="tns:classifyUserContentResponse"></wsdl:output>
+    	<wsdl:input message="tns:classifyUserContentRequest"/>
+    	<wsdl:output message="tns:classifyUserContentResponse"/>
     </wsdl:operation>
   </wsdl:portType>
 
 
-  <wsdl:binding name="UserContentClassificationServiceSOAPBinding"
-  	type="tns:UserContentClassificationServicePort">
+  <wsdl:binding name="UserContentClassificationServiceSOAPBinding" type="tns:UserContentClassificationServicePort">
 
-  	<soap:binding style="document"
-  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
   	<wsdl:operation name="classifyUserContent">
 
-  		<soap:operation
-  			soapAction="http://www.ebay.com/marketplace/catalog/v1/services/classifyUserContent" />
+  		<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/classifyUserContent"/>
   		<wsdl:input>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output>
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="UserContentClassificationServiceHttpBinding"
-  	type="tns:UserContentClassificationServicePort">
-  	<http:binding verb="POST" />
+  <wsdl:binding name="UserContentClassificationServiceHttpBinding" type="tns:UserContentClassificationServicePort">
+  	<http:binding verb="POST"/>
   	<wsdl:operation name="classifyUserContent">
-  		<http:operation location="/classifyUserContent" />
+  		<http:operation location="/classifyUserContent"/>
   		<wsdl:input>
-  			<mime:content part="parameters"
-  				type="application/x-www-form-urlencoded" />
+  			<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content part="parameters" type="text/xml" />
+  			<mime:content part="parameters" type="text/xml"/>
   		</wsdl:output>
   	</wsdl:operation>
   </wsdl:binding>
@@ -708,11 +696,11 @@
 <wsdl:documentation>UserContentClassificationService, leverages machine learning technology and utilizes offline trained models to classify user content; also provides a rules engine to classify spam based on predefined rules.
 </wsdl:documentation>
 
-        <wsdl:port name="UserContentClassificationServiceSOAP" binding="tns:UserContentClassificationServiceSOAPBinding">
-        	<soap:address location="https://svcs.ebay.com/services/catalog/UserContentClassificationService/v1" />
+        <wsdl:port binding="tns:UserContentClassificationServiceSOAPBinding" name="UserContentClassificationServiceSOAP">
+        	<soap:address location="https://svcs.ebay.com/services/catalog/UserContentClassificationService/v1"/>
         </wsdl:port>
-        <wsdl:port name="UserContentClassificationServiceHttp" binding="tns:UserContentClassificationServiceHttpBinding">
-        	<http:address location="https://svcs.ebay.com/services/catalog/UserContentClassificationService/v1" />
+        <wsdl:port binding="tns:UserContentClassificationServiceHttpBinding" name="UserContentClassificationServiceHttp">
+        	<http:address location="https://svcs.ebay.com/services/catalog/UserContentClassificationService/v1"/>
         </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

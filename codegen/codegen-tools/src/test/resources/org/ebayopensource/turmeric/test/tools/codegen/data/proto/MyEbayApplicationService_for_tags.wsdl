@@ -1,29 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="MyEbayApplicationService"
-	targetNamespace="http://www.ebay.com/marketplace/mobile/v1/services"
-	xmlns="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:tns="http://www.ebay.com/marketplace/mobile/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/mobile/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MyEbayApplicationService" targetNamespace="http://www.ebayopensource.org/tumeric/mobile/v1/services">
 
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/mobile/v1/services"
-			xmlns:tns="http://www.ebay.com/marketplace/mobile/v1/services"
-			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/mobile/v1/services">
 
-			<xs:element name="getVersionResponse" 
-				type="tns:GetVersionResponse" />
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 
 			<xs:complexType name="GetVersionResponse">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
-						<xs:sequence />
+						<xs:sequence/>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
@@ -87,8 +72,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="extension"
-						type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -112,14 +96,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="errorMessage"
-						type="tns:ErrorMessage" minOccurs="0">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -128,36 +111,34 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The version of the response payload
 								schema. Indicates the version of the
 								schema that eBay used to process the
-								request. See &quot;Standard Data for All
-								Calls&quot; in the eBay Web Services
+								request. See "Standard Data for All
+								Calls" in the eBay Web Services
 								Guide for information on using the
 								response version when troubleshooting
-								&quot;CustomCode&quot; values that
+								"CustomCode" values that
 								appear in the response.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								This value represents the date and time
@@ -172,14 +153,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="extension"
-						type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -188,15 +168,15 @@
 					<xs:documentation>
 						Documentation goes here
 					</xs:documentation>
-					<xs:appinfo></xs:appinfo>
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
@@ -204,19 +184,19 @@
 				<xs:annotation>
 					<xs:documentation>
 						Indicates the error category of an error.
-						Typical values are &quot;System&quot;,
-						&quot;Application&quot;, and &quot;Request&quot;
+						Typical values are "System",
+						"Application", and "Request"
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
 				<xs:annotation>
-					<xs:appinfo />
+					<xs:appinfo/>
 					<xs:documentation>
 						Represents the error message contents.
 					</xs:documentation>
@@ -238,8 +218,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="subdomain" type="xs:string"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Denotes the sub-domain to which this
@@ -247,16 +226,14 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 						<xs:annotation>
 							<xs:documentation>
 								Denotes the severity of this error.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 						<xs:annotation>
 							<xs:documentation>
 								Denotes the category to which this error
@@ -272,8 +249,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="exceptionId" type="xs:token"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								In case of exceptions, this denotes the
@@ -282,8 +258,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="parameter"
-						type="tns:ErrorParameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Denotes a list of string values which
@@ -295,20 +270,19 @@
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
 				<xs:annotation>
-					<xs:appinfo />
+					<xs:appinfo/>
 					<xs:documentation>
 						Represents the error message obtained while
 						processing the request.
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData"
-						minOccurs="0" maxOccurs="unbounded" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
 				<xs:annotation>
-					<xs:appinfo />
+					<xs:appinfo/>
 					<xs:documentation>
 						Represents the error message obtained while
 						processing the request.
@@ -316,8 +290,7 @@
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string"
-							use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -329,13 +302,12 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
 
-			<xs:element name="removeFromDidntWinListRequest"
-				type="tns:RemoveFromDidntWinListRequest" />
+			<xs:element name="removeFromDidntWinListRequest" type="tns:RemoveFromDidntWinListRequest"/>
 			<xs:complexType name="RemoveFromDidntWinListRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -348,8 +320,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="itemID" type="xs:string"
-								minOccurs="1" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="itemID" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										The ID of the item to be removed
@@ -363,8 +334,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="removeFromDidntWinListResponse"
-				type="tns:RemoveFromDidntWinListResponse" />
+			<xs:element name="removeFromDidntWinListResponse" type="tns:RemoveFromDidntWinListResponse"/>
 			<xs:complexType name="RemoveFromDidntWinListResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -380,8 +350,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="removeFromWonListResponse"
-				type="tns:RemoveFromWonListResponse" />
+			<xs:element name="removeFromWonListResponse" type="tns:RemoveFromWonListResponse"/>
 			<xs:complexType name="RemoveFromWonListResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -396,8 +365,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="removeFromWonListRequest"
-				type="tns:RemoveFromWonListRequest" />
+			<xs:element name="removeFromWonListRequest" type="tns:RemoveFromWonListRequest"/>
 			<xs:complexType name="RemoveFromWonListRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -408,8 +376,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="orderID" type="xs:string"
-								minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="orderID" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										Represents the order id. This
@@ -418,8 +385,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="item" type="tns:Item"
-								minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:Item">
 								<xs:annotation>
 									<xs:documentation>
 										This contains the item details
@@ -443,16 +409,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="itemID" type="xs:string"
-						minOccurs="1">
+					<xs:element minOccurs="1" name="itemID" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Represents the item id.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="transactionID" type="xs:string"
-						minOccurs="1">
+					<xs:element minOccurs="1" name="transactionID" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Represents the transaction id.
@@ -462,51 +426,46 @@
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:element name="getVersionRequest"
-				type="tns:GetVersionRequest">
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest">
 			</xs:element>
 
 			<xs:complexType name="GetVersionRequest">
 				<xs:complexContent>
-					<xs:extension base="tns:BaseRequest"></xs:extension>
+					<xs:extension base="tns:BaseRequest"/>
 				</xs:complexContent>
 			</xs:complexType>
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part name="parameters" element="tns:getVersionResponse">
+		<wsdl:part element="tns:getVersionResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="removeFromDidntWinListResponse">
-		<wsdl:part name="parameters"
-			element="tns:removeFromDidntWinListResponse">
+		<wsdl:part element="tns:removeFromDidntWinListResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="removeFromDidntWinListRequest">
-		<wsdl:part name="parameters"
-			element="tns:removeFromDidntWinListRequest">
+		<wsdl:part element="tns:removeFromDidntWinListRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="removeFromWonListRequest">
-		<wsdl:part name="parameters"
-			element="tns:removeFromWonListRequest">
+		<wsdl:part element="tns:removeFromWonListRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="removeFromWonListResponse">
-		<wsdl:part name="parameters"
-			element="tns:removeFromWonListResponse">
+		<wsdl:part element="tns:removeFromWonListResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part name="parameters" element="tns:getVersionRequest"></wsdl:part>
+		<wsdl:part element="tns:getVersionRequest" name="parameters"/>
 	</wsdl:message>
 	<wsdl:portType name="MyEbayApplicationServicePort">
 		<wsdl:operation name="getVersion">
 			<wsdl:documentation>
 				This operation returns the version.
 			</wsdl:documentation>
-			<wsdl:input message="tns:getVersionRequest"></wsdl:input>
-			<wsdl:output message="tns:getVersionResponse"></wsdl:output>
+			<wsdl:input message="tns:getVersionRequest"/>
+			<wsdl:output message="tns:getVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="removeFromDidntWinList">
 			<wsdl:documentation>
@@ -523,76 +482,67 @@
 				This operation Enables a user to remove item from his or
 				her My eBay won list.
 			</wsdl:documentation>
-			<wsdl:input message="tns:removeFromWonListRequest"></wsdl:input>
-			<wsdl:output message="tns:removeFromWonListResponse"></wsdl:output>
+			<wsdl:input message="tns:removeFromWonListRequest"/>
+			<wsdl:output message="tns:removeFromWonListResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="MyEbayApplicationServiceSOAPBinding"
-		type="tns:MyEbayApplicationServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="MyEbayApplicationServiceSOAPBinding" type="tns:MyEbayApplicationServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/mobile/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/mobile/v1/services/getVersion"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="removeFromDidntWinList">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/mobile/v1/services/removeFromDidntWinList" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/mobile/v1/services/removeFromDidntWinList"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="removeFromWonList">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/mobile/v1/services/removeFromWonList" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/mobile/v1/services/removeFromWonList"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="MyEbayApplicationServiceHttpBinding"
-		type="tns:MyEbayApplicationServicePort">
-		<http:binding verb="POST"></http:binding>
+	<wsdl:binding name="MyEbayApplicationServiceHttpBinding" type="tns:MyEbayApplicationServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getVersion">
-			<http:operation location="/getVersion"></http:operation>
+			<http:operation location="/getVersion"/>
 			<wsdl:input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="removeFromDidntWinList">
-			<http:operation location="/removeFromDidntWinList"></http:operation>
+			<http:operation location="/removeFromDidntWinList"/>
 			<wsdl:input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="removeFromWonList">
-			<http:operation location="/removeFromWonList"></http:operation>
+			<http:operation location="/removeFromWonList"/>
 			<wsdl:input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -603,17 +553,12 @@
 			features (remove items from didn't win list and won list)
 			into a SOA service.
 		</wsdl:documentation>
-		<wsdl:port name="MyEbayApplicationServiceSOAPPort"
-			binding="tns:MyEbayApplicationServiceSOAPBinding">
-			<soap12:address
-				location="https://svcs.ebay.com/services/mobile/MyEbayApplicationService/v1" />
-			<soap:address
-				location="https://svcs.ebay.com/services/mobile/MyEbayApplicationService/v1" />
+		<wsdl:port binding="tns:MyEbayApplicationServiceSOAPBinding" name="MyEbayApplicationServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/mobile/MyEbayApplicationService/v1"/>
+			<soap:address location="https://svcs.ebay.com/services/mobile/MyEbayApplicationService/v1"/>
 		</wsdl:port>
-		<wsdl:port name="MyEbayApplicationServiceHttpPort"
-			binding="tns:MyEbayApplicationServiceHttpBinding">
-			<http:address
-				location="https://svcs.ebay.com/services/mobile/MyEbayApplicationService/v1" />
+		<wsdl:port binding="tns:MyEbayApplicationServiceHttpBinding" name="MyEbayApplicationServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/mobile/MyEbayApplicationService/v1"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

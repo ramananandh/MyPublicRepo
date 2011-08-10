@@ -1,17 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="FindItemService"
-	targetNamespace="http://www.ebay.com/marketplace/search/v1/services"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ebay.com/marketplace/search/v1/services"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/search/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FindItemService" targetNamespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 
 	<wsdl:types>
 
-		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			attributeFormDefault="unqualified" elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/search/v1/services"
-			xmlns:tns="http://www.ebay.com/marketplace/search/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 
 			<xs:element name="findItemsRequest" type="tns:FindItemsRequest">
 			</xs:element>
@@ -25,7 +16,7 @@
 			<xs:element name="findItemsByIdsResponse" type="tns:FindItemsByIdsResponse">
 			</xs:element>
 
-			<xs:element name="getVersionRequest" type="tns:GetVersionRequest" />
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
 
 			<xs:complexType name="GetVersionRequest">
 				<xs:annotation>
@@ -41,17 +32,16 @@
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
-					<xs:extension base="tns:BaseServiceRequest"></xs:extension>
+					<xs:extension base="tns:BaseServiceRequest"/>
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:element name="getVersionResponse" nillable="true"
-				type="tns:GetVersionResponse" />
+			<xs:element name="getVersionResponse" nillable="true" type="tns:GetVersionResponse"/>
 
 			<xs:complexType name="GetVersionResponse">
 				<xs:annotation>
-					<xs:documentation />
-					<xs:appinfo />
+					<xs:documentation/>
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
@@ -81,8 +71,7 @@
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
 
-							<xs:element maxOccurs="1" minOccurs="1" name="serviceContext"
-								type="tns:ServiceContext">
+							<xs:element maxOccurs="1" minOccurs="1" name="serviceContext" type="tns:ServiceContext">
 								<xs:annotation>
 									<xs:documentation>
 										Specify context information for
@@ -102,8 +91,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element maxOccurs="1" minOccurs="1" name="itemSearchScope"
-								type="tns:ItemSearchScopeEnum">
+							<xs:element maxOccurs="1" minOccurs="1" name="itemSearchScope" type="tns:ItemSearchScopeEnum">
 								<xs:annotation>
 									<xs:documentation>
 										Specify scope of the search.
@@ -111,8 +99,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element maxOccurs="1" minOccurs="1" name="fetchOffset"
-								type="xs:int">
+							<xs:element maxOccurs="1" minOccurs="1" name="fetchOffset" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										Number of records to skip in the
@@ -122,8 +109,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element maxOccurs="1" minOccurs="1" name="fetchSize"
-								type="xs:int">
+							<xs:element maxOccurs="1" minOccurs="1" name="fetchSize" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										Number of records to fetch in
@@ -133,8 +119,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element maxOccurs="unbounded" minOccurs="1" name="readSet"
-								type="tns:Field">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="readSet" type="tns:Field">
 								<xs:annotation>
 									<xs:documentation>
 										Specify what need to be returned
@@ -156,8 +141,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element maxOccurs="unbounded" minOccurs="1"
-								name="constraint" type="tns:Constraint">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="constraint" type="tns:Constraint">
 								<xs:annotation>
 									<xs:documentation>
 										Specify constraint to filter
@@ -176,8 +160,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element maxOccurs="4" minOccurs="1" name="sortBy"
-								type="tns:SortBy">
+							<xs:element maxOccurs="4" minOccurs="1" name="sortBy" type="tns:SortBy">
 								<xs:annotation>
 									<xs:documentation>
 										Specify sort options.
@@ -195,8 +178,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="distribution" type="tns:AbstractDistributionRequest">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="distribution" type="tns:AbstractDistributionRequest">
 								<xs:annotation>
 									<xs:documentation>
 										Specify distribution information
@@ -215,8 +197,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="bucket"
-								type="tns:BucketRequest">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="bucket" type="tns:BucketRequest">
 								<xs:annotation>
 									<xs:documentation>
 										With bucket request, the
@@ -237,8 +218,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="permutation"
-								type="tns:PermutationRequest">
+							<xs:element maxOccurs="1" minOccurs="0" name="permutation" type="tns:PermutationRequest">
 								<xs:annotation>
 									<xs:documentation>
 										Specify permutation
@@ -256,8 +236,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="uniqueBy"
-								type="tns:UniqueBy">
+							<xs:element maxOccurs="1" minOccurs="0" name="uniqueBy" type="tns:UniqueBy">
 								<xs:annotation>
 									<xs:documentation>
 										Specify dedupe requirements.
@@ -275,8 +254,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element name="blendBy" type="tns:BlendBy"
-								minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="blendBy" type="tns:BlendBy">
 								<xs:annotation>
 									<xs:documentation>
 										Specify how inventory should be
@@ -287,8 +265,7 @@
 
 							</xs:element>
 
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="includeDiagnosticInfo" type="xs:boolean">
+							<xs:element maxOccurs="1" minOccurs="0" name="includeDiagnosticInfo" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>
 										if this flag is true, diagnostic
@@ -298,8 +275,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="dfn" type="tns:DominantProductTypeRequest"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="dfn" type="tns:DominantProductTypeRequest">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -322,8 +298,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="resultSummaryInfo" type="tns:ResultSummaryInfo">
+							<xs:element maxOccurs="1" minOccurs="0" name="resultSummaryInfo" type="tns:ResultSummaryInfo">
 								<xs:annotation>
 									<xs:documentation>
 										Contains pagination information.
@@ -337,8 +312,7 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="searchResultSet" type="tns:SearchRecord">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="searchResultSet" type="tns:SearchRecord">
 								<xs:annotation>
 									<xs:documentation>
 										Contains result item
@@ -347,8 +321,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="distributionResultSet" type="tns:AbstractDistributionResponse">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="distributionResultSet" type="tns:AbstractDistributionResponse">
 								<xs:annotation>
 									<xs:documentation>
 										Contains result item
@@ -357,8 +330,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="bucketResultSet" type="tns:BucketResponse">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="bucketResultSet" type="tns:BucketResponse">
 								<xs:annotation>
 									<xs:documentation>
 										Contains item information for
@@ -367,8 +339,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="permutationResult" type="tns:PermutationResponse">
+							<xs:element maxOccurs="1" minOccurs="0" name="permutationResult" type="tns:PermutationResponse">
 								<xs:annotation>
 									<xs:documentation>
 										Contains permutation result.
@@ -376,8 +347,7 @@
 								</xs:annotation>
 							</xs:element>
 							
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="fitmentResult" type="tns:FitmentResponse">
+							<xs:element maxOccurs="1" minOccurs="0" name="fitmentResult" type="tns:FitmentResponse">
 								<xs:annotation>
 									<xs:documentation>
 										Contains fitment result.
@@ -385,8 +355,7 @@
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element name="diagnosticInfo" type="tns:DiagnosticInfo"
-								maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="diagnosticInfo" type="tns:DiagnosticInfo">
 								<xs:annotation>
 									<xs:documentation>
 										Contains diagnostic information
@@ -410,8 +379,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="dfnResponse" type="tns:DominantProductTypeResponse"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="dfnResponse" type="tns:DominantProductTypeResponse">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -420,7 +388,7 @@
 
 			<xs:complexType name="FindItemsByIdsRequest">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
 						<CallInfo>
 							<CallName>findItemsByIds</CallName>
@@ -430,8 +398,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="serviceContext"
-								type="tns:ServiceContext">
+							<xs:element maxOccurs="1" minOccurs="1" name="serviceContext" type="tns:ServiceContext">
 								<xs:annotation>
 									<xs:documentation>
 										Specify context information for
@@ -440,16 +407,14 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="itemSearchScope"
-								type="tns:ItemSearchScopeEnum">
+							<xs:element maxOccurs="1" minOccurs="0" name="itemSearchScope" type="tns:ItemSearchScopeEnum">
 								<xs:annotation>
 									<xs:documentation>
 										Specify scope of the search.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="1" name="readSet"
-								type="tns:Field">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="readSet" type="tns:Field">
 								<xs:annotation>
 									<xs:documentation>
 										Specify what need to be returned
@@ -460,8 +425,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="1" name="id"
-								type="xs:long">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="id" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 										List of Item Ids as primary keys
@@ -469,8 +433,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="includeDiagnosticInfo" type="xs:boolean">
+							<xs:element maxOccurs="1" minOccurs="0" name="includeDiagnosticInfo" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>
 										if this flag is true, diagnostic
@@ -487,7 +450,7 @@
 
 			<xs:complexType name="FindItemsByIdsResponse">
 				<xs:annotation>
-					<xs:documentation />
+					<xs:documentation/>
 					<xs:appinfo>
 						<CallInfo>
 							<CallName>findItemsByIds</CallName>
@@ -497,24 +460,21 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="matchCount"
-								type="xs:int">
+							<xs:element maxOccurs="1" minOccurs="1" name="matchCount" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										Total matching entries.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="itemResults" type="tns:SearchRecord">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="itemResults" type="tns:SearchRecord">
 								<xs:annotation>
 									<xs:documentation>
 										List of matching item results.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="diagnosticInfo" type="tns:DiagnosticInfo"
-								maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="diagnosticInfo" type="tns:DiagnosticInfo">
 								<xs:annotation>
 									<xs:documentation>
 										Contains diagnostic information
@@ -587,7 +547,7 @@
 					<xs:documentation>
 						The list of predefined sort type.
 					</xs:documentation>
-					<xs:appinfo />
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="CurrentPrice">
@@ -639,14 +599,13 @@
 
 			<xs:complexType name="ItemSortType">
 				<xs:annotation>
-					<xs:documentation />
-					<xs:appinfo />
+					<xs:documentation/>
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:SortTypeBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="sortTypeEnum"
-								type="tns:ItemSortTypeEnum">
+							<xs:element maxOccurs="1" minOccurs="1" name="sortTypeEnum" type="tns:ItemSortTypeEnum">
 								<xs:annotation>
 									<xs:documentation>
 									</xs:documentation>
@@ -659,41 +618,37 @@
 
 			<xs:complexType name="BestMatchSortType">
 				<xs:choice>
-					<xs:element name="baseImageSimilaritySortType" type="tns:BaseImageSimilaritySortType"></xs:element>
+					<xs:element name="baseImageSimilaritySortType" type="tns:BaseImageSimilaritySortType"/>
 				</xs:choice>
 			</xs:complexType>
 
 			<xs:complexType name="BestMatchSortTypeBase">
 				<xs:annotation>
-					<xs:documentation />
-					<xs:appinfo />
+					<xs:documentation/>
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:SortTypeBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0" name="profileId"
-								type="xs:int">
+							<xs:element maxOccurs="1" minOccurs="0" name="profileId" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="shiptocty"
-								type="xs:int">
+							<xs:element maxOccurs="1" minOccurs="1" name="shiptocty" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="zipcode"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="zipcode" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="config"
-                                type="tns:Property">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="config" type="tns:Property">
                                  <xs:annotation>
                                     <xs:documentation>
                                          Best match related configs as a list of name value pairs.
@@ -712,37 +667,33 @@
 					<xs:documentation>
 						Base type of image similarity sort type
 					</xs:documentation>
-					<xs:appinfo />
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BestMatchSortTypeBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="colorVersion"
-								type="xs:int">
+							<xs:element maxOccurs="1" minOccurs="1" name="colorVersion" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										version number for color digest
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="edgeVersion"
-								type="xs:int">
+							<xs:element maxOccurs="1" minOccurs="1" name="edgeVersion" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										version number for edge digest
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="textureVersion"
-								type="xs:int">
+							<xs:element maxOccurs="1" minOccurs="1" name="textureVersion" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										version number for texture digest
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="colorDimensionWeight" type="tns:ColorDimensionWeight">
+							<xs:element maxOccurs="1" minOccurs="0" name="colorDimensionWeight" type="tns:ColorDimensionWeight">
 								<xs:annotation>
 									<xs:documentation>
 										weights for color dimensions
@@ -757,8 +708,8 @@
 			</xs:complexType>
 			<xs:complexType name="BaseImageSimilaritySortType">
 				<xs:choice>
-					<xs:element name="imageSimilaritySortTypeByItem" type="tns:ImageSimilaritySortTypeByItem"></xs:element>
-					<xs:element name="imageSimilaritySortTypeBySignature" type="tns:ImageSimilaritySortTypeBySignature"></xs:element>
+					<xs:element name="imageSimilaritySortTypeByItem" type="tns:ImageSimilaritySortTypeByItem"/>
+					<xs:element name="imageSimilaritySortTypeBySignature" type="tns:ImageSimilaritySortTypeBySignature"/>
 				</xs:choice>
 			</xs:complexType>
 			<xs:complexType name="ImageSimilaritySortTypeByItem">
@@ -767,21 +718,19 @@
 						Use this sort type to get similar image items
 						based on a pivot eBay item
 					</xs:documentation>
-					<xs:appinfo />
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseImageSimilaritySortTypeBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="itemId"
-								type="xs:long">
+							<xs:element maxOccurs="1" minOccurs="1" name="itemId" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 										Pivot item id
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="digestTypeData" type="tns:DigestTypeData">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="digestTypeData" type="tns:DigestTypeData">
 								<xs:annotation>
 									<xs:documentation>
 										(digest type, weight) pair to
@@ -802,13 +751,12 @@
 						Use this sort type to get similar image items
 						based on an image value
 					</xs:documentation>
-					<xs:appinfo />
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseImageSimilaritySortTypeBase">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="1"
-								name="digestValueData" type="tns:DigestValueData">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="digestValueData" type="tns:DigestValueData">
 								<xs:annotation>
 									<xs:documentation>
 										(digest type, digest value,
@@ -827,19 +775,17 @@
 						(digest type, weight) pair to specify weight for
 						each digest type
 					</xs:documentation>
-					<xs:appinfo />
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="digestType"
-						type="tns:DigestTypeEnum">
+					<xs:element maxOccurs="1" minOccurs="1" name="digestType" type="tns:DigestTypeEnum">
 						<xs:annotation>
 							<xs:documentation>
 								digest type (color, edge or texture)
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="weight"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="1" name="weight" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								weight used for calculating image
@@ -856,27 +802,24 @@
 					<xs:documentation>
 						(digest type, digest value, weight) data
 					</xs:documentation>
-					<xs:appinfo />
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="digestType"
-						type="tns:DigestTypeEnum">
+					<xs:element maxOccurs="1" minOccurs="1" name="digestType" type="tns:DigestTypeEnum">
 						<xs:annotation>
 							<xs:documentation>
 								digest type (color, edge or texture)
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="digestValue"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="digestValue" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								digest value for the given digest type
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="weight"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="0" name="weight" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								weight used for calculating image
@@ -894,27 +837,24 @@
 						weight used for calculating image similarity for
 						each of the color dimensions
 					</xs:documentation>
-					<xs:appinfo />
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0" name="hueWeight"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="0" name="hueWeight" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								weight for color hue
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="satWeight"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="0" name="satWeight" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								weight for color saturation
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="lumWeight"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="0" name="lumWeight" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								weight for color lumination
@@ -931,9 +871,9 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="COLOR" />
-					<xs:enumeration value="EDGE" />
-					<xs:enumeration value="TEXTURE" />
+					<xs:enumeration value="COLOR"/>
+					<xs:enumeration value="EDGE"/>
+					<xs:enumeration value="TEXTURE"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -941,21 +881,19 @@
 
 			<xs:complexType name="DistanceSortType">
 				<xs:annotation>
-					<xs:documentation />
-					<xs:appinfo />
+					<xs:documentation/>
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:SortTypeBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="postalCode"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="postalCode" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="shiptocty"
-								type="xs:int">
+							<xs:element maxOccurs="1" minOccurs="0" name="shiptocty" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										country id. By default we use
@@ -970,21 +908,19 @@
 
 			<xs:complexType name="PricePlusShippingSortType">
 				<xs:annotation>
-					<xs:documentation />
-					<xs:appinfo />
+					<xs:documentation/>
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:SortTypeBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="postalCode"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="postalCode" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="shiptocty"
-								type="xs:int">
+							<xs:element maxOccurs="1" minOccurs="0" name="shiptocty" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										country id. By default we use
@@ -1008,8 +944,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -1069,8 +1004,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -1089,8 +1023,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -1103,7 +1036,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
@@ -1120,7 +1053,7 @@
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -1129,10 +1062,10 @@
 
 					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
@@ -1142,11 +1075,11 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -1165,37 +1098,33 @@
 						This type contains aggregated shipping
 						information for an item.
 					</xs:documentation>
-					<xs:appinfo />
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:FieldValueBase">
 						<xs:sequence>
-							<xs:element name="shipCost" type="xs:double"
-								minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="shipCost" type="xs:double">
 								<xs:annotation>
 									<xs:documentation>
 										shipping cost
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="insuranceCost" type="xs:double"
-								minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="insuranceCost" type="xs:double">
 								<xs:annotation>
 									<xs:documentation>
 										insurance cost
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="mailClass" type="xs:int" minOccurs="1"
-								maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="mailClass" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										mail class
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="errorCode" type="xs:int" minOccurs="1"
-								maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="errorCode" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										error code as defined by Search
@@ -1203,8 +1132,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="shipCostWithInsurance" type="xs:double"
-								minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="shipCostWithInsurance" type="xs:double">
 								<xs:annotation>
 									<xs:documentation>
 										combined cost for shipping and
@@ -1212,8 +1140,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="shippingZone" type="xs:int"
-								minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="shippingZone" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										shipping zone
@@ -1231,37 +1158,33 @@
 						This type contains aggregated information for a
 						trait of a MSKU item returned in search results.
 					</xs:documentation>
-					<xs:appinfo />
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:FieldValueBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="logicalName"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="logicalName" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										the name of the trait.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="displayName"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="displayName" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										the display name of the trait.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="nameSpace"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="nameSpace" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										the namespace of the trait.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="index"
-								type="xs:int">
+							<xs:element maxOccurs="1" minOccurs="1" name="index" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										the index of the trait.
@@ -1279,21 +1202,19 @@
 						This type contains aggregated information about
 						seller logo.
 					</xs:documentation>
-					<xs:appinfo />
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:FieldValueBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="imageUrl"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="imageUrl" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										The URL for the logo image.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="imageType"
-								type="xs:int">
+							<xs:element maxOccurs="1" minOccurs="1" name="imageType" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>
 										The type for logo image.
@@ -1311,16 +1232,15 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 
 			</xs:simpleType>
@@ -1331,26 +1251,24 @@
 					</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long" />
-					<xs:element name="domain" type="xs:string" />
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
 					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 					</xs:element>
 					<xs:element name="severity" type="tns:ErrorSeverity">
 					</xs:element>
 					<xs:element name="category" type="tns:ErrorCategory">
 					</xs:element>
-					<xs:element name="message" type="xs:string" />
+					<xs:element name="message" type="xs:string"/>
 					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"
-						type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 					</xs:element>
 				</xs:sequence>
 
@@ -1363,8 +1281,7 @@
 					</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -1375,8 +1292,7 @@
 				-->
 
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"
-						type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 					</xs:element>
 				</xs:sequence>
 
@@ -1388,8 +1304,7 @@
 					</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -1407,15 +1322,14 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -1480,22 +1394,19 @@
 						request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								the name of the distribution request.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="fetchOffset"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="0" name="fetchOffset" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								the fetch offset of the distribution
@@ -1503,8 +1414,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="fetchSize"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="0" name="fetchSize" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								the fetch size of the distribution
@@ -1521,8 +1431,7 @@
 						request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -1531,22 +1440,19 @@
 				<xs:element name="distributionRequest" type="tns:DistributionRequest"/>
 				</xs:choice>
 			</xs:complexType>
-			<xs:complexType abstract="true"
-				name="AbstractDistributionResponseBase">
+			<xs:complexType abstract="true" name="AbstractDistributionResponseBase">
 				<xs:annotation>
 					<xs:documentation>
 						This is the abstract type of distribution
 						response.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -1557,8 +1463,7 @@
 						response.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -1576,24 +1481,21 @@
 						AggregateNumericOperator.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:NumericExpressionBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="operator"
-								type="tns:AggregateNumericOperator">
+							<xs:element maxOccurs="1" minOccurs="1" name="operator" type="tns:AggregateNumericOperator">
 								<xs:annotation>
 									<xs:documentation>
 										The operator for the expression.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="operand"
-								type="tns:Operand">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="operand" type="tns:Operand">
 								<xs:annotation>
 									<xs:documentation>
 										The operand of the expression.
@@ -1613,8 +1515,7 @@
 						distribution data.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -1680,8 +1581,7 @@
 						This type defines the basic relation operators.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -1737,16 +1637,14 @@
 			</xs:simpleType>
 			<xs:complexType name="BaseServiceContext">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="globalId"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="globalId" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The Global Id as defined in SOA platform
@@ -1755,8 +1653,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="partnerId"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="0" name="partnerId" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								The partner id as defined in ParnerEnum,
@@ -1779,14 +1676,12 @@
 					</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="dimension"
-						type="tns:Member">
+					<xs:element maxOccurs="1" minOccurs="1" name="dimension" type="tns:Member">
 						<xs:annotation>
 							<xs:documentation>
 								The member element as the dimension for
@@ -1803,16 +1698,14 @@
 						This type defines field value of boolean type.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:FieldValueBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="value"
-								type="xs:boolean">
+							<xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>
 										FieldValeus are used to hold
@@ -1840,15 +1733,13 @@
 					</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The name of the bucket.
@@ -1856,8 +1747,7 @@
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element maxOccurs="unbounded" minOccurs="1" name="constraint"
-						type="tns:Constraint">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="constraint" type="tns:Constraint">
 						<xs:annotation>
 							<xs:documentation>
 								Only items meet the constraint are put
@@ -1867,8 +1757,7 @@
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element maxOccurs="1" minOccurs="1" name="fetchCount"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="1" name="fetchCount" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								The count of items that are requited to
@@ -1887,14 +1776,12 @@
 					</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The name is same as the name in
@@ -1903,8 +1790,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="totalCount"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="1" name="totalCount" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								The matching item count for the Bucket
@@ -1912,8 +1798,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="items"
-						type="tns:SearchRecord">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="items" type="tns:SearchRecord">
 						<xs:annotation>
 							<xs:documentation>
 								A list of item records, which contains
@@ -1931,16 +1816,14 @@
 						AND(MACRO(SaleClass,1),LEQ(SafeStartTime,NOW)).
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:LogicalExpressionBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="operator"
-								type="tns:CompositeOperator">
+							<xs:element maxOccurs="1" minOccurs="1" name="operator" type="tns:CompositeOperator">
 								<xs:annotation>
 									<xs:documentation>
 										The operator for the expression.
@@ -1950,8 +1833,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="1" name="operand"
-								type="tns:Operand">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:Operand">
 								<xs:annotation>
 									<xs:documentation>
 										The operand for the expression.
@@ -1968,14 +1850,12 @@
 						This type defines the voyager constraint.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="internalExpression"
-						type="tns:LogicalExpression">
+					<xs:element maxOccurs="1" minOccurs="1" name="internalExpression" type="tns:LogicalExpression">
 						<xs:annotation>
 							<xs:documentation>
 								The Logical Expression that evaluates to
@@ -1993,16 +1873,14 @@
 						This type defines field value of date type.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:FieldValueBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="value"
-								type="xs:dateTime">
+							<xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:dateTime">
 								<xs:annotation>
 									<xs:documentation>
 										FieldValeus are used to hold
@@ -2028,8 +1906,7 @@
 						means current time.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -2037,8 +1914,7 @@
 					<xs:extension base="tns:OperandBase">
 						<xs:sequence>
 							<xs:choice>
-								<xs:element maxOccurs="1" minOccurs="0" name="now"
-									type="xs:boolean">
+								<xs:element maxOccurs="1" minOccurs="0" name="now" type="xs:boolean">
 									<xs:annotation>
 										<xs:documentation>
 											If this element is set to be
@@ -2048,8 +1924,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element maxOccurs="1" minOccurs="0" name="operand"
-									type="xs:dateTime">
+								<xs:element maxOccurs="1" minOccurs="0" name="operand" type="xs:dateTime">
 									<xs:annotation>
 										<xs:documentation>
 											This element specifies a
@@ -2070,14 +1945,12 @@
 						This type holds the logs returned from Voyager.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0" name="sender"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="sender" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The name or id of the application or
@@ -2093,8 +1966,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="record"
-						type="tns:Property">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="record" type="tns:Property">
 						<xs:annotation>
 							<xs:documentation>
 								The logs as a list of name value pairs.
@@ -2110,17 +1982,15 @@
 						includeOtherValues is valid if the distribution
 						of this field is
 						range or enumeration and
-						includes &quot;others&quot;
+						includes "others"
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="field"
-						type="tns:Field">
+					<xs:element maxOccurs="1" minOccurs="1" name="field" type="tns:Field">
 						<xs:annotation>
 							<xs:documentation>
 								The field that the distribution is based
@@ -2131,8 +2001,7 @@
 						</xs:annotation>
 					</xs:element>
 					<xs:choice>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="range"
-							type="tns:RangeValue">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="range" type="tns:RangeValue">
 							<xs:annotation>
 								<xs:documentation>
 									All numeric ranges are represented
@@ -2141,8 +2010,7 @@
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element maxOccurs="unbounded" minOccurs="0"
-							name="enumeration" type="tns:EnumerationValue">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="enumeration" type="tns:EnumerationValue">
 							<xs:annotation>
 								<xs:documentation>
 									All enumeration values are
@@ -2153,8 +2021,7 @@
 							</xs:annotation>
 						</xs:element>
 					</xs:choice>
-					<xs:element maxOccurs="1" minOccurs="0" name="includeOtherValues"
-						type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="0" name="includeOtherValues" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								Other values means values that are not
@@ -2172,14 +2039,12 @@
 						This type defines distribution record.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="1" name="valueId"
-						type="xs:string">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="valueId" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								It's a list of value Id's for each
@@ -2189,8 +2054,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="1"
-						name="aggregationValue" type="tns:FieldValue">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="aggregationValue" type="tns:FieldValue">
 						<xs:annotation>
 							<xs:documentation>
 								A list of aggregation values
@@ -2208,16 +2072,14 @@
 						This type defines distribution request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:AbstractDistributionRequestBase">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="1"
-								name="distributionFields" type="tns:DistributionField">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="distributionFields" type="tns:DistributionField">
 								<xs:annotation>
 									<xs:documentation>
 										The fields of the distribution
@@ -2225,8 +2087,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="1"
-								name="aggregateFunction" type="tns:AggregateNumericExpression">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="aggregateFunction" type="tns:AggregateNumericExpression">
 								<xs:annotation>
 									<xs:documentation>
 										The aggregate function used for
@@ -2235,8 +2096,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="distributionSort"
-								type="tns:DistributionSortBy">
+							<xs:element maxOccurs="1" minOccurs="1" name="distributionSort" type="tns:DistributionSortBy">
 								<xs:annotation>
 									<xs:documentation>
 										Indicates the sort of the
@@ -2244,8 +2104,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="requestHeader"
-								type="xs:boolean">
+							<xs:element maxOccurs="1" minOccurs="0" name="requestHeader" type="xs:boolean">
 								<xs:annotation>
 									<xs:documentation>
 										Indicates if header counts are
@@ -2264,16 +2123,14 @@
 						This type defines distribution response.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:AbstractDistributionResponseBase">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="result"
-								type="tns:DistributionRecord">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="result" type="tns:DistributionRecord">
 								<xs:annotation>
 									<xs:documentation>
 										The distribution data as a list
@@ -2294,22 +2151,19 @@
 						distribution result entries.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0" name="sortStrategy"
-						type="tns:DistributionSortStrategy">
+					<xs:element maxOccurs="1" minOccurs="0" name="sortStrategy" type="tns:DistributionSortStrategy">
 						<xs:annotation>
 							<xs:documentation>
 								This defines some predefined sort types.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="sortType"
-						type="tns:DistributionSortType">
+					<xs:element maxOccurs="1" minOccurs="0" name="sortType" type="tns:DistributionSortType">
 						<xs:annotation>
 							<xs:documentation>
 								Indicate sort by first field or by first
@@ -2317,16 +2171,14 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="sortOrder"
-						type="tns:SortOrder">
+					<xs:element maxOccurs="1" minOccurs="0" name="sortOrder" type="tns:SortOrder">
 						<xs:annotation>
 							<xs:documentation>
 								The order of the sort.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="sortbyvalue"
-						type="xs:boolean">
+					<xs:element maxOccurs="1" minOccurs="0" name="sortbyvalue" type="xs:boolean">
 						<xs:annotation>
 							<xs:documentation>
 								sort by aggregation function.
@@ -2344,8 +2196,7 @@
 						not specify, default is ByField
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -2379,16 +2230,14 @@
 						This type defines field value of double type.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:FieldValueBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="value"
-								type="xs:double">
+							<xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:double">
 								<xs:annotation>
 									<xs:documentation>
 										FieldValeus are used to hold
@@ -2413,16 +2262,14 @@
 						This type defines double operand.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:OperandBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="operand"
-								type="xs:double">
+							<xs:element maxOccurs="1" minOccurs="1" name="operand" type="xs:double">
 								<xs:annotation>
 									<xs:documentation>
 										Operand of type double that can
@@ -2441,14 +2288,12 @@
 						This type defines enumeration values.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="1" name="enumValue"
-						type="xs:token">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="enumValue" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								A list of enumeration values of string
@@ -2469,16 +2314,14 @@
 						NumericExpression.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:FieldBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0" name="name"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="0" name="name" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										The name of the expression.
@@ -2500,18 +2343,17 @@
 						NumericExpression.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:choice>
-				<xs:element name="compositeLogicalExpression" type="tns:CompositeLogicalExpression"></xs:element>
-				<xs:element name="keywordLogicalExpression" type="tns:KeywordLogicalExpression"></xs:element>
-				<xs:element name="simpleLogicalExpression" type="tns:SimpleLogicalExpression"></xs:element>
-				<xs:element name="strategyLogicalExpression" type="tns:StrategyLogicalExpression"></xs:element>
-				<xs:element name="aggregatenumericExpression" type="tns:AggregateNumericExpression"></xs:element>
-				<xs:element name="simplenumericExpression" type="tns:SimpleNumericExpression"></xs:element>
+				<xs:element name="compositeLogicalExpression" type="tns:CompositeLogicalExpression"/>
+				<xs:element name="keywordLogicalExpression" type="tns:KeywordLogicalExpression"/>
+				<xs:element name="simpleLogicalExpression" type="tns:SimpleLogicalExpression"/>
+				<xs:element name="strategyLogicalExpression" type="tns:StrategyLogicalExpression"/>
+				<xs:element name="aggregatenumericExpression" type="tns:AggregateNumericExpression"/>
+				<xs:element name="simplenumericExpression" type="tns:SimpleNumericExpression"/>
 			</xs:choice>
 			</xs:complexType>
 			<xs:complexType abstract="true" name="FieldBase">
@@ -2526,8 +2368,7 @@
 						Member and Expression.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -2544,19 +2385,18 @@
 						Member and Expression.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 			<xs:choice>
-				<xs:element name="member" type="tns:Member"></xs:element>
-				<xs:element name="compositeLogicalExpression" type="tns:CompositeLogicalExpression"></xs:element>
-				<xs:element name="keywordLogicalExpression" type="tns:KeywordLogicalExpression"></xs:element>
-				<xs:element name="simpleLogicalExpression" type="tns:SimpleLogicalExpression"></xs:element>
-				<xs:element name="strategyLogicalExpression" type="tns:StrategyLogicalExpression"></xs:element>
-				<xs:element name="aggregatenumericExpression" type="tns:AggregateNumericExpression"></xs:element>
-				<xs:element name="simplenumericExpression" type="tns:SimpleNumericExpression"></xs:element>
+				<xs:element name="member" type="tns:Member"/>
+				<xs:element name="compositeLogicalExpression" type="tns:CompositeLogicalExpression"/>
+				<xs:element name="keywordLogicalExpression" type="tns:KeywordLogicalExpression"/>
+				<xs:element name="simpleLogicalExpression" type="tns:SimpleLogicalExpression"/>
+				<xs:element name="strategyLogicalExpression" type="tns:StrategyLogicalExpression"/>
+				<xs:element name="aggregatenumericExpression" type="tns:AggregateNumericExpression"/>
+				<xs:element name="simplenumericExpression" type="tns:SimpleNumericExpression"/>
 			</xs:choice>
 			</xs:complexType>
 			<xs:complexType name="FieldOperand">
@@ -2565,16 +2405,14 @@
 						This type defines field operand.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:OperandBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="operand"
-								type="tns:Field">
+							<xs:element maxOccurs="1" minOccurs="1" name="operand" type="tns:Field">
 								<xs:annotation>
 									<xs:documentation>
 										Operand of type Field that can
@@ -2593,8 +2431,7 @@
 						This is the abstract type for field value.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -2605,8 +2442,7 @@
 						This is the abstract type for field value.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -2630,22 +2466,19 @@
 						its value(s) in the search results.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="field"
-						type="tns:Field">
+					<xs:element maxOccurs="1" minOccurs="1" name="field" type="tns:Field">
 						<xs:annotation>
 							<xs:documentation>
 								The field as the key.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="1" name="fieldValue"
-						type="tns:FieldValue">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="fieldValue" type="tns:FieldValue">
 						<xs:annotation>
 							<xs:documentation>
 								The values corresponding to the Field.
@@ -2662,24 +2495,21 @@
 						type to construct a query constraint.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:LogicalExpressionBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="operator"
-								type="tns:KeywordOperator">
+							<xs:element maxOccurs="1" minOccurs="1" name="operator" type="tns:KeywordOperator">
 								<xs:annotation>
 									<xs:documentation>
 										The operator of the expression.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="member"
-								type="tns:Member">
+							<xs:element maxOccurs="1" minOccurs="0" name="member" type="tns:Member">
 								<xs:annotation>
 									<xs:documentation>
 										The member denotes a different
@@ -2693,8 +2523,7 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="1" name="operand"
-								type="tns:TokenOperand">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:TokenOperand">
 								<xs:annotation>
 									<xs:documentation>
 										The operand of the expression.
@@ -2707,10 +2536,9 @@
 			</xs:complexType>
 			<xs:simpleType name="KeywordOperator">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -2742,13 +2570,12 @@
 						CompositeLogicalExpression
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
-					<xs:extension base="tns:ExpressionBase"></xs:extension>
+					<xs:extension base="tns:ExpressionBase"/>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="LogicalExpression">
@@ -2762,16 +2589,15 @@
 						CompositeLogicalExpression
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:choice>
-				<xs:element name="compositeLogicalExpression" type="tns:CompositeLogicalExpression"></xs:element>
-				<xs:element name="keywordLogicalExpression" type="tns:KeywordLogicalExpression"></xs:element>
-				<xs:element name="simpleLogicalExpression" type="tns:SimpleLogicalExpression"></xs:element>
-				<xs:element name="strategyLogicalExpression" type="tns:StrategyLogicalExpression"></xs:element>
+				<xs:element name="compositeLogicalExpression" type="tns:CompositeLogicalExpression"/>
+				<xs:element name="keywordLogicalExpression" type="tns:KeywordLogicalExpression"/>
+				<xs:element name="simpleLogicalExpression" type="tns:SimpleLogicalExpression"/>
+				<xs:element name="strategyLogicalExpression" type="tns:StrategyLogicalExpression"/>
 				</xs:choice>
 			</xs:complexType>
 			<xs:complexType name="LongFieldValue">
@@ -2780,16 +2606,14 @@
 						This type defines field value of long type.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:FieldValueBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="value"
-								type="xs:long">
+							<xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 										FieldValeus are used to hold
@@ -2813,16 +2637,14 @@
 						This type defines long operand.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:OperandBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="operand"
-								type="xs:long">
+							<xs:element maxOccurs="1" minOccurs="1" name="operand" type="xs:long">
 								<xs:annotation>
 									<xs:documentation>
 										Operand of type long that can be
@@ -2848,16 +2670,14 @@
 						by its namespace and name.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:FieldBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="namespace"
-								type="xs:token">
+							<xs:element maxOccurs="1" minOccurs="1" name="namespace" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
 										The Namespace of the member. For
@@ -2868,16 +2688,14 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="name"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										The name of the Member.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="property"
-								type="tns:Property">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:Property">
 								<xs:annotation>
 									<xs:documentation>
 										Additional properties of the
@@ -2900,24 +2718,21 @@
 						This type defines field value of money type.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:FieldValueBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="value"
-								type="xs:double">
+							<xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:double">
 								<xs:annotation>
 									<xs:documentation>
 										Money value.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="currency"
-								type="xs:token">
+							<xs:element maxOccurs="1" minOccurs="1" name="currency" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
 										Money currency.
@@ -2934,24 +2749,21 @@
 						This type defines money operand.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:OperandBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="value"
-								type="xs:double">
+							<xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:double">
 								<xs:annotation>
 									<xs:documentation>
 										Money value.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="currency"
-								type="xs:token">
+							<xs:element maxOccurs="1" minOccurs="1" name="currency" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
 										Money currency.
@@ -2968,13 +2780,12 @@
 						This the abstract type of numeric expression.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
-					<xs:extension base="tns:ExpressionBase"></xs:extension>
+					<xs:extension base="tns:ExpressionBase"/>
 				</xs:complexContent>
 			</xs:complexType>
 			<xs:complexType name="NumericExpression">
@@ -2983,14 +2794,13 @@
 						This the abstract type of numeric expression.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:choice>
-					<xs:element name="aggregatenumericExpression" type="tns:AggregateNumericExpression"></xs:element>
-					<xs:element name="simplenumericExpression" type="tns:SimpleNumericExpression"></xs:element>
+					<xs:element name="aggregatenumericExpression" type="tns:AggregateNumericExpression"/>
+					<xs:element name="simplenumericExpression" type="tns:SimpleNumericExpression"/>
 				</xs:choice>
 			</xs:complexType>
 			<xs:complexType abstract="true" name="OperandBase">
@@ -2999,8 +2809,7 @@
 						This is the abstract operand.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -3011,18 +2820,17 @@
 						This is the abstract operand.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:choice>
-					<xs:element name="dateOperand" type="tns:DateOperand"></xs:element>
-					<xs:element name="doubleOperand" type="tns:DoubleOperand"></xs:element>
-					<xs:element name="fieldOperand" type="tns:FieldOperand"></xs:element>
-					<xs:element name="longOperand" type="tns:LongOperand"></xs:element>
-					<xs:element name="moneyOperand" type="tns:MoneyOperand"></xs:element>
-					<xs:element name="tokenOperand" type="tns:TokenOperand"></xs:element>
+					<xs:element name="dateOperand" type="tns:DateOperand"/>
+					<xs:element name="doubleOperand" type="tns:DoubleOperand"/>
+					<xs:element name="fieldOperand" type="tns:FieldOperand"/>
+					<xs:element name="longOperand" type="tns:LongOperand"/>
+					<xs:element name="moneyOperand" type="tns:MoneyOperand"/>
+					<xs:element name="tokenOperand" type="tns:TokenOperand"/>
 				</xs:choice>
 			</xs:complexType>
 			<xs:complexType name="PermutationRequest">
@@ -3031,14 +2839,12 @@
 						This is the permutation request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								PermutaionRequest name. This is
@@ -3046,8 +2852,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="1" name="constraint"
-						type="tns:Constraint">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="constraint" type="tns:Constraint">
 						<xs:annotation>
 							<xs:documentation>
 								Permutation constraints.
@@ -3062,14 +2867,12 @@
 						This type defines the permutation response.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="1" name="count"
-						type="xs:int">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="count" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								The count of each permutation.
@@ -3085,22 +2888,19 @@
 						associated with entities.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The name of the property.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="value"
-						type="xs:string">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="value" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The values of the property.
@@ -3111,25 +2911,22 @@
 			</xs:complexType>
 			<xs:complexType name="ResultSummaryInfo">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="matchCount"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="1" name="matchCount" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Total matching entries.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="abridgedMatchCount"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="0" name="abridgedMatchCount" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								Total matching entries after dedupe.
@@ -3145,14 +2942,12 @@
 						results.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="mapping"
-						type="tns:FieldValuesPair">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="mapping" type="tns:FieldValuesPair">
 						<xs:annotation>
 							<xs:documentation>
 								A SearchRecord contains multiple
@@ -3169,34 +2964,30 @@
 						Contextual information used by Search Services.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceContext">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0" name="locale"
-								type="xs:token">
+							<xs:element maxOccurs="1" minOccurs="0" name="locale" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
 										Locale in the format of
-										&quot;language,country,variant&quot;.
+										"language,country,variant".
 										Check java.util.Locale
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="timeZone"
-								type="xs:token">
+							<xs:element maxOccurs="1" minOccurs="0" name="timeZone" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
 										Time zone in the format of
-										&quot;GMT+/-hh:mm&quot; </xs:documentation>
+										"GMT+/-hh:mm" </xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="currency"
-								type="xs:token">
+							<xs:element maxOccurs="1" minOccurs="0" name="currency" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
 										Money currency. Check
@@ -3217,22 +3008,19 @@
 						request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="valueId"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="valueId" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Field value in the format of Hex String.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="count"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="1" name="count" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>count</xs:documentation>
 						</xs:annotation>
@@ -3249,16 +3037,14 @@
 						assumes descending order sort by supply.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:AbstractDistributionRequestBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="field"
-								type="tns:Field">
+							<xs:element maxOccurs="1" minOccurs="1" name="field" type="tns:Field">
 								<xs:annotation>
 									<xs:documentation>
 										The only field to get the COUNT
@@ -3267,16 +3053,14 @@
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="sortOrder"
-								type="tns:SortOrder">
+							<xs:element maxOccurs="1" minOccurs="1" name="sortOrder" type="tns:SortOrder">
 								<xs:annotation>
 									<xs:documentation>
 										The order of the sort.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0" name="sortType"
-								type="tns:DistributionSortType">
+							<xs:element maxOccurs="1" minOccurs="0" name="sortType" type="tns:DistributionSortType">
 								<xs:annotation>
 									<xs:documentation>
 										Indicate sort by first field or
@@ -3292,18 +3076,16 @@
 			</xs:complexType>
 			<xs:complexType name="SimpleCountDistributionResponse">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:AbstractDistributionResponseBase">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="0" name="result"
-								type="tns:SimpleCountDistributionRecord">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="result" type="tns:SimpleCountDistributionRecord">
 								<xs:annotation>
 									<xs:documentation>
 										The distribution results.
@@ -3321,24 +3103,21 @@
 						Member Operator Operand, e.g EQ(StartTime, NOW).
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:LogicalExpressionBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="operator"
-								type="tns:AtomicOperator">
+							<xs:element maxOccurs="1" minOccurs="1" name="operator" type="tns:AtomicOperator">
 								<xs:annotation>
 									<xs:documentation>
 										the operator for the expression
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="member"
-								type="tns:Member">
+							<xs:element maxOccurs="1" minOccurs="1" name="member" type="tns:Member">
 								<xs:annotation>
 									<xs:documentation>
 										the member in the expression
@@ -3346,8 +3125,7 @@
 								</xs:annotation>
 							</xs:element>
 							<xs:choice>
-								<xs:element maxOccurs="1" minOccurs="0" name="longOperand"
-									type="tns:LongOperand">
+								<xs:element maxOccurs="1" minOccurs="0" name="longOperand" type="tns:LongOperand">
 									<xs:annotation>
 										<xs:documentation>
 											operand of long type, e.g.
@@ -3356,8 +3134,7 @@
 									</xs:annotation>
 								</xs:element>
 
-								<xs:element maxOccurs="1" minOccurs="0" name="doubleOperand"
-									type="tns:DoubleOperand">
+								<xs:element maxOccurs="1" minOccurs="0" name="doubleOperand" type="tns:DoubleOperand">
 									<xs:annotation>
 										<xs:documentation>
 											operand of double type.
@@ -3365,8 +3142,7 @@
 									</xs:annotation>
 								</xs:element>
 
-								<xs:element maxOccurs="1" minOccurs="0" name="moneyOperand"
-									type="tns:MoneyOperand">
+								<xs:element maxOccurs="1" minOccurs="0" name="moneyOperand" type="tns:MoneyOperand">
 									<xs:annotation>
 										<xs:documentation>
 											operand of money type, e.g.
@@ -3376,8 +3152,7 @@
 									</xs:annotation>
 								</xs:element>
 
-								<xs:element maxOccurs="1" minOccurs="0" name="tokenOperand"
-									type="tns:TokenOperand">
+								<xs:element maxOccurs="1" minOccurs="0" name="tokenOperand" type="tns:TokenOperand">
 									<xs:annotation>
 										<xs:documentation>
 											operand of token type. e.g.
@@ -3386,8 +3161,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element maxOccurs="1" minOccurs="0" name="dateOperand"
-									type="tns:DateOperand">
+								<xs:element maxOccurs="1" minOccurs="0" name="dateOperand" type="tns:DateOperand">
 									<xs:annotation>
 										<xs:documentation>
 											operand of date type, e.g.
@@ -3396,8 +3170,7 @@
 										</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element maxOccurs="1" minOccurs="0"
-									name="expressionOperand" type="tns:SimpleNumericExpression">
+								<xs:element maxOccurs="1" minOccurs="0" name="expressionOperand" type="tns:SimpleNumericExpression">
 									<xs:annotation>
 										<xs:documentation>
 											operand of expression type,
@@ -3419,24 +3192,21 @@
 						voyager, e.g ADD(NOW,10).
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:NumericExpressionBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="operator"
-								type="tns:SimpleNumericOperator">
+							<xs:element maxOccurs="1" minOccurs="1" name="operator" type="tns:SimpleNumericOperator">
 								<xs:annotation>
 									<xs:documentation>
 										The operator of the Expression.
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element maxOccurs="unbounded" minOccurs="1" name="operand"
-								type="tns:Operand">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="operand" type="tns:Operand">
 								<xs:annotation>
 									<xs:documentation>
 										The operand of the Expression.
@@ -3453,8 +3223,7 @@
 						This type defines sort order.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -3481,21 +3250,20 @@
 						This is the abstract type of sorttype.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:complexType>
 			<xs:complexType name="SortType">
 			<xs:choice>
-				<xs:element name="bestMatchSortType" type="tns:BestMatchSortType"></xs:element>
-				<xs:element name="distanceSortType" type="tns:DistanceSortType"></xs:element>
-				<xs:element name="itemSortType" type="tns:ItemSortType"></xs:element>
-				<xs:element name="pricePlusShippingSortType" type="tns:PricePlusShippingSortType"></xs:element>
+				<xs:element name="bestMatchSortType" type="tns:BestMatchSortType"/>
+				<xs:element name="distanceSortType" type="tns:DistanceSortType"/>
+				<xs:element name="itemSortType" type="tns:ItemSortType"/>
+				<xs:element name="pricePlusShippingSortType" type="tns:PricePlusShippingSortType"/>
 				<!--Derived classes of best match sort type are possible leaf choices too -->
-				<xs:element name="imageSimilaritySortTypeByItem" type="tns:ImageSimilaritySortTypeByItem"></xs:element>
-				<xs:element name="imageSimilaritySortTypeBySignature" type="tns:ImageSimilaritySortTypeBySignature"></xs:element>
+				<xs:element name="imageSimilaritySortTypeByItem" type="tns:ImageSimilaritySortTypeByItem"/>
+				<xs:element name="imageSimilaritySortTypeBySignature" type="tns:ImageSimilaritySortTypeBySignature"/>
 			</xs:choice>
 			</xs:complexType>
 			<xs:complexType name="StrategyLogicalExpression">
@@ -3510,16 +3278,14 @@
 						property.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:LogicalExpressionBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="member"
-								type="tns:Member">
+							<xs:element maxOccurs="1" minOccurs="1" name="member" type="tns:Member">
 								<xs:annotation>
 									<xs:documentation>
 										The member for the expression.
@@ -3537,16 +3303,14 @@
 						type.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:FieldValueBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="value"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										The element of string type as
@@ -3568,16 +3332,14 @@
 						search.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:complexContent>
 					<xs:extension base="tns:OperandBase">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="operand"
-								type="xs:token">
+							<xs:element maxOccurs="1" minOccurs="1" name="operand" type="xs:token">
 								<xs:annotation>
 									<xs:documentation>
 										The element of token type as the
@@ -3595,30 +3357,26 @@
 						This type defines the unique by request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The name of the unique-by request.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="field"
-						type="tns:Field">
+					<xs:element maxOccurs="1" minOccurs="1" name="field" type="tns:Field">
 						<xs:annotation>
 							<xs:documentation>
 								The unique by expression.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="excuseExpression"
-						type="tns:Expression">
+					<xs:element maxOccurs="1" minOccurs="1" name="excuseExpression" type="tns:Expression">
 						<xs:annotation>
 							<xs:documentation>
 								This expression defines the cases to be
@@ -3643,8 +3401,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="fetchSize" type="xs:int" maxOccurs="1"
-						minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="fetchSize" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>
 								The product type count to return. By default,
@@ -3652,8 +3409,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="coverageThreshold" type="xs:float"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="coverageThreshold" type="xs:float">
 						<xs:annotation>
 							<xs:documentation>
 								The coverage threshold that product type is
@@ -3714,8 +3470,7 @@
 						Supply, DemandSupplyCoverage
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -3755,8 +3510,7 @@
 			</xs:simpleType>
 			<xs:complexType name="DominantProductTypeResponse">
 				<xs:sequence>
-					<xs:element name="productTypeCoverage" type="tns:ProductTypeCoverage"
-						maxOccurs="unbounded" minOccurs="0">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="productTypeCoverage" type="tns:ProductTypeCoverage">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -3767,23 +3521,18 @@
 						information
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="supplyScore"
-						type="xs:double">
+					<xs:element maxOccurs="1" minOccurs="1" name="supplyScore" type="xs:double">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="demandScore"
-						type="xs:double">
+					<xs:element maxOccurs="1" minOccurs="0" name="demandScore" type="xs:double">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="aggregateScore"
-						type="xs:double">
+					<xs:element maxOccurs="1" minOccurs="1" name="aggregateScore" type="xs:double">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -3794,21 +3543,18 @@
 						and upper bounds.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="lowerBound"
-						type="xs:double">
+					<xs:element maxOccurs="1" minOccurs="1" name="lowerBound" type="xs:double">
 						<xs:annotation>
 							<xs:documentation>
 								The lower bound of the range.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="upperBound"
-						type="xs:double">
+					<xs:element maxOccurs="1" minOccurs="1" name="upperBound" type="xs:double">
 						<xs:annotation>
 							<xs:documentation>
 								The upper bound of the range.
@@ -3825,8 +3571,7 @@
 						form composite constraints or functions.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/>
 					</xs:appinfo>
 				</xs:annotation>
 
@@ -3859,7 +3604,7 @@
 					</xs:enumeration>
 					<xs:enumeration value="SET_FIND">
 						<xs:annotation>
-							<xs:documentation>SetFindSetFind(AND(EQUAL(Make,&quot;Honda,fit&quot;),EQUAL(Model,&quot;Civic,fit&quot;))))
+							<xs:documentation>SetFindSetFind(AND(EQUAL(Make,"Honda,fit"),EQUAL(Model,"Civic,fit"))))
 							</xs:documentation>
 						</xs:annotation>
 					</xs:enumeration>
@@ -3868,45 +3613,45 @@
 
 		<xs:complexType name="FitmentResponse">
 		<xs:annotation>
-			<xs:documentation />
+			<xs:documentation/>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="type" type="tns:FitmentType" minOccurs="1" maxOccurs="1">
+			<xs:element maxOccurs="1" minOccurs="1" name="type" type="tns:FitmentType">
 				<xs:annotation>
 					<xs:documentation>
 						The type of the fitment.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="parameter" type="tns:FitmentParameter" minOccurs="0" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:FitmentParameter">
 				<xs:annotation>
 					<xs:documentation>
 						The list of fitment parameters describing each fitment.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="runSpec" type="xs:boolean" minOccurs="1" maxOccurs="1">
+			<xs:element maxOccurs="1" minOccurs="1" name="runSpec" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>
 						Boolean flag indicating if Fitment by Specicication has been run. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="hasSpec" type="xs:boolean" minOccurs="1" maxOccurs="1">
+			<xs:element maxOccurs="1" minOccurs="1" name="hasSpec" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>
 						Boolean flag indicating if Fitment by Specicication in the result.  
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="truncateSpec" type="xs:boolean" minOccurs="1" maxOccurs="1">
+			<xs:element maxOccurs="1" minOccurs="1" name="truncateSpec" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>
 						Boolean flag indicating if Fitment by Specicication has been truncated. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="truncateApp" type="xs:boolean" minOccurs="1" maxOccurs="1">
+			<xs:element maxOccurs="1" minOccurs="1" name="truncateApp" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>
 						Boolean flag indicating if Fitment by Application has been truncated. 
@@ -3920,10 +3665,10 @@
 		<xs:annotation>
 			<xs:documentation>This type defines one fitment 
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="1" minOccurs="0" name="name" type="xs:string"></xs:element>
-			<xs:element maxOccurs="1" minOccurs="1" name="field" type="tns:Field"></xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="name" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="field" type="tns:Field"/>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:Property">
 				<xs:annotation>
 					<xs:documentation>
@@ -3934,8 +3679,8 @@
 		</xs:sequence>
 	</xs:complexType><xs:complexType name="FitmentFieldValue">
 		<xs:annotation>
-			<xs:documentation></xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+			<xs:documentation/>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/></xs:appinfo></xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="tns:FieldValueBase">
 				<xs:sequence>
@@ -3955,7 +3700,7 @@
 			<xs:documentation>
 				Fitment type defines the available types by which Fitment can be applied.
 			</xs:documentation>	
-		<xs:appinfo><typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/></xs:appinfo></xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NONE">
 				<xs:annotation>
@@ -3978,7 +3723,7 @@
 			<xs:documentation>
 				SortBy is used to define the order of result entries.
 			</xs:documentation>
-		<xs:appinfo><typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+		<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
 			<xs:choice>
 				<xs:element maxOccurs="1" minOccurs="0" name="sortMember" type="tns:Member">
@@ -4017,7 +3762,7 @@
 					This type defines the mathematical operators and other operators that
 					yields a numeric result on operands.		
 				</xs:documentation>
-			<xs:appinfo><typeLibrarySource library="SearchServicesTypeLibrary" namespace="http://www.ebay.com/marketplace/search/v1/typelibrary"></typeLibrarySource></xs:appinfo></xs:annotation>
+			<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/typelibrary"/></xs:appinfo></xs:annotation>
 			
 			<xs:restriction base="xs:string">
 				<xs:enumeration value="ADD">
@@ -4070,25 +3815,23 @@
 	</wsdl:types>
 
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part name="params" element="tns:getVersionRequest" />
+		<wsdl:part element="tns:getVersionRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionResponse">
-		<wsdl:part name="params" element="tns:getVersionResponse" />
+		<wsdl:part element="tns:getVersionResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="findItemsRequest">
-		<wsdl:part name="params" element="tns:findItemsRequest" />
+		<wsdl:part element="tns:findItemsRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="findItemsResponse">
-		<wsdl:part name="params" element="tns:findItemsResponse" />
+		<wsdl:part element="tns:findItemsResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="findItemsByIdsRequest">
-		<wsdl:part name="params"
-			element="tns:findItemsByIdsRequest">
+		<wsdl:part element="tns:findItemsByIdsRequest" name="params">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="findItemsByIdsResponse">
-		<wsdl:part name="params"
-			element="tns:findItemsByIdsResponse">
+		<wsdl:part element="tns:findItemsByIdsResponse" name="params">
 		</wsdl:part>
 	</wsdl:message>
 
@@ -4098,112 +3841,103 @@
 				getVersion returns the current version of the service.
 			</wsdl:documentation>
 			<wsdl:input message="tns:getVersionRequest"/>
-			<wsdl:output message="tns:getVersionResponse" />
+			<wsdl:output message="tns:getVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="findItems">
 			<wsdl:documentation>
 				findItems returns matching items and distribution
 				information according to conditions in request.
 			</wsdl:documentation>
-			<wsdl:input message="tns:findItemsRequest" />
-			<wsdl:output message="tns:findItemsResponse" />
+			<wsdl:input message="tns:findItemsRequest"/>
+			<wsdl:output message="tns:findItemsResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="findItemsByIds">
 			<wsdl:documentation>
 				findItemsByIds returns matching items by the list of
 				Item Ids as the input.
 			</wsdl:documentation>
-			<wsdl:input message="tns:findItemsByIdsRequest" />
-			<wsdl:output message="tns:findItemsByIdsResponse" />
+			<wsdl:input message="tns:findItemsByIdsRequest"/>
+			<wsdl:output message="tns:findItemsByIdsResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
 
-	<wsdl:binding name="FindItemServiceHttpBinding"
-		type="tns:FindItemServicePort">
+	<wsdl:binding name="FindItemServiceHttpBinding" type="tns:FindItemServicePort">
 
 
-		<http:binding verb="POST" />
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:input>
-					<mime:content  part="parameters"
-					type="application/x-www-form-urlencoded" />
+					<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 
 		<wsdl:operation name="findItems">
 
-			<http:operation location="/findItems" />
+			<http:operation location="/findItems"/>
 			<wsdl:input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 
 			</wsdl:output>
 
 		</wsdl:operation>
 		<wsdl:operation name="findItemsByIds">
 
-			<http:operation location="/findItemsByIds" />
+			<http:operation location="/findItemsByIds"/>
 			<wsdl:input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 
-	<wsdl:binding name="FindItemServiceSOAPBinding"
-		type="tns:FindItemServicePort">
+	<wsdl:binding name="FindItemServiceSOAPBinding" type="tns:FindItemServicePort">
 
 
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/getVersion"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 
 		<wsdl:operation name="findItems">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/findItems" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/findItems"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="findItemsByIds">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/findItemsByIds" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/findItemsByIds"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -4216,16 +3950,11 @@
 			conditions. This is a Biz level service which contains
 			business logics.
 		</wsdl:documentation>
-		<wsdl:port name="FindItemServiceHttpPort"
-			binding="tns:FindItemServiceHttpBinding">
-			<http:address
-				location="http://svcs.ebay.com/services/search/FindItemService/v1" />
+		<wsdl:port binding="tns:FindItemServiceHttpBinding" name="FindItemServiceHttpPort">
+			<http:address location="http://svcs.ebay.com/services/search/FindItemService/v1"/>
 		</wsdl:port>
-		<wsdl:port name="FindItemServiceSOAPPort"
-			binding="tns:FindItemServiceSOAPBinding">
-			<soap:address
-				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-				location="http://svcs.ebay.com/services/search/FindItemService/v1" />
+		<wsdl:port binding="tns:FindItemServiceSOAPBinding" name="FindItemServiceSOAPPort">
+			<soap:address location="http://svcs.ebay.com/services/search/FindItemService/v1"/>
 		</wsdl:port>
 	</wsdl:service>
 

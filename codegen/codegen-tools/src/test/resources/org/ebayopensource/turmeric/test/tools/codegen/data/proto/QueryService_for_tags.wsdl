@@ -1,14 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="QueryService"
-	targetNamespace="http://www.ebay.com/marketplace/cloud/v1/services"
-	xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:tns="http://www.ebay.com/marketplace/cloud/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/cloud/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="QueryService" targetNamespace="http://www.ebayopensource.org/tumeric/cloud/v1/services">
 	<types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/cloud/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/cloud/v1/services">
 
 			<xs:simpleType name="ErrorCategory">
 				<xs:annotation>
@@ -16,14 +8,13 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
@@ -34,20 +25,18 @@
 						and reporting
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long" />
-					<xs:element name="domain" type="xs:string" />
-					<xs:element minOccurs="0" name="subdomain" type="xs:string" />
-					<xs:element name="severity" type="xs:string" />
-					<xs:element name="category" type="xs:string" />
-					<xs:element name="message" type="xs:string" />
-					<xs:element minOccurs="0" name="exceptionId" type="xs:token" />
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"
-						type="tns:ErrorParameter" />
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+					<xs:element name="severity" type="xs:string"/>
+					<xs:element name="category" type="xs:string"/>
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -56,8 +45,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!--
@@ -65,8 +53,7 @@
 					processContents="lax" /> </xs:sequence>
 				-->
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"
-						type="xs:string" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -76,16 +63,15 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
-			<xs:element name="getVersionRequest" type="tns:GetVersionRequest" />
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
 			<xs:complexType name="GetVersionRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -99,7 +85,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getVersionResponse" type="tns:GetVersionResponse" />
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -130,27 +116,21 @@
 
 						<xs:sequence>
 
-							<xs:element name="topology" type="xs:string"
-								maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="topology" type="xs:string">
 							</xs:element>
-							<xs:element name="requestCriteria"
-								type="tns:MetricsCriteria" maxOccurs="unbounded"
-								minOccurs="1">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="requestCriteria" type="tns:MetricsCriteria">
 							</xs:element>
-							<xs:element name="startTime"
-								type="xs:dateTime" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="startTime" type="xs:dateTime">
 							</xs:element>
-							<xs:element name="resolution"
-								type="xs:duration" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="resolution" type="xs:duration">
 							</xs:element>
-							<xs:element name="duration"
-								type="xs:duration" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="duration" type="xs:duration">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getMetricsResponse" type="tns:GetMetricsResponse" />
+			<xs:element name="getMetricsResponse" type="tns:GetMetricsResponse"/>
 			<xs:complexType name="GetMetricsResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -161,8 +141,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="1"
-								name="metricResponse" type="tns:PerfMetricsPacket" />
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="metricResponse" type="tns:PerfMetricsPacket"/>
 
 						</xs:sequence>
 					</xs:extension>
@@ -173,16 +152,12 @@
                 	<xs:documentation>Specifies the criterias for the request. </xs:documentation>
                 </xs:annotation>
                 <xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="targetType"
-						type="tns:TargetType">
+					<xs:element maxOccurs="1" minOccurs="1" name="targetType" type="tns:TargetType">
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="grouping"
-						type="tns:Grouping" />
-					<xs:element maxOccurs="1" minOccurs="1" name="targetInstanceName"
-						type="xs:string">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="grouping" type="tns:Grouping"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="targetInstanceName" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="metricName"
-						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="1" name="metricName" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -192,17 +167,17 @@
                 <xs:restriction base="xs:string">
 
 
-					<xs:enumeration value="Server" />
-					<xs:enumeration value="ApplicationService" />
-					<xs:enumeration value="ServiceInstance" />
-					<xs:enumeration value="Cluster" />
-					<xs:enumeration value="Group" />
-					<xs:enumeration value="SearchGrid" />
-					<xs:enumeration value="SearchMiniGrid" />
-					<xs:enumeration value="SearchAggregator" />
-					<xs:enumeration value="SearchRow" />
-					<xs:enumeration value="SearchCol" />
-					<xs:enumeration value="SearchQueryNode" />
+					<xs:enumeration value="Server"/>
+					<xs:enumeration value="ApplicationService"/>
+					<xs:enumeration value="ServiceInstance"/>
+					<xs:enumeration value="Cluster"/>
+					<xs:enumeration value="Group"/>
+					<xs:enumeration value="SearchGrid"/>
+					<xs:enumeration value="SearchMiniGrid"/>
+					<xs:enumeration value="SearchAggregator"/>
+					<xs:enumeration value="SearchRow"/>
+					<xs:enumeration value="SearchCol"/>
+					<xs:enumeration value="SearchQueryNode"/>
 
 				</xs:restriction>
 			</xs:simpleType>
@@ -214,11 +189,9 @@
 					</xs:documentation>
                 </xs:annotation>
                 <xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="groupBy"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="groupBy" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="groupValue"
-						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="1" name="groupValue" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="AckValue">
@@ -231,8 +204,7 @@
 						to the user.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -288,13 +260,11 @@
 						all service operations.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension"
-						type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType abstract="true" name="BaseResponse">
@@ -305,8 +275,7 @@
 						Contains error information associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 
@@ -318,7 +287,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
@@ -334,7 +303,7 @@
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -343,10 +312,10 @@
 
 					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
@@ -356,18 +325,17 @@
 					</xs:element>
 					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension"
-						type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -375,14 +343,13 @@
 					<xs:documentation>Documentation goes here</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string" use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -391,15 +358,14 @@
 					<xs:documentation>Documentation goes here</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
 				</xs:sequence>
 			</xs:complexType>
@@ -420,16 +386,13 @@
 						Service.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MetricsFeedTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/cloud/v1/services"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/cloud/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="stat"
-						type="tns:Statistic"></xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="unit"
-						type="xs:string"></xs:element>
-					<xs:element name="name" type="xs:string"></xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="stat" type="tns:Statistic"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="unit" type="xs:string"/>
+					<xs:element name="name" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="Statistic">
@@ -441,13 +404,12 @@
 						measure.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MetricsFeedTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/cloud/v1/services"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/cloud/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="value" type="xs:double"></xs:element>
-					<xs:element name="name" type="xs:string"></xs:element>
+					<xs:element name="value" type="xs:double"/>
+					<xs:element name="name" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="Group">
@@ -466,17 +428,15 @@
 						and a column.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MetricsFeedTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/cloud/v1/services"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/cloud/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="groupBy" type="tns:GroupType"></xs:element>
-					<xs:element name="groupValue" type="xs:string"></xs:element>
-					<xs:element maxOccurs="unbounded" name="group" type="tns:Group"></xs:element>
+					<xs:element name="groupBy" type="tns:GroupType"/>
+					<xs:element name="groupValue" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" name="group" type="tns:Group"/>
 					<xs:choice>
-						<xs:element maxOccurs="unbounded" name="targetInstance"
-							type="tns:TargetInstance"></xs:element>
+						<xs:element maxOccurs="unbounded" name="targetInstance" type="tns:TargetInstance"/>
 					</xs:choice>
 				</xs:sequence>
 			</xs:complexType>
@@ -486,18 +446,17 @@
 						The GroupType represents a grouping dimension.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MetricsFeedTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/cloud/v1/services"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/cloud/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="NoGrouping"></xs:enumeration>
-					<xs:enumeration value="Pool"></xs:enumeration>
-					<xs:enumeration value="Colo"></xs:enumeration>
-					<xs:enumeration value="SearchGrid"></xs:enumeration>
-					<xs:enumeration value="SearchMiniGrid"></xs:enumeration>
-					<xs:enumeration value="SearchRow"></xs:enumeration>
-					<xs:enumeration value="SearchCol"></xs:enumeration>
+					<xs:enumeration value="NoGrouping"/>
+					<xs:enumeration value="Pool"/>
+					<xs:enumeration value="Colo"/>
+					<xs:enumeration value="SearchGrid"/>
+					<xs:enumeration value="SearchMiniGrid"/>
+					<xs:enumeration value="SearchRow"/>
+					<xs:enumeration value="SearchCol"/>
 					<!-- 
 			others to be added as needed 
 		-->
@@ -511,23 +470,22 @@
 						must match with the ODB 2.0 types or be aliased to them.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MetricsFeedTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/cloud/v1/services"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/cloud/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Server"></xs:enumeration>
-					<xs:enumeration value="ServiceInstance"></xs:enumeration>
-					<xs:enumeration value="ApplicationService"></xs:enumeration>
-					<xs:enumeration value="Cluster"></xs:enumeration>
-					<xs:enumeration value="Pool"></xs:enumeration>
-					<xs:enumeration value="Group"></xs:enumeration>
-					<xs:enumeration value="SearchGrid"></xs:enumeration>
-					<xs:enumeration value="SearchMiniGrid"></xs:enumeration>
-					<xs:enumeration value="SearchAggregator"></xs:enumeration>
-					<xs:enumeration value="SearchRow"></xs:enumeration>
-					<xs:enumeration value="SearchCol"></xs:enumeration>
-					<xs:enumeration value="SearchQueryNode"></xs:enumeration>
+					<xs:enumeration value="Server"/>
+					<xs:enumeration value="ServiceInstance"/>
+					<xs:enumeration value="ApplicationService"/>
+					<xs:enumeration value="Cluster"/>
+					<xs:enumeration value="Pool"/>
+					<xs:enumeration value="Group"/>
+					<xs:enumeration value="SearchGrid"/>
+					<xs:enumeration value="SearchMiniGrid"/>
+					<xs:enumeration value="SearchAggregator"/>
+					<xs:enumeration value="SearchRow"/>
+					<xs:enumeration value="SearchCol"/>
+					<xs:enumeration value="SearchQueryNode"/>
 					<!-- 
 			others to be added as necessary
 		-->
@@ -546,15 +504,14 @@
 							(and computation) interval.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MetricsFeedTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/cloud/v1/services"></typeLibrarySource>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/cloud/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" name="target" type="tns:Target"></xs:element>
-					<xs:element name="topology" type="xs:string"></xs:element>
-					<xs:element name="resolution" type="xs:duration"></xs:element>
-					<xs:element name="startTime" type="xs:dateTime"></xs:element>
+					<xs:element maxOccurs="unbounded" name="target" type="tns:Target"/>
+					<xs:element name="topology" type="xs:string"/>
+					<xs:element name="resolution" type="xs:duration"/>
+					<xs:element name="startTime" type="xs:dateTime"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="Target">
@@ -578,15 +535,13 @@
 						SearchRow is a group type.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MetricsFeedTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/cloud/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/cloud/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" name="group" type="tns:Group"></xs:element>
-					<xs:element name="targetType" type="tns:ManagedObjectType"></xs:element>
+					<xs:element maxOccurs="unbounded" name="group" type="tns:Group"/>
+					<xs:element name="targetType" type="tns:ManagedObjectType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="TargetInstance">
@@ -598,27 +553,27 @@
 						can be used to refer to an instance of this complexType
 						(to avoid duplicate values).
 					</xs:documentation>
-			<xs:appinfo><typeLibrarySource library="MetricsFeedTypeLibrary" namespace="http://www.ebay.com/marketplace/cloud/v1/services"></typeLibrarySource></xs:appinfo></xs:annotation>
+			<xs:appinfo><typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/cloud/v1/services"/></xs:appinfo></xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" name="metric" type="tns:Metric"></xs:element>
-			<xs:element name="name" type="xs:string"></xs:element>
+			<xs:element maxOccurs="unbounded" name="metric" type="tns:Metric"/>
+			<xs:element name="name" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType></xs:schema>
 	</types>
 	<message name="getMetricsRequest">
-		<part name="params" element="tns:getMetricsRequest">
+		<part element="tns:getMetricsRequest" name="params">
 		</part>
 	</message>
 	<message name="getVersionResponse">
-		<part name="params" element="tns:getVersionResponse">
+		<part element="tns:getVersionResponse" name="params">
 		</part>
 	</message>
 	<message name="getVersionRequest">
-		<part name="params" element="tns:getVersionRequest">
+		<part element="tns:getVersionRequest" name="params">
 		</part>
 	</message>
 	<message name="getMetricsResponse">
-		<part name="params" element="tns:getMetricsResponse">
+		<part element="tns:getMetricsResponse" name="params">
 		</part>
 	</message>
 	<portType name="QueryServicePort">
@@ -643,47 +598,44 @@
 		</operation>
 	</portType>
 	<binding name="QueryServiceHttpBinding" type="tns:QueryServicePort">
-		<http:binding verb="POST" />
+		<http:binding verb="POST"/>
 		<operation name="getVersion">
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<input>
-				<mime:content type="application/xml" />
+				<mime:content type="application/xml"/>
 			</input>
 			<output>
-				<mime:content type="application/xml" />
+				<mime:content type="application/xml"/>
 			</output>
 		</operation>
 		<operation name="getMetrics">
-			<http:operation location="/getMetrics" />
+			<http:operation location="/getMetrics"/>
 			<input>
-				<mime:content type="application/xml" />
+				<mime:content type="application/xml"/>
 			</input>
 			<output>
-				<mime:content type="application/xml" />
+				<mime:content type="application/xml"/>
 			</output>
 		</operation>
 	</binding>
 	<binding name="QueryServiceSOAPBinding" type="tns:QueryServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<operation name="getVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/cloud/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/cloud/v1/services/getVersion"/>
 			<input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="getMetrics">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/cloud/v1/services/getMetrics" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/cloud/v1/services/getMetrics"/>
 			<input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 	</binding>
@@ -691,12 +643,11 @@
 		<wsdl:documentation>
 			<version>1.0.0</version>
 		</wsdl:documentation>
-		<port name="QueryServiceHttpPort" binding="tns:QueryServiceHttpBinding">
-			<http:address location="https://svcs.ebay.com/services/cloud/v1/QueryService" />
+		<port binding="tns:QueryServiceHttpBinding" name="QueryServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/cloud/v1/QueryService"/>
 		</port>
-		<port name="QueryServiceSOAPPort" binding="tns:QueryServiceSOAPBinding">
-			<soap12:address
-				location="https://svcs.ebay.com/services/cloud/v1/QueryService" />
+		<port binding="tns:QueryServiceSOAPBinding" name="QueryServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/cloud/v1/QueryService"/>
 		</port>
 	</service>
 </definitions>

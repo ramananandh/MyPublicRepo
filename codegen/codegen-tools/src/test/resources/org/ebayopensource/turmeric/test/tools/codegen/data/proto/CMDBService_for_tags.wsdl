@@ -1,21 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions
-  name="CMDBService"
-  targetNamespace="http://www.ebay.com/services/cmdb/model"
-  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-  xmlns:tns="http://www.ebay.com/services/cmdb/model"
-  xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/services/cmdb/model" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CMDBService" targetNamespace="http://www.ebayopensource.org/services/cmdb/model">
 
 <wsdl:types>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/services/cmdb/model" xmlns:tns="http://www.ebay.com/services/cmdb/model">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/services/cmdb/model">
 
 
-<xs:element name="getVersionResponse"  type="tns:GetVersionResponse" />
+<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 
 <xs:complexType name="GetVersionResponse">
 	<xs:annotation>
@@ -96,7 +85,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					Details about a single error.
@@ -264,7 +253,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -433,31 +422,31 @@
 </xs:simpleType>
 
 
-            <xs:complexType name="Attribute"><xs:annotation></xs:annotation><xs:sequence><xs:element minOccurs="0" name="name" type="xs:string"></xs:element><xs:element minOccurs="0" name="value" type="xs:string"></xs:element><xs:element minOccurs="0" name="type" type="xs:string"></xs:element></xs:sequence></xs:complexType>
-            <xs:complexType name="Attributes"><xs:annotation></xs:annotation><xs:sequence><xs:element minOccurs="0" name="attrCount" type="xs:int"></xs:element><xs:element minOccurs="0" maxOccurs="unbounded" name="attributes" type="tns:Attribute"></xs:element></xs:sequence></xs:complexType>
-            <xs:simpleType name="CMDBDomain"><xs:annotation></xs:annotation><xs:restriction base="xs:string"><xs:enumeration value="WISB"><xs:annotation></xs:annotation></xs:enumeration><xs:enumeration value="WIRI"></xs:enumeration><xs:enumeration value="WIWB"></xs:enumeration></xs:restriction></xs:simpleType>
-            <xs:complexType name="ConfigurationItem"><xs:annotation></xs:annotation><xs:sequence><xs:element minOccurs="0" name="guid" type="xs:string"></xs:element><xs:element minOccurs="0" name="type" type="xs:string"></xs:element><xs:element minOccurs="0" name="attributes" type="tns:Attributes"></xs:element></xs:sequence></xs:complexType>
-            <xs:complexType name="ConfigurationItemRelation"><xs:annotation></xs:annotation><xs:complexContent><xs:extension base="tns:ConfigurationItem"><xs:sequence><xs:element minOccurs="0" name="verb" type="xs:string"></xs:element><xs:element minOccurs="0" name="subject" type="tns:ConfigurationItem"></xs:element><xs:element minOccurs="0" name="object" type="tns:ConfigurationItem"></xs:element></xs:sequence></xs:extension></xs:complexContent></xs:complexType>
-            <xs:complexType name="ConfigurationItemRelations"><xs:annotation></xs:annotation><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded" name="relations" type="tns:ConfigurationItemRelation"></xs:element></xs:sequence></xs:complexType>
-            <xs:complexType name="ConfigurationItems"><xs:annotation></xs:annotation><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded" name="configurationItem" type="tns:ConfigurationItem"></xs:element><xs:element minOccurs="0" name="attributes" type="tns:Attributes"></xs:element><xs:element minOccurs="0" name="count" type="xs:int"></xs:element></xs:sequence></xs:complexType>
-            <xs:complexType name="FetchServiceRequest"><xs:annotation></xs:annotation><xs:sequence><xs:element minOccurs="0" name="page" type="tns:Page"></xs:element><xs:element minOccurs="1" name="query" type="xs:string"></xs:element><xs:element minOccurs="0" name="dialect" type="tns:QueryDialect"></xs:element></xs:sequence></xs:complexType>
-            <xs:complexType name="GenericServiceRequest"><xs:annotation></xs:annotation><xs:sequence><xs:element minOccurs="0" name="domain" type="tns:CMDBDomain"></xs:element></xs:sequence></xs:complexType>
-            <xs:complexType name="GenericServiceResponse"><xs:annotation></xs:annotation><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded" name="exceptions" type="tns:ServiceException"></xs:element><xs:element minOccurs="0" name="page" type="tns:Page"></xs:element><xs:element minOccurs="0" name="domain" type="tns:CMDBDomain"></xs:element><xs:element minOccurs="0" name="status" type="tns:ResponseStatus"></xs:element></xs:sequence></xs:complexType>
-            <xs:complexType name="MetaDataServiceRequest"><xs:annotation></xs:annotation><xs:complexContent><xs:extension base="tns:GenericServiceRequest"><xs:sequence><xs:element minOccurs="0" name="configurationItem" type="tns:ConfigurationItem"></xs:element></xs:sequence></xs:extension></xs:complexContent></xs:complexType>
-            <xs:complexType name="MetaDataServiceResponse"><xs:annotation></xs:annotation><xs:complexContent><xs:extension base="tns:GenericServiceResponse"><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded" name="namingRules" type="tns:NamingRule"></xs:element><xs:element minOccurs="0" maxOccurs="unbounded" name="attributes" type="tns:Attribute"></xs:element></xs:sequence></xs:extension></xs:complexContent></xs:complexType>
-            <xs:complexType name="NamingRule"><xs:annotation></xs:annotation><xs:sequence><xs:element minOccurs="0" maxOccurs="unbounded" name="attributes" type="tns:Attribute"></xs:element></xs:sequence></xs:complexType>
-            <xs:complexType name="Page"><xs:annotation></xs:annotation><xs:sequence><xs:element minOccurs="0" name="start" type="xs:int"></xs:element><xs:element minOccurs="0" name="end" type="xs:int"></xs:element><xs:element minOccurs="0" name="index" type="xs:int"></xs:element><xs:element minOccurs="0" name="size" type="xs:int"></xs:element></xs:sequence></xs:complexType>
-            <xs:simpleType name="QueryDialect"><xs:annotation></xs:annotation><xs:restriction base="xs:string"><xs:enumeration value="ODB_CCACHE"><xs:annotation></xs:annotation></xs:enumeration></xs:restriction></xs:simpleType>
-            <xs:complexType name="RelationServiceRequest"><xs:annotation></xs:annotation><xs:complexContent><xs:extension base="tns:GenericServiceRequest"><xs:sequence><xs:element minOccurs="0" name="relations" type="tns:ConfigurationItemRelations"></xs:element></xs:sequence></xs:extension></xs:complexContent></xs:complexType>
-            <xs:complexType name="RelationServiceResponse"><xs:annotation></xs:annotation><xs:complexContent><xs:extension base="tns:GenericServiceResponse"><xs:sequence><xs:element minOccurs="0" name="relations" type="tns:ConfigurationItemRelations"></xs:element></xs:sequence></xs:extension></xs:complexContent></xs:complexType>
-            <xs:simpleType name="ResponseStatus"><xs:annotation></xs:annotation><xs:restriction base="xs:string"><xs:enumeration value="SUCCESS"><xs:annotation></xs:annotation></xs:enumeration><xs:enumeration value="FAILURE"></xs:enumeration></xs:restriction></xs:simpleType>
-            <xs:complexType name="ServiceException"><xs:annotation></xs:annotation><xs:sequence><xs:element minOccurs="0" name="message" type="xs:string"></xs:element><xs:element minOccurs="0" name="code" type="xs:string"></xs:element></xs:sequence></xs:complexType>
-            <xs:complexType name="ServiceRequest"><xs:annotation></xs:annotation><xs:complexContent><xs:extension base="tns:GenericServiceRequest"><xs:sequence><xs:element minOccurs="0" name="configurationItems" type="tns:ConfigurationItems"></xs:element></xs:sequence></xs:extension></xs:complexContent></xs:complexType>
-            <xs:complexType name="ServiceResponse"><xs:annotation></xs:annotation><xs:complexContent><xs:extension base="tns:GenericServiceResponse"><xs:sequence><xs:element minOccurs="0" name="configurationItems" type="tns:ConfigurationItems"></xs:element></xs:sequence></xs:extension></xs:complexContent></xs:complexType>
+            <xs:complexType name="Attribute"><xs:annotation/><xs:sequence><xs:element minOccurs="0" name="name" type="xs:string"/><xs:element minOccurs="0" name="value" type="xs:string"/><xs:element minOccurs="0" name="type" type="xs:string"/></xs:sequence></xs:complexType>
+            <xs:complexType name="Attributes"><xs:annotation/><xs:sequence><xs:element minOccurs="0" name="attrCount" type="xs:int"/><xs:element maxOccurs="unbounded" minOccurs="0" name="attributes" type="tns:Attribute"/></xs:sequence></xs:complexType>
+            <xs:simpleType name="CMDBDomain"><xs:annotation/><xs:restriction base="xs:string"><xs:enumeration value="WISB"><xs:annotation/></xs:enumeration><xs:enumeration value="WIRI"/><xs:enumeration value="WIWB"/></xs:restriction></xs:simpleType>
+            <xs:complexType name="ConfigurationItem"><xs:annotation/><xs:sequence><xs:element minOccurs="0" name="guid" type="xs:string"/><xs:element minOccurs="0" name="type" type="xs:string"/><xs:element minOccurs="0" name="attributes" type="tns:Attributes"/></xs:sequence></xs:complexType>
+            <xs:complexType name="ConfigurationItemRelation"><xs:annotation/><xs:complexContent><xs:extension base="tns:ConfigurationItem"><xs:sequence><xs:element minOccurs="0" name="verb" type="xs:string"/><xs:element minOccurs="0" name="subject" type="tns:ConfigurationItem"/><xs:element minOccurs="0" name="object" type="tns:ConfigurationItem"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType>
+            <xs:complexType name="ConfigurationItemRelations"><xs:annotation/><xs:sequence><xs:element maxOccurs="unbounded" minOccurs="0" name="relations" type="tns:ConfigurationItemRelation"/></xs:sequence></xs:complexType>
+            <xs:complexType name="ConfigurationItems"><xs:annotation/><xs:sequence><xs:element maxOccurs="unbounded" minOccurs="0" name="configurationItem" type="tns:ConfigurationItem"/><xs:element minOccurs="0" name="attributes" type="tns:Attributes"/><xs:element minOccurs="0" name="count" type="xs:int"/></xs:sequence></xs:complexType>
+            <xs:complexType name="FetchServiceRequest"><xs:annotation/><xs:sequence><xs:element minOccurs="0" name="page" type="tns:Page"/><xs:element minOccurs="1" name="query" type="xs:string"/><xs:element minOccurs="0" name="dialect" type="tns:QueryDialect"/></xs:sequence></xs:complexType>
+            <xs:complexType name="GenericServiceRequest"><xs:annotation/><xs:sequence><xs:element minOccurs="0" name="domain" type="tns:CMDBDomain"/></xs:sequence></xs:complexType>
+            <xs:complexType name="GenericServiceResponse"><xs:annotation/><xs:sequence><xs:element maxOccurs="unbounded" minOccurs="0" name="exceptions" type="tns:ServiceException"/><xs:element minOccurs="0" name="page" type="tns:Page"/><xs:element minOccurs="0" name="domain" type="tns:CMDBDomain"/><xs:element minOccurs="0" name="status" type="tns:ResponseStatus"/></xs:sequence></xs:complexType>
+            <xs:complexType name="MetaDataServiceRequest"><xs:annotation/><xs:complexContent><xs:extension base="tns:GenericServiceRequest"><xs:sequence><xs:element minOccurs="0" name="configurationItem" type="tns:ConfigurationItem"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType>
+            <xs:complexType name="MetaDataServiceResponse"><xs:annotation/><xs:complexContent><xs:extension base="tns:GenericServiceResponse"><xs:sequence><xs:element maxOccurs="unbounded" minOccurs="0" name="namingRules" type="tns:NamingRule"/><xs:element maxOccurs="unbounded" minOccurs="0" name="attributes" type="tns:Attribute"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType>
+            <xs:complexType name="NamingRule"><xs:annotation/><xs:sequence><xs:element maxOccurs="unbounded" minOccurs="0" name="attributes" type="tns:Attribute"/></xs:sequence></xs:complexType>
+            <xs:complexType name="Page"><xs:annotation/><xs:sequence><xs:element minOccurs="0" name="start" type="xs:int"/><xs:element minOccurs="0" name="end" type="xs:int"/><xs:element minOccurs="0" name="index" type="xs:int"/><xs:element minOccurs="0" name="size" type="xs:int"/></xs:sequence></xs:complexType>
+            <xs:simpleType name="QueryDialect"><xs:annotation/><xs:restriction base="xs:string"><xs:enumeration value="ODB_CCACHE"><xs:annotation/></xs:enumeration></xs:restriction></xs:simpleType>
+            <xs:complexType name="RelationServiceRequest"><xs:annotation/><xs:complexContent><xs:extension base="tns:GenericServiceRequest"><xs:sequence><xs:element minOccurs="0" name="relations" type="tns:ConfigurationItemRelations"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType>
+            <xs:complexType name="RelationServiceResponse"><xs:annotation/><xs:complexContent><xs:extension base="tns:GenericServiceResponse"><xs:sequence><xs:element minOccurs="0" name="relations" type="tns:ConfigurationItemRelations"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType>
+            <xs:simpleType name="ResponseStatus"><xs:annotation/><xs:restriction base="xs:string"><xs:enumeration value="SUCCESS"><xs:annotation/></xs:enumeration><xs:enumeration value="FAILURE"/></xs:restriction></xs:simpleType>
+            <xs:complexType name="ServiceException"><xs:annotation/><xs:sequence><xs:element minOccurs="0" name="message" type="xs:string"/><xs:element minOccurs="0" name="code" type="xs:string"/></xs:sequence></xs:complexType>
+            <xs:complexType name="ServiceRequest"><xs:annotation/><xs:complexContent><xs:extension base="tns:GenericServiceRequest"><xs:sequence><xs:element minOccurs="0" name="configurationItems" type="tns:ConfigurationItems"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType>
+            <xs:complexType name="ServiceResponse"><xs:annotation/><xs:complexContent><xs:extension base="tns:GenericServiceResponse"><xs:sequence><xs:element minOccurs="0" name="configurationItems" type="tns:ConfigurationItems"/></xs:sequence></xs:extension></xs:complexContent></xs:complexType>
             <xs:element name="fetchConfigurationItem">
             	<xs:complexType>
             		<xs:sequence>
-            			<xs:element name="request" type="tns:FetchServiceRequest" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="request" type="tns:FetchServiceRequest"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -465,7 +454,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="response" type="tns:ServiceResponse" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="response" type="tns:ServiceResponse"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -473,7 +462,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="request" type="tns:ServiceRequest" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="request" type="tns:ServiceRequest"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -481,7 +470,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="response" type="tns:ServiceResponse" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="response" type="tns:ServiceResponse"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -489,7 +478,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="request" type="tns:ServiceRequest" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="request" type="tns:ServiceRequest"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -497,7 +486,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="response" type="tns:ServiceResponse" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="response" type="tns:ServiceResponse"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -505,7 +494,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="request" type="tns:ServiceRequest" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="request" type="tns:ServiceRequest"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -513,7 +502,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="response" type="tns:ServiceResponse" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="response" type="tns:ServiceResponse"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -521,7 +510,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="request" type="tns:RelationServiceRequest" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="request" type="tns:RelationServiceRequest"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -529,7 +518,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="response" type="tns:RelationServiceResponse" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="response" type="tns:RelationServiceResponse"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -537,7 +526,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="request" type="tns:RelationServiceRequest" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="request" type="tns:RelationServiceRequest"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -545,7 +534,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="response" type="tns:RelationServiceResponse" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="response" type="tns:RelationServiceResponse"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -553,7 +542,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="request" type="tns:RelationServiceRequest" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="request" type="tns:RelationServiceRequest"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -561,7 +550,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="response" type="tns:RelationServiceResponse" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="response" type="tns:RelationServiceResponse"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -569,7 +558,7 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="request" type="tns:MetaDataServiceRequest" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="request" type="tns:MetaDataServiceRequest"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
@@ -577,288 +566,276 @@
             	<xs:complexType>
             		<xs:sequence>
 
-            			<xs:element name="response" type="tns:MetaDataServiceResponse" minOccurs="0"></xs:element>
+            			<xs:element minOccurs="0" name="response" type="tns:MetaDataServiceResponse"/>
             		</xs:sequence>
             	</xs:complexType>
             </xs:element>
 </xs:schema>
 </wsdl:types>
   <wsdl:message name="getVersionResponse">
-    <wsdl:part name="parameters" element="tns:getVersionResponse"/>
+    <wsdl:part element="tns:getVersionResponse" name="parameters"/>
   </wsdl:message>
 
   <wsdl:message name="fetchConfigurationItemRequest">
-  	<wsdl:part name="parameters" element="tns:fetchConfigurationItem"></wsdl:part>
+  	<wsdl:part element="tns:fetchConfigurationItem" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="fetchConfigurationItemResponse">
-  	<wsdl:part name="parameters" element="tns:fetchConfigurationItemResponse"></wsdl:part>
+  	<wsdl:part element="tns:fetchConfigurationItemResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="createConfigurationItemRequest">
-  	<wsdl:part name="parameters" element="tns:createConfigurationItem"></wsdl:part>
+  	<wsdl:part element="tns:createConfigurationItem" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="createConfigurationItemResponse">
-  	<wsdl:part name="parameters" element="tns:createConfigurationItemResponse"></wsdl:part>
+  	<wsdl:part element="tns:createConfigurationItemResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="updateConfigurationItemRequest">
-  	<wsdl:part name="parameters" element="tns:updateConfigurationItem"></wsdl:part>
+  	<wsdl:part element="tns:updateConfigurationItem" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="updateConfigurationItemResponse">
-  	<wsdl:part name="parameters" element="tns:updateConfigurationItemResponse"></wsdl:part>
+  	<wsdl:part element="tns:updateConfigurationItemResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="deleteConfigurationItemRequest">
-  	<wsdl:part name="parameters" element="tns:deleteConfigurationItem"></wsdl:part>
+  	<wsdl:part element="tns:deleteConfigurationItem" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="deleteConfigurationItemResponse">
-  	<wsdl:part name="parameters" element="tns:deleteConfigurationItemResponse"></wsdl:part>
+  	<wsdl:part element="tns:deleteConfigurationItemResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="createCIRelationshipRequest">
-  	<wsdl:part name="parameters" element="tns:createCIRelationship"></wsdl:part>
+  	<wsdl:part element="tns:createCIRelationship" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="createCIRelationshipResponse">
-  	<wsdl:part name="parameters" element="tns:createCIRelationshipResponse"></wsdl:part>
+  	<wsdl:part element="tns:createCIRelationshipResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="updateCIRelationshipRequest">
-  	<wsdl:part name="parameters" element="tns:updateCIRelationship"></wsdl:part>
+  	<wsdl:part element="tns:updateCIRelationship" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="updateCIRelationshipResponse">
-  	<wsdl:part name="parameters" element="tns:updateCIRelationshipResponse"></wsdl:part>
+  	<wsdl:part element="tns:updateCIRelationshipResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="deleteCIRelationshipRequest">
-  	<wsdl:part name="parameters" element="tns:deleteCIRelationship"></wsdl:part>
+  	<wsdl:part element="tns:deleteCIRelationship" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="deleteCIRelationshipResponse">
-  	<wsdl:part name="parameters" element="tns:deleteCIRelationshipResponse"></wsdl:part>
+  	<wsdl:part element="tns:deleteCIRelationshipResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getMetaDataRequest">
-  	<wsdl:part name="parameters" element="tns:getMetaData"></wsdl:part>
+  	<wsdl:part element="tns:getMetaData" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="getMetaDataResponse">
-  	<wsdl:part name="parameters" element="tns:getMetaDataResponse"></wsdl:part>
+  	<wsdl:part element="tns:getMetaDataResponse" name="parameters"/>
   </wsdl:message>
   <wsdl:portType name="CMDBServicePort">
     <wsdl:operation name="getVersion">
       <wsdl:output message="tns:getVersionResponse"/>
     </wsdl:operation>
     <wsdl:operation name="fetchConfigurationItem">
-    	<wsdl:input message="tns:fetchConfigurationItemRequest"></wsdl:input>
-    	<wsdl:output message="tns:fetchConfigurationItemResponse"></wsdl:output>
+    	<wsdl:input message="tns:fetchConfigurationItemRequest"/>
+    	<wsdl:output message="tns:fetchConfigurationItemResponse"/>
     </wsdl:operation>
     <wsdl:operation name="createConfigurationItem">
-    	<wsdl:input message="tns:createConfigurationItemRequest"></wsdl:input>
-    	<wsdl:output message="tns:createConfigurationItemResponse"></wsdl:output>
+    	<wsdl:input message="tns:createConfigurationItemRequest"/>
+    	<wsdl:output message="tns:createConfigurationItemResponse"/>
     </wsdl:operation>
     <wsdl:operation name="updateConfigurationItem">
-    	<wsdl:input message="tns:updateConfigurationItemRequest"></wsdl:input>
-    	<wsdl:output message="tns:updateConfigurationItemResponse"></wsdl:output>
+    	<wsdl:input message="tns:updateConfigurationItemRequest"/>
+    	<wsdl:output message="tns:updateConfigurationItemResponse"/>
     </wsdl:operation>
     <wsdl:operation name="deleteConfigurationItem">
-    	<wsdl:input message="tns:deleteConfigurationItemRequest"></wsdl:input>
-    	<wsdl:output message="tns:deleteConfigurationItemResponse"></wsdl:output>
+    	<wsdl:input message="tns:deleteConfigurationItemRequest"/>
+    	<wsdl:output message="tns:deleteConfigurationItemResponse"/>
     </wsdl:operation>
     <wsdl:operation name="createCIRelationship">
-    	<wsdl:input message="tns:createCIRelationshipRequest"></wsdl:input>
-    	<wsdl:output message="tns:createCIRelationshipResponse"></wsdl:output>
+    	<wsdl:input message="tns:createCIRelationshipRequest"/>
+    	<wsdl:output message="tns:createCIRelationshipResponse"/>
     </wsdl:operation>
     <wsdl:operation name="updateCIRelationship">
-    	<wsdl:input message="tns:updateCIRelationshipRequest"></wsdl:input>
-    	<wsdl:output message="tns:updateCIRelationshipResponse"></wsdl:output>
+    	<wsdl:input message="tns:updateCIRelationshipRequest"/>
+    	<wsdl:output message="tns:updateCIRelationshipResponse"/>
     </wsdl:operation>
     <wsdl:operation name="deleteCIRelationship">
-    	<wsdl:input message="tns:deleteCIRelationshipRequest"></wsdl:input>
-    	<wsdl:output message="tns:deleteCIRelationshipResponse"></wsdl:output>
+    	<wsdl:input message="tns:deleteCIRelationshipRequest"/>
+    	<wsdl:output message="tns:deleteCIRelationshipResponse"/>
     </wsdl:operation>
     <wsdl:operation name="getMetaData">
-    	<wsdl:input message="tns:getMetaDataRequest"></wsdl:input>
-    	<wsdl:output message="tns:getMetaDataResponse"></wsdl:output>
+    	<wsdl:input message="tns:getMetaDataRequest"/>
+    	<wsdl:output message="tns:getMetaDataResponse"/>
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="CMDBServiceHttpBinding"
-  	type="tns:CMDBServicePort">
+  <wsdl:binding name="CMDBServiceHttpBinding" type="tns:CMDBServicePort">
 
-  	<http:binding verb="POST" />
+  	<http:binding verb="POST"/>
   	<wsdl:operation name="getVersion">
 
-  		<http:operation location="/getVersion" />
+  		<http:operation location="/getVersion"/>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
 
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="fetchConfigurationItem">
-  		<http:operation location="/fetchConfigurationItem" />
+  		<http:operation location="/fetchConfigurationItem"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="createConfigurationItem">
-  		<http:operation location="/createConfigurationItem" />
+  		<http:operation location="/createConfigurationItem"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="updateConfigurationItem">
-  		<http:operation location="/updateConfigurationItem" />
+  		<http:operation location="/updateConfigurationItem"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="deleteConfigurationItem">
-  		<http:operation location="/deleteConfigurationItem" />
+  		<http:operation location="/deleteConfigurationItem"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="createCIRelationship">
-  		<http:operation location="/createCIRelationship" />
+  		<http:operation location="/createCIRelationship"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="updateCIRelationship">
-  		<http:operation location="/updateCIRelationship" />
+  		<http:operation location="/updateCIRelationship"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="deleteCIRelationship">
-  		<http:operation location="/deleteCIRelationship" />
+  		<http:operation location="/deleteCIRelationship"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="getMetaData">
-  		<http:operation location="/getMetaData" />
+  		<http:operation location="/getMetaData"/>
   		<wsdl:input>
-  			<mime:content type="application/x-www-form-urlencoded" />
+  			<mime:content type="application/x-www-form-urlencoded"/>
   		</wsdl:input>
   		<wsdl:output>
-  			<mime:content type="text/xml" />
+  			<mime:content type="text/xml"/>
   		</wsdl:output>
   	</wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="CMDBServiceSOAPBinding"
-		type="tns:CMDBServicePort">
+  <wsdl:binding name="CMDBServiceSOAPBinding" type="tns:CMDBServicePort">
 
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
 
 
-			<soap:operation
-				soapAction="http://www.ebay.com/services/cmdb/model/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/services/cmdb/model/getVersion"/>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="fetchConfigurationItem">
-			<soap:operation
-				soapAction="http://www.ebay.com/services/cmdb/model/fetchConfigurationItem" />
+			<soap:operation soapAction="http://www.ebayopensource.org/services/cmdb/model/fetchConfigurationItem"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="createConfigurationItem">
-			<soap:operation
-				soapAction="http://www.ebay.com/services/cmdb/model/createConfigurationItem" />
+			<soap:operation soapAction="http://www.ebayopensource.org/services/cmdb/model/createConfigurationItem"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="updateConfigurationItem">
-			<soap:operation
-				soapAction="http://www.ebay.com/services/cmdb/model/updateConfigurationItem" />
+			<soap:operation soapAction="http://www.ebayopensource.org/services/cmdb/model/updateConfigurationItem"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="deleteConfigurationItem">
-			<soap:operation
-				soapAction="http://www.ebay.com/services/cmdb/model/deleteConfigurationItem" />
+			<soap:operation soapAction="http://www.ebayopensource.org/services/cmdb/model/deleteConfigurationItem"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="createCIRelationship">
-			<soap:operation
-				soapAction="http://www.ebay.com/services/cmdb/model/createCIRelationship" />
+			<soap:operation soapAction="http://www.ebayopensource.org/services/cmdb/model/createCIRelationship"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="updateCIRelationship">
-			<soap:operation
-				soapAction="http://www.ebay.com/services/cmdb/model/updateCIRelationship" />
+			<soap:operation soapAction="http://www.ebayopensource.org/services/cmdb/model/updateCIRelationship"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="deleteCIRelationship">
-			<soap:operation
-				soapAction="http://www.ebay.com/services/cmdb/model/deleteCIRelationship" />
+			<soap:operation soapAction="http://www.ebayopensource.org/services/cmdb/model/deleteCIRelationship"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getMetaData">
-			<soap:operation
-				soapAction="http://www.ebay.com/services/cmdb/model/getMetaData" />
+			<soap:operation soapAction="http://www.ebayopensource.org/services/cmdb/model/getMetaData"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="CMDBService">
-		<wsdl:port name="CMDBServiceHttp" binding="tns:CMDBServiceHttpBinding">
+		<wsdl:port binding="tns:CMDBServiceHttpBinding" name="CMDBServiceHttp">
 			<http:address location="http://svcs.ebay.com/CMDBService"/>
 		</wsdl:port>
-		<wsdl:port name="CMDBServiceSOAP" binding="tns:CMDBServiceSOAPBinding">
-			<soap12:address xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" location="http://svcs.ebay.com/CMDBService"/>
+		<wsdl:port binding="tns:CMDBServiceSOAPBinding" name="CMDBServiceSOAP">
+			<soap12:address location="http://svcs.ebay.com/CMDBService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

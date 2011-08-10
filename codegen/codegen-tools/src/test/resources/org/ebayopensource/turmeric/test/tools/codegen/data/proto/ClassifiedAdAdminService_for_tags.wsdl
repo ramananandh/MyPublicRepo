@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="ClassifiedAdAdminService" targetNamespace="http://www.ebay.com/marketplace/classifiedad/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:services="http://www.ebay.com/marketplace/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebay.com/marketplace/classifiedad/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:services="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/classifiedad/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ClassifiedAdAdminService" targetNamespace="http://www.ebayopensource.org/tumeric/classifiedad/v1/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/classifiedad/v1/services">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/classifiedad/v1/services">
 
-    <xs:element name="getVersionRequest"  type="tns:GetVersionRequest"/>
-<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+    <xs:element name="getVersionRequest" type="tns:GetVersionRequest"/>
+<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 
 <xs:complexType name="GetVersionRequest">
   <xs:complexContent>
@@ -27,7 +26,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -79,7 +78,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -92,19 +91,17 @@
 				Documentation goes here
 			</xs:documentation>
 			<xs:appinfo>
-			<typeLibrarySource
-			 library="MarketPlaceServiceCommonTypeLibrary"
-					namespace="http://www.ebay.com/marketplace/services">
+			<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 			</typeLibrarySource>
 			</xs:appinfo>
 			</xs:annotation>
 			<xs:sequence>
-				<xs:element name="id" type="xs:positiveInteger"></xs:element>
-				<xs:element name="version" type="xs:string"></xs:element>
-					<xs:element name="contentType" type="xs:string"></xs:element>
-					<xs:element name="value" type="xs:string"></xs:element>
+				<xs:element name="id" type="xs:positiveInteger"/>
+				<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
-						processContents="lax">
+						processContents="lax"&gt;
 
 				</xs:sequence>
 			</xs:complexType>
@@ -117,7 +114,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -178,7 +175,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -193,7 +190,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -213,7 +210,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -232,7 +229,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -247,7 +244,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -255,7 +252,7 @@
 					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
-			<xs:element name="getAdminAdResponse"  type="tns:AdminAdResponse"/>
+			<xs:element name="getAdminAdResponse" type="tns:AdminAdResponse"/>
 			<xs:complexType name="AdminAdResponse">
 				<xs:annotation>
 					<xs:documentation/>
@@ -266,7 +263,7 @@
 				</xs:complexContent>
 			</xs:complexType>			
 			
-			<xs:element name="getAdminAdRequest"  type="tns:AdminAdRequest"/>
+			<xs:element name="getAdminAdRequest" type="tns:AdminAdRequest"/>
 			<xs:complexType name="AdminAdRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -286,7 +283,7 @@
 				</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getAdminEditAdRequest"  type="tns:AdminEditAdRequest"/>
+			<xs:element name="getAdminEditAdRequest" type="tns:AdminEditAdRequest"/>
 			<xs:complexType name="AdminEditAdRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -301,7 +298,7 @@
 				</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getAdminAdReasonRequest"  type="tns:AdminAdReasonRequest"/>
+			<xs:element name="getAdminAdReasonRequest" type="tns:AdminAdReasonRequest"/>
 			<xs:complexType name="AdminAdReasonRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -317,7 +314,7 @@
 				</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getBulkAdminAdRequest"  type="tns:BulkAdminAdRequest"/>
+			<xs:element name="getBulkAdminAdRequest" type="tns:BulkAdminAdRequest"/>
 			<xs:complexType name="BulkAdminAdRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -336,7 +333,7 @@
 				</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getBulkEditAdRequest"  type="tns:BulkEditAdRequest"/>
+			<xs:element name="getBulkEditAdRequest" type="tns:BulkEditAdRequest"/>
 			<xs:complexType name="BulkEditAdRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -354,41 +351,41 @@
 		</xs:schema>
   </wsdl:types>
   <message name="getVersionRequest">
-  <part name="messageParameters" element="tns:getVersionRequest"/>
+  <part element="tns:getVersionRequest" name="messageParameters"/>
 </message>
  <message name="getVersionResponse">
-  <part name="messageParameters" element="tns:getVersionResponse"/>
+  <part element="tns:getVersionResponse" name="messageParameters"/>
 </message>
 
   <message name="getBulkAdminAdRequest">
-    <part name="params" element="tns:getBulkAdminAdRequest">
+    <part element="tns:getBulkAdminAdRequest" name="params">
     </part>
   </message>
   <message name="getAdminAdRequest">
-    <part name="params" element="tns:getAdminAdRequest">
+    <part element="tns:getAdminAdRequest" name="params">
     </part>
   </message>
   <message name="getAdminEditAdRequest">
-    <part name="params" element="tns:getAdminEditAdRequest">
+    <part element="tns:getAdminEditAdRequest" name="params">
     </part>
   </message>
   <message name="getAdminAdReasonRequest">
-    <part name="params" element="tns:getAdminAdReasonRequest">
+    <part element="tns:getAdminAdReasonRequest" name="params">
     </part>
   </message>
    <message name="getBulkEditAdRequest">
-    <part name="params" element="tns:getBulkEditAdRequest">
+    <part element="tns:getBulkEditAdRequest" name="params">
     </part>
   </message>
   <message name="getAdminAdResponse">
-    <part name="params" element="tns:getAdminAdResponse">
+    <part element="tns:getAdminAdResponse" name="params">
     </part>
   </message>
   <wsdl:portType name="ClassifiedAdAdminServicePort">
 
 <operation name="getVersion">
-  <input name="getVersionRequest" message="tns:getVersionRequest"/>
-  <output name="getVersionResponse" message="tns:getVersionResponse"/>
+  <input message="tns:getVersionRequest" name="getVersionRequest"/>
+  <output message="tns:getVersionResponse" name="getVersionResponse"/>
 </operation>
 
     <operation name="approveAd">
@@ -500,12 +497,12 @@
       </output>
     </operation>
      <operation name="getVersion">
-   		<http:operation location="getVersion" />
+   		<http:operation location="getVersion"/>
    		<input>
-         <mime:content part="parameters" type="application/x-www-form-urlencoded" />
+         <mime:content part="parameters" type="application/x-www-form-urlencoded"/>
    		</input>
    		<output>
-        	<mime:content part="parameters" type="text/xml" />
+        	<mime:content part="parameters" type="text/xml"/>
    		</output>
   	 </operation>
   </wsdl:binding>
@@ -514,7 +511,7 @@
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
     <operation name="approveAd">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/approveAd"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/approveAd"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -523,7 +520,7 @@
       </output>
     </operation>
     <operation name="deleteAd">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/deleteAd"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/deleteAd"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -532,7 +529,7 @@
       </output>
     </operation>
     <operation name="deleteAdReason">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/deleteAdReason"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/deleteAdReason"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -541,7 +538,7 @@
       </output>
     </operation>
     <operation name="bulkApproveAd">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/bulkApproveAd"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/bulkApproveAd"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -550,7 +547,7 @@
       </output>
     </operation>
     <operation name="bulkDeleteAd">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/bulkDeleteAd"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/bulkDeleteAd"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -559,7 +556,7 @@
       </output>
     </operation>
     <operation name="editAd">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/editAd"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/editAd"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -568,7 +565,7 @@
       </output>
     </operation>
     <operation name="bulkEdit">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/bulkEdit"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/services/bulkEdit"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -590,10 +587,10 @@
   	<wsdl:documentation>
   		<version>1.0.0</version>
   	</wsdl:documentation>  
-    <wsdl:port name="ClassifiedAdAdminServiceHttpPort" binding="tns:ClassifiedAdAdminServiceHttpBinding">
+    <wsdl:port binding="tns:ClassifiedAdAdminServiceHttpBinding" name="ClassifiedAdAdminServiceHttpPort">
       <http:address location="http://svcs.ebay.com/services/classifiedad/ClassifiedAdAdminService/v1"/>
     </wsdl:port>
-    <wsdl:port name="ClassifiedAdAdminServiceSOAPPort" binding="tns:ClassifiedAdAdminServiceSOAPBinding">
+    <wsdl:port binding="tns:ClassifiedAdAdminServiceSOAPBinding" name="ClassifiedAdAdminServiceSOAPPort">
       <soap12:address location="http://svcs.ebay.com/services/classifiedad/ClassifiedAdAdminService/v1"/>
     </wsdl:port>
   </wsdl:service>

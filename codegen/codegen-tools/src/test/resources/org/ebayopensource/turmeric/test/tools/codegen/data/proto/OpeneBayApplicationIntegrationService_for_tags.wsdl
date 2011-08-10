@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://www.ebay.com/marketplace/services" xmlns:Q2="http://www.ebay.com/marketplace/services">
+		<xs:schema xmlns:Q1="http://www.ebayopensource.org/tumeric/services" xmlns:Q2="http://www.ebayopensource.org/tumeric/services" xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 
-<xs:element name="getSessionRequest"  type="tns:OpeneBayGetSessionRequestType"/>
-<xs:element name="getSessionResponse"  type="tns:OpeneBayGetSessionResponseType"/>
+<xs:element name="getSessionRequest" type="tns:OpeneBayGetSessionRequestType"/>
+<xs:element name="getSessionResponse" type="tns:OpeneBayGetSessionResponseType"/>
 <xs:element name="setApplicationOperationStateRequest" type="tns:OpeneBaySetApplicationOperationStateRequestType"/>
 <xs:element name="setApplicationOperationStateResponse" type="tns:OpeneBaySetApplicationOperationStateResponseType"/>
 
@@ -307,7 +306,7 @@
 
 
 <!-- Base response types -->
-<xs:complexType name="BaseServiceResponse" abstract="true">
+<xs:complexType abstract="true" name="BaseServiceResponse">
 	<xs:annotation>
 		<xs:documentation>
 			Base response container for all service operations. Contains error information
@@ -429,7 +428,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="error" type="tns:ErrorData"  minOccurs="0" maxOccurs="unbounded">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					ActivityProfile about a single error.
@@ -555,7 +554,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="subdomain" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="subdomain" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Name of the subdomain upon which the error occurred. Subdomains include the
@@ -572,7 +571,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="exceptionId" type="xs:token" minOccurs="0">
+		<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 			<xs:annotation>
 				<xs:documentation>
 					Unique identifier for an exception associated with an error.
@@ -585,7 +584,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="parameter" type="tns:ErrorParameter"  minOccurs="0" maxOccurs="unbounded">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -721,7 +720,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element name="userName" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="userName" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Login name of an eBay user.
@@ -735,7 +734,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="EIASToken" type="xs:string" minOccurs="0">
+		<xs:element minOccurs="0" name="EIASToken" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					Corresponds to the value of the Item.Seller.EIASToken field in the Trading API.
@@ -751,7 +750,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element name="authToken" type="tns:OpeneBaySecurityTokenType" minOccurs="0">
+		<xs:element minOccurs="0" name="authToken" type="tns:OpeneBaySecurityTokenType">
 			<xs:annotation>
 				<xs:documentation>
 					eBay user token authorizing the application to act on behalf of the user, with
@@ -921,16 +920,16 @@
 	</wsdl:types>
 
 	<wsdl:message name="getSessionRequest">
-		<wsdl:part name="getSessionRequest" element="ns0:getSessionRequest"/>
+		<wsdl:part element="ns0:getSessionRequest" name="getSessionRequest"/>
 	</wsdl:message>
 	<wsdl:message name="getSessionResponse">
-		<wsdl:part name="getSessionResponse" element="ns0:getSessionResponse"/>
+		<wsdl:part element="ns0:getSessionResponse" name="getSessionResponse"/>
 	</wsdl:message>
 	<wsdl:message name="setApplicationOperationStateRequest">
-		<wsdl:part name="setApplicationOperationStateRequest" element="ns0:setApplicationOperationStateRequest"/>
+		<wsdl:part element="ns0:setApplicationOperationStateRequest" name="setApplicationOperationStateRequest"/>
 	</wsdl:message>
 	<wsdl:message name="setApplicationOperationStateResponse">
-		<wsdl:part name="setApplicationOperationStateResponse" element="ns0:setApplicationOperationStateResponse"/>
+		<wsdl:part element="ns0:setApplicationOperationStateResponse" name="setApplicationOperationStateResponse"/>
 	</wsdl:message>
 
 	<wsdl:portType name="OpeneBayApplicationIntegrationServicePort">
@@ -992,10 +991,10 @@
 		<wsdl:documentation>
 			<Version>1.0.0</Version>
 		</wsdl:documentation>
-		<wsdl:port name="OpeneBayApplicationIntegrationServiceSOAP" binding="ns0:OpeneBayApplicationIntegrationServiceSOAPBinding">
+		<wsdl:port binding="ns0:OpeneBayApplicationIntegrationServiceSOAPBinding" name="OpeneBayApplicationIntegrationServiceSOAP">
 			<soap12:address location="http://svcs.ebay.com/OpeneBayApplicationIntegrationService"/>
 		</wsdl:port>
-		<wsdl:port name="OpeneBayApplicationIntegrationServiceHttp" binding="ns0:OpeneBayApplicationIntegrationServiceHttpBinding">
+		<wsdl:port binding="ns0:OpeneBayApplicationIntegrationServiceHttpBinding" name="OpeneBayApplicationIntegrationServiceHttp">
 			<http:address location="http://svcs.ebay.com/OpeneBayApplicationIntegrationService"/>
 		</wsdl:port>
 	</wsdl:service>

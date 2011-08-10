@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="DemoService" targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebaypartnernetwork.com/adcommerce/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebaypartnernetwork.com/adcommerce/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DemoService" targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services">
   <types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services" xmlns:tns="http://www.ebaypartnernetwork.com/adcommerce/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebaypartnernetwork.com/adcommerce/v1/services">
 
 			<xs:complexType name="BaseAdGroupResponse">
 				<xs:complexContent>
@@ -99,7 +98,7 @@
 			<xs:element name="getAdGroupResponse" type="tns:AdGroupResponse"/>
 
 			<!--  common types -->
-			<xs:element name="getVersionResponse"  type="tns:GetVersionResponse"/>
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 
 			<xs:complexType name="GetVersionResponse">
 				<xs:annotation>
@@ -286,7 +285,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
@@ -472,7 +471,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -621,52 +620,52 @@
 		</xs:schema>
   </types>
   <message name="getAdGroupRequest">
-    <part name="messageParameters" element="tns:getAdGroupRequest">
+    <part element="tns:getAdGroupRequest" name="messageParameters">
     </part>
   </message>
   <message name="updateAdGroupRequest">
-    <part name="messageParameters" element="tns:updateAdGroupRequest">
+    <part element="tns:updateAdGroupRequest" name="messageParameters">
     </part>
   </message>
   <message name="addAdGroupResponse">
-    <part name="messageParameters" element="tns:addAdGroupResponse">
+    <part element="tns:addAdGroupResponse" name="messageParameters">
     </part>
   </message>
   <message name="getCampaignAdGroupsResponse">
-    <part name="parameters" element="tns:getCampaignAdGroupsResponse">
+    <part element="tns:getCampaignAdGroupsResponse" name="parameters">
     </part>
   </message>
   <message name="deleteAdGroupRequest">
-    <part name="messageParameters" element="tns:deleteAdGroupRequest">
+    <part element="tns:deleteAdGroupRequest" name="messageParameters">
     </part>
   </message>
   <message name="getVersionResponse">
-    <part name="messageParameters" element="tns:getVersionResponse">
+    <part element="tns:getVersionResponse" name="messageParameters">
     </part>
   </message>
   <message name="getCampaignAdGroupsRequest">
-    <part name="parameters" element="tns:getCampaignAdGroupsRequest">
+    <part element="tns:getCampaignAdGroupsRequest" name="parameters">
     </part>
   </message>
   <message name="deleteAdGroupResponse">
-    <part name="messageParameters" element="tns:deleteAdGroupResponse">
+    <part element="tns:deleteAdGroupResponse" name="messageParameters">
     </part>
   </message>
   <message name="addAdGroupRequest">
-    <part name="messageParameters" element="tns:addAdGroupRequest">
+    <part element="tns:addAdGroupRequest" name="messageParameters">
     </part>
   </message>
   <message name="updateAdGroupResponse">
-    <part name="messageParameters" element="tns:updateAdGroupResponse">
+    <part element="tns:updateAdGroupResponse" name="messageParameters">
     </part>
   </message>
   <message name="getAdGroupResponse">
-    <part name="messageParameters" element="tns:getAdGroupResponse">
+    <part element="tns:getAdGroupResponse" name="messageParameters">
     </part>
   </message>
   <portType name="AdGroupServicePortType">
     <operation name="getVersion">
-      <output name="getVersion" message="tns:getVersionResponse">
+      <output message="tns:getVersionResponse" name="getVersion">
     </output>
     </operation>
     <operation name="addAdGroup">
@@ -758,7 +757,7 @@
     </operation>
   </binding>
   <service name="DemoService">
-    <port name="AdGroupServiceSOAP12port_http" binding="tns:AdGroupServiceSOAP12Binding">
+    <port binding="tns:AdGroupServiceSOAP12Binding" name="AdGroupServiceSOAP12port_http">
       <soap12:address location="Test-https://svcs.ebaypartnernetwork.com/adcommerce/v1/DemoService"/>
     </port>
   </service>

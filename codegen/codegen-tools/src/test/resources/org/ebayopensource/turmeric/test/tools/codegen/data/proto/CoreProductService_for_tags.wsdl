@@ -1,31 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="CoreProductService" 
-	targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services" 
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
-	xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" 
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
-	xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/catalog/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CoreProductService" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
   <wsdl:types>
   
-    <xs:schema targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services" 
-    	attributeFormDefault="unqualified" 
-    	elementFormDefault="qualified" 
-    	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
 
-<xs:element name="addProductsRequest"  type="tns:AddProductsRequest"/>
-<xs:element name="addProductsResponse"  type="tns:AddProductsResponse"/>
-<xs:element name="overwriteProductsRequest"  type="tns:OverwriteProductsRequest"/>
-<xs:element name="overwriteProductsResponse"  type="tns:OverwriteProductsResponse"/>
-<xs:element name="deleteProductsRequest"  type="tns:DeleteProductsRequest"/>
-<xs:element name="deleteProductsResponse"  type="tns:DeleteProductsResponse"/>
-<xs:element name="mergeProductsRequest"  type="tns:MergeProductsRequest"/>
-<xs:element name="mergeProductsResponse"  type="tns:MergeProductsResponse"/>
-<xs:element name="getProductsRequest"  type="tns:GetProductsRequest"/>
-<xs:element name="getProductsResponse"  type="tns:GetProductsResponse"/>
+<xs:element name="addProductsRequest" type="tns:AddProductsRequest"/>
+<xs:element name="addProductsResponse" type="tns:AddProductsResponse"/>
+<xs:element name="overwriteProductsRequest" type="tns:OverwriteProductsRequest"/>
+<xs:element name="overwriteProductsResponse" type="tns:OverwriteProductsResponse"/>
+<xs:element name="deleteProductsRequest" type="tns:DeleteProductsRequest"/>
+<xs:element name="deleteProductsResponse" type="tns:DeleteProductsResponse"/>
+<xs:element name="mergeProductsRequest" type="tns:MergeProductsRequest"/>
+<xs:element name="mergeProductsResponse" type="tns:MergeProductsResponse"/>
+<xs:element name="getProductsRequest" type="tns:GetProductsRequest"/>
+<xs:element name="getProductsResponse" type="tns:GetProductsResponse"/>
 
 <xs:complexType abstract="true" name="BaseServiceRequest">
 	<xs:annotation>
@@ -938,10 +925,10 @@
 				<xs:documentation>
 					This value represents the date and time when eBay processed the
 					request. The time zone of this value is &lt;a 
-					href=&quot;types/simpleTypes.html#dateTime&quot;&gt;GMT&lt;/a&gt;
+					href="types/simpleTypes.html#dateTime"&gt;GMT&lt;/a&gt;
 					and the format is the
 					ISO 8601 date and time format (YYYY-MM-DDTHH:MM:SS.SSSZ).
-					See the &quot;dateTime&quot; type for information about this
+					See the "dateTime" type for information about this
 					time format and converting to and from the GMT time zone.
 				</xs:documentation>
 				<xs:appinfo>
@@ -965,7 +952,7 @@
 		</xs:documentation>
 	</xs:annotation>
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					Details about a single error.
@@ -1143,7 +1130,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -1316,43 +1303,43 @@
 </xs:schema>
   </wsdl:types>
   <wsdl:message name="getProductsRequest">
-    <wsdl:part name="parameters" element="tns:getProductsRequest">
+    <wsdl:part element="tns:getProductsRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="addProductsResponse">
-    <wsdl:part name="parameters" element="tns:addProductsResponse">
+    <wsdl:part element="tns:addProductsResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="deleteProductsResponse">
-    <wsdl:part name="parameters" element="tns:deleteProductsResponse">
+    <wsdl:part element="tns:deleteProductsResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="deleteProductsRequest">
-    <wsdl:part name="parameters" element="tns:deleteProductsRequest">
+    <wsdl:part element="tns:deleteProductsRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="overwriteProductsResponse">
-    <wsdl:part name="parameters" element="tns:overwriteProductsResponse">
+    <wsdl:part element="tns:overwriteProductsResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="overwriteProductsRequest">
-    <wsdl:part name="parameters" element="tns:overwriteProductsRequest">
+    <wsdl:part element="tns:overwriteProductsRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="mergeProductsRequest">
-    <wsdl:part name="parameters" element="tns:mergeProductsRequest">
+    <wsdl:part element="tns:mergeProductsRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="mergeProductsResponse">
-    <wsdl:part name="parameters" element="tns:mergeProductsResponse">
+    <wsdl:part element="tns:mergeProductsResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getProductsResponse">
-    <wsdl:part name="parameters" element="tns:getProductsResponse">
+    <wsdl:part element="tns:getProductsResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="addProductsRequest">
-    <wsdl:part name="parameters" element="tns:addProductsRequest">
+    <wsdl:part element="tns:addProductsRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="CoreProductServicePort">
@@ -1361,9 +1348,9 @@
 				<Version>1.0.0</Version>
 				operation to add products
 			</wsdl:documentation>
-      <wsdl:input name="addProductsRequest" message="tns:addProductsRequest">
+      <wsdl:input message="tns:addProductsRequest" name="addProductsRequest">
     </wsdl:input>
-      <wsdl:output name="addProductsResponse" message="tns:addProductsResponse">
+      <wsdl:output message="tns:addProductsResponse" name="addProductsResponse">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="overwriteProducts">
@@ -1371,9 +1358,9 @@
 				<Version>1.0.0</Version>
 				operation to overwrite products
 			</wsdl:documentation>
-      <wsdl:input name="overwriteProductsRequest" message="tns:overwriteProductsRequest">
+      <wsdl:input message="tns:overwriteProductsRequest" name="overwriteProductsRequest">
     </wsdl:input>
-      <wsdl:output name="overwriteProductsResponse" message="tns:overwriteProductsResponse">
+      <wsdl:output message="tns:overwriteProductsResponse" name="overwriteProductsResponse">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="deleteProducts">
@@ -1381,9 +1368,9 @@
 				<Version>1.0.0</Version>
 				operation to delete products
 			</wsdl:documentation>
-      <wsdl:input name="deleteProductsRequest" message="tns:deleteProductsRequest">
+      <wsdl:input message="tns:deleteProductsRequest" name="deleteProductsRequest">
     </wsdl:input>
-      <wsdl:output name="deleteProductsResponse" message="tns:deleteProductsResponse">
+      <wsdl:output message="tns:deleteProductsResponse" name="deleteProductsResponse">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="mergeProducts">
@@ -1391,9 +1378,9 @@
 				<Version>1.0.0</Version>
 				operation to merge products
 			</wsdl:documentation>
-      <wsdl:input name="mergeProductsRequest" message="tns:mergeProductsRequest">
+      <wsdl:input message="tns:mergeProductsRequest" name="mergeProductsRequest">
     </wsdl:input>
-      <wsdl:output name="mergeProductsResponse" message="tns:mergeProductsResponse">
+      <wsdl:output message="tns:mergeProductsResponse" name="mergeProductsResponse">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getProducts">
@@ -1401,144 +1388,136 @@
 				<Version>1.0.0</Version>
 				operation to get products
 			</wsdl:documentation>
-      <wsdl:input name="getProductsRequest" message="tns:getProductsRequest">
+      <wsdl:input message="tns:getProductsRequest" name="getProductsRequest">
     </wsdl:input>
-      <wsdl:output name="getProductsResponse" message="tns:getProductsResponse">
+      <wsdl:output message="tns:getProductsResponse" name="getProductsResponse">
     </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="CoreProductServiceSOAPBinding"
-  	type="tns:CoreProductServicePort">
+  <wsdl:binding name="CoreProductServiceSOAPBinding" type="tns:CoreProductServicePort">
 
-  	<soap:binding style="document"
-  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
   	<wsdl:operation name="addProducts">
 
-  		<soap:operation
-  			soapAction="urn:addProducts" />
+  		<soap:operation soapAction="urn:addProducts"/>
   		<wsdl:input name="addProductsRequest">
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output name="addProductsResponse">
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="overwriteProducts">
 
-  		<soap:operation
-  			soapAction="urn:overwriteProducts" />
+  		<soap:operation soapAction="urn:overwriteProducts"/>
   		<wsdl:input name="overwriteProductsRequest">
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output name="overwriteProductsResponse">
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="deleteProducts">
 
-  		<soap:operation
-  			soapAction="urn:deleteProducts" />
+  		<soap:operation soapAction="urn:deleteProducts"/>
   		<wsdl:input name="deleteProductsRequest">
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output name="deleteProductsResponse">
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="mergeProducts">
 
-  		<soap:operation
-  			soapAction="urn:mergeProducts" />
+  		<soap:operation soapAction="urn:mergeProducts"/>
   		<wsdl:input name="mergeProductsRequest">
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output name="mergeProductsResponse">
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="getProducts">
 
-  		<soap:operation
-  			soapAction="urn:getProducts" />
+  		<soap:operation soapAction="urn:getProducts"/>
   		<wsdl:input name="getProductsRequest">
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:input>
   		<wsdl:output name="getProductsResponse">
 
-  			<soap:body use="literal" />
+  			<soap:body use="literal"/>
   		</wsdl:output>
   	</wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="CoreProductServiceHttpBinding"
-  	type="tns:CoreProductServicePort">
+  <wsdl:binding name="CoreProductServiceHttpBinding" type="tns:CoreProductServicePort">
 
-  	<http:binding verb="POST" />
+  	<http:binding verb="POST"/>
   	<wsdl:operation name="addProducts">
 
-  		<http:operation location="/addProducts" />
+  		<http:operation location="/addProducts"/>
   		<wsdl:input name="addProductsRequest">
-  			<mime:content part="addProducts" type="application/x-www-form-urlencoded" />
+  			<mime:content part="addProducts" type="application/x-www-form-urlencoded"/>
 
   		</wsdl:input>
   		<wsdl:output name="addProductsResponse">
-  			<mime:content part="addProducts" type="text/xml" />
+  			<mime:content part="addProducts" type="text/xml"/>
 
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="overwriteProducts">
 
-  		<http:operation location="/overwriteProducts" />
+  		<http:operation location="/overwriteProducts"/>
   		<wsdl:input name="overwriteProductsRequest">
-  			<mime:content part="overwriteProducts" type="application/x-www-form-urlencoded" />
+  			<mime:content part="overwriteProducts" type="application/x-www-form-urlencoded"/>
 
   		</wsdl:input>
   		<wsdl:output name="overwriteProductsResponse">
-  			<mime:content part="overwriteProducts" type="text/xml" />
+  			<mime:content part="overwriteProducts" type="text/xml"/>
 
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="deleteProducts">
 
-  		<http:operation location="/deleteProducts" />
+  		<http:operation location="/deleteProducts"/>
   		<wsdl:input name="deleteProductsRequest">
-  			<mime:content part="deleteProducts" type="application/x-www-form-urlencoded" />
+  			<mime:content part="deleteProducts" type="application/x-www-form-urlencoded"/>
 
   		</wsdl:input>
   		<wsdl:output name="deleteProductsResponse">
-  			<mime:content part="deleteProducts" type="text/xml" />
+  			<mime:content part="deleteProducts" type="text/xml"/>
 
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="mergeProducts">
 
-  		<http:operation location="/mergeProducts" />
+  		<http:operation location="/mergeProducts"/>
   		<wsdl:input name="mergeProductsRequest">
-  			<mime:content part="mergeProducts" type="application/x-www-form-urlencoded" />
+  			<mime:content part="mergeProducts" type="application/x-www-form-urlencoded"/>
 
   		</wsdl:input>
   		<wsdl:output name="mergeProductsResponse">
-  			<mime:content part="mergeProducts" type="text/xml" />
+  			<mime:content part="mergeProducts" type="text/xml"/>
 
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="getProducts">
 
-  		<http:operation location="/getProducts" />
+  		<http:operation location="/getProducts"/>
   		<wsdl:input name="getProductsRequest">
-  			<mime:content part="getProducts" type="application/x-www-form-urlencoded" />
+  			<mime:content part="getProducts" type="application/x-www-form-urlencoded"/>
 
   		</wsdl:input>
   		<wsdl:output name="getProductsResponse">
-  			<mime:content part="getProducts" type="text/xml" />
+  			<mime:content part="getProducts" type="text/xml"/>
 
   		</wsdl:output>
   	</wsdl:operation>
@@ -1548,10 +1527,10 @@
 			CoreProductService is the interface between eBay, Inc's product repository and applications that deal with product information.
 			CoreProductService provides operations to create, retrieve and update product data.
 		</wsdl:documentation>
-    <wsdl:port name="CoreProductServiceHttp" binding="tns:CoreProductServiceHttpBinding">
+    <wsdl:port binding="tns:CoreProductServiceHttpBinding" name="CoreProductServiceHttp">
       <http:address location="http://apicatalogs.vip.ebay.com/ws/spf/CoreProductService"/>
     </wsdl:port>
-    <wsdl:port name="CoreProductServiceSOAP" binding="tns:CoreProductServiceSOAPBinding">
+    <wsdl:port binding="tns:CoreProductServiceSOAPBinding" name="CoreProductServiceSOAP">
       <soap12:address location="http://apicatalogs.vip.ebay.com/ws/spf/CoreProductService"/>
     </wsdl:port>
   </wsdl:service>

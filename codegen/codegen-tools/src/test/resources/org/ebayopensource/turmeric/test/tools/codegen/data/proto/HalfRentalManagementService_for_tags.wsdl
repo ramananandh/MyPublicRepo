@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<definitions name="HalfRentalManagementService" targetNamespace="http://www.ebay.com/marketplace/half/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/marketplace/half/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/half/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="HalfRentalManagementService" targetNamespace="http://www.ebayopensource.org/tumeric/half/v1/services">
 		<types>
-			<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/half/v1/services" xmlns:tns="http://www.ebay.com/marketplace/half/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-				<xs:element name="getVersionRequest"  type="tns:GetVersionRequest" /> 
-				<xs:element name="getVersionResponse"  type="tns:GetVersionResponse" /> 
-				<xs:element name="fileRentalDisputeRequest" type="tns:FileRentalDisputeRequest" /> 
-				<xs:element name="fileRentalDisputeResponse" type="tns:FileRentalDisputeResponse" />
-				<xs:element name="updateRentalStatusRequest" type="tns:UpdateRentalStatusRequest" /> 
-				<xs:element name="updateRentalStatusResponse" type="tns:UpdateRentalStatusResponse" />
+			<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/half/v1/services">
+				<xs:element name="getVersionRequest" type="tns:GetVersionRequest"/> 
+				<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/> 
+				<xs:element name="fileRentalDisputeRequest" type="tns:FileRentalDisputeRequest"/> 
+				<xs:element name="fileRentalDisputeResponse" type="tns:FileRentalDisputeResponse"/>
+				<xs:element name="updateRentalStatusRequest" type="tns:UpdateRentalStatusRequest"/> 
+				<xs:element name="updateRentalStatusResponse" type="tns:UpdateRentalStatusResponse"/>
 
 				
 				<xs:complexType name="GetVersionRequest">
@@ -43,7 +42,7 @@
 					<xs:complexContent>
 						<xs:extension base="tns:BaseRequest">
 							<xs:sequence>
-								<xs:element name="listingType" type="tns:ListingTypeCodeType" minOccurs="1">
+								<xs:element minOccurs="1" name="listingType" type="tns:ListingTypeCodeType">
 									<xs:annotation>
 										<xs:documentation>
 											documentation goes here
@@ -57,7 +56,7 @@
 									</xs:annotation>
 								</xs:element>
 
-								<xs:element name="itemID" type="tns:ItemIDType" minOccurs="0" >
+								<xs:element minOccurs="0" name="itemID" type="tns:ItemIDType">
 									<xs:annotation>
 										<xs:documentation>
 											Use this to raise seller claim for the item
@@ -70,7 +69,7 @@
 										</xs:appinfo>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="transactionID" type="xs:string" minOccurs="1" maxOccurs="1">
+								<xs:element maxOccurs="1" minOccurs="1" name="transactionID" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
 											Refers to the transaction id for which the seller intends to file a claim
@@ -84,7 +83,7 @@
 									</xs:annotation>
 								</xs:element>
 
-								<xs:element name="claimReason" type="tns:ClaimReasonCodeType" minOccurs="1" maxOccurs="1">
+								<xs:element maxOccurs="1" minOccurs="1" name="claimReason" type="tns:ClaimReasonCodeType">
 									<xs:annotation>
 										<xs:documentation>
 											Valid reason for filing a claim viz. INR, Damaged, LateFee, DamagedAndLate and Other
@@ -97,7 +96,7 @@
 										</xs:appinfo>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="claimAmount" type="tns:AmountType" minOccurs="1" maxOccurs="1">
+								<xs:element maxOccurs="1" minOccurs="1" name="claimAmount" type="tns:AmountType">
 									<xs:annotation>
 										<xs:documentation>
 											The amount which the seller will receive once the claim is settled
@@ -110,7 +109,7 @@
 										</xs:appinfo>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="actualReturnDate" type="xs:dateTime" minOccurs="0">
+								<xs:element minOccurs="0" name="actualReturnDate" type="xs:dateTime">
 									<xs:annotation>
 										<xs:documentation>
 											The date when the rental item return was due
@@ -123,7 +122,7 @@
 										</xs:appinfo>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="message" type="xs:string" minOccurs="0" >
+								<xs:element minOccurs="0" name="message" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
 											A valide message to be provided by seller while filing a claim
@@ -151,7 +150,7 @@
 					<xs:complexContent>
 						<xs:extension base="tns:BaseResponse">
 							<xs:sequence>
-								<xs:element name="claimID" type="xs:string" minOccurs="1" maxOccurs="1">
+								<xs:element maxOccurs="1" minOccurs="1" name="claimID" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>
 											This is the id returned when a sller files a claim. This id will be used by the seller for all future correspondence
@@ -177,7 +176,7 @@
 					<xs:complexContent>
 						<xs:extension base="tns:BaseRequest">
 							<xs:sequence>
-								<xs:element name="listingType" type="tns:ListingTypeCodeType" minOccurs="1" maxOccurs="1">
+								<xs:element maxOccurs="1" minOccurs="1" name="listingType" type="tns:ListingTypeCodeType">
 									<xs:annotation>
 										<xs:documentation>
 											The format of the listing the seller wants to use, such as Chinese auction
@@ -213,7 +212,7 @@
 										</xs:appinfo>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="transactionArray" type="tns:TransactionArrayType" minOccurs="1" maxOccurs="1">
+								<xs:element maxOccurs="1" minOccurs="1" name="transactionArray" type="tns:TransactionArrayType">
 									<xs:annotation>
 										<xs:documentation>
 											List of Transaction objects representing the transactions resulting
@@ -252,11 +251,11 @@
 							The base request container for all service operations.
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 					</xs:annotation>	
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType" />
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 					</xs:sequence>				
 				</xs:complexType>				
 				
@@ -266,7 +265,7 @@
 							The base response container for all service operations.
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 					</xs:annotation>
 					<xs:sequence>
@@ -322,7 +321,7 @@
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:element>	
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType" />					
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>					
 					</xs:sequence>
 				</xs:complexType>
 				
@@ -332,7 +331,7 @@
 							Documentation goes here
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 					</xs:annotation>
 					<xs:sequence>
@@ -350,7 +349,7 @@
 							This represents error details.
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 					</xs:annotation>
 					<xs:sequence>
@@ -525,11 +524,11 @@
 							part of a SOAP fault.
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 					</xs:annotation>
 					<xs:sequence>
-						<xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 							<xs:annotation>
 								<xs:documentation>
 									Details about a single error.
@@ -551,7 +550,7 @@
 							Contextual information associated with an error.
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 					</xs:annotation>
 					<xs:simpleContent>
@@ -577,7 +576,7 @@
 				<xs:simpleType name="ErrorCategory">
 					<xs:annotation>
 						<xs:appinfo>
-							<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 						<xs:documentation>
 							The source of the error.
@@ -615,7 +614,7 @@
 							informational error (a warning) that should be communicated to the user.
 						</xs:documentation>
 						<xs:appinfo>
-							<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 					</xs:annotation>
 					<xs:restriction base="xs:string">
@@ -882,7 +881,7 @@
 						</xs:documentation>
 					</xs:annotation>
 					<xs:sequence>
-						<xs:element name="transaction" type="tns:TransactionType" minOccurs="1" maxOccurs="unbounded">
+						<xs:element maxOccurs="unbounded" minOccurs="1" name="transaction" type="tns:TransactionType">
 							<xs:annotation>
 								<xs:documentation>
 									Information about one transaction.
@@ -905,7 +904,7 @@
 						</xs:documentation>
 					</xs:annotation>
 					<xs:sequence>
-						<xs:element name="transactionID" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="transactionID" type="xs:string">
 							<xs:annotation>
 								<xs:documentation>
 									Transaction ID
@@ -918,7 +917,7 @@
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="itemID" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="0" name="itemID" type="xs:string">
 							<xs:annotation>
 								<xs:documentation>
 									Item ID
@@ -931,7 +930,7 @@
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="actualReturnDate" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+						<xs:element maxOccurs="1" minOccurs="1" name="actualReturnDate" type="xs:dateTime">
 							<xs:annotation>
 								<xs:documentation>
 									Actual Return Date
@@ -950,7 +949,7 @@
 				<xs:simpleType name="AckValue">
 					<xs:annotation>
 						<xs:appinfo>
-							<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+							<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 						</xs:appinfo>
 						<xs:documentation>
 							The nature of the response.
@@ -1087,22 +1086,22 @@
 				</xs:schema>
 				</types>
 		<message name="getVersionRequest">
-			<part name="messageParameters" element="tns:getVersionRequest"/>
+			<part element="tns:getVersionRequest" name="messageParameters"/>
 		</message>
 		<message name="getVersionResponse">
-			<part name="messageParameters" element="tns:getVersionResponse"/>
+			<part element="tns:getVersionResponse" name="messageParameters"/>
 		</message>
 		<message name="fileRentalDisputeRequest">
-			<part name="params" element="tns:fileRentalDisputeRequest"/>
+			<part element="tns:fileRentalDisputeRequest" name="params"/>
 		</message>
 		<message name="fileRentalDisputeResponse">
-			<part name="params" element="tns:fileRentalDisputeResponse"/>
+			<part element="tns:fileRentalDisputeResponse" name="params"/>
 		</message>
 		<message name="updateRentalStatusRequest">
-			<part name="params" element="tns:updateRentalStatusRequest"/>
+			<part element="tns:updateRentalStatusRequest" name="params"/>
 		</message>
 		<message name="updateRentalStatusResponse">
-			<part name="params" element="tns:updateRentalStatusResponse"/>
+			<part element="tns:updateRentalStatusResponse" name="params"/>
 		</message>
 		
 		<portType name="HalfRentalManagementServicePort">
@@ -1110,22 +1109,22 @@
 				<documentation>
 					Operation to test the health ot status of the service endpoint.
 				</documentation>
-				<input name="getVersionRequest" message="tns:getVersionRequest"/>
-				<output name="getVersionResponse" message="tns:getVersionResponse"/>
+				<input message="tns:getVersionRequest" name="getVersionRequest"/>
+				<output message="tns:getVersionResponse" name="getVersionResponse"/>
 			</operation>
 			<operation name="fileRentalDispute">
 				<documentation>
 					Allows seller to file a claim for rental items
 				</documentation>
-				<input name="fileRentalDisputeRequest" message="tns:fileRentalDisputeRequest"/>
-				<output name="fileRentalDisputeResponse" message="tns:fileRentalDisputeResponse"/>
+				<input message="tns:fileRentalDisputeRequest" name="fileRentalDisputeRequest"/>
+				<output message="tns:fileRentalDisputeResponse" name="fileRentalDisputeResponse"/>
 			</operation>
 			<operation name="updateRentalStatus">
 				<documentation>
 					Specifies that a rental transaction is complete
 				</documentation>
-				<input name="updateRentalStatusRequest" message="tns:updateRentalStatusRequest"/>
-				<output name="updateRentalStatusResponse" message="tns:updateRentalStatusResponse"/>
+				<input message="tns:updateRentalStatusRequest" name="updateRentalStatusRequest"/>
+				<output message="tns:updateRentalStatusResponse" name="updateRentalStatusResponse"/>
 			</operation>
 			
 		</portType>
@@ -1199,11 +1198,11 @@
 				<Version>1.0.0</Version> 
 				This service provides the operations to update rental status and to file a seller claim  
 			</documentation>
-			<port name="HalfRentalManagementServiceHttpPort" binding="tns:HalfRentalManagementServiceHttpBinding">
-				<http:address location="https://svcs.ebay.com/services/half/v1/HalfRentalManagementService" /> 
+			<port binding="tns:HalfRentalManagementServiceHttpBinding" name="HalfRentalManagementServiceHttpPort">
+				<http:address location="https://svcs.ebay.com/services/half/v1/HalfRentalManagementService"/> 
 			</port>
-			<port name="HalfRentalManagementServiceSOAPPort" binding="tns:HalfRentalManagementServiceSOAPBinding">
-				<soap12:address location="https://svcs.ebay.com/services/half/v1/HalfRentalManagementService" /> 
+			<port binding="tns:HalfRentalManagementServiceSOAPBinding" name="HalfRentalManagementServiceSOAPPort">
+				<soap12:address location="https://svcs.ebay.com/services/half/v1/HalfRentalManagementService"/> 
 			</port>
 		</service>
 	</definitions>

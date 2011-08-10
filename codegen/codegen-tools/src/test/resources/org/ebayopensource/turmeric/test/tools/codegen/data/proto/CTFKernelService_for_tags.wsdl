@@ -1,41 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="CTFKernelService"
-	targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services"
-	xmlns="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/catalog/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CTFKernelService" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
 	<types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services"
-			xmlns:xs="http://www.w3.org/2001/XMLSchema">
-			<xs:element name="createActivitiesRequest"
-				type="tns:CreateActivitiesRequest" />
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
+			<xs:element name="createActivitiesRequest" type="tns:CreateActivitiesRequest"/>
 			<xs:complexType name="CreateActivitiesRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="1" name="createActivityRequest"
-								type="tns:CreateActivityRequest" />
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="createActivityRequest" type="tns:CreateActivityRequest"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="createActivitiesResponse"
-				type="tns:CreateActivitiesResponse" />
+			<xs:element name="createActivitiesResponse" type="tns:CreateActivitiesResponse"/>
 			<xs:complexType name="CreateActivitiesResponse">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="createActivityResponse"
-								type="tns:CreateActivityResponse" />
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="createActivityResponse" type="tns:CreateActivityResponse"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -44,14 +25,11 @@
 
 			<xs:complexType name="CreateActivityRequest">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCTFKernelServiceRequest">
+					<xs:extension base="tns:BaseCTFKernelServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="createActivity" type="tns:CreateActivity">
+							<xs:element maxOccurs="1" minOccurs="1" name="createActivity" type="tns:CreateActivity">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="comment" type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="0" name="comment" type="xs:string">
 							</xs:element>
 
 						</xs:sequence>
@@ -63,8 +41,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="invocationId" type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="0" name="invocationId" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -73,14 +50,11 @@
 
 			<xs:complexType name="CreateActivity">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="title"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="title" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1"
-						name="typeName" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="typeName" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="priority" type="tns:PriorityType">
+					<xs:element maxOccurs="1" minOccurs="0" name="priority" type="tns:PriorityType">
 
                         <xs:annotation>
                         	<xs:documentation>
@@ -88,25 +62,18 @@
                         	</xs:documentation>
                         </xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="sorting" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="sorting" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="payload" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="payload" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1"
-						name="queueName" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="queueName" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="parentId" type="xs:string"/>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="dueDate" type="xs:dateTime">
+					<xs:element maxOccurs="1" minOccurs="0" name="parentId" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="dueDate" type="xs:dateTime">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1"
-						name="creatorUserId" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="creatorUserId" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="activityTag" type="tns:ActivityTag">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="activityTag" type="tns:ActivityTag">
 					</xs:element>
 
 				</xs:sequence>
@@ -114,11 +81,9 @@
 
 			<xs:complexType name="CreateActivityTag">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="value"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:string">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -126,19 +91,17 @@
 
 			<xs:simpleType name="PriorityType">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="P1" />
-					<xs:enumeration value="P2" />
-					<xs:enumeration value="P3" />
+					<xs:enumeration value="P1"/>
+					<xs:enumeration value="P2"/>
+					<xs:enumeration value="P3"/>
 				</xs:restriction>
 			</xs:simpleType>
 
 			<xs:complexType name="CreateActivityResponse">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCTFKernelServiceResponse">
+					<xs:extension base="tns:BaseCTFKernelServiceResponse">
 						<xs:sequence>
-							<xs:element name="readActivity"
-								type="tns:ReadActivity">
+							<xs:element name="readActivity" type="tns:ReadActivity">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -149,11 +112,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="returnMessage" type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="0" name="returnMessage" type="xs:string">
 							</xs:element>
-							<xs:element name="invocationId"
-								type="xs:string">
+							<xs:element name="invocationId" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -164,18 +125,14 @@
 				<xs:complexContent>
 					<xs:extension base="tns:UpdateActivity">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="state" type="tns:ActivityStateType">
+							<xs:element maxOccurs="1" minOccurs="1" name="state" type="tns:ActivityStateType">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="createDate" type="xs:dateTime">
+							<xs:element maxOccurs="1" minOccurs="1" name="createDate" type="xs:dateTime">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="lastModifyDate" type="xs:dateTime">
+							<xs:element maxOccurs="1" minOccurs="1" name="lastModifyDate" type="xs:dateTime">
 							</xs:element>
 
-							<xs:element name="transitionLogs"
-								type="tns:ReadActivityTransitionLog" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="transitionLogs" type="tns:ReadActivityTransitionLog">
 							</xs:element>
 						</xs:sequence>
 
@@ -237,9 +194,9 @@
 
 			<xs:simpleType name="ActivityStateType">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="OPEN" />
-					<xs:enumeration value="RESOLVED" />
-					<xs:enumeration value="CLOSED" />
+					<xs:enumeration value="OPEN"/>
+					<xs:enumeration value="RESOLVED"/>
+					<xs:enumeration value="CLOSED"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -247,8 +204,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:CreateActivity">
 						<xs:sequence>
-							<xs:element name="activityId"
-								type="xs:long">
+							<xs:element name="activityId" type="xs:long">
 							</xs:element>
 						</xs:sequence>
 
@@ -299,12 +255,10 @@
 
 
 			</xs:complexType>
-			<xs:element name="readActivitiesRequest"
-				type="tns:ReadActivitiesRequest">
+			<xs:element name="readActivitiesRequest" type="tns:ReadActivitiesRequest">
 
 			</xs:element>
-			<xs:element name="readActivitiesResponse"
-				type="tns:ReadActivitiesResponse">
+			<xs:element name="readActivitiesResponse" type="tns:ReadActivitiesResponse">
 
 			</xs:element>
 
@@ -312,9 +266,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="1" name="readActivityRequest"
-								type="tns:ReadActivityRequest">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="readActivityRequest" type="tns:ReadActivityRequest">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -323,21 +275,16 @@
 
 			<xs:complexType name="ReadActivityRequest">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCTFKernelServiceRequest">
+					<xs:extension base="tns:BaseCTFKernelServiceRequest">
 						<xs:sequence>
-							<xs:element name="activityId"
-								type="xs:long">
+							<xs:element name="activityId" type="xs:long">
 							</xs:element>
-							<xs:element name="activityQueryFilter"
-								type="tns:ActivityQueryFilter">
+							<xs:element name="activityQueryFilter" type="tns:ActivityQueryFilter">
 							</xs:element>
 
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="actingUserId" type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="actingUserId" type="xs:string">
 							</xs:element>
-							<xs:element name="retrieveTransitionLogs"
-								type="xs:boolean">
+							<xs:element name="retrieveTransitionLogs" type="xs:boolean">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -346,61 +293,26 @@
 
 			<xs:complexType name="ActivityQueryFilter">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="queueName" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="queueName" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1"
-						name="pageSize" type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="1" name="pageSize" type="xs:int">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1"
-						name="pageNumber" type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="1" name="pageNumber" type="xs:int">
 					</xs:element>
-					<xs:element name="priority"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-						type="tns:PriorityType">
+					<xs:element name="priority" type="tns:PriorityType">
 					</xs:element>
-					<xs:element name="tagValues" type="xs:string"
-						minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="tagValues" type="xs:string">
 					</xs:element>
-					<xs:element name="type" type="xs:string"
-						minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="type" type="xs:string">
 					</xs:element>
-					<xs:element name="activityCreator" type="xs:string"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="activityCreator" type="xs:string">
 					</xs:element>
-					<xs:element name="state"
-						type="tns:ActivityStateType" maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="state" type="tns:ActivityStateType">
 					</xs:element>
-					<xs:element name="parentId" type="xs:long"
-						maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="parentId" type="xs:long">
 					</xs:element>
-					<xs:element name="fromDate" type="xs:dateTime" maxOccurs="1" minOccurs="0"></xs:element>
-					<xs:element name="toDate" type="xs:dateTime" maxOccurs="1" minOccurs="0"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="fromDate" type="xs:dateTime"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="toDate" type="xs:dateTime"/>
 
 
 
@@ -413,12 +325,10 @@
 
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="updateActivitiesRequest"
-				type="tns:UpdateActivitiesRequest">
+			<xs:element name="updateActivitiesRequest" type="tns:UpdateActivitiesRequest">
 
 			</xs:element>
-			<xs:element name="updateActivitiesResponse"
-				type="tns:UpdateActivitiesResponse">
+			<xs:element name="updateActivitiesResponse" type="tns:UpdateActivitiesResponse">
 
 			</xs:element>
 
@@ -426,9 +336,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="1" name="updateActivityRequest"
-								type="tns:UpdateActivityRequest">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="updateActivityRequest" type="tns:UpdateActivityRequest">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -437,20 +345,15 @@
 
 			<xs:complexType name="UpdateActivityRequest">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCTFKernelServiceRequest">
+					<xs:extension base="tns:BaseCTFKernelServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="updateActivity" type="tns:UpdateActivity">
+							<xs:element maxOccurs="1" minOccurs="1" name="updateActivity" type="tns:UpdateActivity">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="newComment" type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="0" name="newComment" type="xs:string">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="newState" type="tns:ActivityStateType">
+							<xs:element maxOccurs="1" minOccurs="0" name="newState" type="tns:ActivityStateType">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="actingUserId" type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="actingUserId" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -461,9 +364,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="1" name="updateActivityResponse"
-								type="tns:UpdateActivityResponse">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="updateActivityResponse" type="tns:UpdateActivityResponse">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -472,22 +373,18 @@
 
 			<xs:complexType name="UpdateActivityResponse">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCTFKernelServiceResponse">
+					<xs:extension base="tns:BaseCTFKernelServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1"
-								minOccurs="0" name="activity" type="tns:ReadActivity">
+							<xs:element maxOccurs="1" minOccurs="0" name="activity" type="tns:ReadActivity">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="createQueuesRequest"
-				type="tns:CreateQueuesRequest">
+			<xs:element name="createQueuesRequest" type="tns:CreateQueuesRequest">
 
 			</xs:element>
-			<xs:element name="createQueuesResponse"
-				type="tns:CreateQueuesResponse">
+			<xs:element name="createQueuesResponse" type="tns:CreateQueuesResponse">
 
 			</xs:element>
 
@@ -495,9 +392,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="1" name="createQueues"
-								type="tns:CreateQueueRequest">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="createQueues" type="tns:CreateQueueRequest">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -506,11 +401,9 @@
 
 			<xs:complexType name="CreateQueueRequest">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCTFKernelServiceRequest">
+					<xs:extension base="tns:BaseCTFKernelServiceRequest">
 						<xs:sequence>
-							<xs:element name="createQueue"
-								type="tns:CreateQueue">
+							<xs:element name="createQueue" type="tns:CreateQueue">
 							</xs:element>
 
 						</xs:sequence>
@@ -520,20 +413,15 @@
 
 			<xs:complexType name="CreateQueue">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="description" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="0" name="description" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1"
-						name="queueType" type="tns:QueueType">
+					<xs:element maxOccurs="1" minOccurs="1" name="queueType" type="tns:QueueType">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1"
-						name="queueOwnerUserId" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="queueOwnerUserId" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0"
-						name="expirationPeriod" type="xs:long">
+					<xs:element maxOccurs="1" minOccurs="0" name="expirationPeriod" type="xs:long">
                         <xs:annotation>
                         	<xs:documentation>
                         		if value less than 0 it will be
@@ -541,7 +429,7 @@
                         	</xs:documentation>
                         </xs:annotation>
 					</xs:element>
-                    <xs:element name="usersPermissions" type="tns:UserPermission" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="usersPermissions" type="tns:UserPermission">
 							</xs:element>
                 </xs:sequence>
 
@@ -554,8 +442,8 @@
 
 			<xs:simpleType name="QueueType">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="PRIVATE" />
-					<xs:enumeration value="SHARED" />
+					<xs:enumeration value="PRIVATE"/>
+					<xs:enumeration value="SHARED"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -563,8 +451,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="queueResponse" type="tns:QueueResponse">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="queueResponse" type="tns:QueueResponse">
 							</xs:element>
 						</xs:sequence>
 
@@ -574,11 +461,9 @@
 
 			<xs:complexType name="QueueResponse">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCTFKernelServiceResponse">
+					<xs:extension base="tns:BaseCTFKernelServiceResponse">
 						<xs:sequence>
-							<xs:element name="readQueue"
-								type="tns:ReadQueue">
+							<xs:element name="readQueue" type="tns:ReadQueue">
 							</xs:element>
 
 						</xs:sequence>
@@ -590,24 +475,18 @@
 				<xs:complexContent>
 					<xs:extension base="tns:UpdateQueue">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="createDate" type="xs:dateTime">
+							<xs:element maxOccurs="1" minOccurs="1" name="createDate" type="xs:dateTime">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="lastModifyDate" type="xs:dateTime">
+							<xs:element maxOccurs="1" minOccurs="1" name="lastModifyDate" type="xs:dateTime">
 							</xs:element>
 
-							<xs:element name="closedCount"
-								type="xs:int">
+							<xs:element name="closedCount" type="xs:int">
 							</xs:element>
-							<xs:element name="openCount"
-								type="xs:int">
+							<xs:element name="openCount" type="xs:int">
 							</xs:element>
-							<xs:element name="reopenCount"
-								type="xs:int">
+							<xs:element name="reopenCount" type="xs:int">
 							</xs:element>
-							<xs:element name="resolvedCount"
-								type="xs:int">
+							<xs:element name="resolvedCount" type="xs:int">
 							</xs:element>
 						</xs:sequence>
 
@@ -653,8 +532,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:CreateQueue">
 						<xs:sequence>
-							<xs:element name="queueName"
-								type="xs:string">
+							<xs:element name="queueName" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 
@@ -680,8 +558,7 @@
 
 			</xs:complexType>
 
-			<xs:element name="assignTheActivitiesResponse"
-				type="tns:AssignTheActivitiesResponse">
+			<xs:element name="assignTheActivitiesResponse" type="tns:AssignTheActivitiesResponse">
 
 			</xs:element>
 
@@ -689,9 +566,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="1" name="assignTheActivityRequest"
-								type="tns:AssignTheActivityRequest">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="assignTheActivityRequest" type="tns:AssignTheActivityRequest">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -700,20 +575,15 @@
 
 			<xs:complexType name="AssignTheActivityRequest">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCTFKernelServiceRequest">
+					<xs:extension base="tns:BaseCTFKernelServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="fromQueueName" type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="fromQueueName" type="xs:string">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="toQueueName" type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="toQueueName" type="xs:string">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="activityId" type="xs:long">
+							<xs:element maxOccurs="1" minOccurs="1" name="activityId" type="xs:long">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="actingUserId" type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="actingUserId" type="xs:string">
 
 
 
@@ -721,8 +591,7 @@
 
 
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="comment" type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="0" name="comment" type="xs:string">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -733,9 +602,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="1" name="assignTheActivityResponse"
-								type="tns:AssignTheActivityResponse">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="assignTheActivityResponse" type="tns:AssignTheActivityResponse">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -744,22 +611,18 @@
 
 			<xs:complexType name="AssignTheActivityResponse">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCTFKernelServiceResponse">
+					<xs:extension base="tns:BaseCTFKernelServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1"
-								minOccurs="0" name="assignedActivity" type="tns:ReadActivity">
+							<xs:element maxOccurs="1" minOccurs="0" name="assignedActivity" type="tns:ReadActivity">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="assignTheActivitiesRequest"
-				type="tns:AssignTheActivitiesRequest">
+			<xs:element name="assignTheActivitiesRequest" type="tns:AssignTheActivitiesRequest">
 
 			</xs:element>
-			<xs:element name="assignNActivitiesResponse"
-				type="tns:AssignNActivitiesResponse">
+			<xs:element name="assignNActivitiesResponse" type="tns:AssignNActivitiesResponse">
 
 			</xs:element>
 
@@ -767,9 +630,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="1" name="assignNActivityRequest"
-								type="tns:AssignNActivityRequest">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="assignNActivityRequest" type="tns:AssignNActivityRequest">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -778,23 +639,17 @@
 
 			<xs:complexType name="AssignNActivityRequest">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCTFKernelServiceRequest">
+					<xs:extension base="tns:BaseCTFKernelServiceRequest">
 						<xs:sequence>
-							<xs:element name="fromQueueName"
-								type="xs:string">
+							<xs:element name="fromQueueName" type="xs:string">
 							</xs:element>
-							<xs:element name="toQueueName"
-								type="xs:string">
+							<xs:element name="toQueueName" type="xs:string">
 							</xs:element>
-							<xs:element name="actingUserId"
-								type="xs:string">
+							<xs:element name="actingUserId" type="xs:string">
 							</xs:element>
-							<xs:element name="comment"
-								type="xs:string">
+							<xs:element name="comment" type="xs:string">
 							</xs:element>
-							<xs:element
-								name="numberOfActivitiesToAssign" type="xs:int">
+							<xs:element name="numberOfActivitiesToAssign" type="xs:int">
 
 
 
@@ -811,9 +666,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="assignNActivityResponse"
-								type="tns:AssignNActivityResponse">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="assignNActivityResponse" type="tns:AssignNActivityResponse">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -822,11 +675,9 @@
 
 			<xs:complexType name="AssignNActivityResponse">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCTFKernelServiceResponse">
+					<xs:extension base="tns:BaseCTFKernelServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="assignedActivity" type="tns:ReadActivity">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="assignedActivity" type="tns:ReadActivity">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -835,11 +686,9 @@
 
 			<xs:complexType name="ReadActivityTransitionLog">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:UpdateActivityTransitionLog">
+					<xs:extension base="tns:UpdateActivityTransitionLog">
 						<xs:sequence>
-							<xs:element name="createDate"
-								type="xs:dateTime">
+							<xs:element name="createDate" type="xs:dateTime">
 							</xs:element>
 
 						</xs:sequence>
@@ -862,11 +711,9 @@
 
 			<xs:complexType name="UpdateActivityTransitionLog">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:CreateActivityTransitionLog">
+					<xs:extension base="tns:CreateActivityTransitionLog">
 						<xs:sequence>
-							<xs:element name="logRecordId"
-								type="xs:long">
+							<xs:element name="logRecordId" type="xs:long">
 							</xs:element>
 						</xs:sequence>
 
@@ -876,13 +723,12 @@
 
 			<xs:complexType name="CreateActivityTransitionLog">
 				<xs:sequence>
-					<xs:element name="activityId" type="xs:long" />
-					<xs:element name="logInitiator" type="xs:string" />
-					<xs:element name="comment" type="xs:string" />
-					<xs:element name="logRecordType"
-						type="tns:LogRecordType">
+					<xs:element name="activityId" type="xs:long"/>
+					<xs:element name="logInitiator" type="xs:string"/>
+					<xs:element name="comment" type="xs:string"/>
+					<xs:element name="logRecordType" type="tns:LogRecordType">
 					</xs:element>
-					<xs:element name="toQueueName" type="xs:string"></xs:element>
+					<xs:element name="toQueueName" type="xs:string"/>
 
 
 
@@ -911,9 +757,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="readActivityResponse"
-								type="tns:ReadActivityResponse">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="readActivityResponse" type="tns:ReadActivityResponse">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -922,11 +766,9 @@
 
 			<xs:complexType name="ReadActivityResponse">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCTFKernelServiceResponse">
+					<xs:extension base="tns:BaseCTFKernelServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="readActivity" type="tns:ReadActivity">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="readActivity" type="tns:ReadActivity">
 							</xs:element>
 
 						</xs:sequence>
@@ -934,14 +776,14 @@
 				</xs:complexContent>
 			</xs:complexType>
 
-			<xs:complexType name="ReadActivityTag" />
+			<xs:complexType name="ReadActivityTag"/>
 
 			<xs:complexType name="ActivityTag">
 				<xs:sequence>
-					<xs:element name="name" type="xs:string" minOccurs="1"/>
-                    <xs:element name="displayName" type="xs:string" minOccurs="1"></xs:element>
-                    <xs:element name="sortOrder" type="xs:int" minOccurs="1"></xs:element>
-                    <xs:element name="value" type="xs:string" minOccurs="1"/>
+					<xs:element minOccurs="1" name="name" type="xs:string"/>
+                    <xs:element minOccurs="1" name="displayName" type="xs:string"/>
+                    <xs:element minOccurs="1" name="sortOrder" type="xs:int"/>
+                    <xs:element minOccurs="1" name="value" type="xs:string"/>
 
 
 
@@ -952,27 +794,24 @@
 
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="assignNActivitiesRequest"
-				type="tns:AssignNActivitiesRequest">
+			<xs:element name="assignNActivitiesRequest" type="tns:AssignNActivitiesRequest">
 			</xs:element>
 
 			<xs:simpleType name="LogRecordType">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="ASSIGN" />
-					<xs:enumeration value="CREATION" />
-					<xs:enumeration value="STATE SET OPEN" />
-					<xs:enumeration value="STATE SET RESOLVED" />
-					<xs:enumeration value="STATE SET CLOSED" />
-					<xs:enumeration value="UPDATE" />
-					<xs:enumeration value="COMMENT" />
+					<xs:enumeration value="ASSIGN"/>
+					<xs:enumeration value="CREATION"/>
+					<xs:enumeration value="STATE SET OPEN"/>
+					<xs:enumeration value="STATE SET RESOLVED"/>
+					<xs:enumeration value="STATE SET CLOSED"/>
+					<xs:enumeration value="UPDATE"/>
+					<xs:enumeration value="COMMENT"/>
 				</xs:restriction>
 			</xs:simpleType>
-			<xs:element name="readQueuesRequest"
-				type="tns:ReadQueuesRequest">
+			<xs:element name="readQueuesRequest" type="tns:ReadQueuesRequest">
 
 			</xs:element>
-			<xs:element name="readQueuesResponse"
-				type="tns:ReadQueuesResponse">
+			<xs:element name="readQueuesResponse" type="tns:ReadQueuesResponse">
 
 			</xs:element>
 
@@ -980,8 +819,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="1"
-								name="readQueueRequest" type="tns:ReadQueueRequest">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="readQueueRequest" type="tns:ReadQueueRequest">
 
 							</xs:element>
 						</xs:sequence>
@@ -992,11 +830,9 @@
 
 			<xs:complexType name="ReadQueueRequest">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCTFKernelServiceRequest">
+					<xs:extension base="tns:BaseCTFKernelServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="queueFilter" type="tns:QueueFilter">
+							<xs:element maxOccurs="1" minOccurs="1" name="queueFilter" type="tns:QueueFilter">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1005,7 +841,7 @@
 
 			<xs:complexType name="QueueFilter">
 				<xs:sequence>
-					<xs:element name="queueName" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="queueName" type="xs:string">
 
 						<xs:annotation>
 							<xs:documentation>
@@ -1014,7 +850,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="username" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="username" type="xs:string">
 
 						<xs:annotation>
 							<xs:documentation>
@@ -1023,8 +859,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="permissionType"
-						type="tns:PermissionType" minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="permissionType" type="tns:PermissionType">
 						<xs:annotation>
 							<xs:documentation>
 								minimum permission type. if the value is
@@ -1033,7 +868,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="queueType" type="tns:QueueType" minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="queueType" type="tns:QueueType">
 
 						<xs:annotation>
 							<xs:documentation>
@@ -1051,10 +886,10 @@
 
 			<xs:simpleType name="PermissionType">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="INVALID" />
-					<xs:enumeration value="READ" />
-					<xs:enumeration value="WRITE" />
-					<xs:enumeration value="OWNER" />
+					<xs:enumeration value="INVALID"/>
+					<xs:enumeration value="READ"/>
+					<xs:enumeration value="WRITE"/>
+					<xs:enumeration value="OWNER"/>
 				</xs:restriction>
 			</xs:simpleType>
 
@@ -1062,9 +897,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded"
-								minOccurs="0" name="readQueueResponse"
-								type="tns:ReadQueueResponse">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="readQueueResponse" type="tns:ReadQueueResponse">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1073,11 +906,9 @@
 
 			<xs:complexType name="ReadQueueResponse">
 				<xs:complexContent>
-					<xs:extension
-						base="tns:BaseCTFKernelServiceResponse">
+					<xs:extension base="tns:BaseCTFKernelServiceResponse">
 						<xs:sequence>
-							<xs:element name="readQueue"
-								type="tns:ReadQueue" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="readQueue" type="tns:ReadQueue">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -1092,12 +923,11 @@
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:complexType abstract="true"
-				name="BaseProductServiceRequest">
+			<xs:complexType abstract="true" name="BaseProductServiceRequest">
 				<xs:annotation>
 					<xs:documentation>
 						This is the base class for request container for
@@ -1107,8 +937,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="invocationId"
-								type="xs:string">
+							<xs:element name="invocationId" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										a unique ID assigned to each
@@ -1129,8 +958,7 @@
 
 
 
-			<xs:complexType abstract="true"
-				name="BaseServiceResponse">
+			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -1148,14 +976,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -1167,14 +994,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="version"
-						type="xs:string">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								The version of the response payload
@@ -1186,38 +1012,37 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 
 					</xs:element>
-					<xs:element minOccurs="0" name="timestamp"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation>
 								This value represents the date and time
 								when eBay processed the request. The
 								time zone of this value is &lt;a
-								href=&quot;types/simpleTypes.html#dateTime&quot;&gt;GMT&lt;/a&gt;
+								href="types/simpleTypes.html#dateTime"&gt;GMT&lt;/a&gt;
 								and the format is the ISO 8601 date and
 								time format (YYYY-MM-DDTHH:MM:SS.SSSZ).
-								See the &quot;dateTime&quot; type for
+								See the "dateTime" type for
 								information about this time format and
 								converting to and from the GMT time
 								zone.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
 
@@ -1231,15 +1056,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -1266,7 +1090,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -1288,14 +1112,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 						<xs:annotation>
 							<xs:documentation>
 								Indicates whether the error caused the
@@ -1334,14 +1157,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 						<xs:annotation>
 							<xs:documentation>
 								There are three categories of errors:
@@ -1350,7 +1172,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -1364,14 +1186,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string">
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain upon which the
@@ -1393,14 +1214,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token">
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for an exception
@@ -1408,14 +1228,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -1426,7 +1245,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -1452,7 +1271,7 @@
 								</xs:documentation>
 								<xs:appinfo>
 									<CallInfo>
-										<AllCalls />
+										<AllCalls/>
 										<Returned>
 											Conditionally
 										</Returned>
@@ -1618,7 +1437,7 @@
 		
 			<xs:complexType name="UserPermission">
 				<xs:sequence>
-					<xs:element name="userId" type="xs:string"></xs:element>
+					<xs:element name="userId" type="xs:string"/>
 					<xs:element name="permissionType" type="tns:PermissionType">
 
 
@@ -1627,7 +1446,7 @@
 			</xs:complexType>
 		
 			<xs:simpleType name="UserPermissionType">
-				<xs:restriction base="xs:string"></xs:restriction>
+				<xs:restriction base="xs:string"/>
 			</xs:simpleType>
 			<xs:element name="setPermissionsRequest" type="tns:SetPermissionsRequest">
 
@@ -1640,8 +1459,7 @@
             	<xs:complexContent>
             		<xs:extension base="tns:BaseServiceRequest">
             			<xs:sequence>
-            				<xs:element name="permissionRequests"
-            					type="tns:SetPermissionRequest" minOccurs="1" maxOccurs="unbounded">
+            				<xs:element maxOccurs="unbounded" minOccurs="1" name="permissionRequests" type="tns:SetPermissionRequest">
             				</xs:element>
             			</xs:sequence>
             		</xs:extension>
@@ -1650,14 +1468,11 @@
 		
             <xs:complexType name="SetPermissionRequest">
             	<xs:complexContent>
-            		<xs:extension
-            			base="tns:BaseCTFKernelServiceRequest">
+            		<xs:extension base="tns:BaseCTFKernelServiceRequest">
             			<xs:sequence>
                             <xs:element name="queueName" type="xs:string">
             				</xs:element>
-                            <xs:element name="usersPermission"
-            					type="tns:UserPermission" minOccurs="1"
-            					maxOccurs="unbounded">
+                            <xs:element maxOccurs="unbounded" minOccurs="1" name="usersPermission" type="tns:UserPermission">
             				</xs:element>
 
             			</xs:sequence>
@@ -1669,8 +1484,7 @@
             	<xs:complexContent>
             		<xs:extension base="tns:BaseServiceResponse">
             			<xs:sequence>
-            				<xs:element name="permissionReponses"
-            					type="tns:PermissionResponses" minOccurs="0" maxOccurs="unbounded">
+            				<xs:element maxOccurs="unbounded" minOccurs="0" name="permissionReponses" type="tns:PermissionResponses">
             				</xs:element>
             			</xs:sequence>
             		</xs:extension>
@@ -1679,15 +1493,11 @@
 		
             <xs:complexType name="PermissionResponses">
             	<xs:complexContent>
-            		<xs:extension
-            			base="tns:BaseCTFKernelServiceResponse">
+            		<xs:extension base="tns:BaseCTFKernelServiceResponse">
             			<xs:sequence>
-            				<xs:element name="queueName"
-            					type="xs:string">
+            				<xs:element name="queueName" type="xs:string">
             				</xs:element>
-            				<xs:element name="userPermissions"
-            					type="tns:UserPermission" minOccurs="0"
-            					maxOccurs="unbounded">
+            				<xs:element maxOccurs="unbounded" minOccurs="0" name="userPermissions" type="tns:UserPermission">
             				</xs:element>
             			</xs:sequence>
 
@@ -1700,294 +1510,268 @@
 		</xs:schema>
 	</types>
 	<message name="readQueuesResponse">
-		<part name="parameters" element="tns:readQueuesResponse"></part>
+		<part element="tns:readQueuesResponse" name="parameters"/>
 	</message>
 	<message name="updateActivitiesRequest">
-		<part name="parameters" element="tns:updateActivitiesRequest">
+		<part element="tns:updateActivitiesRequest" name="parameters">
 		</part>
 	</message>
 	<message name="createQueuesResponse">
-		<part name="parameters" element="tns:createQueuesResponse">
+		<part element="tns:createQueuesResponse" name="parameters">
 		</part>
 	</message>
 	<message name="assignTheActivitiesResponse">
-		<part name="parameters"
-			element="tns:assignTheActivitiesResponse">
+		<part element="tns:assignTheActivitiesResponse" name="parameters">
 		</part>
 	</message>
 	<message name="createQueuesRequest">
-		<part name="parameters" element="tns:createQueuesRequest">
+		<part element="tns:createQueuesRequest" name="parameters">
 		</part>
 	</message>
 	<message name="readQueuesRequest">
-		<part name="parameters" element="tns:readQueuesRequest"></part>
+		<part element="tns:readQueuesRequest" name="parameters"/>
 	</message>
 	<message name="updateActivitiesResponse">
-		<part name="parameters"
-			element="tns:updateActivitiesResponse">
+		<part element="tns:updateActivitiesResponse" name="parameters">
 		</part>
 	</message>
 	<message name="createActivitiesResponse">
-		<part name="params" element="tns:createActivitiesResponse">
+		<part element="tns:createActivitiesResponse" name="params">
 		</part>
 	</message>
 	<message name="readActivitiesRequest">
-		<part name="parameters" element="tns:readActivitiesRequest">
+		<part element="tns:readActivitiesRequest" name="parameters">
 		</part>
 	</message>
 	<message name="assignNActivitiesResponse">
-		<part name="parameters"
-			element="tns:assignNActivitiesResponse">
+		<part element="tns:assignNActivitiesResponse" name="parameters">
 		</part>
 	</message>
 	<message name="assignNActivitiesRequest">
-		<part name="parameters"
-			element="tns:assignNActivitiesRequest">
+		<part element="tns:assignNActivitiesRequest" name="parameters">
 		</part>
 	</message>
 	<message name="assignTheActivitiesRequest">
-		<part name="parameters"
-			element="tns:assignTheActivitiesRequest">
+		<part element="tns:assignTheActivitiesRequest" name="parameters">
 		</part>
 	</message>
 	<message name="createActivitiesRequest">
-		<part name="params" element="tns:createActivitiesRequest">
+		<part element="tns:createActivitiesRequest" name="params">
 		</part>
 	</message>
 	<message name="readActivitiesResponse">
-		<part name="parameters" element="tns:readActivitiesResponse">
+		<part element="tns:readActivitiesResponse" name="parameters">
 		</part>
 	</message>
 	<wsdl:message name="setPermissionsRequest">
-		<wsdl:part name="parameters" element="tns:setPermissionsRequest"></wsdl:part>
+		<wsdl:part element="tns:setPermissionsRequest" name="parameters"/>
 
 
 	</wsdl:message>
 	<wsdl:message name="setPermissionsResponse">
-		<wsdl:part name="parameters" element="tns:setPermissionsResponse"></wsdl:part>
+		<wsdl:part element="tns:setPermissionsResponse" name="parameters"/>
 
 
 	</wsdl:message>
 	<portType name="CTFKernelServicePort">
 		<operation name="createActivities">
-			<input message="tns:createActivitiesRequest"></input>
-			<output message="tns:createActivitiesResponse"></output>
+			<input message="tns:createActivitiesRequest"/>
+			<output message="tns:createActivitiesResponse"/>
 		</operation>
 		<operation name="readActivities">
-			<input message="tns:readActivitiesRequest"></input>
-			<output message="tns:readActivitiesResponse"></output>
+			<input message="tns:readActivitiesRequest"/>
+			<output message="tns:readActivitiesResponse"/>
 		</operation>
 		<operation name="updateActivities">
-			<input message="tns:updateActivitiesRequest"></input>
-			<output message="tns:updateActivitiesResponse"></output>
+			<input message="tns:updateActivitiesRequest"/>
+			<output message="tns:updateActivitiesResponse"/>
 		</operation>
 		<operation name="createQueues">
-			<input message="tns:createQueuesRequest"></input>
-			<output message="tns:createQueuesResponse"></output>
+			<input message="tns:createQueuesRequest"/>
+			<output message="tns:createQueuesResponse"/>
 		</operation>
 		<operation name="assignTheActivities">
-			<input message="tns:assignTheActivitiesRequest"></input>
-			<output message="tns:assignTheActivitiesResponse"></output>
+			<input message="tns:assignTheActivitiesRequest"/>
+			<output message="tns:assignTheActivitiesResponse"/>
 		</operation>
 		<operation name="assignNActivities">
-			<input message="tns:assignNActivitiesRequest"></input>
-			<output message="tns:assignNActivitiesResponse"></output>
+			<input message="tns:assignNActivitiesRequest"/>
+			<output message="tns:assignNActivitiesResponse"/>
 		</operation>
 
 		<operation name="readQueues">
-			<input message="tns:readQueuesRequest"></input>
-			<output message="tns:readQueuesResponse"></output>
+			<input message="tns:readQueuesRequest"/>
+			<output message="tns:readQueuesResponse"/>
 		</operation>
 		<wsdl:operation name="setPermissions">
-			<wsdl:input message="tns:setPermissionsRequest"></wsdl:input>
-			<wsdl:output message="tns:setPermissionsResponse"></wsdl:output>
+			<wsdl:input message="tns:setPermissionsRequest"/>
+			<wsdl:output message="tns:setPermissionsResponse"/>
 		</wsdl:operation>
 	</portType>
-	<binding name="CTFKernelServiceHttpBinding"
-		type="tns:CTFKernelServicePort">
-		<http:binding verb="POST" />
+	<binding name="CTFKernelServiceHttpBinding" type="tns:CTFKernelServicePort">
+		<http:binding verb="POST"/>
 		<operation name="createActivities">
-			<http:operation location="/createActivities" />
+			<http:operation location="/createActivities"/>
 			<input>
-				<mime:content part="params"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</output>
 		</operation>
 		<operation name="readActivities">
-			<http:operation location="/readActivities" />
+			<http:operation location="/readActivities"/>
 			<input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</output>
 		</operation>
 		<operation name="updateActivities">
-			<http:operation location="/updateActivities" />
+			<http:operation location="/updateActivities"/>
 			<input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</output>
 		</operation>
 		<operation name="createQueues">
-			<http:operation location="/createQueues" />
+			<http:operation location="/createQueues"/>
 			<input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</output>
 		</operation>
 		<operation name="assignTheActivities">
-			<http:operation location="/assignTheActivities" />
+			<http:operation location="/assignTheActivities"/>
 			<input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</output>
 		</operation>
 		<operation name="assignNActivities">
-			<http:operation location="/assignNActivities" />
+			<http:operation location="/assignNActivities"/>
 			<input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</output>
 		</operation>
 	</binding>
-	<binding name="CTFKernelServiceSOAPBinding"
-		type="tns:CTFKernelServicePort">
+	<binding name="CTFKernelServiceSOAPBinding" type="tns:CTFKernelServicePort">
 
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<operation name="createActivities">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/catalog/v1/services/createActivities" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/createActivities"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="readActivities">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/catalog/v1/services/readActivities" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/readActivities"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="updateActivities">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/catalog/v1/services/updateActivities" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/updateActivities"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="createQueues">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/catalog/v1/services/createQueues" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/createQueues"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="assignTheActivities">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/catalog/v1/services/assignTheActivities" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/assignTheActivities"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="assignNActivities">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/catalog/v1/services/assignNActivities" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/assignNActivities"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 
 		<operation name="readQueues">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/catalog/v1/services/readQueues" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/readQueues"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<wsdl:operation name="setPermissions">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/catalog/v1/services/setPermissions" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/setPermissions"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</binding>
 	<service name="CTFKernelService">
-		<port name="CTFKernelServiceHttp"
-			binding="tns:CTFKernelServiceHttpBinding">
-			<http:address
-				location="http://apicatalogs.vip.ebay.com/ws/spf/CTFKernelService" />
+		<port binding="tns:CTFKernelServiceHttpBinding" name="CTFKernelServiceHttp">
+			<http:address location="http://apicatalogs.vip.ebay.com/ws/spf/CTFKernelService"/>
 		</port>
-		<port name="CTFKernelServiceSOAP"
-			binding="tns:CTFKernelServiceSOAPBinding">
-			<soap12:address
-				location="http://apicatalogs.vip.ebay.com/ws/spf/CTFKernelService" />
+		<port binding="tns:CTFKernelServiceSOAPBinding" name="CTFKernelServiceSOAP">
+			<soap12:address location="http://apicatalogs.vip.ebay.com/ws/spf/CTFKernelService"/>
 		</port>
 	</service>
 </definitions>

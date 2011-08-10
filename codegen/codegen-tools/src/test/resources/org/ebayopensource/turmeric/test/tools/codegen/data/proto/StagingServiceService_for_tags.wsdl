@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="urn:tr2services.turboroller.ebay.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:tr2services.turboroller.ebay.com" xmlns:intf="urn:tr2services.turboroller.ebay.com" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:tr2services.turboroller.ebay.com" xmlns:intf="urn:tr2services.turboroller.ebay.com" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:tr2services.turboroller.ebay.com">
 <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
-  <schema targetNamespace="urn:tr2services.turboroller.ebay.com" xmlns="http://www.w3.org/2001/XMLSchema">
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:tr2services.turboroller.ebay.com">
    <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
    <complexType name="StagingData">
     <sequence>
-     <element name="buildNumber"  type="xsd:string"/>
-     <element name="poolListStr"  type="xsd:string"/>
-     <element name="timeoutMinStr"  type="xsd:string"/>
+     <element name="buildNumber" type="xsd:string"/>
+     <element name="poolListStr" type="xsd:string"/>
+     <element name="timeoutMinStr" type="xsd:string"/>
     </sequence>
    </complexType>
   </schema>

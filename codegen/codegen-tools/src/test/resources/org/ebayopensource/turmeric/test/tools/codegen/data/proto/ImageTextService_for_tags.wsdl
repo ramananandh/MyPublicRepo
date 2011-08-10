@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://www.ebay.com/marketplace/services" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ebayopensource.org/tumeric/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://www.ebayopensource.org/tumeric/services" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
-<xs:element name="getImageTextRequest"  type="tns:GetImageTextRequest"/>
-<xs:element name="getImageTextResponse"  type="tns:GetImageTextResponse"/>
+<xs:element name="getImageTextRequest" type="tns:GetImageTextRequest"/>
+<xs:element name="getImageTextResponse" type="tns:GetImageTextResponse"/>
 
 <xs:complexType name="GetImageTextRequest">
 	<xs:complexContent>
@@ -174,7 +173,7 @@
 	</xs:annotation>
 
 	<xs:sequence>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 			<xs:annotation>
 				<xs:documentation>
 					Details about a single error.
@@ -359,7 +358,7 @@
 				</xs:appinfo>
 			</xs:annotation>
 		</xs:element>
-		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+		<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 			<xs:annotation>
 				<xs:documentation>
 					Some warning and error messages return one or more variables that contain
@@ -497,11 +496,11 @@
 </xs:schema>
   </wsdl:types>
   <wsdl:message name="getImageTextRequest">
-    <wsdl:part name="parameters" element="ns0:getImageTextRequest">
+    <wsdl:part element="ns0:getImageTextRequest" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getImageTextResponse">
-    <wsdl:part name="parameters" element="ns0:getImageTextResponse">
+    <wsdl:part element="ns0:getImageTextResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="ImageTextServicePort">
@@ -537,10 +536,10 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ImageTextService">
-    <wsdl:port name="ImageTextServiceSOAP" binding="ns0:ImageTextServiceSOAPBinding">
+    <wsdl:port binding="ns0:ImageTextServiceSOAPBinding" name="ImageTextServiceSOAP">
       <soap12:address location="http://svcs.ebay.com/ImageTextService"/>
     </wsdl:port>
-    <wsdl:port name="ImageTextServiceHttp" binding="ns0:ImageTextServiceHttpBinding">
+    <wsdl:port binding="ns0:ImageTextServiceHttpBinding" name="ImageTextServiceHttp">
       <http:address location="http://svcs.ebay.com/ImageTextService"/>
     </wsdl:port>
   </wsdl:service>

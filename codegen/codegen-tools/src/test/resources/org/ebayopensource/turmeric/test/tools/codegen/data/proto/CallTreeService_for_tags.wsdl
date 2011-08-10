@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="CallTreeService" targetNamespace="http://www.ebay.com/marketplace/logging/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://www.ebay.com/marketplace/logging/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/logging/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CallTreeService" targetNamespace="http://www.ebayopensource.org/tumeric/logging/v1/services">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/logging/v1/services">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/logging/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -11,7 +10,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -62,7 +61,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -77,7 +76,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -92,7 +91,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="errorMessage" type="tns:ErrorMessage" minOccurs="0">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -107,7 +106,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="version" type="xs:string" minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
 							<xs:documentation/>
 							<xs:appinfo>
@@ -118,7 +117,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime" minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
 							<xs:documentation/>
 							<xs:appinfo>
@@ -138,7 +137,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -153,18 +152,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="errorId" type="xs:long"/>
 					<xs:element name="domain" type="xs:string"/>
-					<xs:element name="subdomain" type="xs:string" minOccurs="0"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
 					<xs:element name="severity" type="tns:ErrorSeverity"/>
 					<xs:element name="category" type="tns:ErrorCategory"/>
 					<xs:element name="message" type="xs:string"/>
-					<xs:element name="exceptionId" type="xs:token" minOccurs="0"/>
-					<xs:element name="parameter" type="tns:ErrorParameter" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -173,7 +172,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -183,7 +182,7 @@
 					</xs:sequence>
 				-->
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -192,7 +191,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -207,7 +206,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -229,9 +228,9 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="startTime" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
-							<xs:element name="endTime" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
-							<xs:element name="guid" type="xs:string" minOccurs="1" maxOccurs="1"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="startTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="endTime" type="xs:dateTime"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="guid" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
@@ -247,14 +246,11 @@
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
 
-							<xs:element name="headerName"
-								type="xs:string" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="headerName" type="xs:string">
 							</xs:element>
-							<xs:element name="headerType"
-								type="xs:string" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="headerType" type="xs:string">
 							</xs:element>
-							<xs:element name="rootNode"
-								type="tns:TreeNode" minOccurs="0" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="rootNode" type="tns:TreeNode">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -277,31 +273,29 @@
 			<xs:complexType name="TreeNode">
 
 				<xs:sequence>
-					<xs:element name="nodeValue" type="xs:string"
-						minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="nodeValue" type="xs:string">
 					</xs:element>
-					<xs:element name="childNode" type="tns:TreeNode"
-						minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="childNode" type="tns:TreeNode">
 					</xs:element>
-					<xs:element name="nodeType" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="nodeType" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
     </xs:schema>
   </wsdl:types>
   <wsdl:message name="getCallTreeResponse">
-    <wsdl:part name="params" element="tns:getCallTreeResponse">
+    <wsdl:part element="tns:getCallTreeResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getVersionResponse">
-    <wsdl:part name="params" element="tns:getVersionResponse">
+    <wsdl:part element="tns:getVersionResponse" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getCallTreeRequest">
-    <wsdl:part name="params" element="tns:getCallTreeRequest">
+    <wsdl:part element="tns:getCallTreeRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getVersionRequest">
-    <wsdl:part name="params" element="tns:getVersionRequest">
+    <wsdl:part element="tns:getVersionRequest" name="params">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="CallTreeServicePort">
@@ -321,7 +315,7 @@
   <wsdl:binding name="CallTreeServiceSOAPBinding" type="tns:CallTreeServicePort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="getVersion">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/logging/v1/services/getVersion"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/logging/v1/services/getVersion"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -330,7 +324,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getCallTree">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/logging/v1/services/getCallTree"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/tumeric/logging/v1/services/getCallTree"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -361,10 +355,10 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="CallTreeService">
-    <wsdl:port name="CallTreeServiceHttpPort" binding="tns:CallTreeServiceHttpBinding">
+    <wsdl:port binding="tns:CallTreeServiceHttpBinding" name="CallTreeServiceHttpPort">
       <http:address location="https://svcs.ebay.com/services/logging/v1/CallTreeService"/>
     </wsdl:port>
-    <wsdl:port name="CallTreeServiceSOAPPort" binding="tns:CallTreeServiceSOAPBinding">
+    <wsdl:port binding="tns:CallTreeServiceSOAPBinding" name="CallTreeServiceSOAPPort">
       <soap12:address location="https://svcs.ebay.com/services/logging/v1/CallTreeService"/>
     </wsdl:port>
   </wsdl:service>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="WSDLTesting8" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<wsdl:definitions name="WSDLTesting8" targetNamespace="http://www.ebayopensource.org/marketplace/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ebayopensource.org/marketplace/services" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
   <wsdl:types>
-    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:Q2="http://www.ebay.com/soa/test/payment">
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/marketplace/services" xmlns:Q2="http://www.ebayopensource.org/soa/test/payment">
 
                                                 <!-- import namespace for another namespace xmlns:Q2 -->
-                                                <xs:import namespace="http://www.ebay.com/soa/test/payment">
+                                                <xs:import namespace="http://www.ebayopensource.org/soa/test/payment">
                                                 </xs:import>
 
                                                 <!-- global definitions -->
@@ -434,8 +434,8 @@
 
                                 </xsd:schema>
 
-    <!--<xsd:schema elementFormDefault="qualified" targetNamespace="http://www.ebay.com/soa/test/payment" xmlns:Q2="http://www.ebay.com/soa/test/payment" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-                                                <xs:import namespace="http://www.ebay.com/marketplace/services"/>
+    <!--<xsd:schema elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/soa/test/payment" xmlns:Q2="http://www.ebayopensource.org/soa/test/payment" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                                                <xs:import namespace="http://www.ebayopensource.org/marketplace/services"/>
                                                 
                                 </xsd:schema> -->
   </wsdl:types>
@@ -662,7 +662,7 @@
   <wsdl:binding name="WSDLTesting8SOAP" type="tns:WSDLTesting8">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="getUserInfo">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getUserInfo"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/marketplace/services/getUserInfo"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -674,7 +674,7 @@
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="getRegistrationInfo">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getRegistrationInfo"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/marketplace/services/getRegistrationInfo"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -683,7 +683,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getEmptyAbsPolyType">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getEmptyAbsPolyType"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/marketplace/services/getEmptyAbsPolyType"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -692,7 +692,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getChoiceType">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getChoiceType"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/marketplace/services/getChoiceType"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -701,7 +701,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getReservedType">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getReservedType"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/marketplace/services/getReservedType"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -710,7 +710,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getAnonType">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getAnonType"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/marketplace/services/getAnonType"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -719,7 +719,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getRecursionType">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getRecursionType"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/marketplace/services/getRecursionType"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -728,7 +728,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getSecurityCredentials">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getSecurityCredentials"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/marketplace/services/getSecurityCredentials"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -737,7 +737,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getVersion">
-      <soap:operation soapAction="http://www.ebay.com/marketplace/services/getVersion"/>
+      <soap:operation soapAction="http://www.ebayopensource.org/marketplace/services/getVersion"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>

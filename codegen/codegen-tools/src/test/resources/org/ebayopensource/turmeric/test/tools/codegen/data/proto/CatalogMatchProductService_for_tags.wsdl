@@ -1,23 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="CatalogMatchProductService"
-	targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services"
-	xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/catalog/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CatalogMatchProductService" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
 	<types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services"
-			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
 
 			<xs:complexType name="BaseCatalogMatchProductServiceRequest">
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="invocationId"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="invocationId" type="xs:string">
 							</xs:element>
 
 						</xs:sequence>
@@ -29,8 +18,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="0" name="returnMessage"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="0" name="returnMessage" type="xs:string">
 							</xs:element>
 							<xs:element name="invocationId" type="xs:string">
 							</xs:element>
@@ -47,8 +35,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension"
-						type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -71,7 +58,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -92,7 +79,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -112,7 +99,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -126,11 +113,11 @@
 								when
 								eBay processed the request. The
 								time zone of this value is &lt;a
-								href=&quot;types/simpleTypes.html#dateTime&quot;&gt;GMT&lt;/a&gt;
+								href="types/simpleTypes.html#dateTime"&gt;GMT&lt;/a&gt;
 								and the format is the ISO 8601 date and
 								time format
 								(YYYY-MM-DDTHH:MM:SS.SSSZ).
-								See the &quot;dateTime&quot; type for
+								See the "dateTime" type for
 								information about this time format and
 								converting to and from the
 								GMT time
@@ -138,14 +125,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension"
-						type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -154,13 +140,13 @@
 					<xs:documentation>
 						Documentation goes here
 					</xs:documentation>
-					<xs:appinfo />
+					<xs:appinfo/>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
 				</xs:sequence>
 			</xs:complexType>
@@ -176,15 +162,14 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"
-						type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -213,7 +198,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -238,7 +223,7 @@
 								&lt;/dl&gt; </xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -299,7 +284,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -315,7 +300,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -330,7 +315,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -364,7 +349,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -379,14 +364,13 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"
-						type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -399,7 +383,7 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
@@ -426,7 +410,7 @@
 								</xs:documentation>
 								<xs:appinfo>
 									<CallInfo>
-										<AllCalls />
+										<AllCalls/>
 										<Returned>
 											Conditionally
 										</Returned>
@@ -622,8 +606,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="1"
-								name="matchProductRequest" type="tns:MatchProductRequest">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="matchProductRequest" type="tns:MatchProductRequest">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -638,14 +621,11 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCatalogMatchProductServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="requestMetadata"
-								type="tns:RequestMetadata">
+							<xs:element maxOccurs="1" minOccurs="1" name="requestMetadata" type="tns:RequestMetadata">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="catalogMetadata"
-								type="tns:CatalogMetadata">
+							<xs:element maxOccurs="1" minOccurs="1" name="catalogMetadata" type="tns:CatalogMetadata">
 							</xs:element>
-							<xs:element maxOccurs="1" minOccurs="1" name="entityInfo"
-								type="tns:EntityInfo">
+							<xs:element maxOccurs="1" minOccurs="1" name="entityInfo" type="tns:EntityInfo">
 							</xs:element>
 
 						</xs:sequence>
@@ -655,8 +635,7 @@
 
 			<xs:complexType name="RequestMetadata">
 				<xs:sequence>
-					<xs:element name="maxNumberOfProducts" type="xs:int"
-						maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="maxNumberOfProducts" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>The max number of products in the response.
 							</xs:documentation>
@@ -668,32 +647,28 @@
 			<xs:complexType name="CatalogMetadata">
 				<xs:sequence>
 
-					<xs:element maxOccurs="1" minOccurs="0" name="catalog"
-						type="tns:Catalog">
+					<xs:element maxOccurs="1" minOccurs="0" name="catalog" type="tns:Catalog">
 						<xs:annotation>
 							<xs:documentation>
 								eBay catalog id
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="category"
-						type="tns:Category">
+					<xs:element maxOccurs="1" minOccurs="0" name="category" type="tns:Category">
 						<xs:annotation>
 							<xs:documentation>
 								eBay category
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="site" type="tns:SiteType" maxOccurs="1"
-						minOccurs="1"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="1" name="site" type="tns:SiteType"/>
 				</xs:sequence>
 			</xs:complexType>
 
 			<xs:complexType name="Category">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long" />
-					<xs:element maxOccurs="1" minOccurs="0" name="name"
-						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:long"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="name" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -703,14 +678,11 @@
 						eBay product</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="property" type="tns:Property"
-						minOccurs="1" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="property" type="tns:Property">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="price"
-						type="tns:Price">
+					<xs:element maxOccurs="1" minOccurs="0" name="price" type="tns:Price">
 					</xs:element>
-					<xs:element name="unbranded" type="xs:boolean" default="false"
-						minOccurs="1" maxOccurs="1" />
+					<xs:element default="false" maxOccurs="1" minOccurs="1" name="unbranded" type="xs:boolean"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -718,11 +690,9 @@
 
 			<xs:complexType name="OpenProperty">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="name"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="1" name="value"
-						type="xs:string" />
-					<xs:element maxOccurs="1" minOccurs="0" name="uom" type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="uom" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -731,8 +701,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="matchProductResponse" type="tns:MatchProductResponse">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="matchProductResponse" type="tns:MatchProductResponse">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -768,14 +737,14 @@
 
 			<xs:complexType name="Price">
 				<xs:sequence>
-					<xs:element name="currency" type="tns:Currency" />
-					<xs:element name="value" type="xs:double" />
+					<xs:element name="currency" type="tns:Currency"/>
+					<xs:element name="value" type="xs:double"/>
 				</xs:sequence>
 			</xs:complexType>
 
 			<xs:complexType name="Currency">
 				<xs:sequence>
-					<xs:element name="symbol" type="xs:string" />
+					<xs:element name="symbol" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -789,8 +758,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCatalogMatchProductServiceResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="productMatch" type="tns:ProductMatch">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="productMatch" type="tns:ProductMatch">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -799,8 +767,7 @@
 
 			<xs:complexType name="ProductMatch">
 				<xs:sequence>
-					<xs:element maxOccurs="1" minOccurs="1" name="eBayProductId"
-						type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="eBayProductId" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>eBay Product Id AKA eBay Product Reference Id
 							</xs:documentation>
@@ -808,8 +775,7 @@
 					</xs:element>
 					<xs:element maxOccurs="1" minOccurs="1" name="matchingType" type="xs:string">
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="precedence"
-						type="xs:int">
+					<xs:element maxOccurs="1" minOccurs="1" name="precedence" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>In case recomanadation of multiple products was
 								asked.
@@ -847,8 +813,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="0"
-								name="matchProductByTitleRequest" type="tns:MatchProductByTitleRequest">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="matchProductByTitleRequest" type="tns:MatchProductByTitleRequest">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -866,20 +831,15 @@
 							<xs:element name="productTitle" type="xs:string">
 
 							</xs:element>
-							<xs:element name="site" type="tns:SiteType" maxOccurs="1"
-								minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="site" type="tns:SiteType">
 							</xs:element>
-							<xs:element name="catalog" type="tns:Catalog"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="catalog" type="tns:Catalog">
 							</xs:element>
-							<xs:element name="category" type="tns:Category"
-								maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="category" type="tns:Category">
 							</xs:element>
-							<xs:element name="price" type="tns:Price" maxOccurs="1"
-								minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="price" type="tns:Price">
 							</xs:element>
-							<xs:element name="maxNumberOfProducts" type="xs:int"
-								maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="maxNumberOfProducts" type="xs:int">
 								<xs:annotation>
 									<xs:documentation>The max number of products in the response.
 									</xs:documentation>
@@ -900,8 +860,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="unbounded" minOccurs="1"
-								name="matchProductByUidRequest" type="tns:MatchProductByUidRequest">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="matchProductByUidRequest" type="tns:MatchProductByUidRequest">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -912,8 +871,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseCatalogMatchProductServiceRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1" name="uid"
-								type="xs:string">
+							<xs:element maxOccurs="1" minOccurs="1" name="uid" type="xs:string">
 							</xs:element>
 
 							<xs:element name="site" type="tns:SiteType">
@@ -933,7 +891,7 @@
 
 			<xs:complexType name="VersionRequest">
 				<xs:complexContent>
-					<xs:extension base="tns:BaseRequest" />
+					<xs:extension base="tns:BaseRequest"/>
 				</xs:complexContent>
 			</xs:complexType>
 
@@ -948,12 +906,9 @@
 
 			<xs:complexType name="Property">
 				<xs:sequence>
-					<xs:element name="name" type="tns:PropertyName"
-						maxOccurs="1" minOccurs="1"></xs:element>
-					<xs:element name="value" type="xs:string" maxOccurs="1"
-						minOccurs="1"></xs:element>
-					<xs:element name="uom" type="xs:string" maxOccurs="1"
-						minOccurs="0"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="tns:PropertyName"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="uom" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -986,44 +941,43 @@
         
             <xs:complexType name="Catalog">
             	<xs:sequence>
-            		<xs:element name="id" type="xs:int" maxOccurs="1"
-            			minOccurs="0">
+            		<xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:int">
             		</xs:element>
-            		<xs:element name="name" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+            		<xs:element maxOccurs="1" minOccurs="0" name="name" type="xs:string"/>
             	</xs:sequence>
             </xs:complexType>
 		</xs:schema>
 	</types>
 	<message name="getMatchProductByTitleRequest">
-		<part name="params" element="tns:matchProductByTitleBatchRequest">
+		<part element="tns:matchProductByTitleBatchRequest" name="params">
 		</part>
 	</message>
 	<message name="getMatchProductByUidResponse">
-		<part name="params" element="tns:matchProductByUidBatchResponse">
+		<part element="tns:matchProductByUidBatchResponse" name="params">
 		</part>
 	</message>
 	<message name="getVersionRequest">
-		<part name="params" element="tns:versionRequest">
+		<part element="tns:versionRequest" name="params">
 		</part>
 	</message>
 	<message name="getMatchProductResponse">
-		<part name="params" element="tns:matchProductBatchResponse">
+		<part element="tns:matchProductBatchResponse" name="params">
 		</part>
 	</message>
 	<message name="getMatchProductByUidRequest">
-		<part name="params" element="tns:matchProductByUidBatchRequest">
+		<part element="tns:matchProductByUidBatchRequest" name="params">
 		</part>
 	</message>
 	<message name="getVersionResponse">
-		<part name="params" element="tns:versionResponse">
+		<part element="tns:versionResponse" name="params">
 		</part>
 	</message>
 	<message name="getMatchProductRequest">
-		<part name="params" element="tns:matchProductBatchRequest">
+		<part element="tns:matchProductBatchRequest" name="params">
 		</part>
 	</message>
 	<message name="getMatchProductByTitleResponse">
-		<part name="params" element="tns:matchProductByTitleBatchResponse">
+		<part element="tns:matchProductByTitleBatchResponse" name="params">
 		</part>
 	</message>
 	<portType name="CatalogMatchProductServicePort">
@@ -1065,92 +1019,86 @@
 			</output>
 		</operation>
 	</portType>
-	<binding name="CatalogMatchProductServiceSOAPBinding"
-		type="tns:CatalogMatchProductServicePort">
+	<binding name="CatalogMatchProductServiceSOAPBinding" type="tns:CatalogMatchProductServicePort">
 
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<operation name="getMatchProduct">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/catalog/v1/services/getMatchProduct" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/getMatchProduct"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="getMatchProductByTitle">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/catalog/v1/services/getMatchProductByTitle" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/getMatchProductByTitle"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="getMatchProductByUid">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/catalog/v1/services/getMatchProductByUid" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/getMatchProductByUid"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 
 		<operation name="getVersion">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/catalog/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/catalog/v1/services/getVersion"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 	</binding>
 	<binding name="CatalogMatchProductServiceHttpBinding" type="tns:CatalogMatchProductServicePort">
-		<http:binding verb="POST" />
+		<http:binding verb="POST"/>
 		<operation name="getMatchProduct">
-			<http:operation location="/getMatchingProduct" />
+			<http:operation location="/getMatchingProduct"/>
 			<input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</output>
 		</operation>
 		<operation name="getMatchProductByTitle">
-			<http:operation location="/getMatchingProductByTitle" />
+			<http:operation location="/getMatchingProductByTitle"/>
 			<input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</output>
 		</operation>
 		<operation name="getMatchProductByUid">
-			<http:operation location="/getMatchingProductByUid" />
+			<http:operation location="/getMatchingProductByUid"/>
 			<input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 			</input>
 			<output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 			</output>
 		</operation>
 	</binding>
@@ -1159,13 +1107,11 @@
 		<version>1.0.0</version>
 		The service enables matching different kind of textual
 			inputs and return relevant eBay product ids</documentation>
-		<port name="CatalogMatchProductServiceHttpPort" binding="tns:CatalogMatchProductServiceHttpBinding">
-			<http:address
-				location="https://svcs.ebay.com/services/catalog/v1/CatalogMatchProductService" />
+		<port binding="tns:CatalogMatchProductServiceHttpBinding" name="CatalogMatchProductServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/catalog/v1/CatalogMatchProductService"/>
 		</port>
-		<port name="CatalogMatchProductServiceSOAPPort" binding="tns:CatalogMatchProductServiceSOAPBinding">
-			<soap12:address
-				location="https://svcs.ebay.com/services/catalog/v1/CatalogMatchProductService" />
+		<port binding="tns:CatalogMatchProductServiceSOAPBinding" name="CatalogMatchProductServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/catalog/v1/CatalogMatchProductService"/>
 		</port>
 	</service>
 </definitions>

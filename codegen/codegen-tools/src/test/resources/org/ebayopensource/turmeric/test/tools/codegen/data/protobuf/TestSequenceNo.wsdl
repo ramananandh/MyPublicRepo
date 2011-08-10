@@ -2,13 +2,13 @@
                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                  xmlns:tns="http://codegen.tools.soaframework.test.ebay.com"
-                  targetNamespace="http://codegen.tools.soaframework.test.ebay.com"
+                  xmlns:tns="http://codegen.tools.soaframework.test.ebayopensource.org"
+                  targetNamespace="http://codegen.tools.soaframework.test.ebayopensource.org"
                   name="Calculator">
     <wsdl:types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                    xmlns="http://codegen.tools.soaframework.test.ebay.com"
-                    targetNamespace="http://codegen.tools.soaframework.test.ebay.com"
+                    xmlns="http://codegen.tools.soaframework.test.ebayopensource.org"
+                    targetNamespace="http://codegen.tools.soaframework.test.ebayopensource.org"
                     attributeFormDefault="unqualified"
                     elementFormDefault="qualified">
 

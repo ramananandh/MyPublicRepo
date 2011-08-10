@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CommunityProductMediaService" targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.ebayopensource.org/tumeric/catalog/v1/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/catalog/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CommunityProductMediaService" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
 	<wsdl:documentation/>
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:tns="http://www.ebay.com/marketplace/catalog/v1/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/catalog/v1/services">
 			<xs:element name="findProductsRequest" type="tns:FindProductsRequest"/>
 			<xs:element name="findProductsResponse" type="tns:FindProductsResponse"/>
 			<xs:complexType name="FindProductsRequest">
@@ -115,7 +114,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element name="getProductDetailRequest" type="tns:GetProductDetailRequest" minOccurs="1" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="getProductDetailRequest" type="tns:GetProductDetailRequest">
 								<xs:annotation>
 									<xs:documentation>
 						A request will be create for every product for which ProductDetails are required. 
@@ -186,7 +185,7 @@
 				By  default open products unless this is specified.
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceCatalogDomainTypeLibrary" namespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -214,11 +213,11 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ExtensionType">
@@ -309,7 +308,7 @@
 						Defines the order type as Ascending or Descending
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceCatalogDomainTypeLibrary" namespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -339,7 +338,7 @@
 						order can be either ascending or descending.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceCatalogDomainTypeLibrary" namespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -383,7 +382,7 @@
 						Base response container for all service operations. Contains error information 	associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -447,7 +446,7 @@
 							</xs:appinfo>
 						</xsd:annotation>
 					</xs:element>
-					<xs:element name="extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xsd:simpleType name="ErrorCategory">
@@ -459,7 +458,7 @@
 						application failures and cannot be corrected by changing request values.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xsd:annotation>
 				<xsd:restriction base="xsd:token">
@@ -511,7 +510,7 @@
 						A container for error details.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xsd:annotation>
 				<xsd:sequence>
@@ -547,9 +546,9 @@
 						<xs:annotation>
 							<xs:documentation>
 								Name of the subdomain in which the error occurred.
-								MarketplaceCatalog ->
+								MarketplaceCatalog -&gt;
 									The error is specific to the Marketplace Catalog subdomain.
-								MarketplaceCommon ->							
+								MarketplaceCommon -&gt;							
 									The error is common to all Marketplace services.
 							</xs:documentation>
 							<xs:appinfo>
@@ -656,7 +655,7 @@
 						not reported here, but are instead reported as part of a SOAP fault.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xsd:annotation>
 				<xsd:sequence>
@@ -684,7 +683,7 @@
 									contain this value.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -700,7 +699,7 @@
 						or a less severe error (a warning) that should be communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -792,7 +791,7 @@
 						search criteria.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xsd:annotation>
 				<xsd:sequence>
@@ -887,7 +886,7 @@
 						Indicates whether the error is a severe error(causing the request to fail) or an	informational error (a warning) that should becommunicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -927,7 +926,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="productIdentifier" type="tns:ProductIdentifier" minOccurs="1" maxOccurs="1"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="productIdentifier" type="tns:ProductIdentifier"/>
 					<xs:element maxOccurs="unbounded" minOccurs="0" name="productDetails" type="ns0:PropertyValue">
 						<xs:annotation>
 							<xs:documentation>
@@ -946,7 +945,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:Product">
 						<xs:sequence>
-							<xs:element name="media" maxOccurs="unbounded" minOccurs="0" type="tns:Media">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="media" type="tns:Media">
 								<xs:annotation>
 									<xs:documentation>
 							   Container for multiple media object.
@@ -969,7 +968,7 @@
 				Type could be ePID, CPID 
 			</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceCatalogDomainTypeLibrary" namespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -997,7 +996,7 @@
 						This additional information about the product such as Incentive amount.	 
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketplaceCatalogDomainTypeLibrary" namespace="http://www.ebay.com/marketplace/marketplacecatalog/v1/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/tumeric/v1/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -1028,19 +1027,19 @@
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="findProductsRequest">
-		<part name="params" element="tns:findProductsRequest">
+		<part element="tns:findProductsRequest" name="params">
     </part>
 	</wsdl:message>
 	<wsdl:message name="findProductsResponse">
-		<part name="params" element="tns:findProductsResponse">
+		<part element="tns:findProductsResponse" name="params">
     </part>
 	</wsdl:message>
 	<wsdl:message name="getProductDetailsRequest">
-		<wsdl:part name="params" element="ns0:getProductDetailsRequest">
+		<wsdl:part element="ns0:getProductDetailsRequest" name="params">
 			</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getProductDetailsResponse">
-		<wsdl:part name="params" element="ns0:getProductDetailsResponse">
+		<wsdl:part element="ns0:getProductDetailsResponse" name="params">
 			</wsdl:part>
 	</wsdl:message>
 	<wsdl:portType name="CommunityProductMediaServicePort">
@@ -1048,15 +1047,15 @@
 			<wsdl:documentation>
 			This operation is used to get find the list of Products that are open/closed for media collection
 		</wsdl:documentation>
-			<input name="findProductsRequest" message="ns0:findProductsRequest"/>
-			<output name="findProductsResponse" message="ns0:findProductsResponse"/>
+			<input message="ns0:findProductsRequest" name="findProductsRequest"/>
+			<output message="ns0:findProductsResponse" name="findProductsResponse"/>
 		</operation>
 		<wsdl:operation name="getProductDetails">
 			<wsdl:documentation>
 			This operation is used to get the details of a particular product
 		</wsdl:documentation>
-			<input name="getProductDetailsRequest" message="ns0:getProductDetailsRequest"/>
-			<output name="getProductDetailsResponse" message="ns0:getProductDetailsResponse"/>
+			<input message="ns0:getProductDetailsRequest" name="getProductDetailsRequest"/>
+			<output message="ns0:getProductDetailsResponse" name="getProductDetailsResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<binding name="CommunityProductMediaServiceSOAPBinding" type="tns:CommunityProductMediaServicePort">
@@ -1105,10 +1104,10 @@
 		<Version>1.0.0</Version>		  
 		</wsdl:documentation>
 		
-		<port name="CommunityProductMediaServiceHttpPort" binding="tns:CommunityProductMediaServiceHttpBinding">
+		<port binding="tns:CommunityProductMediaServiceHttpBinding" name="CommunityProductMediaServiceHttpPort">
 			<http:address location="http://svcs.ebay.com/services/catalog/v1/CommunityProductMediaService"/>
 		</port>
-		<port name="CommunityProductMediaServiceSOAPPort" binding="tns:CommunityProductMediaServiceSOAPBinding">
+		<port binding="tns:CommunityProductMediaServiceSOAPBinding" name="CommunityProductMediaServiceSOAPPort">
 			<soap12:address location="http://svcs.ebay.com/services/catalog/v1/CommunityProductMediaService"/>
 		</port>
 	</service>

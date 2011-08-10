@@ -1,23 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="PageModelResolutionService"
-	targetNamespace="http://www.ebay.com/marketplace/search/v1/services"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:tns="http://www.ebay.com/marketplace/search/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/search/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PageModelResolutionService" targetNamespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 	<wsdl:documentation> The goal of this service is to resolve a RuntimePageContext when the client is requesting a Page through a Key 
 (the key could be page Enum or some other artifact that the vertical teams uses to denote a page ). 
 This resolution shall also incorporate all the necessary overrides on the page so that when the client gets its 
 PageContext it is completely finalized and all it needs to do is execute the modules in that PageContext . </wsdl:documentation>
 
 	<wsdl:types>
-		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			attributeFormDefault="unqualified" elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/search/v1/services"
-			xmlns:tns="http://www.ebay.com/marketplace/search/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 
 			<xs:complexType name="Property">
 				<xs:annotation>
@@ -26,49 +14,42 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 						associated with entities.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="name" type="xs:string"
-						minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 					</xs:element>
-					<xs:element name="value" type="xs:string"
-						minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="value" type="xs:string">
 					</xs:element>
 
-						processContents="lax">
+						processContents="lax"&gt;
 
 				</xs:sequence>
 			</xs:complexType>
 		
 			<xs:complexType name="DiagnosticInfo">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource 
-							library="SearchServicesTypeLibrary" 
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="sender" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="sender" type="xs:string">
 					</xs:element>
-					<xs:element name="log" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="log" type="xs:string">
 					</xs:element>
-					<xs:element name="record" type="tns:Property" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="record" type="tns:Property">
 					</xs:element>
 
 				</xs:sequence>
 			</xs:complexType>
 
 
-			<xs:element name="getVersionResponse"
-				type="tns:GetVersionResponse" />
+			<xs:element name="getVersionResponse" type="tns:GetVersionResponse"/>
 			<xs:complexType name="GetVersionResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -81,12 +62,10 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getPageRequest"
-				type="tns:GetPageRequest">
+			<xs:element name="getPageRequest" type="tns:GetPageRequest">
 
 			</xs:element>
-			<xs:element name="getPageResponse"
-				type="tns:GetPageResponse">
+			<xs:element name="getPageResponse" type="tns:GetPageResponse">
 
 			</xs:element>
 
@@ -94,8 +73,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="page" type="tns:Page"
-								minOccurs="0" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="page" type="tns:Page">
 								<xs:annotation>
 									<xs:documentation>
 										The page Model that comes out as
@@ -103,8 +81,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="diagnosticInfo"
-								type="tns:DiagnosticInfo" minOccurs="0" maxOccurs="1" >
+							<xs:element maxOccurs="1" minOccurs="0" name="diagnosticInfo" type="tns:DiagnosticInfo">
                                 <xs:annotation>
                                 	<xs:documentation>
                                 		The diagnostic information
@@ -135,8 +112,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 				<xs:complexContent>
 					<xs:extension base="tns:Container">
 						<xs:sequence>
-							<xs:element name="panel" type="tns:Panel"
-								minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="panel" type="tns:Panel">
                                 <xs:annotation>
                                 	<xs:documentation>
                                 		A Panel is a container that
@@ -164,8 +140,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 				<xs:complexContent>
 					<xs:extension base="tns:Container">
 						<xs:sequence>
-							<xs:element name="slot" type="tns:Slot"
-								minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="slot" type="tns:Slot">
                                 <xs:annotation>
                                 	<xs:documentation>
                                 		A slot contains a set of
@@ -175,8 +150,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
                                 	</xs:documentation>
                                 </xs:annotation>
 							</xs:element>
-							<xs:element name="panel" type="tns:Panel"
-								minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="panel" type="tns:Panel">
 							</xs:element>
 						</xs:sequence>
 
@@ -197,8 +171,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 				<xs:complexContent>
 					<xs:extension base="tns:Container">
 						<xs:sequence>
-							<xs:element name="module" type="tns:Module"
-								minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="module" type="tns:Module">
                                 <xs:annotation>
                                 	<xs:documentation>
                                 		Module is refered to as the
@@ -225,7 +198,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 					</xs:documentation>
 				</xs:annotation>
 				<xs:complexContent>
-					<xs:extension base="tns:PageElement"></xs:extension>
+					<xs:extension base="tns:PageElement"/>
 				</xs:complexContent>
 			</xs:complexType>
 
@@ -233,8 +206,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 				<xs:complexContent>
 					<xs:extension base="tns:PageElement">
 						<xs:sequence>
-							<xs:element name="layoutRef"
-								type="tns:LayoutRef" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="layoutRef" type="tns:LayoutRef">
 							</xs:element>
 						</xs:sequence>
 
@@ -251,11 +223,10 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="pageElementKey"
-						type="tns:PageElementKey" minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="pageElementKey" type="tns:PageElementKey">
 					</xs:element>
 
-						processContents="lax">
+						processContents="lax"&gt;
 
 				</xs:sequence>
 			</xs:complexType>
@@ -264,7 +235,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 
 
 			<xs:simpleType name="PageElementKey">
-				<xs:restriction base="xs:int"></xs:restriction>
+				<xs:restriction base="xs:int"/>
 			</xs:simpleType>
 
 			<xs:complexType name="PageElement">
@@ -275,12 +246,9 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="pageElementKey"
-						type="tns:PageElementKey" minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="pageElementKey" type="tns:PageElementKey">
 					</xs:element>
-					<xs:element name="pageElementProperty"
-						type="tns:PageElementProperty" minOccurs="0"
-						maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="pageElementProperty" type="tns:PageElementProperty">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -298,8 +266,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 				<xs:complexContent>
 					<xs:extension base="tns:Property">
 						<xs:sequence>
-							<xs:element name="propertyMetadata"
-								type="tns:Property" minOccurs="0" maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="propertyMetadata" type="tns:Property">
                                 <xs:annotation>
                                 	<xs:documentation>
                                 		The following properties are
@@ -329,8 +296,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="guid" type="xs:string"
-								minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="guid" type="xs:string">
 								<xs:annotation>
 									<xs:documentation>
 										This represents the GUID :
@@ -339,8 +305,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 								</xs:annotation>
 							</xs:element>
 
-							<xs:element name="pageKey"
-								type="tns:PageElementKey" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="pageKey" type="tns:PageElementKey">
 								<xs:annotation>
 									<xs:documentation>
 										This field represents the input
@@ -361,8 +326,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="inputContext"
-								type="tns:InputContext" minOccurs="0" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="inputContext" type="tns:InputContext">
 								<xs:annotation>
 									<xs:documentation>
 										It represents a set of name
@@ -413,8 +377,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="serviceContext"
-								type="tns:BaseServiceContext" minOccurs="1" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="serviceContext" type="tns:BaseServiceContext">
 								<xs:annotation>
 									<xs:documentation>
 										This represents the context of
@@ -433,9 +396,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="overrideProperty"
-								type="tns:PageElementProperty" minOccurs="0"
-								maxOccurs="unbounded">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="overrideProperty" type="tns:PageElementProperty">
 								<xs:annotation>
 									<xs:documentation>
 										these would specify a set of
@@ -447,8 +408,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 									</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="enableDiagnostics"
-								type="xs:boolean" minOccurs="0" maxOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="0" name="enableDiagnostics" type="xs:boolean">
 							</xs:element>
 						</xs:sequence>
 
@@ -458,8 +418,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 
 
 
-			<xs:element name="getVersionRequest"
-				type="tns:GetVersionRequest">
+			<xs:element name="getVersionRequest" type="tns:GetVersionRequest">
                 <xs:annotation>
                 	<xs:documentation>
                 		Get the version for this service. This is per
@@ -471,14 +430,13 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 
 			<xs:complexType name="GetVersionRequest">
 				<xs:complexContent>
-					<xs:extension base="tns:BaseServiceRequest"></xs:extension>
+					<xs:extension base="tns:BaseServiceRequest"/>
 				</xs:complexContent>
 			</xs:complexType>
 
 			<xs:complexType name="InputContext">
 				<xs:sequence>
-					<xs:element name="ruleProperty" type="tns:Property"
-						minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="ruleProperty" type="tns:Property">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -489,20 +447,17 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 
-						processContents="lax">
+						processContents="lax"&gt;
 
 				</xs:sequence>
 			</xs:complexType>
-			<xs:complexType abstract="true"
-				name="BaseServiceResponse">
+			<xs:complexType abstract="true" name="BaseServiceResponse">
 				<xs:annotation>
 					<xs:documentation>
 						Base response container for all service
@@ -510,9 +465,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -525,15 +478,14 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="errorMessage"
-						type="tns:ErrorMessage" minOccurs="0">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -543,20 +495,19 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="version" type="xs:string"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Always</Returned>
 
 								</CallInfo>
@@ -564,21 +515,20 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 						</xs:annotation>
 
 					</xs:element>
-					<xs:element name="timestamp" type="xs:dateTime"
-						minOccurs="0">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation></xs:documentation>
+							<xs:documentation/>
 
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls></AllCalls>
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax">
+						processContents="lax"&gt;
 
 				</xs:sequence>
 			</xs:complexType>
@@ -594,9 +544,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 						changing request values.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -660,31 +608,24 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 					</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long"></xs:element>
-					<xs:element name="domain" type="xs:string"></xs:element>
-					<xs:element name="subdomain" type="xs:string"
-						minOccurs="0">
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string">
 					</xs:element>
-					<xs:element name="severity"
-						type="tns:ErrorSeverity">
+					<xs:element name="severity" type="tns:ErrorSeverity">
 					</xs:element>
-					<xs:element name="category"
-						type="tns:ErrorCategory">
+					<xs:element name="category" type="tns:ErrorCategory">
 					</xs:element>
-					<xs:element name="message" type="xs:string"></xs:element>
-					<xs:element name="exceptionId" type="xs:token"
-						minOccurs="0">
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token">
 					</xs:element>
-					<xs:element name="parameter"
-						type="tns:ErrorParameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 					</xs:element>
 				</xs:sequence>
 
@@ -697,9 +638,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 					</xs:documentation>
 
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -712,8 +651,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 				-->
 
 				<xs:sequence>
-					<xs:element name="error" type="tns:ErrorData"
-						minOccurs="0" maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -724,15 +662,12 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string"
-							use="optional">
+						<xs:attribute name="name" type="xs:string" use="optional">
 							<xs:annotation>
 								<xs:documentation>
 									The name of the parameter in the
@@ -741,7 +676,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 								</xs:documentation>
 								<xs:appinfo>
 									<CallInfo>
-										<AllCalls />
+										<AllCalls/>
 										<Returned>
 											Conditionally
 										</Returned>
@@ -759,16 +694,14 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error"></xs:enumeration>
-					<xs:enumeration value="Warning"></xs:enumeration>
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 
 			</xs:simpleType>
@@ -781,9 +714,7 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
@@ -834,20 +765,16 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 			</xs:simpleType>
 			<xs:complexType name="BaseServiceContext">
 				<xs:annotation>
-					<xs:documentation></xs:documentation>
+					<xs:documentation/>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SearchServicesTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/search/v1/services">
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 						</typeLibrarySource>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="globalId" type="xs:string"
-						  minOccurs="1" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="globalId" type="xs:string">
 					</xs:element>
-					<xs:element name="partnerId" type="xs:int"
-						minOccurs="0" maxOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="0" name="partnerId" type="xs:int">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -861,16 +788,16 @@ PageContext it is completely finalized and all it needs to do is execute the mod
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getPageRequest">
-		<wsdl:part name="parameters" element="tns:getPageRequest">
+		<wsdl:part element="tns:getPageRequest" name="parameters">
 			<wsdl:documentation>This API should be called when we need to resolve a particular Page id to its Page Model .. A page Model comprises of all the PageElements that are contained within a page. The current Page Model  decomposes the page into multiple Panes with each Panel
 in turn consisting of nested Panels and Slots . and slots containing a single Module. At every Page Element level (be it Page,Panel,Slot,Module) there could be a bunch of properties associated with it .. The page Model also emits their Properties along with those page Elements</wsdl:documentation></wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="getPageResponse">
-		<wsdl:part name="parameters" element="tns:getPageResponse"></wsdl:part>
+		<wsdl:part element="tns:getPageResponse" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="getVersionRequest">
-		<wsdl:part name="parameters" element="tns:getVersionRequest">
-			<wsdl:documentation></wsdl:documentation></wsdl:part>
+		<wsdl:part element="tns:getVersionRequest" name="parameters">
+			<wsdl:documentation/></wsdl:part>
 	</wsdl:message>
 	<wsdl:portType name="PageModelResolutionServicePort">
 		<wsdl:documentation>
@@ -885,80 +812,70 @@ in turn consisting of nested Panels and Slots . and slots containing a single Mo
 		</wsdl:documentation>
 		<wsdl:operation name="getVersion">
 			<wsdl:documentation>Get the version for this service. This is per SOA guidelines that each service support such an API</wsdl:documentation>
-			<wsdl:input message="tns:getVersionRequest"></wsdl:input>
-			<wsdl:output message="tns:getVersionResponse" />
+			<wsdl:input message="tns:getVersionRequest"/>
+			<wsdl:output message="tns:getVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="getPage">
 			<wsdl:documentation>
 				This is the API call that the client shall be using to
 				get the finalized pageModel .
 			</wsdl:documentation>
-			<wsdl:input message="tns:getPageRequest"></wsdl:input>
-			<wsdl:output message="tns:getPageResponse"></wsdl:output>
+			<wsdl:input message="tns:getPageRequest"/>
+			<wsdl:output message="tns:getPageResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="PageModelResolutionServiceHttpBinding"
-		type="tns:PageModelResolutionServicePort">
+	<wsdl:binding name="PageModelResolutionServiceHttpBinding" type="tns:PageModelResolutionServicePort">
 
-		<http:binding verb="POST" />
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getVersion">
 
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getPage">
-			<http:operation location="/getPage" />
+			<http:operation location="/getPage"/>
 			<wsdl:input>
-				<mime:content part="parameters"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="parameters" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="parameters" type="text/xml" />
+				<mime:content part="parameters" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="PageModelResolutionServiceSOAPBinding"
-		type="tns:PageModelResolutionServicePort">
+	<wsdl:binding name="PageModelResolutionServiceSOAPBinding" type="tns:PageModelResolutionServicePort">
 
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getVersion">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/getVersion"/>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="getPage">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getPage" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/getPage"/>
 			<wsdl:input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="PageModelResolutionService">
 		<wsdl:documentation>The goal of this system is to resolve a RuntimePageContext when the client is requesting a Page through a Key (the key could be page Enum or some other artifact that the vertical teams uses to denote a page ). This resolution shall also incorporate all the necessary overrides on the page so that when the client gets its PageContext it is completely finalized and all it needs to do is execute the modules in that PageContext . </wsdl:documentation>
-		<wsdl:port binding="tns:PageModelResolutionServiceHttpBinding"
-			name="PageModelResolutionServiceHttpPort">
-			<http:address
-				location="https://svcs.ebay.com/services/search/PageModelResolutionService/v1" />
+		<wsdl:port binding="tns:PageModelResolutionServiceHttpBinding" name="PageModelResolutionServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/search/PageModelResolutionService/v1"/>
 		</wsdl:port>
-		<wsdl:port binding="tns:PageModelResolutionServiceSOAPBinding"
-			name="PageModelResolutionServiceSOAPPort">
-			<soap12:address
-				location="https://svcs.ebay.com/services/search/PageModelResolutionService/v1" />
+		<wsdl:port binding="tns:PageModelResolutionServiceSOAPBinding" name="PageModelResolutionServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/search/PageModelResolutionService/v1"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

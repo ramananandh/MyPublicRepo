@@ -1,18 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-	xmlns:tns="http://www.ebay.com/marketplace/search/v1/services"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	name="AutoCompleteQueryService"
-	targetNamespace="http://www.ebay.com/marketplace/search/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/search/v1/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AutoCompleteQueryService" targetNamespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified"
-			elementFormDefault="qualified"
-			targetNamespace="http://www.ebay.com/marketplace/search/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/search/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -22,9 +10,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -75,14 +61,11 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="extension" type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType abstract="true" name="BaseResponse">
@@ -93,25 +76,22 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="ack" type="tns:AckValue">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="errorMessage"
-						type="tns:ErrorMessage">
+					<xs:element minOccurs="0" name="errorMessage" type="tns:ErrorMessage">
 						<xs:annotation>
 							<xs:documentation>
 								Information for an error or warning that
@@ -120,38 +100,35 @@
 							</xs:documentation>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Conditionally</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="version"
-						type="xs:string">
+					<xs:element minOccurs="0" name="version" type="xs:string">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" name="timestamp"
-						type="xs:dateTime">
+					<xs:element minOccurs="0" name="timestamp" type="xs:dateTime">
 						<xs:annotation>
-							<xs:documentation />
+							<xs:documentation/>
 							<xs:appinfo>
 								<CallInfo>
-									<AllCalls />
+									<AllCalls/>
 									<Returned>Always</Returned>
 								</CallInfo>
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="extension" type="tns:ExtensionType" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="extension" type="tns:ExtensionType"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:simpleType name="ErrorCategory">
@@ -160,15 +137,13 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="System" />
-					<xs:enumeration value="Application" />
-					<xs:enumeration value="Request" />
+					<xs:enumeration value="System"/>
+					<xs:enumeration value="Application"/>
+					<xs:enumeration value="Request"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ErrorData">
@@ -177,25 +152,18 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="errorId" type="xs:long" />
-					<xs:element name="domain" type="xs:string" />
-					<xs:element minOccurs="0" name="subdomain"
-						type="xs:string" />
-					<xs:element name="severity"
-						type="tns:ErrorSeverity" />
-					<xs:element name="category"
-						type="tns:ErrorCategory" />
-					<xs:element name="message" type="xs:string" />
-					<xs:element minOccurs="0" name="exceptionId"
-						type="xs:token" />
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="parameter" type="tns:ErrorParameter" />
+					<xs:element name="errorId" type="xs:long"/>
+					<xs:element name="domain" type="xs:string"/>
+					<xs:element minOccurs="0" name="subdomain" type="xs:string"/>
+					<xs:element name="severity" type="tns:ErrorSeverity"/>
+					<xs:element name="category" type="tns:ErrorCategory"/>
+					<xs:element name="message" type="xs:string"/>
+					<xs:element minOccurs="0" name="exceptionId" type="xs:token"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorMessage">
@@ -204,9 +172,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -216,8 +182,7 @@
 					</xs:sequence>
 				-->
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0"
-						name="error" type="tns:ErrorData" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="ErrorParameter">
@@ -226,15 +191,12 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
 					<xs:extension base="xs:string">
-						<xs:attribute name="name" type="xs:string"
-							use="optional" />
+						<xs:attribute name="name" type="xs:string" use="optional"/>
 					</xs:extension>
 				</xs:simpleContent>
 			</xs:complexType>
@@ -244,14 +206,12 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="SOACommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
-					<xs:enumeration value="Error" />
-					<xs:enumeration value="Warning" />
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
 				</xs:restriction>
 			</xs:simpleType>
 			<xs:complexType name="ExtensionType">
@@ -260,22 +220,19 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource
-							library="MarketPlaceServiceCommonTypeLibrary"
-							namespace="http://www.ebay.com/marketplace/services" />
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="id" type="xs:positiveInteger" />
-					<xs:element name="version" type="xs:string" />
-					<xs:element name="contentType" type="xs:string" />
-					<xs:element name="value" type="xs:string" />
+					<xs:element name="id" type="xs:positiveInteger"/>
+					<xs:element name="version" type="xs:string"/>
+					<xs:element name="contentType" type="xs:string"/>
+					<xs:element name="value" type="xs:string"/>
 
-						processContents="lax" />
+						processContents="lax" /&gt;
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="getDictionaryVersionRequest"
-				type="tns:GetDictionaryVersionRequest" />
+			<xs:element name="getDictionaryVersionRequest" type="tns:GetDictionaryVersionRequest"/>
 			<xs:complexType name="GetDictionaryVersionRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -285,14 +242,12 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="dictionaryName" type="xs:string" />
+							<xs:element maxOccurs="1" minOccurs="1" name="dictionaryName" type="xs:string"/>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="getDictionaryVersionResponse"
-				type="tns:GetDictionaryVersionResponse" />
+			<xs:element name="getDictionaryVersionResponse" type="tns:GetDictionaryVersionResponse"/>
 			<xs:complexType name="GetDictionaryVersionResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -306,8 +261,7 @@
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="queryDictionaryRequest"
-				type="tns:QueryDictionaryRequest" />
+			<xs:element name="queryDictionaryRequest" type="tns:QueryDictionaryRequest"/>
 			<xs:complexType name="QueryDictionaryRequest">
 				<xs:annotation>
 					<xs:documentation>
@@ -317,21 +271,16 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseRequest">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="dictionaryName" type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="queryTerm" type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="0"
-								name="fetchSize" type="xs:int" />
-							<xs:element name="filter"
-								type="tns:FilterType" maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="1" name="dictionaryName" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="queryTerm" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="0" name="fetchSize" type="xs:int"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="filter" type="tns:FilterType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
 				</xs:complexContent>
 			</xs:complexType>
-			<xs:element name="queryDictionaryResponse"
-				type="tns:QueryDictionaryResponse" />
+			<xs:element name="queryDictionaryResponse" type="tns:QueryDictionaryResponse"/>
 			<xs:complexType name="QueryDictionaryResponse">
 				<xs:annotation>
 					<xs:documentation>
@@ -341,17 +290,12 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseResponse">
 						<xs:sequence>
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="dictionaryName" type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="queryTerm" type="xs:string" />
-							<xs:element maxOccurs="1" minOccurs="1"
-								name="resultSize" type="xs:int" />
-							<xs:element name="format"
-								type="tns:DictionaryFormatType" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="dictionaryName" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="queryTerm" type="xs:string"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="resultSize" type="xs:int"/>
+							<xs:element maxOccurs="1" minOccurs="1" name="format" type="tns:DictionaryFormatType">
 							</xs:element>
-							<xs:element name="result"
-								type="tns:DictionaryResultType" maxOccurs="unbounded" minOccurs="0">
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="result" type="tns:DictionaryResultType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -360,112 +304,98 @@
 		
 			<xs:complexType name="FilterType">
 				<xs:sequence>
-					<xs:element name="propertyName" type="xs:string"
-						maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="propertyName" type="xs:string">
 					</xs:element>
-					<xs:element name="operator" type="xs:token"
-						maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="operator" type="xs:token">
 					</xs:element>
-					<xs:element name="operand" type="xs:string" maxOccurs="1" minOccurs="1"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="1" name="operand" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 		
 			<xs:complexType name="DictionaryResultType">
 				<xs:sequence>
-					<xs:element name="value" type="xs:string"
-						maxOccurs="unbounded" minOccurs="1">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="value" type="xs:string">
 					</xs:element>					
 				</xs:sequence>
 			</xs:complexType>
 			
 			<xs:complexType name="DictionaryFormatType">
 				<xs:sequence>
-					<xs:element name="name" type="xs:string"
-						maxOccurs="unbounded" minOccurs="1">
+					<xs:element maxOccurs="unbounded" minOccurs="1" name="name" type="xs:string">
 					</xs:element>					
 				</xs:sequence>
 			</xs:complexType>
 		
 			<xs:complexType name="NameValuePairType">
 				<xs:sequence>
-					<xs:element name="name" type="xs:string"
-						maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="name" type="xs:string">
 					</xs:element>
-					<xs:element name="value" type="xs:string" maxOccurs="1" minOccurs="1"></xs:element>
+					<xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="getDictionaryVersionRequest">
-		<wsdl:part element="tns:getDictionaryVersionRequest"
-			name="params" />
+		<wsdl:part element="tns:getDictionaryVersionRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="getDictionaryVersionResponse">
-		<wsdl:part element="tns:getDictionaryVersionResponse"
-			name="params" />
+		<wsdl:part element="tns:getDictionaryVersionResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="queryDictionaryRequest">
-		<wsdl:part element="tns:queryDictionaryRequest" name="params" />
+		<wsdl:part element="tns:queryDictionaryRequest" name="params"/>
 	</wsdl:message>
 	<wsdl:message name="queryDictionaryResponse">
-		<wsdl:part element="tns:queryDictionaryResponse" name="params" />
+		<wsdl:part element="tns:queryDictionaryResponse" name="params"/>
 	</wsdl:message>
 	<wsdl:portType name="AutoCompleteQueryServicePort">
 		<wsdl:operation name="getDictionaryVersion">
-			<wsdl:input message="tns:getDictionaryVersionRequest" />
-			<wsdl:output message="tns:getDictionaryVersionResponse" />
+			<wsdl:input message="tns:getDictionaryVersionRequest"/>
+			<wsdl:output message="tns:getDictionaryVersionResponse"/>
 		</wsdl:operation>
 		<wsdl:operation name="queryDictionary">
-			<wsdl:input message="tns:queryDictionaryRequest" />
-			<wsdl:output message="tns:queryDictionaryResponse" />
+			<wsdl:input message="tns:queryDictionaryRequest"/>
+			<wsdl:output message="tns:queryDictionaryResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="AutoCompleteQueryServiceHttpBinding"
-		type="tns:AutoCompleteQueryServicePort">
-		<http:binding verb="POST" />
+	<wsdl:binding name="AutoCompleteQueryServiceHttpBinding" type="tns:AutoCompleteQueryServicePort">
+		<http:binding verb="POST"/>
 		<wsdl:operation name="getDictionaryVersion">
-			<http:operation location="/getDictionaryVersion" />
+			<http:operation location="/getDictionaryVersion"/>
 			<wsdl:input>
-				<mime:content part="params"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="queryDictionary">
-			<http:operation location="/queryDictionary" />
+			<http:operation location="/queryDictionary"/>
 			<wsdl:input>
-				<mime:content part="params"
-					type="application/x-www-form-urlencoded" />
+				<mime:content part="params" type="application/x-www-form-urlencoded"/>
 			</wsdl:input>
 			<wsdl:output>
-				<mime:content part="params" type="text/xml" />
+				<mime:content part="params" type="text/xml"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="AutoCompleteQueryServiceSOAPBinding"
-		type="tns:AutoCompleteQueryServicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+	<wsdl:binding name="AutoCompleteQueryServiceSOAPBinding" type="tns:AutoCompleteQueryServicePort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="getDictionaryVersion">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/getDictionaryVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/getDictionaryVersion"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="queryDictionary">
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/search/v1/services/queryDictionary" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/search/v1/services/queryDictionary"/>
 			<wsdl:input>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
@@ -473,16 +403,11 @@
 		<wsdl:documentation>
 			<Version>1.0.0</Version>
 		</wsdl:documentation>
-		<wsdl:port binding="tns:AutoCompleteQueryServiceHttpBinding"
-			name="AutoCompleteQueryServiceHttpPort">
-			<http:address
-				location="https://svcs.ebay.com/services/search/v1/AutoCompleteQueryService" />
+		<wsdl:port binding="tns:AutoCompleteQueryServiceHttpBinding" name="AutoCompleteQueryServiceHttpPort">
+			<http:address location="https://svcs.ebay.com/services/search/v1/AutoCompleteQueryService"/>
 		</wsdl:port>
-		<wsdl:port binding="tns:AutoCompleteQueryServiceSOAPBinding"
-			name="AutoCompleteQueryServiceSOAPPort">
-			<soap12:address
-				location="https://svcs.ebay.com/services/search/v1/AutoCompleteQueryService" />
+		<wsdl:port binding="tns:AutoCompleteQueryServiceSOAPBinding" name="AutoCompleteQueryServiceSOAPPort">
+			<soap12:address location="https://svcs.ebay.com/services/search/v1/AutoCompleteQueryService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
-

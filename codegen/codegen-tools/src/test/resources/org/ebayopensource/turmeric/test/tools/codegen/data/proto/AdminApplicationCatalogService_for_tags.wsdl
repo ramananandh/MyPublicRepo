@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="AdminApplicationCatalogService" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ebay.com/marketplace/services" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.ebayopensource.org/tumeric/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AdminApplicationCatalogService" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 	<wsdl:types>
-		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/services" xmlns:tns="http://www.ebay.com/marketplace/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/services">
 
 			<xs:complexType abstract="true" name="BaseServiceRequest">
 				<xs:annotation>
@@ -90,7 +89,7 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="error"  type="tns:ErrorData">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="error" type="tns:ErrorData">
 						<xs:annotation>
 							<xs:documentation>
 								Details about a single error.
@@ -264,7 +263,7 @@
 							</xs:appinfo>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter"  type="tns:ErrorParameter">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="tns:ErrorParameter">
 						<xs:annotation>
 							<xs:documentation>
 								Some warning and error messages return
@@ -477,7 +476,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="categories" type="tns:CatalogCategory" maxOccurs="unbounded" minOccurs="1">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="categories" type="tns:CatalogCategory">
 								<xs:annotation>
 									<xs:documentation>Objects that hold category details of those categories to be added</xs:documentation>
 								</xs:annotation>
@@ -511,8 +510,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="categoryDescription"
-						type="xs:string">
+					<xs:element name="categoryDescription" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								Locale specific description of what type
@@ -538,8 +536,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="parentCategoryId"
-						type="xs:long">
+					<xs:element name="parentCategoryId" type="xs:long">
 						<xs:annotation>
 							<xs:documentation>
 								Parent category's unique id value if
@@ -556,8 +553,8 @@
 						</xs:annotation>
 					</xs:element>
 
-						processContents="lax" />
-					<xs:element name="childCategory" type="tns:CatalogCategory" minOccurs="0" maxOccurs="unbounded"></xs:element>
+						processContents="lax" /&gt;
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="childCategory" type="tns:CatalogCategory"/>
 				</xs:sequence>
 			</xs:complexType>
 
@@ -576,7 +573,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="featuredApplication" type="tns:FeaturedCatalogApplication" maxOccurs="unbounded" minOccurs="1">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="featuredApplication" type="tns:FeaturedCatalogApplication">
 								<xs:annotation>
 									<xs:documentation>List of featured application objects that holds details of applications to be added as featured applications</xs:documentation>
 								</xs:annotation>
@@ -616,7 +613,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceResponse">
 						<xs:sequence>
-							<xs:element name="featuredApplication" type="tns:FeaturedCatalogApplication" maxOccurs="unbounded" minOccurs="1">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="featuredApplication" type="tns:FeaturedCatalogApplication">
 								<xs:annotation>
 									<xs:documentation>List of applications give in the request to be added as featured applications along with the insertion status acknowledgement</xs:documentation>
 								</xs:annotation>
@@ -670,7 +667,7 @@
 				<xs:complexContent>
 					<xs:extension base="tns:BaseServiceRequest">
 						<xs:sequence>
-							<xs:element name="featuredApplication" type="tns:FeaturedCatalogApplication" maxOccurs="unbounded" minOccurs="1">
+							<xs:element maxOccurs="unbounded" minOccurs="1" name="featuredApplication" type="tns:FeaturedCatalogApplication">
 								<xs:annotation>
 									<xs:documentation>List of featured applications that are to be deleted as featured applications</xs:documentation>
 								</xs:annotation>
@@ -729,43 +726,43 @@
 	</wsdl:types>
 	
 	<wsdl:message name="addCategoriesRequest">
-		<wsdl:part name="parameters" element="tns:addCategoriesRequest">
+		<wsdl:part element="tns:addCategoriesRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addCategoriesResponse">
-		<wsdl:part name="parameters" element="tns:addCategoriesResponse">
+		<wsdl:part element="tns:addCategoriesResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addFeaturedApplicationsRequest">
-		<wsdl:part name="parameters" element="tns:addFeaturedApplicationsRequest">
+		<wsdl:part element="tns:addFeaturedApplicationsRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="addFeaturedApplicationsResponse">
-		<wsdl:part name="parameters" element="tns:addFeaturedApplicationsResponse">
+		<wsdl:part element="tns:addFeaturedApplicationsResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="setApplicationCatalogPropertiesRequest">
-		<wsdl:part name="parameters" element="tns:setApplicationCatalogPropertiesRequest">
+		<wsdl:part element="tns:setApplicationCatalogPropertiesRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="setApplicationCatalogPropertiesResponse">
-		<wsdl:part name="parameters" element="tns:setApplicationCatalogPropertiesResponse">
+		<wsdl:part element="tns:setApplicationCatalogPropertiesResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="removeFeaturedApplicationsRequest">
-		<wsdl:part name="parameters" element="tns:removeFeaturedApplicationsRequest">
+		<wsdl:part element="tns:removeFeaturedApplicationsRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="removeFeaturedApplicationsResponse">
-		<wsdl:part name="parameters" element="tns:removeFeaturedApplicationsResponse">
+		<wsdl:part element="tns:removeFeaturedApplicationsResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="setApplicationStateRequest">
-		<wsdl:part name="parameters" element="tns:setApplicationStateRequest">
+		<wsdl:part element="tns:setApplicationStateRequest" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 	<wsdl:message name="setApplicationStateResponse">
-		<wsdl:part name="parameters" element="tns:setApplicationStateResponse">
+		<wsdl:part element="tns:setApplicationStateResponse" name="parameters">
 		</wsdl:part>
 	</wsdl:message>
 		
@@ -842,60 +839,60 @@
 	</wsdl:binding>
 	
 	<wsdl:binding name="AdminApplicationCatalogServiceSOAPBinding" type="tns:AdminApplicationCatalogServicePort">
-		<soap12:binding xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="addCategories">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:addCategories" style="document"/>
+			<soap12:operation soapAction="urn:addCategories" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="addFeaturedApplications">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:addFeaturedApplications" style="document"/>
+			<soap12:operation soapAction="urn:addFeaturedApplications" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="setApplicationCatalogProperties">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:setApplicationCatalogProperties" style="document"/>
+			<soap12:operation soapAction="urn:setApplicationCatalogProperties" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="removeFeaturedApplications">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:removeFeaturedApplications" style="document"/>
+			<soap12:operation soapAction="urn:removeFeaturedApplications" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 		<wsdl:operation name="setApplicationState">
-			<soap12:operation xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" soapAction="urn:setApplicationState" style="document"/>
+			<soap12:operation soapAction="urn:setApplicationState" style="document"/>
 			<wsdl:input>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output>
-				<soap12:body xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" use="literal"/>
+				<soap12:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 	
 	<wsdl:service name="AdminApplicationCatalogService">
-		<wsdl:port name="AdminApplicationCatalogServiceHttp" binding="tns:AdminApplicationCatalogServiceHttpBinding">
+		<wsdl:port binding="tns:AdminApplicationCatalogServiceHttpBinding" name="AdminApplicationCatalogServiceHttp">
 			<http:address location="http://svcs.ebay.com/AdminApplicationCatalogService"/>
 		</wsdl:port>
-		<wsdl:port name="AdminApplicationCatalogServiceSOAP" binding="tns:AdminApplicationCatalogServiceSOAPBinding">
-			<soap12:address xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" location="http://svcs.ebay.com/AdminApplicationCatalogService"/>
+		<wsdl:port binding="tns:AdminApplicationCatalogServiceSOAPBinding" name="AdminApplicationCatalogServiceSOAP">
+			<soap12:address location="http://svcs.ebay.com/AdminApplicationCatalogService"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

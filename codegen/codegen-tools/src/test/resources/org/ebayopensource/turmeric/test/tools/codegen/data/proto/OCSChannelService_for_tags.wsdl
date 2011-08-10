@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions name="OCSChannelService" targetNamespace="http://www.ebay.com/marketplace/ocs/v1/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ocs="http://www.ebay.com/marketplace/ocs/v1/services">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ocs="http://www.ebayopensource.org/tumeric/ocs/v1/services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OCSChannelService" targetNamespace="http://www.ebayopensource.org/tumeric/ocs/v1/services">
 	<types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebay.com/marketplace/ocs/v1/services">
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.ebayopensource.org/tumeric/ocs/v1/services">
 			<xs:simpleType name="AckValue">
 				<xs:annotation>
 					<xs:documentation>
@@ -11,7 +10,7 @@
 						communicated to the user.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
@@ -62,7 +61,7 @@
 						all service operations.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -77,7 +76,7 @@
 						associated with the request.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -138,7 +137,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -153,7 +152,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -173,7 +172,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<!-- 
@@ -192,7 +191,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:simpleContent>
@@ -207,7 +206,7 @@
 						Documentation goes here.
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="SOACommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:restriction base="xs:token">
@@ -221,7 +220,7 @@
 						Documentation goes here
 					</xs:documentation>
 					<xs:appinfo>
-						<typeLibrarySource library="MarketPlaceServiceCommonTypeLibrary" namespace="http://www.ebay.com/marketplace/services"/>
+						<typeLibrarySource library="common-type-library" namespace="http://www.ebayopensource.org/tumeric/services"/>
 					</xs:appinfo>
 				</xs:annotation>
 				<xs:sequence>
@@ -393,15 +392,15 @@
 				<xs:complexContent>
 					<xs:extension base="ocs:BaseResponse">
 						<xs:sequence>
-							<xs:element name="emailChannel" type="ocs:EmailChannelDataType" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="emailChannel" type="ocs:EmailChannelDataType">
 							</xs:element>
-							<xs:element name="chatChannel" type="ocs:ChatChannelDataType" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="chatChannel" type="ocs:ChatChannelDataType">
 							</xs:element>
-							<xs:element name="callEbayChannel" type="ocs:CallEbayChannelDataType" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="callEbayChannel" type="ocs:CallEbayChannelDataType">
 							</xs:element>
-							<xs:element name="callMemberChannel" type="ocs:CallBackMemberChannelDataType" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="callMemberChannel" type="ocs:CallBackMemberChannelDataType">
 							</xs:element>
-							<xs:element name="webformChannel" type="ocs:WebformChannelDataType" maxOccurs="1" minOccurs="0">
+							<xs:element maxOccurs="1" minOccurs="0" name="webformChannel" type="ocs:WebformChannelDataType">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -457,7 +456,7 @@
 				<xs:complexContent>
 					<xs:extension base="ocs:BaseResponse">
 						<xs:sequence>
-							<xs:element name="status" type="ocs:CallBackStatus" maxOccurs="1" minOccurs="1">
+							<xs:element maxOccurs="1" minOccurs="1" name="status" type="ocs:CallBackStatus">
 							</xs:element>
 						</xs:sequence>
 					</xs:extension>
@@ -511,7 +510,7 @@
 					<xs:element maxOccurs="1" minOccurs="1" name="ocsTopicId" type="xs:string"/>
 					<xs:element maxOccurs="1" minOccurs="0" name="scheduleCreationTime" type="xs:dateTime"/>
 					<xs:element maxOccurs="1" minOccurs="0" name="scheduledTime" type="xs:dateTime"/>
-					<xs:element name="callBackType" type="ocs:CallBackType" maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="callBackType" type="ocs:CallBackType">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -520,9 +519,9 @@
 					<xs:element maxOccurs="1" minOccurs="0" name="shortOutageMessage" type="xs:string">
 					</xs:element>
 					<xs:element maxOccurs="1" minOccurs="0" name="longOutageMessage" type="xs:string"/>
-					<xs:element name="chatURL" type="xs:string" maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="chatURL" type="xs:string">
 					</xs:element>
-					<xs:element name="hoursOfOperation" type="ocs:OCSChannelHoursOfOperationDataType" maxOccurs="1" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="0" name="hoursOfOperation" type="ocs:OCSChannelHoursOfOperationDataType">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
@@ -568,80 +567,80 @@
 			</xs:complexType>
 			<xs:complexType name="WebformChannelDataType">
 				<xs:sequence>
-					<xs:element name="webformType" type="xs:int" maxOccurs="1" minOccurs="1"/>
-					<xs:element name="webformRoutingCode" type="xs:int" maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="webformType" type="xs:int"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="webformRoutingCode" type="xs:int">
 					</xs:element>
-					<xs:element name="postingAddress" type="xs:string" maxOccurs="1" minOccurs="1"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="postingAddress" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="OCSChannelHoursOfOperationDataType">
 				<xs:sequence>
-					<xs:element name="timeZone" type="xs:string" maxOccurs="1" minOccurs="1"/>
-					<xs:element name="dayOfOperation" type="ocs:OCSChannelDayOfOperation" maxOccurs="unbounded" minOccurs="0">
+					<xs:element maxOccurs="1" minOccurs="1" name="timeZone" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="dayOfOperation" type="ocs:OCSChannelDayOfOperation">
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="OCSChannelDayOfOperation">
 				<xs:sequence>
-					<xs:element name="dayOfTheWeek" type="ocs:DayOfTheWeekTypeEnum" maxOccurs="1" minOccurs="1"/>
-					<xs:element name="startTimeOfOperation" type="xs:int" maxOccurs="1" minOccurs="1">
+					<xs:element maxOccurs="1" minOccurs="1" name="dayOfTheWeek" type="ocs:DayOfTheWeekTypeEnum"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="startTimeOfOperation" type="xs:int">
 					</xs:element>
-					<xs:element name="endTimeOfOperation" type="xs:int" maxOccurs="1" minOccurs="1"/>
+					<xs:element maxOccurs="1" minOccurs="1" name="endTimeOfOperation" type="xs:int"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="OCSPhoneDataType"/>
 		
 			<xs:simpleType name="DayOfTheWeekTypeEnum">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="MONDAY"></xs:enumeration>
-					<xs:enumeration value="TUESDAY"></xs:enumeration>
-					<xs:enumeration value="WEDNESDAY"></xs:enumeration>
-					<xs:enumeration value="THURSDAY"></xs:enumeration>
-					<xs:enumeration value="FRIDAY"></xs:enumeration>
-					<xs:enumeration value="SATURDAY"></xs:enumeration>
-					<xs:enumeration value="SUNDAY"></xs:enumeration>
+					<xs:enumeration value="MONDAY"/>
+					<xs:enumeration value="TUESDAY"/>
+					<xs:enumeration value="WEDNESDAY"/>
+					<xs:enumeration value="THURSDAY"/>
+					<xs:enumeration value="FRIDAY"/>
+					<xs:enumeration value="SATURDAY"/>
+					<xs:enumeration value="SUNDAY"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:schema>
 	</types>
 	<message name="getCallBackScheduleDetailsResponse">
-		<part name="params" element="ocs:getCallBackScheduleDetailsResponse">
+		<part element="ocs:getCallBackScheduleDetailsResponse" name="params">
     </part>
 	</message>
 	<message name="addCallBackRequestRequest">
-		<part name="params" element="ocs:addCallBackRequest">
+		<part element="ocs:addCallBackRequest" name="params">
     </part>
 	</message>
 	<message name="getAvailableOCSContactChannelsRequest">
-		<part name="params" element="ocs:getAvailableOCSContactChannels">
+		<part element="ocs:getAvailableOCSContactChannels" name="params">
     </part>
 	</message>
 	<message name="getVersionResponse">
-		<part name="params" element="ocs:getVersionResponse">
+		<part element="ocs:getVersionResponse" name="params">
     </part>
 	</message>
 	<message name="getEstimatedWaitTimeForContactRequest">
-		<part name="params" element="ocs:getEstimatedWaitTimeForContact">
+		<part element="ocs:getEstimatedWaitTimeForContact" name="params">
     </part>
 	</message>
 	<message name="getEstimatedWaitTimeForContactResponse">
-		<part name="params" element="ocs:getEstimatedWaitTimeForContactResponse">
+		<part element="ocs:getEstimatedWaitTimeForContactResponse" name="params">
     </part>
 	</message>
 	<message name="getVersionRequest">
-		<part name="params" element="ocs:getVersionRequest">
+		<part element="ocs:getVersionRequest" name="params">
     </part>
 	</message>
 	<message name="addCallBackRequestResponse">
-		<part name="params" element="ocs:addCallBackRequestResponse">
+		<part element="ocs:addCallBackRequestResponse" name="params">
     </part>
 	</message>
 	<message name="getAvailableOCSContactChannelsResponse">
-		<part name="params" element="ocs:getAvailableOCSContactChannelsResponse">
+		<part element="ocs:getAvailableOCSContactChannelsResponse" name="params">
     </part>
 	</message>
 	<message name="getCallBackScheduleDetailsRequest">
-		<part name="params" element="ocs:getCallBackScheduleDetails">
+		<part element="ocs:getCallBackScheduleDetails" name="params">
     </part>
 	</message>
 	<portType name="OCSChannelServicePort">
@@ -679,138 +678,130 @@
     </output>
 		</operation>
 	</portType>
-	<binding name="OCSChannelServiceSOAPBinding"
-		type="ocs:OCSChannelServicePort">
+	<binding name="OCSChannelServiceSOAPBinding" type="ocs:OCSChannelServicePort">
 
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<operation name="getVersion">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/ocs/v1/services/getVersion" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/ocs/v1/services/getVersion"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="getAvailableOCSContactChannels">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/ocs/v1/services/getAvailableContactChannels" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/ocs/v1/services/getAvailableContactChannels"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="getEstimatedWaitTimeForContact">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/ocs/v1/services/getEstimatedWaitTime" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/ocs/v1/services/getEstimatedWaitTime"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="addCallBackRequest">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/ocs/v1/services/addCallBackRequest" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/ocs/v1/services/addCallBackRequest"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 		<operation name="getCallBackScheduleDetails">
 
-			<soap:operation
-				soapAction="http://www.ebay.com/marketplace/ocs/v1/services/getCallBackScheduleDetails" />
+			<soap:operation soapAction="http://www.ebayopensource.org/tumeric/ocs/v1/services/getCallBackScheduleDetails"/>
 			<input>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</input>
 			<output>
 
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</output>
 		</operation>
 	</binding>
-	<binding name="OCSChannelServiceHttpBinding"
-		type="ocs:OCSChannelServicePort">
+	<binding name="OCSChannelServiceHttpBinding" type="ocs:OCSChannelServicePort">
 
-		<http:binding verb="POST" />
+		<http:binding verb="POST"/>
 		<operation name="getVersion">
 
-			<http:operation location="/getVersion" />
+			<http:operation location="/getVersion"/>
 			<input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 			</input>
 			<output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 			</output>
 		</operation>
 		<operation name="getAvailableOCSContactChannels">
 
-			<http:operation location="/getAvailableContactChannels" />
+			<http:operation location="/getAvailableContactChannels"/>
 			<input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 			</input>
 			<output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 			</output>
 		</operation>
 		<operation name="getEstimatedWaitTimeForContact">
 
-			<http:operation location="/getEstimatedWaitTime" />
+			<http:operation location="/getEstimatedWaitTime"/>
 			<input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 			</input>
 			<output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 			</output>
 		</operation>
 		<operation name="addCallBackRequest">
 
-			<http:operation location="/addCallBackRequest" />
+			<http:operation location="/addCallBackRequest"/>
 			<input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 			</input>
 			<output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 			</output>
 		</operation>
 		<operation name="getCallBackScheduleDetails">
 
-			<http:operation location="/getCallBackScheduleDetails" />
+			<http:operation location="/getCallBackScheduleDetails"/>
 			<input>
-				<mime:content type="application/x-www-form-urlencoded" />
+				<mime:content type="application/x-www-form-urlencoded"/>
 
 			</input>
 			<output>
-				<mime:content type="text/xml" />
+				<mime:content type="text/xml"/>
 
 			</output>
 		</operation>
@@ -819,10 +810,10 @@
 		<wsdl:documentation>
 			<version>1.0.0</version>
 		</wsdl:documentation>
-		<port name="OCSChannelServiceHttpPort" binding="ocs:OCSChannelServiceHttpBinding">
+		<port binding="ocs:OCSChannelServiceHttpBinding" name="OCSChannelServiceHttpPort">
 			<http:address location="https://svcs.ebay.com/services/ocs/v1/OCSChannelService"/>
 		</port>
-		<port name="OCSChannelServiceSOAPPort" binding="ocs:OCSChannelServiceSOAPBinding">
+		<port binding="ocs:OCSChannelServiceSOAPBinding" name="OCSChannelServiceSOAPPort">
 			<soap12:address location="https://svcs.ebay.com/services/ocs/v1/OCSChannelService"/>
 		</port>
 	</service>
