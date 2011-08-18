@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite skipped="0" tests="1" failures="0" errors="0" name="org.ebayopensource.turmeric.runtime.errorlibrary.ConfigValidationTest" time="0.672">
+<testsuite skipped="0" tests="1" failures="0" errors="0" name="org.ebayopensource.turmeric.runtime.errorlibrary.ConfigValidationTest" time="0.719">
   <properties>
     <property value="IBM Corporation" name="java.vendor"/>
     <property value="C:\maven.repo\vthangathurai\realos" name="localRepository"/>
@@ -36,7 +36,7 @@ J9VM - 20090506_035012_lHdSMr
 JIT  - r9_20090213_2028ifx2
 GC   - 20090213_AA" name="java.vm.info"/>
     <property value="5.2 build 3790 Service Pack 2" name="os.version"/>
-    <property value="C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\1\surefirebooter1487918926524650137.jar" name="surefire.real.class.path"/>
+    <property value="C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\2\surefirebooter8474244748321996000.jar" name="surefire.real.class.path"/>
     <property value="" name="java.awt.fonts"/>
     <property value=";" name="path.separator"/>
     <property value="2.4" name="java.vm.version"/>
@@ -52,7 +52,7 @@ GC   - 20090213_AA" name="java.vm.info"/>
     <property value="little" name="com.ibm.cpu.endian"/>
     <property value="Sun Microsystems Inc." name="java.specification.vendor"/>
     <property value="true" name="ibm.signalhandling.sigchain"/>
-    <property value="C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\bin;.;C:/ede4.5/java6-ibm-sr4ifx3-2009-06-22-windows/bin/../jre/bin/j9vm;C:/ede4.5/java6-ibm-sr4ifx3-2009-06-22-windows/bin/../jre/bin;C:/ede4.5/java6-ibm-sr4ifx3-2009-06-22-windows/bin/../jre/lib/i386;C:\Perl\bin\;C:\ede4.5\java6-ibm-sr4ifx3-2009-06-22-windows\bin\;C:\Program Files (x86)\Rational\ClearCase\bin;C:\Oracle\ora92\bin;C:\windows;C:\windows\System32;C:\windows\System32\Wbem;C:\Program Files (x86)\Vim\vim63;C:\Python22;C:\ruby\bin;C:\Perl\bin;C:\Program Files (x86)\Rational\common;C:\opt\apache-ant-1.6.5-20070204\bin;C:\opt\groovy-1.1-beta-3\bin;C:\Program Files (x86)\Windows Imaging\;C:\windows\system32\WindowsPowerShell\v1.0;C:\tomcat55\bin;C:\windows\system32\WindowsPowerShell\v1.0;C:\maven3\apache-maven-3.0\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\SlikSvn\bin\;C:\Nexus\nexus-oss-webapp-1.9.0.1\bin;C:\HDMIAgentService;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\eclipse\eclipse;" name="java.library.path"/>
+    <property value="C:\TedDrop2\lastdropibelieve\installed2\java6-ibm-sr4ifx3-2009-06-22\jre\bin;.;C:/ede4.5/java6-ibm-sr4ifx3-2009-06-22-windows/bin/../jre/bin/j9vm;C:/ede4.5/java6-ibm-sr4ifx3-2009-06-22-windows/bin/../jre/bin;C:/ede4.5/java6-ibm-sr4ifx3-2009-06-22-windows/bin/../jre/lib/i386;C:\Perl\bin\;C:\ede4.5\java6-ibm-sr4ifx3-2009-06-22-windows\bin\;C:\Program Files (x86)\Rational\ClearCase\bin;C:\Oracle\ora92\bin;C:\windows;C:\windows\System32;C:\windows\System32\Wbem;C:\Program Files (x86)\Vim\vim63;C:\Python22;C:\ruby\bin;C:\Perl\bin;C:\Program Files (x86)\Rational\common;C:\ede5\installed\apache-ant-1.7.1.2008.06.27\bin;C:\opt\groovy-1.1-beta-3\bin;C:\Program Files (x86)\Windows Imaging\;C:\windows\system32\WindowsPowerShell\v1.0;C:\tomcat55\bin;C:\windows\system32\WindowsPowerShell\v1.0;C:\maven3\apache-maven-3.0\bin;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\SlikSvn\bin\;C:\Nexus\nexus-oss-webapp-1.9.0.1\bin;C:\HDMIAgentService;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\eclipse\eclipse;" name="java.library.path"/>
     <property value="http://www.ibm.com/" name="java.vendor.url"/>
     <property value="IBM Corporation" name="java.vm.vendor"/>
     <property value="J2RE 1.6.0 IBM J9 2.4 Windows Server 2003 x86-32 jvmwi3260sr4ifx-20090506_35012 (JIT enabled, AOT enabled)
@@ -60,12 +60,12 @@ J9VM - 20090506_035012_lHdSMr
 JIT  - r9_20090213_2028ifx2
 GC   - 20090213_AA" name="java.fullversion"/>
     <property value="Java(TM) SE Runtime Environment" name="java.runtime.name"/>
-    <property value="C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\1\surefirebooter1487918926524650137.jar C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\1\surefire1688171263226462682tmp C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\1\surefire7355676440118938368tmp" name="sun.java.command"/>
+    <property value="C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\2\surefirebooter8474244748321996000.jar C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\2\surefire5765945558847759188tmp C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\2\surefire4769085922058159686tmp" name="sun.java.command"/>
     <property value="C:\soacopy\runtime-error-library\target\test-classes;C:\soacopy\runtime-error-library\target\classes;C:\maven.repo\vthangathurai\realos\org\ebayopensource\turmeric\typelib\common-type-library\1.0.1.0-SNAPSHOT\common-type-library-1.0.1.0-SNAPSHOT.jar;C:\maven.repo\vthangathurai\realos\org\ebayopensource\turmeric\runtime\config-validation-tests\1.0.1.0-SNAPSHOT\config-validation-tests-1.0.1.0-SNAPSHOT.jar;C:\maven.repo\vthangathurai\realos\org\ebayopensource\turmeric\turmeric-junit\1.0.3\turmeric-junit-1.0.3.jar;C:\maven.repo\vthangathurai\realos\org\json\json\20080701\json-20080701.jar;C:\maven.repo\vthangathurai\realos\org\jdom\jdom\1.1\jdom-1.1.jar;C:\maven.repo\vthangathurai\realos\jaxen\jaxen\1.1.1\jaxen-1.1.1.jar;C:\maven.repo\vthangathurai\realos\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;C:\maven.repo\vthangathurai\realos\jdom\jdom\1.0\jdom-1.0.jar;C:\maven.repo\vthangathurai\realos\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;C:\maven.repo\vthangathurai\realos\xerces\xercesImpl\2.8.1\xercesImpl-2.8.1.jar;C:\maven.repo\vthangathurai\realos\xom\xom\1.0\xom-1.0.jar;C:\maven.repo\vthangathurai\realos\xerces\xmlParserAPIs\2.6.2\xmlParserAPIs-2.6.2.jar;C:\maven.repo\vthangathurai\realos\xalan\xalan\2.6.0\xalan-2.6.0.jar;C:\maven.repo\vthangathurai\realos\com\ibm\icu\icu4j\2.6.1\icu4j-2.6.1.jar;C:\maven.repo\vthangathurai\realos\com\thoughtworks\qdox\qdox\1.12\qdox-1.12.jar;C:\maven.repo\vthangathurai\realos\commons-lang\commons-lang\2.1\commons-lang-2.1.jar;C:\maven.repo\vthangathurai\realos\commons-io\commons-io\1.3.2\commons-io-1.3.2.jar;C:\maven.repo\vthangathurai\realos\junit\junit\4.8.1\junit-4.8.1.jar;C:\maven.repo\vthangathurai\realos\org\hamcrest\hamcrest-library\1.1\hamcrest-library-1.1.jar;C:\maven.repo\vthangathurai\realos\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;C:\maven.repo\vthangathurai\realos\org\apache\felix\org.osgi.core\1.0.0\org.osgi.core-1.0.0.jar;" name="java.class.path"/>
     <property value="Java Virtual Machine Specification" name="java.vm.specification.name"/>
     <property value="1.0" name="java.vm.specification.version"/>
     <property value="C:\soacopy\runtime-error-library\target\test-classes;C:\soacopy\runtime-error-library\target\classes;C:\maven.repo\vthangathurai\realos\org\ebayopensource\turmeric\typelib\common-type-library\1.0.1.0-SNAPSHOT\common-type-library-1.0.1.0-SNAPSHOT.jar;C:\maven.repo\vthangathurai\realos\org\ebayopensource\turmeric\runtime\config-validation-tests\1.0.1.0-SNAPSHOT\config-validation-tests-1.0.1.0-SNAPSHOT.jar;C:\maven.repo\vthangathurai\realos\org\ebayopensource\turmeric\turmeric-junit\1.0.3\turmeric-junit-1.0.3.jar;C:\maven.repo\vthangathurai\realos\org\json\json\20080701\json-20080701.jar;C:\maven.repo\vthangathurai\realos\org\jdom\jdom\1.1\jdom-1.1.jar;C:\maven.repo\vthangathurai\realos\jaxen\jaxen\1.1.1\jaxen-1.1.1.jar;C:\maven.repo\vthangathurai\realos\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;C:\maven.repo\vthangathurai\realos\jdom\jdom\1.0\jdom-1.0.jar;C:\maven.repo\vthangathurai\realos\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;C:\maven.repo\vthangathurai\realos\xerces\xercesImpl\2.8.1\xercesImpl-2.8.1.jar;C:\maven.repo\vthangathurai\realos\xom\xom\1.0\xom-1.0.jar;C:\maven.repo\vthangathurai\realos\xerces\xmlParserAPIs\2.6.2\xmlParserAPIs-2.6.2.jar;C:\maven.repo\vthangathurai\realos\xalan\xalan\2.6.0\xalan-2.6.0.jar;C:\maven.repo\vthangathurai\realos\com\ibm\icu\icu4j\2.6.1\icu4j-2.6.1.jar;C:\maven.repo\vthangathurai\realos\com\thoughtworks\qdox\qdox\1.12\qdox-1.12.jar;C:\maven.repo\vthangathurai\realos\commons-lang\commons-lang\2.1\commons-lang-2.1.jar;C:\maven.repo\vthangathurai\realos\commons-io\commons-io\1.3.2\commons-io-1.3.2.jar;C:\maven.repo\vthangathurai\realos\junit\junit\4.8.1\junit-4.8.1.jar;C:\maven.repo\vthangathurai\realos\org\hamcrest\hamcrest-library\1.1\hamcrest-library-1.1.jar;C:\maven.repo\vthangathurai\realos\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;C:\maven.repo\vthangathurai\realos\org\apache\felix\org.osgi.core\1.0.0\org.osgi.core-1.0.0.jar;" name="surefire.test.class.path"/>
-    <property value="C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\1\" name="java.io.tmpdir"/>
+    <property value="C:\DOCUME~1\VTHANG~1\LOCALS~1\Temp\2\" name="java.io.tmpdir"/>
     <property value="20090218_01" name="java.jcl.version"/>
     <property value="Cp1252" name="ibm.system.encoding"/>
     <property value="x86" name="os.arch"/>
@@ -86,5 +86,5 @@ GC   - 20090213_AA" name="java.fullversion"/>
     <property value="1.6" name="java.specification.version"/>
     <property value="scar" name="com.ibm.oti.configuration"/>
   </properties>
-  <testcase classname="org.ebayopensource.turmeric.runtime.errorlibrary.ConfigValidationTest" name="testProjectConfigs" time="0.453"/>
+  <testcase classname="org.ebayopensource.turmeric.runtime.errorlibrary.ConfigValidationTest" name="testProjectConfigs" time="0.594"/>
 </testsuite>

@@ -7,26 +7,26 @@
 <bindings if-exists="true" scd="~tns:BaseAttachmentType">
       <class ref="org.ebayopensource.turmeric.common.v1.types.BaseAttachmentType"/>
     </bindings>
+<bindings if-exists="true" scd="~tns:BaseRequest">
+      <class ref="org.ebayopensource.turmeric.common.v1.types.BaseRequest"/>
+    </bindings>
 <bindings if-exists="true" scd="~tns:ExtensionType">
       <class ref="org.ebayopensource.turmeric.common.v1.types.ExtensionType"/>
     </bindings>
-<bindings if-exists="true" scd="~tns:BaseRequest">
-      <class ref="org.ebayopensource.turmeric.common.v1.types.BaseRequest"/>
+<bindings if-exists="true" scd="~tns:ErrorData">
+      <class ref="org.ebayopensource.turmeric.common.v1.types.ErrorData"/>
+    </bindings>
+<bindings if-exists="true" scd="~tns:ErrorParameter">
+      <class ref="org.ebayopensource.turmeric.common.v1.types.ErrorParameter"/>
+    </bindings>
+<bindings if-exists="true" scd="~tns:ErrorMessage">
+      <class ref="org.ebayopensource.turmeric.common.v1.types.ErrorMessage"/>
     </bindings>
 <bindings if-exists="true" scd="~tns:CommonErrorData">
       <class ref="org.ebayopensource.turmeric.common.v1.types.CommonErrorData"/>
     </bindings>
 <bindings if-exists="true" scd="~tns:BaseResponse">
       <class ref="org.ebayopensource.turmeric.common.v1.types.BaseResponse"/>
-    </bindings>
-<bindings if-exists="true" scd="~tns:ErrorData">
-      <class ref="org.ebayopensource.turmeric.common.v1.types.ErrorData"/>
-    </bindings>
-<bindings if-exists="true" scd="~tns:ErrorMessage">
-      <class ref="org.ebayopensource.turmeric.common.v1.types.ErrorMessage"/>
-    </bindings>
-<bindings if-exists="true" scd="~tns:ErrorParameter">
-      <class ref="org.ebayopensource.turmeric.common.v1.types.ErrorParameter"/>
     </bindings>
 <bindings if-exists="true" scd="~tns:AckValue">
 <class ref="org.ebayopensource.turmeric.common.v1.types.AckValue"/>
