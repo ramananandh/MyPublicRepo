@@ -62,6 +62,7 @@ import com.sun.codemodel.JVar;
  * @author rmandapati
  * @author arajmony
  */
+
 public class ServiceConsumerGenerator extends BaseCodeGenerator implements SourceGenerator {
 
 	private static final String GET_PROXY_METHOD_NAME = "getProxy";

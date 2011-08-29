@@ -171,13 +171,13 @@ public class MultiClientConfigTests {
 
 	/*
 	 *	When envtName is null, envMapper variable is not set
-	 *		BaseSOAAsyncMCCTestConsumer testClient = new BaseSOAAsyncMCCTestConsumer(ìSOAAsyncServiceTestClientî, null);  
-	 *	a.	Appropriate error message should be thrown	
+	 *		BaseSOAAsyncMCCTestConsumer testClient = new BaseSOAAsyncMCCTestConsumer(‚ÄúSOAAsyncServiceTestClient‚Äù, null);
+	 *	a.	Appropriate error message should be thrown
 	 */
 	@Test
 	public void testNullEnvtWhenEnvtMapperVariableisNotSet() {
 		SharedAdvertisingUniqueIDServiceV1Consumer testClient8;
-		String errorMessage = "Unable to load file: META-INF/soa/client/config/" + 
+		String errorMessage = "Unable to load file: META-INF/soa/client/config/" +
 				"SOAAsyncMCCTestServiceConsumer1_Client/myErrorEnvt/SOAAsyncService/" +
 				"ClientConfig.xml";
 		try {
@@ -193,14 +193,14 @@ public class MultiClientConfigTests {
 	}
 	/*
 	 *	Client Name is null  WhenEnvtMapperVariableisNotSet
-	 *		BaseSOAAsyncMCCTestConsumer testClient = new BaseSOAAsyncMCCTestConsumer(null, "production");  
-	 *	a.	Appropriate error message should be thrown	
+	 *		BaseSOAAsyncMCCTestConsumer testClient = new BaseSOAAsyncMCCTestConsumer(null, "production");
+	 *	a.	Appropriate error message should be thrown
 	 *
 	 */
 	@Test
 	public void testNullClientNameWhenEnvtMapperVariableisNotSet() {
 		SharedAdvertisingUniqueIDServiceV1Consumer testClient8;
-		String errorMessage = "Unable to load file: META-INF/soa/client/config/" + 
+		String errorMessage = "Unable to load file: META-INF/soa/client/config/" +
 				"SOAAsyncMCCTestServiceConsumer1_Client/myErrorEnvt/SOAAsyncService/" +
 				"ClientConfig.xml";
 		try {
@@ -210,23 +210,23 @@ public class MultiClientConfigTests {
 			Assert.assertEquals(testClient8.echoMessage(req).getOut(), "Test");
 			Assert.assertTrue("consumer creation should fail and throw exception" , false);
 		} catch (Exception e) {
-			
+
 			System.out.println(e.getMessage());
 			Assert.assertTrue(e.getMessage().contains(errorMessage));
 		}
-		
-		
+
+
 	}
 	/*
 	 *	Client Name is null When EnvtMapper Variable is Set
-	 *		BaseSOAAsyncMCCTestConsumer testClient = new BaseSOAAsyncMCCTestConsumer(null, "production");  
-	 *	a.	Appropriate error message should be thrown	
+	 *		BaseSOAAsyncMCCTestConsumer testClient = new BaseSOAAsyncMCCTestConsumer(null, "production");
+	 *	a.	Appropriate error message should be thrown
 	 * http://quickbugstage.arch.ebay.com/show_bug.cgi?id=8279
 	 */
 	@Test
 	public void testNullClientNameWhenEnvtMapperVariableisSet() {
 		SharedAdvertisingUniqueIDServiceV1Consumer testClient8;
-		String errorMessage = "Unable to load file: META-INF/soa/client/config/" + 
+		String errorMessage = "Unable to load file: META-INF/soa/client/config/" +
 				"SOAAsyncMCCTestServiceConsumer1_Client/myErrorEnvt/SOAAsyncService/" +
 				"ClientConfig.xml";
 		try {
@@ -236,10 +236,10 @@ public class MultiClientConfigTests {
 			Assert.assertEquals(testClient8.echoMessage(req).getOut(), "Test");
 			Assert.assertTrue("consumer creation should fail and throw exception" , false);
 		} catch (Exception e) {
-			
+
 			System.out.println(e.getMessage());
     		Assert.assertTrue(e.getMessage().contains(errorMessage));
-			
+
 		}
 	}
 	/*
@@ -253,7 +253,7 @@ public class MultiClientConfigTests {
 	}
 	*/
 	/*
-	 * Related to BUGDB00651611 
+	 * Related to BUGDB00651611
 	 */
 	@Test
 	public void testWithClientConfigBean() {
@@ -276,7 +276,7 @@ public class MultiClientConfigTests {
 			queryParams.put("forceXml","true");
 			response = MetricUtil.invokeHttpClient(queryParams, "view");
 			System.out.println("Response - " + response);
-			Assert.assertTrue("Error - Request Binding is not updated to JSON ", 
+			Assert.assertTrue("Error - Request Binding is not updated to JSON ",
 					MetricUtil.parseXML(response, "REQUEST_BINDING").contentEquals("JSON"));
 			System.out.println(" ** testWithClientConfigBean ** ");
 		} catch (Exception se) {
@@ -288,4 +288,4 @@ public class MultiClientConfigTests {
 		response = MetricUtil.invokeHttpClient(queryParams, "update");
 	}
 }
-	
+
